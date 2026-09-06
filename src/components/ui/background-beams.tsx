@@ -95,7 +95,7 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
   return (
     <div
       className={cn(
-        "absolute inset-0 overflow-hidden pointer-events-none opacity-40 mix-blend-screen",
+        "absolute inset-0 overflow-hidden pointer-events-none opacity-25 dark:opacity-40 mix-blend-multiply dark:mix-blend-screen",
         className
       )}
     >

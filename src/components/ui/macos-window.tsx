@@ -19,9 +19,9 @@ export const MacOSWindowMockup = () => {
   const [activeMode, setActiveMode] = useState<WorkstationMode>("edit");
 
   return (
-    <div className="w-full max-w-6xl mx-auto rounded-2xl border border-white/15 bg-[#0d111b]/90 shadow-2xl shadow-indigo-950/40 overflow-hidden backdrop-blur-2xl">
+    <div className="w-full max-w-6xl mx-auto rounded-2xl border border-zinc-200/90 dark:border-white/15 bg-zinc-100 dark:bg-[#0d111b]/90 shadow-2xl shadow-zinc-400/20 dark:shadow-indigo-950/40 overflow-hidden backdrop-blur-2xl transition-colors duration-200">
       {/* macOS Title Bar */}
-      <div className="h-11 bg-zinc-900/80 border-b border-white/10 px-4 flex items-center justify-between select-none">
+      <div className="h-11 bg-zinc-200/90 dark:bg-zinc-900/80 border-b border-zinc-300/80 dark:border-white/10 px-4 flex items-center justify-between select-none">
         {/* Window controls */}
         <div className="flex items-center space-x-2 w-28">
           <div className="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e]/50 cursor-pointer hover:opacity-80 transition-opacity" />
@@ -30,7 +30,7 @@ export const MacOSWindowMockup = () => {
         </div>
 
         {/* Title & Document Badge */}
-        <div className="flex items-center space-x-2 text-xs text-zinc-300 font-medium">
+        <div className="flex items-center space-x-2 text-xs text-zinc-800 dark:text-zinc-300 font-medium">
           <div className="relative w-4 h-4 rounded overflow-hidden">
             <Image
               src="/brand/emdoc-icon.png"
@@ -39,30 +39,30 @@ export const MacOSWindowMockup = () => {
               className="object-cover"
             />
           </div>
-          <span>EmDoc Workstation — Master_Services_Agreement_2026.pdf</span>
-          <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono">
+          <span className="truncate max-w-[200px] sm:max-w-none">EmDoc Workstation — Master_Services_Agreement_2026.pdf</span>
+          <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-mono">
             <ShieldCheck className="w-3 h-3" />
             Air-Gapped Local
           </span>
         </div>
 
         {/* Window right indicators */}
-        <div className="flex items-center space-x-3 text-xs text-zinc-400 w-28 justify-end">
+        <div className="flex items-center space-x-3 text-xs text-zinc-500 dark:text-zinc-400 w-28 justify-end">
           <span className="font-mono text-[10px] text-zinc-500 hidden sm:inline">100% Zoom</span>
-          <Cpu className="w-3.5 h-3.5 text-indigo-400" />
+          <Cpu className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
         </div>
       </div>
 
       {/* Workstation Tool Ribbon */}
-      <div className="bg-zinc-950/60 border-b border-white/5 px-3 py-2 flex items-center justify-between overflow-x-auto gap-2">
+      <div className="bg-zinc-100/90 dark:bg-zinc-950/60 border-b border-zinc-200/90 dark:border-white/5 px-3 py-2 flex items-center justify-between overflow-x-auto gap-2">
         <div className="flex items-center gap-1.5">
           <button
             onClick={() => setActiveMode("edit")}
             className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5",
+              "px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap",
               activeMode === "edit"
-                ? "bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-sm"
-                : "text-zinc-400 hover:text-zinc-200 hover:bg-white/5"
+                ? "bg-indigo-600 text-white shadow-xs"
+                : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-200/80 dark:text-zinc-400 dark:hover:text-zinc-200 dark:hover:bg-white/5"
             )}
           >
             <PenTool className="w-3.5 h-3.5" />
@@ -72,10 +72,10 @@ export const MacOSWindowMockup = () => {
           <button
             onClick={() => setActiveMode("forms")}
             className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5",
+              "px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap",
               activeMode === "forms"
-                ? "bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-sm"
-                : "text-zinc-400 hover:text-zinc-200 hover:bg-white/5"
+                ? "bg-indigo-600 text-white shadow-xs"
+                : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-200/80 dark:text-zinc-400 dark:hover:text-zinc-200 dark:hover:bg-white/5"
             )}
           >
             <Stamp className="w-3.5 h-3.5" />
@@ -85,10 +85,10 @@ export const MacOSWindowMockup = () => {
           <button
             onClick={() => setActiveMode("security")}
             className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5",
+              "px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap",
               activeMode === "security"
-                ? "bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-sm"
-                : "text-zinc-400 hover:text-zinc-200 hover:bg-white/5"
+                ? "bg-indigo-600 text-white shadow-xs"
+                : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-200/80 dark:text-zinc-400 dark:hover:text-zinc-200 dark:hover:bg-white/5"
             )}
           >
             <Lock className="w-3.5 h-3.5" />
@@ -98,10 +98,10 @@ export const MacOSWindowMockup = () => {
           <button
             onClick={() => setActiveMode("ocr")}
             className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5",
+              "px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap",
               activeMode === "ocr"
-                ? "bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-sm"
-                : "text-zinc-400 hover:text-zinc-200 hover:bg-white/5"
+                ? "bg-indigo-600 text-white shadow-xs"
+                : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-200/80 dark:text-zinc-400 dark:hover:text-zinc-200 dark:hover:bg-white/5"
             )}
           >
             <Scan className="w-3.5 h-3.5" />
@@ -111,10 +111,10 @@ export const MacOSWindowMockup = () => {
           <button
             onClick={() => setActiveMode("audit")}
             className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5",
+              "px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap",
               activeMode === "audit"
-                ? "bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-sm"
-                : "text-zinc-400 hover:text-zinc-200 hover:bg-white/5"
+                ? "bg-indigo-600 text-white shadow-xs"
+                : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-200/80 dark:text-zinc-400 dark:hover:text-zinc-200 dark:hover:bg-white/5"
             )}
           >
             <ShieldCheck className="w-3.5 h-3.5" />
@@ -124,15 +124,15 @@ export const MacOSWindowMockup = () => {
 
         <div className="hidden lg:flex items-center gap-2 text-zinc-500 text-xs font-mono">
           <span>C++20 LRU Cache: 14 MB</span>
-          <span className="w-1 h-1 rounded-full bg-zinc-600" />
-          <span className="text-emerald-400">0.78ms Raster</span>
+          <span className="w-1 h-1 rounded-full bg-zinc-400 dark:bg-zinc-600" />
+          <span className="text-emerald-600 dark:text-emerald-400">0.78ms Raster</span>
         </div>
       </div>
 
       {/* Main Workstation View Area */}
-      <div className="grid grid-cols-12 min-h-[460px] bg-[#070a12]/90">
+      <div className="grid grid-cols-12 min-h-[460px] bg-zinc-200/60 dark:bg-[#070a12]/90">
         {/* Left Document Structure & Pages Sidebar */}
-        <div className="hidden md:flex md:col-span-3 lg:col-span-2 border-r border-white/5 p-3 flex-col justify-between bg-zinc-950/40">
+        <div className="hidden md:flex md:col-span-3 lg:col-span-2 border-r border-zinc-200/80 dark:border-white/5 p-3 flex-col justify-between bg-zinc-100/80 dark:bg-zinc-950/40">
           <div className="space-y-3">
             <div className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider px-1">
               Document Thumbnails
@@ -345,40 +345,40 @@ export const MacOSWindowMockup = () => {
         </div>
 
         {/* Right Workstation Inspector Panel */}
-        <div className="hidden lg:flex lg:col-span-3 border-l border-white/5 p-4 flex-col justify-between bg-zinc-950/60">
+        <div className="hidden lg:flex lg:col-span-3 border-l border-zinc-200/80 dark:border-white/5 p-4 flex-col justify-between bg-zinc-100/80 dark:bg-zinc-950/60">
           <div className="space-y-4">
-            <div className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
+            <div className="text-[11px] font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
               Document Inspector
             </div>
 
             <div className="space-y-2 text-xs">
-              <div className="flex justify-between py-1 border-b border-white/5">
+              <div className="flex justify-between py-1 border-b border-zinc-200/60 dark:border-white/5">
                 <span className="text-zinc-500">Format</span>
-                <span className="font-mono text-zinc-300">PDF 1.7 (ISO 32000-1)</span>
+                <span className="font-mono text-zinc-700 dark:text-zinc-300">PDF 1.7 (ISO 32000-1)</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-white/5">
+              <div className="flex justify-between py-1 border-b border-zinc-200/60 dark:border-white/5">
                 <span className="text-zinc-500">Engine Core</span>
-                <span className="font-mono text-zinc-300">C++20 Native</span>
+                <span className="font-mono text-zinc-700 dark:text-zinc-300">C++20 Native</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-white/5">
+              <div className="flex justify-between py-1 border-b border-zinc-200/60 dark:border-white/5">
                 <span className="text-zinc-500">Security</span>
-                <span className="text-emerald-400 flex items-center gap-1">
+                <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1 font-medium">
                   <ShieldCheck className="w-3 h-3" />
                   Air-Gapped Local
                 </span>
               </div>
-              <div className="flex justify-between py-1 border-b border-white/5">
+              <div className="flex justify-between py-1 border-b border-zinc-200/60 dark:border-white/5">
                 <span className="text-zinc-500">Telemetry</span>
-                <span className="text-emerald-400 font-mono">0 bytes (Disabled)</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-mono font-medium">0 bytes (Disabled)</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-white/5">
+              <div className="flex justify-between py-1 border-b border-zinc-200/60 dark:border-white/5">
                 <span className="text-zinc-500">Page Dimensions</span>
-                <span className="font-mono text-zinc-300">8.5 × 11.0 in (Letter)</span>
+                <span className="font-mono text-zinc-700 dark:text-zinc-300">8.5 × 11.0 in (Letter)</span>
               </div>
             </div>
 
             <div className="pt-2">
-              <div className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-2">
+              <div className="text-[11px] font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-2">
                 Workstation Modes
               </div>
               <div className="space-y-1">
@@ -393,26 +393,26 @@ export const MacOSWindowMockup = () => {
                     key={mode.id}
                     onClick={() => setActiveMode(mode.id as WorkstationMode)}
                     className={cn(
-                      "w-full text-left p-2 rounded-lg text-xs transition-colors flex items-center justify-between",
+                      "w-full text-left p-2 rounded-lg text-xs transition-colors flex items-center justify-between cursor-pointer",
                       activeMode === mode.id
-                        ? "bg-indigo-500/15 border border-indigo-500/30 text-indigo-300"
-                        : "hover:bg-white/5 text-zinc-400"
+                        ? "bg-indigo-50 dark:bg-indigo-500/15 border border-indigo-200 dark:border-indigo-500/30 text-indigo-700 dark:text-indigo-300 shadow-xs"
+                        : "hover:bg-zinc-200/60 dark:hover:bg-white/5 text-zinc-600 dark:text-zinc-400"
                     )}
                   >
                     <div>
-                      <div className="font-medium text-zinc-200">{mode.label}</div>
+                      <div className="font-medium text-zinc-800 dark:text-zinc-200">{mode.label}</div>
                       <div className="text-[10px] text-zinc-500">{mode.desc}</div>
                     </div>
-                    {activeMode === mode.id && <ArrowRight className="w-3.5 h-3.5 text-indigo-400" />}
+                    {activeMode === mode.id && <ArrowRight className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />}
                   </button>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-indigo-950/30 border border-indigo-500/20 text-xs">
-            <span className="text-indigo-400 font-semibold block mb-0.5">EmDoc v0.1 Preview</span>
-            <p className="text-zinc-400 text-[11px]">
+          <div className="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200/80 dark:border-indigo-500/20 text-xs">
+            <span className="text-indigo-700 dark:text-indigo-400 font-semibold block mb-0.5">EmDoc v0.1 Preview</span>
+            <p className="text-zinc-600 dark:text-zinc-400 text-[11px]">
               Available for macOS 13.0+ (Ventura, Sonoma, Sequoia). Universal binary.
             </p>
           </div>
@@ -420,10 +420,10 @@ export const MacOSWindowMockup = () => {
       </div>
 
       {/* Window Status Bar */}
-      <div className="h-7 bg-zinc-900/90 border-t border-white/5 px-4 flex items-center justify-between text-[11px] text-zinc-500 font-mono select-none">
+      <div className="h-7 bg-zinc-200/90 dark:bg-zinc-900/90 border-t border-zinc-300/80 dark:border-white/5 px-4 flex items-center justify-between text-[11px] text-zinc-600 dark:text-zinc-500 font-mono select-none">
         <div className="flex items-center space-x-3">
-          <span className="text-emerald-400 flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1 font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             100% Offline
           </span>
           <span>•</span>
@@ -431,7 +431,7 @@ export const MacOSWindowMockup = () => {
           <span>•</span>
           <span>Rendering: Sub-millisecond Retina</span>
         </div>
-        <div className="hidden sm:block text-zinc-400">
+        <div className="hidden sm:block text-zinc-500 dark:text-zinc-400">
           COGIFY Product Engineering
         </div>
       </div>

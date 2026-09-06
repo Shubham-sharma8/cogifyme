@@ -1,6 +1,19 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
+  --background: #fbfcfe;
+  --foreground: #090d16;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --accent-blue: #2563eb;
+  --accent-cyan: #0891b2;
+  --accent-indigo: #4f46e5;
+  color-scheme: light;
+}
+
+.dark {
   --background: #06080d;
   --foreground: #f3f4f6;
   --card-bg: rgba(13, 17, 27, 0.75);
@@ -8,6 +21,7 @@
   --accent-blue: #3b82f6;
   --accent-cyan: #06b6d4;
   --accent-indigo: #6366f1;
+  color-scheme: dark;
 }
 
 @theme {
@@ -21,7 +35,6 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
 }
 
 body {
@@ -29,10 +42,15 @@ body {
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   overflow-x: hidden;
-  selection-background-color: rgba(99, 102, 241, 0.3);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 ::selection {
+  background: rgba(99, 102, 241, 0.25);
+  color: currentColor;
+}
+
+.dark ::selection {
   background: rgba(99, 102, 241, 0.35);
   color: #ffffff;
 }
@@ -43,24 +61,48 @@ body {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #06080d;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(148, 163, 184, 0.4);
   border-radius: 4px;
 }
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
 ::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.25);
 }
 
 /* Background Grids & Dots */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+.dark .bg-grid-pattern,
 .bg-grid-white {
   background-size: 40px 40px;
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
+.dark .bg-grid-white {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
 
+.bg-dot-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+}
+.dark .bg-dot-pattern,
 .bg-dot-white {
   background-size: 24px 24px;
   background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
@@ -68,6 +110,12 @@ body {
 
 /* Glassmorphism helpers */
 .glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.dark .glass-panel {
   background: rgba(15, 20, 32, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -75,6 +123,12 @@ body {
 }
 
 .glass-panel-subtle {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.dark .glass-panel-subtle {
   background: rgba(18, 24, 38, 0.45);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
