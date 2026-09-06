@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# COGIFY Website (`cogify.me`)
 
-## Getting Started
+The official marketing and product website for **COGIFY** and its flagship product, **EmDoc** (macOS Native PDF Workstation).
 
-First, run the development server:
+## Architecture & Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework**: Next.js 16 (App Router, Turbopack, React 19)
+- **Styling**: Tailwind CSS v4, Custom CSS Utilities, Glassmorphism, Modern Dark Theme
+- **Typography**: Apple / Linear System Typography stack (`-apple-system, BlinkMacSystemFont, "SF Pro Display"`) for 100% offline, zero-network, sub-millisecond font rendering.
+- **Motion & UI**: Framer Motion, Aceternity UI components (Spotlight, Background Beams, Bento Grid, Moving Border, Timeline, Sparkles, macOS Window Mockup)
+- **Icons**: Lucide React
+- **Celebration Effects**: Canvas Confetti
+- **SEO & Legal**: Dynamic `sitemap.ts`, `robots.ts`, OpenGraph metadata, public privacy policy (`/privacy`), terms of use (`/terms`), and dedicated air-gapped EmDoc privacy statement (`/emdoc/privacy`).
+
+## Project Structure
+
+```
+website/
+├── public/
+│   └── brand/
+│       └── emdoc-icon.png         # macOS 512@2x Retina App Icon
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx             # Root layout with SEO and system fonts
+│   │   ├── page.tsx               # Homepage assembling all sections
+│   │   ├── globals.css            # Tailwind theme, grid/dot patterns, glassmorphism
+│   │   ├── sitemap.ts             # XML Sitemap generator
+│   │   ├── robots.ts              # Robots.txt generator
+│   │   ├── privacy/page.tsx       # Public company privacy policy (/privacy)
+│   │   ├── terms/page.tsx         # Public terms of use (/terms)
+│   │   ├── emdoc/
+│   │   │   └── privacy/page.tsx   # Dedicated EmDoc air-gapped privacy policy (/emdoc/privacy)
+│   │   ├── products/
+│   │   │   └── emdoc/page.tsx     # Deep-dive product page for EmDoc Workstation
+│   │   ├── enterprise/page.tsx    # Enterprise capabilities & inquiry intake
+│   │   ├── about/page.tsx         # Company manifesto, principles & timeline
+│   │   ├── contact/page.tsx       # Contact form with live state validation
+│   │   └── legal/
+│   │       ├── privacy/page.tsx   # Re-exports /privacy
+│   │       └── terms/page.tsx     # Re-exports /terms
+│   ├── components/
+│   │   ├── ui/                    # Aceternity UI components
+│   │   │   ├── spotlight.tsx
+│   │   │   ├── background-beams.tsx
+│   │   │   ├── bento-grid.tsx
+│   │   │   ├── moving-border.tsx
+│   │   │   ├── timeline.tsx
+│   │   │   ├── sparkles.tsx
+│   │   │   └── macos-window.tsx   # Interactive Retina macOS window mockup
+│   │   ├── navigation/            # Sticky floating glassmorphism navbar
+│   │   ├── hero/                  # Hero section with spotlight & CTA
+│   │   ├── products/              # EmDoc showcase & download modal
+│   │   ├── company/               # Bento grid ("What We Build"), principles, roadmap
+│   │   ├── enterprise/            # Enterprise capabilities
+│   │   ├── cta/                   # High-impact closing CTA
+│   │   └── footer/                # Comprehensive footer with legal links
+│   ├── config/
+│   │   └── site.ts                # Centralized site and EmDoc metadata
+│   └── lib/
+│       └── utils.ts               # clsx + tailwind-merge helper
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configuration & Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The website is designed with a centralized configuration system (`src/config/site.ts`).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To set a production binary download URL for EmDoc:
 
-## Learn More
+```bash
+# In .env.local or your deployment environment:
+NEXT_PUBLIC_EMDOC_DOWNLOAD_URL="https://releases.cogify.me/EmDoc-v0.1-macOS-Universal.dmg"
+```
 
-To learn more about Next.js, take a look at the following resources:
+If `NEXT_PUBLIC_EMDOC_DOWNLOAD_URL` is omitted, the interactive Download Modal will gracefully provide a release descriptor package along with local build instructions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Running Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+cd website
 
-## Deploy on Vercel
+# Install dependencies
+npm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Start development server
+npm run dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Run production build (Turbopack)
+npm run build
+
+# Start production server
+npm start
+```
+
+## Strict Project Rule Adherence
+
+The existing macOS application (`pdf/` and `offline-pdf/`) remains completely untouched and isolated. All web assets, builds, and components reside strictly within `website/`.
