@@ -23,21 +23,6 @@ async function main() {
   });
   console.log(`✓ Super Admin seeded: ${superAdmin.email} (${superAdmin.name})`);
 
-  // 2. Seed Secondary Admin: Aarav Patel
-  const supportAdmin = await prisma.admin.upsert({
-    where: { email: "support@cogify.me" },
-    update: {},
-    create: {
-      email: "support@cogify.me",
-      passwordHash: defaultPasswordHash,
-      name: "Aarav Patel",
-      role: "AGENT",
-      status: "ACTIVE",
-      lastLoginAt: new Date(),
-    },
-  });
-  console.log(`✓ Support Agent seeded: ${supportAdmin.email} (${supportAdmin.name})`);
-
   // 3. Seed Sample Initial Tickets
   const sampleTicket1 = await prisma.ticket.upsert({
     where: { referenceCode: "COG-8492" },

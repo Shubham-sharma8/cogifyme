@@ -69,10 +69,9 @@ export async function verifyPassword(
 
   if (envAdminPassword) {
     if (!adminEmail || adminEmail.toLowerCase() === envAdminEmail) {
-      if (password === envAdminPassword) {
-        return true;
-      }
+      return password === envAdminPassword;
     }
+    return false;
   }
 
   const parts = storedHash.split(":");

@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import {
   hashPassword,
-  verifyPassword,
   createAdminToken,
   verifyAdminToken,
   ADMIN_COOKIE_NAME,
@@ -54,7 +53,7 @@ export async function POST(req: NextRequest) {
     const userAgent = req.headers.get("user-agent") || "Unknown Browser";
 
     // -------------------------------------------------------------
-    // ACTION: LOGIN
+    // ACTION: LOGIN (Strictly DEFAULT_ADMIN_EMAIL & DEFAULT_ADMIN_PASSWORD)
     // -------------------------------------------------------------
     if (action === "login") {
       const { email, password, turnstileToken, _hp_company, formStartTime } = body;
@@ -87,52 +86,26 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      const envAdminEmail = (process.env.DEFAULT_ADMIN_EMAIL || "admin@cogify.me").toLowerCase();
+      const envAdminEmail = (process.env.DEFAULT_ADMIN_EMAIL || "admin@cogify.me").toLowerCase().trim();
       const envAdminPassword = process.env.DEFAULT_ADMIN_PASSWORD;
 
-      let admin = await db.getAdminByEmail(email);
+      const inputEmail = String(email).toLowerCase().trim();
+      const inputPassword = String(password);
 
-      // Auto-provision super admin if empty or matching env
-      if (!admin && email.toLowerCase() === envAdminEmail && envAdminPassword) {
-        if (password === envAdminPassword) {
-          const passwordHash = await hashPassword(envAdminPassword);
-          admin = await db.createAdmin({
-            email: envAdminEmail,
-            passwordHash,
-            name: "Super Admin",
-            role: "SUPER_ADMIN",
-          });
-        }
+      if (!envAdminPassword) {
+        return NextResponse.json(
+          { success: false, error: "Server authentication configuration missing (DEFAULT_ADMIN_PASSWORD not set)." },
+          { status: 500 }
+        );
       }
 
-      if (!admin) {
+      // STRICT VALIDATION: Must match env variables exactly
+      if (inputEmail !== envAdminEmail || inputPassword !== envAdminPassword) {
         await db.addAuditLog({
           action: "ADMIN_LOGIN_FAILED",
           ipAddress: clientIp,
           userAgent,
-          details: `Login attempt failed: Email not found (${email})`,
-        });
-        return NextResponse.json(
-          { success: false, error: "Invalid email or credentials." },
-          { status: 401 }
-        );
-      }
-
-      if (admin.status !== "ACTIVE") {
-        return NextResponse.json(
-          { success: false, error: "This admin account is suspended." },
-          { status: 403 }
-        );
-      }
-
-      const isValid = await verifyPassword(password, admin.passwordHash, admin.email);
-      if (!isValid) {
-        await db.addAuditLog({
-          action: "ADMIN_LOGIN_FAILED",
-          adminId: admin.id,
-          ipAddress: clientIp,
-          userAgent,
-          details: `Failed password verification for: ${email}`,
+          details: `Failed admin login attempt for: ${inputEmail}`,
         });
         return NextResponse.json(
           { success: false, error: "Invalid email or password." },
@@ -140,16 +113,22 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      // If logged in via env password, sync hash into database so DB stays updated
-      if (envAdminPassword && password === envAdminPassword && admin.email.toLowerCase() === envAdminEmail) {
+      // Ensure super admin record exists in DB for foreign keys & audit
+      let admin = await db.getAdminByEmail(envAdminEmail);
+      if (!admin) {
+        const passwordHash = await hashPassword(envAdminPassword);
+        admin = await db.createAdmin({
+          email: envAdminEmail,
+          passwordHash,
+          name: "Super Admin",
+          role: "SUPER_ADMIN",
+        });
+      } else {
         try {
-          const newHash = await hashPassword(password);
-          if (admin.passwordHash !== newHash) {
-            await db.updateAdminPassword(admin.id, newHash);
-            admin.passwordHash = newHash;
-          }
+          const passwordHash = await hashPassword(envAdminPassword);
+          await db.updateAdminPassword(admin.id, passwordHash);
         } catch (syncErr) {
-          console.warn("Could not sync updated env password to DB:", syncErr);
+          console.warn("Could not sync password hash:", syncErr);
         }
       }
 
@@ -160,7 +139,7 @@ export async function POST(req: NextRequest) {
         adminId: admin.id,
         ipAddress: clientIp,
         userAgent,
-        details: `Admin ${admin.name} (${admin.email}) logged in successfully`,
+        details: `Super Admin (${admin.email}) logged in successfully via environment credentials`,
       });
 
       // Create JWT session
@@ -199,84 +178,11 @@ export async function POST(req: NextRequest) {
       return res;
     }
 
-    // -------------------------------------------------------------
-    // ACTION: REQUEST PASSWORD RESET
-    // -------------------------------------------------------------
-    if (action === "request-reset") {
-      const { email } = body;
-      if (!email) {
-        return NextResponse.json(
-          { success: false, error: "Email is required." },
-          { status: 400 }
-        );
-      }
-
-      const admin = await db.getAdminByEmail(email);
-      if (admin) {
-        const tokenHash = `reset-${Date.now()}-${Math.random().toString(36).substring(2, 12)}`;
-        const expiresAt = new Date(Date.now() + 1000 * 60 * 60); // 1 hour
-
-        await db.createPasswordResetToken(admin.id, tokenHash, expiresAt);
-        await db.addAuditLog({
-          action: "PASSWORD_RESET_REQUESTED",
-          adminId: admin.id,
-          ipAddress: clientIp,
-          userAgent,
-          details: `Password reset requested for: ${admin.email}`,
-        });
-
-        // In production, an email is dispatched. In preview/admin dev, we provide the token for instant testing
-        return NextResponse.json({
-          success: true,
-          message: "Password reset link generated.",
-          resetToken: tokenHash, // Returned for testing & dev convenience
-        });
-      }
-
-      // Constant time reply to avoid user enumeration
-      return NextResponse.json({
-        success: true,
-        message: "If an account exists, a reset link has been dispatched.",
-      });
-    }
-
-    // -------------------------------------------------------------
-    // ACTION: RESET PASSWORD WITH TOKEN
-    // -------------------------------------------------------------
-    if (action === "reset-password") {
-      const { token, newPassword } = body;
-      if (!token || !newPassword || newPassword.length < 8) {
-        return NextResponse.json(
-          { success: false, error: "Valid token and 8+ char password required." },
-          { status: 400 }
-        );
-      }
-
-      const adminId = await db.verifyPasswordResetToken(token);
-      if (!adminId) {
-        return NextResponse.json(
-          { success: false, error: "Invalid or expired reset token." },
-          { status: 400 }
-        );
-      }
-
-      const newHash = await hashPassword(newPassword);
-      await db.updateAdminPassword(adminId, newHash);
-      await db.addAuditLog({
-        action: "PASSWORD_RESET_COMPLETED",
-        adminId,
-        ipAddress: clientIp,
-        userAgent,
-        details: "Password successfully updated via reset token.",
-      });
-
-      return NextResponse.json({
-        success: true,
-        message: "Password successfully reset. You can now login.",
-      });
-    }
-
-    return NextResponse.json({ success: false, error: "Unknown action" }, { status: 400 });
+    // All password reset actions are permanently disabled
+    return NextResponse.json(
+      { success: false, error: "Self-service password resets are permanently disabled. Use DEFAULT_ADMIN_PASSWORD." },
+      { status: 403 }
+    );
   } catch (error: any) {
     console.error("Admin auth API error:", error);
     return NextResponse.json(

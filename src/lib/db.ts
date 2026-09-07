@@ -49,29 +49,14 @@ const initialAdmins: Admin[] = [
   {
     id: "admin-super-01",
     email: process.env.DEFAULT_ADMIN_EMAIL || "admin@cogify.me",
-    // Precomputed SHA-256 hash of "CogifyAdmin2026!" with salt
-    passwordHash:
-      "pbkdf2:10000:7c3f81e7d23a105c:5430ea453b3bdfbe6c641d42a9b4009cf0b39678e0f63e9c52ce9349884a441e",
-    name: "Shubham Sharma",
+    passwordHash: "",
+    name: "Super Admin",
     role: "SUPER_ADMIN" as AdminRole,
     status: "ACTIVE" as AdminStatus,
     avatarUrl: null,
     lastLoginAt: new Date(),
     createdAt: new Date("2026-09-01T10:00:00Z"),
     updatedAt: new Date("2026-09-07T12:00:00Z"),
-  },
-  {
-    id: "admin-agent-02",
-    email: "support@cogify.me",
-    passwordHash:
-      "pbkdf2:10000:7c3f81e7d23a105c:5430ea453b3bdfbe6c641d42a9b4009cf0b39678e0f63e9c52ce9349884a441e",
-    name: "Aarav Patel",
-    role: "AGENT" as AdminRole,
-    status: "ACTIVE" as AdminStatus,
-    avatarUrl: null,
-    lastLoginAt: new Date("2026-09-06T15:30:00Z"),
-    createdAt: new Date("2026-09-02T11:00:00Z"),
-    updatedAt: new Date("2026-09-06T15:30:00Z"),
   },
 ];
 
@@ -196,9 +181,9 @@ const initialTickets: (Ticket & { responses: TicketResponse[] })[] = [
       {
         id: "resp-003",
         ticketId: "t-004",
-        authorAdminId: "admin-agent-02",
+        authorAdminId: "admin-super-01",
         authorType: "ADMIN" as ResponseAuthorType,
-        authorName: "Aarav Patel",
+        authorName: "Super Admin",
         message:
           "Hi David, our core document logic is written in ISO C++20 and isolated from macOS Cocoa. After our iOS companion release, Windows is next on our cross-platform roadmap.",
         isInternalNote: false,
