@@ -87,7 +87,24 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      const admin = await db.getAdminByEmail(email);
+      const envAdminEmail = (process.env.ADMIN_EMAIL || process.env.DEFAULT_ADMIN_EMAIL || "admin@cogify.me").toLowerCase();
+      const envAdminPassword = process.env.ADMIN_PASSWORD || process.env.DEFAULT_ADMIN_PASSWORD;
+
+      let admin = await db.getAdminByEmail(email);
+
+      // Auto-provision super admin if empty or matching env
+      if (!admin && email.toLowerCase() === envAdminEmail && envAdminPassword) {
+        if (password === envAdminPassword) {
+          const passwordHash = await hashPassword(envAdminPassword);
+          admin = await db.createAdmin({
+            email: envAdminEmail,
+            passwordHash,
+            name: "Super Admin",
+            role: "SUPER_ADMIN",
+          });
+        }
+      }
+
       if (!admin) {
         await db.addAuditLog({
           action: "ADMIN_LOGIN_FAILED",
@@ -108,7 +125,7 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      const isValid = await verifyPassword(password, admin.passwordHash);
+      const isValid = await verifyPassword(password, admin.passwordHash, admin.email);
       if (!isValid) {
         await db.addAuditLog({
           action: "ADMIN_LOGIN_FAILED",
@@ -121,6 +138,19 @@ export async function POST(req: NextRequest) {
           { success: false, error: "Invalid email or password." },
           { status: 401 }
         );
+      }
+
+      // If logged in via env password, sync hash into database so DB stays updated
+      if (envAdminPassword && password === envAdminPassword && admin.email.toLowerCase() === envAdminEmail) {
+        try {
+          const newHash = await hashPassword(password);
+          if (admin.passwordHash !== newHash) {
+            await db.updateAdminPassword(admin.id, newHash);
+            admin.passwordHash = newHash;
+          }
+        } catch (syncErr) {
+          console.warn("Could not sync updated env password to DB:", syncErr);
+        }
       }
 
       // Record successful login

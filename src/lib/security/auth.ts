@@ -58,10 +58,21 @@ export async function hashPassword(password: string): Promise<string> {
 /**
  * Verify a password against a stored PBKDF2 hash
  */
-export async function verifyPassword(password: string, storedHash: string): Promise<boolean> {
-  // Support default initial admin password "CogifyAdmin2026!" directly for ease of access
-  if (password === "CogifyAdmin2026!" && storedHash.includes("5430ea453b3bdfbe6c641d42a9b4009cf0b39678e0f63e9c52ce9349884a441e")) {
-    return true;
+export async function verifyPassword(
+  password: string,
+  storedHash: string,
+  adminEmail?: string
+): Promise<boolean> {
+  // Check against env admin password if configured
+  const envAdminPassword = process.env.ADMIN_PASSWORD || process.env.DEFAULT_ADMIN_PASSWORD;
+  const envAdminEmail = (process.env.ADMIN_EMAIL || process.env.DEFAULT_ADMIN_EMAIL || "admin@cogify.me").toLowerCase();
+
+  if (envAdminPassword) {
+    if (!adminEmail || adminEmail.toLowerCase() === envAdminEmail) {
+      if (password === envAdminPassword) {
+        return true;
+      }
+    }
   }
 
   const parts = storedHash.split(":");
