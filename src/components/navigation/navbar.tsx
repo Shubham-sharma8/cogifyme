@@ -23,6 +23,11 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Do not render website navbar inside the admin portal
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <>
       <header
@@ -88,6 +93,17 @@ export const Navbar = () => {
                 )}
               >
                 Enterprise
+              </Link>
+              <Link
+                href="/suggestions"
+                className={cn(
+                  "px-3 py-1.5 rounded-lg text-xs font-medium transition-colors",
+                  pathname === "/suggestions"
+                    ? "text-indigo-600 dark:text-white bg-indigo-50 dark:bg-white/10 font-semibold"
+                    : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5"
+                )}
+              >
+                Suggestions
               </Link>
               <Link
                 href="/about"
@@ -182,11 +198,21 @@ export const Navbar = () => {
                 Enterprise
               </Link>
               <Link
+                href="/suggestions"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-zinc-950 dark:hover:text-white flex items-center justify-between"
+              >
+                <span>Suggestions & Reports</span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-300">
+                  Feedback
+                </span>
+              </Link>
+              <Link
                 href="/about"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-zinc-950 dark:hover:text-white"
               >
-                About COGIFY
+                About Cogify
               </Link>
               <Link
                 href="/contact"

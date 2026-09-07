@@ -1,0 +1,144 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  AGENT
+}
+
+enum AdminStatus {
+  ACTIVE
+  SUSPENDED
+}
+
+enum TicketCategory {
+  SUGGESTION
+  BUG_REPORT
+  ENTERPRISE
+  CONTACT
+}
+
+enum TicketStatus {
+  NEW
+  IN_REVIEW
+  ASSIGNED
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum TicketPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum ResponseAuthorType {
+  ADMIN
+  USER
+  SYSTEM
+}
+
+model Admin {
+  id           String        @id @default(uuid())
+  email        String        @unique
+  passwordHash String
+  name         String
+  role         AdminRole     @default(ADMIN)
+  status       AdminStatus   @default(ACTIVE)
+  avatarUrl    String?
+  lastLoginAt  DateTime?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  assignedTickets Ticket[]             @relation("AdminAssignedTickets")
+  responses       TicketResponse[]     @relation("AdminResponses")
+  auditLogs       AuditLog[]           @relation("AdminAuditLogs")
+  resetTokens     PasswordResetToken[]
+
+  @@map("admins")
+}
+
+model PasswordResetToken {
+  id        String    @id @default(uuid())
+  tokenHash String    @unique
+  adminId   String
+  admin     Admin     @relation(fields: [adminId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@map("password_reset_tokens")
+}
+
+model Ticket {
+  id                String         @id @default(uuid())
+  referenceCode     String         @unique
+  category          TicketCategory @default(SUGGESTION)
+  targetApp         String         @default("EmDoc macOS")
+  title             String
+  description       String
+  senderName        String
+  senderEmail       String
+  company           String?
+  deviceInfo        String?
+  status            TicketStatus   @default(NEW)
+  priority          TicketPriority @default(MEDIUM)
+  assignedToAdminId String?
+  assignedTo        Admin?         @relation("AdminAssignedTickets", fields: [assignedToAdminId], references: [id], onDelete: SetNull)
+  isSpam            Boolean        @default(false)
+  spamScore         Float          @default(0.0)
+  ipAddress         String?
+  userAgent         String?
+  hasResponse       Boolean        @default(false)
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  responses TicketResponse[]
+
+  @@index([referenceCode])
+  @@index([status])
+  @@index([category])
+  @@index([senderEmail])
+  @@map("tickets")
+}
+
+model TicketResponse {
+  id             String             @id @default(uuid())
+  ticketId       String
+  ticket         Ticket             @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  authorAdminId  String?
+  authorAdmin    Admin?             @relation("AdminResponses", fields: [authorAdminId], references: [id], onDelete: SetNull)
+  authorType     ResponseAuthorType @default(ADMIN)
+  authorName     String
+  message        String
+  isInternalNote Boolean            @default(false)
+  createdAt      DateTime           @default(now())
+
+  @@index([ticketId])
+  @@map("ticket_responses")
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  action    String
+  adminId   String?
+  admin     Admin?   @relation("AdminAuditLogs", fields: [adminId], references: [id], onDelete: SetNull)
+  ipAddress String?
+  userAgent String?
+  details   String?
+  createdAt DateTime @default(now())
+
+  @@index([action])
+  @@index([adminId])
+  @@map("audit_logs")
+}

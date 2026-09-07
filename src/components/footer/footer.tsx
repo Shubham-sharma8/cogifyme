@@ -1,13 +1,20 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { ShieldCheck, Cpu } from "lucide-react";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 
 export const Footer = () => {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
+
+  // Do not render website footer inside the admin portal
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   return (
     <footer className="bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-white/10 text-zinc-600 dark:text-zinc-400 text-xs transition-colors duration-200">
@@ -49,12 +56,17 @@ export const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="/about" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
-                  About COGIFY
+                  About Cogify
                 </Link>
               </li>
               <li>
                 <Link href="/enterprise" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
                   Enterprise
+                </Link>
+              </li>
+              <li>
+                <Link href="/suggestions" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center gap-1.5 text-indigo-600 dark:text-indigo-400 font-medium">
+                  <span>Suggestions & Bugs</span>
                 </Link>
               </li>
               <li>
@@ -78,11 +90,19 @@ export const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="/products/emdoc" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center gap-1.5">
-                  <span>EmDoc Workstation</span>
+                  <span>EmDoc (5.0 MB)</span>
                   <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-300">
                     macOS
                   </span>
                 </Link>
+              </li>
+              <li>
+                <span className="text-zinc-500 text-xs flex items-center gap-1">
+                  <span>EmDoc for iOS</span>
+                  <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
+                    In Dev
+                  </span>
+                </span>
               </li>
               <li>
                 <Link href="/#products" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
@@ -121,6 +141,11 @@ export const Footer = () => {
               <li>
                 <Link href="/terms" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
                   Terms of Use
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center gap-1.5 text-zinc-500 hover:text-indigo-600 dark:hover:text-indigo-400">
+                  <span>Admin Portal</span>
                 </Link>
               </li>
               <li>

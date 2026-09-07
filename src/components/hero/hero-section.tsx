@@ -35,21 +35,21 @@ export const HeroSection = () => {
         {/* Release Announcement Pill */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200/80 dark:border-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-xs font-medium mb-6 hover:bg-indigo-100/70 dark:hover:bg-indigo-500/15 transition-colors shadow-xs">
           <span className="flex h-2 w-2 rounded-full bg-indigo-500 animate-pulse" />
-          <span>Announcing EmDoc Workstation v0.1 Preview for macOS</span>
+          <span>EmDoc Workstation for macOS • Standalone & Air-Gapped</span>
           <ArrowRight className="w-3.5 h-3.5 text-indigo-500 dark:text-indigo-400" />
         </div>
 
         {/* Main Editorial Headline */}
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-white max-w-4xl leading-[1.08] mb-6">
-          We build software for{" "}
+          Everyday software engineered with{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-600 dark:from-indigo-300 dark:via-indigo-100 dark:to-cyan-300">
-            work that matters.
+            enterprise precision.
           </span>
         </h1>
 
         {/* Supporting Copy */}
         <p className="text-base sm:text-lg lg:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
-          COGIFY creates thoughtful, precision software for individuals, engineering teams, and enterprises — combining deep systems technology with simple, refined experiences.
+          Cogify creates high-performance, everyday apps across multiple devices that are completely free for individuals, mostly open source, and engineered to enterprise standards. Our first flagship product is EmDoc.
         </p>
 
         {/* CTA Buttons */}
@@ -61,7 +61,7 @@ export const HeroSection = () => {
           >
             <span className="flex items-center gap-2">
               <Download className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-              <span>Download EmDoc for macOS</span>
+              <span>Download EmDoc (Only 5.0 MB)</span>
             </span>
           </MovingBorderButton>
 
@@ -69,7 +69,7 @@ export const HeroSection = () => {
             href="#what-we-build"
             className="w-full sm:w-auto px-6 py-3.5 rounded-xl text-sm font-semibold text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white bg-white hover:bg-zinc-100 dark:bg-zinc-900/60 dark:hover:bg-zinc-800/60 border border-zinc-200/90 dark:border-white/10 transition-all duration-200 flex items-center justify-center gap-2 shadow-xs"
           >
-            <span>What We Build</span>
+            <span>Explore Products</span>
             <ChevronDown className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
           </Link>
         </div>
@@ -77,20 +77,20 @@ export const HeroSection = () => {
         {/* Engineering Tenets Ticker */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto w-full text-left text-xs">
           <div className="p-3 rounded-xl bg-white/90 dark:bg-zinc-950/40 border border-zinc-200/80 dark:border-white/5 backdrop-blur-sm shadow-xs">
-            <span className="text-zinc-500 block text-[10px] uppercase font-mono">Guaranteed</span>
-            <span className="text-zinc-900 dark:text-zinc-200 font-semibold">100% Air-Gapped</span>
+            <span className="text-zinc-500 block text-[10px] uppercase font-mono">App Footprint</span>
+            <span className="text-zinc-900 dark:text-zinc-200 font-semibold text-sm text-indigo-600 dark:text-indigo-400">Only 5.0 MB</span>
           </div>
           <div className="p-3 rounded-xl bg-white/90 dark:bg-zinc-950/40 border border-zinc-200/80 dark:border-white/5 backdrop-blur-sm shadow-xs">
-            <span className="text-zinc-500 block text-[10px] uppercase font-mono">Foundation</span>
-            <span className="text-zinc-900 dark:text-zinc-200 font-semibold">Modern C++20 Core</span>
+            <span className="text-zinc-500 block text-[10px] uppercase font-mono">RAM Efficiency</span>
+            <span className="text-zinc-900 dark:text-zinc-200 font-semibold text-sm text-emerald-600 dark:text-emerald-400">~45 MB Baseline</span>
           </div>
           <div className="p-3 rounded-xl bg-white/90 dark:bg-zinc-950/40 border border-zinc-200/80 dark:border-white/5 backdrop-blur-sm shadow-xs">
-            <span className="text-zinc-500 block text-[10px] uppercase font-mono">Platform</span>
-            <span className="text-zinc-900 dark:text-zinc-200 font-semibold">Apple Silicon & Intel</span>
+            <span className="text-zinc-500 block text-[10px] uppercase font-mono">Zero Paywalls</span>
+            <span className="text-zinc-900 dark:text-zinc-200 font-semibold text-sm text-cyan-600 dark:text-cyan-400">100% Free Users</span>
           </div>
           <div className="p-3 rounded-xl bg-white/90 dark:bg-zinc-950/40 border border-zinc-200/80 dark:border-white/5 backdrop-blur-sm shadow-xs">
-            <span className="text-zinc-500 block text-[10px] uppercase font-mono">Intelligence</span>
-            <span className="text-zinc-900 dark:text-zinc-200 font-semibold">On-Device Neural OCR</span>
+            <span className="text-zinc-500 block text-[10px] uppercase font-mono">Multi-Platform</span>
+            <span className="text-zinc-900 dark:text-zinc-200 font-semibold text-sm">iOS In Development</span>
           </div>
         </div>
       </div>

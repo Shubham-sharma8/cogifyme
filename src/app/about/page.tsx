@@ -29,15 +29,15 @@ export default function AboutPage() {
       content: (
         <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
           <p>
-            Our initial commercial product, EmDoc, brings desktop PDF workflows to macOS with native Retina acceleration, Apple Neural Engine OCR, fill & sign workstations, and vector security blackouts.
+            Our initial product, EmDoc, brings desktop PDF workflows to macOS in an astonishingly compact 5.0 MB package consuming only ~45 MB of RAM. 100% free for individual users with all features unlocked.
           </p>
           <div className="grid grid-cols-2 gap-3 text-xs">
             <div className="p-3 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-200/80 dark:border-white/5 shadow-xs">
-              <span className="text-indigo-600 dark:text-indigo-400 font-semibold block mb-0.5">Version 0.1 Preview</span>
-              <span className="text-zinc-500">Universal macOS binary</span>
+              <span className="text-indigo-600 dark:text-indigo-400 font-semibold block mb-0.5">5.0 MB Binary</span>
+              <span className="text-zinc-500">Universal macOS build</span>
             </div>
             <div className="p-3 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-200/80 dark:border-white/5 shadow-xs">
-              <span className="text-emerald-600 dark:text-emerald-400 font-semibold block mb-0.5">Air-Gapped Local</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold block mb-0.5">Air-Gapped & Free</span>
               <span className="text-zinc-500">100% on-device compute</span>
             </div>
           </div>
@@ -45,12 +45,23 @@ export default function AboutPage() {
       ),
     },
     {
-      title: "Cross-Platform & Enterprise Engines",
-      badge: "Future Trajectory",
+      title: "EmDoc for iOS (iPhone & iPad)",
+      badge: "In Development",
       content: (
         <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
           <p>
-            Our modular architecture enables porting the core engine to iPadOS, Windows PC, and air-gapped enterprise server pipelines. One cohesive foundation powering a family of focused products.
+            In active engineering: EmDoc companion for iOS. Delivering native document viewing, pencil annotations, and local offline compression to iPhone and iPad.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Enterprise Replacement & Free Pilots",
+      badge: "Enterprise",
+      content: (
+        <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
+          <p>
+            Helping organizations break free from exorbitant commercial software licensing fees. We provide free trials, full software & security auditing, and transparent low-cost licensing or custom replacements.
           </p>
         </div>
       ),
