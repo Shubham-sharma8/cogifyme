@@ -1,5 +1,5 @@
 import { SignJWT, jwtVerify } from "jose";
-import { Admin, AdminRole } from "@prisma/client";
+import type { Admin, AdminRole } from "@prisma/client";
 
 const JWT_SECRET_STRING =
   process.env.ADMIN_JWT_SECRET ||

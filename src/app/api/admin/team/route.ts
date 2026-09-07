@@ -5,7 +5,7 @@ import {
   hashPassword,
   ADMIN_COOKIE_NAME,
 } from "@/lib/security/auth";
-import { AdminRole, AdminStatus } from "@prisma/client";
+import type { AdminRole, AdminStatus } from "@prisma/client";
 
 async function requireSuperAdmin(req: NextRequest) {
   const cookie = req.cookies.get(ADMIN_COOKIE_NAME);
