@@ -87,8 +87,8 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      const envAdminEmail = (process.env.ADMIN_EMAIL || process.env.DEFAULT_ADMIN_EMAIL || "admin@cogify.me").toLowerCase();
-      const envAdminPassword = process.env.ADMIN_PASSWORD || process.env.DEFAULT_ADMIN_PASSWORD;
+      const envAdminEmail = (process.env.DEFAULT_ADMIN_EMAIL || "admin@cogify.me").toLowerCase();
+      const envAdminPassword = process.env.DEFAULT_ADMIN_PASSWORD;
 
       let admin = await db.getAdminByEmail(email);
 

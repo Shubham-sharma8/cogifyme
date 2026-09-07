@@ -64,8 +64,8 @@ export async function verifyPassword(
   adminEmail?: string
 ): Promise<boolean> {
   // Check against env admin password if configured
-  const envAdminPassword = process.env.ADMIN_PASSWORD || process.env.DEFAULT_ADMIN_PASSWORD;
-  const envAdminEmail = (process.env.ADMIN_EMAIL || process.env.DEFAULT_ADMIN_EMAIL || "admin@cogify.me").toLowerCase();
+  const envAdminPassword = process.env.DEFAULT_ADMIN_PASSWORD;
+  const envAdminEmail = (process.env.DEFAULT_ADMIN_EMAIL || "admin@cogify.me").toLowerCase();
 
   if (envAdminPassword) {
     if (!adminEmail || adminEmail.toLowerCase() === envAdminEmail) {
