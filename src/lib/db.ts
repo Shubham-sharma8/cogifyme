@@ -11,6 +11,7 @@ import {
   TicketCategory,
   ResponseAuthorType,
 } from "@prisma/client";
+import { getSupabaseAdmin } from "./supabase";
 
 // Global Prisma instance for connection reuse across serverless/worker invocations
 const globalForPrisma = globalThis as unknown as {
@@ -268,6 +269,22 @@ export const memoryStore = globalStore.cogifyStore;
 export const db = {
   // --- Admin Methods ---
   async getAdminByEmail(email: string): Promise<Admin | null> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { data: admin, error } = await sb
+          .from("admins")
+          .select("*")
+          .eq("email", email.toLowerCase())
+          .single();
+        if (admin && !error) {
+          return admin as unknown as Admin;
+        }
+      } catch (err) {
+        console.warn("Supabase getAdminByEmail fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         return await prisma.admin.findUnique({
@@ -285,6 +302,22 @@ export const db = {
   },
 
   async getAdminById(id: string): Promise<Admin | null> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { data: admin, error } = await sb
+          .from("admins")
+          .select("*")
+          .eq("id", id)
+          .single();
+        if (admin && !error) {
+          return admin as unknown as Admin;
+        }
+      } catch (err) {
+        console.warn("Supabase getAdminById fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         return await prisma.admin.findUnique({ where: { id } });
@@ -296,6 +329,21 @@ export const db = {
   },
 
   async getAllAdmins(): Promise<Admin[]> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { data: admins, error } = await sb
+          .from("admins")
+          .select("*")
+          .order("createdAt", { ascending: true });
+        if (admins && !error) {
+          return admins as unknown as Admin[];
+        }
+      } catch (err) {
+        console.warn("Supabase getAllAdmins fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         return await prisma.admin.findMany({
@@ -314,6 +362,33 @@ export const db = {
     name: string;
     role: AdminRole;
   }): Promise<Admin> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const adminId = crypto.randomUUID();
+        const { data: created, error } = await sb
+          .from("admins")
+          .insert({
+            id: adminId,
+            email: data.email.toLowerCase(),
+            passwordHash: data.passwordHash,
+            name: data.name,
+            role: data.role || "AGENT",
+            status: "ACTIVE",
+            avatarUrl: null,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          })
+          .select()
+          .single();
+        if (created && !error) {
+          return created as unknown as Admin;
+        }
+      } catch (err) {
+        console.warn("Supabase createAdmin fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         return await prisma.admin.create({
@@ -345,6 +420,26 @@ export const db = {
   },
 
   async updateAdminStatus(id: string, status: AdminStatus): Promise<Admin | null> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { data: updated, error } = await sb
+          .from("admins")
+          .update({
+            status,
+            updatedAt: new Date().toISOString(),
+          })
+          .eq("id", id)
+          .select()
+          .single();
+        if (updated && !error) {
+          return updated as unknown as Admin;
+        }
+      } catch (err) {
+        console.warn("Supabase updateAdminStatus fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         return await prisma.admin.update({
@@ -365,6 +460,22 @@ export const db = {
   },
 
   async updateAdminPassword(id: string, passwordHash: string): Promise<boolean> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { error } = await sb
+          .from("admins")
+          .update({
+            passwordHash,
+            updatedAt: new Date().toISOString(),
+          })
+          .eq("id", id);
+        if (!error) return true;
+      } catch (err) {
+        console.warn("Supabase updateAdminPassword fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         await prisma.admin.update({
@@ -386,6 +497,22 @@ export const db = {
   },
 
   async recordAdminLogin(id: string): Promise<void> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        await sb
+          .from("admins")
+          .update({
+            lastLoginAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          })
+          .eq("id", id);
+        return;
+      } catch (err) {
+        console.warn("Supabase recordAdminLogin fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         await prisma.admin.update({
@@ -444,6 +571,41 @@ export const db = {
     status?: TicketStatus;
     search?: string;
   }): Promise<(Ticket & { responses: TicketResponse[]; assignedTo?: Admin | null })[]> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        let query = sb
+          .from("tickets")
+          .select(`
+            *,
+            responses:ticket_responses(*)
+          `)
+          .order("createdAt", { ascending: false });
+
+        if (filter?.category) query = query.eq("category", filter.category);
+        if (filter?.status) query = query.eq("status", filter.status);
+
+        const { data: tickets, error } = await query;
+        if (tickets && !error) {
+          let results = tickets;
+          if (filter?.search) {
+            const q = filter.search.toLowerCase();
+            results = results.filter(
+              (t: any) =>
+                t.title?.toLowerCase().includes(q) ||
+                t.description?.toLowerCase().includes(q) ||
+                t.senderEmail?.toLowerCase().includes(q) ||
+                t.referenceCode?.toLowerCase().includes(q)
+            );
+          }
+          return results as unknown as (Ticket & { responses: TicketResponse[]; assignedTo?: Admin | null })[];
+        }
+        if (error) console.error("Supabase getTickets error:", error);
+      } catch (err) {
+        console.warn("Supabase getTickets fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         return await prisma.ticket.findMany({
@@ -498,6 +660,25 @@ export const db = {
   },
 
   async getTicketById(id: string) {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { data: ticket, error } = await sb
+          .from("tickets")
+          .select(`
+            *,
+            responses:ticket_responses(*)
+          `)
+          .eq("id", id)
+          .single();
+        if (ticket && !error) {
+          return ticket as unknown as (Ticket & { responses: TicketResponse[]; assignedTo?: Admin | null });
+        }
+      } catch (err) {
+        console.warn("Supabase getTicketById fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         return await prisma.ticket.findUnique({
@@ -533,11 +714,51 @@ export const db = {
     userAgent?: string;
   }): Promise<Ticket> {
     const referenceCode = `COG-${Math.floor(1000 + Math.random() * 9000)}`;
+    const ticketId = crypto.randomUUID();
+
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { data: created, error } = await sb
+          .from("tickets")
+          .insert({
+            id: ticketId,
+            referenceCode,
+            category: data.category,
+            targetApp: data.targetApp,
+            title: data.title,
+            description: data.description,
+            senderName: data.senderName,
+            senderEmail: data.senderEmail,
+            company: data.company || null,
+            deviceInfo: data.deviceInfo || null,
+            status: "NEW",
+            priority: data.priority || "MEDIUM",
+            isSpam: false,
+            spamScore: 0.0,
+            ipAddress: data.ipAddress || null,
+            userAgent: data.userAgent || null,
+            hasResponse: false,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          })
+          .select()
+          .single();
+
+        if (created && !error) {
+          return created as unknown as Ticket;
+        }
+        if (error) console.error("Supabase createTicket error:", error);
+      } catch (err) {
+        console.warn("Supabase createTicket fallback:", err);
+      }
+    }
 
     if (hasLiveDatabase && prisma) {
       try {
         return await prisma.ticket.create({
           data: {
+            id: ticketId,
             referenceCode,
             category: data.category,
             targetApp: data.targetApp,
@@ -558,7 +779,7 @@ export const db = {
     }
 
     const newTicket: Ticket & { responses: TicketResponse[] } = {
-      id: `ticket-${Date.now()}`,
+      id: ticketId,
       referenceCode,
       category: data.category,
       targetApp: data.targetApp,
@@ -593,6 +814,29 @@ export const db = {
       isSpam?: boolean;
     }
   ) {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { data: updated, error } = await sb
+          .from("tickets")
+          .update({
+            ...updates,
+            updatedAt: new Date().toISOString(),
+          })
+          .eq("id", id)
+          .select(`
+            *,
+            responses:ticket_responses(*)
+          `)
+          .single();
+        if (updated && !error) {
+          return updated as unknown as Ticket;
+        }
+      } catch (err) {
+        console.warn("Supabase updateTicket fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         return await prisma.ticket.update({
@@ -626,6 +870,40 @@ export const db = {
     message: string;
     isInternalNote?: boolean;
   }): Promise<TicketResponse> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const responseId = crypto.randomUUID();
+        const { data: response, error } = await sb
+          .from("ticket_responses")
+          .insert({
+            id: responseId,
+            ticketId: data.ticketId,
+            authorAdminId: data.authorAdminId || null,
+            authorType: data.authorType,
+            authorName: data.authorName,
+            message: data.message,
+            isInternalNote: data.isInternalNote || false,
+            createdAt: new Date().toISOString(),
+          })
+          .select()
+          .single();
+
+        if (response && !error) {
+          if (!data.isInternalNote) {
+            await sb.from("tickets").update({
+              hasResponse: true,
+              status: "IN_PROGRESS",
+              updatedAt: new Date().toISOString(),
+            }).eq("id", data.ticketId);
+          }
+          return response as unknown as TicketResponse;
+        }
+      } catch (err) {
+        console.warn("Supabase addTicketResponse fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         const response = await prisma.ticketResponse.create({
@@ -684,6 +962,31 @@ export const db = {
     userAgent?: string;
     details?: string;
   }): Promise<AuditLog> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const logId = crypto.randomUUID();
+        const { data: log, error } = await sb
+          .from("audit_logs")
+          .insert({
+            id: logId,
+            action: data.action,
+            adminId: data.adminId || null,
+            ipAddress: data.ipAddress || null,
+            userAgent: data.userAgent || null,
+            details: data.details || null,
+            createdAt: new Date().toISOString(),
+          })
+          .select()
+          .single();
+        if (log && !error) {
+          return log as unknown as AuditLog;
+        }
+      } catch (err) {
+        console.warn("Supabase addAuditLog fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         return await prisma.auditLog.create({
@@ -713,6 +1016,22 @@ export const db = {
   },
 
   async getAuditLogs(limit: number = 50): Promise<AuditLog[]> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { data: logs, error } = await sb
+          .from("audit_logs")
+          .select("*")
+          .order("createdAt", { ascending: false })
+          .limit(limit);
+        if (logs && !error) {
+          return logs as unknown as AuditLog[];
+        }
+      } catch (err) {
+        console.warn("Supabase getAuditLogs fallback:", err);
+      }
+    }
+
     if (hasLiveDatabase && prisma) {
       try {
         return await prisma.auditLog.findMany({
