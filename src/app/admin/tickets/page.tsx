@@ -102,9 +102,19 @@ function TicketsManagerContent() {
   };
 
   const fetchAdmins = async () => {
-    setAdmins([
-      { id: "admin-super-01", name: "Super Admin", email: "admin@cogify.me", role: "SUPER_ADMIN" },
-    ]);
+    try {
+      const res = await fetch("/api/admin/team");
+      if (res.ok) {
+        const data = await res.json();
+        setAdmins(data.admins || []);
+      }
+    } catch (err) {
+      // Fallback default admin if regular admin endpoint restricts
+      setAdmins([
+        { id: "admin-super-01", name: "Shubham Sharma", email: "admin@cogify.me", role: "SUPER_ADMIN" },
+        { id: "admin-agent-02", name: "Aarav Patel", email: "support@cogify.me", role: "AGENT" },
+      ]);
+    }
   };
 
   useEffect(() => {

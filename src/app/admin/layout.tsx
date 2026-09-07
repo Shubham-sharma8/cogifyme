@@ -104,6 +104,11 @@ export default function AdminLayout({
       icon: <Inbox className="w-4 h-4" />,
     },
     {
+      label: "Team & Admins",
+      href: "/admin/team",
+      icon: <Users className="w-4 h-4" />,
+    },
+    {
       label: "Cybersecurity & Logs",
       href: "/admin/logs",
       icon: <ShieldCheck className="w-4 h-4" />,

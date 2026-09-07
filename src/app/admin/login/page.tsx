@@ -63,7 +63,7 @@ export default function AdminLoginPage() {
           Admin Portal Authentication
         </h2>
         <p className="mt-1 text-center text-xs text-zinc-500">
-          Environment-Locked Single Administrator Workstation
+          Sign in to access tickets, team management, and audit logs
         </p>
       </div>
 

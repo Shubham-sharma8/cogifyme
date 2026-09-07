@@ -11,7 +11,7 @@ export default function ResetPasswordPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       router.push("/admin/login");
-    }, 4000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, [router]);
 
@@ -29,8 +29,8 @@ export default function ResetPasswordPage() {
             Password Reset Disabled
           </h2>
           <p className="text-xs text-zinc-500 leading-relaxed">
-            Self-service web password resets have been permanently disabled for cybersecurity hardening.
-            Admin credentials are strictly controlled via <code className="text-indigo-400 font-mono">DEFAULT_ADMIN_PASSWORD</code> in your environment.
+            Web password reset is disabled for administrator security.
+            Redirecting to admin login...
           </p>
           <div className="pt-2">
             <Link
