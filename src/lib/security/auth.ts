@@ -63,28 +63,34 @@ export async function getAdminEnvCredentials(): Promise<{
   email: string;
   password?: string;
 }> {
-  let email = process.env.DEFAULT_ADMIN_EMAIL;
-  let password =
-    process.env.DEFAULT_ADMIN_PASSWORD ||
-    (process.env as any).DEFAULT_ADMIN_PASSWOR ||
-    process.env.ADMIN_PASSWORD;
+  const sources: Record<string, any>[] = [];
 
-  // 1. In Cloudflare Workers, check getCloudflareContext().env
+  // 1. Cloudflare Workers synchronous context
   try {
     const { getCloudflareContext } = await import("@opennextjs/cloudflare");
-    const ctx = await getCloudflareContext({ async: true });
+    const ctx = getCloudflareContext();
     if (ctx && ctx.env) {
-      const cfEnv = ctx.env as Record<string, any>;
-      if (cfEnv.DEFAULT_ADMIN_EMAIL) email = cfEnv.DEFAULT_ADMIN_EMAIL;
-      if (cfEnv.DEFAULT_ADMIN_PASSWORD) password = cfEnv.DEFAULT_ADMIN_PASSWORD;
-      if (cfEnv.DEFAULT_ADMIN_PASSWOR) password = password || cfEnv.DEFAULT_ADMIN_PASSWOR;
-      if (cfEnv.ADMIN_PASSWORD) password = password || cfEnv.ADMIN_PASSWORD;
+      sources.push(ctx.env);
     }
   } catch (_) {
-    // Non-Cloudflare environment
+    // Non-Cloudflare or outside request scope
   }
 
-  // 2. In Node runtime (e.g. local development), re-read .env from disk so edits take effect immediately
+  // 2. Global Cloudflare context symbol
+  try {
+    const sym = Symbol.for("__cloudflare-context__");
+    const symCtx = (globalThis as any)[sym];
+    if (symCtx && symCtx.env) {
+      sources.push(symCtx.env);
+    }
+  } catch (_) {}
+
+  // 3. Process environment (populated by OpenNext init and Next.js)
+  if (typeof process !== "undefined" && process.env) {
+    sources.push(process.env);
+  }
+
+  // 4. In Node runtime (e.g. local development), re-read .env from disk so edits take effect immediately
   if (typeof process !== "undefined" && process.release?.name === "node") {
     try {
       const fs = await import("fs");
@@ -92,23 +98,85 @@ export async function getAdminEnvCredentials(): Promise<{
       const envPath = path.resolve(process.cwd(), ".env");
       if (fs.existsSync(envPath)) {
         const content = fs.readFileSync(envPath, "utf-8");
-        const emailMatch = content.match(/^DEFAULT_ADMIN_EMAIL\s*=\s*["']?([^"'\r\n]+)["']?/m);
-        if (emailMatch && emailMatch[1]) {
-          email = emailMatch[1].trim();
+        const diskEnv: Record<string, string> = {};
+        for (const line of content.split("\n")) {
+          const match = line.match(/^\s*([A-Za-z0-9_]+)\s*=\s*(.*)$/);
+          if (match) {
+            let val = match[2].trim();
+            if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+              val = val.slice(1, -1);
+            }
+            diskEnv[match[1]] = val;
+          }
         }
-        const passMatch = content.match(/^DEFAULT_ADMIN_PASSWORD\s*=\s*["']?([^"'\r\n]+)["']?/m);
-        if (passMatch && passMatch[1]) {
-          password = passMatch[1].trim();
-        }
+        sources.unshift(diskEnv);
       }
     } catch (_) {
       // Ignored
     }
   }
 
+  // Resolve Email
+  let resolvedEmail: string | undefined;
+  const emailKeys = [
+    "DEFAULT_ADMIN_EMAIL",
+    "ADMIN_EMAIL",
+    "ADMIN_ALERT_EMAIL",
+  ];
+  for (const src of sources) {
+    for (const key of emailKeys) {
+      if (src[key] && typeof src[key] === "string" && src[key].trim()) {
+        resolvedEmail = src[key].trim();
+        break;
+      }
+    }
+    if (resolvedEmail) break;
+  }
+
+  // Resolve Password
+  let resolvedPassword: string | undefined;
+  const passwordKeys = [
+    "DEFAULT_ADMIN_PASSWORD",
+    "DEFAULT_ADMIN_PASSWOR", // Tolerance for typo in Cloudflare dashboard
+    "DEFAULT_ADMIN_PASS",
+    "ADMIN_PASSWORD",
+    "ADMIN_PASS",
+  ];
+  for (const src of sources) {
+    for (const key of passwordKeys) {
+      if (src[key] && typeof src[key] === "string" && src[key].trim()) {
+        let val = src[key].trim();
+        if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+          val = val.slice(1, -1).trim();
+        }
+        resolvedPassword = val;
+        break;
+      }
+    }
+    if (resolvedPassword) break;
+  }
+
+  // Fallback: check any key matching ADMIN and PASS (case-insensitive) across all sources
+  if (!resolvedPassword) {
+    for (const src of sources) {
+      for (const [k, v] of Object.entries(src)) {
+        const upper = k.toUpperCase();
+        if (upper.includes("ADMIN") && upper.includes("PASS") && typeof v === "string" && v.trim()) {
+          let val = v.trim();
+          if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+            val = val.slice(1, -1).trim();
+          }
+          resolvedPassword = val;
+          break;
+        }
+      }
+      if (resolvedPassword) break;
+    }
+  }
+
   return {
-    email: (email || "admin@cogify.me").toLowerCase().trim(),
-    password: password ? password.trim() : undefined,
+    email: (resolvedEmail || "admin@cogify.me").toLowerCase().trim(),
+    password: resolvedPassword || undefined,
   };
 }
 
@@ -124,8 +192,11 @@ export async function verifyPassword(
   const { password: envAdminPassword } = await getAdminEnvCredentials();
 
   // Primary verification: Check against environment configured DEFAULT_ADMIN_PASSWORD
-  if (envAdminPassword && password === envAdminPassword) {
-    return true;
+  if (envAdminPassword) {
+    const cleanEnv = envAdminPassword.replace(/^["']|["']$/g, "").trim();
+    if (password === envAdminPassword || password === cleanEnv || password.trim() === cleanEnv) {
+      return true;
+    }
   }
 
   const parts = storedHash.split(":");

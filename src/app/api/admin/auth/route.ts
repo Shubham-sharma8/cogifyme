@@ -90,13 +90,14 @@ export async function POST(req: NextRequest) {
 
       const { email: envAdminEmail, password: envAdminPassword } = await getAdminEnvCredentials();
       const inputEmail = email.toLowerCase().trim();
+      const cleanEnvPass = envAdminPassword ? envAdminPassword.replace(/^["']|["']$/g, "").trim() : undefined;
 
       // Direct Master Authentication: If input matches DEFAULT_ADMIN_EMAIL & DEFAULT_ADMIN_PASSWORD
       const isMasterEnvAuth =
         Boolean(envAdminPassword) &&
         Boolean(envAdminEmail) &&
         inputEmail === envAdminEmail &&
-        password === envAdminPassword;
+        (password === envAdminPassword || (cleanEnvPass && (password === cleanEnvPass || password.trim() === cleanEnvPass)));
 
       let admin = await db.getAdminByEmail(inputEmail);
 
@@ -161,7 +162,7 @@ export async function POST(req: NextRequest) {
             adminId: admin.id,
             ipAddress: clientIp,
             userAgent,
-            details: `Failed password verification for: ${email}`,
+            details: `Failed password verification for: ${email} [diag: envPassFound=${Boolean(envAdminPassword)}, envPassLen=${cleanEnvPass?.length || 0}, inputPassLen=${password.length}]`,
           });
           return NextResponse.json(
             { success: false, error: "Invalid email or password." },
