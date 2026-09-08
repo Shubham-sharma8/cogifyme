@@ -49,7 +49,7 @@ const initialAdmins: Admin[] = [
   {
     id: "admin-super-01",
     email: process.env.DEFAULT_ADMIN_EMAIL || "admin@cogify.me",
-    // Precomputed SHA-256 hash of "CogifyAdmin2026!" with salt
+    // Initial administrator password hash
     passwordHash:
       "pbkdf2:10000:7c3f81e7d23a105c:5430ea453b3bdfbe6c641d42a9b4009cf0b39678e0f63e9c52ce9349884a441e",
     name: "Shubham Sharma",

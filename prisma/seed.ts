@@ -7,7 +7,7 @@ async function main() {
 
   // 1. Seed Super Admin: Shubham Sharma
   const defaultPasswordHash =
-    "pbkdf2:10000:7c3f81e7d23a105c:5430ea453b3bdfbe6c641d42a9b4009cf0b39678e0f63e9c52ce9349884a441e"; // CogifyAdmin2026!
+    "pbkdf2:10000:7c3f81e7d23a105c:5430ea453b3bdfbe6c641d42a9b4009cf0b39678e0f63e9c52ce9349884a441e";
 
   const superAdmin = await prisma.admin.upsert({
     where: { email: "admin@cogify.me" },

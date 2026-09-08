@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import {
   hashPassword,
   verifyPassword,
+  getAdminEnvCredentials,
   createAdminToken,
   verifyAdminToken,
   ADMIN_COOKIE_NAME,
@@ -87,24 +88,16 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      const envAdminEmail = (process.env.DEFAULT_ADMIN_EMAIL || process.env.ADMIN_EMAIL || "admin@cogify.me").toLowerCase().trim();
-      const envAdminPassword =
-        process.env.DEFAULT_ADMIN_PASSWORD ||
-        (process.env as any).DEFAULT_ADMIN_PASSWOR ||
-        process.env.ADMIN_PASSWORD ||
-        process.env.DEFAULT_PASSWORD ||
-        process.env.ADMIN_PASS ||
-        "CogifyAdmin2026!";
+      const { email: envAdminEmail, password: envAdminPassword } = await getAdminEnvCredentials();
 
       let admin = await db.getAdminByEmail(email);
 
-      // If not found by direct email, match if input matches envAdminEmail, admin@cogify.me, or any cogify domain address
+      // If not found by direct email, match if input matches envAdminEmail or admin@cogify.me
       if (!admin) {
         const allAdmins = await db.getAllAdmins();
         if (
           email.toLowerCase() === envAdminEmail ||
           email.toLowerCase() === "admin@cogify.me" ||
-          email.toLowerCase().includes("cogify.me") ||
           allAdmins.length === 1
         ) {
           admin = allAdmins.find((a) => a.role === "SUPER_ADMIN") || allAdmins[0] || null;
@@ -112,7 +105,7 @@ export async function POST(req: NextRequest) {
       }
 
       // Auto-provision super admin if empty or matching env
-      if (!admin && (email.toLowerCase() === envAdminEmail || email.toLowerCase() === "admin@cogify.me")) {
+      if (!admin && (email.toLowerCase() === envAdminEmail || email.toLowerCase() === "admin@cogify.me") && envAdminPassword) {
         const passwordHash = await hashPassword(envAdminPassword);
         admin = await db.createAdmin({
           email: email.toLowerCase(),

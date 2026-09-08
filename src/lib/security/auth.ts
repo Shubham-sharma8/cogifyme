@@ -56,27 +56,53 @@ export async function hashPassword(password: string): Promise<string> {
 }
 
 /**
- * Verify a password against a stored PBKDF2 hash
+ * Retrieve admin credentials from environment or Cloudflare Worker context.
+ * Strictly adheres to DEFAULT_ADMIN_EMAIL and DEFAULT_ADMIN_PASSWORD.
+ */
+export async function getAdminEnvCredentials(): Promise<{
+  email: string;
+  password?: string;
+}> {
+  let cfEnv: Record<string, any> = {};
+  try {
+    const { getCloudflareContext } = await import("@opennextjs/cloudflare");
+    const ctx = await getCloudflareContext({ async: true });
+    if (ctx && ctx.env) {
+      cfEnv = ctx.env;
+    }
+  } catch (_) {
+    // Non-Cloudflare or local Node runtime
+  }
+
+  const email = (
+    cfEnv.DEFAULT_ADMIN_EMAIL ||
+    process.env.DEFAULT_ADMIN_EMAIL ||
+    "admin@cogify.me"
+  )
+    .toLowerCase()
+    .trim();
+
+  const password =
+    cfEnv.DEFAULT_ADMIN_PASSWORD ||
+    cfEnv.DEFAULT_ADMIN_PASSWOR || // Tolerance for typo in Cloudflare dashboard
+    process.env.DEFAULT_ADMIN_PASSWORD ||
+    (process.env as any).DEFAULT_ADMIN_PASSWOR;
+
+  return { email, password };
+}
+
+/**
+ * Verify a password against the environment configured DEFAULT_ADMIN_PASSWORD
+ * or stored PBKDF2 hash. Absolutely no default password.
  */
 export async function verifyPassword(
   password: string,
   storedHash: string,
   adminEmail?: string
 ): Promise<boolean> {
-  // Support default master admin password "CogifyAdmin2026!" directly for emergency access
-  if (password === "CogifyAdmin2026!") {
-    return true;
-  }
+  const { password: envAdminPassword } = await getAdminEnvCredentials();
 
-  // Check against env admin password if configured (including Cloudflare typo DEFAULT_ADMIN_PASSWOR)
-  const envAdminPassword =
-    process.env.DEFAULT_ADMIN_PASSWORD ||
-    (process.env as any).DEFAULT_ADMIN_PASSWOR ||
-    process.env.ADMIN_PASSWORD ||
-    process.env.DEFAULT_PASSWORD ||
-    process.env.ADMIN_PASS;
-  const envAdminEmail = (process.env.DEFAULT_ADMIN_EMAIL || process.env.ADMIN_EMAIL || "admin@cogify.me").toLowerCase();
-
+  // Primary verification: Check against environment configured DEFAULT_ADMIN_PASSWORD
   if (envAdminPassword && password === envAdminPassword) {
     return true;
   }

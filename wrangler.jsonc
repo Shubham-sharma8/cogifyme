@@ -21,7 +21,6 @@
     "NEXT_PUBLIC_SUPABASE_URL": "https://merkxjpkurljfkdwnypx.supabase.co",
     "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1lcmt4anBrdXJsamZrZHdueXB4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg0NTI0ODIsImV4cCI6MjEwNDAyODQ4Mn0.aLoBF5SAZz3qnRDg0EUSj11N9TgtoLRQ-fSrWBVAeJc",
     "DEFAULT_ADMIN_EMAIL": "admin@cogify.me",
-    "DEFAULT_ADMIN_PASSWORD": "CogifyAdmin2026!",
     "ADMIN_ALERT_EMAIL": "admin@cogify.me",
     "ADMIN_JWT_SECRET": "48740107-E460-4CA4-83AF-6CDCBE275E75",
     "SENDER_EMAIL": "Cogify Support <support@cogify.me>"
