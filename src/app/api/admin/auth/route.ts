@@ -89,76 +89,96 @@ export async function POST(req: NextRequest) {
       }
 
       const { email: envAdminEmail, password: envAdminPassword } = await getAdminEnvCredentials();
+      const inputEmail = email.toLowerCase().trim();
 
-      let admin = await db.getAdminByEmail(email);
+      // Direct Master Authentication: If input matches DEFAULT_ADMIN_EMAIL & DEFAULT_ADMIN_PASSWORD
+      const isMasterEnvAuth =
+        Boolean(envAdminPassword) &&
+        Boolean(envAdminEmail) &&
+        inputEmail === envAdminEmail &&
+        password === envAdminPassword;
 
-      // If not found by direct email, match if input matches envAdminEmail or admin@cogify.me
-      if (!admin) {
-        const allAdmins = await db.getAllAdmins();
-        if (
-          email.toLowerCase() === envAdminEmail ||
-          email.toLowerCase() === "admin@cogify.me" ||
-          allAdmins.length === 1
-        ) {
+      let admin = await db.getAdminByEmail(inputEmail);
+
+      if (isMasterEnvAuth) {
+        // Master credentials matched!
+        // Find existing super admin in DB, or matching email, or create one
+        if (!admin) {
+          const allAdmins = await db.getAllAdmins();
           admin = allAdmins.find((a) => a.role === "SUPER_ADMIN") || allAdmins[0] || null;
         }
-      }
 
-      // Auto-provision super admin if empty or matching env
-      if (!admin && (email.toLowerCase() === envAdminEmail || email.toLowerCase() === "admin@cogify.me") && envAdminPassword) {
-        const passwordHash = await hashPassword(envAdminPassword);
-        admin = await db.createAdmin({
-          email: email.toLowerCase(),
-          passwordHash,
-          name: "Super Admin",
-          role: "SUPER_ADMIN",
-        });
-      }
-
-      if (!admin) {
-        await db.addAuditLog({
-          action: "ADMIN_LOGIN_FAILED",
-          ipAddress: clientIp,
-          userAgent,
-          details: `Login attempt failed: Email not found (${email})`,
-        });
-        return NextResponse.json(
-          { success: false, error: "Invalid email or credentials." },
-          { status: 401 }
-        );
-      }
-
-      if (admin.status !== "ACTIVE") {
-        return NextResponse.json(
-          { success: false, error: "This admin account is suspended." },
-          { status: 403 }
-        );
-      }
-
-      const isValid = await verifyPassword(password, admin.passwordHash, admin.email);
-      if (!isValid) {
-        await db.addAuditLog({
-          action: "ADMIN_LOGIN_FAILED",
-          adminId: admin.id,
-          ipAddress: clientIp,
-          userAgent,
-          details: `Failed password verification for: ${email}`,
-        });
-        return NextResponse.json(
-          { success: false, error: "Invalid email or password." },
-          { status: 401 }
-        );
-      }
-
-      // Sync verified password hash into database so DB stays updated with the active password
-      try {
         const newHash = await hashPassword(password);
-        if (admin.passwordHash !== newHash) {
-          await db.updateAdminPassword(admin.id, newHash);
-          admin.passwordHash = newHash;
+        if (!admin) {
+          admin = await db.createAdmin({
+            email: inputEmail,
+            passwordHash: newHash,
+            name: "Super Admin",
+            role: "SUPER_ADMIN",
+          });
+        } else {
+          // Synchronize database Super Admin record with current active environment credentials
+          if (admin.email.toLowerCase() !== inputEmail) {
+            await db.updateAdminEmail(admin.id, inputEmail);
+            admin.email = inputEmail;
+          }
+          if (admin.passwordHash !== newHash) {
+            await db.updateAdminPassword(admin.id, newHash);
+            admin.passwordHash = newHash;
+          }
         }
-      } catch (syncErr) {
-        console.warn("Could not sync updated password to DB:", syncErr);
+      } else {
+        // Standard authentication: check database for admin and verify password
+        if (!admin && inputEmail === envAdminEmail) {
+          const allAdmins = await db.getAllAdmins();
+          admin = allAdmins.find((a) => a.role === "SUPER_ADMIN") || null;
+        }
+
+        if (!admin) {
+          await db.addAuditLog({
+            action: "ADMIN_LOGIN_FAILED",
+            ipAddress: clientIp,
+            userAgent,
+            details: `Login attempt failed: Email not found (${email})`,
+          });
+          return NextResponse.json(
+            { success: false, error: "Invalid email or credentials." },
+            { status: 401 }
+          );
+        }
+
+        if (admin.status !== "ACTIVE") {
+          return NextResponse.json(
+            { success: false, error: "This admin account is suspended." },
+            { status: 403 }
+          );
+        }
+
+        const isValid = await verifyPassword(password, admin.passwordHash, admin.email);
+        if (!isValid) {
+          await db.addAuditLog({
+            action: "ADMIN_LOGIN_FAILED",
+            adminId: admin.id,
+            ipAddress: clientIp,
+            userAgent,
+            details: `Failed password verification for: ${email}`,
+          });
+          return NextResponse.json(
+            { success: false, error: "Invalid email or password." },
+            { status: 401 }
+          );
+        }
+
+        // If password matched, sync updated hash
+        try {
+          const newHash = await hashPassword(password);
+          if (admin.passwordHash !== newHash) {
+            await db.updateAdminPassword(admin.id, newHash);
+            admin.passwordHash = newHash;
+          }
+        } catch (syncErr) {
+          console.warn("Could not sync updated password to DB:", syncErr);
+        }
       }
 
       // Record successful login

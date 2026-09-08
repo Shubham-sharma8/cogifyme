@@ -63,32 +63,53 @@ export async function getAdminEnvCredentials(): Promise<{
   email: string;
   password?: string;
 }> {
-  let cfEnv: Record<string, any> = {};
+  let email = process.env.DEFAULT_ADMIN_EMAIL;
+  let password =
+    process.env.DEFAULT_ADMIN_PASSWORD ||
+    (process.env as any).DEFAULT_ADMIN_PASSWOR ||
+    process.env.ADMIN_PASSWORD;
+
+  // 1. In Cloudflare Workers, check getCloudflareContext().env
   try {
     const { getCloudflareContext } = await import("@opennextjs/cloudflare");
     const ctx = await getCloudflareContext({ async: true });
     if (ctx && ctx.env) {
-      cfEnv = ctx.env;
+      const cfEnv = ctx.env as Record<string, any>;
+      if (cfEnv.DEFAULT_ADMIN_EMAIL) email = cfEnv.DEFAULT_ADMIN_EMAIL;
+      if (cfEnv.DEFAULT_ADMIN_PASSWORD) password = cfEnv.DEFAULT_ADMIN_PASSWORD;
+      if (cfEnv.DEFAULT_ADMIN_PASSWOR) password = password || cfEnv.DEFAULT_ADMIN_PASSWOR;
+      if (cfEnv.ADMIN_PASSWORD) password = password || cfEnv.ADMIN_PASSWORD;
     }
   } catch (_) {
-    // Non-Cloudflare or local Node runtime
+    // Non-Cloudflare environment
   }
 
-  const email = (
-    cfEnv.DEFAULT_ADMIN_EMAIL ||
-    process.env.DEFAULT_ADMIN_EMAIL ||
-    "admin@cogify.me"
-  )
-    .toLowerCase()
-    .trim();
+  // 2. In Node runtime (e.g. local development), re-read .env from disk so edits take effect immediately
+  if (typeof process !== "undefined" && process.release?.name === "node") {
+    try {
+      const fs = await import("fs");
+      const path = await import("path");
+      const envPath = path.resolve(process.cwd(), ".env");
+      if (fs.existsSync(envPath)) {
+        const content = fs.readFileSync(envPath, "utf-8");
+        const emailMatch = content.match(/^DEFAULT_ADMIN_EMAIL\s*=\s*["']?([^"'\r\n]+)["']?/m);
+        if (emailMatch && emailMatch[1]) {
+          email = emailMatch[1].trim();
+        }
+        const passMatch = content.match(/^DEFAULT_ADMIN_PASSWORD\s*=\s*["']?([^"'\r\n]+)["']?/m);
+        if (passMatch && passMatch[1]) {
+          password = passMatch[1].trim();
+        }
+      }
+    } catch (_) {
+      // Ignored
+    }
+  }
 
-  const password =
-    cfEnv.DEFAULT_ADMIN_PASSWORD ||
-    cfEnv.DEFAULT_ADMIN_PASSWOR || // Tolerance for typo in Cloudflare dashboard
-    process.env.DEFAULT_ADMIN_PASSWORD ||
-    (process.env as any).DEFAULT_ADMIN_PASSWOR;
-
-  return { email, password };
+  return {
+    email: (email || "admin@cogify.me").toLowerCase().trim(),
+    password: password ? password.trim() : undefined,
+  };
 }
 
 /**

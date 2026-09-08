@@ -459,6 +459,44 @@ export const db = {
     return null;
   },
 
+  async updateAdminEmail(id: string, email: string): Promise<boolean> {
+    const cleanEmail = email.toLowerCase().trim();
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { error } = await sb
+          .from("admins")
+          .update({
+            email: cleanEmail,
+            updatedAt: new Date().toISOString(),
+          })
+          .eq("id", id);
+        if (!error) return true;
+      } catch (err) {
+        console.warn("Supabase updateAdminEmail fallback:", err);
+      }
+    }
+
+    if (hasLiveDatabase && prisma) {
+      try {
+        await prisma.admin.update({
+          where: { id },
+          data: { email: cleanEmail },
+        });
+        return true;
+      } catch (err) {
+        console.warn("Prisma updateAdminEmail fallback:", err);
+      }
+    }
+    const admin = memoryStore.admins.find((a) => a.id === id);
+    if (admin) {
+      admin.email = cleanEmail;
+      admin.updatedAt = new Date();
+      return true;
+    }
+    return false;
+  },
+
   async updateAdminPassword(id: string, passwordHash: string): Promise<boolean> {
     const sb = getSupabaseAdmin();
     if (sb) {
