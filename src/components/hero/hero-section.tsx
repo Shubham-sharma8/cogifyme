@@ -33,15 +33,18 @@ export const HeroSection = () => {
         </div>
 
         {/* Release Announcement Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200/80 dark:border-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-xs font-medium mb-6 hover:bg-indigo-100/70 dark:hover:bg-indigo-500/15 transition-colors shadow-xs">
+        <Link
+          href="/products/emdoc"
+          className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200/80 dark:border-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-xs font-medium mb-6 hover:bg-indigo-100/70 dark:hover:bg-indigo-500/15 transition-colors shadow-xs"
+        >
           <span className="flex h-2 w-2 rounded-full bg-indigo-500 animate-pulse" />
-          <span>EmDoc Workstation for macOS • Standalone & Air-Gapped</span>
+          <span>Featured Product: EmDoc Workstation for macOS (5.0 MB)</span>
           <ArrowRight className="w-3.5 h-3.5 text-indigo-500 dark:text-indigo-400" />
-        </div>
+        </Link>
 
         {/* Main Editorial Headline */}
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-white max-w-4xl leading-[1.08] mb-6">
-          Everyday software engineered with{" "}
+          Everyday software & solutions engineered with{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-600 dark:from-indigo-300 dark:via-indigo-100 dark:to-cyan-300">
             enterprise precision.
           </span>
@@ -49,11 +52,19 @@ export const HeroSection = () => {
 
         {/* Supporting Copy */}
         <p className="text-base sm:text-lg lg:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
-          Cogify creates high-performance, everyday apps across multiple devices that are completely free for individuals, mostly open source, and engineered to enterprise standards. Our first flagship product is EmDoc.
+          Cogify provides software solutions and high-performance everyday apps across desktop and mobile. We engineer lightweight, sovereign tools and partner with companies to eliminate expensive software licenses. EmDoc is our flagship product.
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-14">
+          <Link
+            href="#what-we-build"
+            className="w-full sm:w-auto px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/25"
+          >
+            <span>Explore Solutions</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+
           <MovingBorderButton
             onClick={() => setDownloadModalOpen(true)}
             borderRadius="0.85rem"
@@ -61,28 +72,20 @@ export const HeroSection = () => {
           >
             <span className="flex items-center gap-2">
               <Download className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-              <span>Download EmDoc (Only 5.0 MB)</span>
+              <span>Download EmDoc (Product · 5.0 MB)</span>
             </span>
           </MovingBorderButton>
-
-          <Link
-            href="#what-we-build"
-            className="w-full sm:w-auto px-6 py-3.5 rounded-xl text-sm font-semibold text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white bg-white hover:bg-zinc-100 dark:bg-zinc-900/60 dark:hover:bg-zinc-800/60 border border-zinc-200/90 dark:border-white/10 transition-all duration-200 flex items-center justify-center gap-2 shadow-xs"
-          >
-            <span>Explore Products</span>
-            <ChevronDown className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
-          </Link>
         </div>
 
         {/* Engineering Tenets Ticker */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto w-full text-left text-xs">
           <div className="p-3 rounded-xl bg-white/90 dark:bg-zinc-950/40 border border-zinc-200/80 dark:border-white/5 backdrop-blur-sm shadow-xs">
-            <span className="text-zinc-500 block text-[10px] uppercase font-mono">App Footprint</span>
-            <span className="text-zinc-900 dark:text-zinc-200 font-semibold text-sm text-indigo-600 dark:text-indigo-400">Only 5.0 MB</span>
+            <span className="text-zinc-500 block text-[10px] uppercase font-mono">Solutions</span>
+            <span className="text-zinc-900 dark:text-zinc-200 font-semibold text-sm text-indigo-600 dark:text-indigo-400">License Replacement</span>
           </div>
           <div className="p-3 rounded-xl bg-white/90 dark:bg-zinc-950/40 border border-zinc-200/80 dark:border-white/5 backdrop-blur-sm shadow-xs">
             <span className="text-zinc-500 block text-[10px] uppercase font-mono">RAM Efficiency</span>
-            <span className="text-zinc-900 dark:text-zinc-200 font-semibold text-sm text-emerald-600 dark:text-emerald-400">~45 MB Baseline</span>
+            <span className="text-zinc-900 dark:text-zinc-200 font-semibold text-sm text-emerald-600 dark:text-emerald-400">Low Footprint</span>
           </div>
           <div className="p-3 rounded-xl bg-white/90 dark:bg-zinc-950/40 border border-zinc-200/80 dark:border-white/5 backdrop-blur-sm shadow-xs">
             <span className="text-zinc-500 block text-[10px] uppercase font-mono">Zero Paywalls</span>
@@ -90,7 +93,7 @@ export const HeroSection = () => {
           </div>
           <div className="p-3 rounded-xl bg-white/90 dark:bg-zinc-950/40 border border-zinc-200/80 dark:border-white/5 backdrop-blur-sm shadow-xs">
             <span className="text-zinc-500 block text-[10px] uppercase font-mono">Multi-Platform</span>
-            <span className="text-zinc-900 dark:text-zinc-200 font-semibold text-sm">iOS In Development</span>
+            <span className="text-zinc-900 dark:text-zinc-200 font-semibold text-sm">Desktop & Mobile</span>
           </div>
         </div>
       </div>

@@ -54,7 +54,7 @@ export function JsonLdSchemas() {
     url: "https://cogify.me",
     logo: "https://cogify.me/brand/logo.png",
     description:
-      "Cogify engineers lightweight, high-performance everyday apps for desktop and mobile, and delivers enterprise sovereign software to eliminate recurring license fees.",
+      "Cogify engineers sovereign, high-efficiency software solutions and lightweight everyday apps for desktop and mobile. We eliminate expensive enterprise licenses with fast, audited tools. EmDoc is our flagship product.",
     founder: {
       "@type": "Person",
       name: "Shubham Sharma",
@@ -65,6 +65,15 @@ export function JsonLdSchemas() {
       contactType: "customer service",
       availableLanguage: ["English", "Hindi"],
     },
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Cogify",
+    url: "https://cogify.me",
+    description:
+      "We provide software solutions. Everyday apps engineered with enterprise precision. Creators of EmDoc.",
   };
 
   const faqSchema = {
@@ -110,11 +119,15 @@ export function JsonLdSchemas() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
       />
       <script
         type="application/ld+json"

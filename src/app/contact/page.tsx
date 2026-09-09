@@ -9,6 +9,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     company: "",
     inquiryType: "General Software Inquiry",
     message: "",
@@ -54,6 +55,7 @@ export default function ContactPage() {
           description: formData.message,
           senderName: formData.name,
           senderEmail: formData.email,
+          phone: formData.phone || undefined,
           company: formData.company || undefined,
           turnstileToken,
           _hp_company: honeypot,
@@ -146,10 +148,12 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/10 space-y-3 text-xs text-zinc-600 dark:text-zinc-400 shadow-xs dark:shadow-none">
-              <h4 className="font-semibold text-zinc-900 dark:text-white">Guaranteed Response</h4>
+            <div className="p-6 rounded-2xl bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-200 dark:border-indigo-500/20 space-y-3 text-xs text-zinc-600 dark:text-zinc-400 shadow-xs dark:shadow-none">
+              <h4 className="font-semibold text-zinc-900 dark:text-white flex items-center gap-1.5">
+                <span>⏱️ 24-Hour Response SLA</span>
+              </h4>
               <p className="leading-relaxed">
-                Messages submitted through this portal are delivered directly to the Cogify engineering team. We review all inquiries promptly.
+                Messages submitted through this portal are delivered directly to founder Shubham Sharma and our engineering team. You will receive an immediate confirmation email with your ticket reference number, and we commit to a response within 24 hours.
               </p>
             </div>
           </div>
@@ -160,15 +164,15 @@ export default function ContactPage() {
               {status === "success" ? (
                 <div className="p-8 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-900 dark:text-emerald-300 space-y-4 text-center">
                   <CheckCircle2 className="w-12 h-12 text-emerald-600 dark:text-emerald-400 mx-auto" />
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">Message Received</h3>
+                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">Ticket Created Successfully</h3>
                   {referenceCode && (
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-900 dark:text-emerald-200 font-mono text-xs">
-                      <span>Ticket Reference:</span>
-                      <span className="font-bold">{referenceCode}</span>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-900 dark:text-emerald-200 font-mono text-xs">
+                      <span>Ticket Number:</span>
+                      <span className="font-bold">#{referenceCode}</span>
                     </div>
                   )}
                   <p className="text-xs text-emerald-800 dark:text-emerald-200/90 max-w-md mx-auto leading-relaxed">
-                    Thank you, {formData.name}. Your inquiry has been logged. A member of our technical team will respond to {formData.email} shortly.
+                    Thank you, {formData.name}. A confirmation email with your ticket number has been dispatched to <strong>{formData.email}</strong>. Our engineering team commits to responding within <strong>24 hours</strong>.
                   </p>
                   <button
                     onClick={() => {
@@ -176,6 +180,7 @@ export default function ContactPage() {
                       setFormData({
                         name: "",
                         email: "",
+                        phone: "",
                         company: "",
                         inquiryType: "General Software Inquiry",
                         message: "",
@@ -226,10 +231,23 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
-                        Company or Team (Optional)
+                        Mobile Number (Optional)
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+1 (555) 000-0000"
+                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+                        Company / Team (Optional)
                       </label>
                       <input
                         type="text"

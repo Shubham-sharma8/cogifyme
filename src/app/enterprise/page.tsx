@@ -32,6 +32,7 @@ export default function EnterprisePage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     company: "",
     currentSoftware: "",
     interest: "Replace Expensive PDF Licenses (e.g. Acrobat / PDF Expert)",
@@ -54,6 +55,7 @@ export default function EnterprisePage() {
           description: `Current Software: ${formData.currentSoftware || "N/A"}\nInterest: ${formData.interest}\n\n${formData.message}`,
           senderName: formData.name,
           senderEmail: formData.email,
+          phone: formData.phone || undefined,
           company: formData.company,
           priority: "HIGH",
           turnstileToken,
@@ -291,7 +293,7 @@ export default function EnterprisePage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
                     Organization / Company *
@@ -307,13 +309,25 @@ export default function EnterprisePage() {
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
-                    What software do you currently spend license money on?
+                    Direct Phone / Mobile (Optional)
+                  </label>
+                  <input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="+1 (555) 000-0000"
+                    className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+                    Current Software In Use
                   </label>
                   <input
                     type="text"
                     value={formData.currentSoftware}
                     onChange={(e) => setFormData({ ...formData, currentSoftware: e.target.value })}
-                    placeholder="e.g. Adobe Acrobat, PDF Expert, Nitro"
+                    placeholder="e.g. Adobe Acrobat, PDF Expert"
                     className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
                   />
                 </div>

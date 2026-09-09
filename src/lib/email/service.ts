@@ -10,6 +10,7 @@ interface SendEmailParams {
   html: string;
   text?: string;
   replyTo?: string;
+  from?: string;
 }
 
 export interface EmailDispatchResult {
@@ -48,9 +49,10 @@ export async function sendEmail({
   html,
   text,
   replyTo,
+  from,
 }: SendEmailParams): Promise<EmailDispatchResult> {
   const apiKey = getResendApiKey();
-  const sender = getSenderEmail();
+  const sender = from || getSenderEmail();
 
   // If Resend API Key is configured, send live transactional email
   if (apiKey) {
@@ -88,19 +90,14 @@ export async function sendEmail({
   // Graceful simulated dispatch for development / unconfigured environments
   console.log("--------------------------------------------------");
   console.log(`[EMAIL DISPATCH SIMULATED] To: ${to}`);
+  console.log(`From: ${sender}`);
   console.log(`Subject: ${subject}`);
-  console.log(`Body preview: ${text ? text.slice(0, 160) : html.replace(/<[^>]+>/g, " ").slice(0, 160)}...`);
   console.log("--------------------------------------------------");
-
-  return {
-    success: true,
-    messageId: `sim-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`,
-    simulated: true,
-  };
+  return { success: true, simulated: true };
 }
 
 /**
- * 1. Customer Confirmation Email Template
+ * 1. Customer Confirmation Email Template with 24-Hour Response SLA
  */
 export async function sendTicketConfirmationEmail(ticket: {
   referenceCode: string;
@@ -125,13 +122,16 @@ export async function sendTicketConfirmationEmail(ticket: {
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Inquiry Received: ${ticket.referenceCode}</title>
+  <title>Ticket #${ticket.referenceCode} Received</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0c0e14; color: #f4f4f5; margin: 0; padding: 40px 20px; }
     .container { max-width: 600px; margin: 0 auto; background: #18181b; border: 1px solid #27272a; border-radius: 16px; padding: 32px; }
     .brand { font-size: 14px; font-weight: 700; letter-spacing: 2px; color: #818cf8; text-transform: uppercase; margin-bottom: 20px; }
-    h1 { font-size: 20px; margin-top: 0; color: #ffffff; }
-    .badge { display: inline-block; padding: 4px 10px; background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); color: #a5b4fc; border-radius: 8px; font-family: monospace; font-size: 13px; font-weight: bold; margin-bottom: 16px; }
+    h1 { font-size: 22px; margin-top: 0; color: #ffffff; }
+    .ticket-badge { display: inline-flex; align-items: center; padding: 6px 14px; background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.4); color: #c7d2fe; border-radius: 8px; font-family: monospace; font-size: 15px; font-weight: bold; margin-bottom: 20px; }
+    .sla-banner { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.05)); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 16px 20px; margin: 20px 0; }
+    .sla-title { font-size: 14px; font-weight: 700; color: #34d399; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+    .sla-desc { font-size: 13px; color: #a7f3d0; line-height: 1.5; margin: 0; }
     .card { background: #09090b; border: 1px solid #27272a; border-radius: 12px; padding: 18px; margin: 20px 0; }
     .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #a1a1aa; margin-bottom: 4px; }
     .value { font-size: 14px; color: #e4e4e7; margin-bottom: 12px; }
@@ -141,14 +141,27 @@ export async function sendTicketConfirmationEmail(ticket: {
 <body>
   <div class="container">
     <div class="brand">COGIFY TECHNOLOGIES</div>
-    <div class="badge">Reference: ${ticket.referenceCode}</div>
-    <h1>We've received your ${humanCategory}</h1>
-    <p style="color: #a1a1aa; font-size: 14px; line-height: 1.6;">
+    <div class="ticket-badge">Ticket Number: #${ticket.referenceCode}</div>
+    <h1>We've received your request</h1>
+    
+    <p style="color: #d4d4d8; font-size: 14px; line-height: 1.6;">
       Hi ${ticket.senderName},<br><br>
-      Thank you for contacting Cogify regarding <strong>${ticket.targetApp}</strong>. Your ticket has been logged into our secure engineering workstation.
+      Thank you for reaching out to Cogify regarding <strong>${ticket.targetApp}</strong>. Your ticket has been logged into our engineering support queue.
     </p>
 
+    <!-- 24-Hour SLA Commitment Banner -->
+    <div class="sla-banner">
+      <div class="sla-title">⏱️ 24-Hour Response Commitment</div>
+      <p class="sla-desc">
+        Our core engineering and support team reviews every inquiry and will respond to your ticket within <strong>24 hours</strong>.
+      </p>
+    </div>
+
     <div class="card">
+      <div class="label">Ticket Reference</div>
+      <div class="value" style="font-family: monospace; font-weight: bold; color: #a5b4fc;">#${ticket.referenceCode}</div>
+      <div class="label">Category</div>
+      <div class="value">${humanCategory}</div>
       <div class="label">Subject</div>
       <div class="value" style="font-weight: 600; color: #ffffff;">${ticket.title}</div>
       <div class="label">Your Message</div>
@@ -156,13 +169,12 @@ export async function sendTicketConfirmationEmail(ticket: {
     </div>
 
     <p style="color: #a1a1aa; font-size: 13px; line-height: 1.6;">
-      <strong>What happens next?</strong><br>
-      Our core engineering team reviews incoming requests daily. If this is a software audit or enterprise license replacement pilot, a senior engineer will follow up directly.
+      If you have additional details, diagnostic logs, or screenshots to share, you can simply reply directly to this email with your ticket number in the subject line.
     </p>
 
     <div class="footer">
       Cogify Technologies • Everyday Software Engineered with Enterprise Precision<br>
-      Official Portal: <a href="https://cogify.me" style="color: #818cf8; text-decoration: none;">cogify.me</a>
+      Support Portal: <a href="https://cogify.me" style="color: #818cf8; text-decoration: none;">cogify.me</a>
     </div>
   </div>
 </body>
@@ -171,7 +183,7 @@ export async function sendTicketConfirmationEmail(ticket: {
 
   return sendEmail({
     to: ticket.senderEmail,
-    subject: `[${ticket.referenceCode}] Inquiry Received: ${ticket.title}`,
+    subject: `[Ticket #${ticket.referenceCode}] Request Received — We'll Respond Within 24 Hours`,
     html,
   });
 }
@@ -200,7 +212,7 @@ export async function sendAdminAlertEmail(ticket: {
 </head>
 <body style="font-family: -apple-system, sans-serif; background-color: #f4f4f5; padding: 20px;">
   <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; padding: 24px; border: 1px solid #e4e4e7;">
-    <h2 style="margin-top: 0; color: #18181b;">🚨 New ${ticket.category} Logged: ${ticket.referenceCode}</h2>
+    <h2 style="margin-top: 0; color: #18181b;">🚨 New ${ticket.category} Logged: #${ticket.referenceCode}</h2>
     <p style="font-size: 14px; color: #3f3f46;">
       <strong>From:</strong> ${ticket.senderName} (${ticket.senderEmail})<br>
       ${ticket.company ? `<strong>Company:</strong> ${ticket.company}<br>` : ""}
@@ -223,36 +235,48 @@ export async function sendAdminAlertEmail(ticket: {
 
   return sendEmail({
     to: getAdminAlertEmail(),
-    subject: `🚨 [${ticket.referenceCode}] ${ticket.category}: ${ticket.title}`,
+    subject: `🚨 [Ticket #${ticket.referenceCode}] ${ticket.category}: ${ticket.title}`,
     html,
   });
 }
 
 /**
- * 3. One-Click Admin Response Email Template
+ * 3. One-Click Support Reply Email Template with Role-Based Branding
+ * - Super Admin -> "Founder from Cogify:"
+ * - Other Admins -> "Customer Support from Cogify:"
  */
 export async function sendAdminReplyEmail(params: {
   customerEmail: string;
   customerName: string;
   adminName: string;
+  adminRole?: string;
   ticketReferenceCode: string;
   ticketTitle: string;
   message: string;
   originalDescription?: string;
 }): Promise<EmailDispatchResult> {
+  const isFounder =
+    params.adminRole === "SUPER_ADMIN" ||
+    params.adminName.toLowerCase().includes("super admin");
+
+  const senderTitle = isFounder ? "Founder from Cogify" : "Customer Support from Cogify";
+  const fromAddress = isFounder
+    ? "Founder from Cogify <support@cogify.me>"
+    : "Customer Support from Cogify <support@cogify.me>";
+
   const html = `
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Update on ${params.ticketReferenceCode}</title>
+  <title>Update on Ticket #${params.ticketReferenceCode}</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0c0e14; color: #f4f4f5; margin: 0; padding: 40px 20px; }
     .container { max-width: 600px; margin: 0 auto; background: #18181b; border: 1px solid #27272a; border-radius: 16px; padding: 32px; }
     .brand { font-size: 14px; font-weight: 700; letter-spacing: 2px; color: #818cf8; text-transform: uppercase; margin-bottom: 20px; }
     .badge { display: inline-block; padding: 4px 10px; background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); color: #a5b4fc; border-radius: 8px; font-family: monospace; font-size: 13px; font-weight: bold; margin-bottom: 16px; }
     .reply-box { background: #09090b; border: 1px solid #3f3f46; border-radius: 12px; padding: 20px; margin: 20px 0; }
-    .admin-header { font-size: 13px; font-weight: 600; color: #a5b4fc; margin-bottom: 12px; }
+    .admin-header { font-size: 14px; font-weight: 700; color: #a5b4fc; margin-bottom: 12px; }
     .reply-content { font-size: 14px; color: #ffffff; line-height: 1.6; white-space: pre-wrap; }
     .context-box { font-size: 12px; color: #71717a; border-top: 1px solid #27272a; padding-top: 16px; margin-top: 24px; }
   </style>
@@ -260,14 +284,14 @@ export async function sendAdminReplyEmail(params: {
 <body>
   <div class="container">
     <div class="brand">COGIFY TECHNOLOGIES</div>
-    <div class="badge">Ticket: ${params.ticketReferenceCode}</div>
+    <div class="badge">Ticket: #${params.ticketReferenceCode}</div>
     <p style="color: #a1a1aa; font-size: 14px;">
       Hi ${params.customerName},<br>
       You have a response regarding your ticket <strong>"${params.ticketTitle}"</strong>:
     </p>
 
     <div class="reply-box">
-      <div class="admin-header">${params.adminName} from Cogify:</div>
+      <div class="admin-header">${senderTitle}:</div>
       <div class="reply-content">${params.message}</div>
     </div>
 
@@ -293,8 +317,55 @@ export async function sendAdminReplyEmail(params: {
 
   return sendEmail({
     to: params.customerEmail,
-    subject: `Re: [${params.ticketReferenceCode}] ${params.ticketTitle}`,
+    from: fromAddress,
+    subject: `Re: [Ticket #${params.ticketReferenceCode}] ${params.ticketTitle}`,
     html,
-    replyTo: "support@cogify.me",
+  });
+}
+
+/**
+ * 4. Bulk Announcement Email Template (for Userbase broadcasts)
+ */
+export async function sendBulkAnnouncementEmail(params: {
+  to: string;
+  recipientName?: string;
+  subject: string;
+  messageHtml: string;
+}): Promise<EmailDispatchResult> {
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>${params.subject}</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0c0e14; color: #f4f4f5; margin: 0; padding: 40px 20px; }
+    .container { max-width: 600px; margin: 0 auto; background: #18181b; border: 1px solid #27272a; border-radius: 16px; padding: 32px; }
+    .brand { font-size: 14px; font-weight: 700; letter-spacing: 2px; color: #818cf8; text-transform: uppercase; margin-bottom: 24px; }
+    .content { font-size: 15px; color: #e4e4e7; line-height: 1.7; }
+    .footer { font-size: 12px; color: #71717a; border-top: 1px solid #27272a; padding-top: 24px; margin-top: 36px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="brand">COGIFY TECHNOLOGIES</div>
+    ${params.recipientName ? `<p style="font-size: 15px; color: #a1a1aa; margin-bottom: 16px;">Hello ${params.recipientName},</p>` : ""}
+    <div class="content">
+      ${params.messageHtml}
+    </div>
+    <div class="footer">
+      Cogify Technologies • Everyday Software Engineered with Enterprise Precision<br>
+      Official Website: <a href="https://cogify.me" style="color: #818cf8; text-decoration: none;">cogify.me</a>
+    </div>
+  </div>
+</body>
+</html>
+  `;
+
+  return sendEmail({
+    to: params.to,
+    from: "Cogify Announcements <support@cogify.me>",
+    subject: params.subject,
+    html,
   });
 }

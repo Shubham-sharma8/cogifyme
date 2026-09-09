@@ -67,21 +67,22 @@ export const Navbar = () => {
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
               <Link
+                href="/#what-we-build"
+                className="px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors"
+              >
+                Solutions
+              </Link>
+              <Link
                 href="/products/emdoc"
                 className={cn(
-                  "px-3 py-1.5 rounded-lg text-xs font-medium transition-colors",
+                  "px-3 py-1.5 rounded-lg text-xs font-medium transition-colors inline-flex items-center gap-1.5",
                   pathname.startsWith("/products")
                     ? "text-indigo-600 dark:text-white bg-indigo-50 dark:bg-white/10 font-semibold"
                     : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5"
                 )}
               >
-                EmDoc Workstation
-              </Link>
-              <Link
-                href="/#what-we-build"
-                className="px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors"
-              >
-                What We Build
+                <span>Products</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-semibold">EmDoc</span>
               </Link>
               <Link
                 href="/enterprise"
@@ -174,21 +175,21 @@ export const Navbar = () => {
           {mobileMenuOpen && (
             <div className="md:hidden mt-2 p-4 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-white/10 shadow-2xl backdrop-blur-2xl flex flex-col space-y-2 animate-in fade-in slide-in-from-top-2 duration-200">
               <Link
-                href="/products/emdoc"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-zinc-950 dark:hover:text-white flex items-center justify-between"
-              >
-                <span>EmDoc Workstation</span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-300">
-                  macOS
-                </span>
-              </Link>
-              <Link
                 href="/#what-we-build"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-zinc-950 dark:hover:text-white"
               >
-                What We Build
+                Solutions
+              </Link>
+              <Link
+                href="/products/emdoc"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-zinc-950 dark:hover:text-white flex items-center justify-between"
+              >
+                <span>Products (EmDoc)</span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-300">
+                  macOS
+                </span>
               </Link>
               <Link
                 href="/enterprise"

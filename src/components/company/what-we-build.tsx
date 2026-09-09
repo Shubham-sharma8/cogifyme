@@ -19,16 +19,16 @@ export const WhatWeBuild = () => {
         {/* Section Heading */}
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-200/80 dark:border-cyan-500/20 text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            Product Portfolio & Vision
+            Our Solutions & Vision
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white mb-4">
-            Everyday software built around{" "}
+            We provide solutions built around{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-indigo-600 dark:from-cyan-400 dark:to-indigo-400">
               real work.
             </span>
           </h2>
           <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Cogify builds fast, privacy-first everyday apps for multiple devices that are completely free for individuals, mostly open source, and engineered to enterprise standards.
+            Cogify builds sovereign, high-efficiency software solutions and everyday apps across desktop and mobile. We eliminate bloated, expensive software licenses and create tools that are 100% free for individual users.
           </p>
         </div>
 

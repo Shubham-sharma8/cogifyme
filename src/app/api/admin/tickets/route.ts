@@ -118,6 +118,7 @@ export async function POST(req: NextRequest) {
             customerEmail: ticket.senderEmail,
             customerName: ticket.senderName,
             adminName: session.name,
+            adminRole: session.role,
             ticketReferenceCode: ticket.referenceCode,
             ticketTitle: ticket.title,
             message,

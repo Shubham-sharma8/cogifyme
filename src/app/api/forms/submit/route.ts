@@ -19,6 +19,8 @@ export async function POST(req: NextRequest) {
       senderName = "",
       senderEmail = "",
       company,
+      phone,
+      mobile,
       deviceInfo,
       priority = "MEDIUM",
       turnstileToken,
@@ -115,6 +117,21 @@ export async function POST(req: NextRequest) {
       ipAddress: clientIp,
       userAgent,
     });
+
+    // 4b. Auto-capture contact into Userbase table
+    try {
+      await db.upsertUserContact({
+        email: sanitized.senderEmail,
+        name: sanitized.senderName,
+        phone: phone || mobile || null,
+        company: sanitized.company || null,
+        source: mappedCategory,
+        status: "SUBSCRIBED",
+        tags: [mappedCategory.toLowerCase()],
+      });
+    } catch (contactErr) {
+      console.warn("Non-blocking userbase auto-capture error:", contactErr);
+    }
 
     // 5. Automated Email Service: Send Confirmation & Team Alert
     try {

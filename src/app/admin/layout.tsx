@@ -14,6 +14,7 @@ import {
   Menu,
   X,
   Lock,
+  Contact2,
 } from "lucide-react";
 import { BrandLogo } from "@/components/brand/brand-logo";
 
@@ -104,6 +105,12 @@ export default function AdminLayout({
       icon: <Inbox className="w-4 h-4" />,
     },
     {
+      label: "Userbase & Leads",
+      href: "/admin/userbase",
+      icon: <Contact2 className="w-4 h-4" />,
+      superAdminOnly: true,
+    },
+    {
       label: "Team & Admins",
       href: "/admin/team",
       icon: <Users className="w-4 h-4" />,
@@ -173,10 +180,12 @@ export default function AdminLayout({
 
           {/* Navigation Links */}
           <nav className="mt-6 space-y-1">
-            {navItems.map((item) => {
-              const active = item.exact
-                ? pathname === item.href
-                : pathname.startsWith(item.href);
+            {navItems
+              .filter((item: any) => !item.superAdminOnly || admin?.role === "SUPER_ADMIN")
+              .map((item) => {
+                const active = item.exact
+                  ? pathname === item.href
+                  : pathname.startsWith(item.href);
 
               return (
                 <Link

@@ -5,13 +5,13 @@ import { Footer } from "@/components/footer/footer";
 import { siteConfig } from "@/config/site";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ThemeScript } from "@/components/theme/theme-script";
-
 import { JsonLdSchemas } from "@/components/seo/jsonld-schemas";
+import { CrispChat } from "@/components/chat/crisp-chat";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — EmDoc PDF Workstation | Native, 5MB & Free`,
+    default: `${siteConfig.name} — We Provide Solutions | Everyday Software & Enterprise Tools`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: "EmDoc — Professional PDF Workstation for Mac | 5.0 MB Native & 100% Free",
+    title: `${siteConfig.name} — We Provide Solutions | Everyday Software & Enterprise Tools`,
     description:
-      "Ultra-lightweight 5.0 MB macOS PDF suite. ~45MB RAM footprint, 100% offline air-gapped data sovereignty. High-speed vector rendering, drag-and-drop page organizer, compression, and zero subscriptions.",
+      "Cogify engineers high-performance everyday apps and custom enterprise software solutions. We replace expensive licenses with lightweight, sovereign tools. EmDoc is our flagship product.",
     siteName: siteConfig.name,
     images: [
       {
@@ -33,15 +33,15 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "EmDoc — Professional PDF Workstation for Mac | 5.0 MB Native & Air-Gapped",
+        alt: "Cogify — Everyday Software & Solutions Engineered with Enterprise Precision",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EmDoc — Professional PDF Workstation for Mac | 5.0 MB Native & 100% Free",
+    title: `${siteConfig.name} — We Provide Solutions | Everyday Software & Enterprise Tools`,
     description:
-      "Ultra-lightweight 5.0 MB macOS PDF suite. ~45MB RAM, 100% air-gapped, zero telemetry. The fast Adobe Acrobat Pro alternative.",
+      "Cogify engineers high-performance everyday apps and custom enterprise software solutions. We replace expensive licenses with lightweight, sovereign tools. EmDoc is our flagship product.",
     images: ["https://cogify.me/og-image.png"],
   },
   robots: {
@@ -74,6 +74,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />
+          <CrispChat />
         </ThemeProvider>
       </body>
     </html>

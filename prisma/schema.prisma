@@ -142,3 +142,24 @@ model AuditLog {
   @@index([adminId])
   @@map("audit_logs")
 }
+
+model UserContact {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  name          String?
+  phone         String?
+  company       String?
+  source        String    @default("WEBSITE")
+  status        String    @default("SUBSCRIBED")
+  notes         String?
+  tags          String[]  @default([])
+  lastEmailedAt DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([source])
+  @@map("userbase")
+}
+

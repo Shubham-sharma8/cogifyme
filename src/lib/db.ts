@@ -10,6 +10,7 @@ import {
   TicketPriority,
   TicketCategory,
   ResponseAuthorType,
+  UserContact,
 } from "@prisma/client";
 import { getSupabaseAdmin } from "./supabase";
 
@@ -42,6 +43,7 @@ interface StoreState {
   tickets: (Ticket & { responses: TicketResponse[] })[];
   auditLogs: AuditLog[];
   resetTokens: { tokenHash: string; adminId: string; expiresAt: Date }[];
+  userbase: UserContact[];
 }
 
 // Initial seed data
@@ -257,6 +259,7 @@ if (!globalStore.cogifyStore) {
     tickets: initialTickets,
     auditLogs: initialLogs,
     resetTokens: [],
+    userbase: [],
   };
 }
 
@@ -1107,5 +1110,377 @@ export const db = {
       spamBlocked,
       resolutionRate: total > 0 ? Math.round((resolved / total) * 100) : 100,
     };
+  },
+
+  // --- Userbase & Leads Methods ---
+  async upsertUserContact(data: {
+    email: string;
+    name?: string | null;
+    phone?: string | null;
+    company?: string | null;
+    source?: string;
+    status?: string;
+    notes?: string | null;
+    tags?: string[];
+  }): Promise<UserContact> {
+    const email = data.email.toLowerCase().trim();
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { data: existing } = await sb
+          .from("userbase")
+          .select("*")
+          .eq("email", email)
+          .maybeSingle();
+
+        if (existing) {
+          const updatePayload: Record<string, any> = {
+            updatedAt: new Date().toISOString(),
+          };
+          if (data.name) updatePayload.name = data.name;
+          if (data.phone) updatePayload.phone = data.phone;
+          if (data.company) updatePayload.company = data.company;
+          if (data.source && existing.source === "WEBSITE") updatePayload.source = data.source;
+          if (data.notes) updatePayload.notes = data.notes;
+          if (data.status) updatePayload.status = data.status;
+          if (data.tags && data.tags.length > 0) {
+            const currentTags = Array.isArray(existing.tags) ? existing.tags : [];
+            updatePayload.tags = Array.from(new Set([...currentTags, ...data.tags]));
+          }
+          const { data: updated, error: updateErr } = await sb
+            .from("userbase")
+            .update(updatePayload)
+            .eq("id", existing.id)
+            .select()
+            .single();
+          if (updated && !updateErr) return updated as unknown as UserContact;
+        } else {
+          const insertPayload = {
+            id: crypto.randomUUID(),
+            email,
+            name: data.name || null,
+            phone: data.phone || null,
+            company: data.company || null,
+            source: data.source || "WEBSITE",
+            status: data.status || "SUBSCRIBED",
+            notes: data.notes || null,
+            tags: data.tags || [],
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          };
+          const { data: inserted, error: insertErr } = await sb
+            .from("userbase")
+            .insert(insertPayload)
+            .select()
+            .single();
+          if (inserted && !insertErr) return inserted as unknown as UserContact;
+        }
+      } catch (err) {
+        console.warn("Supabase upsertUserContact error:", err);
+      }
+    }
+
+    if (hasLiveDatabase && prisma) {
+      try {
+        return await prisma.userContact.upsert({
+          where: { email },
+          update: {
+            name: data.name || undefined,
+            phone: data.phone || undefined,
+            company: data.company || undefined,
+            notes: data.notes || undefined,
+            status: data.status || undefined,
+          },
+          create: {
+            email,
+            name: data.name || null,
+            phone: data.phone || null,
+            company: data.company || null,
+            source: data.source || "WEBSITE",
+            status: data.status || "SUBSCRIBED",
+            notes: data.notes || null,
+            tags: data.tags || [],
+          },
+        });
+      } catch (err) {
+        console.warn("Prisma upsertUserContact error:", err);
+      }
+    }
+
+    // In-memory fallback
+    let contact = memoryStore.userbase.find((c) => c.email.toLowerCase() === email);
+    if (contact) {
+      if (data.name) contact.name = data.name;
+      if (data.phone) contact.phone = data.phone;
+      if (data.company) contact.company = data.company;
+      if (data.notes) contact.notes = data.notes;
+      if (data.status) contact.status = data.status;
+      contact.updatedAt = new Date();
+    } else {
+      contact = {
+        id: `uc-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+        email,
+        name: data.name || null,
+        phone: data.phone || null,
+        company: data.company || null,
+        source: data.source || "WEBSITE",
+        status: data.status || "SUBSCRIBED",
+        notes: data.notes || null,
+        tags: data.tags || [],
+        lastEmailedAt: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
+      memoryStore.userbase.unshift(contact);
+    }
+    return contact;
+  },
+
+  async getUserContacts(options?: {
+    search?: string;
+    status?: string;
+    source?: string;
+    limit?: number;
+    offset?: number;
+  }): Promise<{ contacts: UserContact[]; total: number }> {
+    const limit = options?.limit ?? 50;
+    const offset = options?.offset ?? 0;
+    const search = options?.search?.toLowerCase().trim();
+    const status = options?.status;
+    const source = options?.source;
+
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        let query = sb.from("userbase").select("*", { count: "exact" });
+        if (status && status !== "ALL") {
+          query = query.eq("status", status);
+        }
+        if (source && source !== "ALL") {
+          query = query.eq("source", source);
+        }
+        if (search) {
+          query = query.or(
+            `email.ilike.%${search}%,name.ilike.%${search}%,phone.ilike.%${search}%,company.ilike.%${search}%`
+          );
+        }
+        query = query.order("createdAt", { ascending: false }).range(offset, offset + limit - 1);
+
+        const { data, count, error } = await query;
+        if (!error && data) {
+          return { contacts: data as unknown as UserContact[], total: count || data.length };
+        }
+      } catch (err) {
+        console.warn("Supabase getUserContacts fallback:", err);
+      }
+    }
+
+    if (hasLiveDatabase && prisma) {
+      try {
+        const where: any = {};
+        if (status && status !== "ALL") where.status = status;
+        if (source && source !== "ALL") where.source = source;
+        if (search) {
+          where.OR = [
+            { email: { contains: search, mode: "insensitive" } },
+            { name: { contains: search, mode: "insensitive" } },
+            { phone: { contains: search, mode: "insensitive" } },
+            { company: { contains: search, mode: "insensitive" } },
+          ];
+        }
+
+        const [contacts, total] = await Promise.all([
+          prisma.userContact.findMany({
+            where,
+            orderBy: { createdAt: "desc" },
+            take: limit,
+            skip: offset,
+          }),
+          prisma.userContact.count({ where }),
+        ]);
+
+        return { contacts, total };
+      } catch (err) {
+        console.warn("Prisma getUserContacts fallback:", err);
+      }
+    }
+
+    // In-memory fallback
+    let filtered = [...memoryStore.userbase];
+    if (status && status !== "ALL") {
+      filtered = filtered.filter((c) => c.status === status);
+    }
+    if (source && source !== "ALL") {
+      filtered = filtered.filter((c) => c.source === source);
+    }
+    if (search) {
+      filtered = filtered.filter(
+        (c) =>
+          c.email.toLowerCase().includes(search) ||
+          c.name?.toLowerCase().includes(search) ||
+          c.phone?.toLowerCase().includes(search) ||
+          c.company?.toLowerCase().includes(search)
+      );
+    }
+    return {
+      contacts: filtered.slice(offset, offset + limit),
+      total: filtered.length,
+    };
+  },
+
+  async getUserContactStats() {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { data: contacts, error } = await sb.from("userbase").select("id, status, source, phone");
+        if (!error && contacts) {
+          const total = contacts.length;
+          const subscribed = contacts.filter((c: any) => c.status === "SUBSCRIBED").length;
+          const enterprise = contacts.filter((c: any) => c.source === "ENTERPRISE").length;
+          const withPhone = contacts.filter((c: any) => c.phone && String(c.phone).trim().length > 0).length;
+          return { total, subscribed, enterprise, withPhone };
+        }
+      } catch (err) {
+        console.warn("Supabase getUserContactStats fallback:", err);
+      }
+    }
+
+    if (hasLiveDatabase && prisma) {
+      try {
+        const [total, subscribed, enterprise, withPhone] = await Promise.all([
+          prisma.userContact.count(),
+          prisma.userContact.count({ where: { status: "SUBSCRIBED" } }),
+          prisma.userContact.count({ where: { source: "ENTERPRISE" } }),
+          prisma.userContact.count({ where: { phone: { not: null } } }),
+        ]);
+        return { total, subscribed, enterprise, withPhone };
+      } catch (err) {
+        console.warn("Prisma getUserContactStats fallback:", err);
+      }
+    }
+
+    const total = memoryStore.userbase.length;
+    const subscribed = memoryStore.userbase.filter((c) => c.status === "SUBSCRIBED").length;
+    const enterprise = memoryStore.userbase.filter((c) => c.source === "ENTERPRISE").length;
+    const withPhone = memoryStore.userbase.filter((c) => c.phone && c.phone.trim().length > 0).length;
+    return { total, subscribed, enterprise, withPhone };
+  },
+
+  async updateUserContact(id: string, data: Partial<UserContact>): Promise<UserContact | null> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const updatePayload = { ...data, updatedAt: new Date().toISOString() };
+        const { data: updated, error } = await sb
+          .from("userbase")
+          .update(updatePayload)
+          .eq("id", id)
+          .select()
+          .single();
+        if (updated && !error) return updated as unknown as UserContact;
+      } catch (err) {
+        console.warn("Supabase updateUserContact error:", err);
+      }
+    }
+
+    if (hasLiveDatabase && prisma) {
+      try {
+        return await prisma.userContact.update({
+          where: { id },
+          data,
+        });
+      } catch (err) {
+        console.warn("Prisma updateUserContact error:", err);
+      }
+    }
+
+    const idx = memoryStore.userbase.findIndex((c) => c.id === id);
+    if (idx !== -1) {
+      memoryStore.userbase[idx] = {
+        ...memoryStore.userbase[idx],
+        ...data,
+        updatedAt: new Date(),
+      };
+      return memoryStore.userbase[idx];
+    }
+    return null;
+  },
+
+  async deleteUserContact(id: string): Promise<boolean> {
+    const sb = getSupabaseAdmin();
+    if (sb) {
+      try {
+        const { error } = await sb.from("userbase").delete().eq("id", id);
+        if (!error) return true;
+      } catch (err) {
+        console.warn("Supabase deleteUserContact error:", err);
+      }
+    }
+
+    if (hasLiveDatabase && prisma) {
+      try {
+        await prisma.userContact.delete({ where: { id } });
+        return true;
+      } catch (err) {
+        console.warn("Prisma deleteUserContact error:", err);
+      }
+    }
+
+    const idx = memoryStore.userbase.findIndex((c) => c.id === id);
+    if (idx !== -1) {
+      memoryStore.userbase.splice(idx, 1);
+      return true;
+    }
+    return false;
+  },
+
+  async recordBulkEmailSent(contactIds: string[]) {
+    const now = new Date();
+    const sb = getSupabaseAdmin();
+    if (sb && contactIds.length > 0) {
+      try {
+        await sb
+          .from("userbase")
+          .update({ lastEmailedAt: now.toISOString(), updatedAt: now.toISOString() })
+          .in("id", contactIds);
+      } catch (err) {
+        console.warn("Supabase recordBulkEmailSent error:", err);
+      }
+    }
+
+    if (hasLiveDatabase && prisma && contactIds.length > 0) {
+      try {
+        await prisma.userContact.updateMany({
+          where: { id: { in: contactIds } },
+          data: { lastEmailedAt: now },
+        });
+      } catch (err) {
+        console.warn("Prisma recordBulkEmailSent error:", err);
+      }
+    }
+
+    for (const id of contactIds) {
+      const c = memoryStore.userbase.find((contact) => contact.id === id);
+      if (c) c.lastEmailedAt = now;
+    }
+  },
+
+  async backfillContactsFromTickets(): Promise<number> {
+    const tickets = await this.getTickets();
+    let count = 0;
+    for (const t of tickets) {
+      if (t.senderEmail) {
+        await this.upsertUserContact({
+          email: t.senderEmail,
+          name: t.senderName,
+          company: t.company,
+          source: t.category,
+          status: "SUBSCRIBED",
+          tags: [t.category.toLowerCase()],
+        });
+        count++;
+      }
+    }
+    return count;
   },
 };

@@ -90,7 +90,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-3xl">
-            COGIFY is an independent software product company founded by Shubham Sharma in Delhi. We believe tools should be fast, dependable, beautifully crafted, and uncompromisingly respectful of user privacy.
+            COGIFY is an independent software solutions company founded by Shubham Sharma. We provide high-performance solutions and everyday apps across desktop and mobile. We believe tools should be fast, dependable, beautifully crafted, and uncompromisingly respectful of user privacy.
           </p>
         </div>
       </section>

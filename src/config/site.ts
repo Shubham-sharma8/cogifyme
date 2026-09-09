@@ -74,13 +74,19 @@ export interface FutureProductItem {
 
 export const siteConfig: SiteConfig = {
   name: "COGIFY",
-  tagline: "Everyday software engineered with enterprise precision.",
+  tagline: "We provide solutions. Everyday software engineered with enterprise precision.",
   domain: "cogify.me",
   url: "https://cogify.me",
   ogImage: "https://cogify.me/og-image.png",
   description:
-    "Cogify builds high-performance, everyday apps for multiple devices that are completely free for individual users, mostly open source, and engineered to enterprise-grade standards. We also partner with companies to replace expensive software licenses with lightweight, audited solutions.",
+    "Cogify provides high-performance software solutions and lightweight everyday apps for desktop and mobile. Completely free for individuals, mostly open source, and engineered to enterprise-grade standards. We partner with organizations to replace expensive software licenses with fast, audited solutions. EmDoc is our flagship macOS product.",
   keywords: [
+    "Cogify",
+    "Cogify solutions",
+    "software solutions",
+    "enterprise software license replacement",
+    "sovereign software",
+    "air-gapped software",
     "EmDoc",
     "EmDoc PDF Workstation",
     "macOS PDF editor",
