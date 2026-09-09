@@ -1,3 +1,5 @@
-import TermsOfUsePage, { metadata } from "@/app/terms/page";
-export { metadata };
-export default TermsOfUsePage;
+import { permanentRedirect } from "next/navigation";
+
+export default function LegalTermsRedirect() {
+  permanentRedirect("/terms");
+}

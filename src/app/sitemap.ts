@@ -1,71 +1,69 @@
 import { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+export const revalidate = 86400;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://cogify.me";
-  const now = new Date();
 
-  const routes = [
+  // Meaningful, stable lastModified dates (W3C Datetime format)
+  const coreUpdatedDate = new Date("2026-09-09");
+  const legalPolicyDate = new Date("2026-09-06");
+
+  return [
     {
       url: `${baseUrl}`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
+      lastModified: coreUpdatedDate,
+      changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${baseUrl}/products/emdoc`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
+      lastModified: coreUpdatedDate,
+      changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/enterprise`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
+      lastModified: coreUpdatedDate,
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
+      lastModified: coreUpdatedDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
+      lastModified: coreUpdatedDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/suggestions`,
+      lastModified: coreUpdatedDate,
+      changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/emdoc/privacy`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
+      lastModified: legalPolicyDate,
+      changeFrequency: "monthly",
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/legal/privacy`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.4,
+      url: `${baseUrl}/emdoc/privacy`,
+      lastModified: legalPolicyDate,
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
     {
-      url: `${baseUrl}/legal/terms`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.4,
+      url: `${baseUrl}/terms`,
+      lastModified: legalPolicyDate,
+      changeFrequency: "monthly",
+      priority: 0.5,
     },
   ];
-
-  return routes;
 }

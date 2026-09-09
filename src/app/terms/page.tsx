@@ -1,11 +1,15 @@
 import React from "react";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { BrandLogo } from "@/components/brand/brand-logo";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Terms of Use",
-  description: "Terms of Use for COGIFY (cogify.me) and its software products.",
+  description: "Terms of Use and software license agreement for COGIFY (cogify.me) and its family of applications.",
+  alternates: {
+    canonical: "https://cogify.me/terms",
+  },
 };
 
 export default function TermsOfUsePage() {

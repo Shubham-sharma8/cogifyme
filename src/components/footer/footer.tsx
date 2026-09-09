@@ -144,7 +144,7 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/admin" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center gap-1.5 text-zinc-500 hover:text-indigo-600 dark:hover:text-indigo-400">
+                <Link href="/admin" rel="nofollow" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center gap-1.5 text-zinc-500 hover:text-indigo-600 dark:hover:text-indigo-400">
                   <span>Admin Portal</span>
                 </Link>
               </li>

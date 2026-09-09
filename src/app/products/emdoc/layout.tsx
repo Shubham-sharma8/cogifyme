@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "EmDoc — Lightweight macOS PDF Editor & Acrobat Pro Alternative",
   description:
     "5.0 MB native macOS PDF suite. ~45MB RAM footprint, 100% offline air-gapped data sovereignty. Hardware vector rendering, page reorganization, compression, and zero subscriptions.",
+  alternates: {
+    canonical: "https://cogify.me/products/emdoc",
+  },
   keywords: [
     "best free PDF editor Mac",
     "Adobe Acrobat Pro alternative Mac",
@@ -39,10 +42,43 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbsSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://cogify.me",
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Products",
+      "item": "https://cogify.me/#products",
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "EmDoc macOS PDF Workstation",
+      "item": "https://cogify.me/products/emdoc",
+    },
+  ],
+};
+
 export default function EmDocLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsSchema) }}
+      />
+      {children}
+    </>
+  );
 }

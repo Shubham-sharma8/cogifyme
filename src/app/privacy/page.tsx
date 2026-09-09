@@ -1,11 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import { ShieldCheck, ArrowRight, Lock, EyeOff, Server } from "lucide-react";
+import type { Metadata } from "next";
 import { BrandLogo } from "@/components/brand/brand-logo";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy Policy for COGIFY (cogify.me) and its family of software products.",
+  description: "Privacy Policy for COGIFY (cogify.me) and its family of software products. Clear, transparent commitments with zero behavioral ad tracking.",
+  alternates: {
+    canonical: "https://cogify.me/privacy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

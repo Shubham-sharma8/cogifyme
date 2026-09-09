@@ -13,11 +13,15 @@ import {
   AlertTriangle,
   ArrowLeft,
 } from "lucide-react";
+import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "EmDoc Privacy Policy — 100% Air-Gapped Zero-Cloud Guarantee",
   description: "Official privacy statement for EmDoc Workstation for macOS. Complete offline execution, zero telemetry, on-device Apple Vision OCR, and local document security.",
+  alternates: {
+    canonical: "https://cogify.me/emdoc/privacy",
+  },
 };
 
 export default function EmDocPrivacyPolicyPage() {
@@ -212,7 +216,7 @@ export default function EmDocPrivacyPolicyPage() {
               <div><strong>Parent Company:</strong> COGIFY (<a href="https://cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">https://cogify.me</a>)</div>
               <div><strong>Creator & Lead Architect:</strong> Shubham Sharma (Delhi)</div>
               <div><strong>Product Support & Inquiries:</strong> <a href="mailto:contact@cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">contact@cogify.me</a></div>
-              <div><strong>EmDoc Product Page:</strong> <a href="https://cogify.me/emdoc" className="text-indigo-600 dark:text-indigo-400 underline">https://cogify.me/emdoc</a></div>
+              <div><strong>EmDoc Product Page:</strong> <Link href="/products/emdoc" className="text-indigo-600 dark:text-indigo-400 underline">https://cogify.me/products/emdoc</Link></div>
             </div>
           </section>
         </div>

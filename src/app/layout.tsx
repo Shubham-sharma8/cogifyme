@@ -10,6 +10,9 @@ import { CrispChat } from "@/components/chat/crisp-chat";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: siteConfig.url,
+  },
   title: {
     default: `${siteConfig.name} — We Provide Solutions | Everyday Software & Enterprise Tools`,
     template: `%s | ${siteConfig.name}`,
@@ -18,6 +21,7 @@ export const metadata: Metadata = {
   keywords: siteConfig.keywords,
   authors: [{ name: "COGIFY" }, { name: "Shubham Sharma" }],
   creator: "COGIFY",
+  publisher: "COGIFY",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -47,6 +51,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: {
     icon: [
