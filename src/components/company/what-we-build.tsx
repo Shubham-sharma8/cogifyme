@@ -44,11 +44,15 @@ export const WhatWeBuild = () => {
             header={
               <div className="flex flex-col justify-end h-full p-4 rounded-xl bg-zinc-50/80 dark:bg-zinc-950/60 border border-zinc-200/70 dark:border-white/5 font-mono text-xs text-zinc-600 dark:text-zinc-400 space-y-2">
                 <div className="flex items-center justify-between text-indigo-700 dark:text-indigo-300 font-semibold">
-                  <span>First Flagship: EmDoc</span>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">5.0 MB • ~45 MB RAM</span>
+                  <span>EmDoc (macOS)</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">5.0 MB Workstation</span>
+                </div>
+                <div className="flex items-center justify-between text-purple-700 dark:text-purple-300 font-semibold">
+                  <span>Element Hider (Safari)</span>
+                  <span className="text-purple-600 dark:text-purple-400 font-bold">v1.0 Live</span>
                 </div>
                 <div className="text-[11px] text-zinc-500">
-                  macOS live now • iOS version in active development • 100% free with all tools unlocked
+                  100% free for individual users • Air-gapped and on-device • Zero ads or telemetry
                 </div>
               </div>
             }

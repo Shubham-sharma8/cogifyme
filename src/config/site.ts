@@ -20,6 +20,7 @@ export interface SiteConfig {
     white: string;
   };
   emdoc: EmDocConfig;
+  elementHider: ElementHiderConfig;
   principles: PrincipleItem[];
   futureProducts: FutureProductItem[];
 }
@@ -57,6 +58,33 @@ export interface EmDocConfig {
     value: string;
   }[];
   screenshots: ScreenshotItem[];
+}
+
+export interface ElementHiderConfig {
+  name: string;
+  tagline: string;
+  subtitle: string;
+  promotionalText: string;
+  shortDescription: string;
+  fullDescription: string;
+  philosophy: string;
+  version: string;
+  primaryCategory: string;
+  secondaryCategory: string;
+  pricingModel: string;
+  platform: string;
+  appStoreUrl?: string;
+  features: {
+    title: string;
+    description: string;
+    tag: string;
+  }[];
+  specifications: {
+    label: string;
+    value: string;
+  }[];
+  screenshots: ScreenshotItem[];
+  keywords: string[];
 }
 
 export interface PrincipleItem {
@@ -106,6 +134,14 @@ export const siteConfig: SiteConfig = {
     "zero cloud PDF reader HIPAA compliant",
     "Apple Silicon M1 M2 M3 M4 PDF app",
     "Bates numbering PDF Mac",
+    "Element Hider",
+    "Element Hider Safari Extension",
+    "Safari extension",
+    "hide webpage elements",
+    "clean web browsing",
+    "Safari ad blocker alternative",
+    "hide anything Safari",
+    "distraction free browsing iOS",
     "Cogify",
     "cogify.me",
     "native desktop software",
@@ -306,6 +342,154 @@ export const siteConfig: SiteConfig = {
           "Tailored for both daytime and late-night work",
         ],
       },
+    ],
+  },
+  elementHider: {
+    name: "Element Hider – Hide Anything",
+    tagline: "Browse Your Way",
+    subtitle: "Browse Your Way",
+    promotionalText:
+      "Hide anything that gets in your way. Clean up webpages, remove distractions, and make Safari feel like your browser again.",
+    shortDescription:
+      "Take control of the web. Element Hider lets you hide distracting, annoying, or unnecessary elements from webpages in Safari. See something you don't want to see? Hide it.",
+    fullDescription:
+      "From oversized banners and annoying pop-ups to distracting sections, recommendations, sidebars, comments, images, and other page elements — Element Hider puts you in control of what stays on your screen. Does not alter the content you want to keep; simply lets you decide what belongs on your screen.",
+    philosophy:
+      "The web doesn't need to look the same for everyone. Element Hider gives you the freedom to decide what you want to see. Hide the stuff that gets in the way and keep the parts of the web that matter to you. Simple. Fast. Yours.",
+    version: "1.0",
+    primaryCategory: "Utilities",
+    secondaryCategory: "Productivity",
+    pricingModel: "100% Free Forever — Zero Ads, Zero Subscriptions",
+    platform: "Safari for iOS, iPadOS & macOS",
+    appStoreUrl: "",
+    features: [
+      {
+        title: "Hide Anything",
+        description: "Select webpage elements and hide them from view with a single tap.",
+        tag: "Total Control",
+      },
+      {
+        title: "Clean Up Webpages",
+        description: "Remove visual clutter, oversized banners, and keep the content that actually matters.",
+        tag: "Focus First",
+      },
+      {
+        title: "One-Tap Control",
+        description: "Quickly enable or disable Element Hider whenever you want directly in Safari.",
+        tag: "Instant Toggle",
+      },
+      {
+        title: "Global Controls",
+        description: "Turn your preferred hiding rules on or off across all Safari tabs and windows.",
+        tag: "Safari Wide",
+      },
+      {
+        title: "Customize Your Browsing",
+        description: "Create a cleaner, more focused experience on the websites you use every single day.",
+        tag: "Tailored Web",
+      },
+      {
+        title: "Built for Safari",
+        description: "Designed specifically for Safari and integrated seamlessly into your Apple browsing experience.",
+        tag: "Native Architecture",
+      },
+    ],
+    specifications: [
+      { label: "Application Type", value: "Safari Web Extension" },
+      { label: "Platforms Supported", value: "iOS 16+, iPadOS 16+, and macOS Safari" },
+      { label: "Data Transmission", value: "0 bytes transmitted / 100% Local Execution" },
+      { label: "Browsing History", value: "Never Tracked, Never Stored, Never Transmitted" },
+      { label: "Pricing for Individuals", value: "100% Free Forever — No In-App Purchases" },
+      { label: "Rule Storage", value: "Private Apple Local Extension Container" },
+      { label: "Product Version", value: "v1.0 (Initial Launch)" },
+      { label: "Publisher", value: "COGIFY (cogify.me)" },
+    ],
+    screenshots: [
+      {
+        id: "home",
+        title: "Companion App & Setup",
+        subtitle: "Quick setup guide and overview on iOS",
+        image: "/brand/Element-Hider/Home.png",
+        tag: "Getting Started",
+        description:
+          "Welcome screen guiding you through enabling the extension in Safari with two simple taps.",
+        highlights: [
+          "Zero account required",
+          "One-time 10-second setup",
+          "Clear activation instructions",
+        ],
+      },
+      {
+        id: "settings",
+        title: "In Settings",
+        subtitle: "Seamless native Safari extension integration",
+        image: "/brand/Element-Hider/in_settings.png",
+        tag: "Native Settings",
+        description:
+          "Easily manage permissions and extension preferences directly inside Apple iOS Safari Settings.",
+        highlights: [
+          "Standard Apple extension security",
+          "Granular website permissions",
+          "Toggle anytime on or off",
+        ],
+      },
+      {
+        id: "safari",
+        title: "In Safari",
+        subtitle: "Integrated menu right inside the Safari toolbar",
+        image: "/brand/Element-Hider/in_safari.png",
+        tag: "Safari Toolbar",
+        description:
+          "Access Element Hider from the Safari address bar menu (puzzle icon) without ever leaving the page you are reading.",
+        highlights: [
+          "Instant access from address bar",
+          "Quick toggle on/off",
+          "Clean, minimalist Apple UI",
+        ],
+      },
+      {
+        id: "working",
+        title: "Selecting & Hiding",
+        subtitle: "Interactive visual selection of unwanted page elements",
+        image: "/brand/Element-Hider/Working.png",
+        tag: "Visual Picker",
+        description:
+          "Tap on banners, sidebars, sticky headers, pop-ups, or comment sections to immediately remove them from your view.",
+        highlights: [
+          "Interactive visual element targeting",
+          "Instant preview of hidden items",
+          "Non-destructive page cleanup",
+        ],
+      },
+      {
+        id: "result",
+        title: "Distraction-Free Result",
+        subtitle: "Read clean articles without visual noise",
+        image: "/brand/Element-Hider/Result.png",
+        tag: "Clean Web",
+        description:
+          "Enjoy articles, blogs, news, and tools exactly the way you want to see them: calm, focused, and distraction-free.",
+        highlights: [
+          "All distracting clutter eliminated",
+          "Retains original page layout and content",
+          "Lightning fast with zero battery drain",
+        ],
+      },
+    ],
+    keywords: [
+      "element",
+      "hide",
+      "cleaner",
+      "safari",
+      "web",
+      "website",
+      "block",
+      "remove",
+      "clutter",
+      "distraction",
+      "focus",
+      "customize",
+      "browse",
     ],
   },
   principles: [

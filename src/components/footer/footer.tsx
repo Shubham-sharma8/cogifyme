@@ -97,6 +97,14 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/element-hider" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center gap-1.5">
+                  <span>Element Hider</span>
+                  <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-purple-50 text-purple-700 dark:bg-purple-500/20 dark:text-purple-300">
+                    Safari
+                  </span>
+                </Link>
+              </li>
+              <li>
                 <span className="text-zinc-500 text-xs flex items-center gap-1">
                   <span>EmDoc for iOS</span>
                   <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
@@ -115,6 +123,11 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/element-hider/privacy" className="hover:text-zinc-950 dark:hover:text-white transition-colors text-purple-600 dark:text-purple-400">
+                  Element Hider Privacy
+                </Link>
+              </li>
+              <li>
                 <Link href="/emdoc/privacy" className="hover:text-zinc-950 dark:hover:text-white transition-colors text-indigo-600 dark:text-indigo-400">
                   EmDoc Privacy Policy
                 </Link>
@@ -130,7 +143,12 @@ export const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="/privacy" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
-                  Privacy Policy
+                  Privacy Policy (General)
+                </Link>
+              </li>
+              <li>
+                <Link href="/element-hider/privacy" className="hover:text-zinc-950 dark:hover:text-white transition-colors text-purple-600 dark:text-purple-400">
+                  Element Hider Zero-Tracking Policy
                 </Link>
               </li>
               <li>

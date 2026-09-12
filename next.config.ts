@@ -42,10 +42,20 @@ const nextConfig: NextConfig = {
         destination: "https://cogify.me/:path*",
         permanent: true,
       },
-      // 2. Short URL & legacy alias for flagship product
+      // 2. Short URL & product path aliases
       {
         source: "/emdoc",
         destination: "/products/emdoc",
+        permanent: true,
+      },
+      {
+        source: "/products/element-hider",
+        destination: "/element-hider",
+        permanent: true,
+      },
+      {
+        source: "/products/element-hider/privacy",
+        destination: "/element-hider/privacy",
         permanent: true,
       },
       // 3. Consolidate duplicate legal paths to canonical URLs
