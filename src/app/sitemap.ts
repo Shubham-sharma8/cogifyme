@@ -30,6 +30,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/invert`,
+      lastModified: new Date("2026-09-12"),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/enterprise`,
       lastModified: coreUpdatedDate,
       changeFrequency: "monthly",
@@ -67,6 +73,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/element-hider/privacy`,
+      lastModified: new Date("2026-09-12"),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/invert/privacy`,
       lastModified: new Date("2026-09-12"),
       changeFrequency: "monthly",
       priority: 0.6,

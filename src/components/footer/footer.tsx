@@ -105,6 +105,14 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/invert" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center gap-1.5">
+                  <span>Colour Invert</span>
+                  <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-blue-50 text-blue-700 dark:bg-blue-500/20 dark:text-blue-300">
+                    Safari
+                  </span>
+                </Link>
+              </li>
+              <li>
                 <span className="text-zinc-500 text-xs flex items-center gap-1">
                   <span>EmDoc for iOS</span>
                   <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
@@ -120,6 +128,11 @@ export const Footer = () => {
               <li>
                 <Link href="/about#timeline" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
                   Product Roadmap
+                </Link>
+              </li>
+              <li>
+                <Link href="/invert/privacy" className="hover:text-zinc-950 dark:hover:text-white transition-colors text-blue-600 dark:text-blue-400">
+                  Colour Invert Privacy
                 </Link>
               </li>
               <li>
@@ -144,6 +157,11 @@ export const Footer = () => {
               <li>
                 <Link href="/privacy" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
                   Privacy Policy (General)
+                </Link>
+              </li>
+              <li>
+                <Link href="/invert/privacy" className="hover:text-zinc-950 dark:hover:text-white transition-colors text-blue-600 dark:text-blue-400">
+                  Colour Invert Zero-Tracking Policy
                 </Link>
               </li>
               <li>

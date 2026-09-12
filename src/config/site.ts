@@ -21,6 +21,7 @@ export interface SiteConfig {
   };
   emdoc: EmDocConfig;
   elementHider: ElementHiderConfig;
+  invert: ColourInvertConfig;
   principles: PrincipleItem[];
   futureProducts: FutureProductItem[];
 }
@@ -84,6 +85,41 @@ export interface ElementHiderConfig {
     value: string;
   }[];
   screenshots: ScreenshotItem[];
+  screenshotsMac?: ScreenshotItem[];
+  keywords: string[];
+}
+
+export interface ColourInvertConfig {
+  name: string;
+  tagline: string;
+  subtitle: string;
+  promotionalText: string;
+  shortDescription: string;
+  fullDescription: string;
+  philosophy: string;
+  version: string;
+  primaryCategory: string;
+  secondaryCategory: string;
+  pricingModel: string;
+  platform: string;
+  appStoreUrl?: string;
+  features: {
+    title: string;
+    description: string;
+    tag: string;
+  }[];
+  modes: {
+    name: string;
+    subtitle: string;
+    description: string;
+    tag: string;
+  }[];
+  specifications: {
+    label: string;
+    value: string;
+  }[];
+  screenshotsMac: ScreenshotItem[];
+  screenshotsIos: ScreenshotItem[];
   keywords: string[];
 }
 
@@ -476,6 +512,92 @@ export const siteConfig: SiteConfig = {
         ],
       },
     ],
+    screenshotsMac: [
+      {
+        id: "home-mac",
+        title: "Companion App & Shortcut",
+        subtitle: "Activate and hide with ⌥ + ⇧ + H",
+        image: "/brand/Element-Hider/Home_Mac.png",
+        tag: "Getting Started",
+        description:
+          "Simple setup window guiding you to enable the extension in macOS Safari Settings. Access the element picker instantly via the Option+Shift+H keyboard shortcut.",
+        highlights: [
+          "Global shortcut: ⌥ + ⇧ + H",
+          "One-click activation guide",
+          "100% on-device & private",
+        ],
+      },
+      {
+        id: "settings-mac",
+        title: "macOS Safari Settings",
+        subtitle: "Native Safari Extension management",
+        image: "/brand/Element-Hider/in_settings_mac.png",
+        tag: "Native Settings",
+        description:
+          "Enable Element Hider under Safari Settings > Extensions. Enjoy standard Apple sandboxing with zero external network connectivity.",
+        highlights: [
+          "Standard macOS Safari Extension",
+          "Granular website permissions",
+          "Zero telemetry & zero tracking",
+        ],
+      },
+      {
+        id: "safari-mac",
+        title: "Safari Toolbar Popover",
+        subtitle: "Quick toggle directly in Safari's toolbar",
+        image: "/brand/Element-Hider/in_safari_mac.png",
+        tag: "Toolbar Integration",
+        description:
+          "Access Element Hider directly from the macOS Safari navigation toolbar to trigger element selection, view hidden count, or toggle rules on/off.",
+        highlights: [
+          "Seamless macOS toolbar popover",
+          "One-click point & hide trigger",
+          "Active status indicator",
+        ],
+      },
+      {
+        id: "working-mac",
+        title: "Target Element Selection",
+        subtitle: "Hover over unwanted elements with visual bounding box",
+        image: "/brand/Element-Hider/Working_Mac.png",
+        tag: "Precision Picker",
+        description:
+          "Hover over any element on the page — search boxes, popups, hero banners, or sidebars. Element Hider highlights the target with a crisp outline.",
+        highlights: [
+          "Visual hover bounding box",
+          "Smart DOM element detection",
+          "Target parent or child tags easily",
+        ],
+      },
+      {
+        id: "process-mac",
+        title: "Interactive Confirmation",
+        subtitle: "Always on this website or session-only",
+        image: "/brand/Element-Hider/Process_Mac.png",
+        tag: "Rule Control",
+        description:
+          "Confirm which element to hide with a clean native prompt. Choose to hide it permanently for this website or only for your current session.",
+        highlights: [
+          "Permanent or session-only options",
+          "Displays target element tag & domain",
+          "Instant undo anytime",
+        ],
+      },
+      {
+        id: "result-mac",
+        title: "Distraction-Free Webpage",
+        subtitle: "Clean desktop browsing without visual clutter",
+        image: "/brand/Element-Hider/Result_Mac.png",
+        tag: "Clean Web",
+        description:
+          "The unwanted element is cleanly removed from the DOM layout. Webpages render faster, read better, and stay focused on what you care about.",
+        highlights: [
+          "Completely eliminates unwanted elements",
+          "Preserves core page responsiveness",
+          "Ultra-fast local CSS rule injection",
+        ],
+      },
+    ],
     keywords: [
       "element",
       "hide",
@@ -490,6 +612,278 @@ export const siteConfig: SiteConfig = {
       "focus",
       "customize",
       "browse",
+    ],
+  },
+  invert: {
+    name: "Colour Invert",
+    tagline: "Invert the Web",
+    subtitle: "Invert the Web",
+    promotionalText:
+      "Flip webpage colors instantly. Reduce harsh brightness, change the way websites look, and browse with a completely different visual experience.",
+    shortDescription:
+      "See the web differently. Colour Invert is a simple Safari extension that lets you invert webpage colors with a tap.",
+    fullDescription:
+      "Turn bright webpages dark, flip colors for a different visual experience, or simply experiment with a completely new way to browse. Whether you're reading at night, looking for a high-contrast visual experience, or just want more control over how websites appear, Colour Invert puts the choice in your hands.",
+    philosophy:
+      "Some websites are bright. Some are colorful. Some are simply easier to look at when their colors are flipped. Colour Invert gives you another option. Turn it on when you want a different visual experience. Turn it off when you don't. Your browser. Your screen. Your choice.",
+    version: "1.0",
+    primaryCategory: "Utilities",
+    secondaryCategory: "Accessibility",
+    pricingModel: "100% Free Forever — Zero Ads, Zero Subscriptions",
+    platform: "Safari for macOS, iOS & iPadOS",
+    appStoreUrl: "",
+    features: [
+      {
+        title: "Instant Color Inversion",
+        description: "Invert webpage colors quickly without leaving Safari.",
+        tag: "Instant Tap",
+      },
+      {
+        title: "Browse Your Way",
+        description: "Change the visual appearance of websites to match your preferences.",
+        tag: "Custom Look",
+      },
+      {
+        title: "Simple Controls",
+        description: "Enable or disable inversion whenever you want.",
+        tag: "Effortless",
+      },
+      {
+        title: "Global Control",
+        description: "Quickly turn Colour Invert on or off across your browsing experience.",
+        tag: "Universal",
+      },
+      {
+        title: "Designed for Safari",
+        description: "Built specifically as a Safari extension for a seamless browsing experience.",
+        tag: "Apple Native",
+      },
+      {
+        title: "Clean & Minimal",
+        description: "No complicated settings. Just the control you need.",
+        tag: "Distraction Free",
+      },
+    ],
+    modes: [
+      {
+        name: "Smart Invert",
+        subtitle: "Intelligent Contrast Preservation",
+        description:
+          "Inverts page backgrounds and text while keeping photos, videos, and SVGs completely natural.",
+        tag: "Default Mode",
+      },
+      {
+        name: "Soft Invert",
+        subtitle: "Comfortable Low-Glare Reading",
+        description:
+          "Smooth, eye-friendly contrast curve designed to eliminate harsh white glare during long nighttime reading sessions.",
+        tag: "Night Reading",
+      },
+      {
+        name: "Full Invert",
+        subtitle: "Complete High-Contrast Inversion",
+        description:
+          "Full monochromatic color inversion for high-contrast accessibility with optional media preservation.",
+        tag: "High Contrast",
+      },
+    ],
+    specifications: [
+      { label: "Application Type", value: "Safari Web Extension & Companion App" },
+      { label: "Platforms Supported", value: "macOS Safari, iOS 16+, iPadOS 16+" },
+      { label: "Data Transmission", value: "0 bytes transmitted / 100% Local DOM Filter" },
+      { label: "Browsing History", value: "Never Tracked, Never Stored, Never Transmitted" },
+      { label: "Pricing for Individuals", value: "100% Free Forever — No In-App Purchases" },
+      { label: "Website Rules Storage", value: "Private Apple Local Extension Container" },
+      { label: "Product Version", value: "v1.0 (Initial Launch)" },
+      { label: "Publisher", value: "COGIFY (cogify.me)" },
+    ],
+    screenshotsMac: [
+      {
+        id: "mac-app",
+        title: "macOS Companion App",
+        subtitle: "Configure global modes and smart optimizations",
+        image: "/invert/Mac/App.png",
+        tag: "macOS App",
+        description:
+          "Clean macOS companion app allowing you to choose between Smart Invert, Soft Invert, and Full Invert, and configure site-specific adaptations.",
+        highlights: [
+          "Native macOS companion window",
+          "Smart Invert, Soft Invert & Full Invert",
+          "Auto-detect native dark mode sites",
+        ],
+      },
+      {
+        id: "mac-safari",
+        title: "Safari Toolbar Popover",
+        subtitle: "Live controls directly inside Safari on ChatGPT",
+        image: "/invert/Mac/in_Safari.png",
+        tag: "Safari Popover",
+        description:
+          "Control Colour Invert with a single click from Safari's toolbar. Adjust intensity and toggle per-site behavior while viewing ChatGPT.",
+        highlights: [
+          "Instant toggle from address bar",
+          "Inversion intensity slider",
+          "Site status: Inverted or Excluded",
+        ],
+      },
+      {
+        id: "mac-youtube",
+        title: "Protected Media & Video",
+        subtitle: "Watch YouTube videos without distorted colors",
+        image: "/invert/Mac/in_youtube.png",
+        tag: "Media Protection",
+        description:
+          "Colour Invert intelligently detects video players, canvas elements, and thumbnails, keeping video colors natural while darkening the surrounding interface.",
+        highlights: [
+          "Video player untouched and vibrant",
+          "Thumbnails preserved naturally",
+          "Darkened YouTube browsing experience",
+        ],
+      },
+      {
+        id: "mac-manuals",
+        title: "Fine-Tune Appearance",
+        subtitle: "Custom brightness, contrast, warmth & site rules",
+        image: "/invert/Mac/Manuals.png",
+        tag: "Customization",
+        description:
+          "Fine-tune brightness, contrast, and warmth (sepia tint) for individual sites or set sites like cogify.me to Never Invert.",
+        highlights: [
+          "Brightness and contrast sliders",
+          "Warmth (Sepia Tint) slider for night comfort",
+          "Per-site whitelist & exclusion list",
+        ],
+      },
+      {
+        id: "mac-fast",
+        title: "Clean High Contrast",
+        subtitle: "Instant dark background on bright utility sites",
+        image: "/invert/Mac/in_fast.png",
+        tag: "Night Reading",
+        description:
+          "Turn blinding white utility sites like Fast.com into soothing, high-contrast dark reading surfaces instantly.",
+        highlights: [
+          "Eliminates blinding white backgrounds",
+          "Preserves speedometer graphics and gauges",
+          "Zero lag or layout reflow",
+        ],
+      },
+    ],
+    screenshotsIos: [
+      {
+        id: "ios-home",
+        title: "iOS Companion App",
+        subtitle: "Global mode selection & site adaptations",
+        image: "/invert/Ios/App_Home.png",
+        tag: "iOS Dashboard",
+        description:
+          "The intuitive iOS companion app lets you switch modes, enable YouTube & ChatGPT optimizations, and auto-detect already-dark sites.",
+        highlights: [
+          "Smart Invert / Soft Invert / Full Invert",
+          "YouTube, ChatGPT & GitHub ready",
+          "Auto-detect already-dark websites",
+        ],
+      },
+      {
+        id: "ios-google",
+        title: "OLED Dark Search",
+        subtitle: "Pure deep black search results with amber accents",
+        image: "/invert/Ios/Google_search.png",
+        tag: "Search Experience",
+        description:
+          "Browse Google Search in pure pitch-black OLED dark mode with high-contrast text and comfortable amber link highlights.",
+        highlights: [
+          "Deep black background saves battery on OLED",
+          "Clear, readable high-contrast text",
+          "Preserves Google logo and image search",
+        ],
+      },
+      {
+        id: "ios-chatgpt",
+        title: "ChatGPT Dark Theme",
+        subtitle: "Comfortable AI conversations at night",
+        image: "/invert/Ios/Chatgpt_Home.png",
+        tag: "AI Workflows",
+        description:
+          "Interact with AI models with deep black contrast that reduces eye strain during late-night brainstorming sessions.",
+        highlights: [
+          "Sleek minimalist dark interface",
+          "High legibility for long text blocks",
+          "Smooth, native-feeling rendering",
+        ],
+      },
+      {
+        id: "ios-chat",
+        title: "Chat & Code Syntax",
+        subtitle: "Preserved code blocks and conversation bubbles",
+        image: "/invert/Ios/chatgpt_chat.png",
+        tag: "Code & Chat",
+        description:
+          "Read responses and code snippets with preserved syntax colors and distraction-free contrast.",
+        highlights: [
+          "Protected code blocks & math",
+          "Chat bubbles styled seamlessly",
+          "Fast on-device rendering",
+        ],
+      },
+      {
+        id: "ios-sliders",
+        title: "Appearance Controls",
+        subtitle: "Fine-tune intensity, brightness, contrast & warmth",
+        image: "/invert/Ios/App_2.png",
+        tag: "Visual Sliders",
+        description:
+          "Dial in the exact look that suits your vision: adjust inversion intensity, brightness, contrast, and sepia warmth.",
+        highlights: [
+          "Inversion Intensity (0–100%)",
+          "Brightness & Contrast sliders",
+          "Sepia Warmth tint for night reading",
+        ],
+      },
+      {
+        id: "ios-preservation",
+        title: "Content Preservation Engine",
+        subtitle: "Granular control over what stays natural",
+        image: "/invert/Ios/App_3.png",
+        tag: "Preservation",
+        description:
+          "Toggle preservation rules for photos, videos, colored SVGs, and canvas elements to prevent unnatural photographic negatives.",
+        highlights: [
+          "Preserve Images & Photos",
+          "Preserve Videos & Streams",
+          "Preserve Colored SVGs & Canvas",
+        ],
+      },
+      {
+        id: "ios-settings",
+        title: "Safari Extension Integration",
+        subtitle: "Native activation in iOS Settings",
+        image: "/invert/Ios/app_in_settings.png",
+        tag: "Apple Settings",
+        description:
+          "Activate Colour Invert in iOS Settings > Safari > Extensions with standard Apple privacy and security guarantees.",
+        highlights: [
+          "Standard iOS Safari Extension",
+          "No account or login required",
+          "Zero external network requests",
+        ],
+      },
+    ],
+    keywords: [
+      "colour",
+      "invert",
+      "dark",
+      "mode",
+      "safari",
+      "colors",
+      "contrast",
+      "brightness",
+      "night",
+      "web",
+      "website",
+      "accessibility",
+      "screen",
+      "filter",
     ],
   },
   principles: [

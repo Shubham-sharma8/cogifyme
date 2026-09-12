@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/hero/hero-section";
 import { EmDocShowcase } from "@/components/products/emdoc-showcase";
 import { ElementHiderShowcase } from "@/components/products/element-hider-showcase";
+import { InvertShowcase } from "@/components/products/invert-showcase";
 import { WhatWeBuild } from "@/components/company/what-we-build";
 import { EnterpriseSection } from "@/components/enterprise/enterprise-section";
 import { AboutSection } from "@/components/company/about-section";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <WhatWeBuild />
       <EmDocShowcase />
       <ElementHiderShowcase />
+      <InvertShowcase />
       <EnterpriseSection />
       <AboutSection />
       <FutureProducts />

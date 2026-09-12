@@ -51,6 +51,10 @@ export const WhatWeBuild = () => {
                   <span>Element Hider (Safari)</span>
                   <span className="text-purple-600 dark:text-purple-400 font-bold">v1.0 Live</span>
                 </div>
+                <div className="flex items-center justify-between text-blue-700 dark:text-blue-300 font-semibold">
+                  <span>Colour Invert (Safari)</span>
+                  <span className="text-blue-600 dark:text-blue-400 font-bold">v1.0 Live</span>
+                </div>
                 <div className="text-[11px] text-zinc-500">
                   100% free for individual users • Air-gapped and on-device • Zero ads or telemetry
                 </div>

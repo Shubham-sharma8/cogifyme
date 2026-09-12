@@ -21,14 +21,23 @@ import {
   Shield,
   Download,
   Share2,
+  Monitor,
+  Command,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 
 export default function ElementHiderPage() {
   const hider = siteConfig.elementHider;
+  const [platform, setPlatform] = useState<"mac" | "ios">("mac");
+  const screenshots = platform === "mac" ? (hider.screenshotsMac || hider.screenshots) : hider.screenshots;
   const [activeScreenshotIndex, setActiveScreenshotIndex] = useState(0);
-  const activeScreenshot = hider.screenshots[activeScreenshotIndex];
+  const activeScreenshot = screenshots[activeScreenshotIndex] || screenshots[0];
+
+  const handlePlatformChange = (p: "mac" | "ios") => {
+    setPlatform(p);
+    setActiveScreenshotIndex(0);
+  };
 
   return (
     <div className="pt-28 pb-20 relative">
@@ -122,7 +131,7 @@ export default function ElementHiderPage() {
         id="screenshots"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-24 border-t border-zinc-200/80 dark:border-white/5"
       >
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20 text-xs font-semibold uppercase tracking-wider mb-3">
             Visual Experience
           </div>
@@ -130,13 +139,41 @@ export default function ElementHiderPage() {
             See Element Hider in Action
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mt-2">
-            Designed seamlessly for Safari. Step through the real iOS interface from initial setup to a distraction-free webpage.
+            Designed seamlessly for Safari. Step through the real macOS and iOS interfaces from initial setup to a distraction-free webpage.
           </p>
+        </div>
+
+        {/* Platform Switcher */}
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <button
+            onClick={() => handlePlatformChange("mac")}
+            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer border ${
+              platform === "mac"
+                ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 border-zinc-900 dark:border-white shadow-md"
+                : "bg-white hover:bg-zinc-100 text-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-300 border-zinc-200/80 dark:border-white/10"
+            }`}
+          >
+            <Monitor className="w-4 h-4 text-indigo-500" />
+            <span>macOS Safari</span>
+            <span className="text-[11px] font-mono opacity-70 px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">6 Views</span>
+          </button>
+          <button
+            onClick={() => handlePlatformChange("ios")}
+            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer border ${
+              platform === "ios"
+                ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 border-zinc-900 dark:border-white shadow-md"
+                : "bg-white hover:bg-zinc-100 text-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-300 border-zinc-200/80 dark:border-white/10"
+            }`}
+          >
+            <Smartphone className="w-4 h-4 text-emerald-500" />
+            <span>iOS Safari (iPhone)</span>
+            <span className="text-[11px] font-mono opacity-70 px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">5 Views</span>
+          </button>
         </div>
 
         {/* Screenshot Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {hider.screenshots.map((s, idx) => (
+          {screenshots.map((s, idx) => (
             <button
               key={s.id}
               onClick={() => setActiveScreenshotIndex(idx)}
@@ -155,31 +192,72 @@ export default function ElementHiderPage() {
         {/* Screenshot Showcase Display Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-zinc-50 dark:bg-zinc-900/40 rounded-3xl p-6 sm:p-10 border border-zinc-200/80 dark:border-white/5">
           {/* Left: Device Frame with Image */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-[280px] sm:w-[320px] aspect-[1206/2622] rounded-[42px] p-3 bg-zinc-900 shadow-2xl border-4 border-zinc-800 ring-1 ring-white/10">
-              {/* Dynamic Island */}
-              <div className="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-20 pointer-events-none" />
+          {platform === "ios" ? (
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-[280px] sm:w-[320px] aspect-[1206/2622] rounded-[42px] p-3 bg-zinc-900 shadow-2xl border-4 border-zinc-800 ring-1 ring-white/10">
+                {/* Dynamic Island */}
+                <div className="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-20 pointer-events-none" />
 
-              {/* Inner Screen */}
-              <div className="relative w-full h-full rounded-[34px] overflow-hidden bg-black">
-                <Image
-                  src={activeScreenshot.image}
-                  alt={activeScreenshot.title}
-                  fill
-                  className="object-cover transition-opacity duration-300"
-                  sizes="(max-width: 768px) 280px, 320px"
-                  priority
-                />
+                {/* Inner Screen */}
+                <div className="relative w-full h-full rounded-[34px] overflow-hidden bg-black">
+                  <Image
+                    src={activeScreenshot.image}
+                    alt={activeScreenshot.title}
+                    fill
+                    className="object-cover transition-opacity duration-300"
+                    sizes="(max-width: 768px) 280px, 320px"
+                    priority
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div className="lg:col-span-6 flex justify-center w-full">
+              <div className="w-full rounded-2xl bg-zinc-950 border border-zinc-700/80 shadow-2xl overflow-hidden ring-1 ring-white/10 flex flex-col">
+                {/* macOS Window Titlebar */}
+                <div className="h-9 px-4 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between shrink-0 select-none">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50" />
+                    <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50" />
+                    <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50" />
+                  </div>
+                  <div className="text-[11px] font-medium text-zinc-400 font-mono tracking-tight flex items-center gap-1.5">
+                    <Compass className="w-3.5 h-3.5 text-indigo-400" />
+                    <span>macOS Safari — Element Hider</span>
+                  </div>
+                  <div className="flex items-center space-x-1 text-[10px] text-zinc-400 font-mono">
+                    <kbd className="px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700">⌥</kbd>
+                    <kbd className="px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700">⇧</kbd>
+                    <kbd className="px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700">H</kbd>
+                  </div>
+                </div>
+
+                {/* macOS Screen Content */}
+                <div className="relative w-full aspect-[3350/1940] bg-zinc-950 overflow-hidden">
+                  <Image
+                    src={activeScreenshot.image}
+                    alt={activeScreenshot.title}
+                    fill
+                    className="object-cover transition-opacity duration-300"
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Right: Detailed Step Explanation */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-xs font-mono font-medium border border-indigo-200 dark:border-indigo-500/30">
-              <span>Step {activeScreenshotIndex + 1} of {hider.screenshots.length}</span>
-              <span>•</span>
-              <span>{activeScreenshot.tag}</span>
+          <div className={platform === "ios" ? "lg:col-span-7 space-y-6" : "lg:col-span-6 space-y-6"}>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-xs font-mono font-medium border border-indigo-200 dark:border-indigo-500/30">
+                <span>Step {activeScreenshotIndex + 1} of {screenshots.length}</span>
+                <span>•</span>
+                <span>{activeScreenshot.tag}</span>
+              </span>
+              <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/10">
+                {platform === "mac" ? "macOS Safari" : "iOS Safari"}
+              </span>
             </div>
 
             <div>
@@ -190,6 +268,13 @@ export default function ElementHiderPage() {
                 {activeScreenshot.subtitle}
               </p>
             </div>
+
+            {platform === "mac" && (
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-500/20 text-xs text-indigo-900 dark:text-indigo-200 font-medium">
+                <Command className="w-4 h-4 text-indigo-500 shrink-0" />
+                <span>Mac Global Shortcut: Press <kbd className="font-mono font-bold px-1.5 py-0.5 rounded bg-white dark:bg-zinc-800 border border-indigo-300 dark:border-indigo-500/40 shadow-xs">⌥ + ⇧ + H</kbd> to activate the element picker on any webpage instantly.</span>
+              </div>
+            )}
 
             <p className="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
               {activeScreenshot.description}
@@ -222,10 +307,10 @@ export default function ElementHiderPage() {
                 Previous View
               </button>
               <button
-                disabled={activeScreenshotIndex === hider.screenshots.length - 1}
+                disabled={activeScreenshotIndex === screenshots.length - 1}
                 onClick={() =>
                   setActiveScreenshotIndex((prev) =>
-                    Math.min(hider.screenshots.length - 1, prev + 1)
+                    Math.min(screenshots.length - 1, prev + 1)
                   )
                 }
                 className="px-4 py-2 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center gap-1.5"

@@ -58,6 +58,21 @@ const nextConfig: NextConfig = {
         destination: "/element-hider/privacy",
         permanent: true,
       },
+      {
+        source: "/products/invert",
+        destination: "/invert",
+        permanent: true,
+      },
+      {
+        source: "/colour-invert",
+        destination: "/invert",
+        permanent: true,
+      },
+      {
+        source: "/products/invert/privacy",
+        destination: "/invert/privacy",
+        permanent: true,
+      },
       // 3. Consolidate duplicate legal paths to canonical URLs
       {
         source: "/legal/privacy",

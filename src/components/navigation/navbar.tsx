@@ -97,6 +97,18 @@ export const Navbar = () => {
                 <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 font-semibold">Safari</span>
               </Link>
               <Link
+                href="/invert"
+                className={cn(
+                  "px-3 py-1.5 rounded-lg text-xs font-medium transition-colors inline-flex items-center gap-1.5",
+                  pathname.startsWith("/invert")
+                    ? "text-blue-600 dark:text-white bg-blue-50 dark:bg-white/10 font-semibold"
+                    : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5"
+                )}
+              >
+                <span>Colour Invert</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 font-semibold">Safari</span>
+              </Link>
+              <Link
                 href="/enterprise"
                 className={cn(
                   "px-3 py-1.5 rounded-lg text-xs font-medium transition-colors",
@@ -210,6 +222,16 @@ export const Navbar = () => {
               >
                 <span>Element Hider</span>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-50 text-purple-700 dark:bg-purple-500/20 dark:text-purple-300">
+                  Safari
+                </span>
+              </Link>
+              <Link
+                href="/invert"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-lg text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-zinc-950 dark:hover:text-white flex items-center justify-between"
+              >
+                <span>Colour Invert</span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-50 text-blue-700 dark:bg-blue-500/20 dark:text-blue-300">
                   Safari
                 </span>
               </Link>
