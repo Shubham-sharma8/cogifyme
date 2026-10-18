@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Mail, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { BrandLogo } from "@/components/brand/brand-logo";
 
@@ -20,7 +20,11 @@ export default function ContactPage() {
   const [honeypot, setHoneypot] = useState("");
   const [honeypotWebsite, setHoneypotWebsite] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [formStartTime] = useState<number>(Date.now());
+  const formStartTimeRef = useRef<number>(0);
+
+  useEffect(() => {
+    formStartTimeRef.current = Date.now();
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -60,7 +64,7 @@ export default function ContactPage() {
           turnstileToken,
           _hp_company: honeypot,
           _hp_website: honeypotWebsite,
-          formStartTime,
+          formStartTime: formStartTimeRef.current,
         }),
       });
 
@@ -71,9 +75,11 @@ export default function ContactPage() {
 
       setReferenceCode(data.referenceCode || "");
       setStatus("success");
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus("error");
-      setErrorMessage(err.message || "Failed to submit message. Please try again.");
+      setErrorMessage(
+        err instanceof Error ? err.message : "Failed to submit message. Please try again."
+      );
     }
   };
 
@@ -270,7 +276,8 @@ export default function ContactPage() {
                       >
                         <option>General Software Inquiry</option>
                         <option>EmDoc Workstation Support</option>
-                        <option>Enterprise Deployment</option>
+                        <option>Safari Extensions Support (Ad Blocker, ReaderEasy, WebClear, WebLenses, Invert, Element Hider)</option>
+                        <option>Enterprise Deployment &amp; Licensing</option>
                         <option>Technical Partnership</option>
                       </select>
                     </div>

@@ -78,15 +78,15 @@ export const EmDocGallery = () => {
     scrollContainerRef.current?.scrollBy({ left: amount, behavior: "smooth" });
   };
 
-  const handlePrev = () => {
+  const handlePrev = React.useCallback(() => {
     const nextIdx = (activeIndex - 1 + screenshots.length) % screenshots.length;
     setActiveId(screenshots[nextIdx].id);
-  };
+  }, [activeIndex, screenshots]);
 
-  const handleNext = () => {
+  const handleNext = React.useCallback(() => {
     const nextIdx = (activeIndex + 1) % screenshots.length;
     setActiveId(screenshots[nextIdx].id);
-  };
+  }, [activeIndex, screenshots]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -97,7 +97,7 @@ export const EmDocGallery = () => {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [lightboxOpen, activeIndex]);
+  }, [lightboxOpen, handlePrev, handleNext]);
 
   return (
     <div className="w-full">

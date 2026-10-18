@@ -177,12 +177,15 @@ export async function POST(req: NextRequest) {
       ticketId: ticket.id,
       message: "Submission received, verified, and confirmation email dispatched.",
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Form submission API error:", error);
     return NextResponse.json(
       {
         success: false,
-        error: error.message || "Internal server error processing request.",
+        error:
+          error instanceof Error
+            ? error.message
+            : "Internal server error processing request.",
       },
       { status: 500 }
     );

@@ -10,25 +10,23 @@ import { CrispChat } from "@/components/chat/crisp-chat";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  alternates: {
-    canonical: siteConfig.url,
-  },
   title: {
-    default: `${siteConfig.name} — We Provide Solutions | Everyday Software & Enterprise Tools`,
+    default: `${siteConfig.name} — Native macOS, iOS & Safari Apps | Zero Telemetry Software`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
-  authors: [{ name: "COGIFY" }, { name: "Shubham Sharma" }],
+  authors: [{ name: "COGIFY", url: "https://cogify.me" }, { name: "Shubham Sharma" }],
   creator: "COGIFY",
   publisher: "COGIFY",
+  category: "technology",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: `${siteConfig.name} — We Provide Solutions | Everyday Software & Enterprise Tools`,
+    title: `${siteConfig.name} — Native macOS, iOS & Safari Apps | Zero Telemetry Software`,
     description:
-      "Cogify engineers high-performance everyday apps and custom enterprise software solutions. We replace expensive licenses with lightweight, sovereign tools. EmDoc is our flagship product.",
+      "Cogify builds ultra-fast, 100% offline native apps for macOS, iOS, iPadOS, and Safari: EmDoc PDF Workstation, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
     siteName: siteConfig.name,
     images: [
       {
@@ -37,15 +35,15 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "Cogify — Everyday Software & Solutions Engineered with Enterprise Precision",
+        alt: "Cogify — Native macOS, iOS & Safari Software Engineered with Zero Telemetry",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — We Provide Solutions | Everyday Software & Enterprise Tools`,
+    title: `${siteConfig.name} — Native macOS, iOS & Safari Apps | Zero Telemetry Software`,
     description:
-      "Cogify engineers high-performance everyday apps and custom enterprise software solutions. We replace expensive licenses with lightweight, sovereign tools. EmDoc is our flagship product.",
+      "Cogify builds ultra-fast, 100% offline native apps for macOS, iOS, iPadOS, and Safari: EmDoc, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
     images: ["https://cogify.me/og-image.png"],
   },
   robots: {

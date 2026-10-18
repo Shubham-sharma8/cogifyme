@@ -5,87 +5,96 @@ export const revalidate = 86400;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://cogify.me";
-
-  // Meaningful, stable lastModified dates (W3C Datetime format)
-  const coreUpdatedDate = new Date("2026-09-09");
-  const legalPolicyDate = new Date("2026-09-06");
+  const lastModified = new Date();
 
   return [
     {
       url: `${baseUrl}`,
-      lastModified: coreUpdatedDate,
+      lastModified,
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/products`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/products/emdoc`,
-      lastModified: coreUpdatedDate,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/ad-blocker`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/readereasy`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/webclear`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/weblenses`,
+      lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/element-hider`,
-      lastModified: new Date("2026-09-12"),
+      lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/invert`,
-      lastModified: new Date("2026-09-12"),
+      lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/enterprise`,
-      lastModified: coreUpdatedDate,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: coreUpdatedDate,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: coreUpdatedDate,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/suggestions`,
-      lastModified: coreUpdatedDate,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: legalPolicyDate,
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/emdoc/privacy`,
-      lastModified: legalPolicyDate,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/element-hider/privacy`,
-      lastModified: new Date("2026-09-12"),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/invert/privacy`,
-      lastModified: new Date("2026-09-12"),
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: legalPolicyDate,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.5,
     },

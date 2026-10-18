@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState, useSyncExternalStore } from "react";
 
 type Theme = "dark" | "light" | "system";
 type ResolvedTheme = "dark" | "light";
@@ -16,6 +16,22 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const STORAGE_KEY = "cogify-theme";
 
+function subscribeMediaQuery(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  mediaQuery.addEventListener("change", callback);
+  return () => mediaQuery.removeEventListener("change", callback);
+}
+
+function getSystemThemeSnapshot(): ResolvedTheme {
+  if (typeof window === "undefined") return "dark";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function getServerThemeSnapshot(): ResolvedTheme {
+  return "dark";
+}
+
 export function ThemeProvider({
   children,
   defaultTheme = "system",
@@ -23,65 +39,41 @@ export function ThemeProvider({
   children: React.ReactNode;
   defaultTheme?: Theme;
 }) {
-  const [theme, setThemeState] = useState<Theme>(defaultTheme);
-  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>("dark");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window === "undefined") return defaultTheme;
     try {
       const savedTheme = localStorage.getItem(STORAGE_KEY) as Theme | null;
-      if (savedTheme && (savedTheme === "dark" || savedTheme === "light" || savedTheme === "system")) {
-        setThemeState(savedTheme);
-      } else {
-        setThemeState(defaultTheme);
+      if (savedTheme === "dark" || savedTheme === "light" || savedTheme === "system") {
+        return savedTheme;
       }
     } catch {
-      setThemeState(defaultTheme);
+      // Ignore storage read errors
     }
-  }, [defaultTheme]);
+    return defaultTheme;
+  });
+
+  const systemTheme = useSyncExternalStore(
+    subscribeMediaQuery,
+    getSystemThemeSnapshot,
+    getServerThemeSnapshot
+  );
+
+  const resolvedTheme: ResolvedTheme = theme === "system" ? systemTheme : theme;
 
   useEffect(() => {
-    if (!mounted) return;
-
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
-    const updateTheme = () => {
-      let activeTheme: ResolvedTheme;
-
-      if (theme === "system") {
-        activeTheme = mediaQuery.matches ? "dark" : "light";
-      } else {
-        activeTheme = theme === "dark" ? "dark" : "light";
-      }
-
-      setResolvedTheme(activeTheme);
-
-      const root = document.documentElement;
-      if (activeTheme === "dark") {
-        root.classList.add("dark");
-        root.classList.remove("light");
-        root.style.colorScheme = "dark";
-        root.setAttribute("data-theme", "dark");
-      } else {
-        root.classList.remove("dark");
-        root.classList.add("light");
-        root.style.colorScheme = "light";
-        root.setAttribute("data-theme", "light");
-      }
-    };
-
-    updateTheme();
-
-    const listener = () => {
-      if (theme === "system") {
-        updateTheme();
-      }
-    };
-
-    mediaQuery.addEventListener("change", listener);
-    return () => mediaQuery.removeEventListener("change", listener);
-  }, [theme, mounted]);
+    const root = document.documentElement;
+    if (resolvedTheme === "dark") {
+      root.classList.add("dark");
+      root.classList.remove("light");
+      root.style.colorScheme = "dark";
+      root.setAttribute("data-theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      root.classList.add("light");
+      root.style.colorScheme = "light";
+      root.setAttribute("data-theme", "light");
+    }
+  }, [resolvedTheme]);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);

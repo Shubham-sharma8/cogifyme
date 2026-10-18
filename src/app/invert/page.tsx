@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   SunMoon,
   Sparkles,
-  ShieldCheck,
   CheckCircle2,
   Monitor,
   Smartphone,
@@ -15,25 +14,26 @@ import {
   ChevronRight,
   Eye,
   SlidersHorizontal,
-  Flame,
-  Zap,
-  Layers,
   Palette,
   Shield,
   Video,
   FileCode,
+  ExternalLink,
+  ArrowRight,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 
 export default function ColourInvertPage() {
   const invert = siteConfig.invert;
-  const [platform, setPlatform] = useState<"mac" | "ios">("mac");
-  const screenshots = platform === "mac" ? invert.screenshotsMac : invert.screenshotsIos;
+  // Standardized default platform to iOS across all Safari Extension pages
+  const [platform, setPlatform] = useState<"ios" | "mac">("ios");
+  const screenshots =
+    platform === "ios" ? invert.screenshotsIos : invert.screenshotsMac;
   const [activeScreenshotIndex, setActiveScreenshotIndex] = useState(0);
   const activeScreenshot = screenshots[activeScreenshotIndex] || screenshots[0];
 
-  const handlePlatformChange = (p: "mac" | "ios") => {
+  const handlePlatformChange = (p: "ios" | "mac") => {
     setPlatform(p);
     setActiveScreenshotIndex(0);
   };
@@ -62,7 +62,7 @@ export default function ColourInvertPage() {
                   Safari Web Extension
                 </span>
                 <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
-                  Version {invert.version} Live
+                  Live on App Store • v{invert.version}
                 </span>
                 <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10">
                   {invert.primaryCategory} • {invert.secondaryCategory}
@@ -92,6 +92,16 @@ export default function ColourInvertPage() {
 
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
+            <a
+              href={invert.appStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3.5 rounded-xl bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-zinc-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2"
+            >
+              <ExternalLink className="w-4 h-4" />
+              <span>Download on the App Store</span>
+            </a>
+
             <MovingBorderButton
               borderRadius="0.75rem"
               className="px-6 py-3.5 font-semibold text-sm cursor-pointer"
@@ -105,14 +115,6 @@ export default function ColourInvertPage() {
                 <span>Explore Extension Gallery</span>
               </span>
             </MovingBorderButton>
-
-            <Link
-              href="/invert/privacy"
-              className="px-6 py-3.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-800 hover:text-zinc-950 font-semibold text-sm border border-zinc-200/90 shadow-xs dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-300 dark:hover:text-white dark:border-white/10 transition-colors flex items-center gap-2"
-            >
-              <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>Zero-Tracking Privacy Policy</span>
-            </Link>
 
             <Link
               href="/suggestions"
@@ -168,24 +170,12 @@ export default function ColourInvertPage() {
             See Colour Invert in Action
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mt-2">
-            Engineered seamlessly for Safari. Step through the real macOS and iOS interfaces across YouTube, ChatGPT, Google Search, and native sliders.
+            Engineered seamlessly for Safari. Step through the real iOS and macOS interfaces across ChatGPT, YouTube, Google Search, and native sliders.
           </p>
         </div>
 
-        {/* Platform Switcher */}
+        {/* Platform Switcher — Standardized iOS First */}
         <div className="flex items-center justify-center gap-3 mb-8">
-          <button
-            onClick={() => handlePlatformChange("mac")}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer border ${
-              platform === "mac"
-                ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 border-zinc-900 dark:border-white shadow-md"
-                : "bg-white hover:bg-zinc-100 text-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-300 border-zinc-200/80 dark:border-white/10"
-            }`}
-          >
-            <Monitor className="w-4 h-4 text-blue-500" />
-            <span>macOS Safari</span>
-            <span className="text-[11px] font-mono opacity-70 px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">5 Views</span>
-          </button>
           <button
             onClick={() => handlePlatformChange("ios")}
             className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer border ${
@@ -196,7 +186,23 @@ export default function ColourInvertPage() {
           >
             <Smartphone className="w-4 h-4 text-emerald-500" />
             <span>iOS Safari (iPhone)</span>
-            <span className="text-[11px] font-mono opacity-70 px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">7 Views</span>
+            <span className="text-[11px] font-mono opacity-70 px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">
+              7 Views
+            </span>
+          </button>
+          <button
+            onClick={() => handlePlatformChange("mac")}
+            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer border ${
+              platform === "mac"
+                ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 border-zinc-900 dark:border-white shadow-md"
+                : "bg-white hover:bg-zinc-100 text-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-300 border-zinc-200/80 dark:border-white/10"
+            }`}
+          >
+            <Monitor className="w-4 h-4 text-blue-500" />
+            <span>macOS Safari</span>
+            <span className="text-[11px] font-mono opacity-70 px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">
+              5 Views
+            </span>
           </button>
         </div>
 
@@ -223,17 +229,15 @@ export default function ColourInvertPage() {
           {/* Left: Device Frame */}
           {platform === "ios" ? (
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-[280px] sm:w-[320px] aspect-[1206/2622] rounded-[42px] p-3 bg-zinc-900 shadow-2xl border-4 border-zinc-800 ring-1 ring-white/10">
-                {/* Dynamic Island */}
-                <div className="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-20 pointer-events-none" />
-
-                {/* Inner Screen */}
-                <div className="relative w-full h-full rounded-[34px] overflow-hidden bg-black">
+              {/* Uncropped iPhone Frame: exact 1206:2622 on inner screen */}
+              <div className="relative w-[275px] sm:w-[310px] rounded-[42px] p-2.5 bg-zinc-950 shadow-2xl border-4 border-zinc-800 ring-1 ring-white/10">
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-black/80 rounded-full z-20 pointer-events-none" />
+                <div className="relative w-full aspect-[1206/2622] rounded-[34px] overflow-hidden bg-zinc-950">
                   <Image
                     src={activeScreenshot.image}
                     alt={activeScreenshot.title}
                     fill
-                    className="object-cover transition-opacity duration-300"
+                    className="object-contain transition-opacity duration-300"
                     sizes="(max-width: 768px) 280px, 320px"
                     priority
                   />
@@ -265,7 +269,7 @@ export default function ColourInvertPage() {
                     src={activeScreenshot.image}
                     alt={activeScreenshot.title}
                     fill
-                    className="object-cover transition-opacity duration-300"
+                    className="object-contain transition-opacity duration-300"
                     sizes="(max-width: 768px) 100vw, 600px"
                     priority
                   />
@@ -322,7 +326,7 @@ export default function ColourInvertPage() {
               <button
                 disabled={activeScreenshotIndex === 0}
                 onClick={() => setActiveScreenshotIndex((prev) => Math.max(0, prev - 1))}
-                className="px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-zinc-100 transition-colors"
+                className="px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-zinc-100 transition-colors cursor-pointer"
               >
                 Previous View
               </button>
@@ -333,7 +337,7 @@ export default function ColourInvertPage() {
                     Math.min(screenshots.length - 1, prev + 1)
                   )
                 }
-                className="px-4 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center gap-1.5"
+                className="px-4 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center gap-1.5 cursor-pointer"
               >
                 <span>Next View</span>
                 <ChevronRight className="w-3.5 h-3.5" />
@@ -493,7 +497,7 @@ export default function ColourInvertPage() {
               </div>
             </div>
             <p className="text-xs text-zinc-400 font-mono pt-2">
-              💡 Sliders apply immediately in real-time with zero page reloads.
+              Sliders apply immediately in real-time with zero page reloads.
             </p>
           </div>
         </div>
@@ -538,13 +542,15 @@ export default function ColourInvertPage() {
               Colour Invert is completely free forever. No accounts, no paywalls, and zero tracking. Install the Safari extension and browse comfortably day and night.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-              <Link
-                href="/invert/privacy"
-                className="px-6 py-3.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-900 font-semibold text-sm transition-colors flex items-center gap-2"
+              <a
+                href={invert.appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-colors flex items-center gap-2 shadow-lg shadow-blue-600/30"
               >
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>Read Zero-Tracking Privacy Policy</span>
-              </Link>
+                <span>Download on the App Store</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
               <Link
                 href="/suggestions"
                 className="px-6 py-3.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-sm border border-zinc-700 transition-colors flex items-center gap-2"

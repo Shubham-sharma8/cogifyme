@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 declare global {
   interface Window {
-    $crisp?: any[];
+    $crisp?: unknown[];
     CRISP_WEBSITE_ID?: string;
   }
 }

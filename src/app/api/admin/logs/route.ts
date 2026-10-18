@@ -16,7 +16,10 @@ export async function GET(req: NextRequest) {
 
     const logs = await db.getAuditLogs(100);
     return NextResponse.json({ logs });
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to load logs" },
+      { status: 500 }
+    );
   }
 }

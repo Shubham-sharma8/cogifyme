@@ -27,10 +27,16 @@ export async function GET(req: NextRequest) {
 
     const admins = await db.getAllAdmins();
     // Exclude passwordHash from output
-    const safeAdmins = admins.map(({ passwordHash, ...rest }) => rest);
+    const safeAdmins = admins.map(({ passwordHash: _ph, ...rest }) => {
+      void _ph;
+      return rest;
+    });
     return NextResponse.json({ admins: safeAdmins });
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to fetch team" },
+      { status: 500 }
+    );
   }
 }
 
@@ -78,10 +84,14 @@ export async function POST(req: NextRequest) {
       details: `Created admin account for ${newAdmin.name} (${newAdmin.email}) with role ${newAdmin.role}`,
     });
 
-    const { passwordHash: _, ...safeAdmin } = newAdmin;
+    const { passwordHash: _phPost, ...safeAdmin } = newAdmin;
+    void _phPost;
     return NextResponse.json({ success: true, admin: safeAdmin });
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to create admin" },
+      { status: 500 }
+    );
   }
 }
 
@@ -123,9 +133,13 @@ export async function PATCH(req: NextRequest) {
       details: `Admin ${updated.email} status changed to ${updated.status}`,
     });
 
-    const { passwordHash: _, ...safeAdmin } = updated;
+    const { passwordHash: _phPatch, ...safeAdmin } = updated;
+    void _phPatch;
     return NextResponse.json({ success: true, admin: safeAdmin });
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to update admin status" },
+      { status: 500 }
+    );
   }
 }

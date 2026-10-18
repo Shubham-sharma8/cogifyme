@@ -6,50 +6,50 @@ import { Timeline, TimelineEntry } from "@/components/ui/timeline";
 export const AboutSection = () => {
   const timelineData: TimelineEntry[] = [
     {
-      title: "Core Architecture & Tenets",
+      title: "Core Architecture & Zero-Telemetry Tenet",
       badge: "Foundation",
       content: (
         <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
           <p>
-            COGIFY was established around a singular engineering conviction: that modern software should be fast, private, and built without wasteful layers of abstraction.
+            COGIFY was established around a singular engineering conviction: everyday software for Mac, iPhone, and iPad should be fast, 100% free for users, and built without surveillance telemetry or bloated web wrappers.
           </p>
           <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-white/10 text-xs space-y-2">
-            <div className="font-semibold text-zinc-900 dark:text-zinc-200">The 100% Offline Principle</div>
+            <div className="font-semibold text-zinc-900 dark:text-zinc-200">The 100% On-Device Principle</div>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              We architected a clean C++20 PDF Engine decoupled from Apple or Windows UI frameworks. Zero cloud servers, zero analytics, zero telemetric beacons.
+              Every COGIFY utility executes strictly on local Apple Silicon and Intel hardware in Swift, C++20, and native WebKit extensions — with zero cloud servers, zero analytics SDKs, and zero subscriptions.
             </p>
           </div>
         </div>
       ),
     },
     {
-      title: "EmDoc Workstation for macOS",
-      badge: "Current Flagship",
+      title: "7 Free Apps Live on the Apple App Store",
+      badge: "Live Ecosystem",
       content: (
         <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
           <p>
-            Our initial commercial product, EmDoc, brings desktop PDF workflows to macOS with native Retina acceleration, Apple Neural Engine OCR, fill & sign workstations, and vector security blackouts.
+            Our published suite spans macOS, iOS, iPadOS, and Safari: EmDoc PDF Workstation (5.0 MB), Ad Blocker - For Safari (v2.0), ReaderEasy (v1.1), WebClear, WebLenses, Element Hider, and Colour Invert.
           </p>
           <div className="grid grid-cols-2 gap-3 text-xs">
             <div className="p-3 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-200/80 dark:border-white/5 shadow-xs">
-              <span className="text-indigo-600 dark:text-indigo-400 font-semibold block mb-0.5">Version 0.1 Preview</span>
-              <span className="text-zinc-500">Universal macOS binary</span>
+              <span className="text-indigo-600 dark:text-indigo-400 font-semibold block mb-0.5">7 Published Apps</span>
+              <span className="text-zinc-500">macOS, iOS, iPadOS &amp; Safari</span>
             </div>
             <div className="p-3 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-200/80 dark:border-white/5 shadow-xs">
-              <span className="text-emerald-600 dark:text-emerald-400 font-semibold block mb-0.5">Air-Gapped Local</span>
-              <span className="text-zinc-500">100% on-device compute</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold block mb-0.5">100% Free &amp; Local</span>
+              <span className="text-zinc-500">Zero paywalls or tracking</span>
             </div>
           </div>
         </div>
       ),
     },
     {
-      title: "Cross-Platform & Enterprise Engines",
+      title: "CarPlay Infotainment, Mobile DevTools & Enterprise",
       badge: "Roadmap",
       content: (
         <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
           <p>
-            Because our core PDF logic is written in ISO C++20 with ABI-stable C interfaces, the exact same battle-tested engine will power upcoming releases across iPadOS, Windows PC, and air-gapped enterprise server pipelines.
+            Expanding into Apple CarPlay and mobile developer tooling with Aurora Drive (real-time live lyrics, customizable iOS widgets, and CarPlay infotainment), Web Inspection, Full Page Web Capture, and bespoke enterprise software replacements.
           </p>
         </div>
       ),

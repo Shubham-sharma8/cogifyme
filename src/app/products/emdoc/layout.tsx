@@ -56,7 +56,7 @@ const breadcrumbsSchema = {
       "@type": "ListItem",
       "position": 2,
       "name": "Products",
-      "item": "https://cogify.me/#products",
+      "item": "https://cogify.me/products",
     },
     {
       "@type": "ListItem",

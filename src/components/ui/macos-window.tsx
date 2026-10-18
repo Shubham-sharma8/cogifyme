@@ -3,15 +3,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 import {
   ShieldCheck,
-  Cpu,
-  Layers,
-  HardDrive,
   Maximize2,
   FileText,
   Grid,
   PenTool,
   Minimize2,
-  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 

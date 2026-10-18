@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Inbox,
   Clock,
@@ -14,7 +15,6 @@ import {
   MessageSquare,
   Building2,
   Bug,
-  HelpCircle,
 } from "lucide-react";
 
 interface Metrics {
@@ -44,14 +44,14 @@ interface TicketSummary {
 }
 
 export default function AdminDashboardPage() {
+  const router = useRouter();
   const [metrics, setMetrics] = useState<Metrics | null>(null);
   const [recentTickets, setRecentTickets] = useState<TicketSummary[]>([]);
   const [loading, setLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
-      setIsRefreshing(true);
       const [metricsRes, ticketsRes] = await Promise.all([
         fetch("/api/admin/tickets?metrics=true"),
         fetch("/api/admin/tickets"),
@@ -71,14 +71,21 @@ export default function AdminDashboardPage() {
       setLoading(false);
       setIsRefreshing(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
-    fetchData();
+    const initTimer = setTimeout(() => {
+      void fetchData();
+    }, 0);
     // Poll every 15 seconds for live real-time updates
-    const interval = setInterval(fetchData, 15000);
-    return () => clearInterval(interval);
-  }, []);
+    const interval = setInterval(() => {
+      void fetchData();
+    }, 15000);
+    return () => {
+      clearTimeout(initTimer);
+      clearInterval(interval);
+    };
+  }, [fetchData]);
 
   const getCategoryBadge = (category: string) => {
     switch (category) {
@@ -156,7 +163,10 @@ export default function AdminDashboardPage() {
 
         <div className="flex items-center gap-3">
           <button
-            onClick={fetchData}
+            onClick={() => {
+              setIsRefreshing(true);
+              void fetchData();
+            }}
             disabled={isRefreshing}
             className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-300 transition-colors cursor-pointer"
           >
@@ -323,7 +333,7 @@ export default function AdminDashboardPage() {
                     key={ticket.id}
                     className="hover:bg-zinc-50/80 dark:hover:bg-zinc-800/40 transition-colors group cursor-pointer"
                     onClick={() => {
-                      window.location.href = `/admin/tickets?id=${ticket.id}`;
+                      router.push(`/admin/tickets?id=${ticket.id}`);
                     }}
                   >
                     <td className="py-3.5 px-4 font-mono font-bold text-indigo-600 dark:text-indigo-400">

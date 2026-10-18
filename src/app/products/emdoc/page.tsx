@@ -5,20 +5,11 @@ import Link from "next/link";
 import {
   ShieldCheck,
   Cpu,
-  Layers,
-  Lock,
-  Stamp,
-  Scan,
   Download,
   HardDrive,
-  FileText,
-  ArrowRight,
-  Gift,
-  Smartphone,
-  CheckCircle2,
-  XCircle,
   MessageSquare,
   Sparkles,
+  ExternalLink,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { MovingBorderButton } from "@/components/ui/moving-border";
@@ -44,12 +35,15 @@ export default function EmDocProductPage() {
               />
             </div>
             <div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">
+                  Live on Mac App Store • v{emdoc.version}
+                </span>
                 <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/30">
                   macOS Native Workstation
                 </span>
                 <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10">
-                  iOS In Development
+                  Universal Apple Silicon &amp; Intel
                 </span>
               </div>
               <div className="text-xs text-zinc-500 font-mono mt-1">
@@ -71,6 +65,16 @@ export default function EmDocProductPage() {
 
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
+            <a
+              href={emdoc.appStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2"
+            >
+              <ExternalLink className="w-4 h-4" />
+              <span>Get on Mac App Store</span>
+            </a>
+
             <MovingBorderButton
               onClick={() => setDownloadModalOpen(true)}
               borderRadius="0.75rem"
@@ -78,7 +82,7 @@ export default function EmDocProductPage() {
             >
               <span className="flex items-center gap-2">
                 <Download className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                <span>Download EmDoc ({emdoc.appSize})</span>
+                <span>Download Options ({emdoc.appSize})</span>
               </span>
             </MovingBorderButton>
 
@@ -87,15 +91,7 @@ export default function EmDocProductPage() {
               className="px-6 py-3.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-950/40 dark:hover:bg-indigo-900/40 dark:text-indigo-300 font-semibold text-sm border border-indigo-200 dark:border-indigo-500/30 transition-colors flex items-center gap-2"
             >
               <MessageSquare className="w-4 h-4" />
-              <span>Suggest a Feature / Report Bug</span>
-            </Link>
-
-            <Link
-              href="/emdoc/privacy"
-              className="px-6 py-3.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-800 hover:text-zinc-950 font-semibold text-sm border border-zinc-200/90 shadow-xs dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-300 dark:hover:text-white dark:border-white/10 transition-colors flex items-center gap-2"
-            >
-              <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>Air-Gapped Policy</span>
+              <span>Suggest a Feature</span>
             </Link>
           </div>
 
@@ -114,8 +110,8 @@ export default function EmDocProductPage() {
               <span className="text-sm font-bold text-cyan-600 dark:text-cyan-400">100% Free Users</span>
             </div>
             <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200/80 dark:border-white/5">
-              <span className="text-zinc-500 block text-[10px] uppercase font-mono">Mobile App</span>
-              <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">iOS In Dev</span>
+              <span className="text-zinc-500 block text-[10px] uppercase font-mono">Architecture</span>
+              <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">macOS Universal</span>
             </div>
           </div>
         </div>
@@ -173,7 +169,7 @@ export default function EmDocProductPage() {
               <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
                 <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">RAM Memory Baseline</td>
                 <td className="py-3.5 px-6 font-bold text-emerald-600 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
-                  ~45 MB (Lightweight & cool)
+                  ~45 MB (Lightweight &amp; cool)
                 </td>
                 <td className="py-3.5 px-6 text-zinc-500">800 MB - 2.5 GB</td>
                 <td className="py-3.5 px-6 text-zinc-500">250 MB - 600 MB</td>
@@ -187,12 +183,12 @@ export default function EmDocProductPage() {
                 <td className="py-3.5 px-6 text-zinc-500">$79.99 / year or paid tiers</td>
               </tr>
               <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
-                <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Cloud & Telemetry</td>
+                <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Cloud &amp; Telemetry</td>
                 <td className="py-3.5 px-6 font-bold text-emerald-600 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
                   100% Air-Gapped (0 bytes online)
                 </td>
-                <td className="py-3.5 px-6 text-zinc-500">Mandatory cloud sync & telemetry</td>
-                <td className="py-3.5 px-6 text-zinc-500">Analytics beacons & cloud features</td>
+                <td className="py-3.5 px-6 text-zinc-500">Mandatory cloud sync &amp; telemetry</td>
+                <td className="py-3.5 px-6 text-zinc-500">Analytics beacons &amp; cloud features</td>
               </tr>
               <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
                 <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Offline Compression</td>
@@ -203,12 +199,12 @@ export default function EmDocProductPage() {
                 <td className="py-3.5 px-6 text-zinc-500">Often limited or cloud-based</td>
               </tr>
               <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
-                <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Cross-Device Roadmap</td>
+                <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Apple Neural Engine OCR</td>
                 <td className="py-3.5 px-6 font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50/30 dark:bg-indigo-500/5">
-                  iOS In Active Development (iPhone & iPad)
+                  Included Free (100% On-Device Vision)
                 </td>
-                <td className="py-3.5 px-6 text-zinc-500">Separate mobile licenses</td>
-                <td className="py-3.5 px-6 text-zinc-500">Separate iOS IAP</td>
+                <td className="py-3.5 px-6 text-zinc-500">Paid tier / cloud OCR</td>
+                <td className="py-3.5 px-6 text-zinc-500">Paid Pro upgrade</td>
               </tr>
             </tbody>
           </table>
@@ -235,13 +231,6 @@ export default function EmDocProductPage() {
             <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Zero network sockets opened. Documents, annotations, cryptographic signatures, compression, and watermarks happen solely on your Mac&apos;s CPU and Apple Neural Engine.
             </p>
-            <Link
-              href="/emdoc/privacy"
-              className="inline-flex items-center gap-1 text-xs text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium pt-1"
-            >
-              <span>Read EmDoc Privacy Policy</span>
-              <ArrowRight className="w-3 h-3" />
-            </Link>
           </div>
 
           <div className="p-6 rounded-2xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/10 space-y-3 shadow-xs dark:shadow-none">

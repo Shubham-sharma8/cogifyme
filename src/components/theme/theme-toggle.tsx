@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useSyncExternalStore } from "react";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "./theme-provider";
 import { cn } from "@/lib/utils";
@@ -10,19 +10,21 @@ interface ThemeToggleProps {
   variant?: "button" | "pill";
 }
 
+const emptySubscribe = () => () => {};
+
 export function ThemeToggle({ className, variant = "button" }: ThemeToggleProps) {
   const { resolvedTheme, toggleTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   if (!mounted) {
     return (
       <div
         className={cn(
-          "w-9 h-9 rounded-xl border border-white/10 bg-zinc-900/40 animate-pulse",
+          "w-9 h-9 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900/40 animate-pulse",
           className
         )}
         aria-hidden="true"

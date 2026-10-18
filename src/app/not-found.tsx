@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { BrandLogo } from "@/components/brand/brand-logo";
-import { Home, ArrowLeft, Search, Layers, Mail } from "lucide-react";
+import { Home, Layers, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "404 — Page Not Found",

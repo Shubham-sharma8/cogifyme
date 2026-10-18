@@ -1,28 +1,108 @@
 import React from "react";
 import Link from "next/link";
-import { ShieldCheck, ArrowRight, Lock, EyeOff, Server } from "lucide-react";
+import {
+  ShieldCheck,
+  Lock,
+  EyeOff,
+  Server,
+  Compass,
+  Laptop,
+  Smartphone,
+  CheckCircle2,
+  ExternalLink,
+} from "lucide-react";
 import type { Metadata } from "next";
 import { BrandLogo } from "@/components/brand/brand-logo";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "Privacy Policy for COGIFY (cogify.me) and its family of software products. Clear, transparent commitments with zero behavioral ad tracking.",
+  title: "Privacy Policy — COGIFY Apps, Safari Extensions & Website",
+  description:
+    "Official Privacy Policy for COGIFY Technologies (cogify.me) and all published Apple App Store applications including EmDoc, Ad Blocker - For Safari, ReaderEasy, WebClear, WebLenses, Element Hider, Colour Invert, Full Page Web Capture, Web Inspection, and Aurora Drive.",
   alternates: {
     canonical: "https://cogify.me/privacy",
   },
 };
 
+const coveredApps = [
+  {
+    name: "EmDoc Workstation",
+    platform: "macOS (Apple Silicon & Intel Universal)",
+    href: "/products/emdoc",
+    appStoreUrl: siteConfig.emdoc.appStoreUrl,
+    summary:
+      "100% air-gapped native PDF workstation. Zero network permissions, zero cloud uploads, and local-only Apple Vision OCR.",
+  },
+  {
+    name: "Ad Blocker - For Safari",
+    platform: "iOS, iPadOS & macOS (Safari)",
+    href: "/ad-blocker",
+    appStoreUrl: siteConfig.adBlocker.appStoreUrl,
+    summary:
+      "Uses Apple's native declarative SFContentBlocker API. The extension cannot read your browsing history or page contents.",
+  },
+  {
+    name: "ReaderEasy",
+    platform: "iOS, iPadOS & macOS (Safari)",
+    href: "/readereasy",
+    appStoreUrl: siteConfig.readereasy.appStoreUrl,
+    summary:
+      "Extracts article typography and reading views strictly in local browser memory. Zero telemetry or reading history collection.",
+  },
+  {
+    name: "WebClear",
+    platform: "iOS, iPadOS & macOS (Safari)",
+    href: "/webclear",
+    appStoreUrl: siteConfig.webclear.appStoreUrl,
+    summary:
+      "Clears website cookies, cache, and storage data on-device. Site whitelist settings are stored exclusively in local storage.",
+  },
+  {
+    name: "WebLenses",
+    platform: "iOS, iPadOS & macOS (Safari)",
+    href: "/weblenses",
+    appStoreUrl: siteConfig.weblenses.appStoreUrl,
+    summary:
+      "On-device DOM, CSS, Core Web Vitals, and SEO inspector. Inspected webpage data never leaves your local Safari session.",
+  },
+  {
+    name: "Element Hider",
+    platform: "iOS, iPadOS & macOS (Safari)",
+    href: "/element-hider",
+    appStoreUrl: siteConfig.elementHider.appStoreUrl,
+    summary:
+      "Hides user-selected DOM elements locally on your device. Custom hiding rules remain strictly in local browser storage.",
+  },
+  {
+    name: "Colour Invert",
+    platform: "iOS, iPadOS & macOS (Safari)",
+    href: "/invert",
+    appStoreUrl: siteConfig.invert.appStoreUrl,
+    summary:
+      "Applies real-time local CSS colour inversion and Media Shield filters. Zero browsing data or preferences are transmitted.",
+  },
+  {
+    name: "Pipeline & Upcoming Apps",
+    platform: "Full Page Web Capture, Web Inspection & Aurora Drive (CarPlay / Widgets)",
+    href: "/products#pipeline",
+    summary:
+      "Engineered under the same strict zero-telemetry, local-first architecture with zero third-party analytics SDKs.",
+  },
+];
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="pt-28 pb-20 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Header */}
         <div className="space-y-6">
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
               <BrandLogo width={40} height={40} priority />
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-500/20 text-xs font-semibold uppercase tracking-wider shadow-xs">
-              Data Protection & Trust
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-white/10 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10 text-xs font-semibold uppercase tracking-wider">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Legal Document</span>
             </div>
           </div>
 
@@ -30,140 +110,247 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
 
+          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            This Privacy Policy governs <strong>COGIFY Technologies</strong> (<code className="text-zinc-800 dark:text-zinc-200 font-mono">cogify.me</code>) and every native macOS, iOS, iPadOS, and Safari application published by COGIFY on the Apple App Store or distributed directly via our website.
+          </p>
+
           <p className="text-xs font-mono text-zinc-500">
-            Effective Date: September 6, 2026 • COGIFY Technologies (<code className="text-zinc-700 dark:text-zinc-400 font-mono">cogify.me</code>)
+            Last Updated &amp; Effective: October 2026 • Applies to All COGIFY Applications &amp; Website
           </p>
         </div>
 
-        {/* EmDoc Specific Callout Banner */}
-        <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-indigo-50/80 via-white to-indigo-50/60 border border-indigo-200/90 text-zinc-900 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm dark:from-indigo-950/40 dark:via-zinc-900 dark:to-indigo-950/30 dark:border-indigo-500/30 dark:text-zinc-200 dark:shadow-xl">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2 font-bold text-sm text-indigo-700 dark:text-indigo-300">
-              <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>Looking for the EmDoc Workstation Privacy Policy?</span>
-            </div>
-            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
-              EmDoc for macOS operates under a dedicated 100% Air-Gapped Zero-Cloud guarantee where zero document data or telemetry ever leaves your computer.
-            </p>
+        {/* Apple App Store Nutrition Label Summary */}
+        <div className="mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-emerald-50/90 via-white to-indigo-50/60 dark:from-emerald-950/30 dark:via-zinc-900 dark:to-indigo-950/20 border border-emerald-200/90 dark:border-emerald-500/30 shadow-sm space-y-4">
+          <div className="flex items-center gap-2.5 text-emerald-700 dark:text-emerald-400 font-bold text-sm uppercase tracking-wider font-mono">
+            <ShieldCheck className="w-5 h-5" />
+            <span>Apple App Store Privacy Summary: &ldquo;Data Not Collected&rdquo;</span>
           </div>
-          <Link
-            href="/emdoc/privacy"
-            className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition-colors shrink-0 flex items-center gap-1.5 shadow-md shadow-indigo-600/20"
-          >
-            <span>View EmDoc Policy</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white">
+            Zero Data Collection Across All COGIFY Apps &amp; Safari Extensions
+          </h2>
+          <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+            Across all COGIFY applications and Safari Web Extensions, <strong>we do not collect, transmit, store, log, share, or monetize any personal data, browsing history, webpage content, document payloads, or device identifiers</strong>. Our software operates 100% locally on your Apple device with zero third-party analytics SDKs, zero crash-reporting trackers, and zero advertising frameworks.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+            <div className="p-3.5 rounded-xl bg-white/90 dark:bg-zinc-950/70 border border-emerald-200/70 dark:border-white/10 flex items-center gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <span className="text-xs font-semibold text-zinc-900 dark:text-white">
+                0 Bytes Transmitted from Apps
+              </span>
+            </div>
+            <div className="p-3.5 rounded-xl bg-white/90 dark:bg-zinc-950/70 border border-emerald-200/70 dark:border-white/10 flex items-center gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <span className="text-xs font-semibold text-zinc-900 dark:text-white">
+                No Accounts or Sign-Ups
+              </span>
+            </div>
+            <div className="p-3.5 rounded-xl bg-white/90 dark:bg-zinc-950/70 border border-emerald-200/70 dark:border-white/10 flex items-center gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <span className="text-xs font-semibold text-zinc-900 dark:text-white">
+                Zero Third-Party SDKs
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Core Principles Grid */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 rounded-xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/5 space-y-2 shadow-xs dark:shadow-none">
-            <Lock className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-            <h3 className="text-xs font-bold text-zinc-900 dark:text-white uppercase tracking-wider">Privacy By Architecture</h3>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="p-5 rounded-2xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/5 space-y-2 shadow-xs dark:shadow-none">
+            <Lock className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+            <h3 className="text-xs font-bold text-zinc-900 dark:text-white uppercase tracking-wider">
+              Privacy By Architecture
+            </h3>
             <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              We design software so that we physically cannot access your sensitive documents or confidential work.
+              Our apps are architected without external backend servers, meaning we physically cannot access your files, PDFs, or browsing activity.
             </p>
           </div>
-          <div className="p-4 rounded-xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/5 space-y-2 shadow-xs dark:shadow-none">
-            <EyeOff className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-            <h3 className="text-xs font-bold text-zinc-900 dark:text-white uppercase tracking-wider">Zero Ad Tracking</h3>
+          <div className="p-5 rounded-2xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/5 space-y-2 shadow-xs dark:shadow-none">
+            <EyeOff className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+            <h3 className="text-xs font-bold text-zinc-900 dark:text-white uppercase tracking-wider">
+              Zero Behavioral Tracking
+            </h3>
             <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              We do not sell personal data, host advertising pixels, or participate in cross-site behavioral tracking networks.
+              We never sell personal data, embed advertising pixels, or participate in cross-app or cross-site tracking networks.
             </p>
           </div>
-          <div className="p-4 rounded-xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/5 space-y-2 shadow-xs dark:shadow-none">
-            <Server className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
-            <h3 className="text-xs font-bold text-zinc-900 dark:text-white uppercase tracking-wider">Minimal Ingestion</h3>
+          <div className="p-5 rounded-2xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/5 space-y-2 shadow-xs dark:shadow-none">
+            <Server className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
+            <h3 className="text-xs font-bold text-zinc-900 dark:text-white uppercase tracking-wider">
+              On-Device Storage Only
+            </h3>
             <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              We collect only the bare minimum information needed to respond when you voluntarily contact our engineering team.
+              All app settings, custom rules, per-site preferences, and files remain strictly in your device&apos;s local sandbox.
             </p>
           </div>
         </div>
+
+        {/* Covered Applications Matrix */}
+        <section className="mt-12 space-y-4">
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-white">
+            1. Applications Covered by This Unified Policy
+          </h2>
+          <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Instead of maintaining fragmented policies for each utility, this unified policy applies to all current and future COGIFY software products, including:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            {coveredApps.map((app, idx) => (
+              <div
+                key={idx}
+                className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200/80 dark:border-white/10 flex flex-col justify-between space-y-2"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2">
+                    <Link
+                      href={app.href}
+                      className="text-sm font-bold text-zinc-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                    >
+                      {app.name}
+                    </Link>
+                    {app.appStoreUrl && (
+                      <a
+                        href={app.appStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1 shrink-0"
+                      >
+                        <span>App Store</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
+                  </div>
+                  <div className="text-[11px] font-mono text-zinc-500 mt-0.5">
+                    {app.platform}
+                  </div>
+                  <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+                    {app.summary}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Full Policy Body */}
         <div className="mt-12 space-y-10 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
           <section className="space-y-3">
-            <h2 className="text-lg font-bold text-zinc-900 dark:text-white">1. Scope of This Policy</h2>
+            <h2 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
+              <Laptop className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+              <span>2. Native Desktop &amp; Mobile Applications (EmDoc, Aurora Drive, Full Page Web Capture)</span>
+            </h2>
             <p className="text-zinc-600 dark:text-zinc-400">
-              This Privacy Policy explains the data practices of <strong>COGIFY</strong> (&ldquo;COGIFY&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) across our website (<a href="https://cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">https://cogify.me</a>) and our communications channels. For native desktop software applications published by COGIFY, including EmDoc, please consult the product-specific policies referenced in Section 2.
-            </p>
-          </section>
-
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-zinc-900 dark:text-white">2. Desktop & Native Software Products (EmDoc)</h2>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              Our flagship desktop software, <strong>EmDoc</strong> for macOS, is architected from inception as a 100% air-gapped, zero-cloud workstation. When using EmDoc:
+              Our native macOS, iOS, and iPadOS applications—including <strong>EmDoc Workstation</strong>—are engineered to operate 100% locally on your hardware:
             </p>
             <ul className="list-disc list-inside space-y-1.5 text-zinc-600 dark:text-zinc-400 text-xs pl-2">
-              <li>Documents and PDF payloads are processed strictly in local RAM and your specified local storage.</li>
-              <li>No document contents, filenames, glyph tables, or vector paths are ever transmitted over external networks.</li>
-              <li>Apple Vision optical character recognition (OCR) executes entirely on the local Apple Neural Engine without external API calls.</li>
-              <li>The software contains zero telemetry SDKs, analytics pings, or behavioral tracking beacons.</li>
+              <li>
+                <strong>Zero Cloud File Processing:</strong> All PDF editing, merging, splitting, compression, watermarking, digital signing, and file management occur exclusively in local RAM and on your local disk.
+              </li>
+              <li>
+                <strong>On-Device Machine Learning (OCR):</strong> Optical Character Recognition uses Apple&apos;s built-in on-device Vision framework executing on the local Apple Neural Engine. No images or text are sent to external servers.
+              </li>
+              <li>
+                <strong>No Network Telemetry:</strong> EmDoc makes zero background network connections, contains zero analytics beacons, and never phones home.
+              </li>
             </ul>
-            <p className="text-zinc-600 dark:text-zinc-400 text-xs">
-              For complete architectural details, visit the dedicated <Link href="/emdoc/privacy" className="text-indigo-600 dark:text-indigo-400 underline font-medium">EmDoc Privacy Policy (<code className="text-zinc-800 dark:text-zinc-300 font-mono">cogify.me/emdoc/privacy</code>)</Link>.
-            </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-bold text-zinc-900 dark:text-white">3. Information Collected via Our Website (cogify.me)</h2>
+            <h2 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
+              <Compass className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+              <span>
+                3. Safari Web Extensions (Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, Colour Invert, Web Inspection)
+              </span>
+            </h2>
             <p className="text-zinc-600 dark:text-zinc-400">
-              We do not require user accounts to browse our website or download software preview packages. We collect personal information only when you explicitly submit it to us:
+              Our Safari extensions for iOS, iPadOS, and macOS require browser permissions solely to perform user-initiated visual or functional transformations on the active webpage:
+            </p>
+            <ul className="list-disc list-inside space-y-1.5 text-zinc-600 dark:text-zinc-400 text-xs pl-2">
+              <li>
+                <strong>Browsing History Is Never Read or Transmitted:</strong> Even when you grant an extension permission to run on websites in Safari Settings, all DOM inspection, element hiding, reader-view formatting, popup dismissal, and CSS colour inversion execute strictly inside your local Safari process.
+              </li>
+              <li>
+                <strong>Declarative Content Blocking (Ad Blocker - For Safari):</strong> Ad Blocker compiles static filter rules into Apple&apos;s native <code className="font-mono">SFContentBlocker</code> engine. Safari evaluates blocking rules natively without sharing the URLs you visit with the extension.
+              </li>
+              <li>
+                <strong>Local-Only Preferences:</strong> Per-site toggles, custom CSS selectors, reading font preferences, and whitelists are saved exclusively inside your device&apos;s local Safari extension storage (<code className="font-mono">browser.storage.local</code> or <code className="font-mono">UserDefaults</code>) and can be cleared by you at any time.
+              </li>
+              <li>
+                <strong>Zero External Requests:</strong> None of our Safari extensions make outbound <code className="font-mono">fetch()</code> or <code className="font-mono">XMLHttpRequest</code> calls to COGIFY or any third party.
+              </li>
+            </ul>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
+              <Smartphone className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
+              <span>4. Information Collected via Our Website (cogify.me)</span>
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400">
+              You can browse <a href="https://cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">https://cogify.me</a> and download our software without creating an account. Information is collected on the website only in the following limited scenarios:
             </p>
             <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/30 border border-zinc-200/80 dark:border-white/5 space-y-3 text-xs">
               <div>
-                <strong className="text-zinc-900 dark:text-zinc-200 block mb-0.5">A. Voluntary Contact & Enterprise Inquiries</strong>
+                <strong className="text-zinc-900 dark:text-zinc-200 block mb-0.5">
+                  A. Voluntary Contact, Suggestion &amp; Enterprise Forms
+                </strong>
                 <p className="text-zinc-600 dark:text-zinc-400">
-                  When you submit a contact or enterprise request form on our site, we collect your name, email address, company/organization name, and message contents. This information is used strictly to communicate with you and evaluate your project requirements.
+                  When you submit a message via our Contact page, Suggestions &amp; Bug Report form, or Enterprise Pilot form, we collect the information you voluntarily provide (such as your name, email address, optional company/device details, and message text) solely to respond to your inquiry and improve our products.
                 </p>
               </div>
               <div>
-                <strong className="text-zinc-900 dark:text-zinc-200 block mb-0.5">B. Web Server Logs</strong>
+                <strong className="text-zinc-900 dark:text-zinc-200 block mb-0.5">
+                  B. Security &amp; Anti-Abuse Protection
+                </strong>
                 <p className="text-zinc-600 dark:text-zinc-400">
-                  Like virtually all web properties, our hosting infrastructure automatically registers basic technical request headers (such as IP address, browser user-agent, and HTTP timestamp) solely for network security, abuse mitigation, and server diagnostics. These logs are not linked to individual identities and are purged routinely.
+                  Our web forms use Cloudflare Turnstile and standard edge security headers to prevent automated spam. Basic HTTP request metadata (IP address, user-agent, timestamp) is processed transiently for DDoS protection and rate limiting.
                 </p>
               </div>
             </div>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-bold text-zinc-900 dark:text-white">4. Cookies and Web Analytics</h2>
+            <h2 className="text-lg font-bold text-zinc-900 dark:text-white">
+              5. Cookies, Third-Party Sharing &amp; Children&apos;s Privacy
+            </h2>
             <p className="text-zinc-600 dark:text-zinc-400">
-              The COGIFY marketing website does not employ third-party advertising cookies, cross-site trackers, or commercial data tracking pixels. Any cookies used are strictly functional and required for standard site navigation and security.
+              <strong>No Advertising Cookies:</strong> Neither our apps nor <code className="font-mono">cogify.me</code> use third-party advertising cookies or cross-site tracking pixels.
+            </p>
+            <p className="text-zinc-600 dark:text-zinc-400">
+              <strong>No Sale or Sharing of Data:</strong> We never sell, rent, trade, or share personal information with data brokers, advertisers, or third parties.
+            </p>
+            <p className="text-zinc-600 dark:text-zinc-400">
+              <strong>Children&apos;s Privacy (COPPA):</strong> Because our applications collect zero personal data from any user of any age, they are safe for users of all ages and comply fully with COPPA, GDPR, and global data protection laws.
             </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-bold text-zinc-900 dark:text-white">5. Information Sharing and Disclosure</h2>
+            <h2 className="text-lg font-bold text-zinc-900 dark:text-white">
+              6. Your Rights &amp; Contact Information
+            </h2>
             <p className="text-zinc-600 dark:text-zinc-400">
-              We do not sell, rent, monetize, or trade personal data under any circumstances. We do not provide user lists to marketers or data aggregators. We may disclose personal information only if required by valid legal process or court order.
+              Under GDPR, CCPA, and applicable global privacy laws, you have the right to request access to or deletion of any contact inquiries you have sent to us. For any privacy questions regarding our website or any COGIFY app on the Apple App Store, contact us directly:
             </p>
-          </section>
-
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-zinc-900 dark:text-white">6. Data Security & Storage</h2>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              We apply industry-standard transport layer encryption (TLS 1.3) across all website endpoints. Communications received are retained only for as long as necessary to fulfill your business inquiry or comply with legal requirements.
-            </p>
-          </section>
-
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-zinc-900 dark:text-white">7. Your Rights</h2>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              Depending on your jurisdiction (such as the EU/EEA under GDPR or California under CCPA), you may have the right to request access to, correction of, or deletion of personal information provided to us. To exercise any of these rights, contact us directly.
-            </p>
-          </section>
-
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-zinc-900 dark:text-white">8. Contact & Data Protection Inquiries</h2>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              For any questions concerning this Privacy Policy or COGIFY data protection practices:
-            </p>
-            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-white/5 text-xs font-mono space-y-1 text-zinc-800 dark:text-zinc-300">
-              <div>COGIFY Technologies</div>
-              <div>Website: <a href="https://cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">https://cogify.me</a></div>
-              <div>General & Security Inquiries: <a href="mailto:contact@cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">contact@cogify.me</a></div>
-              <div>EmDoc Product Support: <a href="mailto:contact@cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">contact@cogify.me</a></div>
+            <div className="p-5 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-white/5 text-xs font-mono space-y-1.5 text-zinc-800 dark:text-zinc-300">
+              <div className="font-bold text-sm text-zinc-900 dark:text-white">
+                COGIFY Technologies
+              </div>
+              <div>
+                Official Website:{" "}
+                <a href="https://cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">
+                  https://cogify.me
+                </a>
+              </div>
+              <div>
+                Canonical Privacy URL:{" "}
+                <a href="https://cogify.me/privacy" className="text-indigo-600 dark:text-indigo-400 underline">
+                  https://cogify.me/privacy
+                </a>
+              </div>
+              <div>
+                Privacy &amp; Support Email:{" "}
+                <a href="mailto:contact@cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">
+                  contact@cogify.me
+                </a>
+              </div>
             </div>
           </section>
         </div>

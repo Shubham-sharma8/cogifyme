@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import confetti from "canvas-confetti";
 import {
   Lightbulb,
@@ -9,13 +9,10 @@ import {
   Send,
   CheckCircle2,
   AlertCircle,
-  Sparkles,
-  Smartphone,
-  Laptop,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-import { TurnstileWidget } from "@/lib/../components/security/turnstile-widget";
+import { TurnstileWidget } from "@/components/security/turnstile-widget";
 
 type SuggestionCategory = "idea" | "bug" | "enterprise" | "general";
 
@@ -29,13 +26,13 @@ const categories: {
     id: "idea",
     label: "App / Feature Idea",
     icon: <Lightbulb className="w-4 h-4 text-amber-500" />,
-    hint: "Suggest a feature for EmDoc or a brand new everyday app Cogify should build.",
+    hint: "Suggest a feature for any Cogify app or a brand new everyday app we should build.",
   },
   {
     id: "bug",
     label: "Bug Report",
     icon: <Bug className="w-4 h-4 text-red-500" />,
-    hint: "Report an issue, visual glitch, or unexpected behavior in EmDoc.",
+    hint: "Report an issue, visual glitch, or unexpected behavior in any Cogify app.",
   },
   {
     id: "enterprise",
@@ -53,7 +50,7 @@ const categories: {
 
 export const SuggestionForm = () => {
   const [category, setCategory] = useState<SuggestionCategory>("idea");
-  const [targetApp, setTargetApp] = useState("EmDoc (macOS)");
+  const [targetApp, setTargetApp] = useState("EmDoc (macOS Workstation)");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -63,11 +60,15 @@ export const SuggestionForm = () => {
   });
   const [honeypot, setHoneypot] = useState("");
   const [honeypotWebsite, setHoneypotWebsite] = useState("");
-  const [formStartTime] = useState<number>(Date.now());
+  const formStartTimeRef = useRef<number>(0);
   const [turnstileToken, setTurnstileToken] = useState("");
   const [referenceCode, setReferenceCode] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    formStartTimeRef.current = Date.now();
+  }, []);
 
   const activeCategory = categories.find((c) => c.id === category) || categories[0];
 
@@ -105,7 +106,7 @@ export const SuggestionForm = () => {
           turnstileToken,
           _hp_company: honeypot,
           _hp_website: honeypotWebsite,
-          formStartTime,
+          formStartTime: formStartTimeRef.current,
         }),
       });
 
@@ -124,12 +125,14 @@ export const SuggestionForm = () => {
           origin: { y: 0.6 },
           colors: ["#6366f1", "#10b981", "#06b6d4", "#a855f7"],
         });
-      } catch (err) {
+      } catch {
         // graceful fallback if canvas not available
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus("error");
-      setErrorMessage(err.message || "Failed to submit request. Please try again.");
+      setErrorMessage(
+        err instanceof Error ? err.message : "Failed to submit request. Please try again."
+      );
     }
   };
 
@@ -221,7 +224,15 @@ export const SuggestionForm = () => {
                 className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white text-xs focus:outline-none focus:border-indigo-500 transition-colors"
               >
                 <option>EmDoc (macOS Workstation)</option>
-                <option>EmDoc (iOS App)</option>
+                <option>Ad Blocker - For Safari (iOS / macOS)</option>
+                <option>ReaderEasy (Safari Extension)</option>
+                <option>WebClear (Safari Extension)</option>
+                <option>WebLenses (Safari Extension)</option>
+                <option>Element Hider (Safari Extension)</option>
+                <option>Colour Invert (Safari Extension)</option>
+                <option>Full Page Web Capture (Pipeline)</option>
+                <option>Web Inspection (Safari DevTools Pipeline)</option>
+                <option>Aurora Drive (Live Lyrics, Widgets &amp; CarPlay)</option>
                 <option>New Everyday App Idea</option>
                 <option>Enterprise License Replacement</option>
                 <option>Cogify Website / Documentation</option>

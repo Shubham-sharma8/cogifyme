@@ -36,9 +36,12 @@ export async function GET(req: NextRequest) {
     });
 
     return NextResponse.json({ tickets });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Tickets API GET error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to fetch tickets" },
+      { status: 500 }
+    );
   }
 }
 
@@ -76,9 +79,12 @@ export async function PATCH(req: NextRequest) {
     });
 
     return NextResponse.json({ success: true, ticket: updated });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Tickets API PATCH error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to update ticket" },
+      { status: 500 }
+    );
   }
 }
 
@@ -140,8 +146,11 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ success: true, response, emailDispatched });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Tickets API POST error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to post ticket response" },
+      { status: 500 }
+    );
   }
 }

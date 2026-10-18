@@ -1,18 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
-  Users,
   UserPlus,
   ShieldAlert,
   ShieldCheck,
   CheckCircle2,
-  Lock,
-  Mail,
-  User,
-  Power,
   RefreshCw,
   X,
-  Key,
 } from "lucide-react";
 
 interface AdminMember {
@@ -39,9 +33,8 @@ export default function AdminTeamPage() {
   const [createError, setCreateError] = useState("");
   const [createSuccess, setCreateSuccess] = useState("");
 
-  const fetchAdmins = async () => {
+  const fetchAdmins = useCallback(async () => {
     try {
-      setLoading(true);
       const res = await fetch("/api/admin/team");
       if (res.ok) {
         const data = await res.json();
@@ -52,11 +45,14 @@ export default function AdminTeamPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
-    fetchAdmins();
-  }, []);
+    const timer = setTimeout(() => {
+      void fetchAdmins();
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [fetchAdmins]);
 
   const handleCreateAdmin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -84,13 +80,13 @@ export default function AdminTeamPage() {
 
       setCreateSuccess(`Admin account for ${data.admin.name} successfully provisioned!`);
       setCreateForm({ name: "", email: "", password: "", role: "ADMIN" });
-      fetchAdmins();
+      void fetchAdmins();
       setTimeout(() => {
         setShowCreateModal(false);
         setCreateSuccess("");
       }, 1500);
-    } catch (err: any) {
-      setCreateError(err.message || "Failed to create admin account.");
+    } catch (err: unknown) {
+      setCreateError(err instanceof Error ? err.message : "Failed to create admin account.");
     } finally {
       setCreating(false);
     }
@@ -130,7 +126,10 @@ export default function AdminTeamPage() {
 
         <div className="flex items-center gap-3">
           <button
-            onClick={fetchAdmins}
+            onClick={() => {
+              setLoading(true);
+              void fetchAdmins();
+            }}
             className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-300 transition-colors cursor-pointer"
           >
             <RefreshCw className="w-3.5 h-3.5" />
@@ -348,7 +347,12 @@ export default function AdminTeamPage() {
                   </label>
                   <select
                     value={createForm.role}
-                    onChange={(e) => setCreateForm({ ...createForm, role: e.target.value as any })}
+                    onChange={(e) =>
+                      setCreateForm({
+                        ...createForm,
+                        role: e.target.value as "SUPER_ADMIN" | "ADMIN" | "AGENT",
+                      })
+                    }
                     className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-800 dark:text-zinc-200 text-xs focus:outline-none focus:border-indigo-500"
                   >
                     <option value="ADMIN">ADMIN (Manage tickets, respond to users)</option>

@@ -63,31 +63,31 @@ export async function getAdminEnvCredentials(): Promise<{
   email: string;
   password?: string;
 }> {
-  const sources: Record<string, any>[] = [];
+  const sources: Record<string, unknown>[] = [];
 
   // 1. Cloudflare Workers synchronous context
   try {
     const { getCloudflareContext } = await import("@opennextjs/cloudflare");
     const ctx = getCloudflareContext();
     if (ctx && ctx.env) {
-      sources.push(ctx.env);
+      sources.push(ctx.env as unknown as Record<string, unknown>);
     }
-  } catch (_) {
+  } catch {
     // Non-Cloudflare or outside request scope
   }
 
   // 2. Global Cloudflare context symbol
   try {
     const sym = Symbol.for("__cloudflare-context__");
-    const symCtx = (globalThis as any)[sym];
+    const symCtx = (globalThis as Record<symbol, { env?: Record<string, unknown> } | undefined>)[sym];
     if (symCtx && symCtx.env) {
       sources.push(symCtx.env);
     }
-  } catch (_) {}
+  } catch {}
 
   // 3. Process environment (populated by OpenNext init and Next.js)
   if (typeof process !== "undefined" && process.env) {
-    sources.push(process.env);
+    sources.push(process.env as Record<string, unknown>);
   }
 
   // 4. In Node runtime (e.g. local development), re-read .env from disk so edits take effect immediately
@@ -111,7 +111,7 @@ export async function getAdminEnvCredentials(): Promise<{
         }
         sources.unshift(diskEnv);
       }
-    } catch (_) {
+    } catch {
       // Ignored
     }
   }
@@ -125,8 +125,9 @@ export async function getAdminEnvCredentials(): Promise<{
   ];
   for (const src of sources) {
     for (const key of emailKeys) {
-      if (src[key] && typeof src[key] === "string" && src[key].trim()) {
-        resolvedEmail = src[key].trim();
+      const val = src[key];
+      if (typeof val === "string" && val.trim()) {
+        resolvedEmail = val.trim();
         break;
       }
     }
@@ -144,8 +145,9 @@ export async function getAdminEnvCredentials(): Promise<{
   ];
   for (const src of sources) {
     for (const key of passwordKeys) {
-      if (src[key] && typeof src[key] === "string" && src[key].trim()) {
-        let val = src[key].trim();
+      const rawVal = src[key];
+      if (typeof rawVal === "string" && rawVal.trim()) {
+        let val = rawVal.trim();
         if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
           val = val.slice(1, -1).trim();
         }
@@ -187,8 +189,9 @@ export async function getAdminEnvCredentials(): Promise<{
 export async function verifyPassword(
   password: string,
   storedHash: string,
-  adminEmail?: string
+  _adminEmail?: string
 ): Promise<boolean> {
+  void _adminEmail;
   const { password: envAdminPassword } = await getAdminEnvCredentials();
 
   // Primary verification: Check against environment configured DEFAULT_ADMIN_PASSWORD
@@ -266,7 +269,7 @@ export async function verifyAdminToken(token: string): Promise<AdminSession | nu
       name: payload.name as string,
       role: payload.role as AdminRole,
     };
-  } catch (err) {
+  } catch {
     return null;
   }
 }

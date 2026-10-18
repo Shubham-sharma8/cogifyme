@@ -1,0 +1,379 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowUpRight,
+  ExternalLink,
+  Sparkles,
+  CheckCircle2,
+  Cpu,
+  Globe,
+} from "lucide-react";
+import { siteConfig } from "@/config/site";
+import { Container } from "@/components/ui/container";
+import { Badge } from "@/components/ui/badge";
+
+export const metadata: Metadata = {
+  title: "All Apps & Safari Extensions — EmDoc, Ad Blocker, ReaderEasy, WebClear, WebLenses",
+  description:
+    "Explore the complete COGIFY suite of 100% free, zero-telemetry native macOS, iOS, iPadOS, and Safari extensions on the Apple App Store: EmDoc PDF Workstation, Ad Blocker for Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
+  alternates: {
+    canonical: `${siteConfig.url}/products`,
+  },
+  openGraph: {
+    title: "COGIFY Product Ecosystem — Native macOS, iOS & Safari Apps",
+    description:
+      "7 live Apple App Store applications and upcoming pipeline releases — 100% free for individuals, engineered with zero telemetry.",
+    url: `${siteConfig.url}/products`,
+    siteName: siteConfig.name,
+    type: "website",
+  },
+};
+
+const liveCatalog = [
+  {
+    name: "EmDoc PDF Workstation",
+    tagline: siteConfig.emdoc.tagline,
+    description: siteConfig.emdoc.shortDescription,
+    version: `v${siteConfig.emdoc.version}`,
+    platforms: "macOS 13+ (Universal Binary)",
+    category: "Productivity • PDF Suite",
+    icon: "/brand/emdoc-icon.png",
+    href: "/products/emdoc",
+    appStoreUrl: siteConfig.emdoc.appStoreUrl,
+    badge: "Flagship macOS App",
+    highlights: [
+      "Tiny 5.0 MB native binary (~45 MB RAM)",
+      "Visual Page Organizer, Vector Ink & Stamps",
+      "100% Offline PDF Compression & Bates Numbering",
+    ],
+  },
+  {
+    name: siteConfig.adBlocker.name,
+    tagline: siteConfig.adBlocker.tagline,
+    description: siteConfig.adBlocker.shortDescription,
+    version: `v${siteConfig.adBlocker.version}`,
+    platforms: siteConfig.adBlocker.platform,
+    category: "Utilities • Content Blocker",
+    icon: siteConfig.adBlocker.icon,
+    href: "/ad-blocker",
+    appStoreUrl: siteConfig.adBlocker.appStoreUrl,
+    badge: "Safari Content Blocker",
+    highlights: [
+      "Native WebKit Content Blocking API",
+      "Blocks Banner/Video Ads, Trackers & Cookie Walls",
+      "Cosmetic DOM Element Collapse with zero CPU drain",
+    ],
+  },
+  {
+    name: siteConfig.readereasy.name,
+    tagline: siteConfig.readereasy.tagline,
+    description: siteConfig.readereasy.shortDescription,
+    version: `v${siteConfig.readereasy.version}`,
+    platforms: siteConfig.readereasy.platform,
+    category: "Productivity • Reader Mode",
+    icon: siteConfig.readereasy.icon,
+    href: "/readereasy",
+    appStoreUrl: siteConfig.readereasy.appStoreUrl,
+    badge: "Safari Extension",
+    highlights: [
+      "Paper, Sepia, Slate & True OLED Dark themes",
+      "Bionic Focus Mode, Reading Ruler & Auto-Scroll",
+      "Listen Aloud (TTS), Outline & Markdown Export",
+    ],
+  },
+  {
+    name: siteConfig.webclear.name,
+    tagline: siteConfig.webclear.tagline,
+    description: siteConfig.webclear.shortDescription,
+    version: `v${siteConfig.webclear.version}`,
+    platforms: siteConfig.webclear.platform,
+    category: "Utilities • Privacy & Storage",
+    icon: siteConfig.webclear.icon,
+    href: "/webclear",
+    appStoreUrl: siteConfig.webclear.appStoreUrl,
+    badge: "Safari Extension",
+    highlights: [
+      "One-Tap Per-Site Reset without losing other logins",
+      "Granular Cookie Manager & LocalStorage Explorer",
+      "Smart Auto-Clean Rules & URL Tracker Parameter Stripper",
+    ],
+  },
+  {
+    name: siteConfig.weblenses.name,
+    tagline: siteConfig.weblenses.tagline,
+    description: siteConfig.weblenses.shortDescription,
+    version: `v${siteConfig.weblenses.version}`,
+    platforms: siteConfig.weblenses.platform,
+    category: "Developer Tools • Web Vitals",
+    icon: siteConfig.weblenses.icon,
+    href: "/weblenses",
+    appStoreUrl: siteConfig.weblenses.appStoreUrl,
+    badge: "Safari Developer Tool",
+    highlights: [
+      "Instant 0–100 Website Health Score across 4 pillars",
+      "Live Core Web Vitals (FCP, LCP, CLS, TBT)",
+      "1st-Party vs 3rd-Party Resource & Security Audit",
+    ],
+  },
+  {
+    name: siteConfig.elementHider.name,
+    tagline: siteConfig.elementHider.tagline,
+    description: siteConfig.elementHider.shortDescription,
+    version: `v${siteConfig.elementHider.version}`,
+    platforms: siteConfig.elementHider.platform,
+    category: "Utilities • Web Customizer",
+    icon: "/brand/Element-Hider/icon.png",
+    href: "/element-hider",
+    appStoreUrl: siteConfig.elementHider.appStoreUrl,
+    badge: "Safari Extension",
+    highlights: [
+      "Point-and-tap visual element picker in Safari",
+      "Hide sticky headers, sidebars, popups & clutter",
+      "Session-only or permanent domain rules",
+    ],
+  },
+  {
+    name: siteConfig.invert.name,
+    tagline: siteConfig.invert.tagline,
+    description: siteConfig.invert.shortDescription,
+    version: `v${siteConfig.invert.version}`,
+    platforms: siteConfig.invert.platform,
+    category: "Utilities • Accessibility",
+    icon: "/brand/Invert/icon.png",
+    href: "/invert",
+    appStoreUrl: siteConfig.invert.appStoreUrl,
+    badge: "Safari Extension",
+    highlights: [
+      "Smart Invert, Soft Invert & Full High-Contrast modes",
+      "Preserves photos, videos, YouTube & SVGs naturally",
+      "Custom brightness, contrast & sepia warmth sliders",
+    ],
+  },
+];
+
+export default function ProductsPage() {
+  return (
+    <div className="min-h-screen pt-28 pb-24 relative overflow-hidden">
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[420px] bg-gradient-to-b from-indigo-600/10 via-emerald-500/8 to-transparent blur-3xl -z-10" />
+
+      <Container>
+        {/* Header */}
+        <div className="max-w-3xl mb-14">
+          <div className="flex flex-wrap items-center gap-2.5 mb-4">
+            <Badge variant="success">
+              Apple App Store Catalog
+            </Badge>
+            <Badge variant="outline">
+              100% Free • Zero Telemetry
+            </Badge>
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white">
+            The Complete COGIFY Software Suite
+          </h1>
+          <p className="mt-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">
+            Every application and Safari Web Extension we publish is engineered natively for Apple platforms with zero cloud dependencies, zero tracking, and zero subscriptions for individual users.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <a
+              href={siteConfig.appleDeveloperUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-zinc-900 dark:bg-white px-5 py-3 text-sm font-semibold text-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors shadow-sm"
+            >
+              <Globe className="h-4 w-4" />
+              Official Apple Developer Page
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          </div>
+        </div>
+
+        {/* Live App Store Apps Grid */}
+        <section className="mb-24">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
+              Available Now on the App Store
+            </h2>
+            <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+              macOS • iOS • iPadOS • Safari
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {liveCatalog.map((item) => (
+              <div
+                key={item.href}
+                className="rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/40 p-6 sm:p-8 flex flex-col justify-between hover:border-indigo-500/40 dark:hover:border-white/25 transition-all shadow-xs dark:shadow-none"
+              >
+                <div>
+                  <div className="flex items-start justify-between gap-4 mb-5">
+                    <div className="flex items-center gap-4">
+                      <div className="relative h-16 w-16 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/15 bg-zinc-100 dark:bg-zinc-950 shrink-0 shadow-md">
+                        <Image
+                          src={item.icon}
+                          alt={item.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                            {item.badge}
+                          </span>
+                          <span className="text-[11px] text-zinc-400 dark:text-zinc-500">•</span>
+                          <span className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
+                            {item.version}
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
+                          <Link href={item.href} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                            {item.name}
+                          </Link>
+                        </h3>
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                          {item.platforms}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed mb-5">
+                    {item.description}
+                  </p>
+
+                  <ul className="space-y-2 mb-6">
+                    {item.highlights.map((h) => (
+                      <li
+                        key={h}
+                        className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300"
+                      >
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-4 border-t border-zinc-200/80 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
+                  <a
+                    href={item.appStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-500 dark:hover:bg-emerald-400 px-4 py-2.5 text-xs font-semibold text-white dark:text-zinc-950 transition-colors shadow-xs"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5" />
+                    Download on App Store
+                  </a>
+                  <Link
+                    href={item.href}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-white transition-colors"
+                  >
+                    Explore Features & Screenshots
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Pipeline Section */}
+        <section>
+          <div className="mb-8">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-2">
+              <Cpu className="h-4 w-4" />
+              App Store Connect Pipeline
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">
+              Upcoming Releases & Active Pipeline
+            </h2>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">
+              Currently in final engineering and App Store submission review.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {siteConfig.futureProducts.map((prod) => (
+              <div
+                key={prod.id}
+                className="rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/30 p-6 flex flex-col justify-between shadow-xs dark:shadow-none"
+              >
+                <div>
+                  <div className="flex items-center gap-3.5 mb-4">
+                    {prod.icon ? (
+                      <div className="relative h-12 w-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-white/15 shrink-0">
+                        <Image
+                          src={prod.icon}
+                          alt={prod.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="h-12 w-12 rounded-xl border border-indigo-500/30 bg-indigo-500/10 flex items-center justify-center shrink-0">
+                        <Sparkles className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+                      </div>
+                    )}
+                    <div>
+                      <span className="inline-block text-[11px] font-semibold text-indigo-600 dark:text-indigo-400">
+                        {prod.status}
+                      </span>
+                      <h3 className="text-lg font-bold text-zinc-900 dark:text-white">
+                        {prod.title}
+                      </h3>
+                      {prod.platforms && (
+                        <p className="text-[11px] text-zinc-500 dark:text-zinc-400">
+                          {prod.platforms}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  {prod.previewImage && (
+                    <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-zinc-200 dark:border-white/10 mb-4 bg-zinc-950">
+                      <Image
+                        src={prod.previewImage}
+                        alt={`${prod.title} Preview`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
+
+                  <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">
+                    {prod.description}
+                  </p>
+
+                  {prod.highlights && (
+                    <ul className="space-y-1.5 mb-4">
+                      {prod.highlights.map((h) => (
+                        <li
+                          key={h}
+                          className="flex items-start gap-2 text-xs text-zinc-600 dark:text-zinc-400"
+                        >
+                          <CheckCircle2 className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                <div className="pt-4 border-t border-zinc-200/80 dark:border-white/10 flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
+                  <span>{prod.category || "Native Apple App"}</span>
+                  <Link
+                    href="/suggestions"
+                    className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 font-semibold"
+                  >
+                    Request Feature →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </Container>
+    </div>
+  );
+}

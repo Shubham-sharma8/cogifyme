@@ -54,11 +54,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/products/element-hider/privacy",
-        destination: "/element-hider/privacy",
-        permanent: true,
-      },
-      {
         source: "/products/invert",
         destination: "/invert",
         permanent: true,
@@ -69,11 +64,76 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/products/invert/privacy",
-        destination: "/invert/privacy",
+        source: "/products/readereasy",
+        destination: "/readereasy",
         permanent: true,
       },
-      // 3. Consolidate duplicate legal paths to canonical URLs
+      {
+        source: "/products/webclear",
+        destination: "/webclear",
+        permanent: true,
+      },
+      {
+        source: "/products/ad-blocker",
+        destination: "/ad-blocker",
+        permanent: true,
+      },
+      {
+        source: "/products/weblenses",
+        destination: "/weblenses",
+        permanent: true,
+      },
+      // 3. Consolidate all app-specific & legacy privacy paths to Unified Privacy Policy (/privacy)
+      {
+        source: "/emdoc/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/products/emdoc/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/element-hider/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/products/element-hider/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/invert/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/products/invert/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/readereasy/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/webclear/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/ad-blocker/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/weblenses/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
       {
         source: "/legal/privacy",
         destination: "/privacy",
@@ -89,7 +149,6 @@ const nextConfig: NextConfig = {
 
   async headers() {
     return [
-      // Edge caching & XML MIME specification for search engine crawlers
       {
         source: "/sitemap.xml",
         headers: [
@@ -116,7 +175,6 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      // Global browser security headers
       {
         source: "/:path*",
         headers: securityHeaders,

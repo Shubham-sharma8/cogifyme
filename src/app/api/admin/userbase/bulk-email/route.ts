@@ -101,8 +101,11 @@ export async function POST(req: NextRequest) {
       failedCount,
       totalRecipients: recipients.length,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Bulk email API error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to dispatch bulk email" },
+      { status: 500 }
+    );
   }
 }

@@ -1,27 +1,22 @@
 "use client";
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   Users,
   Search,
-  Filter,
   Download,
   Mail,
   UserPlus,
   RefreshCw,
   Phone,
   Building2,
-  Calendar,
   CheckCircle2,
   XCircle,
-  Clock,
   Sparkles,
   Send,
   Trash2,
   Edit2,
   Check,
-  AlertCircle,
   Copy,
-  ExternalLink,
 } from "lucide-react";
 
 interface UserContact {
@@ -86,9 +81,8 @@ export default function UserbasePage() {
   const [emailStatus, setEmailStatus] = useState<string | null>(null);
   const [isBackfilling, setIsBackfilling] = useState(false);
 
-  const fetchContacts = async (backfill = false) => {
+  const fetchContacts = useCallback(async (backfill = false) => {
     try {
-      setLoading(true);
       const params = new URLSearchParams();
       if (search) params.set("search", search);
       if (sourceFilter !== "ALL") params.set("source", sourceFilter);
@@ -101,17 +95,20 @@ export default function UserbasePage() {
       const data = await res.json();
       setContacts(data.contacts || []);
       if (data.stats) setStats(data.stats);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Error fetching userbase:", err);
     } finally {
       setLoading(false);
       setIsBackfilling(false);
     }
-  };
+  }, [search, sourceFilter, statusFilter]);
 
   useEffect(() => {
-    fetchContacts();
-  }, [search, sourceFilter, statusFilter]);
+    const timer = setTimeout(() => {
+      void fetchContacts();
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [fetchContacts]);
 
   const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
@@ -154,9 +151,9 @@ export default function UserbasePage() {
         status: "SUBSCRIBED",
         notes: "",
       });
-      fetchContacts();
-    } catch (err: any) {
-      alert(err.message);
+      void fetchContacts();
+    } catch (err: unknown) {
+      alert(err instanceof Error ? err.message : "Failed to add contact");
     }
   };
 
@@ -174,9 +171,9 @@ export default function UserbasePage() {
       if (!res.ok) throw new Error(data.error || "Failed to update contact");
       setIsEditOpen(false);
       setSelectedContact(null);
-      fetchContacts();
-    } catch (err: any) {
-      alert(err.message);
+      void fetchContacts();
+    } catch (err: unknown) {
+      alert(err instanceof Error ? err.message : "Failed to update contact");
     }
   };
 
@@ -186,9 +183,9 @@ export default function UserbasePage() {
     try {
       const res = await fetch(`/api/admin/userbase?id=${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Failed to delete contact");
-      fetchContacts();
-    } catch (err: any) {
-      alert(err.message);
+      void fetchContacts();
+    } catch (err: unknown) {
+      alert(err instanceof Error ? err.message : "Failed to delete contact");
     }
   };
 
@@ -215,10 +212,10 @@ export default function UserbasePage() {
       setTimeout(() => {
         setIsEmailOpen(false);
         setEmailStatus(null);
-        fetchContacts();
+        void fetchContacts();
       }, 2500);
-    } catch (err: any) {
-      setEmailStatus(`Error: ${err.message}`);
+    } catch (err: unknown) {
+      setEmailStatus(`Error: ${err instanceof Error ? err.message : "Failed to dispatch bulk email"}`);
     } finally {
       setSendingEmail(false);
     }
@@ -444,7 +441,7 @@ export default function UserbasePage() {
                     <Users className="w-8 h-8 mx-auto text-zinc-400 mb-2 opacity-50" />
                     <p className="font-medium">No contacts found</p>
                     <p className="text-[11px] text-zinc-400 mt-1">
-                      Click "Sync from Tickets" above to automatically pull in all existing ticket submitters!
+                      Click &quot;Sync from Tickets&quot; above to automatically pull in all existing ticket submitters!
                     </p>
                   </td>
                 </tr>

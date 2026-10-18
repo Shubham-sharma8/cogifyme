@@ -1,79 +1,279 @@
 import React from "react";
+import { siteConfig, SafariAppConfig } from "@/config/site";
 
-export function JsonLdSchemas() {
-  const softwareAppSchema = {
+function buildSafariSoftwareSchema(app: SafariAppConfig) {
+  const screenshots = [
+    ...(app.screenshotsMac || []),
+    ...(app.screenshotsIos || []),
+    ...(app.screenshotsIpad || []),
+  ].map((s) => `${siteConfig.url}${s.image}`);
+
+  return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "EmDoc PDF Workstation",
-    alternateName: ["EmDoc", "EmDoc Mac", "EmDoc PDF"],
-    operatingSystem: "macOS 12.0 or later, Apple Silicon & Intel, iOS coming soon",
-    applicationCategory: "BusinessApplication",
-    applicationSubCategory: "OfficeApplication",
-    offers: {
-      "@type": "Offer",
-      price: "0.00",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
+    "@id": `${siteConfig.url}/${app.slug}#software`,
+    name: app.name,
+    alternateName: [app.shortName, `${app.shortName} Safari Extension`],
+    operatingSystem: "macOS, iOS 16+, iPadOS 16+ (Safari)",
+    applicationCategory:
+      app.primaryCategory === "Developer Tools"
+        ? "DeveloperApplication"
+        : "UtilitiesApplication",
+    applicationSubCategory: `${app.primaryCategory}, ${app.secondaryCategory}`,
+    softwareVersion: app.version,
+    url: `${siteConfig.url}/${app.slug}`,
+    downloadUrl: app.appStoreUrl,
+    installUrl: app.appStoreUrl,
+    sameAs: [app.appStoreUrl],
+    image: `${siteConfig.url}${app.icon}`,
+    screenshot: screenshots,
+    description: app.fullDescription,
+    featureList: app.features.map((f) => `${f.title}: ${f.description}`),
+    author: {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      url: siteConfig.url,
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      ratingCount: "482",
-      bestRating: "5",
-      worstRating: "1",
-    },
-    softwareVersion: "0.1 Preview",
-    fileSize: "5.0 MB",
-    description:
-      "Ultra-lightweight 5.0MB native macOS PDF editor and workstation. Runs with ~45MB RAM baseline, zero cloud tracking, 100% offline air-gapped data sovereignty, and hardware vector rendering.",
-    url: "https://cogify.me/products/emdoc",
-    downloadUrl: "https://cogify.me/products/emdoc",
     publisher: {
       "@type": "Organization",
-      name: "Cogify",
-      url: "https://cogify.me",
-      logo: "https://cogify.me/brand/logo.png",
+      "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      url: siteConfig.url,
     },
-    featureList: [
-      "5.0 MB Native App Binary",
-      "~45 MB Low RAM Footprint",
-      "100% Offline Air-Gapped Operation",
-      "Instant Vector Hardware Rendering",
-      "Multi-Page Drag-and-Drop Organization",
-      "PDF Compression and File Size Reducer",
-      "Digital Signatures and Watermarking",
-      "Zero Telemetry and Zero Data Harvesting",
-    ],
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: app.appStoreUrl,
+      description: app.pricingModel,
+    },
+    isAccessibleForFree: true,
   };
+}
 
+export function RootJsonLd() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Cogify",
+    "@id": `${siteConfig.url}/#organization`,
+    name: siteConfig.name,
     legalName: "Cogify Technologies",
-    url: "https://cogify.me",
-    logo: "https://cogify.me/brand/logo.png",
-    description:
-      "Cogify engineers sovereign, high-efficiency software solutions and lightweight everyday apps for desktop and mobile. We eliminate expensive enterprise licenses with fast, audited tools. EmDoc is our flagship product.",
+    url: siteConfig.url,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteConfig.url}/brand/logo_white.png`,
+      width: 512,
+      height: 512,
+    },
+    description: siteConfig.description,
     founder: {
       "@type": "Person",
       name: "Shubham Sharma",
+      jobTitle: "Founder & Systems Architect",
+      sameAs: [siteConfig.appleDeveloperUrl],
     },
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: "contact@cogify.me",
-      contactType: "customer service",
-      availableLanguage: ["English", "Hindi"],
-    },
+    sameAs: [siteConfig.appleDeveloperUrl, "https://github.com/Shubham-sharma8"],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        email: siteConfig.contact.general,
+        contactType: "customer support",
+        availableLanguage: ["English"],
+      },
+      {
+        "@type": "ContactPoint",
+        email: siteConfig.contact.enterprise,
+        contactType: "sales",
+        availableLanguage: ["English"],
+      },
+    ],
   };
 
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Cogify",
-    url: "https://cogify.me",
+    "@id": `${siteConfig.url}/#website`,
+    url: siteConfig.url,
+    name: `${siteConfig.name} — High-Performance Native macOS, iOS & Safari Apps`,
+    description: siteConfig.description,
+    publisher: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    inLanguage: "en-US",
+  };
+
+  const emdocSoftwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": `${siteConfig.url}/products/emdoc#software`,
+    name: "EmDoc PDF Workstation",
+    alternateName: ["EmDoc", "EmDoc for macOS", "EmDoc PDF Editor"],
+    operatingSystem: "macOS 13.0 (Ventura, Sonoma, Sequoia) or later",
+    processorRequirements: "Apple Silicon (M1, M2, M3, M4) & Intel 64-bit Universal Binary",
+    applicationCategory: "BusinessApplication",
+    applicationSubCategory: "PDF Editor, Document Management, Offline PDF Compressor",
+    fileSize: "5.0MB",
+    memoryRequirements: "45MB RAM",
+    softwareVersion: siteConfig.emdoc.version,
+    url: `${siteConfig.url}/products/emdoc`,
+    downloadUrl: siteConfig.emdoc.appStoreUrl,
+    installUrl: siteConfig.emdoc.appStoreUrl,
+    sameAs: [siteConfig.emdoc.appStoreUrl],
+    image: `${siteConfig.url}/brand/emdoc-icon.png`,
+    screenshot: siteConfig.emdoc.screenshots.map((s) => `${siteConfig.url}${s.image}`),
+    description: siteConfig.emdoc.fullDescription,
+    featureList: [
+      "Ultra-lightweight 5.0 MB native macOS binary",
+      "Minimal ~45 MB baseline RAM consumption",
+      "100% Free Forever with all features unlocked",
+      "100% Air-Gapped offline processing with zero telemetry",
+      "Visual Page Organizer: drag-and-drop reorder, split, merge, extract, rotate",
+      "Vector PDF Editing: freehand ink, highlighters, callouts, official rubber stamps",
+      "On-Device Offline PDF Compression Engine (up to 75% reduction)",
+      "Precision Watermark Engine & Dynamic Bates Numbering",
+    ],
+    author: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    publisher: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: siteConfig.emdoc.appStoreUrl,
+      description: "100% Free Forever for individuals — All features included.",
+    },
+    isAccessibleForFree: true,
+  };
+
+  const elementHiderSoftwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": `${siteConfig.url}/element-hider#software`,
+    name: siteConfig.elementHider.name,
+    alternateName: ["Element Hider", "Element Hider Safari Extension"],
+    operatingSystem: "iOS 16+, iPadOS 16+, macOS (Safari)",
+    applicationCategory: "UtilitiesApplication",
+    applicationSubCategory: "Safari Web Extension, Content Blocker, Productivity",
+    softwareVersion: siteConfig.elementHider.version,
+    url: `${siteConfig.url}/element-hider`,
+    downloadUrl: siteConfig.elementHider.appStoreUrl,
+    installUrl: siteConfig.elementHider.appStoreUrl,
+    sameAs: [siteConfig.elementHider.appStoreUrl],
+    image: `${siteConfig.url}/brand/Element-Hider/icon.png`,
+    screenshot: siteConfig.elementHider.screenshots.map((s) => `${siteConfig.url}${s.image}`),
+    description: siteConfig.elementHider.fullDescription,
+    featureList: siteConfig.elementHider.features.map((f) => `${f.title}: ${f.description}`),
+    author: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    publisher: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: siteConfig.elementHider.appStoreUrl,
+      description: "100% Free Forever — Zero Ads, Zero Subscriptions.",
+    },
+    isAccessibleForFree: true,
+  };
+
+  const colourInvertSoftwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": `${siteConfig.url}/invert#software`,
+    name: siteConfig.invert.name,
+    alternateName: ["Colour Invert", "Color Invert Safari Extension", "Colour Invert Dark Mode"],
+    operatingSystem: "macOS, iOS 16+, iPadOS 16+ (Safari)",
+    applicationCategory: "UtilitiesApplication",
+    applicationSubCategory: "Safari Web Extension, Dark Mode, Accessibility",
+    softwareVersion: siteConfig.invert.version,
+    url: `${siteConfig.url}/invert`,
+    downloadUrl: siteConfig.invert.appStoreUrl,
+    installUrl: siteConfig.invert.appStoreUrl,
+    sameAs: [siteConfig.invert.appStoreUrl],
+    image: `${siteConfig.url}/brand/Invert/icon.png`,
+    screenshot: [
+      ...siteConfig.invert.screenshotsMac.map((s) => `${siteConfig.url}${s.image}`),
+      ...siteConfig.invert.screenshotsIos.map((s) => `${siteConfig.url}${s.image}`),
+    ],
+    description: siteConfig.invert.fullDescription,
+    featureList: siteConfig.invert.features.map((f) => `${f.title}: ${f.description}`),
+    author: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    publisher: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: siteConfig.invert.appStoreUrl,
+      description: "100% Free Forever — Zero Ads, Zero Subscriptions.",
+    },
+    isAccessibleForFree: true,
+  };
+
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "COGIFY Native Apps & Safari Extensions on Apple App Store",
     description:
-      "We provide software solutions. Everyday apps engineered with enterprise precision. Creators of EmDoc.",
+      "Complete suite of 100% free, zero-telemetry native macOS, iOS, iPadOS, and Safari extensions by COGIFY.",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "EmDoc PDF Workstation",
+        url: `${siteConfig.url}/products/emdoc`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: siteConfig.adBlocker.name,
+        url: `${siteConfig.url}/ad-blocker`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: siteConfig.readereasy.name,
+        url: `${siteConfig.url}/readereasy`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: siteConfig.webclear.name,
+        url: `${siteConfig.url}/webclear`,
+      },
+      {
+        "@type": "ListItem",
+        position: 5,
+        name: siteConfig.weblenses.name,
+        url: `${siteConfig.url}/weblenses`,
+      },
+      {
+        "@type": "ListItem",
+        position: 6,
+        name: siteConfig.elementHider.name,
+        url: `${siteConfig.url}/element-hider`,
+      },
+      {
+        "@type": "ListItem",
+        position: 7,
+        name: siteConfig.invert.name,
+        url: `${siteConfig.url}/invert`,
+      },
+    ],
   };
 
   const faqSchema = {
@@ -82,34 +282,26 @@ export function JsonLdSchemas() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "Is EmDoc really 100% free with all features included?",
+        name: "Are all Cogify apps (EmDoc, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, Colour Invert) really 100% free?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. EmDoc is completely free for all users. All core features—including document viewing, page reorganization, compression, annotation, and digital signing—are completely unlocked with no paywalls or recurring subscriptions.",
+          text: "Yes. Every Cogify consumer application on the Apple App Store is 100% free for individuals with zero subscriptions, zero ads, and zero locked features.",
         },
       },
       {
         "@type": "Question",
-        name: "How does EmDoc achieve a 5.0 MB size and ~45 MB RAM usage?",
+        name: "Do Cogify apps or Safari extensions collect my browsing history or personal data?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "EmDoc is built with pure native Swift and Apple Metal/CoreGraphics vector pipelines without Electron, Chromium, or cross-platform webview bloat. This allows it to launch instantaneously and consume a fraction of the system memory used by legacy PDF suites.",
+          text: "No. Every Cogify app is engineered with a strict Zero-Data, 100% On-Device architecture. We do not collect, store, or transmit your browsing history, PDF documents, cookies, or usage telemetry.",
         },
       },
       {
         "@type": "Question",
-        name: "Can EmDoc replace Adobe Acrobat Pro for enterprise workflows?",
+        name: "Where can I download EmDoc, ReaderEasy, WebClear, Ad Blocker, WebLenses, Element Hider, and Colour Invert?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. EmDoc provides the essential high-throughput tools legal, financial, and engineering teams need every day without the multi-gigabyte footprint or annual license fees. Cogify also offers custom enterprise license replacement audits.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does EmDoc upload my documents to external servers?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Never. EmDoc operates in complete air-gapped isolation on your local hardware. Documents never leave your device, ensuring total compliance with HIPAA, GDPR, and confidential enterprise security standards.",
+          text: "All 7 flagship applications are published and available for immediate download on the official Apple App Store for macOS, iOS, and iPadOS.",
         },
       },
     ],
@@ -127,11 +319,181 @@ export function JsonLdSchemas() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(emdocSoftwareSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(elementHiderSoftwareSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(colourInvertSoftwareSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildSafariSoftwareSchema(siteConfig.adBlocker)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildSafariSoftwareSchema(siteConfig.readereasy)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildSafariSoftwareSchema(siteConfig.webclear)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildSafariSoftwareSchema(siteConfig.weblenses)),
+        }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+    </>
+  );
+}
+
+export const JsonLdSchemas = RootJsonLd;
+
+export function EmDocPageJsonLd() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: `${siteConfig.url}/products`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "EmDoc PDF Workstation",
+        item: `${siteConfig.url}/products/emdoc`,
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+    />
+  );
+}
+
+export function ElementHiderPageJsonLd() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Element Hider – Hide Anything",
+        item: `${siteConfig.url}/element-hider`,
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+    />
+  );
+}
+
+export function ColourInvertPageJsonLd() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Colour Invert – Invert the Web",
+        item: `${siteConfig.url}/invert`,
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+    />
+  );
+}
+
+export function SafariAppPageJsonLd({ app }: { app: SafariAppConfig }) {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: `${siteConfig.url}/products`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: app.name,
+        item: `${siteConfig.url}/${app.slug}`,
+      },
+    ],
+  };
+
+  const softwareSchema = buildSafariSoftwareSchema(app);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
       />
     </>
   );

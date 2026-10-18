@@ -4,37 +4,31 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   EyeOff,
-  Sliders,
-  ShieldCheck,
   Sparkles,
   CheckCircle2,
-  ArrowRight,
   Smartphone,
   Compass,
-  Layers,
-  Lock,
   MessageSquare,
-  Zap,
-  Globe,
-  SlidersHorizontal,
   ChevronRight,
-  Shield,
-  Download,
-  Share2,
   Monitor,
   Command,
+  ExternalLink,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 
 export default function ElementHiderPage() {
   const hider = siteConfig.elementHider;
-  const [platform, setPlatform] = useState<"mac" | "ios">("mac");
-  const screenshots = platform === "mac" ? (hider.screenshotsMac || hider.screenshots) : hider.screenshots;
+  // Standardized default platform to iOS across all Safari Extension pages
+  const [platform, setPlatform] = useState<"ios" | "mac">("ios");
+  const screenshots =
+    platform === "ios"
+      ? hider.screenshots
+      : hider.screenshotsMac || hider.screenshots;
   const [activeScreenshotIndex, setActiveScreenshotIndex] = useState(0);
   const activeScreenshot = screenshots[activeScreenshotIndex] || screenshots[0];
 
-  const handlePlatformChange = (p: "mac" | "ios") => {
+  const handlePlatformChange = (p: "ios" | "mac") => {
     setPlatform(p);
     setActiveScreenshotIndex(0);
   };
@@ -63,7 +57,7 @@ export default function ElementHiderPage() {
                   Safari Web Extension
                 </span>
                 <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
-                  Version {hider.version} Live
+                  Live on App Store • v{hider.version}
                 </span>
                 <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10">
                   {hider.primaryCategory} • {hider.secondaryCategory}
@@ -93,6 +87,16 @@ export default function ElementHiderPage() {
 
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
+            <a
+              href={hider.appStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3.5 rounded-xl bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-zinc-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2"
+            >
+              <ExternalLink className="w-4 h-4" />
+              <span>Download on the App Store</span>
+            </a>
+
             <MovingBorderButton
               borderRadius="0.75rem"
               className="px-6 py-3.5 font-semibold text-sm cursor-pointer"
@@ -106,14 +110,6 @@ export default function ElementHiderPage() {
                 <span>Explore Extension Tour</span>
               </span>
             </MovingBorderButton>
-
-            <Link
-              href="/element-hider/privacy"
-              className="px-6 py-3.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-800 hover:text-zinc-950 font-semibold text-sm border border-zinc-200/90 shadow-xs dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-300 dark:hover:text-white dark:border-white/10 transition-colors flex items-center gap-2"
-            >
-              <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>Zero-Tracking Privacy Policy</span>
-            </Link>
 
             <Link
               href="/suggestions"
@@ -139,24 +135,12 @@ export default function ElementHiderPage() {
             See Element Hider in Action
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mt-2">
-            Designed seamlessly for Safari. Step through the real macOS and iOS interfaces from initial setup to a distraction-free webpage.
+            Designed seamlessly for Safari. Step through the real iOS and macOS interfaces from initial setup to a distraction-free webpage.
           </p>
         </div>
 
-        {/* Platform Switcher */}
+        {/* Platform Switcher — Standardized iOS First */}
         <div className="flex items-center justify-center gap-3 mb-8">
-          <button
-            onClick={() => handlePlatformChange("mac")}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer border ${
-              platform === "mac"
-                ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 border-zinc-900 dark:border-white shadow-md"
-                : "bg-white hover:bg-zinc-100 text-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-300 border-zinc-200/80 dark:border-white/10"
-            }`}
-          >
-            <Monitor className="w-4 h-4 text-indigo-500" />
-            <span>macOS Safari</span>
-            <span className="text-[11px] font-mono opacity-70 px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">6 Views</span>
-          </button>
           <button
             onClick={() => handlePlatformChange("ios")}
             className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer border ${
@@ -167,7 +151,23 @@ export default function ElementHiderPage() {
           >
             <Smartphone className="w-4 h-4 text-emerald-500" />
             <span>iOS Safari (iPhone)</span>
-            <span className="text-[11px] font-mono opacity-70 px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">5 Views</span>
+            <span className="text-[11px] font-mono opacity-70 px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">
+              5 Views
+            </span>
+          </button>
+          <button
+            onClick={() => handlePlatformChange("mac")}
+            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 cursor-pointer border ${
+              platform === "mac"
+                ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 border-zinc-900 dark:border-white shadow-md"
+                : "bg-white hover:bg-zinc-100 text-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-300 border-zinc-200/80 dark:border-white/10"
+            }`}
+          >
+            <Monitor className="w-4 h-4 text-indigo-500" />
+            <span>macOS Safari</span>
+            <span className="text-[11px] font-mono opacity-70 px-1.5 py-0.5 bg-zinc-200 dark:bg-zinc-800 rounded">
+              6 Views
+            </span>
           </button>
         </div>
 
@@ -194,17 +194,15 @@ export default function ElementHiderPage() {
           {/* Left: Device Frame with Image */}
           {platform === "ios" ? (
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-[280px] sm:w-[320px] aspect-[1206/2622] rounded-[42px] p-3 bg-zinc-900 shadow-2xl border-4 border-zinc-800 ring-1 ring-white/10">
-                {/* Dynamic Island */}
-                <div className="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-20 pointer-events-none" />
-
-                {/* Inner Screen */}
-                <div className="relative w-full h-full rounded-[34px] overflow-hidden bg-black">
+              {/* Uncropped iPhone Frame: exact 1206:2622 on inner screen */}
+              <div className="relative w-[275px] sm:w-[310px] rounded-[42px] p-2.5 bg-zinc-950 shadow-2xl border-4 border-zinc-800 ring-1 ring-white/10">
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-black/80 rounded-full z-20 pointer-events-none" />
+                <div className="relative w-full aspect-[1206/2622] rounded-[34px] overflow-hidden bg-zinc-950">
                   <Image
                     src={activeScreenshot.image}
                     alt={activeScreenshot.title}
                     fill
-                    className="object-cover transition-opacity duration-300"
+                    className="object-contain transition-opacity duration-300"
                     sizes="(max-width: 768px) 280px, 320px"
                     priority
                   />
@@ -238,7 +236,7 @@ export default function ElementHiderPage() {
                     src={activeScreenshot.image}
                     alt={activeScreenshot.title}
                     fill
-                    className="object-cover transition-opacity duration-300"
+                    className="object-contain transition-opacity duration-300"
                     sizes="(max-width: 768px) 100vw, 600px"
                     priority
                   />
@@ -272,7 +270,13 @@ export default function ElementHiderPage() {
             {platform === "mac" && (
               <div className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-500/20 text-xs text-indigo-900 dark:text-indigo-200 font-medium">
                 <Command className="w-4 h-4 text-indigo-500 shrink-0" />
-                <span>Mac Global Shortcut: Press <kbd className="font-mono font-bold px-1.5 py-0.5 rounded bg-white dark:bg-zinc-800 border border-indigo-300 dark:border-indigo-500/40 shadow-xs">⌥ + ⇧ + H</kbd> to activate the element picker on any webpage instantly.</span>
+                <span>
+                  Mac Global Shortcut: Press{" "}
+                  <kbd className="font-mono font-bold px-1.5 py-0.5 rounded bg-white dark:bg-zinc-800 border border-indigo-300 dark:border-indigo-500/40 shadow-xs">
+                    ⌥ + ⇧ + H
+                  </kbd>{" "}
+                  to activate the element picker on any webpage instantly.
+                </span>
               </div>
             )}
 
@@ -302,7 +306,7 @@ export default function ElementHiderPage() {
               <button
                 disabled={activeScreenshotIndex === 0}
                 onClick={() => setActiveScreenshotIndex((prev) => Math.max(0, prev - 1))}
-                className="px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-zinc-100 transition-colors"
+                className="px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-zinc-100 transition-colors cursor-pointer"
               >
                 Previous View
               </button>
@@ -313,7 +317,7 @@ export default function ElementHiderPage() {
                     Math.min(screenshots.length - 1, prev + 1)
                   )
                 }
-                className="px-4 py-2 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center gap-1.5"
+                className="px-4 py-2 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center gap-1.5 cursor-pointer"
               >
                 <span>Next View</span>
                 <ChevronRight className="w-3.5 h-3.5" />
@@ -338,7 +342,7 @@ export default function ElementHiderPage() {
               {hider.philosophy}
             </p>
             <div className="p-4 rounded-2xl bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-white/10 text-sm text-zinc-600 dark:text-zinc-400 font-mono">
-              ⚡ Element Hider does not alter the content you want to keep — it simply lets you decide what belongs on your screen.
+              Element Hider does not alter the content you want to keep — it simply lets you decide what belongs on your screen.
             </div>
           </div>
         </div>
@@ -436,13 +440,16 @@ export default function ElementHiderPage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
-            <Link
-              href="/element-hider/privacy"
-              className="px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-white/10 hover:bg-zinc-100 transition-colors"
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <a
+              href={hider.appStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-xl text-xs font-semibold bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-zinc-950 transition-colors flex items-center gap-1.5"
             >
-              Privacy Policy
-            </Link>
+              <ExternalLink className="w-3.5 h-3.5" />
+              App Store
+            </a>
             <Link
               href="/suggestions"
               className="px-4 py-2 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white transition-colors"
@@ -462,8 +469,8 @@ export default function ElementHiderPage() {
               Return Home
             </Link>
             <span>•</span>
-            <Link href="/products/emdoc" className="hover:text-indigo-600 transition-colors">
-              EmDoc (macOS PDF)
+            <Link href="/products" className="hover:text-indigo-600 transition-colors">
+              All Apps
             </Link>
             <span>•</span>
             <Link href="/contact" className="hover:text-indigo-600 transition-colors">

@@ -66,6 +66,10 @@ export default function ElementHiderLayout({
       {
         "@type": "SoftwareApplication",
         "name": "Element Hider – Hide Anything",
+        "url": "https://cogify.me/element-hider",
+        "downloadUrl": "https://apps.apple.com/in/app/element-hider/id6811377087",
+        "installUrl": "https://apps.apple.com/in/app/element-hider/id6811377087",
+        "image": "https://cogify.me/brand/Element-Hider/icon.png",
         "operatingSystem": "iOS 16+, iPadOS 16+, macOS (Safari Web Extension)",
         "applicationCategory": "UtilitiesApplication",
         "applicationSubCategory": "ProductivityApplication",
@@ -76,6 +80,7 @@ export default function ElementHiderLayout({
           "price": "0",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
+          "url": "https://apps.apple.com/in/app/element-hider/id6811377087",
         },
         "publisher": {
           "@type": "Organization",
@@ -97,7 +102,7 @@ export default function ElementHiderLayout({
             "@type": "ListItem",
             "position": 2,
             "name": "Products",
-            "item": "https://cogify.me/#products",
+            "item": "https://cogify.me/products",
           },
           {
             "@type": "ListItem",

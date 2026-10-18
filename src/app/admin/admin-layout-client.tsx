@@ -8,12 +8,10 @@ import {
   Users,
   ShieldCheck,
   LogOut,
-  Radio,
   ExternalLink,
   ChevronRight,
   Menu,
   X,
-  Lock,
   Contact2,
 } from "lucide-react";
 import { BrandLogo } from "@/components/brand/brand-logo";
@@ -35,7 +33,6 @@ export default function AdminLayout({
   const [admin, setAdmin] = useState<CurrentAdmin | null>(null);
   const [loading, setLoading] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [realtimeConnected, setRealtimeConnected] = useState(true);
 
   // If on login or reset password page, render minimal container without admin sidebar
   const isAuthPage =
@@ -43,7 +40,6 @@ export default function AdminLayout({
 
   useEffect(() => {
     if (isAuthPage) {
-      setLoading(false);
       return;
     }
 
@@ -56,7 +52,7 @@ export default function AdminLayout({
         } else {
           router.push("/admin/login");
         }
-      } catch (err) {
+      } catch {
         router.push("/admin/login");
       } finally {
         setLoading(false);
@@ -74,7 +70,7 @@ export default function AdminLayout({
         body: JSON.stringify({ action: "logout" }),
       });
       router.push("/admin/login");
-    } catch (err) {
+    } catch {
       router.push("/admin/login");
     }
   };
@@ -181,7 +177,7 @@ export default function AdminLayout({
           {/* Navigation Links */}
           <nav className="mt-6 space-y-1">
             {navItems
-              .filter((item: any) => !item.superAdminOnly || admin?.role === "SUPER_ADMIN")
+              .filter((item) => !item.superAdminOnly || admin?.role === "SUPER_ADMIN")
               .map((item) => {
                 const active = item.exact
                   ? pathname === item.href

@@ -3,13 +3,9 @@ import React from "react";
 import Link from "next/link";
 import {
   Workflow,
-  Cpu,
-  Lock,
   ArrowRight,
-  ShieldCheck,
   Search,
   DollarSign,
-  Layers,
   Sparkles,
 } from "lucide-react";
 

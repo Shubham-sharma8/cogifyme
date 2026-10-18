@@ -1,10 +1,8 @@
 "use client";
 import React from "react";
 import {
-  Layers,
   Building2,
   Zap,
-  Wrench,
   Shield,
   Cpu,
   Smartphone,
@@ -42,21 +40,25 @@ export const WhatWeBuild = () => {
             title="Free Everyday Utility Apps"
             description="We build everyday software tools that are 100% free for individual users, mostly open source, and completely devoid of dark patterns, paywalls, or telemetric surveillance. Multi-device support spanning macOS, iOS, iPadOS, and beyond."
             header={
-              <div className="flex flex-col justify-end h-full p-4 rounded-xl bg-zinc-50/80 dark:bg-zinc-950/60 border border-zinc-200/70 dark:border-white/5 font-mono text-xs text-zinc-600 dark:text-zinc-400 space-y-2">
+              <div className="flex flex-col justify-end h-full p-4 rounded-xl bg-zinc-50/80 dark:bg-zinc-950/60 border border-zinc-200/70 dark:border-white/5 font-mono text-xs text-zinc-600 dark:text-zinc-400 space-y-1.5">
                 <div className="flex items-center justify-between text-indigo-700 dark:text-indigo-300 font-semibold">
-                  <span>EmDoc (macOS)</span>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">5.0 MB Workstation</span>
+                  <span>EmDoc (macOS Workstation)</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">5.0 MB • App Store</span>
+                </div>
+                <div className="flex items-center justify-between text-emerald-700 dark:text-emerald-300 font-semibold">
+                  <span>Ad Blocker &amp; WebClear (Safari)</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">v2.0 / v1.0 Live</span>
+                </div>
+                <div className="flex items-center justify-between text-amber-700 dark:text-amber-300 font-semibold">
+                  <span>ReaderEasy &amp; WebLenses (Safari)</span>
+                  <span className="text-amber-600 dark:text-amber-400 font-bold">v1.1 / v1.0 Live</span>
                 </div>
                 <div className="flex items-center justify-between text-purple-700 dark:text-purple-300 font-semibold">
-                  <span>Element Hider (Safari)</span>
+                  <span>Element Hider &amp; Colour Invert</span>
                   <span className="text-purple-600 dark:text-purple-400 font-bold">v1.0 Live</span>
                 </div>
-                <div className="flex items-center justify-between text-blue-700 dark:text-blue-300 font-semibold">
-                  <span>Colour Invert (Safari)</span>
-                  <span className="text-blue-600 dark:text-blue-400 font-bold">v1.0 Live</span>
-                </div>
-                <div className="text-[11px] text-zinc-500">
-                  100% free for individual users • Air-gapped and on-device • Zero ads or telemetry
+                <div className="text-[11px] text-zinc-500 pt-0.5">
+                  7 Apps Live on Apple App Store • Air-gapped &amp; on-device • Zero telemetry
                 </div>
               </div>
             }

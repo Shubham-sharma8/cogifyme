@@ -68,6 +68,10 @@ export default function ColourInvertLayout({
       {
         "@type": "SoftwareApplication",
         "name": "Colour Invert – Invert the Web",
+        "url": "https://cogify.me/invert",
+        "downloadUrl": "https://apps.apple.com/in/app/colour-invert/id6811389278",
+        "installUrl": "https://apps.apple.com/in/app/colour-invert/id6811389278",
+        "image": "https://cogify.me/brand/Invert/icon.png",
         "operatingSystem": "macOS Safari, iOS 16+, iPadOS 16+ (Safari Web Extension)",
         "applicationCategory": "UtilitiesApplication",
         "applicationSubCategory": "AccessibilityApplication",
@@ -78,6 +82,7 @@ export default function ColourInvertLayout({
           "price": "0",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
+          "url": "https://apps.apple.com/in/app/colour-invert/id6811389278",
         },
         "publisher": {
           "@type": "Organization",
@@ -99,7 +104,7 @@ export default function ColourInvertLayout({
             "@type": "ListItem",
             "position": 2,
             "name": "Products",
-            "item": "https://cogify.me/#products",
+            "item": "https://cogify.me/products",
           },
           {
             "@type": "ListItem",

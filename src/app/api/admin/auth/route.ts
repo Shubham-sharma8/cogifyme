@@ -37,8 +37,11 @@ export async function GET(req: NextRequest) {
         lastLoginAt: admin.lastLoginAt,
       },
     });
-  } catch (error: any) {
-    return NextResponse.json({ authenticated: false, error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json(
+      { authenticated: false, error: error instanceof Error ? error.message : "Auth check error" },
+      { status: 500 }
+    );
   }
 }
 
@@ -239,10 +242,10 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ success: false, error: "Unknown action" }, { status: 400 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Admin auth API error:", error);
     return NextResponse.json(
-      { success: false, error: error.message || "Authentication error" },
+      { success: false, error: error instanceof Error ? error.message : "Authentication error" },
       { status: 500 }
     );
   }

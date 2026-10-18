@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { SuggestionForm } from "@/components/feedback/suggestion-form";
-import { Sparkles, MessageSquare, ShieldCheck, ArrowRight } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export default function SuggestionsPage() {
   return (
@@ -42,6 +42,13 @@ export default function SuggestionsPage() {
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
         <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-zinc-500">
           <Link
+            href="/products"
+            className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors"
+          >
+            Browse All 7 App Store Apps
+          </Link>
+          <span>•</span>
+          <Link
             href="/products/emdoc"
             className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors"
           >
@@ -53,13 +60,6 @@ export default function SuggestionsPage() {
             className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors"
           >
             Enterprise License Replacement
-          </Link>
-          <span>•</span>
-          <Link
-            href="/emdoc/privacy"
-            className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors"
-          >
-            Air-Gapped Privacy Guarantee
           </Link>
         </div>
       </section>

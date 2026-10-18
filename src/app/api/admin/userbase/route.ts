@@ -45,9 +45,12 @@ export async function GET(req: NextRequest) {
       page,
       limit,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Userbase GET error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to fetch userbase" },
+      { status: 500 }
+    );
   }
 }
 
@@ -90,9 +93,12 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ success: true, contact });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Userbase POST error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to add contact" },
+      { status: 500 }
+    );
   }
 }
 
@@ -135,9 +141,12 @@ export async function PATCH(req: NextRequest) {
     });
 
     return NextResponse.json({ success: true, contact: updated });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Userbase PATCH error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to update contact" },
+      { status: 500 }
+    );
   }
 }
 
@@ -172,8 +181,11 @@ export async function DELETE(req: NextRequest) {
     });
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Userbase DELETE error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to delete contact" },
+      { status: 500 }
+    );
   }
 }

@@ -632,11 +632,11 @@ export const db = {
           if (filter?.search) {
             const q = filter.search.toLowerCase();
             results = results.filter(
-              (t: any) =>
-                t.title?.toLowerCase().includes(q) ||
-                t.description?.toLowerCase().includes(q) ||
-                t.senderEmail?.toLowerCase().includes(q) ||
-                t.referenceCode?.toLowerCase().includes(q)
+              (t: Record<string, unknown>) =>
+                (typeof t.title === "string" && t.title.toLowerCase().includes(q)) ||
+                (typeof t.description === "string" && t.description.toLowerCase().includes(q)) ||
+                (typeof t.senderEmail === "string" && t.senderEmail.toLowerCase().includes(q)) ||
+                (typeof t.referenceCode === "string" && t.referenceCode.toLowerCase().includes(q))
             );
           }
           return results as unknown as (Ticket & { responses: TicketResponse[]; assignedTo?: Admin | null })[];
@@ -1134,7 +1134,7 @@ export const db = {
           .maybeSingle();
 
         if (existing) {
-          const updatePayload: Record<string, any> = {
+          const updatePayload: Record<string, unknown> = {
             updatedAt: new Date().toISOString(),
           };
           if (data.name) updatePayload.name = data.name;
@@ -1277,7 +1277,7 @@ export const db = {
 
     if (hasLiveDatabase && prisma) {
       try {
-        const where: any = {};
+        const where: Record<string, unknown> = {};
         if (status && status !== "ALL") where.status = status;
         if (source && source !== "ALL") where.source = source;
         if (search) {
@@ -1335,9 +1335,9 @@ export const db = {
         const { data: contacts, error } = await sb.from("userbase").select("id, status, source, phone");
         if (!error && contacts) {
           const total = contacts.length;
-          const subscribed = contacts.filter((c: any) => c.status === "SUBSCRIBED").length;
-          const enterprise = contacts.filter((c: any) => c.source === "ENTERPRISE").length;
-          const withPhone = contacts.filter((c: any) => c.phone && String(c.phone).trim().length > 0).length;
+          const subscribed = contacts.filter((c: Record<string, unknown>) => c.status === "SUBSCRIBED").length;
+          const enterprise = contacts.filter((c: Record<string, unknown>) => c.source === "ENTERPRISE").length;
+          const withPhone = contacts.filter((c: Record<string, unknown>) => c.phone && String(c.phone).trim().length > 0).length;
           return { total, subscribed, enterprise, withPhone };
         }
       } catch (err) {

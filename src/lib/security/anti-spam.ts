@@ -238,10 +238,8 @@ export async function evaluateSubmission(params: {
 
   // 5. Spam Keyword scanning across title & description
   const combinedContent = `${params.title} ${params.description}`.toLowerCase();
-  let keywordHits = 0;
   for (const keyword of SPAM_KEYWORDS) {
     if (combinedContent.includes(keyword)) {
-      keywordHits++;
       spamScore += 0.35;
       reasons.push(`Spam keyword matched: "${keyword}".`);
     }

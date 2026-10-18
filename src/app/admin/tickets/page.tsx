@@ -1,23 +1,12 @@
 "use client";
-import React, { useEffect, useState, useMemo, Suspense } from "react";
+import React, { useEffect, useState, useMemo, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import {
-  Inbox,
   Search,
-  Filter,
   CheckCircle2,
   Clock,
   Send,
-  UserCheck,
-  Tag,
-  AlertCircle,
   MessageSquare,
-  Shield,
-  Building2,
-  Bug,
-  Sparkles,
-  ExternalLink,
-  ChevronRight,
   X,
   Lock,
   RefreshCw,
@@ -85,9 +74,8 @@ function TicketsManagerContent() {
   const [submittingReply, setSubmittingReply] = useState(false);
 
   // Fetch tickets and admin team members
-  const fetchTickets = async () => {
+  const fetchTickets = useCallback(async () => {
     try {
-      setSyncing(true);
       const res = await fetch("/api/admin/tickets");
       if (res.ok) {
         const data = await res.json();
@@ -99,31 +87,38 @@ function TicketsManagerContent() {
       setLoading(false);
       setSyncing(false);
     }
-  };
+  }, []);
 
-  const fetchAdmins = async () => {
+  const fetchAdmins = useCallback(async () => {
     try {
       const res = await fetch("/api/admin/team");
       if (res.ok) {
         const data = await res.json();
         setAdmins(data.admins || []);
       }
-    } catch (err) {
+    } catch {
       // Fallback default admin if regular admin endpoint restricts
       setAdmins([
         { id: "admin-super-01", name: "Shubham Sharma", email: "admin@cogify.me", role: "SUPER_ADMIN" },
         { id: "admin-agent-02", name: "Aarav Patel", email: "support@cogify.me", role: "AGENT" },
       ]);
     }
-  };
+  }, []);
 
   useEffect(() => {
-    fetchTickets();
-    fetchAdmins();
+    const initTimer = setTimeout(() => {
+      void fetchTickets();
+      void fetchAdmins();
+    }, 0);
     // Auto-refresh every 12 seconds for real-time updates
-    const interval = setInterval(fetchTickets, 12000);
-    return () => clearInterval(interval);
-  }, []);
+    const interval = setInterval(() => {
+      void fetchTickets();
+    }, 12000);
+    return () => {
+      clearTimeout(initTimer);
+      clearInterval(interval);
+    };
+  }, [fetchTickets, fetchAdmins]);
 
   const selectedTicket = useMemo(() => {
     return tickets.find((t) => t.id === selectedTicketId) || null;
@@ -261,7 +256,10 @@ function TicketsManagerContent() {
         </div>
 
         <button
-          onClick={fetchTickets}
+          onClick={() => {
+            setSyncing(true);
+            void fetchTickets();
+          }}
           disabled={syncing}
           className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-300 transition-colors cursor-pointer self-start sm:self-auto"
         >

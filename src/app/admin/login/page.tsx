@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand/brand-logo";
@@ -12,7 +12,10 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
   const [honeypot, setHoneypot] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [formStartTime] = useState<number>(Date.now());
+  const formStartTimeRef = useRef<number>(0);
+  useEffect(() => {
+    formStartTimeRef.current = Date.now();
+  }, []);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -31,7 +34,7 @@ export default function AdminLoginPage() {
           password,
           turnstileToken,
           _hp_company: honeypot,
-          formStartTime,
+          formStartTime: formStartTimeRef.current,
         }),
       });
 
@@ -41,8 +44,8 @@ export default function AdminLoginPage() {
       }
 
       router.push("/admin");
-    } catch (err: any) {
-      setError(err.message || "Failed to log in.");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Failed to log in.");
     } finally {
       setLoading(false);
     }

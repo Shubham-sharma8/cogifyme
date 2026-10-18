@@ -10,7 +10,6 @@ import {
   HardDrive,
   Cpu,
   Gift,
-  Smartphone,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { DownloadModal } from "@/components/products/download-modal";
@@ -75,12 +74,12 @@ export const EmDocShowcase = () => {
 
           <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200/80 dark:border-white/5 flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/20 flex items-center justify-center shrink-0 text-purple-600 dark:text-purple-400">
-              <Smartphone className="w-5 h-5" />
+              <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-xs text-zinc-500 font-mono">Multi-Platform</div>
-              <div className="text-base font-bold text-zinc-900 dark:text-white">iOS In Development</div>
-              <div className="text-[11px] text-zinc-500">iPhone & iPad Companion</div>
+              <div className="text-xs text-zinc-500 font-mono">Architecture</div>
+              <div className="text-base font-bold text-zinc-900 dark:text-white">macOS Universal</div>
+              <div className="text-[11px] text-zinc-500">Apple Silicon &amp; Intel</div>
             </div>
           </div>
         </div>
@@ -163,12 +162,22 @@ export const EmDocShowcase = () => {
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href={siteConfig.emdoc.appStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all duration-200 flex items-center gap-2 shadow-lg shadow-indigo-600/30"
+                >
+                  <span>Download on Mac App Store</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+
                 <button
                   onClick={() => setDownloadModalOpen(true)}
-                  className="px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all duration-200 flex items-center gap-2 shadow-lg shadow-indigo-600/30 cursor-pointer"
+                  className="px-6 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-semibold text-sm transition-all duration-200 flex items-center gap-2 cursor-pointer"
                 >
                   <Download className="w-4 h-4" />
-                  <span>Download EmDoc ({siteConfig.emdoc.appSize})</span>
+                  <span>Direct DMG ({siteConfig.emdoc.appSize})</span>
                 </button>
 
                 <Link
@@ -188,7 +197,7 @@ export const EmDocShowcase = () => {
                 <span>•</span>
                 <span>macOS 13.0+</span>
                 <span>•</span>
-                <span>iOS In Development</span>
+                <span>Apple Silicon &amp; Intel Universal</span>
               </div>
             </div>
 

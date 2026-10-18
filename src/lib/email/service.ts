@@ -81,9 +81,13 @@ export async function sendEmail({
 
       console.log(`[EMAIL DISPATCH SUCCESS] To: ${to}, Message ID: ${data.id}`);
       return { success: true, messageId: data.id, simulated: false };
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Email dispatch failed:", err);
-      return { success: false, simulated: false, error: err.message };
+      return {
+        success: false,
+        simulated: false,
+        error: err instanceof Error ? err.message : "Email dispatch failed",
+      };
     }
   }
 

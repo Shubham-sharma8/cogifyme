@@ -45,12 +45,23 @@ export default function AboutPage() {
       ),
     },
     {
-      title: "EmDoc for iOS (iPhone & iPad)",
-      badge: "In Development",
+      title: "Safari Web Extension Suite (macOS, iOS, iPadOS)",
+      badge: "6 Apps Live on App Store",
       content: (
         <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
           <p>
-            In active engineering: EmDoc companion for iOS. Delivering native document viewing, pencil annotations, and local offline compression to iPhone and iPad.
+            Expanding our zero-telemetry architecture to Safari across Mac, iPhone, and iPad: Ad Blocker - For Safari (v2.0), ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert — all running 100% on-device.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Next-Wave Safari & CarPlay Pipeline",
+      badge: "In Pipeline",
+      content: (
+        <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
+          <p>
+            In active engineering and App Store review: Full Page Web Capture, Web Inspection (Mobile Safari DevTools), and Aurora Drive (live synced lyrics, customizable iOS widgets, and Apple CarPlay infotainment).
           </p>
         </div>
       ),

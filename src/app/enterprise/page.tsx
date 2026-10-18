@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   ShieldCheck,
@@ -14,7 +14,6 @@ import {
   Sparkles,
   Search,
   DollarSign,
-  HelpCircle,
 } from "lucide-react";
 import { BrandLogo } from "@/components/brand/brand-logo";
 
@@ -28,7 +27,7 @@ export default function EnterprisePage() {
   const [honeypot, setHoneypot] = useState("");
   const [honeypotWebsite, setHoneypotWebsite] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
-  const [formStartTime] = useState<number>(Date.now());
+  const formStartTimeRef = useRef<number>(0);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,6 +37,10 @@ export default function EnterprisePage() {
     interest: "Replace Expensive PDF Licenses (e.g. Acrobat / PDF Expert)",
     message: "",
   });
+
+  useEffect(() => {
+    formStartTimeRef.current = Date.now();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,7 +64,7 @@ export default function EnterprisePage() {
           turnstileToken,
           _hp_company: honeypot,
           _hp_website: honeypotWebsite,
-          formStartTime,
+          formStartTime: formStartTimeRef.current,
         }),
       });
 
@@ -72,8 +75,10 @@ export default function EnterprisePage() {
 
       setReferenceCode(data.referenceCode || "");
       setFormSubmitted(true);
-    } catch (err: any) {
-      setErrorMessage(err.message || "Failed to submit enterprise inquiry.");
+    } catch (err: unknown) {
+      setErrorMessage(
+        err instanceof Error ? err.message : "Failed to submit enterprise inquiry."
+      );
     } finally {
       setLoading(false);
     }
