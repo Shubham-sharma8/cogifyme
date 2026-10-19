@@ -56,6 +56,17 @@ export default function AboutPage() {
       ),
     },
     {
+      title: "Marriage Biodata Maker Studio (biodata.cogify.me)",
+      badge: "Live Web Studio & PWA",
+      content: (
+        <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
+          <p>
+            Hosted on our official subdomain <code className="font-mono text-indigo-600 dark:text-indigo-400">biodata.cogify.me</code>, Marriage Biodata Maker Studio brings 242 cultural &amp; modern templates, 9 Indian &amp; global languages, an interactive Vedic Kundali chart builder, and instant 300-DPI PDF / Word (.docx) export to the browser — 100% client-side with zero watermarks or sign-up.
+          </p>
+        </div>
+      ),
+    },
+    {
       title: "Next-Wave Safari & CarPlay Pipeline",
       badge: "In Pipeline",
       content: (

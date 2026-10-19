@@ -8,7 +8,8 @@ import { FinalCTA } from "@/components/cta/final-cta";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "COGIFY — Free Native macOS, iOS & Safari Apps (Ad Blocker, ReaderEasy, WebClear, WebLenses, EmDoc)",
+  title:
+    "COGIFY — Real-Time Web Solutions, Biodata Maker (biodata.cogify.me) & Free Native macOS, iOS & Safari Apps",
   description: siteConfig.description,
   alternates: {
     canonical: siteConfig.url,

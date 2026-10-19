@@ -14,16 +14,16 @@ import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
-  title: "All Apps & Safari Extensions — EmDoc, Ad Blocker, ReaderEasy, WebClear, WebLenses",
+  title: "All Apps, Safari Extensions & Studios — EmDoc, Biodata Maker, Ad Blocker, ReaderEasy",
   description:
-    "Explore the complete COGIFY suite of 100% free, zero-telemetry native macOS, iOS, iPadOS, and Safari extensions on the Apple App Store: EmDoc PDF Workstation, Ad Blocker for Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
+    "Explore the complete COGIFY suite of 100% free, zero-telemetry native macOS, iOS, iPadOS, Safari extensions, and web studios: EmDoc PDF Workstation, Marriage Biodata Maker Studio (biodata.cogify.me), Ad Blocker for Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
   alternates: {
     canonical: `${siteConfig.url}/products`,
   },
   openGraph: {
-    title: "COGIFY Product Ecosystem — Native macOS, iOS & Safari Apps",
+    title: "COGIFY Product Ecosystem — Native macOS, iOS, Safari Apps & Web Studios",
     description:
-      "7 live Apple App Store applications and upcoming pipeline releases — 100% free for individuals, engineered with zero telemetry.",
+      "8 live applications and web studios plus upcoming pipeline releases — 100% free for individuals, engineered with zero telemetry.",
     url: `${siteConfig.url}/products`,
     siteName: siteConfig.name,
     type: "website",
@@ -41,11 +41,30 @@ const liveCatalog = [
     icon: "/brand/emdoc-icon.png",
     href: "/products/emdoc",
     appStoreUrl: siteConfig.emdoc.appStoreUrl,
+    ctaLabel: "Download on App Store",
     badge: "Flagship macOS App",
     highlights: [
       "Tiny 5.0 MB native binary (~45 MB RAM)",
       "Visual Page Organizer, Vector Ink & Stamps",
       "100% Offline PDF Compression & Bates Numbering",
+    ],
+  },
+  {
+    name: siteConfig.biodata.name,
+    tagline: siteConfig.biodata.tagline,
+    description: siteConfig.biodata.shortDescription,
+    version: `v${siteConfig.biodata.version}`,
+    platforms: siteConfig.biodata.platform,
+    category: "Web Studio • Document Design",
+    icon: siteConfig.biodata.icon,
+    href: "/biodata",
+    appStoreUrl: siteConfig.biodata.webUrl,
+    ctaLabel: "Launch biodata.cogify.me",
+    badge: "Web Studio • Subdomain",
+    highlights: [
+      "242 cultural, regional & modern templates across 9 languages",
+      "300-DPI Vector PDF, Editable Word (.docx) & 3x Retina PNG exports",
+      "Interactive Vedic Kundali chart builder & 100% client-side privacy",
     ],
   },
   {
@@ -58,6 +77,7 @@ const liveCatalog = [
     icon: siteConfig.adBlocker.icon,
     href: "/ad-blocker",
     appStoreUrl: siteConfig.adBlocker.appStoreUrl,
+    ctaLabel: "Download on App Store",
     badge: "Safari Content Blocker",
     highlights: [
       "Native WebKit Content Blocking API",
@@ -75,6 +95,7 @@ const liveCatalog = [
     icon: siteConfig.readereasy.icon,
     href: "/readereasy",
     appStoreUrl: siteConfig.readereasy.appStoreUrl,
+    ctaLabel: "Download on App Store",
     badge: "Safari Extension",
     highlights: [
       "Paper, Sepia, Slate & True OLED Dark themes",
@@ -92,6 +113,7 @@ const liveCatalog = [
     icon: siteConfig.webclear.icon,
     href: "/webclear",
     appStoreUrl: siteConfig.webclear.appStoreUrl,
+    ctaLabel: "Download on App Store",
     badge: "Safari Extension",
     highlights: [
       "One-Tap Per-Site Reset without losing other logins",
@@ -109,6 +131,7 @@ const liveCatalog = [
     icon: siteConfig.weblenses.icon,
     href: "/weblenses",
     appStoreUrl: siteConfig.weblenses.appStoreUrl,
+    ctaLabel: "Download on App Store",
     badge: "Safari Developer Tool",
     highlights: [
       "Instant 0–100 Website Health Score across 4 pillars",
@@ -126,6 +149,7 @@ const liveCatalog = [
     icon: "/brand/Element-Hider/icon.png",
     href: "/element-hider",
     appStoreUrl: siteConfig.elementHider.appStoreUrl,
+    ctaLabel: "Download on App Store",
     badge: "Safari Extension",
     highlights: [
       "Point-and-tap visual element picker in Safari",
@@ -143,6 +167,7 @@ const liveCatalog = [
     icon: "/brand/Invert/icon.png",
     href: "/invert",
     appStoreUrl: siteConfig.invert.appStoreUrl,
+    ctaLabel: "Download on App Store",
     badge: "Safari Extension",
     highlights: [
       "Smart Invert, Soft Invert & Full High-Contrast modes",
@@ -162,7 +187,7 @@ export default function ProductsPage() {
         <div className="max-w-3xl mb-14">
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <Badge variant="success">
-              Apple App Store Catalog
+              Apple App Store &amp; Web Studio Catalog
             </Badge>
             <Badge variant="outline">
               100% Free • Zero Telemetry
@@ -172,7 +197,7 @@ export default function ProductsPage() {
             The Complete COGIFY Software Suite
           </h1>
           <p className="mt-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">
-            Every application and Safari Web Extension we publish is engineered natively for Apple platforms with zero cloud dependencies, zero tracking, and zero subscriptions for individual users.
+            Every application, Safari Web Extension, and interactive studio we publish is engineered with zero cloud dependencies, zero tracking, and zero subscriptions for individual users.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <a
@@ -185,6 +210,16 @@ export default function ProductsPage() {
               Official Apple Developer Page
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
+            <a
+              href={siteConfig.biodata.webUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-400 px-5 py-3 text-sm font-bold text-zinc-950 transition-colors shadow-sm"
+            >
+              <Sparkles className="h-4 w-4" />
+              Launch Biodata Studio (biodata.cogify.me)
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
           </div>
         </div>
 
@@ -192,10 +227,10 @@ export default function ProductsPage() {
         <section className="mb-24">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
-              Available Now on the App Store
+              Available Now — Native Apps &amp; Web Studios
             </h2>
             <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-              macOS • iOS • iPadOS • Safari
+              macOS • iOS • iPadOS • Safari • Web
             </span>
           </div>
 
@@ -263,7 +298,7 @@ export default function ProductsPage() {
                     className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-500 dark:hover:bg-emerald-400 px-4 py-2.5 text-xs font-semibold text-white dark:text-zinc-950 transition-colors shadow-xs"
                   >
                     <ExternalLink className="h-3.5 w-3.5" />
-                    Download on App Store
+                    {item.ctaLabel}
                   </a>
                   <Link
                     href={item.href}

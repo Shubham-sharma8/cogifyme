@@ -11,7 +11,7 @@ import { CrispChat } from "@/components/chat/crisp-chat";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Native macOS, iOS & Safari Apps | Zero Telemetry Software`,
+    default: `${siteConfig.name} — Real-Time Web Solutions, Biodata Maker & Native Apple Apps`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: `${siteConfig.name} — Native macOS, iOS & Safari Apps | Zero Telemetry Software`,
+    title: `${siteConfig.name} — Real-Time Web Solutions, Biodata Maker (biodata.cogify.me) & Native Apple Apps`,
     description:
-      "Cogify builds ultra-fast, 100% offline native apps for macOS, iOS, iPadOS, and Safari: EmDoc PDF Workstation, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
+      "Cogify engineers real-time browser web studios and 100% offline native apps for macOS, iOS, iPadOS, and Safari: Marriage Biodata Maker (biodata.cogify.me), EmDoc PDF Workstation, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
     siteName: siteConfig.name,
     images: [
       {
@@ -35,15 +35,15 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "Cogify — Native macOS, iOS & Safari Software Engineered with Zero Telemetry",
+        alt: "Cogify — Real-Time Web Solutions, Biodata Maker & Native macOS, iOS & Safari Software",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Native macOS, iOS & Safari Apps | Zero Telemetry Software`,
+    title: `${siteConfig.name} — Real-Time Web Solutions, Biodata Maker & Native Apple Apps`,
     description:
-      "Cogify builds ultra-fast, 100% offline native apps for macOS, iOS, iPadOS, and Safari: EmDoc, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
+      "Cogify engineers real-time web studios and 100% offline native apps for macOS, iOS, iPadOS, and Safari: Marriage Biodata Maker (biodata.cogify.me), EmDoc, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
     images: ["https://cogify.me/og-image.png"],
   },
   robots: {

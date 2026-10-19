@@ -16,6 +16,13 @@ import { cn } from "@/lib/utils";
 
 const appLinks = [
   {
+    name: "Biodata Maker Studio",
+    href: "/biodata",
+    badge: "biodata.cogify.me",
+    icon: "/brand/Biodata/icon.png",
+    desc: "242 cultural templates, 9 languages & 300-DPI PDF / Word export",
+  },
+  {
     name: "EmDoc Workstation",
     href: "/products/emdoc",
     badge: "macOS",
@@ -138,14 +145,15 @@ export const Navbar = () => {
                     pathname.startsWith("/webclear") ||
                     pathname.startsWith("/weblenses") ||
                     pathname.startsWith("/element-hider") ||
-                    pathname.startsWith("/invert")
+                    pathname.startsWith("/invert") ||
+                    pathname.startsWith("/biodata")
                     ? "text-indigo-600 dark:text-white bg-indigo-50 dark:bg-white/10 font-semibold"
                     : "text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5"
                 )}
               >
-                <span>Apps &amp; Extensions</span>
+                <span>Apps &amp; Studios</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-semibold">
-                  7 Free
+                  8 Free
                 </span>
                 <ChevronDown className="w-3.5 h-3.5 opacity-70" />
               </Link>
@@ -191,11 +199,11 @@ export const Navbar = () => {
                         onClick={() => setAppsDropdownOpen(false)}
                         className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1"
                       >
-                        <span>View All 7 Live Apps</span>
+                        <span>View All 8 Live Apps &amp; Studios</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                       <span className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
-                        macOS • iOS • iPadOS • Safari
+                        macOS • iOS • iPadOS • Safari • Web
                       </span>
                     </div>
                   </div>
@@ -240,8 +248,18 @@ export const Navbar = () => {
             </Link>
           </div>
 
-          {/* Right Actions: Apple App Store Developer Profile + All Apps */}
-          <div className="hidden sm:flex items-center space-x-2.5">
+          {/* Right Actions: Biodata Maker Web Studio + Apple App Store + All Apps */}
+          <div className="hidden sm:flex items-center space-x-2">
+            <a
+              href={siteConfig.biodata.webUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-amber-500/15 hover:bg-amber-500/25 text-amber-800 dark:text-amber-300 border border-amber-500/30 transition-all duration-200 flex items-center gap-1.5 shadow-2xs"
+            >
+              <ExternalLink className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+              <span>Biodata Maker</span>
+            </a>
+
             <a
               href={siteConfig.appleDeveloperUrl}
               target="_blank"
@@ -277,7 +295,7 @@ export const Navbar = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden mt-2 p-4 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-white/10 shadow-2xl backdrop-blur-2xl flex flex-col space-y-1.5 animate-in fade-in slide-in-from-top-2 duration-200 max-h-[82vh] overflow-y-auto">
             <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-              7 Free Apps Live on the App Store
+              8 Free Apps &amp; Real-Time Web Studios Live
             </div>
             {appLinks.map((app) => (
               <Link
@@ -305,7 +323,7 @@ export const Navbar = () => {
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-2 rounded-lg text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:bg-zinc-100 dark:hover:bg-white/5 flex items-center justify-between"
             >
-              <span>Explore All Apps</span>
+              <span>Explore All Apps &amp; Studios</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
@@ -331,6 +349,15 @@ export const Navbar = () => {
             </Link>
 
             <div className="pt-2 border-t border-zinc-200 dark:border-white/10 flex flex-col gap-2">
+              <a
+                href={siteConfig.biodata.webUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-bold bg-amber-500 text-zinc-950 flex items-center justify-center gap-2"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>Launch Biodata Maker (biodata.cogify.me)</span>
+              </a>
               <a
                 href={siteConfig.appleDeveloperUrl}
                 target="_blank"

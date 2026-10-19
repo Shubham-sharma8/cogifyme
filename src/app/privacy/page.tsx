@@ -82,6 +82,14 @@ const coveredApps = [
       "Applies real-time local CSS colour inversion and Media Shield filters. Zero browsing data or preferences are transmitted.",
   },
   {
+    name: "Marriage Biodata Maker Studio",
+    platform: "Web Studio & PWA (biodata.cogify.me)",
+    href: "/biodata",
+    appStoreUrl: siteConfig.biodata.webUrl,
+    summary:
+      "100% client-side biodata editor. All personal details, family information, horoscopes, and profile photos remain in local browser storage with zero cloud database uploads.",
+  },
+  {
     name: "Pipeline & Upcoming Apps",
     platform: "Full Page Web Capture, Web Inspection & Aurora Drive (CarPlay / Widgets)",
     href: "/products#pipeline",

@@ -50,7 +50,7 @@ export const Footer = () => {
           {/* Links Column: Live Apps */}
           <div className="md:col-span-3 space-y-3">
             <h4 className="font-semibold text-zinc-900 dark:text-white text-xs uppercase tracking-wider">
-              Live App Store Apps
+              Live Apps &amp; Studios
             </h4>
             <ul className="space-y-2">
               <li>
@@ -58,6 +58,14 @@ export const Footer = () => {
                   <span>EmDoc Workstation</span>
                   <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-300">
                     macOS
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center justify-between gap-2">
+                  <span>Biodata Maker Studio</span>
+                  <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 dark:bg-amber-500/20 dark:text-amber-300">
+                    Web v2.4
                   </span>
                 </Link>
               </li>
@@ -122,6 +130,17 @@ export const Footer = () => {
                 <Link href="/products" className="hover:text-zinc-950 dark:hover:text-white transition-colors font-semibold text-indigo-600 dark:text-indigo-400">
                   All Products
                 </Link>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.biodata.webUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-zinc-950 dark:hover:text-white transition-colors inline-flex items-center gap-1"
+                >
+                  <span>biodata.cogify.me</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </li>
               <li>
                 <Link href="/enterprise" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
@@ -208,12 +227,12 @@ export const Footer = () => {
         {/* Bottom copyright & theme row */}
         <div className="mt-12 pt-8 border-t border-zinc-200/80 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-500">
           <div>
-            © {currentYear} COGIFY Technologies. All rights reserved. EmDoc, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider &amp; Colour Invert are products of COGIFY.
+            © {currentYear} COGIFY Technologies. All rights reserved. EmDoc, Biodata Maker (biodata.cogify.me), Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider &amp; Colour Invert are products of COGIFY.
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggle variant="pill" />
             <span className="font-mono text-[10px] hidden sm:inline">
-              Designed with precision • macOS, iOS &amp; Safari
+              Designed with precision • macOS, iOS, Safari &amp; Web
             </span>
           </div>
         </div>

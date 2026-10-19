@@ -74,7 +74,11 @@ export function RootJsonLd() {
       jobTitle: "Founder & Systems Architect",
       sameAs: [siteConfig.appleDeveloperUrl],
     },
-    sameAs: [siteConfig.appleDeveloperUrl, "https://github.com/Shubham-sharma8"],
+    sameAs: [
+      siteConfig.appleDeveloperUrl,
+      siteConfig.biodata.webUrl,
+      "https://github.com/Shubham-sharma8",
+    ],
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -96,7 +100,7 @@ export function RootJsonLd() {
     "@type": "WebSite",
     "@id": `${siteConfig.url}/#website`,
     url: siteConfig.url,
-    name: `${siteConfig.name} — High-Performance Native macOS, iOS & Safari Apps`,
+    name: `${siteConfig.name} — High-Performance Native macOS, iOS, Safari Apps & Web Studios`,
     description: siteConfig.description,
     publisher: {
       "@id": `${siteConfig.url}/#organization`,
@@ -224,52 +228,103 @@ export function RootJsonLd() {
     isAccessibleForFree: true,
   };
 
+  const biodataWebAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": `${siteConfig.url}/biodata#webapp`,
+    name: siteConfig.biodata.name,
+    alternateName: [
+      "Biodata Maker",
+      "Marriage Biodata Maker",
+      "Free Marriage Biodata Maker Online",
+      "Shadi Biodata Maker",
+      "Cogify Biodata Studio",
+      "biodata.cogify.me",
+    ],
+    url: siteConfig.biodata.webUrl,
+    sameAs: [`${siteConfig.url}/biodata`, siteConfig.biodata.webUrl],
+    applicationCategory: "DesignApplication",
+    applicationSubCategory:
+      "Marriage Biodata Maker, Cultural Document Studio, Real-Time Web Solution, PDF & DOCX Generator",
+    operatingSystem: "Any (Web Browser, macOS, Windows, iOS, iPadOS, Android — Installable PWA)",
+    browserRequirements: "Requires modern HTML5 browser with client-side Canvas & IndexedDB",
+    softwareVersion: siteConfig.biodata.version,
+    image: `${siteConfig.url}${siteConfig.biodata.ogBanner}`,
+    screenshot: [
+      `${siteConfig.url}${siteConfig.biodata.previewImage}`,
+      `${siteConfig.url}${siteConfig.biodata.mobilePreview}`,
+    ],
+    description: siteConfig.biodata.fullDescription,
+    featureList: siteConfig.biodata.features.map((f) => `${f.title}: ${f.description}`),
+    author: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    publisher: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: siteConfig.biodata.webUrl,
+      description: "100% Free Forever — Zero Watermarks, Zero Sign-Up, Zero Cloud Uploads.",
+    },
+    isAccessibleForFree: true,
+  };
+
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "COGIFY Native Apps & Safari Extensions on Apple App Store",
+    name: "COGIFY Real-Time Web Solutions, Native Apps & Safari Extensions",
     description:
-      "Complete suite of 100% free, zero-telemetry native macOS, iOS, iPadOS, and Safari extensions by COGIFY.",
+      "Complete suite of 100% free, zero-telemetry real-time web studios, native macOS apps, and iOS/iPadOS Safari extensions by COGIFY.",
     itemListElement: [
       {
         "@type": "ListItem",
         position: 1,
+        name: `${siteConfig.biodata.name} (biodata.cogify.me)`,
+        url: `${siteConfig.url}/biodata`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
         name: "EmDoc PDF Workstation",
         url: `${siteConfig.url}/products/emdoc`,
       },
       {
         "@type": "ListItem",
-        position: 2,
+        position: 3,
         name: siteConfig.adBlocker.name,
         url: `${siteConfig.url}/ad-blocker`,
       },
       {
         "@type": "ListItem",
-        position: 3,
+        position: 4,
         name: siteConfig.readereasy.name,
         url: `${siteConfig.url}/readereasy`,
       },
       {
         "@type": "ListItem",
-        position: 4,
+        position: 5,
         name: siteConfig.webclear.name,
         url: `${siteConfig.url}/webclear`,
       },
       {
         "@type": "ListItem",
-        position: 5,
+        position: 6,
         name: siteConfig.weblenses.name,
         url: `${siteConfig.url}/weblenses`,
       },
       {
         "@type": "ListItem",
-        position: 6,
+        position: 7,
         name: siteConfig.elementHider.name,
         url: `${siteConfig.url}/element-hider`,
       },
       {
         "@type": "ListItem",
-        position: 7,
+        position: 8,
         name: siteConfig.invert.name,
         url: `${siteConfig.url}/invert`,
       },
@@ -282,26 +337,26 @@ export function RootJsonLd() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "Are all Cogify apps (EmDoc, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, Colour Invert) really 100% free?",
+        name: "Where can I use the free Cogify Marriage Biodata Maker website?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Every Cogify consumer application on the Apple App Store is 100% free for individuals with zero subscriptions, zero ads, and zero locked features.",
+          text: "You can launch Cogify's Marriage Biodata Maker Studio directly in your browser at https://biodata.cogify.me or learn about its architecture at https://cogify.me/biodata. It features 242 cultural templates across Hindu, Muslim, Sikh, Christian, Jain, Buddhist, and Universal traditions, 9 Indian languages, a Vedic Kundali chart builder, and instant 300-DPI PDF, Word (.docx), and PNG export with zero watermarks and zero sign-up.",
         },
       },
       {
         "@type": "Question",
-        name: "Do Cogify apps or Safari extensions collect my browsing history or personal data?",
+        name: "Does Cogify build real-time web solutions as well as native Apple apps?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. Every Cogify app is engineered with a strict Zero-Data, 100% On-Device architecture. We do not collect, store, or transmit your browsing history, PDF documents, cookies, or usage telemetry.",
+          text: "Yes. Beyond our 7 native macOS, iOS, iPadOS, and Safari apps on the Apple App Store, Cogify engineers real-time, 100% client-side web solutions and installable PWAs—including Marriage Biodata Maker Studio (biodata.cogify.me)—plus custom enterprise software replacements.",
         },
       },
       {
         "@type": "Question",
-        name: "Where can I download EmDoc, ReaderEasy, WebClear, Ad Blocker, WebLenses, Element Hider, and Colour Invert?",
+        name: "Are all Cogify apps and web studios (Biodata Maker Studio, EmDoc, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, Colour Invert) 100% free and private?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "All 7 flagship applications are published and available for immediate download on the official Apple App Store for macOS, iOS, and iPadOS.",
+          text: "Yes. Every Cogify consumer application on the Apple App Store and real-time web studio on cogify.me (including biodata.cogify.me) is 100% free for individuals with zero subscriptions, zero ads, zero watermarks, and 100% local on-device execution.",
         },
       },
     ],
@@ -320,6 +375,10 @@ export function RootJsonLd() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(biodataWebAppSchema) }}
       />
       <script
         type="application/ld+json"

@@ -154,6 +154,43 @@ export interface FutureProductItem {
   highlights?: string[];
 }
 
+export interface BiodataStudioConfig {
+  slug: string;
+  name: string;
+  shortName: string;
+  tagline: string;
+  subtitle: string;
+  url: string;
+  webUrl: string;
+  githubUrl: string;
+  version: string;
+  platform: string;
+  pricingModel: string;
+  icon: string;
+  previewImage: string;
+  ogBanner: string;
+  mobilePreview: string;
+  shortDescription: string;
+  fullDescription: string;
+  philosophy: string;
+  features: {
+    title: string;
+    description: string;
+    tag: string;
+  }[];
+  specifications: {
+    label: string;
+    value: string;
+  }[];
+  communityLinks: {
+    name: string;
+    href: string;
+    badge: string;
+    description: string;
+  }[];
+  keywords: string[];
+}
+
 export interface SiteConfig {
   name: string;
   tagline: string;
@@ -184,6 +221,7 @@ export interface SiteConfig {
   webclear: SafariAppConfig;
   adBlocker: SafariAppConfig;
   weblenses: SafariAppConfig;
+  biodata: BiodataStudioConfig;
   principles: PrincipleItem[];
   futureProducts: FutureProductItem[];
 }
@@ -196,12 +234,23 @@ export const siteConfig: SiteConfig = {
   ogImage: "https://cogify.me/og-image.png",
   appleDeveloperUrl: "https://apps.apple.com/in/developer/shubham-sharma/id1643497398",
   description:
-    "Cogify builds ultra-lightweight, privacy-first native macOS, iOS, iPadOS, and Safari extensions with zero telemetry and 100% on-device execution. Explore EmDoc PDF Workstation, Ad Blocker for Safari, ReaderEasy, WebClear, Element Hider, Colour Invert, WebLenses, and enterprise license replacement solutions.",
+    "Cogify engineers real-time web solutions, interactive browser studios, and ultra-lightweight native macOS, iOS, iPadOS, and Safari apps with zero telemetry and 100% client-side execution. Launch Marriage Biodata Maker Studio (biodata.cogify.me), EmDoc PDF Workstation, Ad Blocker for Safari, ReaderEasy, WebClear, Element Hider, Colour Invert, WebLenses, and enterprise license replacement solutions.",
   keywords: [
     "Cogify",
     "cogify.me",
     "Cogify Technologies",
     "Shubham Sharma Apple Developer",
+    "biodata maker",
+    "biodata.cogify.me",
+    "Marriage Biodata Maker",
+    "Marriage Biodata Maker Studio",
+    "free marriage biodata maker online",
+    "biodata maker website",
+    "shadi biodata maker",
+    "marriage biodata format pdf word",
+    "hindu muslim sikh jain christian marriage biodata",
+    "real-time web solutions",
+    "zero telemetry web apps",
     "EmDoc",
     "EmDoc PDF Workstation",
     "macOS PDF editor",
@@ -1536,6 +1585,126 @@ export const siteConfig: SiteConfig = {
       "web performance inspector mac",
       "third party resource analyzer",
       "safari devtools extension",
+    ],
+  },
+  biodata: {
+    slug: "biodata",
+    name: "Marriage Biodata Maker Studio",
+    shortName: "BiodataMaker",
+    tagline: "Free Marriage Biodata Maker — Instant Live A4 Preview, 242 Templates, PDF, Word (.docx) & HD Image",
+    subtitle: "Hosted at biodata.cogify.me • 100% Free Forever, No Signup, No Watermark & 100% Browser Privacy",
+    url: "https://biodata.cogify.me",
+    webUrl: "https://biodata.cogify.me",
+    githubUrl: "https://github.com/Shubham-sharma8/biodata",
+    version: "v2.4 Web Studio",
+    platform: "Web App & PWA (biodata.cogify.me) • Desktop & Mobile",
+    pricingModel: "100% Free Forever — ₹0 / $0, No Signup, Zero Watermarks",
+    icon: "/brand/Biodata/icon.png",
+    previewImage: "/brand/Biodata/studio-preview.png",
+    ogBanner: "/brand/Biodata/og-banner.png",
+    mobilePreview: "/brand/Biodata/mobile-preview.png",
+    shortDescription:
+      "Create a print-ready A4 Marriage Biodata online in 2 minutes at biodata.cogify.me. Features 242 handcrafted Hindu, Muslim Nikah, Sikh, Christian, Jain, Marathi, Gujarati, Tamil & Modern templates, 14 layout engines, 9 languages, interactive Vedic Kundali studio, and instant 300-DPI PDF, editable Word (.docx), and 3x Retina PNG downloads — 100% client-side with zero watermarks.",
+    fullDescription:
+      "Marriage Biodata Maker Studio (biodata.cogify.me) is Cogify's flagship browser-native design studio engineered to replace predatory 'free' biodata makers that blur your contact details or demand payment at the download step. Running 100% locally inside your browser with zero server uploads, it pairs an instant 1:1 A4 live preview (794×1123 print lock) with 242 cultural and modern templates, 14 structural layout engines, 32 vector SVG border frames, 9 Indian and global languages with non-destructive label translation, an interactive Vedic Kundali / Rashi chart builder, ceremonial stickers, and genuine multi-format exports (300-DPI PDF, native editable Microsoft Word .docx tables, 3x Retina PNG/JPG, and WhatsApp summary).",
+    philosophy:
+      "Most online biodata makers advertise as 'free' but mask your text with asterisks or demand ₹49–₹99 at the final download step. We built biodata.cogify.me as a 100% free, watermark-free, client-side web studio where your personal details, horoscope, and portrait photo never leave your device.",
+    features: [
+      {
+        title: "242 Handcrafted Templates & 14 Layout Engines",
+        description:
+          "Choose from 242 genuinely differentiated A4 marriage biodata designs spanning traditional ceremonial centers, royal split headers, left/right portrait sidebars, magazine spreads, palace mehrab arches, and 2-page comprehensive suites across 32 vector SVG frames.",
+        tag: "242 Templates",
+      },
+      {
+        title: "Instant 1:1 A4 Live Preview & Direct Canvas Editing",
+        description:
+          "Every keystroke updates the A4 sheet in real time. Click directly on any heading, field label, or value on the A4 canvas to edit inline, reorder sections, or enable Smart Single-Page Auto-Fit so your biodata never overflows.",
+        tag: "Live A4 Studio",
+      },
+      {
+        title: "300-DPI PDF, Editable Word (.docx) & 3x Retina PNG/JPG",
+        description:
+          "Download print-ready 300-DPI vector PDFs, genuine editable Microsoft Word (.docx) documents with native two-column tables and side-by-side portrait photos, 3x Retina PNG/JPG images, or formatted WhatsApp summaries for ₹0 with zero watermarks.",
+        tag: "Multi-Format Export",
+      },
+      {
+        title: "9 Languages with Non-Destructive Label Translation",
+        description:
+          "Switch seamlessly between English, Hindi (हिन्दी), Marathi (मराठी), Gujarati (ગુજરાતી), Tamil (தமிழ்), Telugu (తెలుగు), Bengali (বাংলা), Punjabi/Kannada, and Urdu (اردو) without erasing your typed personal data.",
+        tag: "9 Languages",
+      },
+      {
+        title: "Interactive Vedic Kundali Studio & Ceremonial Stickers",
+        description:
+          "Embed North Indian Diamond (Lagna), South Indian Rashi Box, or East Indian Sunburst Kundali charts with editable 12-house planetary placements, plus drag-and-drop sacred emblems, auspicious invocations, wax seals, and portrait photo filters.",
+        tag: "Kundali & Stickers",
+      },
+      {
+        title: "100% Local Browser Privacy & .JSON Backup",
+        description:
+          "Your phone number, family background, horoscope, and portrait photo are never uploaded to any cloud server. Drafts auto-save locally in your browser and can be exported or restored anytime as a portable .json file.",
+        tag: "100% Client-Side",
+      },
+    ],
+    specifications: [
+      { label: "Live Web Studio", value: "https://biodata.cogify.me" },
+      { label: "Template Library", value: "242 Templates • 14 Layout Engines • 32 Vector Borders" },
+      { label: "Export Formats", value: "300-DPI PDF, Editable Word (.docx), 3x PNG, JPG & WhatsApp" },
+      { label: "Supported Languages", value: "9 Languages (EN, HI, MR, GU, TA, TE, BN, PA/KN, UR)" },
+      { label: "Cultural Presets", value: "Hindu, Muslim Nikah, Sikh, Christian, Jain, Buddhist & Modern NRI" },
+      { label: "Data Privacy", value: "100% Client-Side Browser Execution • Zero Server Uploads" },
+      { label: "Price & Watermarks", value: "100% Free Forever • No Signup • Zero Watermarks" },
+    ],
+    communityLinks: [
+      {
+        name: "Hindu Marriage Biodata",
+        href: "https://biodata.cogify.me/hindu-marriage-biodata",
+        badge: "Sacred Ganesh & Kundali",
+        description: "Traditional Hindu format with || Shree Ganeshay Namah ||, Rashi, Nakshatra, Gotra, Manglik & Vedic Kundali chart.",
+      },
+      {
+        name: "Muslim Nikah Biodata",
+        href: "https://biodata.cogify.me/muslim-nikah-biodata",
+        badge: "Arabesque & Bismillah",
+        description: "Features Bismillah-ir-Rahman-ir-Rahim, Mughal geometric frames, Sect/Maslak, and Wali contact details.",
+      },
+      {
+        name: "Sikh (Anand Karaj) Biodata",
+        href: "https://biodata.cogify.me/sikh-marriage-biodata",
+        badge: "Ik Onkar (ੴ)",
+        description: "Opens with Ik Onkar Satnam Waheguru in Royal Navy & Gold with Gursikh lifestyle, parental & native Punjab details.",
+      },
+      {
+        name: "Marathi Lagnaacha Biodata",
+        href: "https://biodata.cogify.me/marathi-marriage-biodata",
+        badge: "मराठी • Kuldaivat & Devak",
+        description: "Authentic Marathi format supporting Kuldaivat, Devak, Mamakul, and Paithani silk-inspired traditional borders.",
+      },
+      {
+        name: "Gujarati Lagna Biodata",
+        href: "https://biodata.cogify.me/gujarati-marriage-biodata",
+        badge: "ગુજરાતી • Mosal & Native",
+        description: "Tailored for Gujarati families with Mosal, Gol/Samaj, Naniyal, and one-click Gujarati label translation.",
+      },
+      {
+        name: "Christian, Jain & NRI Formats",
+        href: "https://biodata.cogify.me/nri-executive-biodata",
+        badge: "Global & Executive",
+        description: "Dedicated templates for Christian, Jain (Jai Jinendra), Buddhist, and modern NRI/Executive two-column layouts.",
+      },
+    ],
+    keywords: [
+      "biodata.cogify.me",
+      "free marriage biodata maker",
+      "marriage biodata format pdf",
+      "editable marriage biodata word docx",
+      "hindu marriage biodata maker",
+      "muslim nikah biodata format",
+      "sikh marriage biodata",
+      "marathi lagnaacha biodata",
+      "gujarati marriage biodata",
+      "biodata maker without watermark",
     ],
   },
   principles: [
