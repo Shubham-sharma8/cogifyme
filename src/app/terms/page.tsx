@@ -3,13 +3,23 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { BrandLogo } from "@/components/brand/brand-logo";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { AuthorBio } from "@/components/seo/author-bio";
 
 export const metadata: Metadata = {
-  title: "Terms of Use — COGIFY Applications & Website",
+  title: "Terms of Use — COGIFY Applications, Safari Extensions & Web Studios",
   description:
-    "Terms of Use and software license agreement for COGIFY (cogify.me) and its family of macOS, iOS, iPadOS, and Safari applications including EmDoc, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
+    "Terms of Use and software license agreement for COGIFY (cogify.me), EmDoc Workstation, Marriage Biodata Maker Studio (biodata.cogify.me), and our Safari extensions.",
   alternates: {
     canonical: "https://cogify.me/terms",
+  },
+  openGraph: {
+    title: "Terms of Use — COGIFY Applications, Safari Extensions & Web Studios",
+    description:
+      "Terms of Use and software license agreement for COGIFY desktop, mobile, Safari extension, and web studio products.",
+    url: "https://cogify.me/terms",
+    siteName: siteConfig.name,
+    type: "website",
   },
 };
 
@@ -17,6 +27,7 @@ export default function TermsOfUsePage() {
   return (
     <div className="pt-28 pb-20 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <Breadcrumbs items={[{ label: "Terms of Use", href: "/terms" }]} />
         <div className="space-y-6">
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
@@ -40,7 +51,7 @@ export default function TermsOfUsePage() {
           <section className="space-y-3">
             <h2 className="text-lg font-bold text-zinc-900 dark:text-white">1. Agreement to Terms</h2>
             <p className="text-zinc-600 dark:text-zinc-400">
-              By accessing our website (<a href="https://cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">https://cogify.me</a>) or downloading and operating our software products—including <strong>EmDoc</strong>, <strong>Ad Blocker - For Safari</strong>, <strong>ReaderEasy</strong>, <strong>WebClear</strong>, <strong>WebLenses</strong>, <strong>Element Hider</strong>, <strong>Colour Invert</strong>, and all upcoming COGIFY applications—you agree to be bound by these Terms of Use and all applicable laws and regulations.
+              By accessing our website (<a href="https://cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">https://cogify.me</a>), our web studios (<a href="https://biodata.cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">https://biodata.cogify.me</a>), or downloading and operating our software products—including <strong>EmDoc</strong>, <strong>Marriage Biodata Maker Studio</strong>, <strong>Ad Blocker - For Safari</strong>, <strong>ReaderEasy</strong>, <strong>WebClear</strong>, <strong>WebLenses</strong>, <strong>Element Hider</strong>, <strong>Colour Invert</strong>, and all upcoming COGIFY applications—you agree to be bound by these Terms of Use and all applicable laws and regulations.
             </p>
           </section>
 
@@ -57,7 +68,7 @@ export default function TermsOfUsePage() {
               The COGIFY brand name, domain names, logomarks, website content, software interfaces, and underlying native engines are the exclusive intellectual property of COGIFY Technologies.
             </p>
             <p className="text-zinc-600 dark:text-zinc-400">
-              <strong className="text-zinc-900 dark:text-zinc-200">Your Documents &amp; Browsing Content:</strong> COGIFY claims zero ownership, license, or rights in any documents, PDFs, webpages, annotations, or files that you process using EmDoc or our Safari extensions. Because our software operates 100% locally on your device, your files and browsing remain strictly under your exclusive control.
+              <strong className="text-zinc-900 dark:text-zinc-200">Your Documents &amp; Browsing Content:</strong> COGIFY claims zero ownership, license, or rights in any documents, PDFs, marriage biodata files, webpages, annotations, or files that you process using EmDoc, Marriage Biodata Maker Studio, or our Safari extensions. Because our software operates 100% locally on your device or browser, your files and browsing remain strictly under your exclusive control.
             </p>
           </section>
 
@@ -95,6 +106,8 @@ export default function TermsOfUsePage() {
           </section>
         </div>
       </div>
+
+      <AuthorBio />
     </div>
   );
 }

@@ -2,8 +2,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Mail, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { BrandLogo } from "@/components/brand/brand-logo";
-
 import { TurnstileWidget } from "@/components/security/turnstile-widget";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { AuthorBio } from "@/components/seo/author-bio";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -86,6 +87,7 @@ export default function ContactPage() {
   return (
     <div className="pt-28 pb-20 relative">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <Breadcrumbs items={[{ label: "Contact", href: "/contact" }]} />
         <div className="max-w-4xl space-y-6">
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
@@ -101,7 +103,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-2xl">
-            Have a question about EmDoc, enterprise software partnerships, or our technology? Reach out directly.
+            Have a question about EmDoc, Marriage Biodata Maker Studio, enterprise software partnerships, or our Safari extensions? Reach out directly.
           </p>
         </div>
       </section>
@@ -342,6 +344,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <AuthorBio />
     </div>
   );
 }

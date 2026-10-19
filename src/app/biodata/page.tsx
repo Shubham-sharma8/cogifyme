@@ -18,6 +18,37 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
+import { AuthorBio } from "@/components/seo/author-bio";
+
+const BIODATA_FAQS: FaqItem[] = [
+  {
+    question: "How do I create a marriage biodata online for free at biodata.cogify.me?",
+    answer:
+      "Open biodata.cogify.me, choose from 242 cultural and modern templates across 14 layout engines, fill in your personal, family, education, and horoscope details with an instant 1:1 live A4 preview, or load a 1-click Bride/Groom sample, and click Download to export a print-ready 300-DPI PDF, editable Word (.docx), or 3x Retina PNG — 100% free with zero watermarks and no sign-up.",
+  },
+  {
+    question: "Can I download my marriage biodata in both PDF and editable Word (.docx) format?",
+    answer:
+      "Yes. Unlike paid tools that lock Word downloads behind a paywall, Marriage Biodata Maker Studio exports high-resolution 300-DPI A4 PDF, fully editable Microsoft Word (.docx), and 3x Retina PNG for WhatsApp sharing completely free.",
+  },
+  {
+    question: "Does BiodataMaker support Hindu, Muslim, Sikh, Christian, Jain, and Buddhist formats?",
+    answer:
+      "Yes. The studio includes 242 handcrafted templates covering Hindu (with Vedic Rashi & Nakshatra Kundali charts and Ganesh/Om invocations), Muslim Nikah Nama biodata formats, Sikh Anand Karaj formats, Christian matrimony layouts, Jain, Buddhist, and minimalist modern executive designs.",
+  },
+  {
+    question: "Which Indian and global languages are supported on biodata.cogify.me?",
+    answer:
+      "Marriage Biodata Maker Studio supports 9 languages out of the box: English, Hindi (हिन्दी), Marathi (मराठी), Gujarati (गुजराती), Tamil (தமிழ்), Telugu (తెలుగు), Kannada (ಕನ್ನಡ), Bengali (বাংলা), and Punjabi (ਪੰਜਾਬੀ), with automatic label translation.",
+  },
+  {
+    question: "Is my personal data, photo, or phone number uploaded to any server?",
+    answer:
+      "No. BiodataMaker runs 100% locally inside your browser using client-side state and localStorage. Your personal details, family information, contact numbers, and portrait photos never leave your device.",
+  },
+];
 
 export default function BiodataStudioPage() {
   const biodata = siteConfig.biodata;
@@ -27,6 +58,16 @@ export default function BiodataStudioPage() {
     <div className="min-h-screen pt-28 pb-24 relative overflow-hidden">
       {/* Ambient Crimson & Gold Glow matching biodata.cogify.me */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[980px] h-[440px] bg-gradient-to-b from-rose-600/12 via-amber-500/8 to-transparent blur-3xl -z-10" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs
+          items={[
+            { label: "Products", href: "/products" },
+            { label: "Marriage Biodata Maker Studio", href: "/biodata" },
+          ]}
+          includeJsonLd={false}
+        />
+      </div>
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
@@ -189,9 +230,9 @@ export default function BiodataStudioPage() {
             </div>
           </div>
 
-          {/* Preview Canvas */}
+          {/* Preview Canvas — All 3 views rendered in DOM for Googlebot Image Indexing */}
           <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-zinc-950 border border-zinc-200/80 dark:border-white/10">
-            {activeView === "studio" && (
+            <div className={activeView === "studio" ? "block w-full h-full relative" : "hidden"}>
               <Image
                 src={biodata.previewImage}
                 alt="BiodataMaker Live Split-Screen A4 Studio at biodata.cogify.me"
@@ -200,8 +241,8 @@ export default function BiodataStudioPage() {
                 className="object-contain object-top"
                 sizes="(max-width: 1280px) 100vw, 1150px"
               />
-            )}
-            {activeView === "banner" && (
+            </div>
+            <div className={activeView === "banner" ? "block w-full h-full relative" : "hidden"}>
               <Image
                 src={biodata.ogBanner}
                 alt="BiodataMaker A4 Output & Features Overview"
@@ -209,20 +250,24 @@ export default function BiodataStudioPage() {
                 className="object-contain object-center"
                 sizes="(max-width: 1280px) 100vw, 1150px"
               />
-            )}
-            {activeView === "mobile" && (
-              <div className="w-full h-full flex items-center justify-center p-4 bg-gradient-to-b from-zinc-900 to-zinc-950">
-                <div className="relative h-full aspect-[9/19] rounded-2xl overflow-hidden border border-white/15 shadow-2xl">
-                  <Image
-                    src={biodata.mobilePreview}
-                    alt="BiodataMaker Responsive Mobile Studio"
-                    fill
-                    className="object-cover object-top"
-                    sizes="380px"
-                  />
-                </div>
+            </div>
+            <div
+              className={
+                activeView === "mobile"
+                  ? "w-full h-full flex items-center justify-center p-4 bg-gradient-to-b from-zinc-900 to-zinc-950"
+                  : "hidden"
+              }
+            >
+              <div className="relative h-full aspect-[9/19] rounded-2xl overflow-hidden border border-white/15 shadow-2xl">
+                <Image
+                  src={biodata.mobilePreview}
+                  alt="BiodataMaker Responsive Mobile Studio"
+                  fill
+                  className="object-cover object-top"
+                  sizes="380px"
+                />
               </div>
-            )}
+            </div>
           </div>
         </div>
       </section>
@@ -370,6 +415,14 @@ export default function BiodataStudioPage() {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        title="Marriage Biodata Maker Studio — Frequently Asked Questions"
+        subtitle="Everything you need to know about creating, translating, and exporting print-ready A4 marriage biodata documents at biodata.cogify.me."
+        items={BIODATA_FAQS}
+      />
+
+      <AuthorBio currentSlug="biodata" />
     </div>
   );
 }

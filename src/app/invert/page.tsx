@@ -23,6 +23,32 @@ import {
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { MovingBorderButton } from "@/components/ui/moving-border";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
+import { AuthorBio } from "@/components/seo/author-bio";
+
+const COLOUR_INVERT_FAQS: FaqItem[] = [
+  {
+    question: "How does Smart Invert in Colour Invert avoid turning photos and videos into negative film?",
+    answer:
+      "Colour Invert uses a dedicated media isolation engine inside Safari that counter-rotates and preserves <img>, <video>, YouTube/HTML5 players, colored SVGs, and <canvas> elements while inverting harsh white backgrounds.",
+  },
+  {
+    question: "What is the difference between Smart Invert, Soft Invert, and Full Invert?",
+    answer:
+      "Smart Invert flips webpage backgrounds to dark while keeping images and videos natural; Soft Invert applies a warmer, lower-contrast dark palette with sepia warmth for late-night reading; Full Invert flips the entire viewport for maximum high-contrast accessibility.",
+  },
+  {
+    question: "Can I customize brightness, contrast, and sepia warmth per website?",
+    answer:
+      "Yes. Colour Invert provides real-time sliders for Inversion Intensity, Brightness, Contrast, and Sepia Warmth, plus per-domain preferences that remember your settings automatically.",
+  },
+  {
+    question: "Is Colour Invert free for iOS, iPadOS, and macOS Safari?",
+    answer:
+      "Yes. Colour Invert is 100% free on the Apple App Store (id6811389278) across iPhone, iPad, and Mac with zero tracking and zero subscriptions.",
+  },
+];
 
 export default function ColourInvertPage() {
   const invert = siteConfig.invert;
@@ -42,6 +68,16 @@ export default function ColourInvertPage() {
     <div className="pt-28 pb-20 relative">
       {/* Ambient background glow */}
       <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs
+          items={[
+            { label: "Products", href: "/products" },
+            { label: invert.name, href: "/invert" },
+          ]}
+          includeJsonLd={false}
+        />
+      </div>
 
       {/* Hero Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
@@ -562,6 +598,14 @@ export default function ColourInvertPage() {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        title="Colour Invert — Frequently Asked Questions"
+        subtitle="Answers about Smart Invert, photo/video preservation, custom contrast sliders, and Safari Web Extension privacy."
+        items={COLOUR_INVERT_FAQS}
+      />
+
+      <AuthorBio currentSlug="invert" />
     </div>
   );
 }

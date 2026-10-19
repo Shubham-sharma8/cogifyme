@@ -16,8 +16,28 @@ import {
   DollarSign,
 } from "lucide-react";
 import { BrandLogo } from "@/components/brand/brand-logo";
-
 import { TurnstileWidget } from "@/components/security/turnstile-widget";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
+import { AuthorBio } from "@/components/seo/author-bio";
+
+const ENTERPRISE_FAQS: FaqItem[] = [
+  {
+    question: "How does COGIFY's enterprise PDF license replacement work?",
+    answer:
+      "Organizations paying recurring seat licenses for bloated legacy suites (like Adobe Acrobat Pro or PDF Expert) can run a free enterprise pilot of EmDoc Workstation (5.0 MB native macOS binary, ~45 MB RAM). After evaluation and security auditing, we provide volume licensing at a fraction of legacy subscription costs.",
+  },
+  {
+    question: "Can our InfoSec and compliance team audit COGIFY binaries and network behavior?",
+    answer:
+      "Yes. EmDoc and our companion tools are engineered for strict data sovereignty with zero external network sockets, zero cloud uploads, and zero third-party telemetry SDKs. We support security reviews for SOC2, ISO 27001, and air-gapped environments.",
+  },
+  {
+    question: "Can we commission COGIFY to build a custom native or web replacement for another expensive tool?",
+    answer:
+      "Yes. In addition to our 8 live App Store and Web Studio products, COGIFY partners directly with companies to architect custom C++20, Swift/AppKit, Safari WebKit, or client-side web studio replacements for high-cost commercial software.",
+  },
+];
 
 export default function EnterprisePage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -88,6 +108,7 @@ export default function EnterprisePage() {
     <div className="pt-28 pb-20 relative">
       {/* Enterprise Hero */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <Breadcrumbs items={[{ label: "Enterprise", href: "/enterprise" }]} />
         <div className="max-w-4xl space-y-6">
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
@@ -417,6 +438,14 @@ export default function EnterprisePage() {
           )}
         </div>
       </section>
+
+      <FaqSection
+        title="Enterprise Licensing & Security Audit FAQs"
+        subtitle="Answers regarding volume licensing, air-gapped deployment, and custom tool replacements."
+        items={ENTERPRISE_FAQS}
+      />
+
+      <AuthorBio />
     </div>
   );
 }

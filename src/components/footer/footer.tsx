@@ -207,13 +207,23 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <Link
-                  href="/admin"
-                  rel="nofollow"
-                  className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center gap-1.5 text-zinc-500 hover:text-indigo-600 dark:hover:text-indigo-400"
+                <a
+                  href={siteConfig.appleDeveloperUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-zinc-950 dark:hover:text-white transition-colors inline-flex items-center gap-1"
                 >
-                  <span>Admin Portal</span>
-                </Link>
+                  <span>Apple Developer Page</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/sitemap.xml"
+                  className="hover:text-zinc-950 dark:hover:text-white transition-colors"
+                >
+                  XML Sitemap
+                </a>
               </li>
               <li>
                 <span className="text-zinc-500">

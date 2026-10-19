@@ -144,12 +144,19 @@ export const SafariExtensionsShowcase = () => {
         </div>
 
         {/* App Selector Tabs */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">
+        <div
+          role="tablist"
+          aria-label="Safari Extensions Catalog"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10"
+        >
           {extensions.map((ext, idx) => {
             const isSelected = activeIndex === idx;
             return (
               <button
                 key={ext.data.slug}
+                type="button"
+                role="tab"
+                aria-selected={isSelected}
                 onClick={() => setActiveIndex(idx)}
                 className={`p-4 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex items-start gap-3.5 ${
                   isSelected
@@ -160,7 +167,7 @@ export const SafariExtensionsShowcase = () => {
                 <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-zinc-200/60 dark:border-white/10 shrink-0 bg-white dark:bg-zinc-800">
                   <Image
                     src={ext.data.icon}
-                    alt={ext.data.name}
+                    alt={`${ext.data.name} Safari Extension icon`}
                     fill
                     className="object-cover"
                     sizes="48px"
@@ -202,6 +209,7 @@ export const SafariExtensionsShowcase = () => {
                 </div>
                 <div className="inline-flex p-1 rounded-xl bg-zinc-200/70 dark:bg-zinc-800/80 border border-zinc-300/60 dark:border-white/10">
                   <button
+                    type="button"
                     onClick={() => setDeviceView("ios")}
                     className={`px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
                       deviceView === "ios"
@@ -213,6 +221,7 @@ export const SafariExtensionsShowcase = () => {
                     <span>iOS (iPhone)</span>
                   </button>
                   <button
+                    type="button"
                     onClick={() => setDeviceView("large")}
                     className={`px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
                       deviceView === "large"
@@ -238,7 +247,7 @@ export const SafariExtensionsShowcase = () => {
                     <div className="relative w-full aspect-[1206/2622] rounded-[28px] overflow-hidden bg-zinc-950">
                       <Image
                         src={active.mobileImage}
-                        alt={`${active.data.name} iOS Screenshot`}
+                        alt={`${active.data.name} iOS iPhone Safari Extension Screenshot`}
                         fill
                         className="object-contain"
                         sizes="270px"
@@ -262,7 +271,7 @@ export const SafariExtensionsShowcase = () => {
                   <div className="relative w-full aspect-[16/10] bg-zinc-950">
                     <Image
                       src={active.largeImage}
-                      alt={`${active.data.name} ${active.largeLabel} Screenshot`}
+                      alt={`${active.data.name} ${active.largeLabel} Safari Extension Screenshot`}
                       fill
                       className="object-contain"
                       sizes="(max-width: 1024px) 100vw, 650px"
@@ -272,73 +281,81 @@ export const SafariExtensionsShowcase = () => {
               )}
             </div>
 
-            {/* Right: Features & Direct App Store Links */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="flex items-center gap-3.5">
-                <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-md shrink-0 bg-white dark:bg-zinc-900">
-                  <Image
-                    src={active.data.icon}
-                    alt={active.data.name}
-                    fill
-                    className="object-cover"
-                    sizes="56px"
-                  />
-                </div>
-                <div>
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-indigo-600 dark:text-indigo-400 font-semibold">
-                    {active.badgeText}
-                  </span>
-                  <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">
-                    {active.data.name}
-                  </h3>
-                  <p className="text-xs text-zinc-500 font-mono">{active.data.platform}</p>
-                </div>
-              </div>
-
-              <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
-                {active.data.shortDescription}
-              </p>
-
-              <div className="space-y-2.5">
-                {active.data.features.slice(0, 4).map((feat, i) => (
-                  <div
-                    key={i}
-                    className="p-3 rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200/80 dark:border-white/5 flex items-start gap-2.5"
-                  >
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+            {/* Right: Features & Direct App Store Links — All 6 Extensions Server-Rendered in DOM for Googlebot Indexing */}
+            {extensions.map((ext, idx) => {
+              const isSelected = activeIndex === idx;
+              return (
+                <div
+                  key={ext.data.slug}
+                  className={isSelected ? "lg:col-span-5 space-y-6" : "hidden"}
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-md shrink-0 bg-white dark:bg-zinc-900">
+                      <Image
+                        src={ext.data.icon}
+                        alt={`${ext.data.name} Safari Extension icon`}
+                        fill
+                        className="object-cover"
+                        sizes="56px"
+                      />
+                    </div>
                     <div>
-                      <div className="text-xs font-bold text-zinc-900 dark:text-white">
-                        {feat.title}
-                      </div>
-                      <p className="text-[11px] text-zinc-500 dark:text-zinc-400 leading-snug mt-0.5">
-                        {feat.description}
-                      </p>
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-indigo-600 dark:text-indigo-400 font-semibold">
+                        {ext.badgeText}
+                      </span>
+                      <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">
+                        {ext.data.name}
+                      </h3>
+                      <p className="text-xs text-zinc-500 font-mono">{ext.data.platform}</p>
                     </div>
                   </div>
-                ))}
-              </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <a
-                  href={active.data.appStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-3 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-600/20 transition-all duration-200 inline-flex items-center gap-2"
-                >
-                  <span>Download on App Store</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                    {ext.data.shortDescription}
+                  </p>
 
-                <Link
-                  href={`/${active.data.slug}`}
-                  className="px-5 py-3 rounded-xl text-xs font-semibold bg-white dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white border border-zinc-200 dark:border-white/10 transition-colors inline-flex items-center gap-1.5"
-                >
-                  <span>Explore {active.data.shortName}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
+                  <div className="space-y-2.5">
+                    {ext.data.features.slice(0, 4).map((feat, i) => (
+                      <div
+                        key={i}
+                        className="p-3 rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200/80 dark:border-white/5 flex items-start gap-2.5"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                        <div>
+                          <div className="text-xs font-bold text-zinc-900 dark:text-white">
+                            {feat.title}
+                          </div>
+                          <p className="text-[11px] text-zinc-500 dark:text-zinc-400 leading-snug mt-0.5">
+                            {feat.description}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex flex-wrap items-center gap-3 pt-2">
+                    <a
+                      href={ext.data.appStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-3 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-600/20 transition-all duration-200 inline-flex items-center gap-2"
+                    >
+                      <span>Download {ext.data.shortName} on App Store</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+
+                    <Link
+                      href={`/${ext.data.slug}`}
+                      className="px-5 py-3 rounded-xl text-xs font-semibold bg-white dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white border border-zinc-200 dark:border-white/10 transition-colors inline-flex items-center gap-1.5"
+                    >
+                      <span>Explore {ext.data.shortName}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

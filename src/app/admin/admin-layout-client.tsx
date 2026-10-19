@@ -13,6 +13,7 @@ import {
   Menu,
   X,
   Contact2,
+  Image as ImageIcon,
 } from "lucide-react";
 import { BrandLogo } from "@/components/brand/brand-logo";
 
@@ -94,6 +95,11 @@ export default function AdminLayout({
       href: "/admin",
       icon: <LayoutDashboard className="w-4 h-4" />,
       exact: true,
+    },
+    {
+      label: "Wallpapers (R2)",
+      href: "/admin/wallpapers",
+      icon: <ImageIcon className="w-4 h-4" />,
     },
     {
       label: "Tickets & Inquiries",

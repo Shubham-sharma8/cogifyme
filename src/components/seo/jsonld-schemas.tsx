@@ -69,10 +69,7 @@ export function RootJsonLd() {
     },
     description: siteConfig.description,
     founder: {
-      "@type": "Person",
-      name: "Shubham Sharma",
-      jobTitle: "Founder & Systems Architect",
-      sameAs: [siteConfig.appleDeveloperUrl],
+      "@id": `${siteConfig.url}/#founder`,
     },
     sameAs: [
       siteConfig.appleDeveloperUrl,
@@ -95,6 +92,31 @@ export function RootJsonLd() {
     ],
   };
 
+  const founderPersonSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${siteConfig.url}/#founder`,
+    name: "Shubham Sharma",
+    jobTitle: "Founder & Systems Architect",
+    url: `${siteConfig.url}/about`,
+    worksFor: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    knowsAbout: [
+      "macOS AppKit & Swift Systems Engineering",
+      "C++20 Document & PDF Engines",
+      "Safari Web Extensions & Content Blocker APIs",
+      "Real-Time Client-Side Web Applications & Canvas Typography",
+      "Zero-Telemetry Offline Software Architecture",
+    ],
+    sameAs: [
+      siteConfig.appleDeveloperUrl,
+      "https://github.com/Shubham-sharma8",
+      siteConfig.url,
+      siteConfig.biodata.webUrl,
+    ],
+  };
+
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -104,6 +126,9 @@ export function RootJsonLd() {
     description: siteConfig.description,
     publisher: {
       "@id": `${siteConfig.url}/#organization`,
+    },
+    author: {
+      "@id": `${siteConfig.url}/#founder`,
     },
     inLanguage: "en-US",
   };
@@ -139,7 +164,7 @@ export function RootJsonLd() {
       "Precision Watermark Engine & Dynamic Bates Numbering",
     ],
     author: {
-      "@id": `${siteConfig.url}/#organization`,
+      "@id": `${siteConfig.url}/#founder`,
     },
     publisher: {
       "@id": `${siteConfig.url}/#organization`,
@@ -174,7 +199,7 @@ export function RootJsonLd() {
     description: siteConfig.elementHider.fullDescription,
     featureList: siteConfig.elementHider.features.map((f) => `${f.title}: ${f.description}`),
     author: {
-      "@id": `${siteConfig.url}/#organization`,
+      "@id": `${siteConfig.url}/#founder`,
     },
     publisher: {
       "@id": `${siteConfig.url}/#organization`,
@@ -212,7 +237,7 @@ export function RootJsonLd() {
     description: siteConfig.invert.fullDescription,
     featureList: siteConfig.invert.features.map((f) => `${f.title}: ${f.description}`),
     author: {
-      "@id": `${siteConfig.url}/#organization`,
+      "@id": `${siteConfig.url}/#founder`,
     },
     publisher: {
       "@id": `${siteConfig.url}/#organization`,
@@ -257,7 +282,7 @@ export function RootJsonLd() {
     description: siteConfig.biodata.fullDescription,
     featureList: siteConfig.biodata.features.map((f) => `${f.title}: ${f.description}`),
     author: {
-      "@id": `${siteConfig.url}/#organization`,
+      "@id": `${siteConfig.url}/#founder`,
     },
     publisher: {
       "@id": `${siteConfig.url}/#organization`,
@@ -331,42 +356,15 @@ export function RootJsonLd() {
     ],
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Where can I use the free Cogify Marriage Biodata Maker website?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "You can launch Cogify's Marriage Biodata Maker Studio directly in your browser at https://biodata.cogify.me or learn about its architecture at https://cogify.me/biodata. It features 242 cultural templates across Hindu, Muslim, Sikh, Christian, Jain, Buddhist, and Universal traditions, 9 Indian languages, a Vedic Kundali chart builder, and instant 300-DPI PDF, Word (.docx), and PNG export with zero watermarks and zero sign-up.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does Cogify build real-time web solutions as well as native Apple apps?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Beyond our 7 native macOS, iOS, iPadOS, and Safari apps on the Apple App Store, Cogify engineers real-time, 100% client-side web solutions and installable PWAs—including Marriage Biodata Maker Studio (biodata.cogify.me)—plus custom enterprise software replacements.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Are all Cogify apps and web studios (Biodata Maker Studio, EmDoc, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, Colour Invert) 100% free and private?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Every Cogify consumer application on the Apple App Store and real-time web studio on cogify.me (including biodata.cogify.me) is 100% free for individuals with zero subscriptions, zero ads, zero watermarks, and 100% local on-device execution.",
-        },
-      },
-    ],
-  };
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(founderPersonSchema) }}
       />
       <script
         type="application/ld+json"
@@ -415,10 +413,6 @@ export function RootJsonLd() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(buildSafariSoftwareSchema(siteConfig.weblenses)),
         }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   );
@@ -517,43 +511,12 @@ export function ColourInvertPageJsonLd() {
 }
 
 export function SafariAppPageJsonLd({ app }: { app: SafariAppConfig }) {
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: siteConfig.url,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Products",
-        item: `${siteConfig.url}/products`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: app.name,
-        item: `${siteConfig.url}/${app.slug}`,
-      },
-    ],
-  };
-
   const softwareSchema = buildSafariSoftwareSchema(app);
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
-      />
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+    />
   );
 }

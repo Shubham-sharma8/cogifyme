@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   ShieldCheck,
   Cpu,
@@ -209,26 +208,16 @@ export const HeroSection = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-4xl mx-auto space-y-6">
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.08]"
-          >
+          {/* Main Headline — Server-Rendered with 100% Initial Visibility for Instant LCP & Googlebot Indexing */}
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.08]">
             Real-Time Web Solutions &amp; Native Apps.{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-600 dark:from-indigo-300 dark:via-indigo-200 dark:to-cyan-300">
               100% Free &amp; Private.
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.12 }}
-            className="text-base sm:text-xl text-zinc-600 dark:text-zinc-300 max-w-3xl mx-auto leading-relaxed font-normal"
-          >
+          <p className="text-base sm:text-xl text-zinc-600 dark:text-zinc-300 max-w-3xl mx-auto leading-relaxed font-normal">
             <strong className="text-zinc-900 dark:text-white font-semibold">
               COGIFY
             </strong>{" "}
@@ -254,15 +243,10 @@ export const HeroSection = () => {
               100% free with zero ads, zero subscriptions, and zero cloud tracking
             </strong>
             .
-          </motion.p>
+          </p>
 
           {/* Primary Action CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap items-center justify-center gap-3.5 pt-3"
-          >
+          <div className="flex flex-wrap items-center justify-center gap-3.5 pt-3">
             <Link
               href="/products"
               className="px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/25 transition-all flex items-center gap-2 cursor-pointer"
@@ -299,15 +283,10 @@ export const HeroSection = () => {
               <Building2 className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
               <span>Enterprise Solutions</span>
             </Link>
-          </motion.div>
+          </div>
 
           {/* Studio Architecture Pill Strip */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto text-xs text-zinc-600 dark:text-zinc-400"
-          >
+          <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto text-xs text-zinc-600 dark:text-zinc-400">
             <div className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/90 dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/10 shadow-2xs dark:shadow-none">
               <Gift className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <span>Real-Time Web &amp; Native Apps</span>
@@ -324,27 +303,29 @@ export const HeroSection = () => {
               <Compass className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
               <span>Web, macOS, iOS &amp; iPadOS</span>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Interactive Multi-App Studio Dock & Showcase Window */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
-          className="mt-12 relative max-w-6xl mx-auto"
-        >
+        <div className="mt-12 relative max-w-6xl mx-auto">
           {/* Interactive App Dock Selector */}
           <div className="mb-6">
             <div className="text-center text-[11px] font-mono uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-3">
               Select Any Published COGIFY App or Studio to Preview
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 p-2 rounded-2xl bg-white/90 dark:bg-zinc-900/80 border border-zinc-200/90 dark:border-white/10 shadow-lg backdrop-blur-xl max-w-fit mx-auto">
+            <div
+              role="tablist"
+              aria-label="Cogify Published Applications and Web Studios"
+              className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 p-2 rounded-2xl bg-white/90 dark:bg-zinc-900/80 border border-zinc-200/90 dark:border-white/10 shadow-lg backdrop-blur-xl max-w-fit mx-auto"
+            >
               {STUDIO_APPS.map((app) => {
                 const isSelected = app.id === activeApp.id;
                 return (
                   <button
                     key={app.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isSelected}
                     onClick={() => setActiveAppId(app.id)}
                     className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                       isSelected
@@ -355,7 +336,7 @@ export const HeroSection = () => {
                     <div className="relative w-6 h-6 rounded-md overflow-hidden shrink-0 border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-900">
                       <Image
                         src={app.icon}
-                        alt={app.name}
+                        alt={`${app.name} application icon`}
                         fill
                         className="object-cover"
                         sizes="24px"
@@ -370,61 +351,73 @@ export const HeroSection = () => {
 
           {/* Outer Glass Frame */}
           <div className="rounded-3xl p-3 sm:p-5 bg-white/90 dark:bg-zinc-900/60 border border-zinc-200/90 dark:border-white/10 shadow-2xl shadow-zinc-900/10 dark:shadow-black/80 backdrop-blur-md">
-            {/* Active App Info Bar */}
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 mb-4 border-b border-zinc-200/80 dark:border-white/10 px-2">
-              <div className="flex items-center gap-3.5">
-                <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-sm shrink-0 bg-zinc-100 dark:bg-zinc-800">
-                  <Image
-                    src={activeApp.icon}
-                    alt={activeApp.name}
-                    fill
-                    className="object-cover"
-                    sizes="48px"
-                  />
-                </div>
-                <div>
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-white">
-                      {activeApp.name}
-                    </h2>
-                    <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
-                      {activeApp.id === "biodata"
-                        ? `${activeApp.version} • Free Web Studio`
-                        : `${activeApp.version} • Free on App Store`}
-                    </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-white/10">
-                      {activeApp.platforms}
-                    </span>
+            {/* All 8 App Info Bars Server-Rendered in DOM so Googlebot Crawls All 8 Product Titles, Taglines & Links */}
+            {STUDIO_APPS.map((app) => {
+              const isSelected = app.id === activeApp.id;
+              return (
+                <div
+                  key={app.id}
+                  className={
+                    isSelected
+                      ? "flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 mb-4 border-b border-zinc-200/80 dark:border-white/10 px-2"
+                      : "hidden"
+                  }
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-sm shrink-0 bg-zinc-100 dark:bg-zinc-800">
+                      <Image
+                        src={app.icon}
+                        alt={`${app.name} official icon`}
+                        fill
+                        className="object-cover"
+                        sizes="48px"
+                      />
+                    </div>
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h2 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-white">
+                          {app.name}
+                        </h2>
+                        <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+                          {app.id === "biodata"
+                            ? `${app.version} • Free Web Studio`
+                            : `${app.version} • Free on App Store`}
+                        </span>
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-white/10">
+                          {app.platforms}
+                        </span>
+                      </div>
+                      <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">
+                        {app.tagline}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">
-                    {activeApp.tagline}
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex flex-wrap items-center gap-2.5 shrink-0">
-                <a
-                  href={activeApp.appStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs transition-all flex items-center gap-1.5 shadow-sm"
-                >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                  <span>
-                    {activeApp.id === "biodata"
-                      ? "Launch biodata.cogify.me"
-                      : "Get Free on App Store"}
-                  </span>
-                </a>
-                <Link
-                  href={activeApp.href}
-                  className="px-4 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-500/15 dark:hover:bg-indigo-500/25 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-500/30 font-semibold text-xs transition-all flex items-center gap-1.5"
-                >
-                  <span>Full App Overview</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
+                  <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+                    <a
+                      href={app.appStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs transition-all flex items-center gap-1.5 shadow-sm"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>
+                        {app.id === "biodata"
+                          ? "Launch biodata.cogify.me"
+                          : "Get Free on App Store"}
+                      </span>
+                    </a>
+                    <Link
+                      href={app.href}
+                      className="px-4 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-500/15 dark:hover:bg-indigo-500/25 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-500/30 font-semibold text-xs transition-all flex items-center gap-1.5"
+                    >
+                      <span>{app.name} Overview</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
 
             {/* Screenshot Window Container */}
             <div className="rounded-2xl overflow-hidden border border-zinc-200/80 dark:border-white/10 bg-zinc-950 shadow-xl">
@@ -447,45 +440,36 @@ export const HeroSection = () => {
                 </div>
               </div>
 
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeApp.id}
-                  initial={{ opacity: 0, scale: 0.99 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.99 }}
-                  transition={{ duration: 0.2 }}
-                  className="relative aspect-[16/10] w-full bg-zinc-950"
-                >
-                  {activeApp.previewGallery && activeApp.previewGallery.length > 0 ? (
-                    <div className="w-full h-full grid grid-cols-3 gap-3 sm:gap-6 p-4 sm:p-8 items-center justify-items-center bg-gradient-to-b from-zinc-900/60 to-zinc-950">
-                      {activeApp.previewGallery.map((imgSrc, idx) => (
-                        <div
-                          key={imgSrc}
-                          className="relative w-full h-full rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900"
-                        >
-                          <Image
-                            src={imgSrc}
-                            alt={`${activeApp.name} — Interface Preview ${idx + 1}`}
-                            fill
-                            priority={idx === 0}
-                            className="object-contain object-center"
-                            sizes="(max-width: 1280px) 33vw, 380px"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <Image
-                      src={activeApp.previewImage}
-                      alt={`${activeApp.name} — Real Interface Preview`}
-                      fill
-                      priority
-                      className="object-contain object-center"
-                      sizes="(max-width: 1280px) 100vw, 1150px"
-                    />
-                  )}
-                </motion.div>
-              </AnimatePresence>
+              <div className="relative aspect-[16/10] w-full bg-zinc-950">
+                {activeApp.previewGallery && activeApp.previewGallery.length > 0 ? (
+                  <div className="w-full h-full grid grid-cols-3 gap-3 sm:gap-6 p-4 sm:p-8 items-center justify-items-center bg-gradient-to-b from-zinc-900/60 to-zinc-950">
+                    {activeApp.previewGallery.map((imgSrc, idx) => (
+                      <div
+                        key={imgSrc}
+                        className="relative w-full h-full rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-900"
+                      >
+                        <Image
+                          src={imgSrc}
+                          alt={`${activeApp.name} — Interface Preview ${idx + 1}`}
+                          fill
+                          priority={idx === 0}
+                          className="object-contain object-center"
+                          sizes="(max-width: 1280px) 33vw, 380px"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <Image
+                    src={activeApp.previewImage}
+                    alt={`${activeApp.name} — Real Interface Preview`}
+                    fill
+                    priority
+                    className="object-contain object-center"
+                    sizes="(max-width: 1280px) 100vw, 1150px"
+                  />
+                )}
+              </div>
             </div>
 
             {/* Bottom Platform Bar */}
@@ -505,7 +489,7 @@ export const HeroSection = () => {
               </span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -11,12 +11,23 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
+        allow: ["/", "/_next/static/", "/_next/image/", "/brand/", "/Others/", "/screenshots/"],
         disallow: ["/admin", "/admin/", "/api", "/api/"],
       },
       {
-        userAgent: "Googlebot",
-        allow: "/",
+        userAgent: [
+          "Googlebot",
+          "Googlebot-Image",
+          "Googlebot-News",
+          "Bingbot",
+          "Applebot",
+          "DuckDuckBot",
+          "OAI-SearchBot",
+          "ChatGPT-User",
+          "PerplexityBot",
+          "ClaudeBot",
+        ],
+        allow: ["/", "/_next/static/", "/_next/image/", "/brand/", "/Others/", "/screenshots/"],
         disallow: ["/admin", "/admin/", "/api", "/api/"],
       },
     ],

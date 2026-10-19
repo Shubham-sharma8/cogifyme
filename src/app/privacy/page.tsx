@@ -14,13 +14,23 @@ import {
 import type { Metadata } from "next";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { siteConfig } from "@/config/site";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { AuthorBio } from "@/components/seo/author-bio";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — COGIFY Apps, Safari Extensions & Website",
+  title: "Privacy Policy — COGIFY Apps, Safari Extensions & Web Studios",
   description:
-    "Official Privacy Policy for COGIFY Technologies (cogify.me) and all published Apple App Store applications including EmDoc, Ad Blocker - For Safari, ReaderEasy, WebClear, WebLenses, Element Hider, Colour Invert, Full Page Web Capture, Web Inspection, and Aurora Drive.",
+    "Official Privacy Policy for COGIFY (cogify.me), EmDoc macOS PDF Workstation, Marriage Biodata Maker Studio (biodata.cogify.me), and our 6 Safari Web Extensions.",
   alternates: {
     canonical: "https://cogify.me/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy — COGIFY Apps, Safari Extensions & Web Studios",
+    description:
+      "Zero data collection across all COGIFY native macOS, iOS, iPadOS, Safari Web Extensions, and client-side Web Studios.",
+    url: "https://cogify.me/privacy",
+    siteName: siteConfig.name,
+    type: "website",
   },
 };
 
@@ -102,6 +112,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="pt-28 pb-20 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <Breadcrumbs items={[{ label: "Privacy Policy", href: "/privacy" }]} />
         {/* Header */}
         <div className="space-y-6">
           <div className="flex items-center gap-3">
@@ -363,6 +374,8 @@ export default function PrivacyPolicyPage() {
           </section>
         </div>
       </div>
+
+      <AuthorBio />
     </div>
   );
 }

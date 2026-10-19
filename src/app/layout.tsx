@@ -16,10 +16,20 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
-  authors: [{ name: "COGIFY", url: "https://cogify.me" }, { name: "Shubham Sharma" }],
-  creator: "COGIFY",
+  authors: [
+    { name: "Shubham Sharma", url: "https://cogify.me/about" },
+    { name: "COGIFY", url: "https://cogify.me" },
+  ],
+  creator: "Shubham Sharma (COGIFY)",
   publisher: "COGIFY",
   category: "technology",
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
   openGraph: {
     type: "website",
     locale: "en_US",

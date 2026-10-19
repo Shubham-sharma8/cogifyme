@@ -1,14 +1,16 @@
-"use client";
 import React from "react";
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { SuggestionForm } from "@/components/feedback/suggestion-form";
 import { Sparkles } from "lucide-react";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { AuthorBio } from "@/components/seo/author-bio";
 
 export default function SuggestionsPage() {
   return (
     <div className="pt-28 pb-20 relative">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <Breadcrumbs items={[{ label: "Suggestions & Bug Reports", href: "/suggestions" }]} />
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <div className="flex items-center justify-center gap-3">
             <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
@@ -28,7 +30,7 @@ export default function SuggestionsPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Cogify builds everyday apps that are 100% free for users. Whether you found a glitch in EmDoc, have an idea for a feature or new app, or want your company to replace an expensive software license, your message goes directly to our engineers.
+            Cogify builds everyday apps and web studios that are 100% free for users. Whether you found a glitch in EmDoc or Marriage Biodata Maker Studio, have an idea for a new feature, or want your company to replace an expensive software license, your message goes directly to our engineers.
           </p>
         </div>
       </section>
@@ -45,7 +47,7 @@ export default function SuggestionsPage() {
             href="/products"
             className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors"
           >
-            Browse All 7 App Store Apps
+            Browse All 8 Apps &amp; Web Studios
           </Link>
           <span>•</span>
           <Link
@@ -56,6 +58,13 @@ export default function SuggestionsPage() {
           </Link>
           <span>•</span>
           <Link
+            href="/biodata"
+            className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors"
+          >
+            Marriage Biodata Maker (biodata.cogify.me)
+          </Link>
+          <span>•</span>
+          <Link
             href="/enterprise"
             className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors"
           >
@@ -63,6 +72,8 @@ export default function SuggestionsPage() {
           </Link>
         </div>
       </section>
+
+      <AuthorBio />
     </div>
   );
 }

@@ -3,26 +3,26 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   Shield,
   Sparkles,
   CheckCircle2,
   Lock,
-  ArrowLeft,
   ArrowUpRight,
   Smartphone,
   Monitor,
   Tablet,
-  Globe,
   Cpu,
   Heart,
   ExternalLink,
 } from "lucide-react";
-import { SafariAppConfig, siteConfig } from "@/config/site";
+import { SafariAppConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { FaqSection } from "@/components/seo/faq-section";
+import { AuthorBio } from "@/components/seo/author-bio";
 
 interface SafariAppPageViewProps {
   app: SafariAppConfig;
@@ -147,26 +147,13 @@ export function SafariAppPageView({ app }: SafariAppPageViewProps) {
       <Container>
         {/* Top Breadcrumb Navigation */}
         <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3 text-sm text-zinc-500 dark:text-zinc-400">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-1.5 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Home
-            </Link>
-            <span className="text-zinc-300 dark:text-zinc-700">/</span>
-            <Link
-              href="/products"
-              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
-            >
-              Products
-            </Link>
-            <span className="text-zinc-300 dark:text-zinc-700">/</span>
-            <span className="text-zinc-900 dark:text-zinc-200 font-semibold">
-              {app.shortName}
-            </span>
-          </div>
+          <Breadcrumbs
+            items={[
+              { label: "Products", href: "/products" },
+              { label: app.shortName },
+            ]}
+            includeJsonLd={false}
+          />
         </div>
 
         {/* Hero Header */}
@@ -390,51 +377,42 @@ export function SafariAppPageView({ app }: SafariAppPageViewProps) {
 
               {/* Screenshot Preview Stage */}
               <div className="lg:col-span-7 rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-zinc-100/80 dark:bg-zinc-950/80 p-6 sm:p-8 flex flex-col items-center justify-center min-h-[480px]">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeShot.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="w-full flex flex-col items-center"
-                  >
-                    {platform === "ios" ? (
-                      /* Uncropped iPhone Frame: exact 1206:2622 inner screen */
-                      <div className="relative w-[275px] sm:w-[310px] rounded-[2.8rem] p-2.5 bg-zinc-950 border-4 border-zinc-800 shadow-2xl">
-                        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-black/80 rounded-full z-20 pointer-events-none" />
-                        <div className="relative w-full aspect-[1206/2622] rounded-[2.2rem] overflow-hidden bg-zinc-950">
-                          <Image
-                            src={activeShot.image}
-                            alt={`${app.shortName} - ${activeShot.title}`}
-                            fill
-                            className="object-contain"
-                            sizes="(max-width: 768px) 280px, 320px"
-                          />
-                        </div>
-                      </div>
-                    ) : (
-                      /* iPadOS / macOS Frame */
-                      <div className="relative w-full aspect-[16/10] overflow-hidden rounded-2xl border border-zinc-300 dark:border-white/10 shadow-2xl bg-zinc-950">
+                <div className="w-full flex flex-col items-center">
+                  {platform === "ios" ? (
+                    /* Uncropped iPhone Frame: exact 1206:2622 inner screen */
+                    <div className="relative w-[275px] sm:w-[310px] rounded-[2.8rem] p-2.5 bg-zinc-950 border-4 border-zinc-800 shadow-2xl">
+                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-3.5 bg-black/80 rounded-full z-20 pointer-events-none" />
+                      <div className="relative w-full aspect-[1206/2622] rounded-[2.2rem] overflow-hidden bg-zinc-950">
                         <Image
                           src={activeShot.image}
                           alt={`${app.shortName} - ${activeShot.title}`}
                           fill
                           className="object-contain"
-                          sizes="(max-width: 1024px) 100vw, 60vw"
+                          sizes="(max-width: 768px) 280px, 320px"
                         />
                       </div>
-                    )}
-                    <div className="mt-5 text-center">
-                      <div className="text-sm font-bold text-zinc-900 dark:text-white">
-                        {activeShot.title}
-                      </div>
-                      <div className="text-xs text-zinc-600 dark:text-zinc-400 mt-0.5">
-                        {activeShot.subtitle}
-                      </div>
                     </div>
-                  </motion.div>
-                </AnimatePresence>
+                  ) : (
+                    /* iPadOS / macOS Frame */
+                    <div className="relative w-full aspect-[16/10] overflow-hidden rounded-2xl border border-zinc-300 dark:border-white/10 shadow-2xl bg-zinc-950">
+                      <Image
+                        src={activeShot.image}
+                        alt={`${app.shortName} - ${activeShot.title}`}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 1024px) 100vw, 60vw"
+                      />
+                    </div>
+                  )}
+                  <div className="mt-5 text-center">
+                    <div className="text-sm font-bold text-zinc-900 dark:text-white">
+                      {activeShot.title}
+                    </div>
+                    <div className="text-xs text-zinc-600 dark:text-zinc-400 mt-0.5">
+                      {activeShot.subtitle}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -472,7 +450,7 @@ export function SafariAppPageView({ app }: SafariAppPageViewProps) {
         </section>
 
         {/* Philosophy & Specifications */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
           <div className="lg:col-span-5 rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/40 p-8 flex flex-col justify-between shadow-2xs dark:shadow-none">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-3">
@@ -521,103 +499,32 @@ export function SafariAppPageView({ app }: SafariAppPageViewProps) {
           </div>
         </section>
 
-        {/* Cross-Link to Other Live Cogify Apps */}
-        <section className="rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-zinc-50/80 dark:bg-zinc-900/20 p-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div>
-              <h2 className="text-xl font-bold text-zinc-900 dark:text-white">
-                Explore the Complete COGIFY Ecosystem
-              </h2>
-              <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
-                All 100% free, native, and engineered with zero telemetry.
-              </p>
-            </div>
-            <a
-              href={siteConfig.appleDeveloperUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300"
-            >
-              <Globe className="h-3.5 w-3.5" />
-              View All Apps on Apple App Store
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
-          </div>
+        {/* FAQ Section + FAQPage JSON-LD */}
+        <FaqSection
+          badge={`${app.shortName} FAQ`}
+          title={`Frequently Asked Questions About ${app.shortName}`}
+          subtitle={`Technical architecture, Safari compatibility, and privacy answers for ${app.name}.`}
+          faqs={[
+            {
+              q: `Is ${app.name} completely free on the Apple App Store?`,
+              a: `Yes. ${app.name} (App Store ID ${app.appStoreId}) is 100% free for individuals across ${app.platform} with zero subscriptions, zero in-app purchases, and zero advertisements.`,
+            },
+            {
+              q: `Does ${app.shortName} collect or transmit any of my Safari browsing history?`,
+              a: `No. ${app.shortName} executes 100% locally inside Apple's native WebKit Safari Extension sandbox. It contains zero analytics SDKs, makes zero outbound network requests, and never reads or transmits your browsing history.`,
+            },
+            {
+              q: `Which Apple devices and operating systems support ${app.shortName}?`,
+              a: `${app.shortName} is a universal native Safari extension supporting ${app.platform}. Once installed from the Apple App Store, enable it in Settings > Apps > Safari > Extensions.`,
+            },
+          ]}
+        />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                name: "EmDoc PDF Workstation",
-                href: "/products/emdoc",
-                icon: "/brand/emdoc-icon.png",
-                desc: "5.0 MB native macOS PDF editor, organizer & offline compressor.",
-              },
-              {
-                name: "Ad Blocker – For Safari",
-                href: "/ad-blocker",
-                icon: "/brand/Ad-Blocker/icon.png",
-                desc: "Native WebKit ad, tracker & popup blocker for Mac, iPhone & iPad.",
-              },
-              {
-                name: "ReaderEasy",
-                href: "/readereasy",
-                icon: "/brand/ReaderEasy/icon.jpg",
-                desc: "Distraction-free Safari reader with Bionic Focus, TTS & Markdown export.",
-              },
-              {
-                name: "WebClear",
-                href: "/webclear",
-                icon: "/brand/WebClear/icon.jpg",
-                desc: "One-tap per-site cookie, cache, LocalStorage & tracker URL cleaner.",
-              },
-              {
-                name: "WebLenses",
-                href: "/weblenses",
-                icon: "/brand/WebLenses/icon.png",
-                desc: "0–100 Website Health Score, Core Web Vitals & 3rd-party resource inspector.",
-              },
-              {
-                name: "Element Hider",
-                href: "/element-hider",
-                icon: "/brand/Element-Hider/icon.png",
-                desc: "Point and click to hide any distracting element on any webpage in Safari.",
-              },
-              {
-                name: "Colour Invert",
-                href: "/invert",
-                icon: "/brand/Invert/icon.png",
-                desc: "Smart dark mode & color inversion for Safari that preserves media.",
-              },
-            ]
-              .filter((item) => item.href !== `/${app.slug}`)
-              .slice(0, 6)
-              .map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group flex items-start gap-3.5 rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-950/60 p-4 hover:border-indigo-500/40 dark:hover:border-white/25 transition-all shadow-2xs dark:shadow-none"
-                >
-                  <div className="relative h-11 w-11 rounded-xl overflow-hidden border border-zinc-200 dark:border-white/10 shrink-0">
-                    <Image
-                      src={item.icon}
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-sm font-semibold text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors flex items-center gap-1">
-                      <span className="truncate">{item.name}</span>
-                      <ArrowUpRight className="h-3.5 w-3.5 shrink-0 opacity-60 group-hover:opacity-100" />
-                    </div>
-                    <p className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-2 mt-0.5">
-                      {item.desc}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-          </div>
-        </section>
+        {/* E-E-A-T Author Attribution & Complete Ecosystem Cross-Linking */}
+        <AuthorBio
+          currentSlug={app.slug}
+          contextLabel={`Safari WebKit Systems Engineering • v${app.version} Live on App Store`}
+        />
       </Container>
     </div>
   );

@@ -15,6 +15,32 @@ import { siteConfig } from "@/config/site";
 import { MovingBorderButton } from "@/components/ui/moving-border";
 import { EmDocGallery } from "@/components/products/emdoc-gallery";
 import { DownloadModal } from "@/components/products/download-modal";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
+import { AuthorBio } from "@/components/seo/author-bio";
+
+const EMDOC_FAQS: FaqItem[] = [
+  {
+    question: "How is EmDoc only 5.0 MB compared to Adobe Acrobat's 1.2 GB?",
+    answer:
+      "EmDoc is compiled as a 100% native macOS Universal Binary (ARM64 + x86_64) using Swift, AppKit, PDFKit, and CoreGraphics without Electron, Chromium, or bundled cross-platform runtimes. This achieves a 5.0 MB disk footprint and ~45 MB baseline RAM.",
+  },
+  {
+    question: "Does EmDoc require an internet connection or cloud account to compress or edit PDFs?",
+    answer:
+      "No. EmDoc operates with 100% air-gapped data sovereignty. Zero network sockets are opened, and all vector ink annotations, Bates numbering, page reorganization, and quartz filter compression run locally on your Mac.",
+  },
+  {
+    question: "Is EmDoc really 100% free on the Mac App Store?",
+    answer:
+      "Yes. EmDoc is completely free for individual users on the Mac App Store (id6810306925) with zero subscriptions, zero trial limits, and zero watermarks.",
+  },
+  {
+    question: "Which macOS versions and processors are supported by EmDoc?",
+    answer:
+      "EmDoc supports macOS 13.0 Ventura, macOS 14 Sonoma, and macOS 15 Sequoia natively on Apple Silicon (M1, M2, M3, M4) as well as Intel Macs.",
+  },
+];
 
 export default function EmDocProductPage() {
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
@@ -22,6 +48,16 @@ export default function EmDocProductPage() {
 
   return (
     <div className="pt-28 pb-20 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs
+          items={[
+            { label: "Products", href: "/products" },
+            { label: "EmDoc PDF Workstation", href: "/products/emdoc" },
+          ]}
+          includeJsonLd={false}
+        />
+      </div>
+
       {/* Product Hero Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-4xl space-y-6">
@@ -309,6 +345,14 @@ export default function EmDocProductPage() {
           </Link>
         </div>
       </section>
+
+      <FaqSection
+        title="EmDoc PDF Workstation — Frequently Asked Questions"
+        subtitle="Technical answers about our 5.0 MB native macOS PDF editor, air-gapped security, and Mac App Store distribution."
+        items={EMDOC_FAQS}
+      />
+
+      <AuthorBio currentSlug="emdoc" />
 
       {/* Centralized Download Modal */}
       <DownloadModal

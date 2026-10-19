@@ -16,6 +16,32 @@ import {
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { MovingBorderButton } from "@/components/ui/moving-border";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
+import { AuthorBio } from "@/components/seo/author-bio";
+
+const ELEMENT_HIDER_FAQS: FaqItem[] = [
+  {
+    question: "How do I hide unwanted elements in Safari on iPhone, iPad, or Mac?",
+    answer:
+      "Activate Element Hider from the Safari extensions menu (or press Option + Shift + H on macOS), tap or click any distracting banner, floating bar, sidebar, or popup on the webpage, and choose whether to hide it for the current session or permanently on that website.",
+  },
+  {
+    question: "Can I undo or restore an element after hiding it?",
+    answer:
+      "Yes. You can undo your last hidden element with a single tap, manage per-site rules from the extension popup, or temporarily pause Element Hider on any domain.",
+  },
+  {
+    question: "Does Element Hider track my browsing history or webpage content?",
+    answer:
+      "No. Element Hider runs 100% locally inside Safari's WebKit sandbox. Zero bytes of browsing history or DOM selectors are ever sent to external servers.",
+  },
+  {
+    question: "Is Element Hider completely free on the Apple App Store?",
+    answer:
+      "Yes. Element Hider is 100% free on the App Store (id6811377087) for iOS, iPadOS, and macOS with zero subscriptions and zero ads.",
+  },
+];
 
 export default function ElementHiderPage() {
   const hider = siteConfig.elementHider;
@@ -37,6 +63,16 @@ export default function ElementHiderPage() {
     <div className="pt-28 pb-20 relative">
       {/* Ambient background glow */}
       <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs
+          items={[
+            { label: "Products", href: "/products" },
+            { label: hider.name, href: "/element-hider" },
+          ]}
+          includeJsonLd={false}
+        />
+      </div>
 
       {/* Hero Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
@@ -460,25 +496,13 @@ export default function ElementHiderPage() {
         </div>
       </section>
 
-      {/* Bottom Cross-Navigation */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        <div className="border-t border-zinc-200/80 dark:border-white/5 pt-8 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-500">
-          <div>COGIFY Technologies • Product: Element Hider</div>
-          <div className="flex items-center gap-4">
-            <Link href="/" className="hover:text-indigo-600 transition-colors">
-              Return Home
-            </Link>
-            <span>•</span>
-            <Link href="/products" className="hover:text-indigo-600 transition-colors">
-              All Apps
-            </Link>
-            <span>•</span>
-            <Link href="/contact" className="hover:text-indigo-600 transition-colors">
-              Contact Support
-            </Link>
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        title="Element Hider — Frequently Asked Questions"
+        subtitle="Answers about hiding distracting webpage elements, saving domain rules, and Safari privacy."
+        items={ELEMENT_HIDER_FAQS}
+      />
+
+      <AuthorBio currentSlug="element-hider" />
     </div>
   );
 }

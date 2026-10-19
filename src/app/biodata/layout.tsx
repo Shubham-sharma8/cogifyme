@@ -56,6 +56,9 @@ export default function BiodataLayout({
         author: {
           "@id": `${siteConfig.url}/#organization`,
         },
+        creator: {
+          "@id": `${siteConfig.url}/#founder`,
+        },
         publisher: {
           "@id": `${siteConfig.url}/#organization`,
         },

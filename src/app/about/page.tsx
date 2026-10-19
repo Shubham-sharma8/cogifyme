@@ -1,8 +1,9 @@
-"use client";
 import React from "react";
 import { siteConfig } from "@/config/site";
 import { Timeline, TimelineEntry } from "@/components/ui/timeline";
 import { BrandLogo } from "@/components/brand/brand-logo";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { AuthorBio } from "@/components/seo/author-bio";
 
 export default function AboutPage() {
   const timelineData: TimelineEntry[] = [
@@ -94,6 +95,7 @@ export default function AboutPage() {
     <div className="pt-28 pb-20 relative">
       {/* About Hero */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <Breadcrumbs items={[{ label: "About COGIFY", href: "/about" }]} />
         <div className="max-w-4xl space-y-6">
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
@@ -155,6 +157,8 @@ export default function AboutPage() {
 
         <Timeline data={timelineData} />
       </section>
+
+      <AuthorBio />
     </div>
   );
 }

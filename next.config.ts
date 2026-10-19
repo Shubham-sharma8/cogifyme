@@ -28,6 +28,14 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  compress: true,
+  poweredByHeader: false,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31536000,
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
   async redirects() {
     return [
       // 1. Enforce apex canonical domain (redirect www to non-www)
@@ -42,10 +50,25 @@ const nextConfig: NextConfig = {
         destination: "https://cogify.me/:path*",
         permanent: true,
       },
-      // 2. Short URL & product path aliases
+      // 2. Short URL & product path aliases (single-hop 308 redirects)
       {
         source: "/emdoc",
         destination: "/products/emdoc",
+        permanent: true,
+      },
+      {
+        source: "/products/biodata",
+        destination: "/biodata",
+        permanent: true,
+      },
+      {
+        source: "/biodata-maker",
+        destination: "/biodata",
+        permanent: true,
+      },
+      {
+        source: "/marriage-biodata-maker",
+        destination: "/biodata",
         permanent: true,
       },
       {
@@ -64,7 +87,17 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/color-invert",
+        destination: "/invert",
+        permanent: true,
+      },
+      {
         source: "/products/readereasy",
+        destination: "/readereasy",
+        permanent: true,
+      },
+      {
+        source: "/reader-easy",
         destination: "/readereasy",
         permanent: true,
       },
@@ -74,7 +107,17 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/web-clear",
+        destination: "/webclear",
+        permanent: true,
+      },
+      {
         source: "/products/ad-blocker",
+        destination: "/ad-blocker",
+        permanent: true,
+      },
+      {
+        source: "/adblocker",
         destination: "/ad-blocker",
         permanent: true,
       },
@@ -83,7 +126,12 @@ const nextConfig: NextConfig = {
         destination: "/weblenses",
         permanent: true,
       },
-      // 3. Consolidate all app-specific & legacy privacy paths to Unified Privacy Policy (/privacy)
+      {
+        source: "/web-lenses",
+        destination: "/weblenses",
+        permanent: true,
+      },
+      // 3. Consolidate all app-specific & legacy privacy paths to Privacy Policy (/privacy)
       {
         source: "/emdoc/privacy",
         destination: "/privacy",
@@ -131,6 +179,11 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/weblenses/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/biodata/privacy",
         destination: "/privacy",
         permanent: true,
       },

@@ -12,11 +12,37 @@ import {
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
+import { AuthorBio } from "@/components/seo/author-bio";
+
+const PRODUCTS_FAQS: FaqItem[] = [
+  {
+    question: "How many applications and web studios are currently live in the COGIFY catalog?",
+    answer:
+      "COGIFY currently ships 8 live products: EmDoc PDF Workstation for macOS, Marriage Biodata Maker Studio (biodata.cogify.me), Ad Blocker for Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert — plus 6 upcoming native releases in our App Store Connect pipeline.",
+  },
+  {
+    question: "Are all COGIFY App Store apps and web studios free for personal use?",
+    answer:
+      "Yes. Every live application, Safari Web Extension, and web studio in our catalog is 100% free for individual users with zero subscriptions, zero in-app purchases, and zero watermarks.",
+  },
+  {
+    question: "Where can I verify COGIFY's official Apple App Store developer account?",
+    answer:
+      "All native macOS, iOS, iPadOS, and Safari extensions are signed and published under Shubham Sharma (Apple Developer ID #1643497398) on the official Apple App Store.",
+  },
+  {
+    question: "Do COGIFY products work offline without internet access?",
+    answer:
+      "Yes. Native apps like EmDoc run 100% offline with zero network sockets, our 6 Safari extensions execute locally inside WebKit on your device, and Marriage Biodata Maker Studio processes all documents locally in your browser.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "All Apps, Safari Extensions & Studios — EmDoc, Biodata Maker, Ad Blocker, ReaderEasy",
   description:
-    "Explore the complete COGIFY suite of 100% free, zero-telemetry native macOS, iOS, iPadOS, Safari extensions, and web studios: EmDoc PDF Workstation, Marriage Biodata Maker Studio (biodata.cogify.me), Ad Blocker for Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
+    "Explore COGIFY's 8 free, zero-telemetry apps & studios: EmDoc macOS PDF Workstation, Marriage Biodata Maker (biodata.cogify.me), and 6 Safari extensions.",
   alternates: {
     canonical: `${siteConfig.url}/products`,
   },
@@ -183,6 +209,8 @@ export default function ProductsPage() {
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[420px] bg-gradient-to-b from-indigo-600/10 via-emerald-500/8 to-transparent blur-3xl -z-10" />
 
       <Container>
+        <Breadcrumbs items={[{ label: "Products & Studios", href: "/products" }]} />
+
         {/* Header */}
         <div className="max-w-3xl mb-14">
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
@@ -409,6 +437,14 @@ export default function ProductsPage() {
           </div>
         </section>
       </Container>
+
+      <FaqSection
+        title="COGIFY Product Catalog — Frequently Asked Questions"
+        subtitle="Answers about our native Apple App Store releases, Safari Web Extensions, and real-time web studios."
+        items={PRODUCTS_FAQS}
+      />
+
+      <AuthorBio />
     </div>
   );
 }
