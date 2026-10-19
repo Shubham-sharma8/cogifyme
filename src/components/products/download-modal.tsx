@@ -64,6 +64,7 @@ export const DownloadModal = ({ isOpen, onClose }: DownloadModalProps) => {
               src="/brand/emdoc-icon.png"
               alt="EmDoc App Icon"
               fill
+              sizes="64px"
               className="object-cover"
             />
           </div>

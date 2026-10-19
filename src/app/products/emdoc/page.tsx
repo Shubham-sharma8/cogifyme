@@ -67,6 +67,8 @@ export default function EmDocProductPage() {
                 src="/brand/emdoc-icon.png"
                 alt="EmDoc App Icon"
                 fill
+                priority
+                sizes="56px"
                 className="object-cover"
               />
             </div>

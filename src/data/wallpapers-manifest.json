@@ -1,5 +1,5 @@
 {
-  "catalogVersion" : 1,
+  "catalogVersion" : 2,
   "categories" : [
     {
       "accentHex" : "#6366F1",
@@ -10,7 +10,7 @@
       "slug" : "minimalist-gradients",
       "subtitle" : "Pure chromatic transitions and atmospheric light",
       "title" : "Minimalist Gradients",
-      "wallpaperCount" : 4
+      "wallpaperCount" : 5
     },
     {
       "accentHex" : "#3B82F6",
@@ -21,7 +21,7 @@
       "slug" : "dark-amoled",
       "subtitle" : "True-black OLED compositions engineered for battery efficiency",
       "title" : "Dark AMOLED",
-      "wallpaperCount" : 5
+      "wallpaperCount" : 7
     },
     {
       "accentHex" : "#EC4899",
@@ -43,7 +43,7 @@
       "slug" : "aurora-celestial",
       "subtitle" : "Polar lights, solar arcs, and twilight skies",
       "title" : "Aurora & Celestial",
-      "wallpaperCount" : 5
+      "wallpaperCount" : 6
     },
     {
       "accentHex" : "#8B5CF6",
@@ -54,7 +54,7 @@
       "slug" : "space-cosmos",
       "subtitle" : "Deep-field nebulae, ringed worlds, and starfields",
       "title" : "Space & Cosmos",
-      "wallpaperCount" : 6
+      "wallpaperCount" : 9
     },
     {
       "accentHex" : "#F59E0B",
@@ -76,7 +76,7 @@
       "slug" : "japanese-minimal",
       "subtitle" : "Zen ink wash, vermilion torii, and wabi-sabi calm",
       "title" : "Japanese Minimal",
-      "wallpaperCount" : 8
+      "wallpaperCount" : 11
     },
     {
       "accentHex" : "#F97316",
@@ -109,7 +109,7 @@
       "slug" : "cyberpunk-neon",
       "subtitle" : "Holographic rain alleys and synthwave horizons",
       "title" : "Cyberpunk & Neon",
-      "wallpaperCount" : 6
+      "wallpaperCount" : 7
     },
     {
       "accentHex" : "#F472B6",
@@ -120,7 +120,7 @@
       "slug" : "calm-pastel",
       "subtitle" : "Soft cotton-candy skies and soothing matte tones",
       "title" : "Calm Pastel",
-      "wallpaperCount" : 5
+      "wallpaperCount" : 6
     },
     {
       "accentHex" : "#94A3B8",
@@ -142,7 +142,7 @@
       "slug" : "floral-botanical",
       "subtitle" : "Emerald monstera, sage foliage, and organic pressings",
       "title" : "Floral & Botanical",
-      "wallpaperCount" : 7
+      "wallpaperCount" : 8
     },
     {
       "accentHex" : "#A855F7",
@@ -175,7 +175,7 @@
       "slug" : "productivity-clean",
       "subtitle" : "Low-distraction studio canvases for clean desktop icons",
       "title" : "Productivity Clean",
-      "wallpaperCount" : 5
+      "wallpaperCount" : 6
     },
     {
       "accentHex" : "#60A5FA",
@@ -225,7 +225,7 @@
   "collections" : [
     {
       "accentHex" : "#10B981",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "Hand-curated 4K landscapes, polar auroras, and connected couple duos calibrated for Apple OLED and XDR displays.",
       "heroWallpaperId" : "wp-001",
       "id" : "col-featured-today",
@@ -239,12 +239,17 @@
         "wp-003",
         "wp-004",
         "wp-015",
-        "wp-025"
+        "wp-025",
+        "wp-121",
+        "wp-122",
+        "wp-129",
+        "wp-130",
+        "wp-133"
       ]
     },
     {
       "accentHex" : "#3B82F6",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "Engineered with high true-black pixel ratios for luminous Lock Screen depth and effortless readability.",
       "heroWallpaperId" : "wp-002",
       "id" : "col-amoled-pure",
@@ -274,12 +279,17 @@
         "wp-104",
         "wp-108",
         "wp-112",
-        "wp-116"
+        "wp-116",
+        "wp-121",
+        "wp-126",
+        "wp-128",
+        "wp-134",
+        "wp-137"
       ]
     },
     {
       "accentHex" : "#FB7185",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "Side-by-side panoramas and celestial Yin-Yang pairs that complete each other when placed together.",
       "heroWallpaperId" : "wp-003",
       "id" : "col-couple-duos",
@@ -296,12 +306,14 @@
         "wp-030",
         "wp-031",
         "wp-032",
-        "wp-033"
+        "wp-033",
+        "wp-129",
+        "wp-130"
       ]
     },
     {
       "accentHex" : "#A855F7",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "Coordinated Lock Screens for best friends with optional custom monogram badge previews.",
       "heroWallpaperId" : "wp-007",
       "id" : "col-bff-duos",
@@ -318,12 +330,14 @@
         "wp-034",
         "wp-035",
         "wp-036",
-        "wp-037"
+        "wp-037",
+        "wp-131",
+        "wp-132"
       ]
     },
     {
       "accentHex" : "#F59E0B",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "Architectural travertine, Dolomites alpenglow, and brushed liquid titanium built for macOS Sonoma and Sequoia.",
       "heroWallpaperId" : "wp-015",
       "id" : "col-mac-setups",
@@ -353,12 +367,20 @@
         "wp-102",
         "wp-108",
         "wp-114",
-        "wp-120"
+        "wp-120",
+        "wp-133",
+        "wp-134",
+        "wp-135",
+        "wp-136",
+        "wp-137",
+        "wp-138",
+        "wp-139",
+        "wp-140"
       ]
     },
     {
       "accentHex" : "#38BDF8",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "Dichroic glass prisms, Bauhaus geometry, and botanical macro studies tailored for iPadOS.",
       "heroWallpaperId" : "wp-021",
       "id" : "col-ipad-canvas",
@@ -385,12 +407,16 @@
         "wp-097",
         "wp-103",
         "wp-109",
-        "wp-115"
+        "wp-115",
+        "wp-141",
+        "wp-142",
+        "wp-143",
+        "wp-144"
       ]
     },
     {
       "accentHex" : "#10B981",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "High-contrast dials designed for the watchOS Photos face on Apple Watch Series and Ultra.",
       "heroWallpaperId" : "wp-026",
       "id" : "col-watch-studio",
@@ -420,7 +446,7 @@
     },
     {
       "accentHex" : "#EC4899",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "Our highest-rated compositions spanning Canva MCP originals and procedural studio studies.",
       "heroWallpaperId" : "wp-011",
       "id" : "col-staff-picks",
@@ -447,12 +473,26 @@
         "wp-098",
         "wp-105",
         "wp-112",
-        "wp-119"
+        "wp-119",
+        "wp-121",
+        "wp-122",
+        "wp-123",
+        "wp-124",
+        "wp-125",
+        "wp-126",
+        "wp-127",
+        "wp-128",
+        "wp-133",
+        "wp-135",
+        "wp-139",
+        "wp-141",
+        "wp-142",
+        "wp-143"
       ]
     },
     {
       "accentHex" : "#EF4444",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "Restorative Japanese compositions that bring calm focus to every unlock.",
       "heroWallpaperId" : "wp-012",
       "id" : "col-japanese-zen",
@@ -468,12 +508,15 @@
         "wp-031",
         "wp-038",
         "wp-039",
-        "wp-040"
+        "wp-040",
+        "wp-124",
+        "wp-135",
+        "wp-141"
       ]
     },
     {
       "accentHex" : "#06B6D4",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "High-energy neon perspectives with clean dark upper skies for clock legibility.",
       "heroWallpaperId" : "wp-011",
       "id" : "col-cyber-nights",
@@ -486,12 +529,13 @@
         "wp-011",
         "wp-018",
         "wp-034",
-        "wp-035"
+        "wp-035",
+        "wp-125"
       ]
     },
     {
       "accentHex" : "#8B5CF6",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "Stargaze on every device with deep-field cosmic dust and luminous ice giants.",
       "heroWallpaperId" : "wp-013",
       "id" : "col-cosmic-odyssey",
@@ -502,12 +546,15 @@
       "title" : "Deep Space & Ringed Worlds",
       "wallpaperIds" : [
         "wp-013",
-        "wp-020"
+        "wp-020",
+        "wp-128",
+        "wp-137",
+        "wp-142"
       ]
     },
     {
       "accentHex" : "#14B8A6",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "Low-noise architectural and organic gradients designed for deep work.",
       "heroWallpaperId" : "wp-019",
       "id" : "col-productivity-desk",
@@ -519,12 +566,17 @@
       "wallpaperIds" : [
         "wp-016",
         "wp-017",
-        "wp-019"
+        "wp-019",
+        "wp-134",
+        "wp-136",
+        "wp-138",
+        "wp-140",
+        "wp-144"
       ]
     },
     {
       "accentHex" : "#F472B6",
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "description" : "Gentle daylight palettes that brighten your Lock Screen without harsh glare.",
       "heroWallpaperId" : "wp-014",
       "id" : "col-pastel-calm",
@@ -537,17 +589,60 @@
         "wp-014",
         "wp-023",
         "wp-036",
-        "wp-037"
+        "wp-037",
+        "wp-127",
+        "wp-131",
+        "wp-132",
+        "wp-138",
+        "wp-144"
+      ]
+    },
+    {
+      "accentHex" : "#38BDF8",
+      "createdAt" : "2026-10-19T19:30:00Z",
+      "description" : "Any image dropped into DropWallpapersHere\/ or uploaded via cogify.me\/admin\/wallpapers appears here automatically.",
+      "heroWallpaperId" : "wp-121",
+      "id" : "col-folder-drops",
+      "isEditorial" : true,
+      "isFeaturedToday" : false,
+      "slug" : "dropped-in-your-folder",
+      "subtitle" : "Instant auto-synced wallpapers from your local & R2 drop folder",
+      "title" : "Dropped in Your Folder",
+      "wallpaperIds" : [
+        "wp-121",
+        "wp-122",
+        "wp-123",
+        "wp-124",
+        "wp-125",
+        "wp-126",
+        "wp-127",
+        "wp-128",
+        "wp-129",
+        "wp-130",
+        "wp-131",
+        "wp-132",
+        "wp-133",
+        "wp-134",
+        "wp-135",
+        "wp-136",
+        "wp-137",
+        "wp-138",
+        "wp-139",
+        "wp-140",
+        "wp-141",
+        "wp-142",
+        "wp-143",
+        "wp-144"
       ]
     }
   ],
-  "generatedAt" : "2026-10-19T18:00:00Z",
+  "generatedAt" : "2026-10-19T20:00:00Z",
   "matchingSets" : [
     {
       "compatibleDevices" : [
         "iPhone"
       ],
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "customizableInitials" : true,
       "description" : "Place two iPhones side by side to watch golden stardust bridge the midnight sky from the Crescent Moon to the Sun-Star.",
       "ecosystemPreset" : "two-iphones",
@@ -584,7 +679,7 @@
       "compatibleDevices" : [
         "iPhone"
       ],
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "customizableInitials" : true,
       "description" : "A continuous layered mountain panorama that flows seamlessly from warm amber sunset on the left iPhone into deep indigo starlight on the right.",
       "ecosystemPreset" : "two-iphones",
@@ -621,7 +716,7 @@
       "compatibleDevices" : [
         "iPhone"
       ],
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "customizableInitials" : true,
       "description" : "Warm Kyoto autumn dusk designed for couples who love serene Japanese minimalism.",
       "ecosystemPreset" : "two-iphones",
@@ -658,7 +753,7 @@
       "compatibleDevices" : [
         "iPhone"
       ],
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "customizableInitials" : true,
       "description" : "OLED-optimized northern lights ribbons that connect across two iPhones.",
       "ecosystemPreset" : "two-iphones",
@@ -695,7 +790,7 @@
       "compatibleDevices" : [
         "iPhone"
       ],
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "customizableInitials" : true,
       "description" : "Original kawaii pastel-cyberpunk illustrations of an astronaut cat and astronaut bunny reaching toward each other.",
       "ecosystemPreset" : "two-iphones",
@@ -732,7 +827,7 @@
       "compatibleDevices" : [
         "iPhone"
       ],
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "customizableInitials" : false,
       "description" : "Complementary light and dark botanical studies for best friends with contrasting aesthetics.",
       "ecosystemPreset" : "two-iphones",
@@ -769,7 +864,7 @@
       "compatibleDevices" : [
         "iPhone"
       ],
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "customizableInitials" : true,
       "description" : "High-contrast AMOLED synthwave grids crafted for gaming & creative best friends.",
       "ecosystemPreset" : "two-iphones",
@@ -806,7 +901,7 @@
       "compatibleDevices" : [
         "iPhone"
       ],
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "customizableInitials" : true,
       "description" : "Playful minimalist cloud mascots with generous Lock Screen clock space.",
       "ecosystemPreset" : "two-iphones",
@@ -846,7 +941,7 @@
         "iPhone",
         "AppleWatch"
       ],
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "customizableInitials" : false,
       "description" : "Unify your entire desk and wrist setup with a calibrated alpenglow palette across Mac, iPad, iPhone, and Apple Watch.",
       "ecosystemPreset" : "full-apple-ecosystem",
@@ -900,7 +995,7 @@
         "iPhone",
         "AppleWatch"
       ],
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "customizableInitials" : false,
       "description" : "Engineered for dark-mode purists: brushed liquid titanium across all four Apple displays.",
       "ecosystemPreset" : "full-apple-ecosystem",
@@ -953,7 +1048,7 @@
         "AppleWatch",
         "Mac"
       ],
-      "createdAt" : "2026-10-19T18:00:00Z",
+      "createdAt" : "2026-10-19T19:30:00Z",
       "customizableInitials" : false,
       "description" : "Calm wabi-sabi indigo gradients and rising sun geometry for a distraction-free workspace.",
       "ecosystemPreset" : "full-apple-ecosystem",
@@ -992,10 +1087,84 @@
       ],
       "subtitle" : "Tranquil Japanese indigo mist across desk and wrist",
       "title" : "Zen Indigo Suite — iPhone + Watch + Mac"
+    },
+    {
+      "compatibleDevices" : [
+        "iPhone"
+      ],
+      "createdAt" : "2026-10-19T19:30:00Z",
+      "customizableInitials" : true,
+      "description" : "Place both iPhones side by side to watch the emerald and rose-magenta aurora borealis connect into a luminous cosmic heart over a snowy ridge.",
+      "ecosystemPreset" : "iphone-duo",
+      "id" : "set-12",
+      "items" : [
+        {
+          "device" : "iPhone",
+          "label" : "Partner A • Left Aurora Arc",
+          "recommendedOrder" : 1,
+          "role" : "left",
+          "wallpaperId" : "wp-129"
+        },
+        {
+          "device" : "iPhone",
+          "label" : "Partner B • Right Aurora Arc",
+          "recommendedOrder" : 2,
+          "role" : "right",
+          "wallpaperId" : "wp-130"
+        }
+      ],
+      "pairId" : "pair-couple-05",
+      "setType" : "coupleDuo",
+      "sharedPalette" : [
+        "#030712",
+        "#064E3B",
+        "#10B981",
+        "#F43F5E",
+        "#FDE047"
+      ],
+      "subtitle" : "Emerald and rose-magenta aurora ribbons forming a heart across two Lock Screens",
+      "title" : "Arctic Aurora Heart — Couple Duo"
+    },
+    {
+      "compatibleDevices" : [
+        "iPhone"
+      ],
+      "createdAt" : "2026-10-19T19:30:00Z",
+      "customizableInitials" : true,
+      "description" : "A joyful best-friend Lock Screen pair featuring a sky whale and glowing dolphin connected by golden stardust trails.",
+      "ecosystemPreset" : "iphone-duo",
+      "id" : "set-13",
+      "items" : [
+        {
+          "device" : "iPhone",
+          "label" : "Bestie A • Sky Whale",
+          "recommendedOrder" : 1,
+          "role" : "friendA",
+          "wallpaperId" : "wp-131"
+        },
+        {
+          "device" : "iPhone",
+          "label" : "Bestie B • Cloud Dolphin",
+          "recommendedOrder" : 2,
+          "role" : "friendB",
+          "wallpaperId" : "wp-132"
+        }
+      ],
+      "pairId" : "pair-bff-05",
+      "setType" : "bestFriendDuo",
+      "sharedPalette" : [
+        "#1E1B4B",
+        "#4C1D95",
+        "#F472B6",
+        "#38BDF8",
+        "#FEF08A"
+      ],
+      "subtitle" : "Dreamy celestial whale and dolphin swimming toward each other in cotton-candy clouds",
+      "title" : "Pastel Sky Whale & Dolphin — BFF Duo"
     }
   ],
   "source" : "cloudflare-d1-r2",
-  "totalWallpapers" : 120,
+  "totalWallpapers" : 144,
   "wallpapers" : [
     {
       "appearance" : "dark",
@@ -1048,7 +1217,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 136
+        "trendingScore" : 160
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -1140,7 +1309,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 135.2
+        "trendingScore" : 159.2
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -1238,7 +1407,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 134.4
+        "trendingScore" : 158.4
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -1334,7 +1503,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 108.60000000000001
+        "trendingScore" : 132.60000000000002
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -1430,7 +1599,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 92.80000000000001
+        "trendingScore" : 116.80000000000001
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -1525,7 +1694,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 92
+        "trendingScore" : 116
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -1622,7 +1791,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 131.2
+        "trendingScore" : 155.2
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -1717,7 +1886,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 105.4
+        "trendingScore" : 129.4
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -1813,7 +1982,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 89.60000000000001
+        "trendingScore" : 113.60000000000001
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -1908,7 +2077,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 88.80000000000001
+        "trendingScore" : 112.80000000000001
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -1994,7 +2163,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 128
+        "trendingScore" : 152
       },
       "mood" : "energetic",
       "orientation" : "portrait",
@@ -2079,7 +2248,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 127.2
+        "trendingScore" : 151.2
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -2172,7 +2341,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 111.4
+        "trendingScore" : 135.4
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -2257,7 +2426,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 85.60000000000001
+        "trendingScore" : 109.60000000000001
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -2370,7 +2539,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 124.80000000000001
+        "trendingScore" : 148.8
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -2464,7 +2633,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 124
+        "trendingScore" : 148
       },
       "mood" : "focused",
       "orientation" : "landscape",
@@ -2579,7 +2748,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 123.2
+        "trendingScore" : 147.2
       },
       "mood" : "focused",
       "orientation" : "landscape",
@@ -2673,7 +2842,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 82.4
+        "trendingScore" : 106.4
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -2768,7 +2937,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 121.60000000000001
+        "trendingScore" : 145.60000000000002
       },
       "mood" : "focused",
       "orientation" : "landscape",
@@ -2862,7 +3031,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 95.80000000000001
+        "trendingScore" : 119.80000000000001
       },
       "mood" : "mysterious",
       "orientation" : "landscape",
@@ -2956,7 +3125,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 120
+        "trendingScore" : 144
       },
       "mood" : "playful",
       "orientation" : "landscape",
@@ -3048,7 +3217,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 79.2
+        "trendingScore" : 103.2
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -3155,7 +3324,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 93.4
+        "trendingScore" : 117.4
       },
       "mood" : "focused",
       "orientation" : "landscape",
@@ -3248,7 +3417,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 117.60000000000001
+        "trendingScore" : 141.60000000000002
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -3347,7 +3516,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 91.80000000000001
+        "trendingScore" : 115.80000000000001
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -3442,7 +3611,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 91
+        "trendingScore" : 115
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -3537,7 +3706,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 90.2
+        "trendingScore" : 114.2
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -3632,7 +3801,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 89.4
+        "trendingScore" : 113.4
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -3727,7 +3896,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 88.60000000000001
+        "trendingScore" : 112.60000000000001
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -3821,7 +3990,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 87.8
+        "trendingScore" : 111.80000000000001
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -3915,7 +4084,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 87
+        "trendingScore" : 111
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -4008,7 +4177,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 86.2
+        "trendingScore" : 110.2
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -4101,7 +4270,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 85.4
+        "trendingScore" : 109.4
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -4195,7 +4364,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 84.60000000000001
+        "trendingScore" : 108.60000000000001
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -4289,7 +4458,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 83.8
+        "trendingScore" : 107.80000000000001
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -4383,7 +4552,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 83
+        "trendingScore" : 107
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -4477,7 +4646,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 82.2
+        "trendingScore" : 106.2
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -4571,7 +4740,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 81.4
+        "trendingScore" : 105.4
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -4666,7 +4835,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 80.60000000000001
+        "trendingScore" : 104.60000000000001
       },
       "mood" : "calm",
       "orientation" : "portrait",
@@ -4768,7 +4937,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 79.8
+        "trendingScore" : 103.80000000000001
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -4857,7 +5026,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 64
+        "trendingScore" : 88
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -4949,7 +5118,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 78.2
+        "trendingScore" : 102.2
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -5039,7 +5208,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 62.400000000000006
+        "trendingScore" : 86.4
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -5130,7 +5299,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 61.6
+        "trendingScore" : 85.60000000000001
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -5221,7 +5390,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 85.80000000000001
+        "trendingScore" : 109.80000000000001
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -5311,7 +5480,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 60
+        "trendingScore" : 84
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -5401,7 +5570,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 59.2
+        "trendingScore" : 83.2
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -5493,7 +5662,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 73.4
+        "trendingScore" : 97.4
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -5584,7 +5753,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 57.6
+        "trendingScore" : 81.60000000000001
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -5674,7 +5843,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 56.800000000000004
+        "trendingScore" : 80.80000000000001
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -5765,7 +5934,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 56
+        "trendingScore" : 80
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -5855,7 +6024,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 55.2
+        "trendingScore" : 79.2
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -5945,7 +6114,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 54.400000000000006
+        "trendingScore" : 78.4
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -6036,7 +6205,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 68.6
+        "trendingScore" : 92.60000000000001
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -6126,7 +6295,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 52.800000000000004
+        "trendingScore" : 76.80000000000001
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -6218,7 +6387,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 52
+        "trendingScore" : 76
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -6309,7 +6478,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 51.2
+        "trendingScore" : 75.2
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -6399,7 +6568,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 50.400000000000006
+        "trendingScore" : 74.4
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -6489,7 +6658,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 49.6
+        "trendingScore" : 73.60000000000001
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -6580,7 +6749,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 88.80000000000001
+        "trendingScore" : 112.8
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -6670,7 +6839,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 48
+        "trendingScore" : 72
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -6760,7 +6929,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 47.2
+        "trendingScore" : 71.2
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -6851,7 +7020,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 46.400000000000006
+        "trendingScore" : 70.4
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -6941,7 +7110,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 45.6
+        "trendingScore" : 69.60000000000001
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -7031,7 +7200,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 44.800000000000004
+        "trendingScore" : 68.8
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -7122,7 +7291,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 59
+        "trendingScore" : 83
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -7212,7 +7381,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 43.2
+        "trendingScore" : 67.2
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -7303,7 +7472,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 42.400000000000006
+        "trendingScore" : 66.4
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -7394,7 +7563,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 41.6
+        "trendingScore" : 65.60000000000001
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -7484,7 +7653,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 40.800000000000004
+        "trendingScore" : 64.8
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -7574,7 +7743,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 40
+        "trendingScore" : 64
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -7666,7 +7835,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 54.2
+        "trendingScore" : 78.2
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -7756,7 +7925,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 38.400000000000006
+        "trendingScore" : 62.400000000000006
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -7846,7 +8015,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 37.6
+        "trendingScore" : 61.6
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -7937,7 +8106,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 61.800000000000004
+        "trendingScore" : 85.80000000000001
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -8027,7 +8196,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 36
+        "trendingScore" : 60
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -8117,7 +8286,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 35.2
+        "trendingScore" : 59.2
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -8208,7 +8377,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 49.4
+        "trendingScore" : 73.4
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -8298,7 +8467,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 33.6
+        "trendingScore" : 57.6
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -8388,7 +8557,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 32.800000000000004
+        "trendingScore" : 56.800000000000004
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -8479,7 +8648,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 32
+        "trendingScore" : 56
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -8569,7 +8738,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 31.200000000000003
+        "trendingScore" : 55.2
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -8659,7 +8828,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 30.400000000000002
+        "trendingScore" : 54.400000000000006
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -8752,7 +8921,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 44.6
+        "trendingScore" : 68.6
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -8842,7 +9011,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 28.8
+        "trendingScore" : 52.800000000000004
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -8932,7 +9101,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 28
+        "trendingScore" : 52
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -9023,7 +9192,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 27.200000000000003
+        "trendingScore" : 51.2
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -9113,7 +9282,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 26.400000000000002
+        "trendingScore" : 50.400000000000006
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -9203,7 +9372,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 25.6
+        "trendingScore" : 49.6
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -9294,7 +9463,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 64.8
+        "trendingScore" : 88.80000000000001
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -9385,7 +9554,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 24
+        "trendingScore" : 48
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -9476,7 +9645,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 23.200000000000003
+        "trendingScore" : 47.2
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -9567,7 +9736,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 22.400000000000002
+        "trendingScore" : 46.400000000000006
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -9657,7 +9826,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 21.6
+        "trendingScore" : 45.6
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -9747,7 +9916,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 20.8
+        "trendingScore" : 44.800000000000004
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -9839,7 +10008,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 35
+        "trendingScore" : 59
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -9929,7 +10098,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 19.200000000000003
+        "trendingScore" : 43.2
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -10020,7 +10189,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 18.400000000000002
+        "trendingScore" : 42.400000000000006
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -10111,7 +10280,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 17.6
+        "trendingScore" : 41.6
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -10201,7 +10370,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 16.8
+        "trendingScore" : 40.800000000000004
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -10291,7 +10460,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 16
+        "trendingScore" : 40
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -10382,7 +10551,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 30.200000000000003
+        "trendingScore" : 54.2
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -10472,7 +10641,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 14.4
+        "trendingScore" : 38.400000000000006
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -10563,7 +10732,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 13.600000000000001
+        "trendingScore" : 37.6
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -10654,7 +10823,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 37.8
+        "trendingScore" : 61.800000000000004
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -10744,7 +10913,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 12
+        "trendingScore" : 36
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -10834,7 +11003,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 11.200000000000001
+        "trendingScore" : 35.2
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -10926,7 +11095,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 25.4
+        "trendingScore" : 49.4
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -11016,7 +11185,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 9.600000000000001
+        "trendingScore" : 33.6
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -11106,7 +11275,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 8.8
+        "trendingScore" : 32.800000000000004
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -11197,7 +11366,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 8
+        "trendingScore" : 32
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -11288,7 +11457,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 7.2
+        "trendingScore" : 31.200000000000003
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -11378,7 +11547,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 6.4
+        "trendingScore" : 30.400000000000002
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -11469,7 +11638,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 20.6
+        "trendingScore" : 44.6
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -11559,7 +11728,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 4.800000000000001
+        "trendingScore" : 28.8
       },
       "mood" : "energetic",
       "orientation" : "landscape",
@@ -11650,7 +11819,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 4
+        "trendingScore" : 28
       },
       "mood" : "romantic",
       "orientation" : "portrait",
@@ -11741,7 +11910,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 3.2
+        "trendingScore" : 27.200000000000003
       },
       "mood" : "mysterious",
       "orientation" : "portrait",
@@ -11831,7 +12000,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 2.4000000000000004
+        "trendingScore" : 26.400000000000002
       },
       "mood" : "focused",
       "orientation" : "portrait",
@@ -11921,7 +12090,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 1.6
+        "trendingScore" : 25.6
       },
       "mood" : "playful",
       "orientation" : "portrait",
@@ -12012,7 +12181,7 @@
         "downloads7d" : 0,
         "favoritesCount" : 0,
         "isEditorialFallback" : true,
-        "trendingScore" : 40.8
+        "trendingScore" : 64.8
       },
       "mood" : "calm",
       "orientation" : "landscape",
@@ -12052,6 +12221,2344 @@
       ],
       "title" : "Velvet Study No. 80",
       "updatedAt" : "2026-10-05T12:00:00Z"
+    },
+    {
+      "appearance" : "amoled",
+      "assets" : {
+        "fileSizeBytes" : 464767,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-121.jpg",
+        "liveVideoUrl" : "\/assets\/live-motion\/wp-121.mov",
+        "perceptualHash" : "1d99b48d15000000",
+        "previewUrl" : "\/assets\/previews\/wp-121-preview.jpg",
+        "sha256" : "ed17e293556e11f01020e157386e93428f6255f68d500bc7b6bb9092a09fde2a",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-121-thumb.jpg"
+      },
+      "category" : "Dark AMOLED",
+      "collectionIds" : [
+        "col-featured-today",
+        "col-amoled-pure",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-04T12:00:00Z",
+      "description" : "Pure AMOLED black liquid silk ribbons with molten 24k gold edge highlights and pitch-black upper clock zone.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "9:16",
+          "device" : "iPhone",
+          "height" : 3840,
+          "url" : "\/assets\/originals\/wp-121.jpg",
+          "width" : 2160
+        },
+        {
+          "aspectRatio" : "4:5",
+          "device" : "AppleWatch",
+          "height" : 1350,
+          "url" : "\/assets\/originals\/wp-121.jpg",
+          "width" : 1080
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "9:16",
+        "height" : 3840,
+        "width" : 2160
+      },
+      "dominantColor" : "#000000",
+      "id" : "wp-121",
+      "isFeatured" : true,
+      "isLivePhotoReady" : true,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 64
+      },
+      "mood" : "dramatic",
+      "orientation" : "portrait",
+      "palette" : [
+        "#000000",
+        "#090807",
+        "#2F2F2E",
+        "#434037",
+        "#050507"
+      ],
+      "primaryDevice" : "iPhone",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeSGalH4",
+        "canvaMediaId" : "MAHYex1KboQ",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "render3D",
+      "supportedDevices" : [
+        "iPhone",
+        "AppleWatch"
+      ],
+      "tags" : [
+        "amoled",
+        "gold",
+        "silk",
+        "luxury",
+        "dark",
+        "canva-mcp"
+      ],
+      "title" : "Obsidian Gold Liquid Silk",
+      "updatedAt" : "2026-10-04T12:00:00Z"
+    },
+    {
+      "appearance" : "dark",
+      "assets" : {
+        "fileSizeBytes" : 1000588,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-122.jpg",
+        "liveVideoUrl" : "\/assets\/live-motion\/wp-122.mov",
+        "perceptualHash" : "0ce9b1fbe2042860",
+        "previewUrl" : "\/assets\/previews\/wp-122-preview.jpg",
+        "sha256" : "d5f25a4cc2b15ab2ccad5545958757352b1fb98a9b146d212947014eeb92243f",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-122-thumb.jpg"
+      },
+      "category" : "Aurora & Celestial",
+      "collectionIds" : [
+        "col-featured-today",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-04T12:00:00Z",
+      "description" : "Emerald and violet aurora borealis curtains dancing over a still dark Icelandic glacier lagoon with floating crystal icebergs.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "9:16",
+          "device" : "iPhone",
+          "height" : 3840,
+          "url" : "\/assets\/originals\/wp-122.jpg",
+          "width" : 2160
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-122.jpg",
+          "width" : 2732
+        },
+        {
+          "aspectRatio" : "4:5",
+          "device" : "AppleWatch",
+          "height" : 1350,
+          "url" : "\/assets\/originals\/wp-122.jpg",
+          "width" : 1080
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "9:16",
+        "height" : 3840,
+        "width" : 2160
+      },
+      "dominantColor" : "#591D7C",
+      "id" : "wp-122",
+      "isFeatured" : true,
+      "isLivePhotoReady" : true,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 63.2
+      },
+      "mood" : "mysterious",
+      "orientation" : "portrait",
+      "palette" : [
+        "#591D7C",
+        "#447263",
+        "#3A9462",
+        "#305663",
+        "#0D242D"
+      ],
+      "primaryDevice" : "iPhone",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeYosne0",
+        "canvaMediaId" : "MAHYe3lL0VM",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "photography",
+      "supportedDevices" : [
+        "iPhone",
+        "iPad",
+        "AppleWatch"
+      ],
+      "tags" : [
+        "aurora",
+        "iceland",
+        "fjord",
+        "glacier",
+        "night",
+        "canva-mcp"
+      ],
+      "title" : "Icelandic Glacier Aurora Borealis",
+      "updatedAt" : "2026-10-04T12:00:00Z"
+    },
+    {
+      "appearance" : "adaptive",
+      "assets" : {
+        "fileSizeBytes" : 910981,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-123.jpg",
+        "perceptualHash" : "1ffce0ff7efe3ffd",
+        "previewUrl" : "\/assets\/previews\/wp-123-preview.jpg",
+        "sha256" : "4f9677d5d49154e5a0104dac56319b82078b2830087a3c78b146657c6522176f",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-123-thumb.jpg"
+      },
+      "category" : "Minimalist Gradients",
+      "collectionIds" : [
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-04T12:00:00Z",
+      "description" : "Minimalist desert sand dunes at golden hour with razor-sharp sculptural shadow curves in warm terracotta and burnt sienna.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "9:16",
+          "device" : "iPhone",
+          "height" : 3840,
+          "url" : "\/assets\/originals\/wp-123.jpg",
+          "width" : 2160
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-123.jpg",
+          "width" : 2732
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "9:16",
+        "height" : 3840,
+        "width" : 2160
+      },
+      "dominantColor" : "#D25717",
+      "id" : "wp-123",
+      "isFeatured" : false,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 37.400000000000006
+      },
+      "mood" : "warm",
+      "orientation" : "portrait",
+      "palette" : [
+        "#D25717",
+        "#5F1F0F",
+        "#37160E",
+        "#EB590C",
+        "#2A0F09"
+      ],
+      "primaryDevice" : "iPhone",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeSGalH4",
+        "canvaMediaId" : "MAHYe7UDAXw",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "photography",
+      "supportedDevices" : [
+        "iPhone",
+        "iPad"
+      ],
+      "tags" : [
+        "desert",
+        "dune",
+        "terracotta",
+        "minimal",
+        "warm",
+        "canva-mcp"
+      ],
+      "title" : "Terracotta Desert Dune Curves",
+      "updatedAt" : "2026-10-04T12:00:00Z"
+    },
+    {
+      "appearance" : "dark",
+      "assets" : {
+        "fileSizeBytes" : 1520090,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-124.jpg",
+        "liveVideoUrl" : "\/assets\/live-motion\/wp-124.mov",
+        "perceptualHash" : "0cc8f0a5b560f170",
+        "previewUrl" : "\/assets\/previews\/wp-124-preview.jpg",
+        "sha256" : "210da570603723e91bc7f72f89242a47877bbc6fad0078d4d49b54ed9a634d42",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-124-thumb.jpg"
+      },
+      "category" : "Japanese Minimal",
+      "collectionIds" : [
+        "col-japanese-zen",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-04T12:00:00Z",
+      "description" : "Tranquil Kyoto bamboo grove at blue hour with soft glowing warm amber rain mist along the stone path below.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "9:16",
+          "device" : "iPhone",
+          "height" : 3840,
+          "url" : "\/assets\/originals\/wp-124.jpg",
+          "width" : 2160
+        },
+        {
+          "aspectRatio" : "4:5",
+          "device" : "AppleWatch",
+          "height" : 1350,
+          "url" : "\/assets\/originals\/wp-124.jpg",
+          "width" : 1080
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "9:16",
+        "height" : 3840,
+        "width" : 2160
+      },
+      "dominantColor" : "#070D0C",
+      "id" : "wp-124",
+      "isFeatured" : true,
+      "isLivePhotoReady" : true,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 61.6
+      },
+      "mood" : "serene",
+      "orientation" : "portrait",
+      "palette" : [
+        "#070D0C",
+        "#020B11",
+        "#0B365B",
+        "#5C2905",
+        "#BD6613"
+      ],
+      "primaryDevice" : "iPhone",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeYosne0",
+        "canvaMediaId" : "MAHYe0w7bek",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "illustration",
+      "supportedDevices" : [
+        "iPhone",
+        "AppleWatch"
+      ],
+      "tags" : [
+        "kyoto",
+        "bamboo",
+        "rain",
+        "japan",
+        "zen",
+        "canva-mcp"
+      ],
+      "title" : "Arashiyama Bamboo Rain & Lanterns",
+      "updatedAt" : "2026-10-04T12:00:00Z"
+    },
+    {
+      "appearance" : "dark",
+      "assets" : {
+        "fileSizeBytes" : 1529434,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-125.jpg",
+        "liveVideoUrl" : "\/assets\/live-motion\/wp-125.mov",
+        "perceptualHash" : "12726a2a8d000020",
+        "previewUrl" : "\/assets\/previews\/wp-125-preview.jpg",
+        "sha256" : "14e865c67c9227950193881c376f71ca4fe1884fdaaa0d9c98494d05c5e77ec8",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-125-thumb.jpg"
+      },
+      "category" : "Cyberpunk & Neon",
+      "collectionIds" : [
+        "col-cyber-nights",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-04T12:00:00Z",
+      "description" : "High-altitude cyberpunk skyline in midnight rain with glowing cyan and electric magenta architectural light trails.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "9:16",
+          "device" : "iPhone",
+          "height" : 3840,
+          "url" : "\/assets\/originals\/wp-125.jpg",
+          "width" : 2160
+        },
+        {
+          "aspectRatio" : "4:5",
+          "device" : "AppleWatch",
+          "height" : 1350,
+          "url" : "\/assets\/originals\/wp-125.jpg",
+          "width" : 1080
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "9:16",
+        "height" : 3840,
+        "width" : 2160
+      },
+      "dominantColor" : "#07101F",
+      "id" : "wp-125",
+      "isFeatured" : true,
+      "isLivePhotoReady" : true,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 60.8
+      },
+      "mood" : "energetic",
+      "orientation" : "portrait",
+      "palette" : [
+        "#07101F",
+        "#071223",
+        "#193464",
+        "#18345E",
+        "#265892"
+      ],
+      "primaryDevice" : "iPhone",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeSGalH4",
+        "canvaMediaId" : "MAHYe4uaqFU",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "digitalArt",
+      "supportedDevices" : [
+        "iPhone",
+        "AppleWatch"
+      ],
+      "tags" : [
+        "cyberpunk",
+        "shibuya",
+        "tokyo",
+        "neon",
+        "futuristic",
+        "canva-mcp"
+      ],
+      "title" : "Neo-Tokyo Shibuya Holographic Skyline",
+      "updatedAt" : "2026-10-04T12:00:00Z"
+    },
+    {
+      "appearance" : "amoled",
+      "assets" : {
+        "fileSizeBytes" : 459928,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-126.jpg",
+        "perceptualHash" : "00a770b818000000",
+        "previewUrl" : "\/assets\/previews\/wp-126-preview.jpg",
+        "sha256" : "8540a400f031aa7e6f8c1fa1bec3698377446fc1ea4a677961963fd029a7478b",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-126-thumb.jpg"
+      },
+      "category" : "Floral & Botanical",
+      "collectionIds" : [
+        "col-amoled-pure",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-04T12:00:00Z",
+      "description" : "Fine-art macro of porcelain white phalaenopsis orchid petals emerging from pure obsidian shadow with soft silver rim light.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "9:16",
+          "device" : "iPhone",
+          "height" : 3840,
+          "url" : "\/assets\/originals\/wp-126.jpg",
+          "width" : 2160
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-126.jpg",
+          "width" : 2732
+        },
+        {
+          "aspectRatio" : "4:5",
+          "device" : "AppleWatch",
+          "height" : 1350,
+          "url" : "\/assets\/originals\/wp-126.jpg",
+          "width" : 1080
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "9:16",
+        "height" : 3840,
+        "width" : 2160
+      },
+      "dominantColor" : "#000000",
+      "id" : "wp-126",
+      "isFeatured" : false,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 35
+      },
+      "mood" : "serene",
+      "orientation" : "portrait",
+      "palette" : [
+        "#000000",
+        "#212122",
+        "#181716",
+        "#1B1C1D",
+        "#050608"
+      ],
+      "primaryDevice" : "iPhone",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeYosne0",
+        "canvaMediaId" : "MAHYe27h07Q",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "photography",
+      "supportedDevices" : [
+        "iPhone",
+        "iPad",
+        "AppleWatch"
+      ],
+      "tags" : [
+        "orchid",
+        "floral",
+        "botanical",
+        "amoled",
+        "macro",
+        "canva-mcp"
+      ],
+      "title" : "Porcelain White Orchid on Obsidian",
+      "updatedAt" : "2026-10-04T12:00:00Z"
+    },
+    {
+      "appearance" : "light",
+      "assets" : {
+        "fileSizeBytes" : 609053,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-127.jpg",
+        "perceptualHash" : "00488ccefaf60607",
+        "previewUrl" : "\/assets\/previews\/wp-127-preview.jpg",
+        "sha256" : "3fdb3842e304f6bde4320f9b6edb5dd162f094ee6c7e5884212e9d5f43e0450d",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-127-thumb.jpg"
+      },
+      "category" : "Artistic Textures & 3D",
+      "collectionIds" : [
+        "col-pastel-calm",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-04T12:00:00Z",
+      "description" : "Sculptural 3D floating mother-of-pearl and frosted glass spheres with soft rainbow caustic reflections.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "9:16",
+          "device" : "iPhone",
+          "height" : 3840,
+          "url" : "\/assets\/originals\/wp-127.jpg",
+          "width" : 2160
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-127.jpg",
+          "width" : 2732
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "9:16",
+        "height" : 3840,
+        "width" : 2160
+      },
+      "dominantColor" : "#E1DCD9",
+      "id" : "wp-127",
+      "isFeatured" : false,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 34.2
+      },
+      "mood" : "playful",
+      "orientation" : "portrait",
+      "palette" : [
+        "#E1DCD9",
+        "#C7C2C8",
+        "#BDACA3",
+        "#DBD2CE",
+        "#D8D7D9"
+      ],
+      "primaryDevice" : "iPhone",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeSGalH4",
+        "canvaMediaId" : "MAHYe-jAMr4",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#1E293B",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "render3D",
+      "supportedDevices" : [
+        "iPhone",
+        "iPad"
+      ],
+      "tags" : [
+        "3d",
+        "pearl",
+        "iridescent",
+        "spheres",
+        "glass",
+        "canva-mcp"
+      ],
+      "title" : "Iridescent Mother-of-Pearl 3D Spheres",
+      "updatedAt" : "2026-10-04T12:00:00Z"
+    },
+    {
+      "appearance" : "amoled",
+      "assets" : {
+        "fileSizeBytes" : 1990340,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-128.jpg",
+        "liveVideoUrl" : "\/assets\/live-motion\/wp-128.mov",
+        "perceptualHash" : "0eb8fa1686e06295",
+        "previewUrl" : "\/assets\/previews\/wp-128-preview.jpg",
+        "sha256" : "3e06c4b73178e1ee4aa10b6d325b48d2fa328a9c426e0d8c7b83a44456b77389",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-128-thumb.jpg"
+      },
+      "category" : "Space & Cosmos",
+      "collectionIds" : [
+        "col-cosmic-odyssey",
+        "col-amoled-pure",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-04T12:00:00Z",
+      "description" : "Deep-cosmos crimson and sapphire supernova cloud with glowing golden cosmic dust filaments against pure AMOLED black.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "9:16",
+          "device" : "iPhone",
+          "height" : 3840,
+          "url" : "\/assets\/originals\/wp-128.jpg",
+          "width" : 2160
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-128.jpg",
+          "width" : 2732
+        },
+        {
+          "aspectRatio" : "4:5",
+          "device" : "AppleWatch",
+          "height" : 1350,
+          "url" : "\/assets\/originals\/wp-128.jpg",
+          "width" : 1080
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "9:16",
+        "height" : 3840,
+        "width" : 2160
+      },
+      "dominantColor" : "#120E21",
+      "id" : "wp-128",
+      "isFeatured" : true,
+      "isLivePhotoReady" : true,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 58.400000000000006
+      },
+      "mood" : "dramatic",
+      "orientation" : "portrait",
+      "palette" : [
+        "#120E21",
+        "#430E12",
+        "#151028",
+        "#412342",
+        "#1A1113"
+      ],
+      "primaryDevice" : "iPhone",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeYosne0",
+        "canvaMediaId" : "MAHYeyUAusE",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "digitalArt",
+      "supportedDevices" : [
+        "iPhone",
+        "iPad",
+        "AppleWatch"
+      ],
+      "tags" : [
+        "space",
+        "supernova",
+        "nebula",
+        "cosmos",
+        "amoled",
+        "canva-mcp"
+      ],
+      "title" : "Crimson & Sapphire Supernova Remnant",
+      "updatedAt" : "2026-10-04T12:00:00Z"
+    },
+    {
+      "appearance" : "dark",
+      "assets" : {
+        "fileSizeBytes" : 981965,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-129.jpg",
+        "liveVideoUrl" : "\/assets\/live-motion\/wp-129.mov",
+        "perceptualHash" : "13e3639218308008",
+        "previewUrl" : "\/assets\/previews\/wp-129-preview.jpg",
+        "sha256" : "e02ef0f45705ad828566854b13dade5c07bb99563e6ada3bda0677ffe446a26d",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-129-thumb.jpg"
+      },
+      "category" : "Matching & Couple Duos",
+      "collectionIds" : [
+        "col-couple-duos",
+        "col-featured-today",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-03T12:00:00Z",
+      "description" : "Left half of the Arctic Aurora Heart duo: glowing emerald and rose aurora ribbon curving rightward to form a celestial heart.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "9:16",
+          "device" : "iPhone",
+          "height" : 3840,
+          "url" : "\/assets\/originals\/wp-129.jpg",
+          "width" : 2160
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "9:16",
+        "height" : 3840,
+        "width" : 2160
+      },
+      "dominantColor" : "#020A25",
+      "id" : "wp-129",
+      "isFeatured" : true,
+      "isLivePhotoReady" : true,
+      "isStaffPick" : true,
+      "matchingSet" : {
+        "customizableInitials" : true,
+        "pairId" : "pair-couple-05",
+        "partnerWallpaperIds" : [
+          "wp-130"
+        ],
+        "recommendedOrder" : 1,
+        "role" : "left",
+        "setId" : "set-12",
+        "setType" : "coupleDuo"
+      },
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 57.6
+      },
+      "mood" : "romantic",
+      "orientation" : "portrait",
+      "palette" : [
+        "#020A25",
+        "#76476F",
+        "#32A08F",
+        "#0C2748",
+        "#253E65"
+      ],
+      "primaryDevice" : "iPhone",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeSGalH4",
+        "canvaMediaId" : "MAHYe7zgczs",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "digitalArt",
+      "supportedDevices" : [
+        "iPhone"
+      ],
+      "tags" : [
+        "couple",
+        "aurora",
+        "heart",
+        "left",
+        "matching",
+        "canva-mcp"
+      ],
+      "title" : "Arctic Aurora Heart — Left Half (Couple Duo)",
+      "updatedAt" : "2026-10-03T12:00:00Z"
+    },
+    {
+      "appearance" : "dark",
+      "assets" : {
+        "fileSizeBytes" : 1048283,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-130.jpg",
+        "liveVideoUrl" : "\/assets\/live-motion\/wp-130.mov",
+        "perceptualHash" : "10e0e0d09e33aac6",
+        "previewUrl" : "\/assets\/previews\/wp-130-preview.jpg",
+        "sha256" : "c0bcf4520ea11095d34720791e246393eb2df91e35db40ac3b73fdd0b576f952",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-130-thumb.jpg"
+      },
+      "category" : "Matching & Couple Duos",
+      "collectionIds" : [
+        "col-couple-duos",
+        "col-featured-today",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-03T12:00:00Z",
+      "description" : "Right half of the Arctic Aurora Heart duo: glowing rose and emerald aurora ribbon completing the celestial heart.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "9:16",
+          "device" : "iPhone",
+          "height" : 3840,
+          "url" : "\/assets\/originals\/wp-130.jpg",
+          "width" : 2160
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "9:16",
+        "height" : 3840,
+        "width" : 2160
+      },
+      "dominantColor" : "#0C162B",
+      "id" : "wp-130",
+      "isFeatured" : false,
+      "isLivePhotoReady" : true,
+      "isStaffPick" : true,
+      "matchingSet" : {
+        "customizableInitials" : true,
+        "pairId" : "pair-couple-05",
+        "partnerWallpaperIds" : [
+          "wp-129"
+        ],
+        "recommendedOrder" : 2,
+        "role" : "right",
+        "setId" : "set-12",
+        "setType" : "coupleDuo"
+      },
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 31.8
+      },
+      "mood" : "romantic",
+      "orientation" : "portrait",
+      "palette" : [
+        "#0C162B",
+        "#041827",
+        "#494064",
+        "#273E5E",
+        "#4A5D74"
+      ],
+      "primaryDevice" : "iPhone",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeYosne0",
+        "canvaMediaId" : "MAHYe0-hoYw",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "digitalArt",
+      "supportedDevices" : [
+        "iPhone"
+      ],
+      "tags" : [
+        "couple",
+        "aurora",
+        "heart",
+        "right",
+        "matching",
+        "canva-mcp"
+      ],
+      "title" : "Arctic Aurora Heart — Right Half (Couple Duo)",
+      "updatedAt" : "2026-10-03T12:00:00Z"
+    },
+    {
+      "appearance" : "adaptive",
+      "assets" : {
+        "fileSizeBytes" : 761765,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-131.jpg",
+        "perceptualHash" : "06130a902a030844",
+        "previewUrl" : "\/assets\/previews\/wp-131-preview.jpg",
+        "sha256" : "516c3d0d3288c2ee499a2e8baae6fd18d0d0dda6d34e546cd1705f54d48a0ce8",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-131-thumb.jpg"
+      },
+      "category" : "Matching & Couple Duos",
+      "collectionIds" : [
+        "col-bff-duos",
+        "col-pastel-calm",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-03T12:00:00Z",
+      "description" : "Dreamy sky illustration of a glowing iridescent pastel sky-whale swimming rightward through golden sunset clouds.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "9:16",
+          "device" : "iPhone",
+          "height" : 3840,
+          "url" : "\/assets\/originals\/wp-131.jpg",
+          "width" : 2160
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "9:16",
+        "height" : 3840,
+        "width" : 2160
+      },
+      "dominantColor" : "#688DDA",
+      "id" : "wp-131",
+      "isFeatured" : true,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "matchingSet" : {
+        "customizableInitials" : true,
+        "pairId" : "pair-bff-05",
+        "partnerWallpaperIds" : [
+          "wp-132"
+        ],
+        "recommendedOrder" : 1,
+        "role" : "left",
+        "setId" : "set-13",
+        "setType" : "bestFriendDuo"
+      },
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 56
+      },
+      "mood" : "playful",
+      "orientation" : "portrait",
+      "palette" : [
+        "#688DDA",
+        "#6C8ED9",
+        "#B0A3D8",
+        "#B091B2",
+        "#F2AB95"
+      ],
+      "primaryDevice" : "iPhone",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeSGalH4",
+        "canvaMediaId" : "MAHYe5KYf6E",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "illustration",
+      "supportedDevices" : [
+        "iPhone"
+      ],
+      "tags" : [
+        "bff",
+        "whale",
+        "pastel",
+        "clouds",
+        "matching",
+        "canva-mcp"
+      ],
+      "title" : "Pastel Sky Whale — Bestie Left (BFF Duo)",
+      "updatedAt" : "2026-10-03T12:00:00Z"
+    },
+    {
+      "appearance" : "adaptive",
+      "assets" : {
+        "fileSizeBytes" : 720597,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-132.jpg",
+        "perceptualHash" : "1fe4ecde9b078707",
+        "previewUrl" : "\/assets\/previews\/wp-132-preview.jpg",
+        "sha256" : "88f1370bda26ef11016816941b3225d0ae83f5d544ae2e7abfba432ea5602238",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-132-thumb.jpg"
+      },
+      "category" : "Matching & Couple Duos",
+      "collectionIds" : [
+        "col-bff-duos",
+        "col-pastel-calm",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-03T12:00:00Z",
+      "description" : "Dreamy sky illustration of a glowing pastel sky-dolphin swimming leftward through golden sunset clouds to meet its best friend.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "9:16",
+          "device" : "iPhone",
+          "height" : 3840,
+          "url" : "\/assets\/originals\/wp-132.jpg",
+          "width" : 2160
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "9:16",
+        "height" : 3840,
+        "width" : 2160
+      },
+      "dominantColor" : "#6D86D2",
+      "id" : "wp-132",
+      "isFeatured" : false,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "matchingSet" : {
+        "customizableInitials" : true,
+        "pairId" : "pair-bff-05",
+        "partnerWallpaperIds" : [
+          "wp-131"
+        ],
+        "recommendedOrder" : 2,
+        "role" : "right",
+        "setId" : "set-13",
+        "setType" : "bestFriendDuo"
+      },
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 30.200000000000003
+      },
+      "mood" : "playful",
+      "orientation" : "portrait",
+      "palette" : [
+        "#6D86D2",
+        "#7286D1",
+        "#B5AACF",
+        "#DD9F94",
+        "#FBD094"
+      ],
+      "primaryDevice" : "iPhone",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeYosne0",
+        "canvaMediaId" : "MAHYe6fw_-g",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "illustration",
+      "supportedDevices" : [
+        "iPhone"
+      ],
+      "tags" : [
+        "bff",
+        "dolphin",
+        "pastel",
+        "clouds",
+        "matching",
+        "canva-mcp"
+      ],
+      "title" : "Pastel Sky Dolphin — Bestie Right (BFF Duo)",
+      "updatedAt" : "2026-10-03T12:00:00Z"
+    },
+    {
+      "appearance" : "dark",
+      "assets" : {
+        "fileSizeBytes" : 1821553,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-133.jpg",
+        "perceptualHash" : "18f4b5b4b0983818",
+        "previewUrl" : "\/assets\/previews\/wp-133-preview.jpg",
+        "sha256" : "5e4b6a88e2f267c144bd6f0a6c833295ca1082f8d1c8289336d4ab4625787eb6",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-133-thumb.jpg"
+      },
+      "category" : "Landscapes & Nature",
+      "collectionIds" : [
+        "col-mac-setups",
+        "col-featured-today",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-03T12:00:00Z",
+      "description" : "Majestic Mount Fitz Roy granite peaks in Patagonia glowing fiery crimson and gold at first light over a glacial lagoon.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "16:9",
+          "device" : "Mac",
+          "height" : 2160,
+          "url" : "\/assets\/originals\/wp-133.jpg",
+          "width" : 3840
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-133.jpg",
+          "width" : 2732
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "16:9",
+        "height" : 2160,
+        "width" : 3840
+      },
+      "dominantColor" : "#EE732E",
+      "id" : "wp-133",
+      "isFeatured" : true,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 54.4
+      },
+      "mood" : "dramatic",
+      "orientation" : "landscape",
+      "palette" : [
+        "#EE732E",
+        "#7C68A8",
+        "#636DA0",
+        "#4B9AC1",
+        "#1E4C5F"
+      ],
+      "primaryDevice" : "Mac",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYedAUKqE",
+        "canvaMediaId" : "MAHYeyM57DY",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "photography",
+      "supportedDevices" : [
+        "Mac",
+        "iPad"
+      ],
+      "tags" : [
+        "patagonia",
+        "mountains",
+        "mac",
+        "4k",
+        "dawn",
+        "canva-mcp"
+      ],
+      "title" : "Patagonia Fitz Roy Crimson Dawn 4K",
+      "updatedAt" : "2026-10-03T12:00:00Z"
+    },
+    {
+      "appearance" : "amoled",
+      "assets" : {
+        "fileSizeBytes" : 614673,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-134.jpg",
+        "perceptualHash" : "02e678f100000000",
+        "previewUrl" : "\/assets\/previews\/wp-134-preview.jpg",
+        "sha256" : "95635ab8d24b429e2dcabdb2cfd4e60fa96ef146029cba3b564314dfbb8b16ff",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-134-thumb.jpg"
+      },
+      "category" : "Dark AMOLED",
+      "collectionIds" : [
+        "col-mac-setups",
+        "col-amoled-pure",
+        "col-productivity-desk",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-03T12:00:00Z",
+      "description" : "Ultra-minimalist dark matte carbon fiber and liquid obsidian waves with a subtle electric cobalt rim light horizon.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "16:9",
+          "device" : "Mac",
+          "height" : 2160,
+          "url" : "\/assets\/originals\/wp-134.jpg",
+          "width" : 3840
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-134.jpg",
+          "width" : 2732
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "16:9",
+        "height" : 2160,
+        "width" : 3840
+      },
+      "dominantColor" : "#000000",
+      "id" : "wp-134",
+      "isFeatured" : true,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 53.6
+      },
+      "mood" : "focused",
+      "orientation" : "landscape",
+      "palette" : [
+        "#000000",
+        "#000C28",
+        "#252525",
+        "#090B0F",
+        "#050608"
+      ],
+      "primaryDevice" : "Mac",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeciZuHs",
+        "canvaMediaId" : "MAHYe5duMzM",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "render3D",
+      "supportedDevices" : [
+        "Mac",
+        "iPad"
+      ],
+      "tags" : [
+        "carbon",
+        "amoled",
+        "cobalt",
+        "mac",
+        "4k",
+        "canva-mcp"
+      ],
+      "title" : "AMOLED Carbon Waves & Cobalt Rim 4K",
+      "updatedAt" : "2026-10-03T12:00:00Z"
+    },
+    {
+      "appearance" : "dark",
+      "assets" : {
+        "fileSizeBytes" : 1738625,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-135.jpg",
+        "perceptualHash" : "1ef87c99bc98b514",
+        "previewUrl" : "\/assets\/previews\/wp-135-preview.jpg",
+        "sha256" : "9a76b40d9209ae6ed78315d18c7cd664dfa1d9f11018c7743ad13769d22a7c07",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-135-thumb.jpg"
+      },
+      "category" : "Japanese Minimal",
+      "collectionIds" : [
+        "col-mac-setups",
+        "col-japanese-zen",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-03T12:00:00Z",
+      "description" : "Serene Kyoto wooden pagoda surrounded by crimson and gold autumn maple trees in soft morning mist over a tranquil pond.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "16:9",
+          "device" : "Mac",
+          "height" : 2160,
+          "url" : "\/assets\/originals\/wp-135.jpg",
+          "width" : 3840
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-135.jpg",
+          "width" : 2732
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "16:9",
+        "height" : 2160,
+        "width" : 3840
+      },
+      "dominantColor" : "#BFA099",
+      "id" : "wp-135",
+      "isFeatured" : true,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 52.8
+      },
+      "mood" : "serene",
+      "orientation" : "landscape",
+      "palette" : [
+        "#BFA099",
+        "#575353",
+        "#83533D",
+        "#8A7465",
+        "#39312C"
+      ],
+      "primaryDevice" : "Mac",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYedAUKqE",
+        "canvaMediaId" : "MAHYe1pQCmc",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "photography",
+      "supportedDevices" : [
+        "Mac",
+        "iPad"
+      ],
+      "tags" : [
+        "kyoto",
+        "pagoda",
+        "autumn",
+        "japan",
+        "mac",
+        "4k",
+        "canva-mcp"
+      ],
+      "title" : "Kyoto Five-Story Pagoda Autumn Mist 4K",
+      "updatedAt" : "2026-10-03T12:00:00Z"
+    },
+    {
+      "appearance" : "adaptive",
+      "assets" : {
+        "fileSizeBytes" : 820745,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-136.jpg",
+        "perceptualHash" : "128deaca8f798480",
+        "previewUrl" : "\/assets\/previews\/wp-136-preview.jpg",
+        "sha256" : "f39a6aba0f7556acdad16502dd384e53e30ab4bf42569b65431358594d971911",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-136-thumb.jpg"
+      },
+      "category" : "Architecture & Cities",
+      "collectionIds" : [
+        "col-mac-setups",
+        "col-productivity-desk",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-03T12:00:00Z",
+      "description" : "Minimalist sandstone desert villa with geometric cantilevered roof and calm turquoise reflection pool at dusk.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "16:9",
+          "device" : "Mac",
+          "height" : 2160,
+          "url" : "\/assets\/originals\/wp-136.jpg",
+          "width" : 3840
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-136.jpg",
+          "width" : 2732
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "16:9",
+        "height" : 2160,
+        "width" : 3840
+      },
+      "dominantColor" : "#C19489",
+      "id" : "wp-136",
+      "isFeatured" : false,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 27
+      },
+      "mood" : "serene",
+      "orientation" : "landscape",
+      "palette" : [
+        "#C19489",
+        "#D9A697",
+        "#743B1F",
+        "#8E5A46",
+        "#FAAC71"
+      ],
+      "primaryDevice" : "Mac",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeciZuHs",
+        "canvaMediaId" : "MAHYe417R4c",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "render3D",
+      "supportedDevices" : [
+        "Mac",
+        "iPad"
+      ],
+      "tags" : [
+        "architecture",
+        "desert",
+        "villa",
+        "minimal",
+        "mac",
+        "4k",
+        "canva-mcp"
+      ],
+      "title" : "Modernist Sandstone Desert Pavilion 4K",
+      "updatedAt" : "2026-10-03T12:00:00Z"
+    },
+    {
+      "appearance" : "amoled",
+      "assets" : {
+        "fileSizeBytes" : 1085501,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-137.jpg",
+        "perceptualHash" : "1ba6e6f9d2c42018",
+        "previewUrl" : "\/assets\/previews\/wp-137-preview.jpg",
+        "sha256" : "1300e65322a89826f0d86a6de316551fd7f7145a18c301749b37dd4f02c5660d",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-137-thumb.jpg"
+      },
+      "category" : "Space & Cosmos",
+      "collectionIds" : [
+        "col-mac-setups",
+        "col-cosmic-odyssey",
+        "col-amoled-pure",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-02T12:00:00Z",
+      "description" : "Cinematic deep-space black hole accretion disk glowing in warm amber and sapphire relativistic light.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "16:9",
+          "device" : "Mac",
+          "height" : 2160,
+          "url" : "\/assets\/originals\/wp-137.jpg",
+          "width" : 3840
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-137.jpg",
+          "width" : 2732
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "16:9",
+        "height" : 2160,
+        "width" : 3840
+      },
+      "dominantColor" : "#282525",
+      "id" : "wp-137",
+      "isFeatured" : true,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 51.2
+      },
+      "mood" : "dramatic",
+      "orientation" : "landscape",
+      "palette" : [
+        "#282525",
+        "#735E72",
+        "#9D5A25",
+        "#0E0F20",
+        "#0E0A0B"
+      ],
+      "primaryDevice" : "Mac",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYedAUKqE",
+        "canvaMediaId" : "MAHYe3EOSKQ",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "digitalArt",
+      "supportedDevices" : [
+        "Mac",
+        "iPad"
+      ],
+      "tags" : [
+        "space",
+        "black-hole",
+        "horizon",
+        "astronomy",
+        "mac",
+        "4k",
+        "canva-mcp"
+      ],
+      "title" : "Gargantua Event Horizon Accretion Disk 4K",
+      "updatedAt" : "2026-10-02T12:00:00Z"
+    },
+    {
+      "appearance" : "light",
+      "assets" : {
+        "fileSizeBytes" : 774894,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-138.jpg",
+        "perceptualHash" : "02f0f0f0f0e0c080",
+        "previewUrl" : "\/assets\/previews\/wp-138-preview.jpg",
+        "sha256" : "2dd2c279a2289b6ddd2b71472e07d70448193c90759c8c8e0ac07c8f11184164",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-138-thumb.jpg"
+      },
+      "category" : "Calm Pastel",
+      "collectionIds" : [
+        "col-mac-setups",
+        "col-pastel-calm",
+        "col-productivity-desk",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-02T12:00:00Z",
+      "description" : "Calm minimalist Nordic fjord at pastel sunrise with misty layers of lavender, blush pink, and slate blue mountains.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "16:9",
+          "device" : "Mac",
+          "height" : 2160,
+          "url" : "\/assets\/originals\/wp-138.jpg",
+          "width" : 3840
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-138.jpg",
+          "width" : 2732
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "16:9",
+        "height" : 2160,
+        "width" : 3840
+      },
+      "dominantColor" : "#ECBAB9",
+      "id" : "wp-138",
+      "isFeatured" : false,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 25.4
+      },
+      "mood" : "serene",
+      "orientation" : "landscape",
+      "palette" : [
+        "#ECBAB9",
+        "#FDD4BC",
+        "#E2B9C6",
+        "#7B82AE",
+        "#36507D"
+      ],
+      "primaryDevice" : "Mac",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeciZuHs",
+        "canvaMediaId" : "MAHYexHryZc",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#1E293B",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "illustration",
+      "supportedDevices" : [
+        "Mac",
+        "iPad"
+      ],
+      "tags" : [
+        "nordic",
+        "fjord",
+        "pastel",
+        "sunrise",
+        "mac",
+        "4k",
+        "canva-mcp"
+      ],
+      "title" : "Pastel Nordic Fjord Sunrise Mist 4K",
+      "updatedAt" : "2026-10-02T12:00:00Z"
+    },
+    {
+      "appearance" : "dark",
+      "assets" : {
+        "fileSizeBytes" : 2018709,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-139.jpg",
+        "perceptualHash" : "0262e0747068686c",
+        "previewUrl" : "\/assets\/previews\/wp-139-preview.jpg",
+        "sha256" : "434b88f30bb6986c0a80982de63f8394e31b0e8bbdcfc527f835f2f357502671",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-139-thumb.jpg"
+      },
+      "category" : "Landscapes & Nature",
+      "collectionIds" : [
+        "col-mac-setups",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-02T12:00:00Z",
+      "description" : "Misty Pacific Northwest ancient redwood forest with golden sunbeams filtering through emerald fern and pine canopy.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "16:9",
+          "device" : "Mac",
+          "height" : 2160,
+          "url" : "\/assets\/originals\/wp-139.jpg",
+          "width" : 3840
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-139.jpg",
+          "width" : 2732
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "16:9",
+        "height" : 2160,
+        "width" : 3840
+      },
+      "dominantColor" : "#725F31",
+      "id" : "wp-139",
+      "isFeatured" : false,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 24.6
+      },
+      "mood" : "serene",
+      "orientation" : "landscape",
+      "palette" : [
+        "#725F31",
+        "#3C3E20",
+        "#5F542F",
+        "#1D270A",
+        "#262008"
+      ],
+      "primaryDevice" : "Mac",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYedAUKqE",
+        "canvaMediaId" : "MAHYe9Cruns",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "photography",
+      "supportedDevices" : [
+        "Mac",
+        "iPad"
+      ],
+      "tags" : [
+        "forest",
+        "redwood",
+        "emerald",
+        "nature",
+        "mac",
+        "4k",
+        "canva-mcp"
+      ],
+      "title" : "Emerald Redwood Canopy & Golden Sunbeams 4K",
+      "updatedAt" : "2026-10-02T12:00:00Z"
+    },
+    {
+      "appearance" : "light",
+      "assets" : {
+        "fileSizeBytes" : 753316,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-140.jpg",
+        "perceptualHash" : "1e3c3029caaac6d4",
+        "previewUrl" : "\/assets\/previews\/wp-140-preview.jpg",
+        "sha256" : "9b1b37db8db796733dd0044b7c0942e425e86eb59b84511af3b0d43a4314970a",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-140-thumb.jpg"
+      },
+      "category" : "Artistic Textures & 3D",
+      "collectionIds" : [
+        "col-mac-setups",
+        "col-productivity-desk",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-02T12:00:00Z",
+      "description" : "Sculptural 3D matte porcelain and brushed champagne gold flowing architectural ribbons for Apple Studio Display.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "16:9",
+          "device" : "Mac",
+          "height" : 2160,
+          "url" : "\/assets\/originals\/wp-140.jpg",
+          "width" : 3840
+        },
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-140.jpg",
+          "width" : 2732
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "16:9",
+        "height" : 2160,
+        "width" : 3840
+      },
+      "dominantColor" : "#9F968A",
+      "id" : "wp-140",
+      "isFeatured" : false,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 23.8
+      },
+      "mood" : "focused",
+      "orientation" : "landscape",
+      "palette" : [
+        "#9F968A",
+        "#C2B09C",
+        "#9B8F80",
+        "#C6B7A7",
+        "#745C42"
+      ],
+      "primaryDevice" : "Mac",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYeciZuHs",
+        "canvaMediaId" : "MAHYe_7NZw0",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#1E293B",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "render3D",
+      "supportedDevices" : [
+        "Mac",
+        "iPad"
+      ],
+      "tags" : [
+        "3d",
+        "ceramic",
+        "gold",
+        "porcelain",
+        "mac",
+        "4k",
+        "canva-mcp"
+      ],
+      "title" : "3D Porcelain & Champagne Gold Ribbons 4K",
+      "updatedAt" : "2026-10-02T12:00:00Z"
+    },
+    {
+      "appearance" : "dark",
+      "assets" : {
+        "fileSizeBytes" : 1357556,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-141.jpg",
+        "perceptualHash" : "103074e4cd95d95d",
+        "previewUrl" : "\/assets\/previews\/wp-141-preview.jpg",
+        "sha256" : "65548a52221db8f8032d65d8b06a2789afff7e194ab88c2355f93647113a924f",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-141-thumb.jpg"
+      },
+      "category" : "Japanese Minimal",
+      "collectionIds" : [
+        "col-ipad-canvas",
+        "col-japanese-zen",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-02T12:00:00Z",
+      "description" : "Minimalist Japanese sumi-e ink and gold leaf illustration of two graceful koi fish swimming in a dark indigo pond.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-141.jpg",
+          "width" : 2732
+        },
+        {
+          "aspectRatio" : "16:9",
+          "device" : "Mac",
+          "height" : 2160,
+          "url" : "\/assets\/originals\/wp-141.jpg",
+          "width" : 3840
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "4:3",
+        "height" : 2048,
+        "width" : 2732
+      },
+      "dominantColor" : "#56514D",
+      "id" : "wp-141",
+      "isFeatured" : true,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 48
+      },
+      "mood" : "serene",
+      "orientation" : "landscape",
+      "palette" : [
+        "#56514D",
+        "#12181D",
+        "#151A1D",
+        "#31302E",
+        "#897247"
+      ],
+      "primaryDevice" : "iPad",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYedM2qjs",
+        "canvaMediaId" : "MAHYe6_ARjQ",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "illustration",
+      "supportedDevices" : [
+        "iPad",
+        "Mac"
+      ],
+      "tags" : [
+        "koi",
+        "japan",
+        "sumie",
+        "gold",
+        "ipad",
+        "canva-mcp"
+      ],
+      "title" : "Sumi-e Ink & Gold Leaf Koi Pond (iPad Pro)",
+      "updatedAt" : "2026-10-02T12:00:00Z"
+    },
+    {
+      "appearance" : "dark",
+      "assets" : {
+        "fileSizeBytes" : 1217661,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-142.jpg",
+        "perceptualHash" : "18c6d6f0f0fce0ea",
+        "previewUrl" : "\/assets\/previews\/wp-142-preview.jpg",
+        "sha256" : "3afa3c8d92adf42ea8e3fa7662127f0f021601308bea23ee0e5feed5b3e28d99",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-142-thumb.jpg"
+      },
+      "category" : "Space & Cosmos",
+      "collectionIds" : [
+        "col-ipad-canvas",
+        "col-cosmic-odyssey",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-02T12:00:00Z",
+      "description" : "Natural desert sandstone arch framing the glowing Milky Way galaxy core in a deep indigo night sky.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-142.jpg",
+          "width" : 2732
+        },
+        {
+          "aspectRatio" : "16:9",
+          "device" : "Mac",
+          "height" : 2160,
+          "url" : "\/assets\/originals\/wp-142.jpg",
+          "width" : 3840
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "4:3",
+        "height" : 2048,
+        "width" : 2732
+      },
+      "dominantColor" : "#91320F",
+      "id" : "wp-142",
+      "isFeatured" : true,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 47.2
+      },
+      "mood" : "mysterious",
+      "orientation" : "landscape",
+      "palette" : [
+        "#91320F",
+        "#151C46",
+        "#D7A9A5",
+        "#762009",
+        "#280F0E"
+      ],
+      "primaryDevice" : "iPad",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYedM2qjs",
+        "canvaMediaId" : "MAHYex5wDuE",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "photography",
+      "supportedDevices" : [
+        "iPad",
+        "Mac"
+      ],
+      "tags" : [
+        "milky-way",
+        "desert",
+        "arch",
+        "stars",
+        "ipad",
+        "canva-mcp"
+      ],
+      "title" : "Red Rock Arch & Milky Way Core (iPad Pro)",
+      "updatedAt" : "2026-10-02T12:00:00Z"
+    },
+    {
+      "appearance" : "dark",
+      "assets" : {
+        "fileSizeBytes" : 1067934,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-143.jpg",
+        "perceptualHash" : "136b76b5f0e1919b",
+        "previewUrl" : "\/assets\/previews\/wp-143-preview.jpg",
+        "sha256" : "f808bb80c93c4327e0f8742a1c86ee18686430bd3e104fd7947c8152e73038fa",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-143-thumb.jpg"
+      },
+      "category" : "Artistic Textures & 3D",
+      "collectionIds" : [
+        "col-ipad-canvas",
+        "col-staff-picks",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-02T12:00:00Z",
+      "description" : "Abstract 3D layered topographic contour waves in rich midnight plum, dusty rose, and warm copper metallic edges.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-143.jpg",
+          "width" : 2732
+        },
+        {
+          "aspectRatio" : "16:9",
+          "device" : "Mac",
+          "height" : 2160,
+          "url" : "\/assets\/originals\/wp-143.jpg",
+          "width" : 3840
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "4:3",
+        "height" : 2048,
+        "width" : 2732
+      },
+      "dominantColor" : "#5A2D31",
+      "id" : "wp-143",
+      "isFeatured" : false,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 21.4
+      },
+      "mood" : "warm",
+      "orientation" : "landscape",
+      "palette" : [
+        "#5A2D31",
+        "#B76D76",
+        "#A65F67",
+        "#2A151A",
+        "#241721"
+      ],
+      "primaryDevice" : "iPad",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYedM2qjs",
+        "canvaMediaId" : "MAHYe3o_e5M",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#FFFFFF",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "render3D",
+      "supportedDevices" : [
+        "iPad",
+        "Mac"
+      ],
+      "tags" : [
+        "topography",
+        "3d",
+        "velvet",
+        "copper",
+        "ipad",
+        "canva-mcp"
+      ],
+      "title" : "3D Velvet Topographic Contour Waves (iPad Pro)",
+      "updatedAt" : "2026-10-02T12:00:00Z"
+    },
+    {
+      "appearance" : "light",
+      "assets" : {
+        "fileSizeBytes" : 1421407,
+        "format" : "jpg",
+        "fullResUrl" : "\/assets\/originals\/wp-144.jpg",
+        "perceptualHash" : "18c3c6f2e8e2c2ea",
+        "previewUrl" : "\/assets\/previews\/wp-144-preview.jpg",
+        "sha256" : "5f79da27136cecd67a15f6f4748a9f2a1dcf1e5a99adc99a87ac217f05d77a07",
+        "thumbnailUrl" : "\/assets\/thumbnails\/wp-144-thumb.jpg"
+      },
+      "category" : "Productivity Clean",
+      "collectionIds" : [
+        "col-ipad-canvas",
+        "col-productivity-desk",
+        "col-pastel-calm",
+        "col-folder-drops"
+      ],
+      "contentVersion" : 1,
+      "createdAt" : "2026-10-02T12:00:00Z",
+      "description" : "Minimalist zen still-life geometric composition of matte matcha green, warm linen, and raw clay curves.",
+      "deviceVariants" : [
+        {
+          "aspectRatio" : "4:3",
+          "device" : "iPad",
+          "height" : 2048,
+          "url" : "\/assets\/originals\/wp-144.jpg",
+          "width" : 2732
+        },
+        {
+          "aspectRatio" : "16:9",
+          "device" : "Mac",
+          "height" : 2160,
+          "url" : "\/assets\/originals\/wp-144.jpg",
+          "width" : 3840
+        }
+      ],
+      "dimensions" : {
+        "aspectRatio" : "4:3",
+        "height" : 2048,
+        "width" : 2732
+      },
+      "dominantColor" : "#A69D8C",
+      "id" : "wp-144",
+      "isFeatured" : false,
+      "isLivePhotoReady" : false,
+      "isStaffPick" : true,
+      "metrics" : {
+        "downloads30d" : 0,
+        "downloads7d" : 0,
+        "favoritesCount" : 0,
+        "isEditorialFallback" : true,
+        "trendingScore" : 20.6
+      },
+      "mood" : "focused",
+      "orientation" : "landscape",
+      "palette" : [
+        "#A69D8C",
+        "#D7CEBE",
+        "#B3A795",
+        "#3F3120",
+        "#A29778"
+      ],
+      "primaryDevice" : "iPad",
+      "provenance" : {
+        "artist" : "Wallpaper Studio Atelier (via Canva MCP)",
+        "attributionRequired" : false,
+        "attributionText" : "Original artwork created for Wallpaper Studio. Free for personal Lock Screen & Desktop use.",
+        "canvaDesignId" : "DAHYedM2qjs",
+        "canvaMediaId" : "MAHYe1obCNw",
+        "license" : "Wallpaper Studio First-Party Free Redistribution License v1.0",
+        "sourceType" : "canva-mcp-verified-export"
+      },
+      "publicationStatus" : "published",
+      "safeZone" : {
+        "clockTopSafeNormalized" : 0.26,
+        "hasDynamicIslandSafeMargin" : true,
+        "recommendedClockColor" : "#1E293B",
+        "widgetBandSafeNormalized" : 0.36
+      },
+      "style" : "geometric",
+      "supportedDevices" : [
+        "iPad",
+        "Mac"
+      ],
+      "tags" : [
+        "matcha",
+        "zen",
+        "ceramics",
+        "minimal",
+        "ipad",
+        "canva-mcp"
+      ],
+      "title" : "Calm Matcha Ceramics Zen Still Life (iPad Pro)",
+      "updatedAt" : "2026-10-02T12:00:00Z"
     }
   ]
 }

@@ -277,6 +277,7 @@ export default function ProductsPage() {
                           alt={item.name}
                           fill
                           className="object-cover"
+                          sizes="64px"
                         />
                       </div>
                       <div>
@@ -371,6 +372,7 @@ export default function ProductsPage() {
                           alt={prod.title}
                           fill
                           className="object-cover"
+                          sizes="48px"
                         />
                       </div>
                     ) : (
@@ -400,6 +402,7 @@ export default function ProductsPage() {
                         alt={`${prod.title} Preview`}
                         fill
                         className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
                       />
                     </div>
                   )}

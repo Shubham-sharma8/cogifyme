@@ -21,13 +21,35 @@ export function CrispChat() {
     window.$crisp = window.$crisp || [];
     window.CRISP_WEBSITE_ID = websiteId;
 
-    if (!document.getElementById("crisp-chat-script")) {
-      const script = document.createElement("script");
-      script.id = "crisp-chat-script";
-      script.src = "https://client.crisp.chat/l.js";
-      script.async = true;
-      document.head.appendChild(script);
-    }
+    let injected = false;
+    const injectScript = () => {
+      if (injected) return;
+      injected = true;
+      if (!document.getElementById("crisp-chat-script")) {
+        const script = document.createElement("script");
+        script.id = "crisp-chat-script";
+        script.src = "https://client.crisp.chat/l.js";
+        script.async = true;
+        document.head.appendChild(script);
+      }
+    };
+
+    const events = ["scroll", "pointerdown", "keydown"] as const;
+    const onInteract = () => {
+      injectScript();
+      events.forEach((evt) => window.removeEventListener(evt, onInteract));
+    };
+
+    events.forEach((evt) =>
+      window.addEventListener(evt, onInteract, { passive: true, once: true })
+    );
+
+    const timer = window.setTimeout(injectScript, 3500);
+
+    return () => {
+      window.clearTimeout(timer);
+      events.forEach((evt) => window.removeEventListener(evt, onInteract));
+    };
   }, []);
 
   // Dynamically hide Crisp Chat on /admin pages to keep the admin dashboard clean

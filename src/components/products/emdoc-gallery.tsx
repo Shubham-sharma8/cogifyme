@@ -177,6 +177,7 @@ export const EmDocGallery = () => {
                 src="/brand/emdoc-icon.png"
                 alt="EmDoc"
                 fill
+                sizes="16px"
                 className="object-cover"
               />
             </div>
@@ -295,6 +296,7 @@ export const EmDocGallery = () => {
                   src="/brand/emdoc-icon.png"
                   alt="EmDoc"
                   fill
+                  sizes="24px"
                   className="object-cover"
                 />
               </div>

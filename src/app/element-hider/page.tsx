@@ -84,6 +84,7 @@ export default function ElementHiderPage() {
                 alt="Element Hider App Icon"
                 fill
                 priority
+                sizes="64px"
                 className="object-cover"
               />
             </div>

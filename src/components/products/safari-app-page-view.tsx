@@ -175,6 +175,7 @@ export function SafariAppPageView({ app }: SafariAppPageViewProps) {
                     alt={`${app.name} App Icon`}
                     fill
                     className="object-cover"
+                    sizes="96px"
                     priority
                   />
                 </div>

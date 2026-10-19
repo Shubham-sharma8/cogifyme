@@ -89,6 +89,7 @@ export default function ColourInvertPage() {
                 alt="Colour Invert App Icon"
                 fill
                 priority
+                sizes="64px"
                 className="object-cover"
               />
             </div>
