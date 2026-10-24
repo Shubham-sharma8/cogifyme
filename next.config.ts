@@ -203,6 +203,24 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/brand/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/invert/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
         source: "/sitemap.xml",
         headers: [
           {

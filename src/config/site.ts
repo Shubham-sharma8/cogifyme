@@ -1301,7 +1301,7 @@ export const siteConfig: SiteConfig = {
     platform: "Safari for macOS, iOS & iPadOS",
     appStoreUrl: "https://apps.apple.com/in/app/ad-blocker-for-safari/id6444582465",
     appStoreId: "6444582465",
-    icon: "/brand/Ad-Blocker/icon.png",
+    icon: "/brand/Ad-Blocker/icon-sm.webp",
     accentColor: "emerald",
     features: [
       {
@@ -1356,7 +1356,7 @@ export const siteConfig: SiteConfig = {
         id: "ab-mac-1",
         title: "Protection Shields Dashboard",
         subtitle: "Real-time Safari blocking controls on macOS",
-        image: "/brand/Ad-Blocker/mac/1.jpg",
+        image: "/brand/Ad-Blocker/mac/1.webp",
         tag: "macOS App",
         description: "Manage your native WebKit content blocking shields for Ads, Trackers, Popups, and Cosmetic cleanup on Mac.",
         highlights: ["Native macOS companion dashboard", "Independent protection toggles", "Zero background CPU usage"],
@@ -1394,7 +1394,7 @@ export const siteConfig: SiteConfig = {
         id: "ab-ios-1",
         title: "iOS Protection Dashboard",
         subtitle: "Full WebKit ad & tracker blocking on iPhone",
-        image: "/brand/Ad-Blocker/ios/1.jpg",
+        image: "/brand/Ad-Blocker/ios/1.webp",
         tag: "iOS Shield",
         description: "Enable comprehensive ad, tracker, and annoyance blocking across mobile Safari in seconds.",
         highlights: ["Version 2.0 native iOS engine", "Saves mobile data & OLED battery", "Zero tracking or telemetry"],
@@ -1600,7 +1600,7 @@ export const siteConfig: SiteConfig = {
     platform: "Web App & PWA (biodata.cogify.me) • Desktop & Mobile",
     pricingModel: "100% Free Forever — ₹0 / $0, No Signup, Zero Watermarks",
     icon: "/brand/Biodata/icon.png",
-    previewImage: "/brand/Biodata/studio-preview.png",
+    previewImage: "/brand/Biodata/studio-preview.webp",
     ogBanner: "/brand/Biodata/og-banner.png",
     mobilePreview: "/brand/Biodata/mobile-preview.png",
     shortDescription:

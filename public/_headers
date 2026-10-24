@@ -1,0 +1,27 @@
+# Cloudflare Workers Assets HTTP Headers Configuration
+
+# Far-future immutable caching for hashed Next.js bundles and brand assets
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/_next/image*
+  Cache-Control: public, max-age=31536000, immutable
+
+/brand/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/invert/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Daily revalidation for crawl artifacts
+/sitemap.xml
+  Cache-Control: public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400
+
+/robots.txt
+  Cache-Control: public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400
+
+/manifest.webmanifest
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400

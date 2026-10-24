@@ -17,10 +17,14 @@ export function BrandLogo({
   priority = false,
   variant = "auto",
 }: BrandLogoProps) {
+  const isSmall = width <= 64 && height <= 64;
+  const darkLogo = isSmall ? "/brand/logo-sm.webp" : "/brand/logo.png";
+  const whiteLogo = isSmall ? "/brand/logo_white-sm.webp" : "/brand/logo_white.png";
+
   if (variant === "white") {
     return (
       <Image
-        src="/brand/logo_white.png"
+        src={whiteLogo}
         alt="COGIFY Logo"
         width={width}
         height={height}
@@ -33,7 +37,7 @@ export function BrandLogo({
   if (variant === "dark") {
     return (
       <Image
-        src="/brand/logo.png"
+        src={darkLogo}
         alt="COGIFY Logo"
         width={width}
         height={height}
@@ -50,7 +54,7 @@ export function BrandLogo({
     >
       {/* Light theme: Dark logo */}
       <Image
-        src="/brand/logo.png"
+        src={darkLogo}
         alt="COGIFY Logo"
         width={width}
         height={height}
@@ -59,7 +63,7 @@ export function BrandLogo({
       />
       {/* Dark theme: White logo */}
       <Image
-        src="/brand/logo_white.png"
+        src={whiteLogo}
         alt="COGIFY Logo"
         width={width}
         height={height}

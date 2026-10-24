@@ -74,12 +74,12 @@ export const SafariExtensionsShowcase = () => {
         ...siteConfig.elementHider,
         slug: "element-hider",
         shortName: "Element Hider",
-        icon: "/brand/Element-Hider/icon.png",
+        icon: "/brand/Element-Hider/icon-sm.webp",
       },
       accent: "purple",
       badgeText: "v1.0 Live • Point, Tap & Hide",
       iconComponent: <EyeOff className="w-4 h-4 text-purple-600 dark:text-purple-400" />,
-      mobileImage: siteConfig.elementHider.screenshots[0]?.image ?? "/brand/Element-Hider/icon.png",
+      mobileImage: siteConfig.elementHider.screenshots[0]?.image ?? "/brand/Element-Hider/icon-sm.webp",
       largeImage:
         siteConfig.elementHider.screenshotsMac?.[0]?.image ??
         "/brand/Element-Hider/Working_Mac.png",
@@ -90,12 +90,12 @@ export const SafariExtensionsShowcase = () => {
         ...siteConfig.invert,
         slug: "invert",
         shortName: "Colour Invert",
-        icon: "/brand/Invert/icon.png",
+        icon: "/brand/Invert/icon-sm.webp",
       },
       accent: "sky",
       badgeText: "v1.0 Live • Smart Dark Mode",
       iconComponent: <Contrast className="w-4 h-4 text-sky-600 dark:text-sky-400" />,
-      mobileImage: siteConfig.invert.screenshotsIos[0]?.image ?? "/brand/Invert/icon.png",
+      mobileImage: siteConfig.invert.screenshotsIos[0]?.image ?? "/brand/Invert/icon-sm.webp",
       largeImage:
         siteConfig.invert.screenshotsMac[0]?.image ??
         "/brand/Invert/Mac/in_Safari.png",
