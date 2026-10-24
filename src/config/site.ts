@@ -412,7 +412,7 @@ export const siteConfig: SiteConfig = {
         id: "home",
         title: "Document Workstation & Reader",
         subtitle: "Multi-tab document reader with instant tile rendering and zero telemetry",
-        image: "/brand/EmDoc_home.png",
+        image: "/brand/EmDoc_home.webp",
         tag: "Core Reader",
         description:
           "Native macOS PDF viewer with continuous and page-by-page scrolling, instant zoom, multi-tab document bar, sidebar thumbnails, bookmarks, and layer navigation.",
@@ -427,7 +427,7 @@ export const siteConfig: SiteConfig = {
         id: "organise",
         title: "Visual Page Organizer",
         subtitle: "High-productivity grid view for structural document management",
-        image: "/brand/Organise.png",
+        image: "/brand/Organise.webp",
         tag: "Page Management",
         description:
           "Comprehensive thumbnail grid allowing you to drag-and-drop reorder pages, rotate left/right, duplicate, cut, copy, paste, insert blank pages, and extract custom page ranges.",
@@ -442,7 +442,7 @@ export const siteConfig: SiteConfig = {
         id: "edit",
         title: "Full PDF Editing & Ink Palette",
         subtitle: "Drawing, annotations, callouts, and official security stamps",
-        image: "/brand/edit_pdf.png",
+        image: "/brand/edit_pdf.webp",
         tag: "Vector Editing",
         description:
           "Rich floating tool palette with pressure-responsive pen and pencil, highlighters, geometric markup, sticky notes, and certified rubber stamps (Approved, Confidential, Draft, Received).",
@@ -457,7 +457,7 @@ export const siteConfig: SiteConfig = {
         id: "compress",
         title: "100% On-Device Compression",
         subtitle: "Reduce PDF file sizes dramatically without cloud uploads",
-        image: "/brand/compress.png",
+        image: "/brand/compress.webp",
         tag: "Offline Optimizer",
         description:
           "Compress bulky PDFs with 3 intelligent presets (Balanced, Smallest Size, Highest Quality) or enter a custom target MB ceiling (0.5MB, 1MB, 2MB, 5MB). Runs completely on your device.",
@@ -472,7 +472,7 @@ export const siteConfig: SiteConfig = {
         id: "watermark",
         title: "Precision Watermark Engine",
         subtitle: "Angle-calibrated security stamps and background text overlays",
-        image: "/brand/watermark.png",
+        image: "/brand/watermark.webp",
         tag: "Security Overlays",
         description:
           "Apply customized watermarks across document pages with one click presets (CONFIDENTIAL, DRAFT, SAMPLE, COPY), rotation angles (-45°, 0°, 45°, 90°), opacity sliders, and live preview.",
@@ -487,7 +487,7 @@ export const siteConfig: SiteConfig = {
         id: "header-footer",
         title: "Running Headers & Bates Numbering",
         subtitle: "Interactive macro placement for formal documentation and legal filings",
-        image: "/brand/header_custom.png",
+        image: "/brand/header_custom.webp",
         tag: "Document Layout",
         description:
           "Easily configure left, center, and right headers and footers. Insert dynamic macros for Page Number, Total Pages, Page 1 of N, Date, Document Title, and Author with real-time preview.",
@@ -502,7 +502,7 @@ export const siteConfig: SiteConfig = {
         id: "print",
         title: "Professional Print & Imposition",
         subtitle: "Advanced paper sizing, booklet layout, and macOS printer integration",
-        image: "/brand/print.png",
+        image: "/brand/print.webp",
         tag: "Print Engine",
         description:
           "Complete macOS print workstation supporting paper sizes (A4, Letter, Legal), multi-page imposition, auto-rotation scaling, collating, and direct high-resolution PDF generation.",
@@ -517,7 +517,7 @@ export const siteConfig: SiteConfig = {
         id: "theme",
         title: "Reading Canvas Themes",
         subtitle: "Tailored visual ergonomics for prolonged reading and review",
-        image: "/brand/Theme.png",
+        image: "/brand/Theme.webp",
         tag: "Visual Ergonomics",
         description:
           "Switch your reading canvas instantly between Light, Dark, and Sepia modes to protect your eyes during extended legal document review or low-light coding sessions.",
@@ -1059,7 +1059,7 @@ export const siteConfig: SiteConfig = {
     platform: "Safari for iOS, iPadOS & macOS",
     appStoreUrl: "https://apps.apple.com/in/app/readereasy/id6811590518",
     appStoreId: "6811590518",
-    icon: "/brand/ReaderEasy/icon.jpg",
+    icon: "/brand/ReaderEasy/icon-sm.webp",
     accentColor: "amber",
     features: [
       {
@@ -1207,7 +1207,7 @@ export const siteConfig: SiteConfig = {
     platform: "Safari for iOS, iPadOS & macOS",
     appStoreUrl: "https://apps.apple.com/in/app/webclear/id6811615247",
     appStoreId: "6811615247",
-    icon: "/brand/WebClear/icon.jpg",
+    icon: "/brand/WebClear/icon-sm.webp",
     accentColor: "sky",
     features: [
       {
@@ -1503,7 +1503,7 @@ export const siteConfig: SiteConfig = {
     platform: "Safari for macOS, iOS & iPadOS",
     appStoreUrl: "https://apps.apple.com/in/app/weblenses/id6814188354?mt=12",
     appStoreId: "6814188354",
-    icon: "/brand/WebLenses/icon.png",
+    icon: "/brand/WebLenses/icon-sm.webp",
     accentColor: "violet",
     features: [
       {
@@ -1643,7 +1643,7 @@ export const siteConfig: SiteConfig = {
     version: "v2.4 Web Studio",
     platform: "Web App & PWA (biodata.cogify.me) • Desktop & Mobile",
     pricingModel: "100% Free Forever — ₹0 / $0, No Signup, Zero Watermarks",
-    icon: "/brand/Biodata/icon.png",
+    icon: "/brand/Biodata/icon-sm.webp",
     previewImage: "/brand/Biodata/studio-preview.webp",
     ogBanner: "/brand/Biodata/og-banner.png",
     mobilePreview: "/brand/Biodata/mobile-preview.png",
@@ -1793,7 +1793,7 @@ export const siteConfig: SiteConfig = {
       status: "In App Store Pipeline (v1.0)",
       platforms: "macOS, iOS & iPadOS (Safari)",
       category: "Utilities / Productivity",
-      icon: "/brand/Full-Page-Capture/icon.png",
+      icon: "/brand/Full-Page-Capture/icon-sm.webp",
       previewImage: "/brand/Full-Page-Capture/mac/1.jpg",
       screenshots: [
         "/brand/Full-Page-Capture/mac/1.jpg",
@@ -1818,7 +1818,7 @@ export const siteConfig: SiteConfig = {
       status: "In App Store Pipeline (v1.0)",
       platforms: "iOS & iPadOS (Safari)",
       category: "Developer Tools",
-      icon: "/brand/Web-Inspection/icon.png",
+      icon: "/brand/Web-Inspection/icon-sm.webp",
       previewImage: "/brand/Web-Inspection/ios/1.jpg",
       screenshots: [
         "/brand/Web-Inspection/ios/1.jpg",

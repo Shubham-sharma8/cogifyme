@@ -12,8 +12,6 @@ import {
   Monitor,
   Cpu,
   Heart,
-  HardDrive,
-  FileCode2,
 } from "lucide-react";
 import { MacAppConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
@@ -30,91 +28,91 @@ interface MacAppPageViewProps {
 const accentStyles = {
   emerald: {
     badge:
-      "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
+      "border-emerald-500/30 bg-emerald-500/10 text-emerald-800 dark:text-emerald-300",
     glow: "from-emerald-600/15 via-teal-600/8 to-transparent",
-    text: "from-emerald-600 via-teal-600 to-cyan-600 dark:from-emerald-400 dark:via-teal-300 dark:to-cyan-400",
+    text: "from-emerald-700 via-teal-700 to-cyan-700 dark:from-emerald-400 dark:via-teal-300 dark:to-cyan-400",
     activeTab:
-      "bg-emerald-600 dark:bg-emerald-500 text-white dark:text-zinc-950 shadow-md shadow-emerald-500/20",
+      "bg-emerald-700 dark:bg-emerald-500 text-white dark:text-zinc-950 shadow-md shadow-emerald-500/20",
     borderActive:
       "border-emerald-500/50 bg-emerald-500/8 dark:border-emerald-500/40 dark:bg-emerald-500/10 shadow-xs",
     dot: "bg-emerald-500 dark:bg-emerald-400",
-    iconText: "text-emerald-600 dark:text-emerald-400",
-    btn: "bg-emerald-600 hover:bg-emerald-500 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-zinc-950 font-semibold shadow-lg shadow-emerald-500/20",
+    iconText: "text-emerald-700 dark:text-emerald-400",
+    btn: "bg-emerald-700 hover:bg-emerald-600 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white dark:text-zinc-950 font-semibold shadow-lg shadow-emerald-500/20",
   },
   indigo: {
     badge:
-      "border-indigo-500/30 bg-indigo-500/10 text-indigo-700 dark:text-indigo-300",
+      "border-indigo-500/30 bg-indigo-500/10 text-indigo-800 dark:text-indigo-300",
     glow: "from-indigo-600/15 via-purple-600/8 to-transparent",
-    text: "from-indigo-600 via-purple-600 to-sky-600 dark:from-indigo-400 dark:via-purple-300 dark:to-sky-400",
+    text: "from-indigo-700 via-purple-700 to-sky-700 dark:from-indigo-400 dark:via-purple-300 dark:to-sky-400",
     activeTab: "bg-indigo-600 dark:bg-indigo-500 text-white shadow-md shadow-indigo-500/20",
     borderActive:
       "border-indigo-500/50 bg-indigo-500/8 dark:border-indigo-500/40 dark:bg-indigo-500/10 shadow-xs",
     dot: "bg-indigo-500 dark:bg-indigo-400",
-    iconText: "text-indigo-600 dark:text-indigo-400",
+    iconText: "text-indigo-700 dark:text-indigo-400",
     btn: "bg-indigo-600 hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400 text-white font-semibold shadow-lg shadow-indigo-500/20",
   },
   amber: {
     badge:
       "border-amber-500/35 bg-amber-500/10 text-amber-800 dark:text-amber-300",
     glow: "from-amber-500/15 via-orange-500/8 to-transparent",
-    text: "from-amber-600 via-orange-600 to-amber-700 dark:from-amber-300 dark:via-orange-300 dark:to-yellow-200",
+    text: "from-amber-700 via-orange-700 to-amber-800 dark:from-amber-300 dark:via-orange-300 dark:to-yellow-200",
     activeTab:
       "bg-amber-500 text-zinc-950 shadow-md shadow-amber-500/20",
     borderActive:
       "border-amber-500/50 bg-amber-500/10 dark:border-amber-500/40 dark:bg-amber-500/10 shadow-xs",
     dot: "bg-amber-500 dark:bg-amber-400",
-    iconText: "text-amber-600 dark:text-amber-400",
+    iconText: "text-amber-700 dark:text-amber-400",
     btn: "bg-amber-500 hover:bg-amber-400 text-zinc-950 font-semibold shadow-lg shadow-amber-500/20",
   },
   sky: {
     badge:
-      "border-sky-500/30 bg-sky-500/10 text-sky-700 dark:text-sky-300",
+      "border-sky-500/30 bg-sky-500/10 text-sky-800 dark:text-sky-300",
     glow: "from-sky-500/15 via-cyan-500/8 to-transparent",
-    text: "from-sky-600 via-cyan-600 to-blue-600 dark:from-sky-400 dark:via-cyan-300 dark:to-blue-400",
+    text: "from-sky-700 via-cyan-700 to-blue-700 dark:from-sky-400 dark:via-cyan-300 dark:to-blue-400",
     activeTab:
-      "bg-sky-600 dark:bg-sky-500 text-white dark:text-zinc-950 shadow-md shadow-sky-500/20",
+      "bg-sky-700 dark:bg-sky-500 text-white dark:text-zinc-950 shadow-md shadow-sky-500/20",
     borderActive:
       "border-sky-500/50 bg-sky-500/8 dark:border-sky-500/40 dark:bg-sky-500/10 shadow-xs",
     dot: "bg-sky-500 dark:bg-sky-400",
-    iconText: "text-sky-600 dark:text-sky-400",
-    btn: "bg-sky-600 hover:bg-sky-500 dark:bg-sky-500 dark:hover:bg-sky-400 text-white dark:text-zinc-950 font-semibold shadow-lg shadow-sky-500/20",
+    iconText: "text-sky-700 dark:text-sky-400",
+    btn: "bg-sky-700 hover:bg-sky-600 dark:bg-sky-500 dark:hover:bg-sky-400 text-white dark:text-zinc-950 font-semibold shadow-lg shadow-sky-500/20",
   },
   cyan: {
     badge:
-      "border-cyan-500/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300",
+      "border-cyan-500/30 bg-cyan-500/10 text-cyan-800 dark:text-cyan-300",
     glow: "from-cyan-500/15 via-sky-500/8 to-transparent",
-    text: "from-cyan-600 via-sky-600 to-indigo-600 dark:from-cyan-400 dark:via-sky-300 dark:to-indigo-400",
+    text: "from-cyan-700 via-sky-700 to-indigo-700 dark:from-cyan-400 dark:via-sky-300 dark:to-indigo-400",
     activeTab:
-      "bg-cyan-600 dark:bg-cyan-500 text-white dark:text-zinc-950 shadow-md shadow-cyan-500/20",
+      "bg-cyan-700 dark:bg-cyan-500 text-white dark:text-zinc-950 shadow-md shadow-cyan-500/20",
     borderActive:
       "border-cyan-500/50 bg-cyan-500/8 dark:border-cyan-500/40 dark:bg-cyan-500/10 shadow-xs",
     dot: "bg-cyan-500 dark:bg-cyan-400",
-    iconText: "text-cyan-600 dark:text-cyan-400",
-    btn: "bg-cyan-600 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-400 text-white dark:text-zinc-950 font-semibold shadow-lg shadow-cyan-500/20",
+    iconText: "text-cyan-700 dark:text-cyan-400",
+    btn: "bg-cyan-700 hover:bg-cyan-600 dark:bg-cyan-500 dark:hover:bg-cyan-400 text-white dark:text-zinc-950 font-semibold shadow-lg shadow-cyan-500/20",
   },
   rose: {
     badge:
-      "border-rose-500/30 bg-rose-500/10 text-rose-700 dark:text-rose-300",
+      "border-rose-500/30 bg-rose-500/10 text-rose-800 dark:text-rose-300",
     glow: "from-rose-500/15 via-pink-500/8 to-transparent",
-    text: "from-rose-600 via-pink-600 to-orange-600 dark:from-rose-400 dark:via-pink-300 dark:to-orange-300",
-    activeTab: "bg-rose-600 dark:bg-rose-500 text-white shadow-md shadow-rose-500/20",
+    text: "from-rose-700 via-pink-700 to-orange-700 dark:from-rose-400 dark:via-pink-300 dark:to-orange-300",
+    activeTab: "bg-rose-700 dark:bg-rose-500 text-white shadow-md shadow-rose-500/20",
     borderActive:
       "border-rose-500/50 bg-rose-500/8 dark:border-rose-500/40 dark:bg-rose-500/10 shadow-xs",
     dot: "bg-rose-500 dark:bg-rose-400",
-    iconText: "text-rose-600 dark:text-rose-400",
-    btn: "bg-rose-600 hover:bg-rose-500 dark:bg-rose-500 dark:hover:bg-rose-400 text-white font-semibold shadow-lg shadow-rose-500/20",
+    iconText: "text-rose-700 dark:text-rose-400",
+    btn: "bg-rose-700 hover:bg-rose-600 dark:bg-rose-500 dark:hover:bg-rose-400 text-white font-semibold shadow-lg shadow-rose-500/20",
   },
   violet: {
     badge:
-      "border-violet-500/30 bg-violet-500/10 text-violet-700 dark:text-violet-300",
+      "border-violet-500/30 bg-violet-500/10 text-violet-800 dark:text-violet-300",
     glow: "from-violet-600/15 via-fuchsia-600/8 to-transparent",
-    text: "from-violet-600 via-fuchsia-600 to-indigo-600 dark:from-violet-400 dark:via-fuchsia-300 dark:to-indigo-300",
-    activeTab: "bg-violet-600 dark:bg-violet-500 text-white shadow-md shadow-violet-500/20",
+    text: "from-violet-700 via-fuchsia-700 to-indigo-700 dark:from-violet-400 dark:via-fuchsia-300 dark:to-indigo-300",
+    activeTab: "bg-violet-700 dark:bg-violet-500 text-white shadow-md shadow-violet-500/20",
     borderActive:
       "border-violet-500/50 bg-violet-500/8 dark:border-violet-500/40 dark:bg-violet-500/10 shadow-xs",
     dot: "bg-violet-500 dark:bg-violet-400",
-    iconText: "text-violet-600 dark:text-violet-400",
-    btn: "bg-violet-600 hover:bg-violet-500 dark:bg-violet-500 dark:hover:bg-violet-400 text-white font-semibold shadow-lg shadow-violet-500/20",
+    iconText: "text-violet-700 dark:text-violet-400",
+    btn: "bg-violet-700 hover:bg-violet-600 dark:bg-violet-500 dark:hover:bg-violet-400 text-white font-semibold shadow-lg shadow-violet-500/20",
   },
 };
 
@@ -144,9 +142,9 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
           />
           <Link
             href={`/${app.slug}/privacy`}
-            className="text-xs font-mono text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors inline-flex items-center gap-1.5"
+            className="text-xs font-mono text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors inline-flex items-center gap-1.5"
           >
-            <Shield className="w-3.5 h-3.5 text-emerald-500" />
+            <Shield className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
             <span>{app.shortName} Privacy Policy</span>
           </Link>
         </div>
@@ -208,7 +206,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                 </Link>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-500 dark:text-zinc-400">
+              <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-600 dark:text-zinc-400">
                 <span>✓ Signed with Apple Developer ID (9TKKPN6F59)</span>
                 <span>✓ {app.minMacOsVersion}</span>
                 <span>✓ Zero Subscriptions or Cloud Accounts</span>
@@ -217,7 +215,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
 
             {/* Right Key Guarantees Card */}
             <div className="lg:col-span-4 rounded-2xl border border-zinc-200/80 dark:border-white/10 bg-zinc-50/90 dark:bg-zinc-950/70 p-6 space-y-4">
-              <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+              <div className="text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
                 Cogify Native macOS Standard
               </div>
               <div className="space-y-3.5">
@@ -255,7 +253,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                   </div>
                 </div>
               </div>
-              <div className="pt-3 border-t border-zinc-200 dark:border-white/10 flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
+              <div className="pt-3 border-t border-zinc-200 dark:border-white/10 flex items-center justify-between text-xs text-zinc-600 dark:text-zinc-400">
                 <span>Bundle ID: {app.bundleId}</span>
                 <a
                   href={app.downloadUrl}
@@ -274,7 +272,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
           <section className="mb-20">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
               <div>
-                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-2">
+                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-indigo-700 dark:text-indigo-400 mb-2">
                   <Monitor className="w-3.5 h-3.5" />
                   <span>macOS Retina Studio Tour ({currentScreenshots.length} Screens)</span>
                 </div>
@@ -314,7 +312,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                       }`}
                     >
                       <div className="flex items-center justify-between gap-2 mb-1">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
                           {numStr} • {shot.tag}
                         </span>
                         {isActive && (
@@ -372,29 +370,27 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                   </div>
                 </div>
 
-                {/* Thumbnail Strip */}
-                <div className="mt-4 flex items-center gap-2 overflow-x-auto max-w-full pb-1">
-                  {currentScreenshots.map((shot, idx) => (
-                    <button
-                      key={shot.id}
-                      type="button"
-                      onClick={() => setActiveIndex(idx)}
-                      className={`relative w-16 h-10 rounded-lg overflow-hidden border transition-all shrink-0 cursor-pointer ${
-                        idx === safeIndex
-                          ? "border-indigo-500 ring-2 ring-indigo-500/40 scale-105"
-                          : "border-zinc-300 dark:border-white/10 opacity-60 hover:opacity-100"
-                      }`}
-                      aria-label={`View screenshot ${idx + 1}: ${shot.title}`}
-                    >
-                      <Image
-                        src={shot.image}
-                        alt={shot.title}
-                        fill
-                        className="object-cover"
-                        sizes="64px"
-                      />
-                    </button>
-                  ))}
+                 {/* Step Selector Pills */}
+                <div className="mt-4 flex items-center gap-1.5 overflow-x-auto max-w-full pb-1">
+                  {currentScreenshots.map((shot, idx) => {
+                    const numStr = idx + 1 < 10 ? `0${idx + 1}` : `${idx + 1}`;
+                    return (
+                      <button
+                        key={shot.id}
+                        type="button"
+                        onClick={() => setActiveIndex(idx)}
+                        title={`View screenshot ${idx + 1}: ${shot.title}`}
+                        aria-pressed={idx === safeIndex}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-mono border transition-all shrink-0 cursor-pointer ${
+                          idx === safeIndex
+                            ? "bg-indigo-600 text-white border-indigo-600 shadow-xs"
+                            : "bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border-zinc-300 dark:border-white/10 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                        }`}
+                      >
+                        {numStr}
+                      </button>
+                    );
+                  })}
                 </div>
 
                 <div className="mt-3 text-center">
@@ -445,7 +441,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
           <div className="lg:col-span-5 rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/40 p-8 flex flex-col justify-between shadow-2xs dark:shadow-none">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-3">
+              <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-400 mb-3">
                 <Shield className="h-4 w-4" />
                 Product Philosophy &amp; Privacy
               </div>
@@ -461,14 +457,14 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
               <a
                 href={app.downloadUrl}
                 download
-                className="inline-flex items-center gap-2 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline"
+                className="inline-flex items-center gap-2 text-xs font-bold text-indigo-700 dark:text-indigo-400 hover:underline"
               >
                 <Download className="h-3.5 w-3.5" />
                 Download {app.shortName}.dmg ({app.appSize})
               </a>
               <Link
                 href={`/${app.slug}/privacy`}
-                className="text-xs font-mono text-zinc-500 hover:text-zinc-900 dark:hover:text-white underline"
+                className="text-xs font-mono text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white underline"
               >
                 Read Privacy Policy
               </Link>
@@ -485,7 +481,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                   key={spec.label}
                   className="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1"
                 >
-                  <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                  <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
                     {spec.label}
                   </span>
                   <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">

@@ -17,7 +17,7 @@ import {
   ChevronRight,
   Sparkles,
 } from "lucide-react";
-import { siteConfig, liveMacApps } from "@/config/site";
+import { siteConfig } from "@/config/site";
 
 interface MacShowcaseItem {
   slug: string;
@@ -169,7 +169,6 @@ export const MacOSAppsShowcase = () => {
 
         {/* App Selector Cards with Instant 1-Click Download Pill */}
         <div
-          role="tablist"
           aria-label="Native macOS Workstations Catalog"
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-10"
         >
@@ -178,23 +177,18 @@ export const MacOSAppsShowcase = () => {
             return (
               <div
                 key={app.slug}
-                role="tab"
-                aria-selected={isSelected}
-                tabIndex={0}
-                onClick={() => handleSelectApp(idx)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    handleSelectApp(idx);
-                  }
-                }}
-                className={`p-4 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between gap-3 ${
+                className={`p-4 rounded-2xl border text-left transition-all duration-200 flex flex-col justify-between gap-3 ${
                   isSelected
                     ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 border-zinc-900 dark:border-white shadow-xl"
                     : "bg-white dark:bg-zinc-900/60 hover:bg-zinc-100/80 dark:hover:bg-zinc-900 border-zinc-200/80 dark:border-white/10 text-zinc-900 dark:text-white"
                 }`}
               >
-                <div className="flex items-start gap-3.5">
+                <button
+                  type="button"
+                  aria-pressed={isSelected}
+                  onClick={() => handleSelectApp(idx)}
+                  className="w-full text-left flex items-start gap-3.5 cursor-pointer"
+                >
                   <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-zinc-200/60 dark:border-white/10 shrink-0 bg-white dark:bg-zinc-800">
                     <Image
                       src={app.icon}
@@ -210,8 +204,8 @@ export const MacOSAppsShowcase = () => {
                       <span
                         className={`text-[10px] font-mono px-2 py-0.5 rounded-full shrink-0 ${
                           isSelected
-                            ? "bg-emerald-500/20 text-emerald-300 dark:bg-emerald-500/15 dark:text-emerald-700"
-                            : "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
+                            ? "bg-emerald-500/20 text-emerald-300 dark:bg-emerald-500/15 dark:text-emerald-800"
+                            : "bg-emerald-500/10 text-emerald-800 dark:text-emerald-300"
                         }`}
                       >
                         {app.badgeText}
@@ -227,17 +221,16 @@ export const MacOSAppsShowcase = () => {
                       {app.tagline}
                     </p>
                   </div>
-                </div>
+                </button>
 
-                <div className="pt-2.5 border-t border-white/10 dark:border-zinc-800/40 flex items-center justify-between gap-2">
+                <div className="pt-2.5 border-t border-zinc-200/20 dark:border-zinc-800/40 flex items-center justify-between gap-2">
                   <a
                     href={app.downloadUrl}
                     download
-                    onClick={(e) => e.stopPropagation()}
                     className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-bold transition-colors ${
                       isSelected
                         ? "bg-emerald-500 hover:bg-emerald-400 text-zinc-950"
-                        : "bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25"
+                        : "bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-800 dark:text-emerald-300 border border-emerald-500/25"
                     }`}
                   >
                     <Download className="w-3.5 h-3.5" />
@@ -245,14 +238,13 @@ export const MacOSAppsShowcase = () => {
                   </a>
                   <Link
                     href={app.href}
-                    onClick={(e) => e.stopPropagation()}
                     className={`text-[11px] font-semibold inline-flex items-center gap-1 hover:underline ${
                       isSelected
-                        ? "text-zinc-300 dark:text-zinc-700"
-                        : "text-indigo-600 dark:text-indigo-400"
+                        ? "text-zinc-200 dark:text-zinc-700"
+                        : "text-indigo-700 dark:text-indigo-400"
                     }`}
                   >
-                    <span>Details</span>
+                    <span>Explore {app.shortName}</span>
                     <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
@@ -330,28 +322,28 @@ export const MacOSAppsShowcase = () => {
                 </div>
               </div>
 
-              {/* Screenshot Thumbnail Strip */}
-              <div className="flex items-center gap-2 overflow-x-auto pb-1">
-                {active.screenshots.map((shot, sIdx) => (
-                  <button
-                    key={shot.image}
-                    type="button"
-                    onClick={() => setShotIndex(sIdx)}
-                    className={`relative w-20 aspect-[16/10] rounded-lg overflow-hidden border shrink-0 transition-all cursor-pointer ${
-                      shotIndex === sIdx
-                        ? "border-indigo-500 ring-2 ring-indigo-500/40 scale-105"
-                        : "border-zinc-200 dark:border-white/10 opacity-60 hover:opacity-100"
-                    }`}
-                  >
-                    <Image
-                      src={shot.image}
-                      alt={shot.title}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
-                    />
-                  </button>
-                ))}
+              {/* Screenshot Step Selector Pills */}
+              <div className="flex items-center gap-1.5 overflow-x-auto pb-1">
+                {active.screenshots.map((shot, sIdx) => {
+                  const numStr = sIdx + 1 < 10 ? `0${sIdx + 1}` : `${sIdx + 1}`;
+                  return (
+                    <button
+                      key={shot.image}
+                      type="button"
+                      onClick={() => setShotIndex(sIdx)}
+                      title={`View ${active.shortName} screenshot ${sIdx + 1}: ${shot.title}`}
+                      aria-pressed={shotIndex === sIdx}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-medium border shrink-0 transition-all cursor-pointer flex items-center gap-1.5 ${
+                        shotIndex === sIdx
+                          ? "bg-indigo-600 text-white border-indigo-600 shadow-xs"
+                          : "bg-zinc-100 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 border-zinc-200 dark:border-white/10 hover:bg-zinc-200/70 dark:hover:bg-zinc-800"
+                      }`}
+                    >
+                      <span className="font-mono text-[10px] opacity-80">{numStr}</span>
+                      <span className="truncate max-w-[140px]">{shot.title}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -374,13 +366,13 @@ export const MacOSAppsShowcase = () => {
                       />
                     </div>
                     <div>
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold">
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-semibold">
                         {app.badgeText} • Signed Developer ID
                       </span>
                       <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">
                         {app.name}
                       </h3>
-                      <p className="text-xs text-zinc-500 font-mono">{app.platform}</p>
+                      <p className="text-xs text-zinc-600 dark:text-zinc-400 font-mono">{app.platform}</p>
                     </div>
                   </div>
 

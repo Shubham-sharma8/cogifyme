@@ -174,7 +174,7 @@ export const EmDocGallery = () => {
           <div className="flex items-center space-x-2 text-xs font-medium text-zinc-800 dark:text-zinc-200">
             <div className="relative w-4 h-4 rounded overflow-hidden">
               <Image
-                src="/brand/emdoc-icon.png"
+                src="/brand/emdoc-icon-sm.webp"
                 alt="EmDoc"
                 fill
                 sizes="16px"
@@ -293,7 +293,7 @@ export const EmDocGallery = () => {
             <div className="flex items-center gap-3">
               <div className="relative w-6 h-6 rounded overflow-hidden">
                 <Image
-                  src="/brand/emdoc-icon.png"
+                  src="/brand/emdoc-icon-sm.webp"
                   alt="EmDoc"
                   fill
                   sizes="24px"

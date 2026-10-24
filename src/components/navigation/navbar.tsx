@@ -19,14 +19,14 @@ const appLinks = [
     name: "Biodata Maker Studio",
     href: "/biodata",
     badge: "biodata.cogify.me",
-    icon: "/brand/Biodata/icon.png",
+    icon: "/brand/Biodata/icon-sm.webp",
     desc: "242 cultural templates, 9 languages & 300-DPI PDF / Word export",
   },
   {
     name: "EmDoc Workstation",
     href: "/products/emdoc",
     badge: "macOS DMG",
-    icon: "/brand/emdoc-icon.png",
+    icon: "/brand/emdoc-icon-sm.webp",
     desc: "5.0 MB air-gapped PDF editor, merger & compressor",
   },
   {
@@ -68,42 +68,42 @@ const appLinks = [
     name: "Ad Blocker - For Safari",
     href: "/ad-blocker",
     badge: "iOS & Mac",
-    icon: "/brand/Ad-Blocker/icon.png",
+    icon: "/brand/Ad-Blocker/icon-sm.webp",
     desc: "75,000+ native content blocking rules & privacy shield",
   },
   {
     name: "ReaderEasy",
     href: "/readereasy",
     badge: "iOS & Mac",
-    icon: "/brand/ReaderEasy/icon.jpg",
+    icon: "/brand/ReaderEasy/icon-sm.webp",
     desc: "Distraction-free article reader & Bionic reading mode",
   },
   {
     name: "WebClear",
     href: "/webclear",
     badge: "iOS & Mac",
-    icon: "/brand/WebClear/icon.jpg",
+    icon: "/brand/WebClear/icon-sm.webp",
     desc: "One-tap per-site cookie, cache, LocalStorage & URL cleaner",
   },
   {
     name: "WebLenses",
     href: "/weblenses",
     badge: "iOS & Mac",
-    icon: "/brand/WebLenses/icon.png",
+    icon: "/brand/WebLenses/icon-sm.webp",
     desc: "Core Web Vitals, SEO, accessibility & security auditor",
   },
   {
     name: "Element Hider",
     href: "/element-hider",
     badge: "iOS & Mac",
-    icon: "/brand/Element-Hider/icon.png",
+    icon: "/brand/Element-Hider/icon-sm.webp",
     desc: "Tap any distracting webpage element to hide it forever",
   },
   {
     name: "Colour Invert",
     href: "/invert",
     badge: "iOS & Mac",
-    icon: "/brand/Invert/icon.png",
+    icon: "/brand/Invert/icon-sm.webp",
     desc: "Smart dark mode & colour inversion with Media Shield",
   },
 ];
@@ -188,12 +188,12 @@ export const Navbar = () => {
                     pathname.startsWith("/element-hider") ||
                     pathname.startsWith("/invert") ||
                     pathname.startsWith("/biodata")
-                    ? "text-indigo-600 dark:text-white bg-indigo-50 dark:bg-white/10 font-semibold"
+                    ? "text-indigo-700 dark:text-white bg-indigo-50 dark:bg-white/10 font-semibold"
                     : "text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5"
                 )}
               >
                 <span>Apps &amp; Studios</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-semibold">
+                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 font-semibold">
                   13 Free
                 </span>
                 <ChevronDown className="w-3.5 h-3.5 opacity-70" />

@@ -141,10 +141,11 @@ export const EmDocShowcase = () => {
               <div className="flex items-center space-x-4">
                 <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/15 bg-zinc-100 dark:bg-zinc-800 shadow-xl">
                   <Image
-                    src="/brand/emdoc-icon.png"
+                    src="/brand/emdoc-icon-sm.webp"
                     alt="EmDoc Icon"
                     fill
                     className="object-cover"
+                    sizes="64px"
                   />
                 </div>
                 <div>

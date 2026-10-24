@@ -21,7 +21,7 @@ export function MacAppPrivacyView({ app }: { app: MacAppConfig }) {
             />
             <Link
               href={`/${app.slug}`}
-              className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1.5"
+              className="text-xs font-semibold text-indigo-700 dark:text-indigo-400 hover:underline inline-flex items-center gap-1.5"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to {app.shortName}</span>
@@ -40,14 +40,14 @@ export function MacAppPrivacyView({ app }: { app: MacAppConfig }) {
                 />
               </div>
               <div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold">
+                <div className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-emerald-800 dark:text-emerald-400 font-semibold">
                   <Shield className="w-3.5 h-3.5" />
                   <span>Zero-Telemetry Privacy Guarantee</span>
                 </div>
                 <h1 className="text-2xl sm:text-4xl font-bold text-zinc-900 dark:text-white mt-1">
                   {app.name} — Privacy Policy
                 </h1>
-                <p className="text-xs font-mono text-zinc-500 mt-1">
+                <p className="text-xs font-mono text-zinc-600 dark:text-zinc-400 mt-1">
                   Effective Date: October 24, 2026 • Bundle ID: {app.bundleId}
                 </p>
               </div>
