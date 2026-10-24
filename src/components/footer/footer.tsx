@@ -57,7 +57,47 @@ export const Footer = () => {
                 <Link href="/products/emdoc" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center justify-between gap-2">
                   <span>EmDoc Workstation</span>
                   <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-300">
-                    macOS
+                    macOS DMG
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/lumenview" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center justify-between gap-2">
+                  <span>LumenView Display</span>
+                  <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-300">
+                    macOS DMG
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/metricove" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center justify-between gap-2">
+                  <span>Metricove Telemetry</span>
+                  <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300">
+                    macOS DMG
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/netguard" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center justify-between gap-2">
+                  <span>NetGuard Firewall</span>
+                  <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-cyan-50 text-cyan-700 dark:bg-cyan-500/20 dark:text-cyan-300">
+                    macOS DMG
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/klipora" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center justify-between gap-2">
+                  <span>Klipora Clipboard</span>
+                  <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 dark:bg-amber-500/20 dark:text-amber-300">
+                    macOS DMG
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/show-free-space" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center justify-between gap-2">
+                  <span>Show free space</span>
+                  <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 dark:bg-purple-500/20 dark:text-purple-300">
+                    macOS DMG
                   </span>
                 </Link>
               </li>

@@ -62,6 +62,86 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${baseUrl}/lumenview`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.92,
+      images: [
+        `${baseUrl}/brand/LumenView/icon.png`,
+        `${baseUrl}/brand/LumenView/1.webp`,
+      ],
+    },
+    {
+      url: `${baseUrl}/lumenview/privacy`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${baseUrl}/metricove`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.92,
+      images: [
+        `${baseUrl}/brand/Metricove/icon.png`,
+        `${baseUrl}/brand/Metricove/1.webp`,
+      ],
+    },
+    {
+      url: `${baseUrl}/metricove/privacy`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${baseUrl}/netguard`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.92,
+      images: [
+        `${baseUrl}/brand/NetGuard/icon.png`,
+        `${baseUrl}/brand/NetGuard/1.webp`,
+      ],
+    },
+    {
+      url: `${baseUrl}/netguard/privacy`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${baseUrl}/klipora`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.92,
+      images: [
+        `${baseUrl}/brand/Klipora/icon.png`,
+        `${baseUrl}/brand/Klipora/1.webp`,
+      ],
+    },
+    {
+      url: `${baseUrl}/klipora/privacy`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
+      url: `${baseUrl}/show-free-space`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.92,
+      images: [
+        `${baseUrl}/brand/ShowFreeSpace/icon.png`,
+        `${baseUrl}/brand/ShowFreeSpace/1.webp`,
+      ],
+    },
+    {
+      url: `${baseUrl}/show-free-space/privacy`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.65,
+    },
+    {
       url: `${baseUrl}/ad-blocker`,
       lastModified,
       changeFrequency: "weekly",

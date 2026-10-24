@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   Cpu,
   Globe,
+  Download,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
@@ -20,36 +21,36 @@ const PRODUCTS_FAQS: FaqItem[] = [
   {
     question: "How many applications and web studios are currently live in the COGIFY catalog?",
     answer:
-      "COGIFY currently ships 8 live products: EmDoc PDF Workstation for macOS, Marriage Biodata Maker Studio (biodata.cogify.me), Ad Blocker for Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert — plus 6 upcoming native releases in our App Store Connect pipeline.",
+      "COGIFY currently ships 13 live products: 6 native macOS workstations with instant 1-click .DMG downloads (EmDoc PDF Workstation, LumenView, Metricove, NetGuard, Klipora, and Show free space), Marriage Biodata Maker Studio (biodata.cogify.me), and 6 Safari Web Extensions (Ad Blocker for Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert).",
   },
   {
-    question: "Are all COGIFY App Store apps and web studios free for personal use?",
+    question: "Are all COGIFY macOS apps, App Store apps, and web studios free for personal use?",
     answer:
-      "Yes. Every live application, Safari Web Extension, and web studio in our catalog is 100% free for individual users with zero subscriptions, zero in-app purchases, and zero watermarks.",
+      "Yes. Every live macOS application, Safari Web Extension, and web studio in our catalog is 100% free for individual users with zero subscriptions, zero in-app purchases, and zero watermarks.",
   },
   {
-    question: "Where can I verify COGIFY's official Apple App Store developer account?",
+    question: "Where are the direct .DMG downloads hosted and signed?",
     answer:
-      "All native macOS, iOS, iPadOS, and Safari extensions are signed and published under Shubham Sharma (Apple Developer ID #1643497398) on the official Apple App Store.",
+      "All 6 macOS .DMG installers (EmDoc, LumenView, Metricove, NetGuard, Klipora, and Show free space) are signed with our official Apple Developer ID (Shubham Sharma, Team ID 9TKKPN6F59) and hosted on GitHub Releases for instant single-click download.",
   },
   {
     question: "Do COGIFY products work offline without internet access?",
     answer:
-      "Yes. Native apps like EmDoc run 100% offline with zero network sockets, our 6 Safari extensions execute locally inside WebKit on your device, and Marriage Biodata Maker Studio processes all documents locally in your browser.",
+      "Yes. Native macOS apps like EmDoc, LumenView, Metricove, Klipora, and Show free space run 100% offline with zero telemetry, our 6 Safari extensions execute locally inside WebKit on your device, and Marriage Biodata Maker Studio processes all documents locally in your browser.",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "All Apps, Safari Extensions & Studios — EmDoc, Biodata Maker, Ad Blocker, ReaderEasy",
+  title: "All 13 Apps, macOS Workstations, Safari Extensions & Studios — EmDoc, LumenView, Metricove, NetGuard, Klipora, Show free space",
   description:
-    "Explore COGIFY's 8 free, zero-telemetry apps & studios: EmDoc macOS PDF Workstation, Marriage Biodata Maker (biodata.cogify.me), and 6 Safari extensions.",
+    "Explore COGIFY's 13 free, zero-telemetry apps & studios: 6 native macOS workstations with 1-click .DMG downloads (EmDoc, LumenView, Metricove, NetGuard, Klipora, Show free space), Biodata Maker (biodata.cogify.me), and 6 Safari extensions.",
   alternates: {
     canonical: `${siteConfig.url}/products`,
   },
   openGraph: {
-    title: "COGIFY Product Ecosystem — Native macOS, iOS, Safari Apps & Web Studios",
+    title: "COGIFY Product Ecosystem — 13 Native macOS, iOS, Safari Apps & Web Studios",
     description:
-      "8 live applications and web studios plus upcoming pipeline releases — 100% free for individuals, engineered with zero telemetry.",
+      "13 live applications and web studios — 6 macOS workstations with single-click .DMG downloads, 6 Safari extensions, and Biodata Maker Studio.",
     url: `${siteConfig.url}/products`,
     siteName: siteConfig.name,
     type: "website",
@@ -65,14 +66,116 @@ const liveCatalog = [
     platforms: "macOS 13+ (Universal Binary)",
     category: "Productivity • PDF Suite",
     icon: "/brand/emdoc-icon.png",
+    previewImage: "/brand/EmDoc_home.png",
     href: "/products/emdoc",
+    downloadUrl: siteConfig.emdoc.downloadUrl,
     appStoreUrl: siteConfig.emdoc.appStoreUrl,
-    ctaLabel: "Download on App Store",
+    ctaLabel: `Direct Download (.DMG • ${siteConfig.emdoc.appSize})`,
     badge: "Flagship macOS App",
     highlights: [
       "Tiny 5.0 MB native binary (~45 MB RAM)",
       "Visual Page Organizer, Vector Ink & Stamps",
       "100% Offline PDF Compression & Bates Numbering",
+    ],
+  },
+  {
+    name: siteConfig.lumenview.name,
+    tagline: siteConfig.lumenview.tagline,
+    description: siteConfig.lumenview.shortDescription,
+    version: `v${siteConfig.lumenview.version}`,
+    platforms: siteConfig.lumenview.platform,
+    category: `${siteConfig.lumenview.primaryCategory} • ${siteConfig.lumenview.secondaryCategory}`,
+    icon: siteConfig.lumenview.iconLarge,
+    previewImage: siteConfig.lumenview.screenshotsMac[0].image,
+    href: `/${siteConfig.lumenview.slug}`,
+    downloadUrl: siteConfig.lumenview.downloadUrl,
+    appStoreUrl: siteConfig.lumenview.downloadUrl,
+    ctaLabel: `Direct Download (.DMG • ${siteConfig.lumenview.appSize})`,
+    badge: "macOS Display Utility",
+    highlights: [
+      "Native DDC/CI Hardware Brightness, Contrast & Volume Control",
+      "Custom HiDPI Retina Scaling & Refresh Rate Switcher",
+      "PIP Display Mirroring, Color Profiles & Layout Arrangement",
+    ],
+  },
+  {
+    name: siteConfig.metricove.name,
+    tagline: siteConfig.metricove.tagline,
+    description: siteConfig.metricove.shortDescription,
+    version: `v${siteConfig.metricove.version}`,
+    platforms: siteConfig.metricove.platform,
+    category: `${siteConfig.metricove.primaryCategory} • ${siteConfig.metricove.secondaryCategory}`,
+    icon: siteConfig.metricove.iconLarge,
+    previewImage: siteConfig.metricove.screenshotsMac[0].image,
+    href: `/${siteConfig.metricove.slug}`,
+    downloadUrl: siteConfig.metricove.downloadUrl,
+    appStoreUrl: siteConfig.metricove.downloadUrl,
+    ctaLabel: `Direct Download (.DMG • ${siteConfig.metricove.appSize})`,
+    badge: "macOS Menu Bar Monitor",
+    highlights: [
+      "Per-Core Apple Silicon P/E CPU & Metal GPU Utilization",
+      "Memory Pressure, Disk I/O, Network Bandwidth & Battery Health",
+      "SMC Die Thermals & Fan RPM Controls in 2.3 MB",
+    ],
+  },
+  {
+    name: siteConfig.netguard.name,
+    tagline: siteConfig.netguard.tagline,
+    description: siteConfig.netguard.shortDescription,
+    version: `v${siteConfig.netguard.version}`,
+    platforms: siteConfig.netguard.platform,
+    category: `${siteConfig.netguard.primaryCategory} • ${siteConfig.netguard.secondaryCategory}`,
+    icon: siteConfig.netguard.iconLarge,
+    previewImage: siteConfig.netguard.screenshotsMac[0].image,
+    href: `/${siteConfig.netguard.slug}`,
+    downloadUrl: siteConfig.netguard.downloadUrl,
+    appStoreUrl: siteConfig.netguard.downloadUrl,
+    ctaLabel: `Direct Download (.DMG • ${siteConfig.netguard.appSize})`,
+    badge: "macOS Outbound Firewall",
+    highlights: [
+      "Interactive Per-App Outbound Connection Approval Alerts",
+      "Global GeoIP World Traffic Map & Endpoint Inspector",
+      "Granular Firewall Rule Editor & Live Process Bandwidth",
+    ],
+  },
+  {
+    name: siteConfig.klipora.name,
+    tagline: siteConfig.klipora.tagline,
+    description: siteConfig.klipora.shortDescription,
+    version: `v${siteConfig.klipora.version}`,
+    platforms: siteConfig.klipora.platform,
+    category: `${siteConfig.klipora.primaryCategory} • ${siteConfig.klipora.secondaryCategory}`,
+    icon: siteConfig.klipora.iconLarge,
+    previewImage: siteConfig.klipora.screenshotsMac[0].image,
+    href: `/${siteConfig.klipora.slug}`,
+    downloadUrl: siteConfig.klipora.downloadUrl,
+    appStoreUrl: siteConfig.klipora.downloadUrl,
+    ctaLabel: `Direct Download (.DMG • ${siteConfig.klipora.appSize})`,
+    badge: "macOS Clipboard Manager",
+    highlights: [
+      "Instant Global Hotkey Clipboard History Timeline",
+      "Smart Content Filters (Text, Links, Images, Files & Color Swatches)",
+      "Pinned Snippets, Paste Plain Text & Password Manager Exclusion",
+    ],
+  },
+  {
+    name: siteConfig.showFreeSpace.name,
+    tagline: siteConfig.showFreeSpace.tagline,
+    description: siteConfig.showFreeSpace.shortDescription,
+    version: `v${siteConfig.showFreeSpace.version}`,
+    platforms: siteConfig.showFreeSpace.platform,
+    category: `${siteConfig.showFreeSpace.primaryCategory} • ${siteConfig.showFreeSpace.secondaryCategory}`,
+    icon: siteConfig.showFreeSpace.iconLarge,
+    previewImage: siteConfig.showFreeSpace.screenshotsMac[0].image,
+    href: `/${siteConfig.showFreeSpace.slug}`,
+    downloadUrl: siteConfig.showFreeSpace.downloadUrl,
+    appStoreUrl: siteConfig.showFreeSpace.downloadUrl,
+    ctaLabel: `Direct Download (.DMG • ${siteConfig.showFreeSpace.appSize})`,
+    badge: "macOS Disk Space Analyzer",
+    highlights: [
+      "Interactive Multi-Ring Sunburst Storage Map",
+      "One-ClickStaging & Safe Trash Cleanup",
+      "Menu Bar Free Space Widget & Multi-Volume APFS Support",
     ],
   },
   {
@@ -306,6 +409,21 @@ export default function ProductsPage() {
                     {item.description}
                   </p>
 
+                  {"previewImage" in item && item.previewImage && (
+                    <Link
+                      href={item.href}
+                      className="block relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 mb-5 bg-zinc-950 group"
+                    >
+                      <Image
+                        src={item.previewImage}
+                        alt={`${item.name} Screenshot Preview`}
+                        fill
+                        className="object-contain group-hover:scale-[1.02] transition-transform duration-300"
+                        sizes="(max-width: 768px) 100vw, 540px"
+                      />
+                    </Link>
+                  )}
+
                   <ul className="space-y-2 mb-6">
                     {item.highlights.map((h) => (
                       <li
@@ -320,15 +438,26 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="pt-4 border-t border-zinc-200/80 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
-                  <a
-                    href={item.appStoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-500 dark:hover:bg-emerald-400 px-4 py-2.5 text-xs font-semibold text-white dark:text-zinc-950 transition-colors shadow-xs"
-                  >
-                    <ExternalLink className="h-3.5 w-3.5" />
-                    {item.ctaLabel}
-                  </a>
+                  {"downloadUrl" in item && item.downloadUrl ? (
+                    <a
+                      href={item.downloadUrl}
+                      download
+                      className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 px-4 py-2.5 text-xs font-bold text-zinc-950 transition-colors shadow-xs"
+                    >
+                      <Download className="h-3.5 w-3.5" />
+                      {item.ctaLabel}
+                    </a>
+                  ) : (
+                    <a
+                      href={item.appStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-500 dark:hover:bg-emerald-400 px-4 py-2.5 text-xs font-semibold text-white dark:text-zinc-950 transition-colors shadow-xs"
+                    >
+                      <ExternalLink className="h-3.5 w-3.5" />
+                      {item.ctaLabel}
+                    </a>
+                  )}
                   <Link
                     href={item.href}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-white transition-colors"

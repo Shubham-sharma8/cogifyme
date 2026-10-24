@@ -13,6 +13,7 @@ import {
   Laptop,
   Smartphone,
   Compass,
+  Download,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { Spotlight } from "@/components/ui/spotlight";
@@ -30,6 +31,8 @@ interface StudioAppItem {
   previewType: "mac" | "ios";
   href: string;
   appStoreUrl: string;
+  downloadUrl?: string;
+  appSize?: string;
   metrics: { label: string; value: string }[];
 }
 
@@ -82,9 +85,111 @@ const STUDIO_APPS: StudioAppItem[] = [
     previewType: "mac",
     href: "/products/emdoc",
     appStoreUrl: siteConfig.emdoc.appStoreUrl,
+    downloadUrl: siteConfig.emdoc.downloadUrl,
+    appSize: siteConfig.emdoc.appSize,
     metrics: [
       { label: "Binary Size", value: "5.0 MB" },
       { label: "RAM Footprint", value: "~45 MB" },
+      { label: "Price", value: "100% Free" },
+    ],
+  },
+  {
+    id: "lumenview",
+    name: "LumenView",
+    tagline: siteConfig.lumenview.tagline,
+    category: "macOS Display Utility • DDC/CI & HiDPI",
+    platforms: siteConfig.lumenview.platform,
+    version: `v${siteConfig.lumenview.version}`,
+    icon: siteConfig.lumenview.icon,
+    previewImage: siteConfig.lumenview.screenshotsMac[0].image,
+    previewType: "mac",
+    href: `/${siteConfig.lumenview.slug}`,
+    appStoreUrl: siteConfig.lumenview.downloadUrl,
+    downloadUrl: siteConfig.lumenview.downloadUrl,
+    appSize: siteConfig.lumenview.appSize,
+    metrics: [
+      { label: "Installer Size", value: siteConfig.lumenview.appSize },
+      { label: "DDC/CI Control", value: "Hardware Native" },
+      { label: "Price", value: "100% Free" },
+    ],
+  },
+  {
+    id: "metricove",
+    name: "Metricove",
+    tagline: siteConfig.metricove.tagline,
+    category: "macOS Menu Bar Telemetry • CPU, GPU & Battery",
+    platforms: siteConfig.metricove.platform,
+    version: `v${siteConfig.metricove.version}`,
+    icon: siteConfig.metricove.icon,
+    previewImage: siteConfig.metricove.screenshotsMac[0].image,
+    previewType: "mac",
+    href: `/${siteConfig.metricove.slug}`,
+    appStoreUrl: siteConfig.metricove.downloadUrl,
+    downloadUrl: siteConfig.metricove.downloadUrl,
+    appSize: siteConfig.metricove.appSize,
+    metrics: [
+      { label: "Installer Size", value: siteConfig.metricove.appSize },
+      { label: "Sensors", value: "SMC & IOKit" },
+      { label: "Price", value: "100% Free" },
+    ],
+  },
+  {
+    id: "netguard",
+    name: "NetGuard",
+    tagline: siteConfig.netguard.tagline,
+    category: "macOS Outbound Firewall & Connection Monitor",
+    platforms: siteConfig.netguard.platform,
+    version: `v${siteConfig.netguard.version}`,
+    icon: siteConfig.netguard.icon,
+    previewImage: siteConfig.netguard.screenshotsMac[0].image,
+    previewType: "mac",
+    href: `/${siteConfig.netguard.slug}`,
+    appStoreUrl: siteConfig.netguard.downloadUrl,
+    downloadUrl: siteConfig.netguard.downloadUrl,
+    appSize: siteConfig.netguard.appSize,
+    metrics: [
+      { label: "Installer Size", value: siteConfig.netguard.appSize },
+      { label: "Firewall", value: "Per-App Rules" },
+      { label: "Price", value: "100% Free" },
+    ],
+  },
+  {
+    id: "klipora",
+    name: "Klipora",
+    tagline: siteConfig.klipora.tagline,
+    category: "macOS Clipboard History & Snippet Manager",
+    platforms: siteConfig.klipora.platform,
+    version: `v${siteConfig.klipora.version}`,
+    icon: siteConfig.klipora.icon,
+    previewImage: siteConfig.klipora.screenshotsMac[0].image,
+    previewType: "mac",
+    href: `/${siteConfig.klipora.slug}`,
+    appStoreUrl: siteConfig.klipora.downloadUrl,
+    downloadUrl: siteConfig.klipora.downloadUrl,
+    appSize: siteConfig.klipora.appSize,
+    metrics: [
+      { label: "Installer Size", value: siteConfig.klipora.appSize },
+      { label: "Storage", value: "100% Local" },
+      { label: "Price", value: "100% Free" },
+    ],
+  },
+  {
+    id: "show-free-space",
+    name: "Show free space",
+    tagline: siteConfig.showFreeSpace.tagline,
+    category: "macOS Visual Disk Analyzer & Space Cleaner",
+    platforms: siteConfig.showFreeSpace.platform,
+    version: `v${siteConfig.showFreeSpace.version}`,
+    icon: siteConfig.showFreeSpace.icon,
+    previewImage: siteConfig.showFreeSpace.screenshotsMac[0].image,
+    previewType: "mac",
+    href: `/${siteConfig.showFreeSpace.slug}`,
+    appStoreUrl: siteConfig.showFreeSpace.downloadUrl,
+    downloadUrl: siteConfig.showFreeSpace.downloadUrl,
+    appSize: siteConfig.showFreeSpace.appSize,
+    metrics: [
+      { label: "Sunburst Map", value: "Multi-Threaded" },
+      { label: "Cleanup", value: "Safe Trash" },
       { label: "Price", value: "100% Free" },
     ],
   },
@@ -252,7 +357,7 @@ export const HeroSection = () => {
               className="px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/25 transition-all flex items-center gap-2 cursor-pointer"
             >
               <Sparkles className="w-4 h-4" />
-              <span>Explore All 8 Apps &amp; Web Studios</span>
+              <span>Explore All 13 Apps &amp; Web Studios</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 
@@ -394,19 +499,32 @@ export const HeroSection = () => {
                   </div>
 
                   <div className="flex flex-wrap items-center gap-2.5 shrink-0">
-                    <a
-                      href={app.appStoreUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs transition-all flex items-center gap-1.5 shadow-sm"
-                    >
-                      <ExternalLink className="w-3.5 h-3.5" />
-                      <span>
-                        {app.id === "biodata"
-                          ? "Launch biodata.cogify.me"
-                          : "Get Free on App Store"}
-                      </span>
-                    </a>
+                    {app.downloadUrl ? (
+                      <a
+                        href={app.downloadUrl}
+                        download
+                        className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs transition-all flex items-center gap-1.5 shadow-sm"
+                      >
+                        <Download className="w-3.5 h-3.5" />
+                        <span>
+                          Direct Download (.DMG{app.appSize ? ` • ${app.appSize}` : ""})
+                        </span>
+                      </a>
+                    ) : (
+                      <a
+                        href={app.appStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs transition-all flex items-center gap-1.5 shadow-sm"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        <span>
+                          {app.id === "biodata"
+                            ? "Launch biodata.cogify.me"
+                            : "Get Free on App Store"}
+                        </span>
+                      </a>
+                    )}
                     <Link
                       href={app.href}
                       className="px-4 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-500/15 dark:hover:bg-indigo-500/25 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-500/30 font-semibold text-xs transition-all flex items-center gap-1.5"

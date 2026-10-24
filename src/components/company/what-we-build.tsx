@@ -158,23 +158,23 @@ export const WhatWeBuild = () => {
                   <span className="text-amber-600 dark:text-amber-400 font-bold">242 Templates • Live Web</span>
                 </div>
                 <div className="flex items-center justify-between text-indigo-700 dark:text-indigo-300 font-semibold">
-                  <span>EmDoc (macOS Workstation)</span>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">5.0 MB • App Store</span>
+                  <span>EmDoc &amp; LumenView (macOS)</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">Direct .DMG • Free</span>
                 </div>
                 <div className="flex items-center justify-between text-emerald-700 dark:text-emerald-300 font-semibold">
-                  <span>Ad Blocker &amp; WebClear (Safari)</span>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">v2.0 / v1.0 Live</span>
+                  <span>Metricove, NetGuard &amp; Klipora</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">Direct .DMG • Free</span>
                 </div>
                 <div className="flex items-center justify-between text-cyan-700 dark:text-cyan-300 font-semibold">
-                  <span>ReaderEasy &amp; WebLenses (Safari)</span>
-                  <span className="text-cyan-600 dark:text-cyan-400 font-bold">v1.1 / v1.0 Live</span>
+                  <span>Show free space (Disk Analyzer)</span>
+                  <span className="text-cyan-600 dark:text-cyan-400 font-bold">Direct .DMG • Free</span>
                 </div>
                 <div className="flex items-center justify-between text-purple-700 dark:text-purple-300 font-semibold">
-                  <span>Element Hider &amp; Colour Invert</span>
-                  <span className="text-purple-600 dark:text-purple-400 font-bold">v1.0 Live</span>
+                  <span>6 Safari Web Extensions</span>
+                  <span className="text-purple-600 dark:text-purple-400 font-bold">App Store Live</span>
                 </div>
                 <div className="text-[11px] text-zinc-500 pt-0.5">
-                  8 Live Apps &amp; Web Studios • Air-gapped &amp; client-side • Zero telemetry
+                  13 Live Apps &amp; Web Studios • Air-gapped &amp; client-side • Zero telemetry
                 </div>
               </div>
             }

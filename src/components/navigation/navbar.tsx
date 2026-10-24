@@ -25,9 +25,44 @@ const appLinks = [
   {
     name: "EmDoc Workstation",
     href: "/products/emdoc",
-    badge: "macOS",
+    badge: "macOS DMG",
     icon: "/brand/emdoc-icon.png",
     desc: "5.0 MB air-gapped PDF editor, merger & compressor",
+  },
+  {
+    name: "LumenView",
+    href: "/lumenview",
+    badge: "macOS DMG",
+    icon: "/brand/LumenView/icon-sm.webp",
+    desc: "Native DDC/CI monitor brightness, volume & HiDPI controller",
+  },
+  {
+    name: "Metricove",
+    href: "/metricove",
+    badge: "macOS DMG",
+    icon: "/brand/Metricove/icon-sm.webp",
+    desc: "Real-time menu bar CPU, GPU, memory, network & fan monitor",
+  },
+  {
+    name: "NetGuard",
+    href: "/netguard",
+    badge: "macOS DMG",
+    icon: "/brand/NetGuard/icon-sm.webp",
+    desc: "Real-time outbound network firewall & connection monitor",
+  },
+  {
+    name: "Klipora",
+    href: "/klipora",
+    badge: "macOS DMG",
+    icon: "/brand/Klipora/icon-sm.webp",
+    desc: "Instant clipboard history, snippet library & pasteboard manager",
+  },
+  {
+    name: "Show free space",
+    href: "/show-free-space",
+    badge: "macOS DMG",
+    icon: "/brand/ShowFreeSpace/icon-sm.webp",
+    desc: "Interactive sunburst disk space analyzer & storage cleaner",
   },
   {
     name: "Ad Blocker - For Safari",
@@ -141,6 +176,11 @@ export const Navbar = () => {
                   "px-3.5 py-2 rounded-xl text-xs font-medium transition-colors inline-flex items-center gap-1.5",
                   pathname === "/products" ||
                     pathname.startsWith("/products/") ||
+                    pathname.startsWith("/lumenview") ||
+                    pathname.startsWith("/metricove") ||
+                    pathname.startsWith("/netguard") ||
+                    pathname.startsWith("/klipora") ||
+                    pathname.startsWith("/show-free-space") ||
                     pathname.startsWith("/ad-blocker") ||
                     pathname.startsWith("/readereasy") ||
                     pathname.startsWith("/webclear") ||
@@ -154,7 +194,7 @@ export const Navbar = () => {
               >
                 <span>Apps &amp; Studios</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-semibold">
-                  8 Free
+                  13 Free
                 </span>
                 <ChevronDown className="w-3.5 h-3.5 opacity-70" />
               </Link>
@@ -200,7 +240,7 @@ export const Navbar = () => {
                         onClick={() => setAppsDropdownOpen(false)}
                         className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1"
                       >
-                        <span>View All 8 Live Apps &amp; Studios</span>
+                        <span>View All 13 Live Apps &amp; Studios</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                       <span className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
@@ -296,7 +336,7 @@ export const Navbar = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden mt-2 p-4 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-white/10 shadow-2xl backdrop-blur-2xl flex flex-col space-y-1.5 animate-in fade-in slide-in-from-top-2 duration-200 max-h-[82vh] overflow-y-auto">
             <div className="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-              8 Free Apps &amp; Real-Time Web Studios Live
+              13 Free Apps &amp; Real-Time Web Studios Live
             </div>
             {appLinks.map((app) => (
               <Link

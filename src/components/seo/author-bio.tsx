@@ -25,6 +25,41 @@ const ECOSYSTEM_LINKS = [
     desc: "C++20 & AppKit offline PDF editor, Bates numbering, OCR, and vector compression.",
   },
   {
+    slug: "lumenview",
+    name: "LumenView",
+    badge: "macOS Display Utility",
+    href: "/lumenview",
+    desc: "Native DDC/CI external monitor brightness, volume, HiDPI scaling & PIP controller.",
+  },
+  {
+    slug: "metricove",
+    name: "Metricove",
+    badge: "macOS Menu Bar Stats",
+    href: "/metricove",
+    desc: "Real-time CPU, GPU, memory, disk, network, battery & SMC thermal monitor.",
+  },
+  {
+    slug: "netguard",
+    name: "NetGuard",
+    badge: "macOS Firewall",
+    href: "/netguard",
+    desc: "Real-time outbound network firewall, GeoIP world map & per-app rule manager.",
+  },
+  {
+    slug: "klipora",
+    name: "Klipora",
+    badge: "macOS Clipboard",
+    href: "/klipora",
+    desc: "Instant clipboard history timeline, smart filters, and reusable snippet manager.",
+  },
+  {
+    slug: "show-free-space",
+    name: "Show free space",
+    badge: "macOS Disk Analyzer",
+    href: "/show-free-space",
+    desc: "Interactive sunburst storage visualizer and one-click safe disk space cleaner.",
+  },
+  {
     slug: "ad-blocker",
     name: "Ad Blocker — For Safari",
     badge: "iOS, iPadOS & macOS",
@@ -172,7 +207,7 @@ export function AuthorBio({
             href="/products"
             className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1"
           >
-            View All 8 Products &amp; Specs <ArrowUpRight className="w-3.5 h-3.5" />
+            View All 13 Products &amp; Specs <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 

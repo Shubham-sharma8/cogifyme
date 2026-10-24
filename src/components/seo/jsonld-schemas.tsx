@@ -1,5 +1,53 @@
 import React from "react";
-import { siteConfig, SafariAppConfig } from "@/config/site";
+import { siteConfig, SafariAppConfig, MacAppConfig } from "@/config/site";
+
+function buildMacSoftwareSchema(app: MacAppConfig) {
+  const screenshots = (app.screenshotsMac || []).map((s) => `${siteConfig.url}${s.image}`);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": `${siteConfig.url}/${app.slug}#software`,
+    name: app.name,
+    alternateName: [app.shortName, `${app.shortName} for macOS`],
+    operatingSystem: app.minMacOsVersion,
+    applicationCategory:
+      app.primaryCategory === "Developer Tools"
+        ? "DeveloperApplication"
+        : "UtilitiesApplication",
+    applicationSubCategory: `${app.primaryCategory}, ${app.secondaryCategory}`,
+    softwareVersion: app.version,
+    fileSize: app.appSize,
+    url: `${siteConfig.url}/${app.slug}`,
+    downloadUrl: app.downloadUrl,
+    installUrl: app.downloadUrl,
+    image: `${siteConfig.url}${app.iconLarge || app.icon}`,
+    screenshot: screenshots,
+    description: app.fullDescription,
+    featureList: app.features.map((f) => `${f.title}: ${f.description}`),
+    author: {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: app.downloadUrl,
+      description: app.pricingModel,
+    },
+    isAccessibleForFree: true,
+  };
+}
 
 function buildSafariSoftwareSchema(app: SafariAppConfig) {
   const screenshots = [
@@ -353,6 +401,36 @@ export function RootJsonLd() {
         name: siteConfig.invert.name,
         url: `${siteConfig.url}/invert`,
       },
+      {
+        "@type": "ListItem",
+        position: 9,
+        name: siteConfig.lumenview.name,
+        url: `${siteConfig.url}/lumenview`,
+      },
+      {
+        "@type": "ListItem",
+        position: 10,
+        name: siteConfig.metricove.name,
+        url: `${siteConfig.url}/metricove`,
+      },
+      {
+        "@type": "ListItem",
+        position: 11,
+        name: siteConfig.netguard.name,
+        url: `${siteConfig.url}/netguard`,
+      },
+      {
+        "@type": "ListItem",
+        position: 12,
+        name: siteConfig.klipora.name,
+        url: `${siteConfig.url}/klipora`,
+      },
+      {
+        "@type": "ListItem",
+        position: 13,
+        name: siteConfig.showFreeSpace.name,
+        url: `${siteConfig.url}/show-free-space`,
+      },
     ],
   };
 
@@ -512,6 +590,17 @@ export function ColourInvertPageJsonLd() {
 
 export function SafariAppPageJsonLd({ app }: { app: SafariAppConfig }) {
   const softwareSchema = buildSafariSoftwareSchema(app);
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+    />
+  );
+}
+
+export function MacAppPageJsonLd({ app }: { app: MacAppConfig }) {
+  const softwareSchema = buildMacSoftwareSchema(app);
 
   return (
     <script

@@ -99,6 +99,43 @@ export interface ColourInvertConfig {
   keywords: string[];
 }
 
+export interface MacAppConfig {
+  slug: string;
+  name: string;
+  shortName: string;
+  tagline: string;
+  subtitle: string;
+  promotionalText: string;
+  shortDescription: string;
+  fullDescription: string;
+  philosophy: string;
+  version: string;
+  appSize: string;
+  bundleId: string;
+  minMacOsVersion: string;
+  architecture: string;
+  primaryCategory: string;
+  secondaryCategory: string;
+  pricingModel: string;
+  platform: string;
+  downloadUrl: string;
+  appStoreUrl?: string;
+  icon: string;
+  iconLarge: string;
+  accentColor: "emerald" | "indigo" | "amber" | "sky" | "rose" | "violet" | "cyan";
+  features: {
+    title: string;
+    description: string;
+    tag: string;
+  }[];
+  specifications: {
+    label: string;
+    value: string;
+  }[];
+  screenshotsMac: ScreenshotItem[];
+  keywords: string[];
+}
+
 export interface SafariAppConfig {
   slug: string;
   name: string;
@@ -222,6 +259,11 @@ export interface SiteConfig {
   adBlocker: SafariAppConfig;
   weblenses: SafariAppConfig;
   biodata: BiodataStudioConfig;
+  lumenview: MacAppConfig;
+  metricove: MacAppConfig;
+  netguard: MacAppConfig;
+  klipora: MacAppConfig;
+  showFreeSpace: MacAppConfig;
   principles: PrincipleItem[];
   futureProducts: FutureProductItem[];
 }
@@ -300,10 +342,12 @@ export const siteConfig: SiteConfig = {
     name: "EmDoc",
     version: "1.0",
     build: "1",
-    appSize: "5.0 MB",
+    appSize: "7.5 MB",
     ramUsage: "~45 MB baseline",
     pricingModel: "100% Free Forever — All Features Included",
-    downloadUrl: process.env.NEXT_PUBLIC_EMDOC_DOWNLOAD_URL || "",
+    downloadUrl:
+      process.env.NEXT_PUBLIC_EMDOC_DOWNLOAD_URL ||
+      "https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/EmDoc.dmg",
     appStoreUrl: "https://apps.apple.com/in/app/emdoc/id6810306925?mt=12",
     appStoreId: "6810306925",
     minMacOsVersion: "macOS 13.0 (Ventura, Sonoma, Sequoia)",
@@ -1824,7 +1868,811 @@ export const siteConfig: SiteConfig = {
       ],
     },
   ],
+  lumenview: {
+    slug: "lumenview",
+    name: "LumenView: Display & HiDPI",
+    shortName: "LumenView",
+    tagline: "HiDPI Retina Scaling, DDC/CI Brightness, 240Hz & Virtual Displays",
+    subtitle: "HiDPI, DDC Brightness & 240Hz",
+    promotionalText:
+      "Unlock true HiDPI Retina scaling, hardware DDC/CI brightness & volume control, 240Hz refresh rates, 3D LUT calibration, and 60 FPS Virtual Displays on macOS.",
+    shortDescription:
+      "LumenView is the complete display control, hardware DDC/CI calibration, and virtual screen engineering suite for macOS. Unlock crisp Retina HiDPI scaling on any 1440p, 4K, 5K, or ultrawide monitor, control real hardware brightness and volume via IOAVService/IOKit, and create 60 FPS Virtual Displays.",
+    fullDescription:
+      "Engineered natively in Swift and Metal for Apple Silicon (M1–M4) and Intel Macs, LumenView bridges the gap between macOS and external displays. Unlock arbitrary custom HiDPI logical resolutions for razor-sharp typography, adjust physical monitor backlight and speaker volume directly from your Mac keyboard via hardware DDC/CI, dim below 0% with Sub-Zero Dimming or boost Liquid Retina XDR panels, load studio 3D .cube LUTs, and stream zero-dongle Virtual Displays at 60 FPS.",
+    philosophy:
+      "External monitors on macOS deserve the same razor-sharp Retina scaling, native keyboard brightness/volume keys, and color accuracy as Apple's own Studio Display — engineered in a 7.8 MB native Swift & Metal binary with zero telemetry.",
+    version: "2.4.0",
+    appSize: "7.8 MB",
+    bundleId: "pro.lumenview.mac",
+    minMacOsVersion: "macOS 14.0+ (Sonoma & Sequoia)",
+    architecture: "Universal Binary (Apple Silicon M1–M4 & Intel) • Swift & Metal 3",
+    primaryCategory: "Utilities",
+    secondaryCategory: "Productivity",
+    pricingModel: "100% Free Direct Download — Zero Telemetry",
+    platform: "macOS 14.0+ (Apple Silicon & Intel)",
+    downloadUrl: "https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/LumenView.dmg",
+    icon: "/brand/LumenView/icon-sm.webp",
+    iconLarge: "/brand/LumenView/icon.webp",
+    accentColor: "indigo",
+    features: [
+      {
+        title: "True HiDPI Retina Scaling & 240Hz",
+        description:
+          "Unlock crisp Retina HiDPI scaling on 1080p, 1440p, 4K, 5K, and 21:9/32:9 ultrawide monitors with custom logical resolutions and 50Hz–240Hz refresh rate switching.",
+        tag: "Retina HiDPI",
+      },
+      {
+        title: "Hardware DDC/CI Brightness, Contrast & Volume",
+        description:
+          "Communicate directly with external monitors over HDMI, DisplayPort, USB-C, and Thunderbolt using Apple Silicon IOAVService & Intel IOKit I2C with native keyboard OSD hijack.",
+        tag: "Hardware DDC/CI",
+      },
+      {
+        title: "XDR Upscaling & Sub-Zero Software Dimming",
+        description:
+          "Boost compatible HDR/Mini-LED panels for outdoor legibility or dim any display down to -100% below minimum hardware backlight for late-night coding.",
+        tag: "XDR & Sub-Zero",
+      },
+      {
+        title: "3×1D GPU Gamma, 3D .cube LUT & Color Filters",
+        description:
+          "Real-time per-channel RGB gain/gamma curves, Kelvin temperature (2700K–9300K), DaVinci Resolve .cube 3D LUT import, and 7 hardware-accelerated shader filters.",
+        tag: "Color & 3D LUT",
+      },
+      {
+        title: "Virtual Displays & 60 FPS ScreenCaptureKit PiP",
+        description:
+          "Create instant software virtual screens (16:9, 16:10, 21:9, 32:9, iPad Sidecar ratios) with zero HDMI dongles and live 60 FPS Picture-in-Picture streaming.",
+        tag: "Virtual Screens",
+      },
+      {
+        title: "Proportional Layout Canvas, Widgets & Sync Groups",
+        description:
+          "Snap multi-monitor arrangements with pixel-accurate edge alignment, pin 6 live Desktop HUD widgets, and link displays into Master/Target brightness sync groups.",
+        tag: "Multi-Monitor",
+      },
+    ],
+    specifications: [
+      { label: "Application Type", value: "Native macOS Display & DDC/CI Workstation" },
+      { label: "Installer Size", value: "7.8 MB Universal DMG (Signed Developer ID)" },
+      { label: "Platforms Supported", value: "macOS 14.0+ (Apple Silicon M1–M4 & Intel)" },
+      { label: "Hardware Protocols", value: "DDC/CI (IOAVService & IOKit I2C), VCP 0x10–0xDF, EDID" },
+      { label: "Color Pipeline", value: "3×1D GPU Gamma LUT, 3D .cube LUT, 10-bit Deep Color" },
+      { label: "Virtual Display Engine", value: "CGVirtualDisplay + 60 FPS ScreenCaptureKit PiP" },
+      { label: "Data Transmission", value: "0 bytes transmitted / 100% Offline Execution" },
+      { label: "Product Version", value: "v2.4.0 (Direct Single-Click DMG)" },
+    ],
+    screenshotsMac: [
+      {
+        id: "lv-1",
+        title: "Display Command Center",
+        subtitle: "Unified control for every internal and external display",
+        image: "/brand/LumenView/1.webp",
+        tag: "Command Center",
+        description: "Inspect and control resolution, refresh rate, HiDPI scaling, DDC/CI brightness, and color profiles from a single glassmorphic workspace.",
+        highlights: ["Instant display topology overview", "Menu bar popover + full studio window", "Zero background CPU overhead"],
+      },
+      {
+        id: "lv-2",
+        title: "HiDPI Retina Scaling & 240Hz Refresh",
+        subtitle: "Unlock razor-sharp text on 1440p, 4K & Ultrawide monitors",
+        image: "/brand/LumenView/2.webp",
+        tag: "HiDPI & 240Hz",
+        description: "Switch between one-click aspect-ratio presets, custom logical HiDPI resolutions, and variable refresh rates from 50Hz up to 240Hz.",
+        highlights: ["True 2× Retina framebuffer rendering", "50Hz–240Hz VRR & ProMotion support", "0° / 90° / 180° / 270° rotation"],
+      },
+      {
+        id: "lv-3",
+        title: "Hardware DDC/CI, XDR Boost & Sub-Zero Dimming",
+        subtitle: "Control physical monitor backlight & dim below 0%",
+        image: "/brand/LumenView/3.webp",
+        tag: "DDC/CI & XDR",
+        description: "Drive physical monitor backlight, contrast, and speaker volume over USB-C/DisplayPort/HDMI with native macOS brightness/volume key integration.",
+        highlights: ["Apple Silicon IOAVService & Intel IOKit", "Sub-Zero dimming down to -100%", "XDR HDR peak brightness upscaling"],
+      },
+      {
+        id: "lv-4",
+        title: "3×1D GPU Gamma & 3D .cube LUT Calibration",
+        subtitle: "Studio-grade color science & Kelvin temperature control",
+        image: "/brand/LumenView/4.webp",
+        tag: "Color & LUT",
+        description: "Fine-tune per-channel RGB Gamma, Gain, and Offset, dial in Kelvin color temperature (2700K–9300K), and load industry-standard .cube 3D LUTs.",
+        highlights: ["Real-time GPU Gamma LUT injection", "7 shader filters (Grayscale, Night Vision, CRT)", "Instant ICC profile switcher"],
+      },
+      {
+        id: "lv-5",
+        title: "Proportional Multi-Monitor Arrangement",
+        subtitle: "Pixel-accurate snapping & mouse warp teleportation",
+        image: "/brand/LumenView/5.webp",
+        tag: "Arrangement",
+        description: "Drag and snap multiple displays on an interactive canvas with edge-lock alignment, main display crowning, and seamless cursor edge warping.",
+        highlights: ["Magnetic edge snapping", "1-click Primary Display assignment", "Proportional physical scale preview"],
+      },
+      {
+        id: "lv-6",
+        title: "Advanced Hardware Pipeline & EDID Diagnostics",
+        subtitle: "Color encoding, quantization range & DSC telemetry",
+        image: "/brand/LumenView/6.webp",
+        tag: "Hardware Pipeline",
+        description: "Inspect and configure RGB 4:4:4 vs YCbCr 4:2:2/4:2:0 encoding, 8-bit/10-bit depth, Full (0–255) quantization, HDCP status, and Display Stream Compression.",
+        highlights: ["RGB 4:4:4 & 10-bit Deep Color", "Full vs Limited quantization range", "Raw EDID hex & manufacturer parser"],
+      },
+      {
+        id: "lv-7",
+        title: "Virtual Displays & 60 FPS Picture-in-Picture",
+        subtitle: "Software virtual screens without dummy HDMI plugs",
+        image: "/brand/LumenView/7.webp",
+        tag: "Virtual Displays",
+        description: "Spawn custom software virtual displays for headless Mac Minis, screen sharing, or Sidecar workflows with live 60 FPS ScreenCaptureKit PiP windows.",
+        highlights: ["16:9, 16:10, 21:9, 32:9 & iPad ratios", "60 FPS ScreenCaptureKit PiP window", "Zero physical dongle required"],
+      },
+      {
+        id: "lv-8",
+        title: "Desktop HUD Widgets",
+        subtitle: "6 native glassmorphic desktop telemetry cards",
+        image: "/brand/LumenView/8.webp",
+        tag: "Desktop Widgets",
+        description: "Pin interactive Brightness, Resolution, Refresh Rate, Color Temperature, Display Arrangement, and GPU Telemetry widgets directly to your desktop.",
+        highlights: ["6 customizable HUD widget types", "Compact, Medium & Wide sizes", "Interactive sliders directly on desktop"],
+      },
+      {
+        id: "lv-9",
+        title: "Multi-Display Sync Groups",
+        subtitle: "Master/Target brightness & Kelvin synchronization",
+        image: "/brand/LumenView/9.webp",
+        tag: "Sync Groups",
+        description: "Link your built-in MacBook Liquid Retina display with external monitors so brightness, contrast, and night warmth stay perfectly synchronized.",
+        highlights: ["Master-to-Target propagation", "Per-monitor offset calibration", "Ambient light curve matching"],
+      },
+      {
+        id: "lv-10",
+        title: "Pro Raw VCP Command Console & CLI",
+        subtitle: "Direct MCCS VCP hex register read/write & automation",
+        image: "/brand/LumenView/10.webp",
+        tag: "VCP Console",
+        description: "Send raw VCP hex opcodes (0x60 Input Source, 0xD6 Power Mode, 0x14 Color Preset) and automate display presets from Shortcuts or terminal scripts.",
+        highlights: ["Direct VCP register read/write", "1-click Input Source KVM switching", "Built-in test pattern generator"],
+      },
+    ],
+    keywords: [
+      "LumenView",
+      "macOS HiDPI scaling",
+      "BetterDisplay alternative Mac",
+      "DDC CI brightness Mac",
+      "external monitor brightness macOS",
+      "virtual display macOS",
+      "240Hz refresh rate Mac",
+      "3D LUT macOS",
+    ],
+  },
+  metricove: {
+    slug: "metricove",
+    name: "Metricove: Mac System Monitor",
+    shortName: "Metricove",
+    tagline: "CPU, GPU, RAM, Disk, Network & SMC Thermal Stats in Your Menu Bar",
+    subtitle: "CPU, GPU, RAM & Thermal Stats",
+    promotionalText:
+      "Real-time Apple Silicon & Intel hardware telemetry in your macOS Menu Bar. Track P/E-Cores, Metal GPU, Memory Pressure, NVMe Disk I/O, Network & SMC Thermals.",
+    shortDescription:
+      "Metricove is a high-precision macOS system monitor engineered in pure Swift, Mach kernel APIs, and IOKit SMC. Track CPU P-Cores & E-Cores, Metal GPU & Unified VRAM, Memory Pressure & Swap, NVMe throughput, Network interfaces, and SMC thermal sensors & fan speeds.",
+    fullDescription:
+      "Designed for developers, creative professionals, and power users, Metricove delivers real-time hardware telemetry without Electron bloat. Monitor every subsystem from a customizable 3-tab Menu Bar popover and a 9-module glassmorphic desktop dashboard — complete with 5 curated accent themes, threshold alerts, and 1-click JSON diagnostic snapshots.",
+    philosophy:
+      "A system monitor should never become the process hog it was meant to observe. At just 2.3 MB, Metricove queries Mach kernel host statistics and IOKit SMC registers directly with sub-1% CPU impact and zero network activity.",
+    version: "1.0.0",
+    appSize: "2.3 MB",
+    bundleId: "com.metricove.monitor",
+    minMacOsVersion: "macOS 14.0+ (Sonoma & Sequoia)",
+    architecture: "Universal Binary (Apple Silicon M1–M4 & Intel) • Swift, Mach & IOKit SMC",
+    primaryCategory: "Utilities",
+    secondaryCategory: "Developer Tools",
+    pricingModel: "100% Free Direct Download — Zero Telemetry",
+    platform: "macOS 14.0+ (Apple Silicon & Intel)",
+    downloadUrl: "https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/Metricove.dmg",
+    icon: "/brand/Metricove/icon-sm.webp",
+    iconLarge: "/brand/Metricove/icon.webp",
+    accentColor: "cyan",
+    features: [
+      {
+        title: "Apple Silicon P-Core & E-Core CPU Telemetry",
+        description:
+          "Real-time total load, System vs User vs Idle split, per-core utilization bars, P-Core/E-Core topology, 1m/5m/15m load averages, and top CPU processes.",
+        tag: "CPU & Cores",
+      },
+      {
+        title: "Metal GPU Engine & Unified VRAM Inspector",
+        description:
+          "Live Metal accelerator utilization, allocated Unified Memory / VRAM tracking, active display refresh rate (Hz), and thermal state monitoring.",
+        tag: "Metal GPU",
+      },
+      {
+        title: "Memory Pressure, Wired/Compressed & Swap",
+        description:
+          "Mach VM page breakdown across App Memory, Wired, Compressed, and Cached files with real-time swap activity and memory hog process ranking.",
+        tag: "Unified RAM",
+      },
+      {
+        title: "NVMe Disk I/O & Volume Capacity",
+        description:
+          "Live read/write throughput sparklines (MB/s), cumulative session bytes read/written, SMART health status, and 1-click Finder volume reveal.",
+        tag: "NVMe Disk I/O",
+      },
+      {
+        title: "Network Bandwidth, Ping & Interface Inspector",
+        description:
+          "Real-time download/upload throughput graphs, local IPv4, gateway IP, Wi-Fi SSID, active interface detection, and round-trip latency (ms).",
+        tag: "Network & Ping",
+      },
+      {
+        title: "SMC Thermal Sensors, Fan RPM & Power Wattage",
+        description:
+          "Direct Apple SMC temperature readouts across CPU/GPU/ANE/SSD/Airflow sensors, live fan RPM curves, battery health, and system DC-In watts.",
+        tag: "SMC & Power",
+      },
+    ],
+    specifications: [
+      { label: "Application Type", value: "Native macOS Menu Bar & Hardware Telemetry Suite" },
+      { label: "Installer Size", value: "2.3 MB Universal DMG (Signed Developer ID)" },
+      { label: "Platforms Supported", value: "macOS 14.0+ (Apple Silicon M1–M4 & Intel)" },
+      { label: "Telemetry APIs", value: "Mach Kernel host_processor_info, Metal, IOKit & AppleSMC" },
+      { label: "Refresh Intervals", value: "Configurable 1s, 2s, 3s, or 5s Low-Power Polling" },
+      { label: "Accent Themes", value: "Cyber Cyan, Emerald Pulse, Violet Nebula, Amber Solar, Crimson" },
+      { label: "Data Transmission", value: "0 bytes transmitted / 100% Air-Gapped Local Telemetry" },
+      { label: "Product Version", value: "v1.0.0 (Direct Single-Click DMG)" },
+    ],
+    screenshotsMac: [
+      {
+        id: "mc-1",
+        title: "Unified Hardware Overview Dashboard",
+        subtitle: "All 8 macOS hardware subsystems at a single glance",
+        image: "/brand/Metricove/1.webp",
+        tag: "Overview",
+        description: "Monitor CPU, GPU, Memory, Disk, Network, Sensors, Battery, and Top Processes in a cohesive dark glassmorphic command center.",
+        highlights: ["4 radial health gauges", "Live dual-line throughput charts", "Instant hardware specification card"],
+      },
+      {
+        id: "mc-2",
+        title: "3-Tab Menu Bar Popover & Live Widgets",
+        subtitle: "Instant telemetry directly from your macOS Menu Bar",
+        image: "/brand/Metricove/2.webp",
+        tag: "Menu Bar",
+        description: "Customize which live metrics appear in your macOS menu bar and open a 3-tab popover (Overview, Top Processes, Network & Power) with a click.",
+        highlights: ["Toggleable CPU, GPU, RAM, Disk, Net, Temp & Watts", "Monospaced jitter-free menu bar numbers", "1-click JSON diagnostic snapshot"],
+      },
+      {
+        id: "mc-3",
+        title: "CPU & Apple Silicon P/E-Core Topology",
+        subtitle: "Per-thread utilization bars & Mach kernel load averages",
+        image: "/brand/Metricove/3.webp",
+        tag: "CPU & Cores",
+        description: "Inspect every Performance and Efficiency core in real time alongside System/User/Idle splits, 1m/5m/15m load averages, and top CPU processes.",
+        highlights: ["Apple Silicon P-Core & E-Core breakdown", "Individual logical thread bars", "Live top CPU process table"],
+      },
+      {
+        id: "mc-4",
+        title: "Metal GPU & Unified VRAM Telemetry",
+        subtitle: "Real-time GPU core load, memory allocation & display Hz",
+        image: "/brand/Metricove/4.webp",
+        tag: "Metal GPU",
+        description: "Track Apple Silicon and discrete Metal GPU utilization, allocated Unified VRAM, active display refresh rate, and GPU thermal state.",
+        highlights: ["IOAccelerator Metal engine load", "Unified VRAM allocation tracking", "ProMotion & external Hz readout"],
+      },
+      {
+        id: "mc-5",
+        title: "Memory Pressure & Swap Breakdown",
+        subtitle: "App Memory, Wired, Compressed, Cached & Swap usage",
+        image: "/brand/Metricove/5.webp",
+        tag: "Memory & Swap",
+        description: "Understand exact RAM allocation with Mach VM page counters, Memory Pressure gauges, Swap Used/Total metrics, and top RAM consumers.",
+        highlights: ["App vs Wired vs Compressed split", "Real-time Swap I/O monitoring", "Top memory hog process list"],
+      },
+      {
+        id: "mc-6",
+        title: "NVMe Disk Throughput & Volume Inspector",
+        subtitle: "Live read/write MB/s sparklines & mounted drive health",
+        image: "/brand/Metricove/6.webp",
+        tag: "Disk I/O",
+        description: "Watch real-time NVMe read and write speeds, session total bytes transferred, APFS container usage, and SMART health status.",
+        highlights: ["Live Read/Write MB/s curves", "Cumulative session I/O counters", "1-click Open in Finder"],
+      },
+      {
+        id: "mc-7",
+        title: "Network Bandwidth & Interface Inspector",
+        subtitle: "Download/Upload speed, Ping latency, Wi-Fi SSID & IP",
+        image: "/brand/Metricove/7.webp",
+        tag: "Network",
+        description: "Monitor live upload and download bandwidth, round-trip ping latency, active interface (en0/utun), local IPv4, router gateway, and Wi-Fi SSID.",
+        highlights: ["Dual-series Down/Up throughput chart", "1-click Copy Local IP", "Live gateway ping latency (ms)"],
+      },
+      {
+        id: "mc-8",
+        title: "SMC Thermal Sensors & Cooling Fan Curves",
+        subtitle: "Direct AppleSMC die temperatures & RPM tachometer",
+        image: "/brand/Metricove/8.webp",
+        tag: "SMC Thermals",
+        description: "Read raw AppleSMC temperature sensors across CPU cores, GPU clusters, ANE, NAND SSD, battery, and palm rest alongside live fan RPMs.",
+        highlights: ["Categorized SMC thermal probes", "Live Fan RPM vs Max capacity", "°C and °F unit toggle"],
+      },
+      {
+        id: "mc-9",
+        title: "Battery Health & System Power Wattage",
+        subtitle: "Cycle count, maximum capacity, charger watts & DC-In",
+        image: "/brand/Metricove/9.webp",
+        tag: "Battery & Power",
+        description: "Inspect battery health percentage, design vs current mAh capacity, cycle count, cell voltage/amperage, adapter wattage, and live system power draw.",
+        highlights: ["Live System Power (W) & Adapter rating", "Cycle count & mAh health degradation", "Time remaining / time to full charge"],
+      },
+      {
+        id: "mc-10",
+        title: "5 Accent Themes, Smart Alerts & Customization",
+        subtitle: "Personalize polling rates, thresholds & menu bar items",
+        image: "/brand/Metricove/10.webp",
+        tag: "Customization",
+        description: "Switch between 5 signature accent themes, configure smart CPU/RAM/Thermal/Battery alert thresholds, and tune polling intervals from 1s to 5s.",
+        highlights: ["5 signature dark glassmorphic themes", "Configurable CPU, RAM & Thermal alerts", "Launch at Login & JSON export"],
+      },
+    ],
+    keywords: [
+      "Metricove",
+      "macOS system monitor",
+      "iStat Menus alternative Mac",
+      "Stats macOS menu bar",
+      "Apple Silicon CPU temperature monitor",
+      "Mac fan speed SMC monitor",
+      "macOS RAM GPU menu bar monitor",
+    ],
+  },
+  netguard: {
+    slug: "netguard",
+    name: "NetGuard: Network & Firewall",
+    shortName: "NetGuard",
+    tagline: "Interactive 3D Traffic Radar, Process Inspector & Rule Shield for macOS",
+    subtitle: "3D Traffic Radar & Rule Shield",
+    promotionalText:
+      "Visualize every outbound connection on an interactive 3D Earth Globe, inspect live processes with code-signing verification, and block trackers with 1-Click Threat Shield Packs.",
+    shortDescription:
+      "NetGuard is a native macOS network monitor, interactive 3D global connection radar, and application firewall. Watch live connections arc across a 60 FPS SceneKit 3D Earth globe, inspect process code signatures, and block telemetry, ads, and unauthorized endpoints.",
+    fullDescription:
+      "Built natively in SwiftUI, SceneKit, MapKit, and NetworkExtension for macOS 14+, NetGuard gives you x-ray visibility into every packet leaving your Mac. Rotate an interactive 3D satellite globe with geodesic connection arcs, audit live processes and SHA-256 code signatures, enable Allow on Startup so boot apps never hang while new processes are caught, and deploy 1-Click Threat Shield Packs.",
+    philosophy:
+      "Your Mac shouldn't silently phone home to hundreds of unknown tracking and telemetry servers behind your back. NetGuard puts a deterministic, zero-telemetry 3D radar and rule engine under your complete control in a 3.8 MB native binary.",
+    version: "1.0.0",
+    appSize: "3.8 MB",
+    bundleId: "com.netguard.macos.app",
+    minMacOsVersion: "macOS 14.0+ (Sonoma & Sequoia)",
+    architecture: "Universal Binary (Apple Silicon M1–M4 & Intel) • SwiftUI, SceneKit & NetworkExtension",
+    primaryCategory: "Utilities",
+    secondaryCategory: "Developer Tools",
+    pricingModel: "100% Free Direct Download — Zero Telemetry",
+    platform: "macOS 14.0+ (Apple Silicon & Intel)",
+    downloadUrl: "https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/NetGuard.dmg",
+    icon: "/brand/NetGuard/icon-sm.webp",
+    iconLarge: "/brand/NetGuard/icon.webp",
+    accentColor: "emerald",
+    features: [
+      {
+        title: "Interactive 3D Earth Globe & 2D MapKit Radar",
+        description:
+          "Visualize live network connections on a hardware-accelerated 60 FPS SceneKit 3D globe with glowing geodesic flight arcs, country flags, ASN, and latency badges.",
+        tag: "3D Globe Radar",
+      },
+      {
+        title: "Allow on Startup (Smart Boot Baseline)",
+        description:
+          "Automatically trust apps already running when your Mac boots so core workflows never hang, while immediately intercepting newly launched processes.",
+        tag: "Boot Protection",
+      },
+      {
+        title: "Deterministic Application Firewall & Rule Matrix",
+        description:
+          "Create permanent, temporary (15m / 1h / Until Quit), or domain-wildcard Allow/Block rules per process, protocol (TCP/UDP/ICMP/QUIC), port, and country.",
+        tag: "Firewall Engine",
+      },
+      {
+        title: "1-Click Threat Shield Packs",
+        description:
+          "Deploy curated defense packs in one click: Ad & Tracker Domains, OS & App Telemetry Block, AI Scraper & Bot Shield, and Insecure Cleartext Port Guard.",
+        tag: "Threat Shields",
+      },
+      {
+        title: "Deep Process & Code-Signature Inspector",
+        description:
+          "Inspect Apple/Developer ID code-signing authorities, bundle paths, PIDs, parent processes, reverse DNS hostnames, and per-app bandwidth sparklines.",
+        tag: "Code Signing",
+      },
+      {
+        title: "Menu Bar Command Center & 4 WidgetKit Widgets",
+        description:
+          "Monitor live Up/Down throughput, switch Shield Modes (Alert, Silent Allow, Silent Block, Lockdown), and pin 4 native macOS desktop widgets.",
+        tag: "Menu Bar & Widgets",
+      },
+    ],
+    specifications: [
+      { label: "Application Type", value: "Native macOS Network Monitor & Application Firewall" },
+      { label: "Installer Size", value: "3.8 MB Universal DMG (Signed Developer ID)" },
+      { label: "Platforms Supported", value: "macOS 14.0+ (Apple Silicon M1–M4 & Intel)" },
+      { label: "Visualization Engine", value: "60 FPS SceneKit 3D Earth Globe + 2D MapKit Dark Radar" },
+      { label: "Export Formats", value: "JSON, CSV & Standard PCAP Packet Metadata Export" },
+      { label: "Desktop Widgets", value: "4 Native WidgetKit Extensions (Posture, Bandwidth, Countries, Threats)" },
+      { label: "Data Transmission", value: "0 bytes transmitted / 100% On-Device Packet Inspection" },
+      { label: "Product Version", value: "v1.0.0 (Direct Single-Click DMG)" },
+    ],
+    screenshotsMac: [
+      {
+        id: "ng-1",
+        title: "Overview Dashboard & Security Posture Score",
+        subtitle: "Real-time 0–100 security score, 3D globe & bandwidth telemetry",
+        image: "/brand/NetGuard/1.webp",
+        tag: "Command Center",
+        description: "Track your Mac's real-time Security Posture Score (0–100), live upload/download sparklines, active connections, and blocked threat events in one unified view.",
+        highlights: ["Live Security Posture Score (0–100)", "Embedded 3D globe preview", "Top applications & destination countries"],
+      },
+      {
+        id: "ng-2",
+        title: "Interactive 3D Global Connection Radar",
+        subtitle: "60 FPS SceneKit Earth globe with geodesic flight arcs",
+        image: "/brand/NetGuard/2.webp",
+        tag: "3D Earth Radar",
+        description: "Rotate, zoom, and click any glowing node on the 3D Earth globe or 2D MapKit radar to inspect every process talking to that country and ASN.",
+        highlights: ["60 FPS SceneKit 3D satellite globe", "Color-coded Allow (Cyan) vs Block (Crimson) arcs", "Country, city, ASN & latency inspector"],
+      },
+      {
+        id: "ng-3",
+        title: "Live Process Inspector & Deterministic Rule Engine",
+        subtitle: "Per-app sockets, code-signature verification & instant blocking",
+        image: "/brand/NetGuard/3.webp",
+        tag: "Process & Rules",
+        description: "Group live traffic by application, domain, IP, country, or protocol. Verify Developer ID signatures and create 1-click Allow or Block rules.",
+        highlights: ["Code-signing authority verification", "Temporary (15m / 1h) or permanent rules", "Export to JSON, CSV & PCAP"],
+      },
+      {
+        id: "ng-4",
+        title: "Allow on Startup & 1-Click Threat Shield Packs",
+        subtitle: "Zero boot popups + curated telemetry & tracker blocklists",
+        image: "/brand/NetGuard/4.webp",
+        tag: "Threat Shields",
+        description: "Enable Allow on Startup to auto-trust your baseline boot apps while deploying 1-Click Threat Shield Packs against ads, telemetry, and cleartext ports.",
+        highlights: ["Allow on Startup boot baseline", "4 curated 1-Click Threat Shield Packs", "Network Profile Aware (Home / Public Wi-Fi)"],
+      },
+      {
+        id: "ng-5",
+        title: "Menu Bar Command Center & 4 Desktop Widgets",
+        subtitle: "Instant Lockdown switch, live throughput & WidgetKit gallery",
+        image: "/brand/NetGuard/5.webp",
+        tag: "Menu Bar & Widgets",
+        description: "Control NetGuard from your macOS menu bar with live Up/Down speeds, Panic Lockdown toggle, and 4 native macOS Notification Center & Desktop widgets.",
+        highlights: ["1-click Panic Lockdown switch", "Live menu bar bandwidth counter", "4 native macOS WidgetKit widgets"],
+      },
+    ],
+    keywords: [
+      "NetGuard",
+      "macOS firewall",
+      "Little Snitch alternative Mac",
+      "LuLu firewall alternative macOS",
+      "3D network traffic map Mac",
+      "macOS outbound connection monitor",
+      "block app telemetry Mac",
+    ],
+  },
+  klipora: {
+    slug: "klipora",
+    name: "Klipora: Clipboard Manager",
+    shortName: "Klipora",
+    tagline: "Keyboard-First Clipboard Workspace, Bento Board, Dev Studio & Vision OCR",
+    subtitle: "Fast, Private Copy History",
+    promotionalText:
+      "Summon your entire copy history in under 16ms with ⌘⇧V. Features Split Inspector, Bento Visual Board, Dev Scratchpad, local Vision OCR, and 100% offline SQLite WAL storage.",
+    shortDescription:
+      "Klipora is a native, keyboard-first macOS clipboard workspace engineered in Swift, AppKit, and SQLite WAL. Summon your history in under 16ms (⌘⇧V), switch between Split List, Bento Grid, and Dev Studio Scratchpad, run local Vision OCR on images, and transform snippets.",
+    fullDescription:
+      "Engineered for developers, designers, and writers who demand sub-millisecond speed and absolute privacy, Klipora stores your entire clipboard history locally in an indexed SQLite WAL database. Search across thousands of text snippets, code blocks, URLs, colors, images, and files using Smart, Exact, Fuzzy, or Regex queries — while automatically ignoring password managers.",
+    philosophy:
+      "Your clipboard holds your most sensitive code, credentials, and creative work. Klipora processes everything 100% on-device with zero cloud sync, zero telemetry, automatic password-manager exclusion, and an instant NSPanel HUD.",
+    version: "1.0.0",
+    appSize: "3.1 MB",
+    bundleId: "app.klipora.macos",
+    minMacOsVersion: "macOS 14.0+ (Sonoma & Sequoia)",
+    architecture: "Universal Binary (Apple Silicon M1–M4 & Intel) • Swift, AppKit, Vision & SQLite WAL",
+    primaryCategory: "Productivity",
+    secondaryCategory: "Developer Tools",
+    pricingModel: "100% Free Direct Download — Zero Telemetry",
+    platform: "macOS 14.0+ (Apple Silicon & Intel)",
+    downloadUrl: "https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/Klipora.dmg",
+    icon: "/brand/Klipora/icon-sm.webp",
+    iconLarge: "/brand/Klipora/icon.webp",
+    accentColor: "violet",
+    features: [
+      {
+        title: "3 Distinct Workspace Modes (⌘L, ⌘G, ⌘K)",
+        description:
+          "Switch instantly between Split List & Inspector (⌘L), Masonry Bento Visual Board (⌘G) for images & color swatches, and Dev Studio Scratchpad (⌘K).",
+        tag: "3 Workspaces",
+      },
+      {
+        title: "Sub-Millisecond Smart, Fuzzy & Regex Search",
+        description:
+          "Filter tens of thousands of clips by content, source app, or tag using Smart, Exact, Fuzzy, or full Regular Expression (.*) matching.",
+        tag: "Regex & Fuzzy",
+      },
+      {
+        title: "On-Device Apple Vision OCR & Offline QR Generator",
+        description:
+          "Extract text from any copied screenshot in a single click using Apple's local Vision framework and generate high-resolution QR codes offline.",
+        tag: "Vision OCR & QR",
+      },
+      {
+        title: "Smart Payload Detection & 11 Text Transforms",
+        description:
+          "Automatically strip UTM tracking params from URLs, pretty-print JSON, decode JWT tokens, check WCAG contrast, and run 11 case/hash transforms.",
+        tag: "Dev Transforms",
+      },
+      {
+        title: "Sequential Paste Queue (⌃Q) & Pinboards",
+        description:
+          "Queue multiple items into a FIFO Paste Stack and paste them one-by-one in order, or organize permanent snippets into color-coded Pinboards.",
+        tag: "Paste Stack",
+      },
+      {
+        title: "Privacy Shield & Password Manager Auto-Exclusion",
+        description:
+          "Respects org.nspasteboard.ConcealedType & TransientType out of the box—automatically ignoring 1Password, Bitwarden, Keychain, and Apple Passwords.",
+        tag: "Privacy Shield",
+      },
+    ],
+    specifications: [
+      { label: "Application Type", value: "Native macOS Clipboard Manager & Developer Scratchpad" },
+      { label: "Installer Size", value: "3.1 MB Universal DMG (Signed Developer ID)" },
+      { label: "Platforms Supported", value: "macOS 14.0+ (Apple Silicon M1–M4 & Intel)" },
+      { label: "Storage Engine", value: "Local SQLite 3 WAL Mode + SHA-256 Deduplication" },
+      { label: "On-Device AI / OCR", value: "Apple Vision Framework (VNRecognizeTextRequest)" },
+      { label: "Global Hotkeys", value: "⌘⇧V Summon HUD • ⌘1–⌘9 Quick Paste • ⇧↩ Plain Text" },
+      { label: "Data Transmission", value: "0 bytes transmitted / 100% Air-Gapped Local Vault" },
+      { label: "Product Version", value: "v1.0.0 (Direct Single-Click DMG)" },
+    ],
+    screenshotsMac: [
+      {
+        id: "kl-1",
+        title: "Floating NSPanel HUD & Split Inspector (⌘L)",
+        subtitle: "Summon anywhere in <16ms without leaving your active window",
+        image: "/brand/Klipora/1.webp",
+        tag: "Split Inspector",
+        description: "Press ⌘⇧V over any full-screen app to summon Klipora's non-activating floating panel with instant keyboard navigation (↑/↓, ⌘1–⌘9) and rich payload inspection.",
+        highlights: ["<16ms floating NSPanel summon", "Instant ⌘1–⌘9 quick paste", "⇧↩ Paste as Plain Text"],
+      },
+      {
+        id: "kl-2",
+        title: "Bento Grid Visual Board (⌘G)",
+        subtitle: "Masonry visual cards for screenshots, hex colors, links & code",
+        image: "/brand/Klipora/2.webp",
+        tag: "Bento Board",
+        description: "Browse your clipboard visually in a 2-column Bento grid showcasing image dimensions, live HEX/RGB/HSL color swatches with WCAG ratios, and syntax-badged code.",
+        highlights: ["Live HEX/RGB/HSL color cards", "1-click Apple Vision OCR on images", "Color-coded Pinboard collections"],
+      },
+      {
+        id: "kl-3",
+        title: "Studio Scratchpad & 11 Developer Transforms (⌘K)",
+        subtitle: "Edit, format JSON, decode JWTs, strip UTM links & hash strings",
+        image: "/brand/Klipora/3.webp",
+        tag: "Dev Studio",
+        description: "Open any clip in the live Studio Scratchpad to edit text, pretty-print or minify JSON, decode Base64/JWT, strip tracking URLs, or compute SHA-256 hashes.",
+        highlights: ["11 instant text & code transforms", "Smart UTM tracking parameter stripper", "Offline high-res QR code generator"],
+      },
+      {
+        id: "kl-4",
+        title: "Privacy Shield & Password Manager Protection",
+        subtitle: "Zero cloud sync + automatic concealed pasteboard exclusion",
+        image: "/brand/Klipora/4.webp",
+        tag: "Privacy Shield",
+        description: "Klipora automatically ignores concealed and transient copies from 1Password, Bitwarden, Keychain, and Terminal while letting you blur sensitive items with ⌃S.",
+        highlights: ["Auto-ignores password managers", "Per-app blocklist & Pause Monitoring", "⌃S Sensitive clip blur toggle"],
+      },
+      {
+        id: "kl-5",
+        title: "Interactive Desktop Widgets, Themes & SQLite Vault",
+        subtitle: "Native WidgetKit extension, 5 accent palettes & 1-click backup",
+        image: "/brand/Klipora/5.webp",
+        tag: "Widgets & Vault",
+        description: "Pin interactive Clipboard History widgets to your macOS desktop, customize 5 accent themes, and export/import your entire SQLite vault as portable JSON.",
+        highlights: ["Interactive macOS WidgetKit extension", "5 accent themes & 3 density modes", "1-click JSON Vault Export & Import"],
+      },
+    ],
+    keywords: [
+      "Klipora",
+      "macOS clipboard manager",
+      "Paste alternative Mac",
+      "Maccy Raycast clipboard alternative",
+      "developer clipboard manager macOS",
+      "offline clipboard history Mac",
+      "Vision OCR clipboard Mac",
+    ],
+  },
+  showFreeSpace: {
+    slug: "show-free-space",
+    name: "Show free space: Disk Analyzer & Storage Widget",
+    shortName: "Show free space",
+    tagline: "Sunburst & Treemap Disk Visualizer, Dev Cache Cleaner & Storage Widgets",
+    subtitle: "Disk Analyzer & Storage Widget",
+    promotionalText:
+      "Visualize where every gigabyte goes with interactive Sunburst & Treemap charts, reclaim Xcode/npm/Docker caches, find SHA-256 duplicates, and pin live Desktop HUD widgets.",
+    shortDescription:
+      "Show free space is an all-in-one macOS disk space analyzer, developer cache cleaner, SHA-256 duplicate finder, deep app uninstaller, and live storage widget suite. Visualize drives with Sunburst & Treemap charts and reclaim gigabytes safely via macOS Trash.",
+    fullDescription:
+      "Re-engineered for macOS Ventura, Sonoma, and Sequoia, Show free space combines an interactive Space Lens visualizer (Sunburst & Treemap), 7 native macOS WidgetKit widgets, 4 Floating Desktop HUD presets (⌘⇧W), a live Menu Bar monitor, Big Wins Developer Cache Cleaner (Xcode DerivedData, npm, Homebrew, Cargo, Docker), SHA-256 Duplicate Finder, Deep App Uninstaller, and Smart Organizer.",
+    philosophy:
+      "Reclaiming disk space on macOS shouldn't require predatory subscriptions or opaque 'junk cleaners' that delete files behind your back. Every cleanup action in Show free space is 100% transparent, previewable in Staging Drawer, and routed safely through macOS Trash.",
+    version: "1.0.0",
+    appSize: "579 MB",
+    bundleId: "me.cogify.showfreespace",
+    minMacOsVersion: "macOS 13.0+ (Ventura, Sonoma & Sequoia)",
+    architecture: "macOS Storage Engine + Native WidgetKit Extension (.appex)",
+    primaryCategory: "Utilities",
+    secondaryCategory: "Developer Tools",
+    pricingModel: "100% Free Direct Download — Zero Telemetry",
+    platform: "macOS 13.0+ (Apple Silicon & Intel)",
+    downloadUrl: "https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/ShowFreeSpace.dmg",
+    icon: "/brand/ShowFreeSpace/icon-sm.webp",
+    iconLarge: "/brand/ShowFreeSpace/icon.webp",
+    accentColor: "amber",
+    features: [
+      {
+        title: "Interactive Sunburst & Treemap Space Lens",
+        description:
+          "Drill down into any folder or external volume with fluid Sunburst radial rings and proportional Treemap blocks with breadcrumb navigation and file type breakdowns.",
+        tag: "Space Lens",
+      },
+      {
+        title: "7 Native macOS Widgets + 4 Floating Desktop HUDs",
+        description:
+          "Add native WidgetKit storage gauges to your macOS Desktop & Notification Center, or toggle 4 translucent Floating Desktop HUD presets anywhere with ⌘⇧W.",
+        tag: "Widgets & HUD",
+      },
+      {
+        title: "Big Wins Developer Cache Cleaner & Quick Maintenance",
+        description:
+          "Reclaim tens of gigabytes from Xcode DerivedData, iOS Simulators, npm/pnpm/Yarn, Homebrew, Cargo, Gradle, CocoaPods, and Docker—plus 1-click .DS_Store & cache cleanup.",
+        tag: "Dev Cleaner",
+      },
+      {
+        title: "Byte-Accurate SHA-256 Duplicate Finder",
+        description:
+          "Two-stage file size pre-filtering and cryptographic SHA-256 verification guarantee zero false positives, with Smart Auto-Select that always keeps your oldest original.",
+        tag: "SHA-256 Dedup",
+      },
+      {
+        title: "Deep App Uninstaller & Orphaned Leftover Scanner",
+        description:
+          "Scan /Applications Alongside ~/Library/Application Support, Caches, Preferences, Containers, and Logs to remove gigabytes of hidden app leftovers together.",
+        tag: "Deep Uninstaller",
+      },
+      {
+        title: "Live Menu Bar Monitor & System Pulse Telemetry",
+        description:
+          "Track live free disk space (GB), CPU load (%), Memory Pressure, and network speed (MB/s) directly in your macOS menu bar with 1-click Quick Purge.",
+        tag: "Menu Bar & Pulse",
+      },
+    ],
+    specifications: [
+      { label: "Application Type", value: "macOS Storage Visualizer, Dev Cleaner & Widget Suite" },
+      { label: "Platforms Supported", value: "macOS 13.0+ (Ventura, Sonoma & Sequoia)" },
+      { label: "Visualization Modes", value: "Interactive Sunburst Chart, Treemap Grid & Split List" },
+      { label: "Widgets Included", value: "7 Native WidgetKit Sizes + 4 Floating Desktop HUDs (⌘⇧W)" },
+      { label: "Deduplication Engine", value: "Size-Grouped Pre-Filter + Cryptographic SHA-256 Hash" },
+      { label: "Safety Architecture", value: "Review Purge Staging Drawer + Recoverable macOS Trash" },
+      { label: "Data Transmission", value: "0 bytes transmitted / 100% Local Disk Analysis" },
+      { label: "Product Version", value: "v1.0.0 (Direct Single-Click DMG)" },
+    ],
+    screenshotsMac: [
+      {
+        id: "sfs-1",
+        title: "Interactive Sunburst & Treemap Storage Visualizer",
+        subtitle: "See where every gigabyte goes with instant visual drill-down",
+        image: "/brand/ShowFreeSpace/1.webp",
+        tag: "Space Lens",
+        description: "Scan Macintosh HD, your Home folder, or any external drive and explore nested directories through interactive Sunburst rings and proportional Treemap blocks.",
+        highlights: ["Interactive Sunburst & Treemap views", "Instant folder drill-down & breadcrumbs", "Stage files for safe Trash removal"],
+      },
+      {
+        id: "sfs-2",
+        title: "Native macOS Notification Center & Desktop Widgets",
+        subtitle: "7 native WidgetKit storage, CPU, RAM & purge widgets",
+        image: "/brand/ShowFreeSpace/2.webp",
+        tag: "macOS Widgets",
+        description: "Pin Small, Medium, and Large native WidgetKit storage gauges, category breakdowns, and live hardware telemetry directly to your macOS Sonoma/Sequoia desktop.",
+        highlights: ["7 native WidgetKit widget styles", "Live Macintosh HD free space ring", "1-click deep links into cleaner tools"],
+      },
+      {
+        id: "sfs-3",
+        title: "Floating Desktop HUD Overlay (4 Presets • ⌘⇧W)",
+        subtitle: "Always-on-top glassmorphic telemetry pill, card, ring & strip",
+        image: "/brand/ShowFreeSpace/3.webp",
+        tag: "Desktop HUD",
+        description: "Toggle a sleek, draggable desktop HUD overlay with ⌘⇧W and switch between Compact Pill, Detailed Card, Minimal Ring, and Horizontal Strip presets.",
+        highlights: ["4 customizable HUD layout presets", "Global ⌘⇧W show/hide shortcut", "Adjustable opacity & window level"],
+      },
+      {
+        id: "sfs-4",
+        title: "Live Menu Bar Monitor & Quick Dropdown",
+        subtitle: "Real-time GB Free, CPU % & MB/s in your macOS Menu Bar",
+        image: "/brand/ShowFreeSpace/4.webp",
+        tag: "Menu Bar",
+        description: "Keep an eye on remaining disk space, CPU load, and network throughput from the menu bar, and open the dropdown for 1-click Quick Purge and volume mounting.",
+        highlights: ["Live Menu Bar GB / CPU / MB/s readout", "Mounted external volume health bars", "1-click Quick Purge from menu bar"],
+      },
+      {
+        id: "sfs-5",
+        title: "System Pulse Monitor (CPU, RAM, Disk I/O & Network)",
+        subtitle: "60-second sparkline telemetry & top process inspector",
+        image: "/brand/ShowFreeSpace/5.webp",
+        tag: "System Pulse",
+        description: "Inspect per-core CPU load, Memory Pressure, Disk Read/Write MB/s, Network RX/TX throughput, battery health, and top resource-consuming processes.",
+        highlights: ["Live 60-second hardware sparklines", "Top CPU & Memory process tables", "Per-volume APFS capacity breakdown"],
+      },
+      {
+        id: "sfs-6",
+        title: "Big Wins Developer Cache Cleaner",
+        subtitle: "Reclaim gigabytes from Xcode, npm, Homebrew, Cargo & Docker",
+        image: "/brand/ShowFreeSpace/6.webp",
+        tag: "Dev Cleaner",
+        description: "Automatically detect safe-to-regenerate developer caches (Xcode DerivedData, iOS Simulators, npm, pnpm, Homebrew, Cargo, Gradle, Docker) and run 1-click Quick Maintenance.",
+        highlights: ["Xcode DerivedData & Simulator cleaner", "npm, pnpm, Yarn, Homebrew, Cargo & Pip", "1-click .DS_Store & empty folder sweep"],
+      },
+      {
+        id: "sfs-7",
+        title: "Space Radar: Large & Stale File Hunter",
+        subtitle: "Pinpoint forgotten multi-gigabyte DMGs, ISOs, videos & archives",
+        image: "/brand/ShowFreeSpace/7.webp",
+        tag: "Space Radar",
+        description: "Filter files by size threshold (50 MB to 1 GB+) and staleness age (30+ to 365+ days untouched) to uncover forgotten raw videos, VM images, and old installers.",
+        highlights: ["Instant 50MB / 250MB / 1GB+ filters", "Stale file age detection (30–365+ days)", "Quick Look preview & Reveal in Finder"],
+      },
+      {
+        id: "sfs-8",
+        title: "Byte-Accurate SHA-256 Duplicate Finder",
+        subtitle: "Zero false positives with cryptographic hash verification",
+        image: "/brand/ShowFreeSpace/8.webp",
+        tag: "SHA-256 Dedup",
+        description: "Find exact duplicate photos, documents, archives, and media across folders using two-stage size grouping and full SHA-256 cryptographic hashing.",
+        highlights: ["Cryptographic SHA-256 verification", "1-click Smart Auto-Select Duplicates", "Always preserves your oldest original"],
+      },
+      {
+        id: "sfs-9",
+        title: "Deep App Uninstaller & Orphaned Leftover Cleaner",
+        subtitle: "Remove apps together with hidden ~/Library caches & containers",
+        image: "/brand/ShowFreeSpace/9.webp",
+        tag: "Deep Uninstaller",
+        description: "Dragging an app to Trash leaves gigabytes of orphaned files behind. Inspect every app's bundle size alongside its Application Support, Caches, Containers, and Logs.",
+        highlights: ["Full ~/Library leftover correlation", "Clean Leftovers Only or Full Uninstall", "Safe removal via macOS Trash"],
+      },
+      {
+        id: "sfs-10",
+        title: "Smart Downloads Organizer, Quick Search (⌘K) & Themes",
+        subtitle: "Declutter messy folders & search any file in milliseconds",
+        image: "/brand/ShowFreeSpace/10.webp",
+        tag: "Smart Organizer",
+        description: "Preview and sort messy Downloads or Desktop folders into clean category folders with 1-click Undo, search files globally via ⌘K, and switch between 3 themes.",
+        highlights: ["Dry-run Organizer preview + 1-click Undo", "Global ⌘K Spotlight-style file search", "Midnight Dark, Daylight & Native macOS themes"],
+      },
+    ],
+    keywords: [
+      "Show free space",
+      "macOS disk space analyzer",
+      "DaisyDisk CleanMyMac alternative",
+      "GrandPerspective OmniDiskSweeper alternative",
+      "Xcode DerivedData cleaner Mac",
+      "duplicate file finder macOS SHA256",
+      "macOS storage widget",
+    ],
+  },
 };
+
+export const liveMacApps: MacAppConfig[] = [
+  siteConfig.lumenview,
+  siteConfig.metricove,
+  siteConfig.netguard,
+  siteConfig.klipora,
+  siteConfig.showFreeSpace,
+];
 
 export const liveSafariApps: SafariAppConfig[] = [
   siteConfig.adBlocker,

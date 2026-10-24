@@ -5,6 +5,9 @@ import { FaqSection } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
 import { siteConfig } from "@/config/site";
 
+const MacOSAppsShowcase = dynamic(() =>
+  import("@/components/products/macos-apps-showcase").then((mod) => mod.MacOSAppsShowcase)
+);
 const SafariExtensionsShowcase = dynamic(() =>
   import("@/components/products/safari-extensions-showcase").then((mod) => mod.SafariExtensionsShowcase)
 );
@@ -47,12 +50,12 @@ const HOME_FAQS = [
     a: "Yes. Alongside our 7 native macOS, iOS, iPadOS, and Safari applications on the Apple App Store, Cogify engineers real-time, 100% client-side browser web studios and installable PWAs—including Marriage Biodata Maker Studio (biodata.cogify.me)—as well as custom enterprise software and SaaS replacements.",
   },
   {
-    q: "Which free macOS, iOS, and Safari apps are published by Cogify on the Apple App Store?",
-    a: "Cogify publishes 7 native Apple applications on the App Store: EmDoc PDF Workstation for macOS (5.0 MB C++20/AppKit PDF editor, merger, OCR, and compressor), Ad Blocker - For Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
+    q: "Which free macOS workstations and Safari apps are published by Cogify?",
+    a: "Cogify ships 6 native macOS workstations with instant single-click .DMG downloads (EmDoc PDF Workstation, LumenView Display Manager, Metricove Menu Bar Telemetry, NetGuard Outbound Firewall, Klipora Clipboard Manager, and Show free space Disk Analyzer) alongside 6 Safari extensions on the Apple App Store (Ad Blocker - For Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert).",
   },
   {
     q: "Are all Cogify apps and web studios 100% free with zero telemetry?",
-    a: "Yes. Every Cogify consumer app on the Apple App Store and every real-time web studio on cogify.me (including biodata.cogify.me) is 100% free for individuals with zero subscriptions, zero ads, zero watermarks, and 100% local on-device execution.",
+    a: "Yes. Every Cogify macOS application, Safari extension, and real-time web studio on cogify.me (including biodata.cogify.me) is 100% free for individuals with zero subscriptions, zero ads, zero watermarks, and 100% local on-device execution.",
   },
 ];
 
@@ -60,6 +63,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       <HeroSection />
+      <MacOSAppsShowcase />
       <SafariExtensionsShowcase />
       <WhatWeBuild />
       <FutureProducts />
@@ -67,7 +71,7 @@ export default function HomePage() {
       <FaqSection
         badge="COGIFY Ecosystem FAQ"
         title="Frequently Asked Questions About COGIFY Apps & Web Studios"
-        subtitle="Everything you need to know about our real-time web solutions (biodata.cogify.me), native macOS workstations, and Safari extensions."
+        subtitle="Everything you need to know about our real-time web solutions (biodata.cogify.me), 6 native macOS workstations, and 6 Safari extensions."
         faqs={HOME_FAQS}
       />
       <AuthorBio contextLabel="Founder & Systems Architect • Native Apple & Web Studios" />

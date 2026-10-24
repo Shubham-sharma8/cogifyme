@@ -104,10 +104,19 @@ export default function EmDocProductPage() {
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <a
+              href={emdoc.downloadUrl}
+              download
+              className="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2"
+            >
+              <Download className="w-4 h-4" />
+              <span>Direct Download (.DMG • {emdoc.appSize})</span>
+            </a>
+
+            <a
               href={emdoc.appStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2"
+              className="px-6 py-3.5 rounded-xl bg-zinc-900 dark:bg-white hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-950 font-bold text-sm shadow-lg transition-all flex items-center gap-2"
             >
               <ExternalLink className="w-4 h-4" />
               <span>Get on Mac App Store</span>
@@ -116,17 +125,17 @@ export default function EmDocProductPage() {
             <MovingBorderButton
               onClick={() => setDownloadModalOpen(true)}
               borderRadius="0.75rem"
-              className="px-6 py-3.5 font-semibold text-sm cursor-pointer"
+              className="px-5 py-3.5 font-semibold text-sm cursor-pointer"
             >
               <span className="flex items-center gap-2">
-                <Download className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                <span>Download Options ({emdoc.appSize})</span>
+                <Cpu className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                <span>Architectures &amp; Specs</span>
               </span>
             </MovingBorderButton>
 
             <Link
               href="/suggestions"
-              className="px-6 py-3.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-950/40 dark:hover:bg-indigo-900/40 dark:text-indigo-300 font-semibold text-sm border border-indigo-200 dark:border-indigo-500/30 transition-colors flex items-center gap-2"
+              className="px-5 py-3.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-950/40 dark:hover:bg-indigo-900/40 dark:text-indigo-300 font-semibold text-sm border border-indigo-200 dark:border-indigo-500/30 transition-colors flex items-center gap-2"
             >
               <MessageSquare className="w-4 h-4" />
               <span>Suggest a Feature</span>
