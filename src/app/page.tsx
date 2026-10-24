@@ -1,13 +1,25 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/hero/hero-section";
-import { SafariExtensionsShowcase } from "@/components/products/safari-extensions-showcase";
-import { WhatWeBuild } from "@/components/company/what-we-build";
-import { EnterpriseSection } from "@/components/enterprise/enterprise-section";
-import { FutureProducts } from "@/components/company/future-products";
-import { FinalCTA } from "@/components/cta/final-cta";
 import { FaqSection } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
 import { siteConfig } from "@/config/site";
+
+const SafariExtensionsShowcase = dynamic(() =>
+  import("@/components/products/safari-extensions-showcase").then((mod) => mod.SafariExtensionsShowcase)
+);
+const WhatWeBuild = dynamic(() =>
+  import("@/components/company/what-we-build").then((mod) => mod.WhatWeBuild)
+);
+const FutureProducts = dynamic(() =>
+  import("@/components/company/future-products").then((mod) => mod.FutureProducts)
+);
+const EnterpriseSection = dynamic(() =>
+  import("@/components/enterprise/enterprise-section").then((mod) => mod.EnterpriseSection)
+);
+const FinalCTA = dynamic(() =>
+  import("@/components/cta/final-cta").then((mod) => mod.FinalCTA)
+);
 
 export const metadata: Metadata = {
   title:
