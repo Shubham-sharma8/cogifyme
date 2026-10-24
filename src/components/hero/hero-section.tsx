@@ -432,8 +432,8 @@ export const HeroSection = () => {
                 </div>
                 <div className="hidden sm:flex items-center gap-4">
                   {activeApp.metrics.map((m, i) => (
-                    <div key={i} className="text-[11px] font-mono text-zinc-400">
-                      <span className="text-zinc-500">{m.label}: </span>
+                    <div key={i} className="text-[11px] font-mono text-zinc-300">
+                      <span className="text-zinc-400">{m.label}: </span>
                       <span className="text-emerald-400 font-semibold">{m.value}</span>
                     </div>
                   ))}

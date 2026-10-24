@@ -85,7 +85,7 @@ export const EnterpriseSection = () => {
                   <div className="w-10 h-10 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200/80 dark:border-white/10 flex items-center justify-center">
                     {item.icon}
                   </div>
-                  <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500 font-semibold">
+                  <span className="text-xs font-mono text-zinc-700 dark:text-zinc-300 font-semibold">
                     {item.step}
                   </span>
                 </div>

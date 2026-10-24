@@ -34,13 +34,13 @@ export const Footer = () => {
               We engineer native, zero-telemetry software and Safari extensions for macOS, iOS, and iPadOS. Built for speed, craft, and complete data sovereignty.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 pt-2 text-[11px] font-mono text-zinc-500">
-              <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+            <div className="flex flex-wrap items-center gap-3 pt-2 text-[11px] font-mono text-zinc-600 dark:text-zinc-400">
+              <span className="flex items-center gap-1 text-emerald-700 dark:text-emerald-400 font-medium">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 Zero Cloud Telemetry
               </span>
               <span>•</span>
-              <span className="flex items-center gap-1 text-indigo-600 dark:text-indigo-400">
+              <span className="flex items-center gap-1 text-indigo-700 dark:text-indigo-400 font-medium">
                 <Cpu className="w-3.5 h-3.5" />
                 Swift &amp; C++20 Native
               </span>
@@ -49,9 +49,9 @@ export const Footer = () => {
 
           {/* Links Column: Live Apps */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="font-semibold text-zinc-900 dark:text-white text-xs uppercase tracking-wider">
+            <h3 className="font-semibold text-zinc-900 dark:text-white text-xs uppercase tracking-wider">
               Live Apps &amp; Studios
-            </h4>
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/products/emdoc" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center justify-between gap-2">
@@ -122,9 +122,9 @@ export const Footer = () => {
 
           {/* Links Column: Company */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="font-semibold text-zinc-900 dark:text-white text-xs uppercase tracking-wider">
+            <h3 className="font-semibold text-zinc-900 dark:text-white text-xs uppercase tracking-wider">
               Company
-            </h4>
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/products" className="hover:text-zinc-950 dark:hover:text-white transition-colors font-semibold text-indigo-600 dark:text-indigo-400">
@@ -167,9 +167,9 @@ export const Footer = () => {
 
           {/* Links Column: Legal & Official Store */}
           <div className="md:col-span-2 space-y-3">
-            <h4 className="font-semibold text-zinc-900 dark:text-white text-xs uppercase tracking-wider">
+            <h3 className="font-semibold text-zinc-900 dark:text-white text-xs uppercase tracking-wider">
               Legal &amp; Store
-            </h4>
+            </h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -226,8 +226,8 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <span className="text-zinc-500">
-                  Domain: <code className="text-zinc-700 dark:text-zinc-400 font-mono">cogify.me</code>
+                <span className="text-zinc-600 dark:text-zinc-400">
+                  Domain: <code className="text-zinc-700 dark:text-zinc-300 font-mono">cogify.me</code>
                 </span>
               </li>
             </ul>
@@ -235,13 +235,13 @@ export const Footer = () => {
         </div>
 
         {/* Bottom copyright & theme row */}
-        <div className="mt-12 pt-8 border-t border-zinc-200/80 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-500">
+        <div className="mt-12 pt-8 border-t border-zinc-200/80 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-600 dark:text-zinc-400">
           <div>
             © {currentYear} COGIFY Technologies. All rights reserved. EmDoc, Biodata Maker (biodata.cogify.me), Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider &amp; Colour Invert are products of COGIFY.
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggle variant="pill" />
-            <span className="font-mono text-[10px] hidden sm:inline">
+            <span className="font-mono text-[10px] text-zinc-600 dark:text-zinc-400 hidden sm:inline">
               Designed with precision • macOS, iOS, Safari &amp; Web
             </span>
           </div>
