@@ -32,7 +32,7 @@ export function MacAppPrivacyView({ app }: { app: MacAppConfig }) {
             <div className="flex items-center gap-4">
               <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 shrink-0 bg-zinc-950">
                 <Image
-                  src={app.iconLarge || app.icon}
+                  src={app.icon}
                   alt={app.name}
                   fill
                   className="object-cover"
@@ -106,7 +106,7 @@ export function MacAppPrivacyView({ app }: { app: MacAppConfig }) {
                   If you have any questions regarding the privacy architecture of {app.name}, please contact us at{" "}
                   <a
                     href={`mailto:${siteConfig.contact.general}`}
-                    className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline"
+                    className="text-indigo-700 dark:text-indigo-400 font-semibold hover:underline"
                   >
                     {siteConfig.contact.general}
                   </a>

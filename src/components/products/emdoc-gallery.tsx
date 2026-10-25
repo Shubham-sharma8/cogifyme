@@ -184,7 +184,7 @@ export const EmDocGallery = () => {
             <span className="truncate max-w-[220px] sm:max-w-none">
               EmDoc Workstation — {activeScreenshot.title}
             </span>
-            <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-mono">
+            <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 border border-emerald-500/20 font-mono">
               <ShieldCheck className="w-3 h-3" />
               Air-Gapped
             </span>
@@ -251,7 +251,7 @@ export const EmDocGallery = () => {
                 <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-500/20">
                   {activeScreenshot.tag}
                 </span>
-                <span className="text-xs text-zinc-500 font-mono">
+                <span className="text-xs text-zinc-600 dark:text-zinc-400 font-mono">
                   Screenshot {activeIndex + 1} of {screenshots.length}
                 </span>
               </div>

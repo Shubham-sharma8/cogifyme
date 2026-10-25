@@ -64,7 +64,7 @@ export default function EmDocProductPage() {
           <div className="flex items-center space-x-3">
             <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-lg bg-zinc-100 dark:bg-zinc-800">
               <Image
-                src="/brand/emdoc-icon.png"
+                src="/brand/emdoc-icon-sm.webp"
                 alt="EmDoc App Icon"
                 fill
                 priority
@@ -74,7 +74,7 @@ export default function EmDocProductPage() {
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">
+                <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">
                   Live on Mac App Store • v{emdoc.version}
                 </span>
                 <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/30">
@@ -84,7 +84,7 @@ export default function EmDocProductPage() {
                   Universal Apple Silicon &amp; Intel
                 </span>
               </div>
-              <div className="text-xs text-zinc-500 font-mono mt-1">
+              <div className="text-xs text-zinc-600 dark:text-zinc-400 font-mono mt-1">
                 Version {emdoc.version} (Build {emdoc.build}) • Size: {emdoc.appSize} • RAM: {emdoc.ramUsage}
               </div>
             </div>
@@ -145,19 +145,19 @@ export default function EmDocProductPage() {
           {/* 4 Core Pillars */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4">
             <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200/80 dark:border-white/5">
-              <span className="text-zinc-500 block text-[10px] uppercase font-mono">Download Size</span>
-              <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">{emdoc.appSize}</span>
+              <span className="text-zinc-600 dark:text-zinc-400 block text-[10px] uppercase font-mono">Download Size</span>
+              <span className="text-sm font-bold text-indigo-700 dark:text-indigo-400">{emdoc.appSize}</span>
             </div>
             <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200/80 dark:border-white/5">
-              <span className="text-zinc-500 block text-[10px] uppercase font-mono">RAM Footprint</span>
-              <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">{emdoc.ramUsage}</span>
+              <span className="text-zinc-600 dark:text-zinc-400 block text-[10px] uppercase font-mono">RAM Footprint</span>
+              <span className="text-sm font-bold text-emerald-800 dark:text-emerald-400">{emdoc.ramUsage}</span>
             </div>
             <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200/80 dark:border-white/5">
-              <span className="text-zinc-500 block text-[10px] uppercase font-mono">Pricing</span>
-              <span className="text-sm font-bold text-cyan-600 dark:text-cyan-400">100% Free Users</span>
+              <span className="text-zinc-600 dark:text-zinc-400 block text-[10px] uppercase font-mono">Pricing</span>
+              <span className="text-sm font-bold text-cyan-800 dark:text-cyan-400">100% Free Users</span>
             </div>
             <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200/80 dark:border-white/5">
-              <span className="text-zinc-500 block text-[10px] uppercase font-mono">Architecture</span>
+              <span className="text-zinc-600 dark:text-zinc-400 block text-[10px] uppercase font-mono">Architecture</span>
               <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">macOS Universal</span>
             </div>
           </div>
@@ -197,61 +197,61 @@ export default function EmDocProductPage() {
             <thead>
               <tr className="border-b border-zinc-200 dark:border-white/10 bg-zinc-50/80 dark:bg-zinc-900/50">
                 <th className="py-4 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Dimension</th>
-                <th className="py-4 px-6 font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50/50 dark:bg-indigo-500/10">
+                <th className="py-4 px-6 font-bold text-indigo-700 dark:text-indigo-400 bg-indigo-50/50 dark:bg-indigo-500/10">
                   EmDoc Workstation
                 </th>
-                <th className="py-4 px-6 font-medium text-zinc-500">Legacy Commercial Suites (e.g. Acrobat)</th>
-                <th className="py-4 px-6 font-medium text-zinc-500">Other Mac PDF Tools</th>
+                <th className="py-4 px-6 font-medium text-zinc-600 dark:text-zinc-400">Legacy Commercial Suites (e.g. Acrobat)</th>
+                <th className="py-4 px-6 font-medium text-zinc-600 dark:text-zinc-400">Other Mac PDF Tools</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-zinc-200/70 dark:divide-white/5">
               <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
                 <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Application Size</td>
-                <td className="py-3.5 px-6 font-bold text-emerald-600 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
+                <td className="py-3.5 px-6 font-bold text-emerald-800 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
                   5.0 MB (Instant download)
                 </td>
-                <td className="py-3.5 px-6 text-zinc-500">~1,200 MB (1.2 GB download)</td>
-                <td className="py-3.5 px-6 text-zinc-500">120 MB - 300 MB</td>
+                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">~1,200 MB (1.2 GB download)</td>
+                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">120 MB - 300 MB</td>
               </tr>
               <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
                 <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">RAM Memory Baseline</td>
-                <td className="py-3.5 px-6 font-bold text-emerald-600 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
+                <td className="py-3.5 px-6 font-bold text-emerald-800 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
                   ~45 MB (Lightweight &amp; cool)
                 </td>
-                <td className="py-3.5 px-6 text-zinc-500">800 MB - 2.5 GB</td>
-                <td className="py-3.5 px-6 text-zinc-500">250 MB - 600 MB</td>
+                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">800 MB - 2.5 GB</td>
+                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">250 MB - 600 MB</td>
               </tr>
               <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
                 <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Pricing for Individuals</td>
-                <td className="py-3.5 px-6 font-bold text-emerald-600 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
+                <td className="py-3.5 px-6 font-bold text-emerald-800 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
                   100% Free (Zero paywalls)
                 </td>
-                <td className="py-3.5 px-6 text-zinc-500">$239.88 / year subscription</td>
-                <td className="py-3.5 px-6 text-zinc-500">$79.99 / year or paid tiers</td>
+                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">$239.88 / year subscription</td>
+                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">$79.99 / year or paid tiers</td>
               </tr>
               <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
                 <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Cloud &amp; Telemetry</td>
-                <td className="py-3.5 px-6 font-bold text-emerald-600 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
+                <td className="py-3.5 px-6 font-bold text-emerald-800 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
                   100% Air-Gapped (0 bytes online)
                 </td>
-                <td className="py-3.5 px-6 text-zinc-500">Mandatory cloud sync &amp; telemetry</td>
-                <td className="py-3.5 px-6 text-zinc-500">Analytics beacons &amp; cloud features</td>
+                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">Mandatory cloud sync &amp; telemetry</td>
+                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">Analytics beacons &amp; cloud features</td>
               </tr>
               <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
                 <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Offline Compression</td>
-                <td className="py-3.5 px-6 font-bold text-emerald-600 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
+                <td className="py-3.5 px-6 font-bold text-emerald-800 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
                   Included Free (On-device engine)
                 </td>
-                <td className="py-3.5 px-6 text-zinc-500">Requires Pro subscription</td>
-                <td className="py-3.5 px-6 text-zinc-500">Often limited or cloud-based</td>
+                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">Requires Pro subscription</td>
+                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">Often limited or cloud-based</td>
               </tr>
               <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
                 <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Apple Neural Engine OCR</td>
-                <td className="py-3.5 px-6 font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50/30 dark:bg-indigo-500/5">
+                <td className="py-3.5 px-6 font-bold text-indigo-700 dark:text-indigo-400 bg-indigo-50/30 dark:bg-indigo-500/5">
                   Included Free (100% On-Device Vision)
                 </td>
-                <td className="py-3.5 px-6 text-zinc-500">Paid tier / cloud OCR</td>
-                <td className="py-3.5 px-6 text-zinc-500">Paid Pro upgrade</td>
+                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">Paid tier / cloud OCR</td>
+                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">Paid Pro upgrade</td>
               </tr>
             </tbody>
           </table>

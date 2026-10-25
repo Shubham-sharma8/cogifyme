@@ -44,9 +44,9 @@ export const EmDocShowcase = () => {
               <HardDrive className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-xs text-zinc-500 font-mono">App Size</div>
+              <div className="text-xs text-zinc-600 dark:text-zinc-400 font-mono">App Size</div>
               <div className="text-base font-bold text-zinc-900 dark:text-white">Only 5.0 MB</div>
-              <div className="text-[11px] text-zinc-500">vs 1.2 GB legacy suites</div>
+              <div className="text-[11px] text-zinc-600 dark:text-zinc-400">vs 1.2 GB legacy suites</div>
             </div>
           </div>
 
@@ -55,9 +55,9 @@ export const EmDocShowcase = () => {
               <Cpu className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-xs text-zinc-500 font-mono">RAM Usage</div>
-              <div className="text-base font-bold text-emerald-600 dark:text-emerald-400">~45 MB Baseline</div>
-              <div className="text-[11px] text-zinc-500">Zero swapping or lag</div>
+              <div className="text-xs text-zinc-600 dark:text-zinc-400 font-mono">RAM Usage</div>
+              <div className="text-base font-bold text-emerald-800 dark:text-emerald-400">~45 MB Baseline</div>
+              <div className="text-[11px] text-zinc-600 dark:text-zinc-400">Zero swapping or lag</div>
             </div>
           </div>
 
@@ -66,9 +66,9 @@ export const EmDocShowcase = () => {
               <Gift className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-xs text-zinc-500 font-mono">Zero Paywalls</div>
+              <div className="text-xs text-zinc-600 dark:text-zinc-400 font-mono">Zero Paywalls</div>
               <div className="text-base font-bold text-zinc-900 dark:text-white">100% Free for Users</div>
-              <div className="text-[11px] text-zinc-500">Every feature included</div>
+              <div className="text-[11px] text-zinc-600 dark:text-zinc-400">Every feature included</div>
             </div>
           </div>
 
@@ -77,9 +77,9 @@ export const EmDocShowcase = () => {
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-xs text-zinc-500 font-mono">Architecture</div>
+              <div className="text-xs text-zinc-600 dark:text-zinc-400 font-mono">Architecture</div>
               <div className="text-base font-bold text-zinc-900 dark:text-white">macOS Universal</div>
-              <div className="text-[11px] text-zinc-500">Apple Silicon &amp; Intel</div>
+              <div className="text-[11px] text-zinc-600 dark:text-zinc-400">Apple Silicon &amp; Intel</div>
             </div>
           </div>
         </div>
@@ -88,14 +88,14 @@ export const EmDocShowcase = () => {
         <div className="mb-20">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
             <div>
-              <span className="text-xs font-mono text-indigo-600 dark:text-indigo-400 uppercase tracking-wider font-semibold">
+              <span className="text-xs font-mono text-indigo-700 dark:text-indigo-400 uppercase tracking-wider font-semibold">
                 Interactive Visual Tour
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mt-1">
                 Explore Real EmDoc Screenshots
               </h3>
             </div>
-            <p className="text-xs text-zinc-500 font-mono">
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 font-mono">
               Captured directly from the native macOS build
             </p>
           </div>
@@ -115,7 +115,7 @@ export const EmDocShowcase = () => {
                   <span className="text-xs font-mono font-medium px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-500/20">
                     {feature.tag}
                   </span>
-                  <span className="text-xs font-mono text-zinc-400 dark:text-zinc-600">0{idx + 1}</span>
+                  <span className="text-xs font-mono text-zinc-600 dark:text-zinc-400">0{idx + 1}</span>
                 </div>
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors mb-2">
                   {feature.title}
@@ -125,8 +125,8 @@ export const EmDocShowcase = () => {
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-zinc-200/80 dark:border-white/5 flex items-center gap-2 text-xs text-zinc-500">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+              <div className="mt-6 pt-4 border-t border-zinc-200/80 dark:border-white/5 flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-400">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
                 <span>Verified in Native Build • 100% Free</span>
               </div>
             </div>
@@ -152,7 +152,7 @@ export const EmDocShowcase = () => {
                   <h3 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
                     EmDoc Workstation for macOS
                   </h3>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-0.5">
+                  <p className="text-xs text-zinc-600 dark:text-zinc-400 font-mono mt-0.5">
                     Version {siteConfig.emdoc.version} • Size: {siteConfig.emdoc.appSize} • Universal Binary
                   </p>
                 </div>
@@ -190,8 +190,8 @@ export const EmDocShowcase = () => {
                 </Link>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-500 pt-2 font-mono">
-                <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-medium">
+              <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-600 dark:text-zinc-400 pt-2 font-mono">
+                <span className="flex items-center gap-1.5 text-emerald-800 dark:text-emerald-400 font-medium">
                   <ShieldCheck className="w-4 h-4" />
                   100% Air-Gapped
                 </span>
@@ -204,12 +204,12 @@ export const EmDocShowcase = () => {
 
             {/* Right Column: Specs Matrix */}
             <div className="lg:col-span-5 bg-white/90 dark:bg-zinc-950/70 rounded-2xl border border-zinc-200/80 dark:border-white/5 p-6 space-y-3 shadow-xs">
-              <div className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-2">
+              <div className="text-xs font-semibold text-zinc-600 dark:text-zinc-400 uppercase tracking-wider mb-2">
                 Release Metadata & Performance
               </div>
               {siteConfig.emdoc.specifications.slice(0, 6).map((spec, idx) => (
                 <div key={idx} className="flex justify-between items-start text-xs py-1.5 border-b border-zinc-200/60 dark:border-white/5 last:border-0">
-                  <span className="text-zinc-500 pr-2">{spec.label}</span>
+                  <span className="text-zinc-600 dark:text-zinc-400 pr-2">{spec.label}</span>
                   <span className="text-zinc-800 dark:text-zinc-300 font-mono text-right font-medium">{spec.value}</span>
                 </div>
               ))}

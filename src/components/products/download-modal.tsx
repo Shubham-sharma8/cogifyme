@@ -10,7 +10,6 @@ import {
   Building2,
 } from "lucide-react";
 import Link from "next/link";
-import confetti from "canvas-confetti";
 import { siteConfig } from "@/config/site";
 
 interface DownloadModalProps {
@@ -25,16 +24,18 @@ export const DownloadModal = ({ isOpen, onClose }: DownloadModalProps) => {
   if (!isOpen) return null;
 
   const handleDownload = () => {
-    try {
-      confetti({
-        particleCount: 80,
-        spread: 60,
-        origin: { y: 0.7 },
-        colors: ["#6366f1", "#3b82f6", "#06b6d4", "#10b981"],
+    import("canvas-confetti")
+      .then((mod) => {
+        mod.default({
+          particleCount: 80,
+          spread: 60,
+          origin: { y: 0.7 },
+          colors: ["#6366f1", "#3b82f6", "#06b6d4", "#10b981"],
+        });
+      })
+      .catch(() => {
+        // ignore in headless test environments
       });
-    } catch {
-      // ignore in headless test environments
-    }
 
     setDownloadStarted(true);
 
@@ -61,7 +62,7 @@ export const DownloadModal = ({ isOpen, onClose }: DownloadModalProps) => {
         <div className="flex items-center space-x-4 mb-6">
           <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/15 shadow-lg bg-zinc-100 dark:bg-zinc-800 shrink-0">
             <Image
-              src="/brand/emdoc-icon.png"
+              src="/brand/emdoc-icon-sm.webp"
               alt="EmDoc App Icon"
               fill
               sizes="64px"
