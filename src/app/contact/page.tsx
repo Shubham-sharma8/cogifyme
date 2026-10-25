@@ -130,10 +130,10 @@ export default function ContactPage() {
             </div>
 
             <div className="p-6 rounded-2xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/10 space-y-4 shadow-xs dark:shadow-none">
-              <h3 className="text-base font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                <Mail className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <h2 className="text-base font-bold text-zinc-900 dark:text-white flex items-center gap-2">
+                <Mail className="w-4 h-4 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
                 Direct Email Channels
-              </h3>
+              </h2>
               <div className="space-y-4 text-xs">
                 <div>
                   <span className="text-zinc-500 block mb-0.5">EmDoc Product Support & Feedback</span>
@@ -157,9 +157,9 @@ export default function ContactPage() {
             </div>
 
             <div className="p-6 rounded-2xl bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-200 dark:border-indigo-500/20 space-y-3 text-xs text-zinc-600 dark:text-zinc-400 shadow-xs dark:shadow-none">
-              <h4 className="font-semibold text-zinc-900 dark:text-white flex items-center gap-1.5">
+              <h3 className="font-semibold text-zinc-900 dark:text-white flex items-center gap-1.5">
                 <span>⏱️ 24-Hour Response SLA</span>
-              </h4>
+              </h3>
               <p className="leading-relaxed">
                 Messages submitted through this portal are delivered directly to founder Shubham Sharma and our engineering team. You will receive an immediate confirmation email with your ticket reference number, and we commit to a response within 24 hours.
               </p>
@@ -170,19 +170,24 @@ export default function ContactPage() {
           <div className="lg:col-span-7">
             <div className="rounded-3xl bg-white/95 dark:bg-zinc-900/60 border border-zinc-200/90 dark:border-white/10 p-8 sm:p-10 shadow-xl backdrop-blur-md">
               {status === "success" ? (
-                <div className="p-8 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-900 dark:text-emerald-300 space-y-4 text-center">
-                  <CheckCircle2 className="w-12 h-12 text-emerald-600 dark:text-emerald-400 mx-auto" />
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">Ticket Created Successfully</h3>
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="p-8 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-900 dark:text-emerald-300 space-y-4 text-center"
+                >
+                  <CheckCircle2 className="w-12 h-12 text-emerald-600 dark:text-emerald-400 mx-auto" aria-hidden="true" />
+                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white text-balance">Ticket Created Successfully</h3>
                   {referenceCode && (
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-900 dark:text-emerald-200 font-mono text-xs">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-900 dark:text-emerald-200 font-mono text-xs tabular-nums">
                       <span>Ticket Number:</span>
                       <span className="font-bold">#{referenceCode}</span>
                     </div>
                   )}
-                  <p className="text-xs text-emerald-800 dark:text-emerald-200/90 max-w-md mx-auto leading-relaxed">
+                  <p className="text-xs text-emerald-800 dark:text-emerald-200/90 max-w-md mx-auto leading-relaxed text-pretty">
                     Thank you, {formData.name}. A confirmation email with your ticket number has been dispatched to <strong>{formData.email}</strong>. Our engineering team commits to responding within <strong>24 hours</strong>.
                   </p>
                   <button
+                    type="button"
                     onClick={() => {
                       setStatus("idle");
                       setFormData({
@@ -202,82 +207,113 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {status === "error" && (
-                    <div className="p-4 rounded-xl bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 text-red-700 dark:text-red-300 text-xs flex items-center gap-2">
-                      <AlertCircle className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
+                    <div
+                      role="alert"
+                      aria-live="polite"
+                      className="p-4 rounded-xl bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 text-red-700 dark:text-red-300 text-xs flex items-center gap-2"
+                    >
+                      <AlertCircle className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" aria-hidden="true" />
                       <span>{errorMessage}</span>
                     </div>
                   )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+                      <label
+                        htmlFor="contact-name"
+                        className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+                      >
                         Your Name *
                       </label>
                       <input
+                        id="contact-name"
                         type="text"
                         name="name"
+                        autoComplete="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
                         placeholder="Your full name"
-                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+                      <label
+                        htmlFor="contact-email"
+                        className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+                      >
                         Email Address *
                       </label>
                       <input
+                        id="contact-email"
                         type="email"
                         name="email"
+                        autoComplete="email"
+                        spellCheck={false}
                         value={formData.email}
                         onChange={handleChange}
                         required
                         placeholder="you@domain.com"
-                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+                      <label
+                        htmlFor="contact-phone"
+                        className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+                      >
                         Mobile Number (Optional)
                       </label>
                       <input
+                        id="contact-phone"
                         type="tel"
                         name="phone"
+                        autoComplete="tel"
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+1 (555) 000-0000"
-                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+                      <label
+                        htmlFor="contact-company"
+                        className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+                      >
                         Company / Team (Optional)
                       </label>
                       <input
+                        id="contact-company"
                         type="text"
                         name="company"
+                        autoComplete="organization"
                         value={formData.company}
                         onChange={handleChange}
                         placeholder="Organization name"
-                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+                      <label
+                        htmlFor="contact-inquiry-type"
+                        className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+                      >
                         Inquiry Topic
                       </label>
                       <select
+                        id="contact-inquiry-type"
                         name="inquiryType"
                         value={formData.inquiryType}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-800 dark:text-zinc-200 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-800 dark:text-zinc-200 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
                       >
                         <option>General Software Inquiry</option>
                         <option>EmDoc Workstation Support</option>
+                        <option>macOS Utilities Support (LumenView, Metricove, NetGuard, Klipora, Show free space)</option>
+                        <option>Marriage Biodata Maker Studio (biodata.cogify.me)</option>
                         <option>Safari Extensions Support (Ad Blocker, ReaderEasy, WebClear, WebLenses, Invert, Element Hider)</option>
                         <option>Enterprise Deployment &amp; Licensing</option>
                         <option>Technical Partnership</option>
@@ -286,17 +322,21 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+                    <label
+                      htmlFor="contact-message"
+                      className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+                    >
                       Message *
                     </label>
                     <textarea
+                      id="contact-message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
                       required
                       placeholder="How can COGIFY assist with your software requirements?"
-                      className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors resize-none"
                     />
                   </div>
 
@@ -327,13 +367,13 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30 cursor-pointer disabled:opacity-50"
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-colors duration-200 flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30 cursor-pointer disabled:opacity-50"
                   >
                     {status === "loading" ? (
-                      <span>Sending message...</span>
+                      <span>Sending message…</span>
                     ) : (
                       <>
-                        <Send className="w-4 h-4" />
+                        <Send className="w-4 h-4" aria-hidden="true" />
                         <span>Submit Message</span>
                       </>
                     )}

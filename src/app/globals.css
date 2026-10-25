@@ -35,6 +35,16 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+summary {
+  touch-action: manipulation;
 }
 
 body {

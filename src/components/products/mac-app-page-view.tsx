@@ -124,7 +124,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
   const theme = accentStyles[app.accentColor] || accentStyles.indigo;
 
   return (
-    <div className="min-h-screen pt-28 pb-24 relative overflow-hidden">
+    <div className="min-h-dvh pt-28 pb-24 relative overflow-hidden">
       {/* Ambient Background Glow */}
       <div
         className={`pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b ${theme.glow} blur-3xl -z-10`}
@@ -144,7 +144,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
             href={`/${app.slug}/privacy`}
             className="text-xs font-mono text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors inline-flex items-center gap-1.5"
           >
-            <Shield className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
+            <Shield className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" aria-hidden="true" />
             <span>{app.shortName} Privacy Policy</span>
           </Link>
         </div>
@@ -153,7 +153,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
         <div className="rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white/95 dark:bg-zinc-900/40 backdrop-blur-xl p-8 md:p-12 mb-16 relative overflow-hidden shadow-sm dark:shadow-none">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-6">
-              <div className="flex flex-wrap items-center gap-2.5">
+              <div className="flex flex-wrap items-center gap-2.5 tabular-nums">
                 <Badge className={theme.badge}>
                   Native macOS Workstation • v{app.version} ({app.appSize})
                 </Badge>
@@ -173,18 +173,18 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                   />
                 </div>
                 <div>
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white text-balance">
                     {app.name}
                   </h1>
                   <p
-                    className={`mt-1.5 text-lg sm:text-xl font-semibold bg-gradient-to-r ${theme.text} bg-clip-text text-transparent`}
+                    className={`mt-1.5 text-lg sm:text-xl font-semibold bg-gradient-to-r ${theme.text} bg-clip-text text-transparent text-balance`}
                   >
                     {app.tagline}
                   </p>
                 </div>
               </div>
 
-              <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-3xl">
+              <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-3xl text-pretty">
                 {app.fullDescription}
               </p>
 
@@ -193,14 +193,14 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                 <a
                   href={app.downloadUrl}
                   download
-                  className={`inline-flex items-center gap-2.5 rounded-xl px-7 py-4 text-sm transition-all ${theme.btn}`}
+                  className={`inline-flex items-center gap-2.5 rounded-xl px-7 py-4 text-sm transition-colors tabular-nums ${theme.btn}`}
                 >
-                  <Download className="h-4 w-4" />
+                  <Download className="h-4 w-4" aria-hidden="true" />
                   <span>Download {app.shortName} for macOS (.DMG • {app.appSize})</span>
                 </a>
                 <Link href="/suggestions">
                   <Button variant="secondary" size="lg" className="gap-2">
-                    <Sparkles className="h-4 w-4" />
+                    <Sparkles className="h-4 w-4" aria-hidden="true" />
                     Request a Feature
                   </Button>
                 </Link>
@@ -220,29 +220,29 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
               </div>
               <div className="space-y-3.5">
                 <div className="flex items-start gap-3">
-                  <Lock className="h-5 w-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                  <Lock className="h-5 w-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" aria-hidden="true" />
                   <div>
                     <div className="text-sm font-semibold text-zinc-900 dark:text-white">
                       100% Air-Gapped Local Execution
                     </div>
-                    <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-0.5">
+                    <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-0.5 text-pretty">
                       Zero external telemetry servers, zero analytics SDKs, and zero background data harvesting.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Heart className="h-5 w-5 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
+                  <Heart className="h-5 w-5 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" aria-hidden="true" />
                   <div>
                     <div className="text-sm font-semibold text-zinc-900 dark:text-white">
                       Single-Click Direct DMG Installer
                     </div>
-                    <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-0.5">
+                    <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-0.5 text-pretty">
                       Hosted directly on GitHub Releases. Download the {app.appSize} DMG in one click and drag {app.shortName}.app to /Applications.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Cpu className="h-5 w-5 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" />
+                  <Cpu className="h-5 w-5 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" aria-hidden="true" />
                   <div>
                     <div className="text-sm font-semibold text-zinc-900 dark:text-white">
                       Apple Silicon &amp; Intel Optimized
@@ -260,7 +260,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                   download
                   className="text-zinc-900 dark:text-white font-semibold hover:underline inline-flex items-center gap-1"
                 >
-                  Direct DMG <Download className="h-3.5 w-3.5" />
+                  Direct DMG <Download className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -272,14 +272,14 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
           <section className="mb-20">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
               <div>
-                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-indigo-700 dark:text-indigo-400 mb-2">
-                  <Monitor className="w-3.5 h-3.5" />
+                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-indigo-700 dark:text-indigo-400 mb-2 tabular-nums">
+                  <Monitor className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>macOS Retina Studio Tour ({currentScreenshots.length} Screens)</span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">
+                <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white text-balance">
                   Interactive Workstation Walkthrough
                 </h2>
-                <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mt-1">
+                <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mt-1 text-pretty">
                   Explore every module and capability inside {app.name} for macOS.
                 </p>
               </div>
@@ -287,9 +287,9 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
               <a
                 href={app.downloadUrl}
                 download
-                className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 px-4 py-2.5 text-xs font-semibold self-start md:self-auto hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 px-4 py-2.5 text-xs font-semibold self-start md:self-auto hover:opacity-90 transition-opacity tabular-nums"
               >
-                <Download className="w-3.5 h-3.5" />
+                <Download className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>Single-Click Download ({app.appSize})</span>
               </a>
             </div>
@@ -304,15 +304,16 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                     <button
                       key={shot.id}
                       type="button"
+                      aria-pressed={isActive}
                       onClick={() => setActiveIndex(idx)}
-                      className={`w-full text-left rounded-2xl border p-4 transition-all cursor-pointer ${
+                      className={`w-full text-left rounded-2xl border p-4 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                         isActive
                           ? theme.borderActive
                           : "border-zinc-200/80 dark:border-white/10 bg-white dark:bg-zinc-900/30 hover:bg-zinc-50 dark:hover:bg-zinc-900/60"
                       }`}
                     >
                       <div className="flex items-center justify-between gap-2 mb-1">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-zinc-700 dark:text-zinc-300 tabular-nums">
                           {numStr} • {shot.tag}
                         </span>
                         {isActive && (
@@ -322,7 +323,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                       <div className="text-sm sm:text-base font-bold text-zinc-900 dark:text-white">
                         {shot.title}
                       </div>
-                      <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 line-clamp-2">
+                      <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 line-clamp-2 text-pretty">
                         {shot.description}
                       </p>
                       {isActive && shot.highlights.length > 0 && (
@@ -334,6 +335,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                             >
                               <CheckCircle2
                                 className={`h-3.5 w-3.5 shrink-0 ${theme.iconText}`}
+                                aria-hidden="true"
                               />
                               {h}
                             </li>
@@ -381,7 +383,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                         onClick={() => setActiveIndex(idx)}
                         title={`View screenshot ${idx + 1}: ${shot.title}`}
                         aria-pressed={idx === safeIndex}
-                        className={`px-2.5 py-1 rounded-lg text-xs font-mono border transition-all shrink-0 cursor-pointer ${
+                        className={`px-2.5 py-1 rounded-lg text-xs font-mono border transition-colors shrink-0 cursor-pointer tabular-nums ${
                           idx === safeIndex
                             ? "bg-indigo-600 text-white border-indigo-600 shadow-xs"
                             : "bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border-zinc-300 dark:border-white/10 hover:bg-zinc-100 dark:hover:bg-zinc-800"
@@ -409,10 +411,10 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
         {/* 6 Core Capabilities Grid */}
         <section className="mb-20">
           <div className="mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">
+            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white text-balance">
               Engineered for Precision, Speed &amp; Local Sovereignty
             </h2>
-            <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mt-1">
+            <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mt-1 text-pretty">
               Every subsystem in {app.shortName} executes natively on your Mac with zero cloud dependencies.
             </p>
           </div>
@@ -421,15 +423,15 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
             {app.features.map((feat) => (
               <div
                 key={feat.title}
-                className="rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/30 p-6 hover:border-indigo-500/30 dark:hover:border-white/20 transition-all shadow-2xs dark:shadow-none"
+                className="rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/30 p-6 hover:border-indigo-500/30 dark:hover:border-white/20 transition-colors shadow-2xs dark:shadow-none"
               >
                 <div className="inline-flex items-center rounded-full border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/[0.03] px-3 py-1 text-[11px] font-semibold text-zinc-700 dark:text-zinc-300 mb-4">
                   {feat.tag}
                 </div>
-                <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-2 text-balance">
                   {feat.title}
                 </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty">
                   {feat.description}
                 </p>
               </div>
@@ -442,13 +444,13 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
           <div className="lg:col-span-5 rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/40 p-8 flex flex-col justify-between shadow-2xs dark:shadow-none">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-400 mb-3">
-                <Shield className="h-4 w-4" />
+                <Shield className="h-4 w-4" aria-hidden="true" />
                 Product Philosophy &amp; Privacy
               </div>
-              <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
+              <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4 text-balance">
                 Built to Respect Your Mac and Your Privacy.
               </h3>
-              <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed mb-6 text-pretty">
                 {app.philosophy}
               </p>
             </div>
@@ -457,9 +459,9 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
               <a
                 href={app.downloadUrl}
                 download
-                className="inline-flex items-center gap-2 text-xs font-bold text-indigo-700 dark:text-indigo-400 hover:underline"
+                className="inline-flex items-center gap-2 text-xs font-bold text-indigo-700 dark:text-indigo-400 hover:underline tabular-nums"
               >
-                <Download className="h-3.5 w-3.5" />
+                <Download className="h-3.5 w-3.5" aria-hidden="true" />
                 Download {app.shortName}.dmg ({app.appSize})
               </a>
               <Link
@@ -472,7 +474,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
           </div>
 
           <div className="lg:col-span-7 rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/30 p-8 shadow-2xs dark:shadow-none">
-            <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-6">
+            <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-6 text-balance">
               Technical Specifications
             </h3>
             <div className="divide-y divide-zinc-200 dark:divide-white/10">
@@ -484,7 +486,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                   <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
                     {spec.label}
                   </span>
-                  <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                  <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 tabular-nums">
                     {spec.value}
                   </span>
                 </div>

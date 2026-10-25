@@ -137,14 +137,14 @@ export function AuthorBio({
                 </span>
               </div>
 
-              <h3 className="text-lg sm:text-xl font-extrabold text-zinc-950 dark:text-white">
+              <h2 className="text-lg sm:text-xl font-extrabold text-zinc-950 dark:text-white">
                 <Link href="/about" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                   Shubham Sharma
                 </Link>{" "}
                 <span className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
                   — Founder &amp; Lead Systems Architect, COGIFY
                 </span>
-              </h3>
+              </h2>
 
               <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-2 max-w-3xl">
                 Systems engineer specializing in native Apple Silicon software (<code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">C++20</code>,{" "}
@@ -199,9 +199,9 @@ export function AuthorBio({
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
               <Sparkles className="w-3.5 h-3.5" /> Complete Cogify Ecosystem
             </span>
-            <h3 className="text-lg sm:text-xl font-extrabold text-zinc-950 dark:text-white mt-0.5">
+            <h2 className="text-lg sm:text-xl font-extrabold text-zinc-950 dark:text-white mt-0.5">
               Explore More Free Native Apple Apps &amp; Real-Time Web Studios
-            </h3>
+            </h2>
           </div>
           <Link
             href="/products"
@@ -216,7 +216,7 @@ export function AuthorBio({
             <Link
               key={app.slug}
               href={app.href}
-              className="group rounded-2xl bg-white dark:bg-[#0b0f17] border border-zinc-200/80 dark:border-white/[0.07] hover:border-indigo-500/40 dark:hover:border-indigo-500/40 p-4 transition-all flex flex-col justify-between"
+              className="group rounded-2xl bg-white dark:bg-[#0b0f17] border border-zinc-200/80 dark:border-white/[0.07] hover:border-indigo-500/40 dark:hover:border-indigo-500/40 p-4 transition-colors flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-1.5">
@@ -225,9 +225,9 @@ export function AuthorBio({
                   </span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-indigo-500 transition-colors shrink-0" />
                 </div>
-                <h4 className="text-sm font-bold text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                <h3 className="text-sm font-bold text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                   {app.name}
-                </h4>
+                </h3>
                 <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">
                   {app.desc}
                 </p>

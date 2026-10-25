@@ -301,7 +301,7 @@ export const HeroSection = () => {
     STUDIO_APPS.find((app) => app.id === activeAppId) || STUDIO_APPS[0];
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden flex flex-col justify-center">
+    <section className="relative min-h-dvh pt-32 pb-20 overflow-hidden flex flex-col justify-center">
       {/* Aceternity Spotlight Effect */}
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
@@ -314,7 +314,7 @@ export const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-4xl mx-auto space-y-6">
           {/* Main Headline — Server-Rendered with 100% Initial Visibility for Instant LCP & Googlebot Indexing */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.08]">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.08] text-balance">
             Real-Time Web Solutions &amp; Native Apps.{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-600 dark:from-indigo-300 dark:via-indigo-200 dark:to-cyan-300">
               100% Free &amp; Private.
@@ -322,7 +322,7 @@ export const HeroSection = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-xl text-zinc-600 dark:text-zinc-300 max-w-3xl mx-auto leading-relaxed font-normal">
+          <p className="text-base sm:text-xl text-zinc-600 dark:text-zinc-300 max-w-3xl mx-auto leading-relaxed font-normal text-pretty">
             <strong className="text-zinc-900 dark:text-white font-semibold">
               COGIFY
             </strong>{" "}
@@ -354,20 +354,20 @@ export const HeroSection = () => {
           <div className="flex flex-wrap items-center justify-center gap-3.5 pt-3">
             <Link
               href="/products"
-              className="px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/25 transition-all flex items-center gap-2 cursor-pointer"
+              className="px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/25 transition-colors flex items-center gap-2 cursor-pointer"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-4 h-4" aria-hidden="true" />
               <span>Explore All 13 Apps &amp; Web Studios</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
 
             <a
               href={siteConfig.biodata.webUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-sm shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2"
+              className="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-sm shadow-lg shadow-amber-500/20 transition-colors flex items-center gap-2"
             >
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="w-4 h-4" aria-hidden="true" />
               <span>Launch Biodata Maker (biodata.cogify.me)</span>
             </a>
 
@@ -375,17 +375,17 @@ export const HeroSection = () => {
               href={siteConfig.appleDeveloperUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2"
+              className="px-5 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition-colors flex items-center gap-2"
             >
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="w-4 h-4" aria-hidden="true" />
               <span>Apple App Store</span>
             </a>
 
             <Link
               href="/enterprise"
-              className="px-5 py-3.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-800 hover:text-zinc-950 font-semibold text-sm border border-zinc-200/90 shadow-xs dark:bg-white/[0.04] dark:hover:bg-white/[0.08] dark:text-zinc-200 dark:hover:text-white dark:border-white/10 transition-all duration-200 flex items-center gap-2 group"
+              className="px-5 py-3.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-800 hover:text-zinc-950 font-semibold text-sm border border-zinc-200/90 shadow-xs dark:bg-white/[0.04] dark:hover:bg-white/[0.08] dark:text-zinc-200 dark:hover:text-white dark:border-white/10 transition-colors duration-200 flex items-center gap-2 group"
             >
-              <Building2 className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+              <Building2 className="w-4 h-4 text-cyan-600 dark:text-cyan-400" aria-hidden="true" />
               <span>Enterprise Solutions</span>
             </Link>
           </div>
@@ -393,19 +393,19 @@ export const HeroSection = () => {
           {/* Studio Architecture Pill Strip */}
           <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto text-xs text-zinc-600 dark:text-zinc-400">
             <div className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/90 dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/10 shadow-2xs dark:shadow-none">
-              <Gift className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <Gift className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" aria-hidden="true" />
               <span>Real-Time Web &amp; Native Apps</span>
             </div>
             <div className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/90 dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/10 shadow-2xs dark:shadow-none">
-              <ShieldCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+              <ShieldCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" aria-hidden="true" />
               <span>0 Bytes Telemetry Collected</span>
             </div>
             <div className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/90 dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/10 shadow-2xs dark:shadow-none">
-              <Cpu className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
+              <Cpu className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" aria-hidden="true" />
               <span>Swift, C++20 &amp; Client Web</span>
             </div>
             <div className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/90 dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/10 shadow-2xs dark:shadow-none">
-              <Compass className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
+              <Compass className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" aria-hidden="true" />
               <span>Web, macOS, iOS &amp; iPadOS</span>
             </div>
           </div>
@@ -432,7 +432,7 @@ export const HeroSection = () => {
                     role="tab"
                     aria-selected={isSelected}
                     onClick={() => setActiveAppId(app.id)}
-                    className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                    className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold transition-[background-color,color,transform] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                       isSelected
                         ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/25 scale-[1.02]"
                         : "bg-zinc-50 hover:bg-zinc-100 text-zinc-700 dark:bg-zinc-950/60 dark:hover:bg-zinc-800 dark:text-zinc-300 border border-zinc-200/70 dark:border-white/5"
@@ -456,7 +456,7 @@ export const HeroSection = () => {
 
           {/* Outer Glass Frame */}
           <div className="rounded-3xl p-3 sm:p-5 bg-white/90 dark:bg-zinc-900/60 border border-zinc-200/90 dark:border-white/10 shadow-2xl shadow-zinc-900/10 dark:shadow-black/80 backdrop-blur-md">
-            {/* All 8 App Info Bars Server-Rendered in DOM so Googlebot Crawls All 8 Product Titles, Taglines & Links */}
+            {/* All 13 App Info Bars Server-Rendered in DOM so Googlebot Crawls All Product Titles, Taglines & Links */}
             {STUDIO_APPS.map((app) => {
               const isSelected = app.id === activeApp.id;
               return (
@@ -480,10 +480,10 @@ export const HeroSection = () => {
                     </div>
                     <div>
                       <div className="flex flex-wrap items-center gap-2">
-                        <h2 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-white">
+                        <h2 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-white text-balance">
                           {app.name}
                         </h2>
-                        <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+                        <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 tabular-nums">
                           {app.id === "biodata"
                             ? `${app.version} • Free Web Studio`
                             : `${app.version} • Free on App Store`}
@@ -492,7 +492,7 @@ export const HeroSection = () => {
                           {app.platforms}
                         </span>
                       </div>
-                      <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">
+                      <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-0.5 text-pretty">
                         {app.tagline}
                       </p>
                     </div>
@@ -503,9 +503,9 @@ export const HeroSection = () => {
                       <a
                         href={app.downloadUrl}
                         download
-                        className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs transition-all flex items-center gap-1.5 shadow-sm"
+                        className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs transition-colors flex items-center gap-1.5 shadow-sm tabular-nums"
                       >
-                        <Download className="w-3.5 h-3.5" />
+                        <Download className="w-3.5 h-3.5" aria-hidden="true" />
                         <span>
                           Direct Download (.DMG{app.appSize ? ` • ${app.appSize}` : ""})
                         </span>
@@ -515,9 +515,9 @@ export const HeroSection = () => {
                         href={app.appStoreUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs transition-all flex items-center gap-1.5 shadow-sm"
+                        className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs transition-colors flex items-center gap-1.5 shadow-sm"
                       >
-                        <ExternalLink className="w-3.5 h-3.5" />
+                        <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
                         <span>
                           {app.id === "biodata"
                             ? "Launch biodata.cogify.me"
@@ -527,10 +527,10 @@ export const HeroSection = () => {
                     )}
                     <Link
                       href={app.href}
-                      className="px-4 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-500/15 dark:hover:bg-indigo-500/25 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-500/30 font-semibold text-xs transition-all flex items-center gap-1.5"
+                      className="px-4 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-500/15 dark:hover:bg-indigo-500/25 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-500/30 font-semibold text-xs transition-colors flex items-center gap-1.5"
                     >
                       <span>{app.name} Overview</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                     </Link>
                   </div>
                 </div>
@@ -548,7 +548,7 @@ export const HeroSection = () => {
                     {activeApp.name} — {activeApp.category}
                   </span>
                 </div>
-                <div className="hidden sm:flex items-center gap-4">
+                <div className="hidden sm:flex items-center gap-4 tabular-nums">
                   {activeApp.metrics.map((m, i) => (
                     <div key={i} className="text-[11px] font-mono text-zinc-300">
                       <span className="text-zinc-400">{m.label}: </span>
@@ -594,11 +594,11 @@ export const HeroSection = () => {
             <div className="mt-4 pt-3 border-t border-zinc-200/80 dark:border-white/10 flex flex-wrap items-center justify-between gap-3 px-2 text-xs text-zinc-600 dark:text-zinc-400">
               <div className="flex items-center gap-4">
                 <span className="inline-flex items-center gap-1.5 font-medium text-zinc-800 dark:text-zinc-200">
-                  <Laptop className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                  <Laptop className="w-4 h-4 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
                   macOS Universal
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-medium text-zinc-800 dark:text-zinc-200">
-                  <Smartphone className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  <Smartphone className="w-4 h-4 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
                   iOS &amp; iPadOS Native
                 </span>
               </div>

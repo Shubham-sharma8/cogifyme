@@ -22,14 +22,14 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 const toolIcons: Record<string, React.ReactNode> = {
-  home: <BookOpen className="w-4 h-4" />,
-  organise: <LayoutGrid className="w-4 h-4" />,
-  edit: <Edit3 className="w-4 h-4" />,
-  compress: <Minimize2 className="w-4 h-4" />,
-  watermark: <Stamp className="w-4 h-4" />,
-  "header-footer": <FileSpreadsheet className="w-4 h-4" />,
-  print: <Printer className="w-4 h-4" />,
-  theme: <Palette className="w-4 h-4" />,
+  home: <BookOpen className="w-4 h-4" aria-hidden="true" />,
+  organise: <LayoutGrid className="w-4 h-4" aria-hidden="true" />,
+  edit: <Edit3 className="w-4 h-4" aria-hidden="true" />,
+  compress: <Minimize2 className="w-4 h-4" aria-hidden="true" />,
+  watermark: <Stamp className="w-4 h-4" aria-hidden="true" />,
+  "header-footer": <FileSpreadsheet className="w-4 h-4" aria-hidden="true" />,
+  print: <Printer className="w-4 h-4" aria-hidden="true" />,
+  theme: <Palette className="w-4 h-4" aria-hidden="true" />,
 };
 
 const shortTitles: Record<string, string> = {
@@ -106,17 +106,20 @@ export const EmDocGallery = () => {
         {/* Left Scroll Button */}
         {canScrollLeft && (
           <button
+            type="button"
             onClick={() => scrollByAmount(-240)}
-            className="absolute left-0 z-20 p-2 rounded-full bg-white/95 dark:bg-zinc-900/95 border border-zinc-200 dark:border-zinc-700 shadow-md text-zinc-700 dark:text-zinc-200 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 active:scale-95 transition-all -ml-2 cursor-pointer backdrop-blur-sm"
+            className="absolute left-0 z-20 p-2 rounded-full bg-white/95 dark:bg-zinc-900/95 border border-zinc-200 dark:border-zinc-700 shadow-md text-zinc-700 dark:text-zinc-200 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 active:scale-95 transition-[color,transform] -ml-2 cursor-pointer backdrop-blur-sm"
             aria-label="Scroll left"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-4 h-4" aria-hidden="true" />
           </button>
         )}
 
         {/* Scrollable Container */}
         <div
           ref={scrollContainerRef}
+          role="group"
+          aria-label="EmDoc Feature Modules"
           className="flex items-center gap-2 overflow-x-auto py-2 px-1 scroll-smooth scrollbar-none justify-start w-full"
         >
           {screenshots.map((item) => {
@@ -124,6 +127,8 @@ export const EmDocGallery = () => {
             return (
               <button
                 key={item.id}
+                type="button"
+                aria-pressed={isActive}
                 onClick={(e) => {
                   setActiveId(item.id);
                   (e.currentTarget as HTMLElement).scrollIntoView({
@@ -133,14 +138,14 @@ export const EmDocGallery = () => {
                   });
                 }}
                 className={cn(
-                  "flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer border",
+                  "flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-[background-color,border-color,color,transform] duration-200 shrink-0 cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
                   isActive
                     ? "bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-600/25 scale-[1.02]"
                     : "bg-white/90 dark:bg-zinc-900/70 text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white border-zinc-200/90 dark:border-white/10 hover:bg-zinc-100 dark:hover:bg-zinc-800/80"
                 )}
                 title={item.title}
               >
-                {toolIcons[item.id] || <Sparkles className="w-4 h-4" />}
+                {toolIcons[item.id] || <Sparkles className="w-4 h-4" aria-hidden="true" />}
                 <span>{shortTitles[item.id] || item.title}</span>
               </button>
             );
@@ -150,17 +155,18 @@ export const EmDocGallery = () => {
         {/* Right Scroll Button */}
         {canScrollRight && (
           <button
+            type="button"
             onClick={() => scrollByAmount(240)}
-            className="absolute right-0 z-20 p-2 rounded-full bg-white/95 dark:bg-zinc-900/95 border border-zinc-200 dark:border-zinc-700 shadow-md text-zinc-700 dark:text-zinc-200 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 active:scale-95 transition-all -mr-2 cursor-pointer backdrop-blur-sm"
+            className="absolute right-0 z-20 p-2 rounded-full bg-white/95 dark:bg-zinc-900/95 border border-zinc-200 dark:border-zinc-700 shadow-md text-zinc-700 dark:text-zinc-200 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 active:scale-95 transition-[color,transform] -mr-2 cursor-pointer backdrop-blur-sm"
             aria-label="Scroll right"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-4 h-4" aria-hidden="true" />
           </button>
         )}
       </div>
 
       {/* Main Showcase Window */}
-      <div className="mt-4 rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-gradient-to-b from-white via-zinc-50/50 to-zinc-100/60 dark:from-zinc-900/90 dark:via-zinc-950 dark:to-black shadow-2xl overflow-hidden transition-all duration-300">
+      <div className="mt-4 rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-gradient-to-b from-white via-zinc-50/50 to-zinc-100/60 dark:from-zinc-900/90 dark:via-zinc-950 dark:to-black shadow-2xl overflow-hidden transition-colors duration-300">
         {/* macOS Window Title Bar */}
         <div className="h-11 bg-zinc-100 dark:bg-zinc-900/90 border-b border-zinc-200 dark:border-white/10 px-4 flex items-center justify-between select-none">
           {/* Window control traffic lights */}
@@ -185,24 +191,37 @@ export const EmDocGallery = () => {
               EmDoc Workstation — {activeScreenshot.title}
             </span>
             <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 border border-emerald-500/20 font-mono">
-              <ShieldCheck className="w-3 h-3" />
+              <ShieldCheck className="w-3 h-3" aria-hidden="true" />
               Air-Gapped
             </span>
           </div>
 
           {/* Lightbox Trigger button */}
           <button
+            type="button"
             onClick={() => setLightboxOpen(true)}
             className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-200/80 hover:bg-zinc-300/80 dark:bg-white/10 dark:hover:bg-white/15 text-zinc-700 dark:text-zinc-300 text-xs font-medium transition-colors cursor-pointer"
             title="View Full Resolution"
           >
-            <Maximize2 className="w-3.5 h-3.5" />
+            <Maximize2 className="w-3.5 h-3.5" aria-hidden="true" />
             <span className="hidden sm:inline">Zoom Fullscreen</span>
           </button>
         </div>
 
         {/* Screenshot Viewport Container */}
-        <div className="relative w-full aspect-[16/9] sm:aspect-[16/9.5] bg-zinc-950 overflow-hidden group cursor-pointer" onClick={() => setLightboxOpen(true)}>
+        <div
+          role="button"
+          tabIndex={0}
+          aria-label={`Zoom ${activeScreenshot.title} screenshot fullscreen`}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setLightboxOpen(true);
+            }
+          }}
+          className="relative w-full aspect-[16/9] sm:aspect-[16/9.5] bg-zinc-950 overflow-hidden group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500"
+          onClick={() => setLightboxOpen(true)}
+        >
           <Image
             src={activeScreenshot.image}
             alt={activeScreenshot.title}
@@ -215,31 +234,33 @@ export const EmDocGallery = () => {
           {/* Hover Overlay Hint */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <div className="opacity-0 group-hover:opacity-100 transition-opacity px-4 py-2 rounded-full bg-zinc-900/90 text-white text-xs font-medium shadow-xl backdrop-blur-md flex items-center gap-2 border border-white/20">
-              <Maximize2 className="w-4 h-4 text-indigo-400" />
+              <Maximize2 className="w-4 h-4 text-indigo-400" aria-hidden="true" />
               <span>Click to view full-resolution screenshot</span>
             </div>
           </div>
 
           {/* Left/Right floating navigation arrows */}
           <button
+            type="button"
             onClick={(e) => {
               e.stopPropagation();
               handlePrev();
             }}
             aria-label="Previous Screenshot"
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all opacity-80 hover:opacity-100 cursor-pointer"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-opacity opacity-80 hover:opacity-100 cursor-pointer"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-5 h-5" aria-hidden="true" />
           </button>
           <button
+            type="button"
             onClick={(e) => {
               e.stopPropagation();
               handleNext();
             }}
             aria-label="Next Screenshot"
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all opacity-80 hover:opacity-100 cursor-pointer"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-opacity opacity-80 hover:opacity-100 cursor-pointer"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
 
@@ -251,14 +272,14 @@ export const EmDocGallery = () => {
                 <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-500/20">
                   {activeScreenshot.tag}
                 </span>
-                <span className="text-xs text-zinc-600 dark:text-zinc-400 font-mono">
+                <span className="text-xs text-zinc-600 dark:text-zinc-400 font-mono tabular-nums">
                   Screenshot {activeIndex + 1} of {screenshots.length}
                 </span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white">
+              <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white text-balance">
                 {activeScreenshot.title}
               </h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty">
                 {activeScreenshot.description}
               </p>
             </div>
@@ -270,7 +291,7 @@ export const EmDocGallery = () => {
                   key={idx}
                   className="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200/70 dark:border-white/5 flex items-start gap-2 text-xs text-zinc-700 dark:text-zinc-300"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" aria-hidden="true" />
                   <span className="leading-tight">{highlight}</span>
                 </div>
               ))}
@@ -282,7 +303,10 @@ export const EmDocGallery = () => {
       {/* Fullscreen Lightbox Modal */}
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex flex-col justify-between animate-fade-in"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${activeScreenshot.title} Fullscreen Preview`}
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex flex-col justify-between animate-fade-in overscroll-contain"
           onClick={() => setLightboxOpen(false)}
         >
           {/* Modal Header */}
@@ -315,11 +339,12 @@ export const EmDocGallery = () => {
                 Use Left / Right arrow keys to navigate • Esc to exit
               </span>
               <button
+                type="button"
                 onClick={() => setLightboxOpen(false)}
                 className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Close Lightbox"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -342,18 +367,20 @@ export const EmDocGallery = () => {
 
             {/* Lightbox Arrow Buttons */}
             <button
+              type="button"
               onClick={handlePrev}
               aria-label="Previous"
-              className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/70 hover:bg-black/90 text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer"
+              className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/70 hover:bg-black/90 text-white border border-white/20 flex items-center justify-center transition-colors cursor-pointer"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-6 h-6" aria-hidden="true" />
             </button>
             <button
+              type="button"
               onClick={handleNext}
               aria-label="Next"
-              className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/70 hover:bg-black/90 text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer"
+              className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/70 hover:bg-black/90 text-white border border-white/20 flex items-center justify-center transition-colors cursor-pointer"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-6 h-6" aria-hidden="true" />
             </button>
           </div>
 
@@ -366,9 +393,11 @@ export const EmDocGallery = () => {
               {screenshots.map((item, idx) => (
                 <button
                   key={item.id}
+                  type="button"
+                  aria-pressed={item.id === activeId}
                   onClick={() => setActiveId(item.id)}
                   className={cn(
-                    "relative w-20 h-12 sm:w-28 sm:h-16 rounded-lg overflow-hidden border-2 transition-all shrink-0 cursor-pointer",
+                    "relative w-20 h-12 sm:w-28 sm:h-16 rounded-lg overflow-hidden border-2 transition-[border-color,opacity,transform] shrink-0 cursor-pointer",
                     item.id === activeId
                       ? "border-indigo-500 scale-105 shadow-md shadow-indigo-500/40"
                       : "border-white/20 opacity-60 hover:opacity-100"
@@ -382,7 +411,7 @@ export const EmDocGallery = () => {
                     sizes="120px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-1">
-                    <span className="text-[9px] text-white font-medium truncate">
+                    <span className="text-[9px] text-white font-medium truncate tabular-nums">
                       {idx + 1}. {item.title}
                     </span>
                   </div>

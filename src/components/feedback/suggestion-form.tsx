@@ -149,22 +149,30 @@ export const SuggestionForm = () => {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto rounded-3xl bg-white/95 dark:bg-zinc-900/60 border border-zinc-200/90 dark:border-white/10 p-6 sm:p-10 shadow-2xl backdrop-blur-xl transition-all duration-300">
+    <div className="w-full max-w-3xl mx-auto rounded-3xl bg-white/95 dark:bg-zinc-900/60 border border-zinc-200/90 dark:border-white/10 p-6 sm:p-10 shadow-2xl backdrop-blur-xl transition-colors duration-300">
       {/* Category Pills Switcher */}
       <div className="mb-8">
-        <label className="block text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-3">
+        <span
+          id="suggestion-category-label"
+          className="block text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-3"
+        >
           Select What You&apos;d Like To Share
-        </label>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+        </span>
+        <div
+          role="group"
+          aria-labelledby="suggestion-category-label"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5"
+        >
           {categories.map((item) => {
             const isSelected = item.id === category;
             return (
               <button
                 key={item.id}
                 type="button"
+                aria-pressed={isSelected}
                 onClick={() => setCategory(item.id)}
                 className={cn(
-                  "p-3 rounded-2xl border text-left transition-all duration-200 flex flex-col justify-between cursor-pointer",
+                  "p-3 rounded-2xl border text-left transition-colors duration-200 flex flex-col justify-between cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
                   isSelected
                     ? "bg-indigo-50/80 dark:bg-indigo-500/15 border-indigo-500 text-indigo-950 dark:text-white shadow-xs"
                     : "bg-zinc-50/60 dark:bg-zinc-950/40 border-zinc-200/80 dark:border-white/5 text-zinc-700 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/60"
@@ -174,7 +182,7 @@ export const SuggestionForm = () => {
                   {item.icon}
                   <span className="text-xs font-bold leading-tight">{item.label}</span>
                 </div>
-                <div className="text-[10px] text-zinc-500 line-clamp-2 leading-snug">
+                <div className="text-[10px] text-zinc-600 dark:text-zinc-400 line-clamp-2 leading-snug">
                   {item.hint}
                 </div>
               </button>
@@ -184,25 +192,30 @@ export const SuggestionForm = () => {
       </div>
 
       {status === "success" ? (
-        <div className="py-8 text-center space-y-4 animate-fade-in">
+        <div
+          role="status"
+          aria-live="polite"
+          className="py-8 text-center space-y-4 animate-fade-in"
+        >
           <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto">
-            <CheckCircle2 className="w-8 h-8" />
+            <CheckCircle2 className="w-8 h-8" aria-hidden="true" />
           </div>
-          <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">
+          <h3 className="text-2xl font-bold text-zinc-900 dark:text-white text-balance">
             Thank you for helping us build better software!
           </h3>
           {referenceCode && (
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-indigo-700 dark:text-indigo-300 font-mono text-xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-indigo-700 dark:text-indigo-300 font-mono text-xs tabular-nums">
               <span>Ticket Reference:</span>
               <span className="font-bold">{referenceCode}</span>
             </div>
           )}
-          <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-md mx-auto leading-relaxed">
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-md mx-auto leading-relaxed text-pretty">
             Your {activeCategory.label.toLowerCase()} has been delivered straight to our core development team. We review every suggestion as we plan our roadmap and new product releases.
           </p>
 
           <div className="pt-4">
             <button
+              type="button"
               onClick={handleReset}
               className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition-colors cursor-pointer"
             >
@@ -215,15 +228,25 @@ export const SuggestionForm = () => {
           {/* Target App / Platform Selection */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+              <label
+                htmlFor="suggestion-target-app"
+                className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+              >
                 Related App or Subject
               </label>
               <select
+                id="suggestion-target-app"
                 value={targetApp}
                 onChange={(e) => setTargetApp(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
               >
                 <option>EmDoc (macOS Workstation)</option>
+                <option>LumenView (macOS Display Control)</option>
+                <option>Metricove (macOS Menu Bar Telemetry)</option>
+                <option>NetGuard (macOS Outbound Firewall)</option>
+                <option>Klipora (macOS Clipboard History)</option>
+                <option>Show free space (macOS Disk Analyzer)</option>
+                <option>Marriage Biodata Maker Studio (biodata.cogify.me)</option>
                 <option>Ad Blocker - For Safari (iOS / macOS)</option>
                 <option>ReaderEasy (Safari Extension)</option>
                 <option>WebClear (Safari Extension)</option>
@@ -240,22 +263,29 @@ export const SuggestionForm = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+              <label
+                htmlFor="suggestion-device-info"
+                className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+              >
                 Your Hardware / OS (Optional)
               </label>
               <input
+                id="suggestion-device-info"
                 type="text"
                 value={formData.deviceInfo}
                 onChange={(e) => setFormData({ ...formData, deviceInfo: e.target.value })}
                 placeholder="e.g. macOS Sonoma 14.5, M2 Mac / iPhone 15"
-                className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
               />
             </div>
           </div>
 
           {/* Title */}
           <div>
-            <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+            <label
+              htmlFor="suggestion-title"
+              className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+            >
               {category === "bug"
                 ? "Issue Summary *"
                 : category === "enterprise"
@@ -263,6 +293,7 @@ export const SuggestionForm = () => {
                 : "Suggestion Title *"}
             </label>
             <input
+              id="suggestion-title"
               type="text"
               required
               value={formData.title}
@@ -274,62 +305,81 @@ export const SuggestionForm = () => {
                   ? "e.g. Replace Adobe Acrobat / PDF Expert licenses at our law firm"
                   : "e.g. Add dark sepia reading theme / OCR batch folder processing"
               }
-              className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
             />
           </div>
 
           {/* Details */}
           <div>
-            <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+            <label
+              htmlFor="suggestion-details"
+              className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+            >
               Detailed Description & Context *
             </label>
             <textarea
+              id="suggestion-details"
               rows={4}
               required
               value={formData.details}
               onChange={(e) => setFormData({ ...formData, details: e.target.value })}
               placeholder={
                 category === "bug"
-                  ? "Describe the steps to reproduce the issue, what happened, and what you expected to happen..."
+                  ? "Describe the steps to reproduce the issue, what happened, and what you expected to happen…"
                   : category === "enterprise"
-                  ? "Tell us how much your company spends, approximate seat count, and what specific features you need in a replacement..."
-                  : "Tell us why this feature or app would be useful, how you would use it in your daily workflow..."
+                  ? "Tell us how much your company spends, approximate seat count, and what specific features you need in a replacement…"
+                  : "Tell us why this feature or app would be useful, how you would use it in your daily workflow…"
               }
-              className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+              className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors resize-none"
             />
           </div>
 
           {/* Contact Info (Optional) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
             <div>
-              <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+              <label
+                htmlFor="suggestion-name"
+                className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+              >
                 Your Name (Optional)
               </label>
               <input
+                id="suggestion-name"
                 type="text"
+                autoComplete="name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="Leave blank for anonymous"
-                className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+              <label
+                htmlFor="suggestion-email"
+                className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+              >
                 Your Email (Optional, if you want a response)
               </label>
               <input
+                id="suggestion-email"
                 type="email"
+                autoComplete="email"
+                spellCheck={false}
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="you@domain.com"
-                className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
               />
             </div>
           </div>
 
           {errorMessage && (
-            <div className="flex items-center gap-2 p-3 rounded-xl bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 text-red-700 dark:text-red-400 text-xs">
-              <AlertCircle className="w-4 h-4 shrink-0" />
+            <div
+              role="alert"
+              aria-live="polite"
+              className="flex items-center gap-2 p-3 rounded-xl bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 text-red-700 dark:text-red-400 text-xs"
+            >
+              <AlertCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
               <span>{errorMessage}</span>
             </div>
           )}
@@ -368,13 +418,13 @@ export const SuggestionForm = () => {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="px-7 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition-all duration-200 flex items-center gap-2 shadow-lg shadow-indigo-600/30 cursor-pointer disabled:opacity-50"
+              className="px-7 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition-colors duration-200 flex items-center gap-2 shadow-lg shadow-indigo-600/30 cursor-pointer disabled:opacity-50"
             >
               {status === "submitting" ? (
-                <span>Submitting...</span>
+                <span>Submitting…</span>
               ) : (
                 <>
-                  <Send className="w-3.5 h-3.5" />
+                  <Send className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>Send Suggestion / Report</span>
                 </>
               )}
