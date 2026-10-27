@@ -20,7 +20,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Real-Time Web Solutions, Biodata Maker & Native Apple Apps`,
+    default: `${siteConfig.name} — Free Native macOS, Safari Apps & Web Studios`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -43,9 +43,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: `${siteConfig.name} — Real-Time Web Solutions, Biodata Maker (biodata.cogify.me) & Native Apple Apps`,
-    description:
-      "Cogify engineers real-time browser web studios and 100% offline native apps for macOS, iOS, iPadOS, and Safari: Marriage Biodata Maker (biodata.cogify.me), EmDoc PDF Workstation, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
+    title: `${siteConfig.name} — Free Native macOS, Safari Apps & Web Studios`,
+    description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
       {
@@ -54,15 +53,14 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "Cogify — Real-Time Web Solutions, Biodata Maker & Native macOS, iOS & Safari Software",
+        alt: "Cogify — Real-Time Web Studios, Biodata Maker, SSB Prep & Native macOS, iOS & Safari Software",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Real-Time Web Solutions, Biodata Maker & Native Apple Apps`,
-    description:
-      "Cogify engineers real-time web studios and 100% offline native apps for macOS, iOS, iPadOS, and Safari: Marriage Biodata Maker (biodata.cogify.me), EmDoc, Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert.",
+    title: `${siteConfig.name} — Free Native macOS, Safari Apps & Web Studios`,
+    description: siteConfig.description,
     images: ["https://cogify.me/og-image.png"],
   },
   robots: {

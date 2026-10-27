@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#09090b" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#09090b" />
+    </linearGradient>
+    <linearGradient id="shieldStroke" x1="64" y1="40" x2="448" y2="472" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="shieldFill" x1="96" y1="64" x2="416" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.22" />
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.20" />
+    </linearGradient>
+    <radialGradient id="coreGlow" cx="50%" cy="48%" r="42%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Rounded App Icon Base -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <rect x="12" y="12" width="488" height="488" rx="100" stroke="#27272a" stroke-width="6" />
+  <circle cx="256" cy="248" r="196" fill="url(#coreGlow)" />
+
+  <!-- Tactical SSB Shield -->
+  <path
+    d="M256 52L424 120V244C424 354 352 430 256 460C160 430 88 354 88 244V120L256 52Z"
+    fill="url(#shieldFill)"
+    stroke="url(#shieldStroke)"
+    stroke-width="18"
+    stroke-linejoin="round"
+  />
+
+  <!-- Inner Telemetry Ring -->
+  <circle
+    cx="256"
+    cy="244"
+    r="92"
+    stroke="#e2e8f0"
+    stroke-opacity="0.85"
+    stroke-width="10"
+    stroke-dasharray="24 16"
+  />
+  <circle
+    cx="256"
+    cy="244"
+    r="54"
+    fill="#38bdf8"
+    fill-opacity="0.2"
+    stroke="#38bdf8"
+    stroke-width="10"
+  />
+
+  <!-- Crosshair Axis Ticks -->
+  <path
+    d="M256 116V154M256 334V372M128 244H166M346 244H384"
+    stroke="#94a3b8"
+    stroke-width="12"
+    stroke-linecap="round"
+  />
+
+  <!-- North-Star / Compass Needle -->
+  <polygon points="256,188 274,244 256,300 238,244" fill="#f8fafc" />
+  <circle cx="256" cy="244" r="10" fill="#10b981" />
+</svg>

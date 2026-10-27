@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { EmDocPageJsonLd } from "@/components/seo/jsonld-schemas";
 
 export const metadata: Metadata = {
-  title: "EmDoc — Lightweight macOS PDF Editor & Acrobat Pro Alternative",
+  title: "EmDoc — Free macOS PDF Editor & Acrobat Alternative",
   description:
-    "5.0 MB native macOS PDF suite. ~45MB RAM footprint, 100% offline air-gapped data sovereignty. Hardware vector rendering, page reorganization, compression, and zero subscriptions.",
+    "5.0 MB native macOS PDF workstation (~45 MB RAM). 100% offline air-gapped C++20 & AppKit PDF editor with vector ink, page organizer, OCR & compression.",
   alternates: {
     canonical: "https://cogify.me/products/emdoc",
   },
@@ -19,9 +20,9 @@ export const metadata: Metadata = {
     "fastest PDF reader macOS",
   ],
   openGraph: {
-    title: "EmDoc — Lightweight macOS PDF Editor & Acrobat Pro Alternative",
+    title: "EmDoc — Free macOS PDF Editor & Acrobat Alternative | COGIFY",
     description:
-      "5.0 MB native macOS PDF suite. ~45MB RAM footprint, 100% offline air-gapped data sovereignty. High-speed vector rendering, page organizer, compression, and zero telemetry.",
+      "5.0 MB native macOS PDF workstation (~45 MB RAM). 100% offline air-gapped C++20 & AppKit PDF editor with vector ink, page organizer, OCR & compression.",
     url: "https://cogify.me/products/emdoc",
     images: [
       {
@@ -36,35 +37,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "EmDoc — Lightweight macOS PDF Editor & Acrobat Pro Alternative",
-    description: "5.0 MB native macOS PDF suite. ~45MB RAM, 100% air-gapped, zero telemetry.",
+    title: "EmDoc — Free macOS PDF Editor & Acrobat Alternative | COGIFY",
+    description:
+      "5.0 MB native macOS PDF workstation (~45 MB RAM). 100% offline air-gapped C++20 & AppKit PDF editor with vector ink, page organizer, OCR & compression.",
     images: ["https://cogify.me/og-image.png"],
   },
-};
-
-const breadcrumbsSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://cogify.me",
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Products",
-      "item": "https://cogify.me/products",
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "EmDoc macOS PDF Workstation",
-      "item": "https://cogify.me/products/emdoc",
-    },
-  ],
 };
 
 export default function EmDocLayout({
@@ -74,10 +51,7 @@ export default function EmDocLayout({
 }) {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsSchema) }}
-      />
+      <EmDocPageJsonLd />
       {children}
     </>
   );

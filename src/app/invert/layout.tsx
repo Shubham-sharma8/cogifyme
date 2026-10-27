@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Colour Invert — Invert the Web | Safari Extension for Dark Mode & Contrast | COGIFY",
-  description:
-    "Flip webpage colors instantly. Reduce harsh brightness, change the way websites look, and browse with a completely different visual experience. 100% free Safari extension for macOS, iOS & iPadOS with zero telemetry.",
+  title: "Colour Invert — Smart Dark Mode for Safari on Mac",
+  description: siteConfig.invert.shortDescription,
   keywords: [
     "colour",
     "invert",
@@ -32,9 +31,8 @@ export const metadata: Metadata = {
     canonical: "https://cogify.me/invert",
   },
   openGraph: {
-    title: "Colour Invert — Invert the Web | Safari Extension",
-    description:
-      "Flip webpage colors instantly. Reduce harsh brightness, change the way websites look, and browse with a completely different visual experience. 100% free with zero tracking.",
+    title: "Colour Invert — Smart Dark Mode for Safari on Mac | COGIFY",
+    description: siteConfig.invert.shortDescription,
     url: "https://cogify.me/invert",
     siteName: siteConfig.name,
     locale: "en_US",
@@ -50,9 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Colour Invert — Invert the Web | Safari Extension",
-    description:
-      "Flip webpage colors instantly. Reduce harsh brightness, change the way websites look, and browse with a completely different visual experience.",
+    title: "Colour Invert — Smart Dark Mode for Safari on Mac | COGIFY",
+    description: siteConfig.invert.shortDescription,
     images: ["https://cogify.me/brand/Invert/icon.png"],
   },
 };

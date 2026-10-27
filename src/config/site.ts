@@ -259,6 +259,7 @@ export interface SiteConfig {
   adBlocker: SafariAppConfig;
   weblenses: SafariAppConfig;
   biodata: BiodataStudioConfig;
+  ssb: BiodataStudioConfig;
   lumenview: MacAppConfig;
   metricove: MacAppConfig;
   netguard: MacAppConfig;
@@ -276,7 +277,7 @@ export const siteConfig: SiteConfig = {
   ogImage: "https://cogify.me/og-image.png",
   appleDeveloperUrl: "https://apps.apple.com/in/developer/shubham-sharma/id1643497398",
   description:
-    "Cogify engineers real-time web solutions, interactive browser studios, and ultra-lightweight native macOS, iOS, iPadOS, and Safari apps with zero telemetry and 100% client-side execution. Launch Marriage Biodata Maker Studio (biodata.cogify.me), EmDoc PDF Workstation, Ad Blocker for Safari, ReaderEasy, WebClear, Element Hider, Colour Invert, WebLenses, and enterprise license replacement solutions.",
+    "Cogify builds 14 free, zero-telemetry web studios (biodata.cogify.me, ssb.cogify.me) and native macOS, iOS, iPadOS & Safari apps with 100% local privacy.",
   keywords: [
     "Cogify",
     "cogify.me",
@@ -287,10 +288,10 @@ export const siteConfig: SiteConfig = {
     "Marriage Biodata Maker",
     "Marriage Biodata Maker Studio",
     "free marriage biodata maker online",
-    "biodata maker website",
-    "shadi biodata maker",
-    "marriage biodata format pdf word",
-    "hindu muslim sikh jain christian marriage biodata",
+    "ssb.cogify.me",
+    "SSB Stage 2 Psychology Test Practice",
+    "TAT WAT SRT SDT simulator online",
+    "OIR PPDT GTO SSB preparation free",
     "real-time web solutions",
     "zero telemetry web apps",
     "EmDoc",
@@ -298,28 +299,22 @@ export const siteConfig: SiteConfig = {
     "macOS PDF editor",
     "best free PDF editor Mac",
     "Adobe Acrobat Pro alternative Mac",
-    "lightweight PDF editor macOS",
-    "5MB PDF reader",
-    "offline PDF editor Mac",
+    "LumenView HiDPI Display Manager Mac",
+    "BetterDisplay alternative Mac",
+    "Metricove Mac System Monitor",
+    "iStat Menus alternative Mac",
+    "NetGuard macOS Firewall 3D Radar",
+    "Little Snitch LuLu alternative Mac",
+    "Klipora Clipboard Manager Mac",
+    "Show free space Disk Analyzer Mac",
+    "DaisyDisk alternative Mac",
     "Ad Blocker for Safari",
     "Safari ad blocker iOS macOS",
-    "ReaderEasy",
     "ReaderEasy Safari reader mode",
-    "bionic reading Safari extension",
-    "WebClear",
     "WebClear cookie manager Safari",
-    "clear website data Safari extension",
-    "Element Hider",
     "Element Hider Safari Extension",
-    "hide webpage elements Safari",
-    "Colour Invert",
     "Colour Invert Safari dark mode",
-    "WebLenses",
     "WebLenses website health checker Safari",
-    "Core Web Vitals Safari extension",
-    "Full Page Web Capture Safari",
-    "Web Inspection Safari DevTools iOS",
-    "Aurora Drive iOS CarPlay live lyrics widgets",
     "free Apple App Store apps",
     "enterprise software license replacement",
     "sovereign software",
@@ -354,7 +349,7 @@ export const siteConfig: SiteConfig = {
     supportedArchitectures: ["Apple Silicon (arm64)", "Intel 64-bit (x86_64)"],
     tagline: "A powerful, 5.0 MB PDF workstation designed for macOS.",
     shortDescription:
-      "Now live on the Mac App Store. Engineered from the ground up in native Swift and CoreGraphics with zero cloud dependencies. At just 5.0 MB and ~45 MB RAM usage, EmDoc delivers desktop responsiveness, full editing, compression, and redaction with 100% of features free.",
+      "EmDoc is a 5.0 MB native macOS PDF editor and Adobe Acrobat alternative. Edit, organize, compress, watermark, and redact PDFs 100% offline with zero telemetry.",
     fullDescription:
       "EmDoc is a professional PDF workstation crafted specifically for users who value speed, privacy, and precision. Unlike legacy suites that weigh over 1 GB and consume gigabytes of memory, EmDoc packs a complete editing, organization, compression, watermarking, Bates numbering, and signing suite into a 5.0 MB native binary with zero telemetry.",
     features: [
@@ -537,7 +532,7 @@ export const siteConfig: SiteConfig = {
     promotionalText:
       "Hide anything that gets in your way. Clean up webpages, remove distractions, and make Safari feel like your browser again.",
     shortDescription:
-      "Take control of the web. Element Hider lets you hide distracting, annoying, or unnecessary elements from webpages in Safari on iPhone, iPad, and Mac. See something you don't want to see? Hide it.",
+      "Hide distracting banners, popups, sidebars, and unwanted webpage elements in Safari on iPhone, iPad, and Mac with one tap. 100% free and private.",
     fullDescription:
       "From oversized banners and annoying pop-ups to distracting sections, recommendations, sidebars, comments, images, and other page elements — Element Hider puts you in control of what stays on your screen. Does not alter the content you want to keep; simply lets you decide what belongs on your screen.",
     philosophy:
@@ -772,7 +767,7 @@ export const siteConfig: SiteConfig = {
     promotionalText:
       "Flip webpage colors instantly. Reduce harsh brightness, change the way websites look, and browse with a completely different visual experience.",
     shortDescription:
-      "See the web differently. Colour Invert is a simple Safari extension for Mac, iPhone, and iPad that lets you invert webpage colors with a single tap while keeping photos and videos natural.",
+      "Invert webpage colors and enable smart OLED dark mode in Safari on Mac, iPhone, and iPad while keeping photos and videos natural. 100% free and local.",
     fullDescription:
       "Turn bright webpages dark, flip colors for a different visual experience, or simply experiment with a completely new way to browse. Whether you're reading at night, looking for a high-contrast visual experience, or just want more control over how websites appear, Colour Invert puts the choice in your hands.",
     philosophy:
@@ -1047,7 +1042,7 @@ export const siteConfig: SiteConfig = {
     promotionalText:
       "Transform cluttered webpages into a serene, customizable reading environment in Safari with Bionic Focus Mode, Reading Ruler, Text-to-Speech, Highlights, and Markdown Export.",
     shortDescription:
-      "ReaderEasy transforms cluttered webpages into a clean, customizable reading view in Safari. Strip away banners, popups, sidebars, and auto-playing videos in a single tap so you can focus on what matters: the content.",
+      "Transform cluttered webpages into a distraction-free Safari reader view with Bionic Focus, Reading Ruler, Text-to-Speech, and Markdown export. 100% free.",
     fullDescription:
       "Designed for researchers, students, avid readers, and neurodivergent minds, ReaderEasy elevates Safari reading with 4 curated themes (Paper, Sepia, Slate, OLED Dark), typography controls, Bionic Focus Mode that bolds word beginnings to guide eye fixation, an interactive Reading Ruler, Text-to-Speech (Listen Aloud), persistent local highlights, and instant Markdown/TXT export.",
     philosophy:
@@ -1195,7 +1190,7 @@ export const siteConfig: SiteConfig = {
     promotionalText:
       "Reset any site in one tap without logging out of everything else. Inspect cookies, edit LocalStorage, auto-clean domains, and strip tracking URL parameters in Safari.",
     shortDescription:
-      "Take full control of website storage, cookies, cache, and tracking parameters directly inside Safari. Clear a single misbehaving site in one tap without wiping your entire browser history or losing logins on other sites.",
+      "Wipe cookies, LocalStorage, cache, and tracking URL parameters for any single site in Safari with one tap—without logging out of your other websites.",
     fullDescription:
       "WebClear gives developers, privacy-conscious users, and everyday browsers surgical control over site data in Safari. Inspect and delete individual cookies, browse and edit LocalStorage, SessionStorage, and IndexedDB databases, set domain-level Auto-Clean rules, and automatically strip tracking query parameters like utm_*, fbclid, and gclid.",
     philosophy:
@@ -1333,7 +1328,7 @@ export const siteConfig: SiteConfig = {
     promotionalText:
       "Browse up to 3x faster with native WebKit Content Blocking. Block intrusive banner ads, video pre-rolls, cross-site trackers, and cookie popups across iPhone, iPad, and Mac.",
     shortDescription:
-      "Ad Blocker for Safari uses Apple's native WebKit Content Blocking API and DeclarativeNetRequest rules to eliminate intrusive ads, invisible trackers, popups, and layout placeholders before they ever download — using zero background CPU or battery.",
+      "Block intrusive ads, cross-site trackers, popups, and cookie banners in Safari on Mac, iPhone, and iPad using native WebKit Content Blocking. 100% free.",
     fullDescription:
       "Unlike legacy extensions that read every page you visit, Ad Blocker compiles high-efficiency filter lists directly into Safari's native WebKit engine. Customize your protection shields across Ads, Trackers, Popups & Cookie Notices, and Cosmetic Element Collapse, manage per-site whitelists, and enjoy a cleaner, faster web on macOS, iOS, and iPadOS.",
     philosophy:
@@ -1491,7 +1486,7 @@ export const siteConfig: SiteConfig = {
     promotionalText:
       "Inspect any website's health score, Core Web Vitals (FCP, LCP, CLS), third-party script load, security posture, and DOM complexity in one click right inside Safari.",
     shortDescription:
-      "WebLenses is a native Safari extension for macOS, iOS, and iPadOS that gives developers, SEO engineers, and curious users an instant X-ray into any webpage's performance, privacy, resources, and security — 100% on-device.",
+      "Audit any webpage's 0–100 Health Score, Core Web Vitals (LCP, CLS), third-party scripts, and DOM complexity in one click inside Safari for Mac and iOS.",
     fullDescription:
       "With a single click in Safari, WebLenses calculates a comprehensive 0–100 Website Health Score broken down across Performance, Privacy, Resources, and Security. Inspect live Core Web Vitals (FCP, LCP, CLS, TBT), audit First-Party vs. Third-Party network requests and transfer sizes, analyze DOM depth and image optimization, and verify HTTPS/CSP security headers without opening heavy DevTools.",
     philosophy:
@@ -1648,7 +1643,7 @@ export const siteConfig: SiteConfig = {
     ogBanner: "/brand/Biodata/og-banner.png",
     mobilePreview: "/brand/Biodata/mobile-preview.png",
     shortDescription:
-      "Create a print-ready A4 Marriage Biodata online in 2 minutes at biodata.cogify.me. Features 242 handcrafted Hindu, Muslim Nikah, Sikh, Christian, Jain, Marathi, Gujarati, Tamil & Modern templates, 14 layout engines, 9 languages, interactive Vedic Kundali studio, and instant 300-DPI PDF, editable Word (.docx), and 3x Retina PNG downloads — 100% client-side with zero watermarks.",
+      "Explore the architecture behind biodata.cogify.me: Cogify's client-side A4 Marriage Biodata Studio with 242 templates, 14 layout engines & Kundali charts.",
     fullDescription:
       "Marriage Biodata Maker Studio (biodata.cogify.me) is Cogify's flagship browser-native design studio engineered to replace predatory 'free' biodata makers that blur your contact details or demand payment at the download step. Running 100% locally inside your browser with zero server uploads, it pairs an instant 1:1 A4 live preview (794×1123 print lock) with 242 cultural and modern templates, 14 structural layout engines, 32 vector SVG border frames, 9 Indian and global languages with non-destructive label translation, an interactive Vedic Kundali / Rashi chart builder, ceremonial stickers, and genuine multi-format exports (300-DPI PDF, native editable Microsoft Word .docx tables, 3x Retina PNG/JPG, and WhatsApp summary).",
     philosophy:
@@ -1703,39 +1698,39 @@ export const siteConfig: SiteConfig = {
     communityLinks: [
       {
         name: "Hindu Marriage Biodata",
-        href: "https://biodata.cogify.me/hindu-marriage-biodata",
+        href: "https://biodata.cogify.me/hindu-marriage-biodata-format",
         badge: "Sacred Ganesh & Kundali",
         description: "Traditional Hindu format with || Shree Ganeshay Namah ||, Rashi, Nakshatra, Gotra, Manglik & Vedic Kundali chart.",
       },
       {
         name: "Muslim Nikah Biodata",
-        href: "https://biodata.cogify.me/muslim-nikah-biodata",
+        href: "https://biodata.cogify.me/muslim-marriage-biodata-format",
         badge: "Arabesque & Bismillah",
         description: "Features Bismillah-ir-Rahman-ir-Rahim, Mughal geometric frames, Sect/Maslak, and Wali contact details.",
       },
       {
         name: "Sikh (Anand Karaj) Biodata",
-        href: "https://biodata.cogify.me/sikh-marriage-biodata",
+        href: "https://biodata.cogify.me/sikh-marriage-biodata-format",
         badge: "Ik Onkar (ੴ)",
         description: "Opens with Ik Onkar Satnam Waheguru in Royal Navy & Gold with Gursikh lifestyle, parental & native Punjab details.",
       },
       {
         name: "Marathi Lagnaacha Biodata",
-        href: "https://biodata.cogify.me/marathi-marriage-biodata",
+        href: "https://biodata.cogify.me/marathi-biodata-maker",
         badge: "मराठी • Kuldaivat & Devak",
         description: "Authentic Marathi format supporting Kuldaivat, Devak, Mamakul, and Paithani silk-inspired traditional borders.",
       },
       {
         name: "Gujarati Lagna Biodata",
-        href: "https://biodata.cogify.me/gujarati-marriage-biodata",
+        href: "https://biodata.cogify.me/gujarati-biodata-maker",
         badge: "ગુજરાતી • Mosal & Native",
         description: "Tailored for Gujarati families with Mosal, Gol/Samaj, Naniyal, and one-click Gujarati label translation.",
       },
       {
-        name: "Christian, Jain & NRI Formats",
-        href: "https://biodata.cogify.me/nri-executive-biodata",
-        badge: "Global & Executive",
-        description: "Dedicated templates for Christian, Jain (Jai Jinendra), Buddhist, and modern NRI/Executive two-column layouts.",
+        name: "Christian & Jain Formats",
+        href: "https://biodata.cogify.me/christian-marriage-biodata-format",
+        badge: "Global & Community",
+        description: "Dedicated templates for Christian, Jain (Jai Jinendra), Punjabi, Tamil, Telugu & modern executive two-column layouts.",
       },
     ],
     keywords: [
@@ -1749,6 +1744,124 @@ export const siteConfig: SiteConfig = {
       "marathi lagnaacha biodata",
       "gujarati marriage biodata",
       "biodata maker without watermark",
+    ],
+  },
+  ssb: {
+    slug: "ssb",
+    name: "SSB Stage-2 Test Practice Studio",
+    shortName: "SSB Studio",
+    tagline: "Free Indian Armed Forces SSB Psychology (TAT, WAT, SRT, SDT), OIR, PPDT, GTO & Interview Simulator",
+    subtitle: "Hosted at ssb.cogify.me • 100% Free Forever, Authentic Selection Board Timers & 100% Local Privacy",
+    url: "https://ssb.cogify.me",
+    webUrl: "https://ssb.cogify.me",
+    githubUrl: "https://github.com/Shubham-sharma8/ssb",
+    version: "v2.0 Web Studio",
+    platform: "Web App & PWA (ssb.cogify.me) • Desktop, Tablet & Mobile",
+    pricingModel: "100% Free Forever — ₹0 / $0, No Signup, Zero Paywalls",
+    icon: "/brand/SSB/icon.svg",
+    previewImage: "/brand/SSB/studio-preview.webp",
+    ogBanner: "/brand/SSB/og-banner.png",
+    mobilePreview: "/brand/SSB/studio-preview.png",
+    shortDescription:
+      "Practice Indian Armed Forces SSB Stage-2 Psychology tests (TAT, WAT, SRT, SDT), OIR, PPDT, GTO & IO Interview online with authentic timers at ssb.cogify.me.",
+    fullDescription:
+      "SSB Stage-2 Test Practice Studio (ssb.cogify.me) is Cogify's dedicated browser-native Services Selection Board simulator engineered forNDA, CDS, AFCAT, TES, SSC Tech, and ACC defence aspirants. It replicates exact selection center test hall pacing with automated 30-second TAT slide projection + 4-minute story timers, 15-second WAT word cues with Web Audio API beeps, 30-minute 60-situation SRT rapid response drills, 15-minute 5-paragraph SDT self-description templates, Stage-1 OIR & PPDT screening practice, GTO task guides, Personal Interview PIQ prep, and OLQ evaluation rubrics — running 100% client-side with instant PDF dossier export.",
+    philosophy:
+      "Defence aspirants preparing for Army, Navy, and Air Force SSB interviews shouldn't be locked out by expensive coaching portals just to practice real-time psychology timers. We built ssb.cogify.me as a 100% free, zero-telemetry web studio where every TAT, WAT, SRT, and SDT session runs locally in your browser.",
+    features: [
+      {
+        title: "TAT 12-Slide Projector (30s View + 4m Write)",
+        description:
+          "Authentic Thematic Apperception Test simulator with 11 curated monochrome stimulus slides + 12th blank slide, strict 30-second image observation, 4-minute story timer, and 10 pre-built test sets.",
+        tag: "TAT Simulator",
+      },
+      {
+        title: "WAT 60-Word Rapid Cue Engine (15s / Word)",
+        description:
+          "Automated Word Association Test cycling 60 psychological trigger words at exact 15-second intervals with Web Audio API transition chimes and post-session OLQ sentence review.",
+        tag: "WAT 15s Timer",
+      },
+      {
+        title: "SRT 60-Situation & SDT 5-Paragraph Battery",
+        description:
+          "Complete 60 Situation Reaction Test scenarios under a 30-minute countdown to train decisive action speed, followed by structured 15-minute Self Description Test (SDT) reflection.",
+        tag: "SRT & SDT",
+      },
+      {
+        title: "Full 98-Minute Stage-2 Psychology Battery",
+        description:
+          "Run the continuous end-to-end SSB Day-2 psychology examination (TAT → WAT → SRT → SDT) in one uninterrupted 98-minute sitting with downloadable PDF response sheets.",
+        tag: "Full Battery",
+      },
+      {
+        title: "Stage-1 Screening (OIR & PPDT) + GTO & IO Hubs",
+        description:
+          "Prepare for Day-1 Screening with Officer Intelligence Rating (OIR) verbal/non-verbal reasoning and PPDT perception drills, plus comprehensive GTO 9-task and Personal Interview (PIQ) frameworks.",
+        tag: "Stage 1 & Stage 2",
+      },
+      {
+        title: "100% Client-Side LocalStorage & PDF Dossier Export",
+        description:
+          "All test history, written stories, and self-assessments remain strictly inside your browser's local storage with 1-click print-ready PDF response sheet export and zero server tracking.",
+        tag: "Zero Telemetry",
+      },
+    ],
+    specifications: [
+      { label: "Live Web Studio", value: "https://ssb.cogify.me" },
+      { label: "Psychology Battery", value: "TAT (12 Slides) • WAT (60 Words) • SRT (60 Scenarios) • SDT (5 Prompts)" },
+      { label: "Stage-1 & Interview", value: "OIR Verbal/Non-Verbal • PPDT Simulator • GTO 9 Tasks • IO & PIQ Guide" },
+      { label: "Timer Engine", value: "Precision Web Audio API Beeps & Authentic Selection Board Pacing" },
+      { label: "Defence Entries", value: "NDA, CDS, AFCAT, TES, UES, SSC Tech, JAG, NCC & ACC" },
+      { label: "Data Privacy", value: "100% Client-Side Browser Execution • Zero Server Uploads" },
+      { label: "Price & Access", value: "100% Free Forever • No Login Required • Instant PDF Export" },
+    ],
+    communityLinks: [
+      {
+        name: "TAT Test Simulator",
+        href: "https://ssb.cogify.me/tat",
+        badge: "30s View + 4m Write",
+        description: "Practice 11 picture slides + 1 blank slide across 10 curated TAT sets with automatic slide transitions.",
+      },
+      {
+        name: "WAT 60-Word Timer",
+        href: "https://ssb.cogify.me/wat",
+        badge: "15s / Word + Audio",
+        description: "Train spontaneous Officer Like Qualities (OLQ) sentence associations across 60 sequential words.",
+      },
+      {
+        name: "SRT 60-Situation Drill",
+        href: "https://ssb.cogify.me/srt",
+        badge: "30m Rapid Action",
+        description: "Sharpen decision-making speed across 60 realistic crisis and leadership scenarios in 30 minutes.",
+      },
+      {
+        name: "SDT Self-Description",
+        href: "https://ssb.cogify.me/sdt",
+        badge: "15m • 5 Paragraphs",
+        description: "Structure honest opinions from parents, teachers, friends, self, and goals under timed conditions.",
+      },
+      {
+        name: "Full 98-Min Psychology Test",
+        href: "https://ssb.cogify.me/full-test",
+        badge: "Complete Day-2 Sim",
+        description: "Take TAT, WAT, SRT, and SDT back-to-back in a realistic 98-minute exam hall simulation.",
+      },
+      {
+        name: "GTO, Interview & OLQ Library",
+        href: "https://ssb.cogify.me/gto",
+        badge: "GTO • IO • OLQs",
+        description: "Explore 9 GTO outdoor task guides, Lecturette & GPE timers, Personal Interview PIQ prep, and OLQ reference.",
+      },
+    ],
+    keywords: [
+      "ssb.cogify.me",
+      "ssb psychology test practice online",
+      "tat wat srt sdt simulator free",
+      "ssb stage 2 test practice",
+      "oir test practice online free",
+      "ppdt practice ssb",
+      "gto tasks ssb preparation",
+      "ssb interview preparation online",
     ],
   },
   principles: [
@@ -1877,7 +1990,7 @@ export const siteConfig: SiteConfig = {
     promotionalText:
       "Unlock true HiDPI Retina scaling, hardware DDC/CI brightness & volume control, 240Hz refresh rates, 3D LUT calibration, and 60 FPS Virtual Displays on macOS.",
     shortDescription:
-      "LumenView is the complete display control, hardware DDC/CI calibration, and virtual screen engineering suite for macOS. Unlock crisp Retina HiDPI scaling on any 1440p, 4K, 5K, or ultrawide monitor, control real hardware brightness and volume via IOAVService/IOKit, and create 60 FPS Virtual Displays.",
+      "Unlock HiDPI Retina scaling, hardware DDC/CI monitor brightness & volume control, 240Hz refresh rates, and 60 FPS virtual displays on macOS. 100% free.",
     fullDescription:
       "Engineered natively in Swift and Metal for Apple Silicon (M1–M4) and Intel Macs, LumenView bridges the gap between macOS and external displays. Unlock arbitrary custom HiDPI logical resolutions for razor-sharp typography, adjust physical monitor backlight and speaker volume directly from your Mac keyboard via hardware DDC/CI, dim below 0% with Sub-Zero Dimming or boost Liquid Retina XDR panels, load studio 3D .cube LUTs, and stream zero-dongle Virtual Displays at 60 FPS.",
     philosophy:
@@ -2055,7 +2168,7 @@ export const siteConfig: SiteConfig = {
     promotionalText:
       "Real-time Apple Silicon & Intel hardware telemetry in your macOS Menu Bar. Track P/E-Cores, Metal GPU, Memory Pressure, NVMe Disk I/O, Network & SMC Thermals.",
     shortDescription:
-      "Metricove is a high-precision macOS system monitor engineered in pure Swift, Mach kernel APIs, and IOKit SMC. Track CPU P-Cores & E-Cores, Metal GPU & Unified VRAM, Memory Pressure & Swap, NVMe throughput, Network interfaces, and SMC thermal sensors & fan speeds.",
+      "Monitor Apple Silicon P/E-Cores, Metal GPU, Unified RAM, NVMe Disk I/O, Network ping, and SMC CPU/GPU temperatures in your macOS Menu Bar. 2.3 MB native app.",
     fullDescription:
       "Designed for developers, creative professionals, and power users, Metricove delivers real-time hardware telemetry without Electron bloat. Monitor every subsystem from a customizable 3-tab Menu Bar popover and a 9-module glassmorphic desktop dashboard — complete with 5 curated accent themes, threshold alerts, and 1-click JSON diagnostic snapshots.",
     philosophy:
@@ -2232,7 +2345,7 @@ export const siteConfig: SiteConfig = {
     promotionalText:
       "Visualize every outbound connection on an interactive 3D Earth Globe, inspect live processes with code-signing verification, and block trackers with 1-Click Threat Shield Packs.",
     shortDescription:
-      "NetGuard is a native macOS network monitor, interactive 3D global connection radar, and application firewall. Watch live connections arc across a 60 FPS SceneKit 3D Earth globe, inspect process code signatures, and block telemetry, ads, and unauthorized endpoints.",
+      "Visualize outbound Mac connections on a 60 FPS 3D Earth radar, verify process code signatures, and block telemetry with NetGuard's native macOS firewall.",
     fullDescription:
       "Built natively in SwiftUI, SceneKit, MapKit, and NetworkExtension for macOS 14+, NetGuard gives you x-ray visibility into every packet leaving your Mac. Rotate an interactive 3D satellite globe with geodesic connection arcs, audit live processes and SHA-256 code signatures, enable Allow on Startup so boot apps never hang while new processes are caught, and deploy 1-Click Threat Shield Packs.",
     philosophy:
@@ -2364,7 +2477,7 @@ export const siteConfig: SiteConfig = {
     promotionalText:
       "Summon your entire copy history in under 16ms with ⌘⇧V. Features Split Inspector, Bento Visual Board, Dev Scratchpad, local Vision OCR, and 100% offline SQLite WAL storage.",
     shortDescription:
-      "Klipora is a native, keyboard-first macOS clipboard workspace engineered in Swift, AppKit, and SQLite WAL. Summon your history in under 16ms (⌘⇧V), switch between Split List, Bento Grid, and Dev Studio Scratchpad, run local Vision OCR on images, and transform snippets.",
+      "Summon your macOS clipboard history in under 16ms (⌘⇧V) with Split Inspector, Bento Board, Dev Scratchpad, local Apple Vision OCR, and 100% offline SQLite.",
     fullDescription:
       "Engineered for developers, designers, and writers who demand sub-millisecond speed and absolute privacy, Klipora stores your entire clipboard history locally in an indexed SQLite WAL database. Search across thousands of text snippets, code blocks, URLs, colors, images, and files using Smart, Exact, Fuzzy, or Regex queries — while automatically ignoring password managers.",
     philosophy:
@@ -2496,7 +2609,7 @@ export const siteConfig: SiteConfig = {
     promotionalText:
       "Visualize where every gigabyte goes with interactive Sunburst & Treemap charts, reclaim Xcode/npm/Docker caches, find SHA-256 duplicates, and pin live Desktop HUD widgets.",
     shortDescription:
-      "Show free space is an all-in-one macOS disk space analyzer, developer cache cleaner, SHA-256 duplicate finder, deep app uninstaller, and live storage widget suite. Visualize drives with Sunburst & Treemap charts and reclaim gigabytes safely via macOS Trash.",
+      "Analyze macOS disk space with interactive Sunburst & Treemap charts, clean Xcode/npm/Docker caches, find SHA-256 duplicates, and pin live storage widgets.",
     fullDescription:
       "Re-engineered for macOS Ventura, Sonoma, and Sequoia, Show free space combines an interactive Space Lens visualizer (Sunburst & Treemap), 7 native macOS WidgetKit widgets, 4 Floating Desktop HUD presets (⌘⇧W), a live Menu Bar monitor, Big Wins Developer Cache Cleaner (Xcode DerivedData, npm, Homebrew, Cargo, Docker), SHA-256 Duplicate Finder, Deep App Uninstaller, and Smart Organizer.",
     philosophy:

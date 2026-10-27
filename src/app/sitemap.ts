@@ -48,6 +48,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [`${baseUrl}/og-image.png`, `${baseUrl}/brand/logo.png`],
     },
     {
+      url: `${baseUrl}/ssb`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.95,
+      images: [
+        `${baseUrl}/brand/SSB/og-banner.png`,
+        `${baseUrl}/brand/SSB/studio-preview.webp`,
+      ],
+    },
+    {
       url: `${baseUrl}/products/emdoc`,
       lastModified,
       changeFrequency: "weekly",

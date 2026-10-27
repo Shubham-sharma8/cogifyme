@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Element Hider — Hide Anything | Browse Your Way Safari Extension | COGIFY",
-  description:
-    "Hide anything that gets in your way. Clean up webpages, remove distractions, and make Safari feel like your browser again. 100% free Safari extension for iOS, iPadOS & macOS with zero telemetry.",
+  title: "Element Hider — Hide Webpage Distractions Safari",
+  description: siteConfig.elementHider.shortDescription,
   keywords: [
     "element",
     "hide",
@@ -30,9 +29,8 @@ export const metadata: Metadata = {
     canonical: "https://cogify.me/element-hider",
   },
   openGraph: {
-    title: "Element Hider — Hide Anything | Browse Your Way",
-    description:
-      "Hide anything that gets in your way. Clean up webpages, remove distractions, and make Safari feel like your browser again. 100% free with zero tracking.",
+    title: "Element Hider — Hide Webpage Distractions Safari | COGIFY",
+    description: siteConfig.elementHider.shortDescription,
     url: "https://cogify.me/element-hider",
     siteName: siteConfig.name,
     locale: "en_US",
@@ -48,9 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Element Hider — Hide Anything | Browse Your Way",
-    description:
-      "Hide anything that gets in your way. Clean up webpages, remove distractions, and make Safari feel like your browser again.",
+    title: "Element Hider — Hide Webpage Distractions Safari | COGIFY",
+    description: siteConfig.elementHider.shortDescription,
     images: ["https://cogify.me/brand/Element-Hider/icon.png"],
   },
 };

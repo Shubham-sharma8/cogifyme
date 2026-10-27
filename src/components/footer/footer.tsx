@@ -110,6 +110,14 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/ssb" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center justify-between gap-2">
+                  <span>SSB Practice Studio</span>
+                  <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300">
+                    Web v2.0
+                  </span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/ad-blocker" className="hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center justify-between gap-2">
                   <span>Ad Blocker - For Safari</span>
                   <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300">
@@ -179,6 +187,17 @@ export const Footer = () => {
                   className="hover:text-zinc-950 dark:hover:text-white transition-colors inline-flex items-center gap-1"
                 >
                   <span>biodata.cogify.me</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.ssb.webUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-zinc-950 dark:hover:text-white transition-colors inline-flex items-center gap-1"
+                >
+                  <span>ssb.cogify.me</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
@@ -258,14 +277,6 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="/sitemap.xml"
-                  className="hover:text-zinc-950 dark:hover:text-white transition-colors"
-                >
-                  XML Sitemap
-                </a>
-              </li>
-              <li>
                 <span className="text-zinc-600 dark:text-zinc-400">
                   Domain: <code className="text-zinc-700 dark:text-zinc-300 font-mono">cogify.me</code>
                 </span>
@@ -277,7 +288,7 @@ export const Footer = () => {
         {/* Bottom copyright & theme row */}
         <div className="mt-12 pt-8 border-t border-zinc-200/80 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-600 dark:text-zinc-400">
           <div>
-            © {currentYear} COGIFY Technologies. All rights reserved. EmDoc, Biodata Maker (biodata.cogify.me), Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider &amp; Colour Invert are products of COGIFY.
+            © {currentYear} COGIFY Technologies. All rights reserved. EmDoc, LumenView, Metricove, NetGuard, Klipora, Show free space, Biodata Maker (biodata.cogify.me), SSB Practice Studio (ssb.cogify.me), Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider &amp; Colour Invert are products of COGIFY.
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggle variant="pill" />

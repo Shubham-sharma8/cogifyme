@@ -6,7 +6,7 @@ import { SafariAppPageJsonLd } from "@/components/seo/jsonld-schemas";
 const app = siteConfig.weblenses;
 
 export const metadata: Metadata = {
-  title: `${app.name} | Website Health Score & Core Web Vitals for Safari`,
+  title: "WebLenses — Safari Core Web Vitals & SEO Auditor",
   description: app.shortDescription,
   keywords: app.keywords,
   alternates: {

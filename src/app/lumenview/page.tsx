@@ -6,7 +6,7 @@ import { MacAppPageJsonLd } from "@/components/seo/jsonld-schemas";
 const app = siteConfig.lumenview;
 
 export const metadata: Metadata = {
-  title: `${app.name} | Free macOS HiDPI, DDC/CI Brightness & Virtual Display App`,
+  title: `${app.name} — macOS DDC/CI Brightness & HiDPI App`,
   description: app.shortDescription,
   keywords: app.keywords,
   alternates: {

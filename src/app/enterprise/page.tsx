@@ -35,7 +35,7 @@ const ENTERPRISE_FAQS: FaqItem[] = [
   {
     question: "Can we commission COGIFY to build a custom native or web replacement for another expensive tool?",
     answer:
-      "Yes. In addition to our 8 live App Store and Web Studio products, COGIFY partners directly with companies to architect custom C++20, Swift/AppKit, Safari WebKit, or client-side web studio replacements for high-cost commercial software.",
+      "Yes. In addition to our 14 live macOS, App Store, and Web Studio products, COGIFY partners directly with companies to architect custom C++20, Swift/AppKit, Safari WebKit, or client-side web studio replacements for high-cost commercial software.",
   },
 ];
 

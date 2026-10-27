@@ -5,8 +5,8 @@ import { MacAppPrivacyView } from "@/components/products/mac-app-privacy-view";
 const app = siteConfig.lumenview;
 
 export const metadata: Metadata = {
-  title: `Privacy Policy — ${app.name}`,
-  description: `Zero-telemetry, 100% local privacy policy for ${app.name} on macOS.`,
+  title: `${app.name} macOS App — Zero-Telemetry Privacy Spec`,
+  description: `Official zero-telemetry privacy policy for ${app.name} on macOS. 100% local DDC/CI display control and HiDPI scaling with zero cloud data collection or tracking.`,
   alternates: {
     canonical: `${siteConfig.url}/${app.slug}/privacy`,
   },

@@ -23,17 +23,17 @@ export const AboutSection = () => {
       ),
     },
     {
-      title: "7 Free Apps Live on the Apple App Store",
+      title: "14 Free Apps & Web Studios Live Across macOS, Safari & Web",
       badge: "Live Ecosystem",
       content: (
         <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
           <p>
-            Our published suite spans macOS, iOS, iPadOS, and Safari: EmDoc PDF Workstation (5.0 MB), Ad Blocker - For Safari (v2.0), ReaderEasy (v1.1), WebClear, WebLenses, Element Hider, and Colour Invert.
+            Our published suite spans 6 native macOS workstations (EmDoc PDF Workstation, LumenView, Metricove, NetGuard, Klipora, Show free space), 6 Safari Web Extensions (Ad Blocker - For Safari, ReaderEasy, WebClear, WebLenses, Element Hider, Colour Invert), and 2 real-time web studios (<code className="font-mono">biodata.cogify.me</code> &amp; <code className="font-mono">ssb.cogify.me</code>).
           </p>
           <div className="grid grid-cols-2 gap-3 text-xs">
             <div className="p-3 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-200/80 dark:border-white/5 shadow-xs">
-              <span className="text-indigo-600 dark:text-indigo-400 font-semibold block mb-0.5">7 Published Apps</span>
-              <span className="text-zinc-500">macOS, iOS, iPadOS &amp; Safari</span>
+              <span className="text-indigo-600 dark:text-indigo-400 font-semibold block mb-0.5">14 Live Products</span>
+              <span className="text-zinc-500">macOS, iOS, iPadOS, Safari &amp; Web</span>
             </div>
             <div className="p-3 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-200/80 dark:border-white/5 shadow-xs">
               <span className="text-emerald-600 dark:text-emerald-400 font-semibold block mb-0.5">100% Free &amp; Local</span>
@@ -44,12 +44,12 @@ export const AboutSection = () => {
       ),
     },
     {
-      title: "CarPlay Infotainment, Mobile DevTools & Enterprise",
-      badge: "Roadmap",
+      title: "Browser Web Studios & Enterprise License Replacement",
+      badge: "Web & Enterprise",
       content: (
         <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
           <p>
-            Expanding into Apple CarPlay and mobile developer tooling with Aurora Drive (real-time live lyrics, customizable iOS widgets, and CarPlay infotainment), Web Inspection, Full Page Web Capture, and bespoke enterprise software replacements.
+            Alongside our native Apple apps, we operate Marriage Biodata Maker Studio (<code className="font-mono">biodata.cogify.me</code>) and SSB Stage-2 Test Practice Studio (<code className="font-mono">ssb.cogify.me</code>), plus custom enterprise software replacements and free team pilots.
           </p>
         </div>
       ),

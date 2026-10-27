@@ -30,7 +30,7 @@ export default function SuggestionsPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Cogify builds everyday apps and web studios that are 100% free for users. Whether you found a glitch in EmDoc or Marriage Biodata Maker Studio, have an idea for a new feature, or want your company to replace an expensive software license, your message goes directly to our engineers.
+            Cogify builds everyday apps and web studios that are 100% free for users. Whether you found a glitch in EmDoc, Marriage Biodata Maker Studio, or SSB Stage-2 Test Practice Studio, have an idea for a new feature, or want your company to replace an expensive software license, your message goes directly to our engineers.
           </p>
         </div>
       </section>
@@ -41,13 +41,13 @@ export default function SuggestionsPage() {
       </section>
 
       {/* Quick Navigation Footer */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
         <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-zinc-500">
           <Link
             href="/products"
             className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors"
           >
-            Browse All 8 Apps &amp; Web Studios
+            Browse All 14 Apps &amp; Web Studios
           </Link>
           <span>•</span>
           <Link
@@ -62,6 +62,13 @@ export default function SuggestionsPage() {
             className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors"
           >
             Marriage Biodata Maker (biodata.cogify.me)
+          </Link>
+          <span>•</span>
+          <Link
+            href="/ssb"
+            className="hover:text-emerald-600 dark:hover:text-emerald-400 font-medium transition-colors"
+          >
+            SSB Practice Studio (ssb.cogify.me)
           </Link>
           <span>•</span>
           <Link

@@ -74,6 +74,24 @@ const STUDIO_APPS: StudioAppItem[] = [
     ],
   },
   {
+    id: "ssb",
+    name: "SSB Practice Studio",
+    tagline: siteConfig.ssb.tagline,
+    category: "Real-Time Web Studio & PWA • ssb.cogify.me",
+    platforms: "Web, macOS, iOS & Android",
+    version: "v2.0",
+    icon: siteConfig.ssb.icon,
+    previewImage: siteConfig.ssb.previewImage,
+    previewType: "mac",
+    href: "/ssb",
+    appStoreUrl: siteConfig.ssb.webUrl,
+    metrics: [
+      { label: "Psych & GTO", value: "TAT, WAT, SRT, SDT" },
+      { label: "Storage", value: "100% Local" },
+      { label: "Price", value: "100% Free" },
+    ],
+  },
+  {
     id: "emdoc",
     name: "EmDoc PDF Workstation",
     tagline: "5.0 MB Air-Gapped Native macOS PDF Editor, Merger, OCR & Compressor",
@@ -338,6 +356,15 @@ export const HeroSection = () => {
               className="underline decoration-amber-500/60 hover:text-amber-500 transition-colors font-semibold"
             >
               Marriage Biodata Maker at biodata.cogify.me
+            </a>{" "}
+            and{" "}
+            <a
+              href={siteConfig.ssb.webUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-emerald-500/60 hover:text-emerald-500 transition-colors font-semibold"
+            >
+              SSB Stage-2 Practice Studio at ssb.cogify.me
             </a>
             ) alongside ultra-lightweight native apps for{" "}
             <strong className="text-indigo-600 dark:text-indigo-300 font-semibold">
@@ -357,7 +384,7 @@ export const HeroSection = () => {
               className="px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/25 transition-colors flex items-center gap-2 cursor-pointer"
             >
               <Sparkles className="w-4 h-4" aria-hidden="true" />
-              <span>Explore All 13 Apps &amp; Web Studios</span>
+              <span>Explore All 14 Apps &amp; Web Studios</span>
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
 
@@ -365,10 +392,20 @@ export const HeroSection = () => {
               href={siteConfig.biodata.webUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-sm shadow-lg shadow-amber-500/20 transition-colors flex items-center gap-2"
+              className="px-5 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-sm shadow-lg shadow-amber-500/20 transition-colors flex items-center gap-2"
             >
               <ExternalLink className="w-4 h-4" aria-hidden="true" />
-              <span>Launch Biodata Maker (biodata.cogify.me)</span>
+              <span>Biodata Maker (biodata.cogify.me)</span>
+            </a>
+
+            <a
+              href={siteConfig.ssb.webUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition-colors flex items-center gap-2"
+            >
+              <ExternalLink className="w-4 h-4" aria-hidden="true" />
+              <span>SSB Studio (ssb.cogify.me)</span>
             </a>
 
             <a
@@ -484,7 +521,7 @@ export const HeroSection = () => {
                           {app.name}
                         </h2>
                         <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 tabular-nums">
-                          {app.id === "biodata"
+                          {app.id === "biodata" || app.id === "ssb"
                             ? `${app.version} • Free Web Studio`
                             : `${app.version} • Free on App Store`}
                         </span>
@@ -521,6 +558,8 @@ export const HeroSection = () => {
                         <span>
                           {app.id === "biodata"
                             ? "Launch biodata.cogify.me"
+                            : app.id === "ssb"
+                            ? "Launch ssb.cogify.me"
                             : "Get Free on App Store"}
                         </span>
                       </a>

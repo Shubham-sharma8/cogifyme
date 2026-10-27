@@ -6,7 +6,6 @@ import {
   ExternalLink,
   Sparkles,
   CheckCircle2,
-  Cpu,
   Globe,
   Download,
 } from "lucide-react";
@@ -16,12 +15,13 @@ import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
+import { CatalogJsonLd } from "@/components/seo/jsonld-schemas";
 
 const PRODUCTS_FAQS: FaqItem[] = [
   {
     question: "How many applications and web studios are currently live in the COGIFY catalog?",
     answer:
-      "COGIFY currently ships 13 live products: 6 native macOS workstations with instant 1-click .DMG downloads (EmDoc PDF Workstation, LumenView, Metricove, NetGuard, Klipora, and Show free space), Marriage Biodata Maker Studio (biodata.cogify.me), and 6 Safari Web Extensions (Ad Blocker for Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert).",
+      "COGIFY currently ships 14 live products: 6 native macOS workstations with instant 1-click .DMG downloads (EmDoc PDF Workstation, LumenView, Metricove, NetGuard, Klipora, and Show free space), 2 real-time web studios (Marriage Biodata Maker at biodata.cogify.me and SSB Stage-2 Test Practice Studio at ssb.cogify.me), and 6 Safari Web Extensions (Ad Blocker for Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert).",
   },
   {
     question: "Are all COGIFY macOS apps, App Store apps, and web studios free for personal use?",
@@ -36,21 +36,21 @@ const PRODUCTS_FAQS: FaqItem[] = [
   {
     question: "Do COGIFY products work offline without internet access?",
     answer:
-      "Yes. Native macOS apps like EmDoc, LumenView, Metricove, Klipora, and Show free space run 100% offline with zero telemetry, our 6 Safari extensions execute locally inside WebKit on your device, and Marriage Biodata Maker Studio processes all documents locally in your browser.",
+      "Yes. Native macOS apps like EmDoc, LumenView, Metricove, Klipora, and Show free space run 100% offline with zero telemetry, our 6 Safari extensions execute locally inside WebKit on your device, and both Marriage Biodata Maker Studio and SSB Stage-2 Practice Studio process all user data locally in your browser.",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "All 13 Apps, macOS Workstations, Safari Extensions & Studios — EmDoc, LumenView, Metricove, NetGuard, Klipora, Show free space",
+  title: "14 Free Native macOS, Safari Apps & Web Studios",
   description:
-    "Explore COGIFY's 13 free, zero-telemetry apps & studios: 6 native macOS workstations with 1-click .DMG downloads (EmDoc, LumenView, Metricove, NetGuard, Klipora, Show free space), Biodata Maker (biodata.cogify.me), and 6 Safari extensions.",
+    "Explore COGIFY's 14 free, zero-telemetry apps and web studios: 6 native macOS DMG apps, Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
   alternates: {
     canonical: `${siteConfig.url}/products`,
   },
   openGraph: {
-    title: "COGIFY Product Ecosystem — 13 Native macOS, iOS, Safari Apps & Web Studios",
+    title: "COGIFY Product Ecosystem — 14 Native macOS, Safari Apps & Web Studios",
     description:
-      "13 live applications and web studios — 6 macOS workstations with single-click .DMG downloads, 6 Safari extensions, and Biodata Maker Studio.",
+      "Explore COGIFY's 14 free, zero-telemetry apps and web studios: 6 native macOS DMG apps, Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
     url: `${siteConfig.url}/products`,
     siteName: siteConfig.name,
     type: "website",
@@ -186,6 +186,7 @@ const liveCatalog = [
     platforms: siteConfig.biodata.platform,
     category: "Web Studio • Document Design",
     icon: siteConfig.biodata.icon,
+    previewImage: siteConfig.biodata.previewImage,
     href: "/biodata",
     appStoreUrl: siteConfig.biodata.webUrl,
     ctaLabel: "Launch biodata.cogify.me",
@@ -194,6 +195,25 @@ const liveCatalog = [
       "242 cultural, regional & modern templates across 9 languages",
       "300-DPI Vector PDF, Editable Word (.docx) & 3x Retina PNG exports",
       "Interactive Vedic Kundali chart builder & 100% client-side privacy",
+    ],
+  },
+  {
+    name: siteConfig.ssb.name,
+    tagline: siteConfig.ssb.tagline,
+    description: siteConfig.ssb.shortDescription,
+    version: `v${siteConfig.ssb.version}`,
+    platforms: siteConfig.ssb.platform,
+    category: "Web Studio • Defence Assessment",
+    icon: siteConfig.ssb.icon,
+    previewImage: siteConfig.ssb.previewImage,
+    href: "/ssb",
+    appStoreUrl: siteConfig.ssb.webUrl,
+    ctaLabel: "Launch ssb.cogify.me",
+    badge: "Web Studio • Subdomain",
+    highlights: [
+      "Full timed Stage-2 Psychology Dossier: TAT, WAT (60 words/15s), SRT (60/30m) & SDT",
+      "GTO Command Simulator: Group Discussion, GPE, Lecturette & Gorham Obstacles",
+      "Interactive PIQ Form Builder, IO Rapid-Fire Drills & 15 OLQ Self-Evaluation",
     ],
   },
   {
@@ -309,6 +329,7 @@ const liveCatalog = [
 export default function ProductsPage() {
   return (
     <div className="min-h-screen pt-28 pb-24 relative overflow-hidden">
+      <CatalogJsonLd />
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[420px] bg-gradient-to-b from-indigo-600/10 via-emerald-500/8 to-transparent blur-3xl -z-10" />
 
       <Container>
@@ -349,6 +370,16 @@ export default function ProductsPage() {
             >
               <Sparkles className="h-4 w-4" />
               Launch Biodata Studio (biodata.cogify.me)
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+            <a
+              href={siteConfig.ssb.webUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 px-5 py-3 text-sm font-bold text-zinc-950 transition-colors shadow-sm"
+            >
+              <Sparkles className="h-4 w-4" />
+              Launch SSB Studio (ssb.cogify.me)
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
           </div>
@@ -472,109 +503,11 @@ export default function ProductsPage() {
             ))}
           </div>
         </section>
-
-        {/* Pipeline Section */}
-        <section>
-          <div className="mb-8">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-indigo-700 dark:text-indigo-400 mb-2">
-              <Cpu className="h-4 w-4" />
-              App Store Connect Pipeline
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">
-              Upcoming Releases & Active Pipeline
-            </h2>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">
-              Currently in final engineering and App Store submission review.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {siteConfig.futureProducts.map((prod) => (
-              <div
-                key={prod.id}
-                className="rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/30 p-6 flex flex-col justify-between shadow-xs dark:shadow-none"
-              >
-                <div>
-                  <div className="flex items-center gap-3.5 mb-4">
-                    {prod.icon ? (
-                      <div className="relative h-12 w-12 rounded-xl overflow-hidden border border-zinc-200 dark:border-white/15 shrink-0">
-                        <Image
-                          src={prod.icon}
-                          alt={prod.title}
-                          fill
-                          className="object-cover"
-                          sizes="48px"
-                        />
-                      </div>
-                    ) : (
-                      <div className="h-12 w-12 rounded-xl border border-indigo-500/30 bg-indigo-500/10 flex items-center justify-center shrink-0">
-                        <Sparkles className="h-5 w-5 text-indigo-700 dark:text-indigo-400" />
-                      </div>
-                    )}
-                    <div>
-                      <span className="inline-block text-[11px] font-semibold text-indigo-700 dark:text-indigo-400">
-                        {prod.status}
-                      </span>
-                      <h3 className="text-lg font-bold text-zinc-900 dark:text-white">
-                        {prod.title}
-                      </h3>
-                      {prod.platforms && (
-                        <p className="text-[11px] text-zinc-600 dark:text-zinc-400">
-                          {prod.platforms}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {prod.previewImage && (
-                    <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-zinc-200 dark:border-white/10 mb-4 bg-zinc-950">
-                      <Image
-                        src={prod.previewImage}
-                        alt={`${prod.title} Preview`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                      />
-                    </div>
-                  )}
-
-                  <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">
-                    {prod.description}
-                  </p>
-
-                  {prod.highlights && (
-                    <ul className="space-y-1.5 mb-4">
-                      {prod.highlights.map((h) => (
-                        <li
-                          key={h}
-                          className="flex items-start gap-2 text-xs text-zinc-600 dark:text-zinc-400"
-                        >
-                          <CheckCircle2 className="h-3.5 w-3.5 text-indigo-700 dark:text-indigo-400 shrink-0 mt-0.5" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-
-                <div className="pt-4 border-t border-zinc-200/80 dark:border-white/10 flex items-center justify-between text-xs text-zinc-600 dark:text-zinc-400">
-                  <span>{prod.category || "Native Apple App"}</span>
-                  <Link
-                    href="/suggestions"
-                    className="text-indigo-700 dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300 font-semibold"
-                  >
-                    Request Feature →
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
       </Container>
 
       <FaqSection
         title="COGIFY Product Catalog — Frequently Asked Questions"
-        subtitle="Answers about our native Apple App Store releases, Safari Web Extensions, and real-time web studios."
+        subtitle="Answers about our 14 free native Apple releases, Safari Web Extensions, and real-time web studios."
         items={PRODUCTS_FAQS}
       />
 

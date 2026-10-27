@@ -142,6 +142,108 @@ export const WhatWeBuild = () => {
           </div>
         </div>
 
+        {/* Featured Real-Time Web Studio Banner: SSB Stage-2 Practice Studio (ssb.cogify.me) */}
+        <div className="mb-12 rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-emerald-500/[0.08] via-white to-indigo-500/[0.06] dark:from-emerald-500/[0.08] dark:via-zinc-900/90 dark:to-indigo-500/[0.08] border border-emerald-500/30 dark:border-emerald-500/25 shadow-lg">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30 text-xs font-bold uppercase tracking-wider">
+                  <Globe className="w-3.5 h-3.5" />
+                  Live Real-Time Web Studio • ssb.cogify.me
+                </span>
+                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 font-semibold">
+                  100% Free • Zero Sign-Up
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3.5">
+                <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-emerald-500/30 shadow-md shrink-0 bg-zinc-950">
+                  <Image
+                    src={siteConfig.ssb.icon}
+                    alt={siteConfig.ssb.name}
+                    fill
+                    className="object-cover"
+                    sizes="56px"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white">
+                    {siteConfig.ssb.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm font-mono text-emerald-700 dark:text-emerald-300">
+                    Hosted on {siteConfig.ssb.webUrl.replace("https://", "")} • Indian Armed Forces Stage-2 Simulator
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                Preparing for your <strong>Indian Army, Navy, or Air Force SSB Interview</strong>? Launch our real-time Stage-2 simulator at <strong>ssb.cogify.me</strong>—featuring full timed <strong>Psychology Dossier tests (TAT, WAT, SRT, SDT)</strong>, <strong>GTO Command (GD, GPE, Lecturette, Gorham Obstacles)</strong>, an interactive <strong>PIQ Form Builder</strong>, and <strong>IO Rapid-Fire Interview Drills</strong> with 100% local privacy.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-700 dark:text-zinc-300 pt-1">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <span>Full Timed TAT, WAT, SRT &amp; SDT Simulator</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <span>GTO GPE, GD, Lecturette &amp; IO Rapid-Fire</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <span>Interactive PIQ Form &amp; OLQ Dossier Review</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <span>NDA, CDS, AFCAT, TES, SSC Tech &amp; NCC</span>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <a
+                  href={siteConfig.ssb.webUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs sm:text-sm shadow-md shadow-emerald-500/20 transition-all inline-flex items-center gap-2"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Go to SSB Practice Studio (ssb.cogify.me)</span>
+                </a>
+                <Link
+                  href="/ssb"
+                  className="px-5 py-3 rounded-xl bg-white dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white border border-zinc-200 dark:border-white/10 font-semibold text-xs sm:text-sm transition-all inline-flex items-center gap-1.5"
+                >
+                  <span>Explore SSB Studio Specs</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <a
+                href={siteConfig.ssb.webUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 bg-zinc-950 shadow-xl group relative"
+              >
+                <div className="px-3.5 py-2 bg-zinc-900 border-b border-white/10 flex items-center justify-between text-[11px] font-mono text-zinc-400">
+                  <span>ssb.cogify.me — Live SSB Studio</span>
+                  <span className="text-emerald-400 group-hover:underline">Open Web App ↗</span>
+                </div>
+                <div className="relative aspect-[16/10] w-full bg-zinc-950">
+                  <Image
+                    src={siteConfig.ssb.previewImage}
+                    alt="SSB Stage-2 Test Practice Studio — ssb.cogify.me"
+                    fill
+                    className="object-contain group-hover:scale-[1.02] transition-transform duration-300"
+                    sizes="(max-width: 1024px) 100vw, 480px"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* Bento Grid layout */}
         <BentoGrid className="max-w-7xl mx-auto">
           {/* Card 1: Free Daily Apps & Real-Time Web Studios (Spans 2 cols on desktop) */}
@@ -157,24 +259,20 @@ export const WhatWeBuild = () => {
                   <span>Biodata Maker (biodata.cogify.me)</span>
                   <span className="text-amber-600 dark:text-amber-400 font-bold">242 Templates • Live Web</span>
                 </div>
-                <div className="flex items-center justify-between text-indigo-700 dark:text-indigo-300 font-semibold">
-                  <span>EmDoc &amp; LumenView (macOS)</span>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">Direct .DMG • Free</span>
-                </div>
                 <div className="flex items-center justify-between text-emerald-700 dark:text-emerald-300 font-semibold">
-                  <span>Metricove, NetGuard &amp; Klipora</span>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">Direct .DMG • Free</span>
+                  <span>SSB Practice Studio (ssb.cogify.me)</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">Psych, GTO &amp; IO • Live Web</span>
                 </div>
-                <div className="flex items-center justify-between text-cyan-700 dark:text-cyan-300 font-semibold">
-                  <span>Show free space (Disk Analyzer)</span>
-                  <span className="text-cyan-600 dark:text-cyan-400 font-bold">Direct .DMG • Free</span>
+                <div className="flex items-center justify-between text-indigo-700 dark:text-indigo-300 font-semibold">
+                  <span>6 Native macOS Apps (.DMG)</span>
+                  <span className="text-indigo-600 dark:text-indigo-400 font-bold">EmDoc, LumenView &amp; More</span>
                 </div>
                 <div className="flex items-center justify-between text-purple-700 dark:text-purple-300 font-semibold">
                   <span>6 Safari Web Extensions</span>
                   <span className="text-purple-600 dark:text-purple-400 font-bold">App Store Live</span>
                 </div>
                 <div className="text-[11px] text-zinc-500 pt-0.5">
-                  13 Live Apps &amp; Web Studios • Air-gapped &amp; client-side • Zero telemetry
+                  14 Live Apps &amp; Web Studios • Air-gapped &amp; client-side • Zero telemetry
                 </div>
               </div>
             }

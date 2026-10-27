@@ -18,6 +18,13 @@ const ECOSYSTEM_LINKS = [
     desc: "242 cultural templates, 9 Indian languages, Vedic Kundali & 300-DPI PDF/DOCX export.",
   },
   {
+    slug: "ssb",
+    name: "SSB Stage-2 Practice Studio",
+    badge: "Web Studio • ssb.cogify.me",
+    href: "/ssb",
+    desc: "Free SSB Psychology (TAT, WAT, SRT, SDT), GTO & Interview simulator with 100% local privacy.",
+  },
+  {
     slug: "emdoc",
     name: "EmDoc PDF Workstation",
     badge: "macOS Native • 5.0 MB",
@@ -78,14 +85,14 @@ const ECOSYSTEM_LINKS = [
     name: "WebClear",
     badge: "Safari Extension",
     href: "/webclear",
-    desc: "Point-and-click element zapper, cookie banner bypass, and persistent site rules.",
+    desc: "One-tap per-site cookie, cache, LocalStorage & tracking URL cleaner for Safari.",
   },
   {
     slug: "weblenses",
     name: "WebLenses",
-    badge: "Safari Accessibility",
+    badge: "Safari Developer Tool",
     href: "/weblenses",
-    desc: "Precision color-blindness filters, blue-light shield, and custom contrast lenses.",
+    desc: "6-in-1 Core Web Vitals, SEO, accessibility, security & DOM auditor for Safari.",
   },
   {
     slug: "element-hider",
@@ -150,7 +157,7 @@ export function AuthorBio({
                 Systems engineer specializing in native Apple Silicon software (<code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">C++20</code>,{" "}
                 <code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">Swift 6</code>,{" "}
                 <code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">AppKit</code>,{" "}
-                <code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">Safari WebKit Extensions</code>) and real-time client-side web studios (<code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">biodata.cogify.me</code>). Every Cogify application is hand-architected for sub-second startup, deterministic memory bounds, and 100% air-gapped local privacy with zero third-party telemetry SDKs.
+                <code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">Safari WebKit Extensions</code>) and real-time client-side web studios (<code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">biodata.cogify.me</code> &amp; <code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">ssb.cogify.me</code>). Every Cogify application is hand-architected for sub-second startup, deterministic memory bounds, and 100% air-gapped local privacy with zero third-party telemetry SDKs.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 mt-4 text-xs font-semibold">
@@ -207,7 +214,7 @@ export function AuthorBio({
             href="/products"
             className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1"
           >
-            View All 13 Products &amp; Specs <ArrowUpRight className="w-3.5 h-3.5" />
+            View All 14 Products &amp; Specs <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 

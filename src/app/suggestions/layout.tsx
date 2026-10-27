@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Suggestions & Bug Reports — Help Shape Cogify Software",
+  title: "Feature Suggestions & Bug Reports — Shape Our Apps",
   description:
-    "Submit feature requests, report bugs, or request a custom software solution. We review all submissions directly and prioritize based on community and customer feedback.",
+    "Submit feature requests, report bugs across our 14 free apps and web studios, or request a custom enterprise software replacement directly to COGIFY engineers.",
   alternates: {
     canonical: "https://cogify.me/suggestions",
   },

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Enterprise Software Solutions & License Replacement",
+  title: "Enterprise Software License Replacement & Audits",
   description:
-    "Cut enterprise software costs by replacing expensive, bloated subscriptions with high-speed, lightweight, air-gapped desktop software. Free pilots, source code audits, and volume licensing.",
+    "Cut enterprise software costs by replacing bloated subscriptions with air-gapped native desktop and web software. Free trial pilots, security audits & licensing.",
   alternates: {
     canonical: "https://cogify.me/enterprise",
   },

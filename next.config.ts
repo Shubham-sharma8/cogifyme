@@ -38,7 +38,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // 1. Enforce apex canonical domain (redirect www to non-www)
+      // 1. Enforce apex canonical domain (redirect www to non-www) and HTTPS
       {
         source: "/:path*",
         has: [
@@ -50,7 +50,19 @@ const nextConfig: NextConfig = {
         destination: "https://cogify.me/:path*",
         permanent: true,
       },
-      // 2. Short URL & product path aliases (single-hop 308 redirects)
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "header",
+            key: "x-forwarded-proto",
+            value: "http",
+          },
+        ],
+        destination: "https://cogify.me/:path*",
+        permanent: true,
+      },
+      // 2. Short URL, App Store Support URL, & product path aliases (single-hop 308 redirects)
       {
         source: "/emdoc",
         destination: "/products/emdoc",
@@ -69,6 +81,21 @@ const nextConfig: NextConfig = {
       {
         source: "/marriage-biodata-maker",
         destination: "/biodata",
+        permanent: true,
+      },
+      {
+        source: "/products/ssb",
+        destination: "/ssb",
+        permanent: true,
+      },
+      {
+        source: "/ssb-prep",
+        destination: "/ssb",
+        permanent: true,
+      },
+      {
+        source: "/ssb-simulator",
+        destination: "/ssb",
         permanent: true,
       },
       {
@@ -97,6 +124,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/products/readeasy",
+        destination: "/readereasy",
+        permanent: true,
+      },
+      {
+        source: "/readeasy",
+        destination: "/readereasy",
+        permanent: true,
+      },
+      {
         source: "/reader-easy",
         destination: "/readereasy",
         permanent: true,
@@ -117,6 +154,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/products/adblocker",
+        destination: "/ad-blocker",
+        permanent: true,
+      },
+      {
         source: "/adblocker",
         destination: "/ad-blocker",
         permanent: true,
@@ -127,8 +169,48 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/products/weblens",
+        destination: "/weblenses",
+        permanent: true,
+      },
+      {
+        source: "/weblens",
+        destination: "/weblenses",
+        permanent: true,
+      },
+      {
         source: "/web-lenses",
         destination: "/weblenses",
+        permanent: true,
+      },
+      {
+        source: "/products/lumenview",
+        destination: "/lumenview",
+        permanent: true,
+      },
+      {
+        source: "/products/metricove",
+        destination: "/metricove",
+        permanent: true,
+      },
+      {
+        source: "/products/netguard",
+        destination: "/netguard",
+        permanent: true,
+      },
+      {
+        source: "/products/klipora",
+        destination: "/klipora",
+        permanent: true,
+      },
+      {
+        source: "/products/show-free-space",
+        destination: "/show-free-space",
+        permanent: true,
+      },
+      {
+        source: "/showfreespace",
+        destination: "/show-free-space",
         permanent: true,
       },
       // 3. Consolidate all app-specific & legacy privacy paths to Privacy Policy (/privacy)
@@ -168,6 +250,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/readeasy/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
         source: "/webclear/privacy",
         destination: "/privacy",
         permanent: true,
@@ -178,12 +265,27 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/adblocker/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
         source: "/weblenses/privacy",
         destination: "/privacy",
         permanent: true,
       },
       {
+        source: "/weblens/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
         source: "/biodata/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/ssb/privacy",
         destination: "/privacy",
         permanent: true,
       },

@@ -152,7 +152,7 @@ export function SafariAppPageView({ app }: SafariAppPageViewProps) {
               { label: "Products", href: "/products" },
               { label: app.shortName },
             ]}
-            includeJsonLd={false}
+            includeJsonLd={true}
           />
         </div>
 

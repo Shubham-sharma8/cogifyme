@@ -25,20 +25,20 @@ export default function AboutPage() {
       ),
     },
     {
-      title: "EmDoc Workstation for macOS",
-      badge: "Flagship Release",
+      title: "6 Native macOS Workstations (Direct .DMG & App Store)",
+      badge: "Flagship macOS Suite",
       content: (
         <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
           <p>
-            Our initial product, EmDoc, brings desktop PDF workflows to macOS in an astonishingly compact 5.0 MB package consuming only ~45 MB of RAM. 100% free for individual users with all features unlocked.
+            Our macOS desktop suite includes EmDoc PDF Workstation (5.0 MB binary, ~45 MB RAM), LumenView (hardware DDC/CI monitor control), Metricove (menu bar system telemetry), NetGuard (outbound firewall), Klipora (clipboard manager), and Show free space (disk space analyzer) — 100% free for individual users.
           </p>
           <div className="grid grid-cols-2 gap-3 text-xs">
             <div className="p-3 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-200/80 dark:border-white/5 shadow-xs">
-              <span className="text-indigo-600 dark:text-indigo-400 font-semibold block mb-0.5">5.0 MB Binary</span>
-              <span className="text-zinc-500">Universal macOS build</span>
+              <span className="text-indigo-600 dark:text-indigo-400 font-semibold block mb-0.5">6 macOS Apps</span>
+              <span className="text-zinc-500">Universal Apple Silicon &amp; Intel</span>
             </div>
             <div className="p-3 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-200/80 dark:border-white/5 shadow-xs">
-              <span className="text-emerald-600 dark:text-emerald-400 font-semibold block mb-0.5">Air-Gapped & Free</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold block mb-0.5">Air-Gapped &amp; Free</span>
               <span className="text-zinc-500">100% on-device compute</span>
             </div>
           </div>
@@ -68,12 +68,12 @@ export default function AboutPage() {
       ),
     },
     {
-      title: "Next-Wave Safari & CarPlay Pipeline",
-      badge: "In Pipeline",
+      title: "SSB Stage-2 Test Practice Studio (ssb.cogify.me)",
+      badge: "Live Defense Prep Studio",
       content: (
         <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400">
           <p>
-            In active engineering and App Store review: Full Page Web Capture, Web Inspection (Mobile Safari DevTools), and Aurora Drive (live synced lyrics, customizable iOS widgets, and Apple CarPlay infotainment).
+            Hosted at <code className="font-mono text-emerald-600 dark:text-emerald-400">ssb.cogify.me</code>, SSB Stage-2 Test Practice Studio delivers a real-time browser simulator for Indian Armed Forces Services Selection Board (SSB) Stage-1 &amp; Stage-2 screening and psychology tests: OIR, PPDT, TAT (12 slides), WAT (60 words, 15s pacing), SRT (60 situations), SDT, and GPE — 100% free with zero sign-up.
           </p>
         </div>
       ),

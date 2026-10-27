@@ -247,15 +247,13 @@ export const SuggestionForm = () => {
                 <option>Klipora (macOS Clipboard History)</option>
                 <option>Show free space (macOS Disk Analyzer)</option>
                 <option>Marriage Biodata Maker Studio (biodata.cogify.me)</option>
+                <option>SSB Stage-2 Test Practice Studio (ssb.cogify.me)</option>
                 <option>Ad Blocker - For Safari (iOS / macOS)</option>
                 <option>ReaderEasy (Safari Extension)</option>
                 <option>WebClear (Safari Extension)</option>
                 <option>WebLenses (Safari Extension)</option>
                 <option>Element Hider (Safari Extension)</option>
                 <option>Colour Invert (Safari Extension)</option>
-                <option>Full Page Web Capture (Pipeline)</option>
-                <option>Web Inspection (Safari DevTools Pipeline)</option>
-                <option>Aurora Drive (Live Lyrics, Widgets &amp; CarPlay)</option>
                 <option>New Everyday App Idea</option>
                 <option>Enterprise License Replacement</option>
                 <option>Cogify Website / Documentation</option>

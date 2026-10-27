@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: `${siteConfig.biodata.name} (biodata.cogify.me) — 242 Free A4 Templates, PDF & Word (.docx)`,
+  title: "Marriage Biodata Studio Specs (biodata.cogify.me)",
   description: siteConfig.biodata.shortDescription,
   keywords: siteConfig.biodata.keywords,
   alternates: {
     canonical: `${siteConfig.url}/biodata`,
   },
   openGraph: {
-    title: `${siteConfig.biodata.name} — Free Live A4 Biodata Builder by COGIFY`,
+    title: "Marriage Biodata Studio Specs (biodata.cogify.me) | COGIFY",
     description: siteConfig.biodata.shortDescription,
     url: `${siteConfig.url}/biodata`,
     siteName: siteConfig.name,
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.biodata.name} — biodata.cogify.me`,
+    title: "Marriage Biodata Studio Specs (biodata.cogify.me) | COGIFY",
     description: siteConfig.biodata.shortDescription,
     images: [`${siteConfig.url}/brand/Biodata/og-banner.png`],
   },

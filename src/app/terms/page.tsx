@@ -7,16 +7,16 @@ import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { AuthorBio } from "@/components/seo/author-bio";
 
 export const metadata: Metadata = {
-  title: "Terms of Use — COGIFY Applications, Safari Extensions & Web Studios",
+  title: "Terms of Use & EULA — COGIFY Apps & Web Studios",
   description:
-    "Terms of Use and software license agreement for COGIFY (cogify.me), EmDoc Workstation, Marriage Biodata Maker Studio (biodata.cogify.me), and our Safari extensions.",
+    "Terms of Use and software license agreement for COGIFY (cogify.me), 6 macOS apps, Biodata Maker (biodata.cogify.me), SSB Studio (ssb.cogify.me) & Safari apps.",
   alternates: {
     canonical: "https://cogify.me/terms",
   },
   openGraph: {
-    title: "Terms of Use — COGIFY Applications, Safari Extensions & Web Studios",
+    title: "Terms of Use & EULA — COGIFY Apps & Web Studios | COGIFY",
     description:
-      "Terms of Use and software license agreement for COGIFY desktop, mobile, Safari extension, and web studio products.",
+      "Terms of Use and software license agreement for COGIFY (cogify.me), 6 macOS apps, Biodata Maker (biodata.cogify.me), SSB Studio (ssb.cogify.me) & Safari apps.",
     url: "https://cogify.me/terms",
     siteName: siteConfig.name,
     type: "website",
@@ -51,7 +51,7 @@ export default function TermsOfUsePage() {
           <section className="space-y-3">
             <h2 className="text-lg font-bold text-zinc-900 dark:text-white">1. Agreement to Terms</h2>
             <p className="text-zinc-600 dark:text-zinc-400">
-              By accessing our website (<a href="https://cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">https://cogify.me</a>), our web studios (<a href="https://biodata.cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">https://biodata.cogify.me</a>), or downloading and operating our software products—including <strong>EmDoc</strong>, <strong>Marriage Biodata Maker Studio</strong>, <strong>Ad Blocker - For Safari</strong>, <strong>ReaderEasy</strong>, <strong>WebClear</strong>, <strong>WebLenses</strong>, <strong>Element Hider</strong>, <strong>Colour Invert</strong>, and all upcoming COGIFY applications—you agree to be bound by these Terms of Use and all applicable laws and regulations.
+              By accessing our website (<a href="https://cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">https://cogify.me</a>), our web studios (<a href="https://biodata.cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">https://biodata.cogify.me</a> and <a href="https://ssb.cogify.me" className="text-indigo-600 dark:text-indigo-400 underline">https://ssb.cogify.me</a>), or downloading and operating our software products—including <strong>EmDoc</strong>, <strong>LumenView</strong>, <strong>Metricove</strong>, <strong>NetGuard</strong>, <strong>Klipora</strong>, <strong>Show free space</strong>, <strong>Marriage Biodata Maker Studio</strong>, <strong>SSB Stage-2 Test Practice Studio</strong>, <strong>Ad Blocker - For Safari</strong>, <strong>ReaderEasy</strong>, <strong>WebClear</strong>, <strong>WebLenses</strong>, <strong>Element Hider</strong>, and <strong>Colour Invert</strong>—you agree to be bound by these Terms of Use and all applicable laws and regulations.
             </p>
           </section>
 
@@ -68,7 +68,7 @@ export default function TermsOfUsePage() {
               The COGIFY brand name, domain names, logomarks, website content, software interfaces, and underlying native engines are the exclusive intellectual property of COGIFY Technologies.
             </p>
             <p className="text-zinc-600 dark:text-zinc-400">
-              <strong className="text-zinc-900 dark:text-zinc-200">Your Documents &amp; Browsing Content:</strong> COGIFY claims zero ownership, license, or rights in any documents, PDFs, marriage biodata files, webpages, annotations, or files that you process using EmDoc, Marriage Biodata Maker Studio, or our Safari extensions. Because our software operates 100% locally on your device or browser, your files and browsing remain strictly under your exclusive control.
+              <strong className="text-zinc-900 dark:text-zinc-200">Your Documents &amp; Browsing Content:</strong> COGIFY claims zero ownership, license, or rights in any documents, PDFs, marriage biodata files, SSB test responses, webpages, annotations, or files that you process using our macOS workstations, Marriage Biodata Maker Studio, SSB Stage-2 Test Practice Studio, or our Safari extensions. Because our software operates 100% locally on your device or browser, your files and browsing remain strictly under your exclusive control.
             </p>
           </section>
 

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us — Engineering Sovereign Everyday Software",
+  title: "About Us — Sovereign Native Software & Web Studios",
   description:
-    "Learn about COGIFY's mission: building ultra-fast, lightweight everyday applications and bespoke enterprise solutions with complete data sovereignty and zero surveillance.",
+    "Learn about COGIFY and founder Shubham Sharma: engineering 14 free, ultra-fast native Apple apps and real-time web studios with 100% local data sovereignty.",
   alternates: {
     canonical: "https://cogify.me/about",
   },

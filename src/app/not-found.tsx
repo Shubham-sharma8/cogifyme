@@ -5,8 +5,10 @@ import { BrandLogo } from "@/components/brand/brand-logo";
 import { Home, Layers, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "404 — Page Not Found",
-  description: "The requested page could not be found on COGIFY.",
+  title: "404 Page Not Found — Software & Web Studio",
+  description:
+    "The requested page could not be found on COGIFY. Explore our 14 free native macOS workstations, Safari extensions, and real-time web studios at cogify.me.",
+  alternates: {},
   robots: {
     index: false,
     follow: true,

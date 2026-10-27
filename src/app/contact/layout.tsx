@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us & Engineering Inquiries",
+  title: "Contact COGIFY — Support & Engineering Inquiries",
   description:
-    "Get in touch with the COGIFY team. Whether you need custom enterprise solutions, technical support, or partnership inquiries, we respond within 24 hours.",
+    "Contact the COGIFY engineering team for technical support across our 14 macOS, Safari, and web studio apps, enterprise pilots, or custom software inquiries.",
   alternates: {
     canonical: "https://cogify.me/contact",
   },

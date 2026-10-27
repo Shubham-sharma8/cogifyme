@@ -18,16 +18,16 @@ import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { AuthorBio } from "@/components/seo/author-bio";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — COGIFY Apps, Safari Extensions & Web Studios",
+  title: "Privacy Policy — Zero-Telemetry Native & Web Apps",
   description:
-    "Official Privacy Policy for COGIFY (cogify.me), EmDoc macOS PDF Workstation, Marriage Biodata Maker Studio (biodata.cogify.me), and our 6 Safari Web Extensions.",
+    "Official zero-telemetry Privacy Policy for COGIFY (cogify.me), 6 macOS apps, Biodata Maker (biodata.cogify.me), SSB Studio (ssb.cogify.me), and 6 Safari apps.",
   alternates: {
     canonical: "https://cogify.me/privacy",
   },
   openGraph: {
-    title: "Privacy Policy — COGIFY Apps, Safari Extensions & Web Studios",
+    title: "Privacy Policy — Zero-Telemetry Native & Web Apps | COGIFY",
     description:
-      "Zero data collection across all COGIFY native macOS, iOS, iPadOS, Safari Web Extensions, and client-side Web Studios.",
+      "Official zero-telemetry Privacy Policy for COGIFY (cogify.me), 6 macOS apps, Biodata Maker (biodata.cogify.me), SSB Studio (ssb.cogify.me), and 6 Safari apps.",
     url: "https://cogify.me/privacy",
     siteName: siteConfig.name,
     type: "website",
@@ -42,6 +42,41 @@ const coveredApps = [
     appStoreUrl: siteConfig.emdoc.appStoreUrl,
     summary:
       "100% air-gapped native PDF workstation. Zero network permissions, zero cloud uploads, and local-only Apple Vision OCR.",
+  },
+  {
+    name: "LumenView",
+    platform: "macOS (Apple Silicon & Intel Universal)",
+    href: "/lumenview",
+    summary:
+      "Hardware DDC/CI external monitor brightness, contrast, and volume control. Zero network sockets or display telemetry.",
+  },
+  {
+    name: "Metricove",
+    platform: "macOS (Apple Silicon & Intel Universal)",
+    href: "/metricove",
+    summary:
+      "Real-time macOS menu bar CPU, GPU, RAM, network, and battery diagnostics. 100% local hardware polling with zero cloud metrics.",
+  },
+  {
+    name: "NetGuard",
+    platform: "macOS (Apple Silicon & Intel Universal)",
+    href: "/netguard",
+    summary:
+      "On-device macOS outbound firewall and application socket monitor. All connection rules and logs stay strictly on your Mac.",
+  },
+  {
+    name: "Klipora",
+    platform: "macOS (Apple Silicon & Intel Universal)",
+    href: "/klipora",
+    summary:
+      "Local-only macOS clipboard history manager with password-manager exclusion rules and zero cloud clipboard sync.",
+  },
+  {
+    name: "Show free space",
+    platform: "macOS (Apple Silicon & Intel Universal)",
+    href: "/show-free-space",
+    summary:
+      "Native macOS menu bar disk analyzer and APFS volume monitor. File paths and disk metadata never leave your device.",
   },
   {
     name: "Ad Blocker - For Safari",
@@ -65,7 +100,7 @@ const coveredApps = [
     href: "/webclear",
     appStoreUrl: siteConfig.webclear.appStoreUrl,
     summary:
-      "Clears website cookies, cache, and storage data on-device. Site whitelist settings are stored exclusively in local storage.",
+      "Dismisses cookie banners, newsletter popups, and sticky overlays locally on-device. Site whitelists stay in local storage.",
   },
   {
     name: "WebLenses",
@@ -73,7 +108,7 @@ const coveredApps = [
     href: "/weblenses",
     appStoreUrl: siteConfig.weblenses.appStoreUrl,
     summary:
-      "On-device DOM, CSS, Core Web Vitals, and SEO inspector. Inspected webpage data never leaves your local Safari session.",
+      "Applies real-time colour-vision accessibility filters and blue-light reading shields in local Safari memory.",
   },
   {
     name: "Element Hider",
@@ -100,11 +135,12 @@ const coveredApps = [
       "100% client-side biodata editor. All personal details, family information, horoscopes, and profile photos remain in local browser storage with zero cloud database uploads.",
   },
   {
-    name: "Pipeline & Upcoming Apps",
-    platform: "Full Page Web Capture, Web Inspection & Aurora Drive (CarPlay / Widgets)",
-    href: "/products#pipeline",
+    name: "SSB Stage-2 Test Practice Studio",
+    platform: "Web Studio & PWA (ssb.cogify.me)",
+    href: "/ssb",
+    appStoreUrl: siteConfig.ssb.webUrl,
     summary:
-      "Engineered under the same strict zero-telemetry, local-first architecture with zero third-party analytics SDKs.",
+      "Free browser-based Indian Armed Forces SSB interview preparation studio (OIR, PPDT, TAT, WAT, SRT, SDT & GPE). Practice responses and timers run locally in your browser with zero mandatory sign-up.",
   },
 ];
 
@@ -254,10 +290,10 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-3">
             <h2 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
               <Laptop className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-              <span>2. Native Desktop &amp; Mobile Applications (EmDoc, Aurora Drive, Full Page Web Capture)</span>
+              <span>2. Native macOS Applications (EmDoc, LumenView, Metricove, NetGuard, Klipora, Show free space)</span>
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400">
-              Our native macOS, iOS, and iPadOS applications—including <strong>EmDoc Workstation</strong>—are engineered to operate 100% locally on your hardware:
+              Our native macOS applications—including <strong>EmDoc Workstation</strong>, <strong>LumenView</strong>, <strong>Metricove</strong>, <strong>NetGuard</strong>, <strong>Klipora</strong>, and <strong>Show free space</strong>—are engineered to operate 100% locally on your hardware:
             </p>
             <ul className="list-disc list-inside space-y-1.5 text-zinc-600 dark:text-zinc-400 text-xs pl-2">
               <li>
@@ -276,7 +312,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
               <Compass className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               <span>
-                3. Safari Web Extensions (Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, Colour Invert, Web Inspection)
+                3. Safari Web Extensions (Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider, Colour Invert)
               </span>
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400">

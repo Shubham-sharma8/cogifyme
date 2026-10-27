@@ -29,7 +29,7 @@ export const FinalCTA = () => {
         </h2>
 
         <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10">
-          Explore all 7 free COGIFY applications on the Apple App Store across macOS, iOS, iPadOS, and Safari — or partner with our engineering team for custom enterprise license replacements.
+          Explore all 14 free COGIFY applications and real-time web studios (biodata.cogify.me &amp; ssb.cogify.me) across macOS, iOS, iPadOS, Safari, and Web — or partner with our engineering team for custom enterprise license replacements.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -38,7 +38,7 @@ export const FinalCTA = () => {
             className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all duration-200 shadow-xl shadow-indigo-600/25 flex items-center justify-center gap-2 cursor-pointer"
           >
             <Sparkles className="w-4 h-4" />
-            <span>Explore All 7 Free Apps</span>
+            <span>Explore All 14 Apps &amp; Studios</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
 

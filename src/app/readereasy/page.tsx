@@ -6,7 +6,7 @@ import { SafariAppPageJsonLd } from "@/components/seo/jsonld-schemas";
 const app = siteConfig.readereasy;
 
 export const metadata: Metadata = {
-  title: `${app.name} | Safari Reader Mode, Bionic Focus & TTS`,
+  title: "ReaderEasy — Safari Reader Mode, Bionic & TTS App",
   description: app.shortDescription,
   keywords: app.keywords,
   alternates: {

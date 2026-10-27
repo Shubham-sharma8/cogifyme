@@ -138,7 +138,7 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
               { label: "Products", href: "/products" },
               { label: app.shortName },
             ]}
-            includeJsonLd={false}
+            includeJsonLd={true}
           />
           <Link
             href={`/${app.slug}/privacy`}

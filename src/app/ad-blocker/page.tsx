@@ -6,7 +6,7 @@ import { SafariAppPageJsonLd } from "@/components/seo/jsonld-schemas";
 const app = siteConfig.adBlocker;
 
 export const metadata: Metadata = {
-  title: `${app.name} | Native WebKit Ad & Tracker Blocker for Mac, iPhone & iPad`,
+  title: "Ad Blocker for Safari — WebKit Ad & Tracker Shield",
   description: app.shortDescription,
   keywords: app.keywords,
   alternates: {

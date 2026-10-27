@@ -122,6 +122,7 @@ export function RootJsonLd() {
     sameAs: [
       siteConfig.appleDeveloperUrl,
       siteConfig.biodata.webUrl,
+      siteConfig.ssb.webUrl,
       "https://github.com/Shubham-sharma8",
     ],
     contactPoint: [
@@ -162,6 +163,7 @@ export function RootJsonLd() {
       "https://github.com/Shubham-sharma8",
       siteConfig.url,
       siteConfig.biodata.webUrl,
+      siteConfig.ssb.webUrl,
     ],
   };
 
@@ -181,6 +183,130 @@ export function RootJsonLd() {
     inLanguage: "en-US",
   };
 
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(founderPersonSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+    </>
+  );
+}
+
+export const JsonLdSchemas = RootJsonLd;
+
+export function CatalogJsonLd() {
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "COGIFY Real-Time Web Solutions, Native Apps & Safari Extensions",
+    description:
+      "Complete suite of 14 free, zero-telemetry real-time web studios, native macOS apps, and iOS/iPadOS Safari extensions by COGIFY.",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: `${siteConfig.biodata.name} (biodata.cogify.me)`,
+        url: `${siteConfig.url}/biodata`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: `${siteConfig.ssb.name} (ssb.cogify.me)`,
+        url: `${siteConfig.url}/ssb`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "EmDoc PDF Workstation",
+        url: `${siteConfig.url}/products/emdoc`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: siteConfig.adBlocker.name,
+        url: `${siteConfig.url}/ad-blocker`,
+      },
+      {
+        "@type": "ListItem",
+        position: 5,
+        name: siteConfig.readereasy.name,
+        url: `${siteConfig.url}/readereasy`,
+      },
+      {
+        "@type": "ListItem",
+        position: 6,
+        name: siteConfig.webclear.name,
+        url: `${siteConfig.url}/webclear`,
+      },
+      {
+        "@type": "ListItem",
+        position: 7,
+        name: siteConfig.weblenses.name,
+        url: `${siteConfig.url}/weblenses`,
+      },
+      {
+        "@type": "ListItem",
+        position: 8,
+        name: siteConfig.elementHider.name,
+        url: `${siteConfig.url}/element-hider`,
+      },
+      {
+        "@type": "ListItem",
+        position: 9,
+        name: siteConfig.invert.name,
+        url: `${siteConfig.url}/invert`,
+      },
+      {
+        "@type": "ListItem",
+        position: 10,
+        name: siteConfig.lumenview.name,
+        url: `${siteConfig.url}/lumenview`,
+      },
+      {
+        "@type": "ListItem",
+        position: 11,
+        name: siteConfig.metricove.name,
+        url: `${siteConfig.url}/metricove`,
+      },
+      {
+        "@type": "ListItem",
+        position: 12,
+        name: siteConfig.netguard.name,
+        url: `${siteConfig.url}/netguard`,
+      },
+      {
+        "@type": "ListItem",
+        position: 13,
+        name: siteConfig.klipora.name,
+        url: `${siteConfig.url}/klipora`,
+      },
+      {
+        "@type": "ListItem",
+        position: 14,
+        name: siteConfig.showFreeSpace.name,
+        url: `${siteConfig.url}/show-free-space`,
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+    />
+  );
+}
+
+export function EmDocPageJsonLd() {
   const emdocSoftwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -228,277 +354,6 @@ export function RootJsonLd() {
     isAccessibleForFree: true,
   };
 
-  const elementHiderSoftwareSchema = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "@id": `${siteConfig.url}/element-hider#software`,
-    name: siteConfig.elementHider.name,
-    alternateName: ["Element Hider", "Element Hider Safari Extension"],
-    operatingSystem: "iOS 16+, iPadOS 16+, macOS (Safari)",
-    applicationCategory: "UtilitiesApplication",
-    applicationSubCategory: "Safari Web Extension, Content Blocker, Productivity",
-    softwareVersion: siteConfig.elementHider.version,
-    url: `${siteConfig.url}/element-hider`,
-    downloadUrl: siteConfig.elementHider.appStoreUrl,
-    installUrl: siteConfig.elementHider.appStoreUrl,
-    sameAs: [siteConfig.elementHider.appStoreUrl],
-    image: `${siteConfig.url}/brand/Element-Hider/icon.png`,
-    screenshot: siteConfig.elementHider.screenshots.map((s) => `${siteConfig.url}${s.image}`),
-    description: siteConfig.elementHider.fullDescription,
-    featureList: siteConfig.elementHider.features.map((f) => `${f.title}: ${f.description}`),
-    author: {
-      "@id": `${siteConfig.url}/#founder`,
-    },
-    publisher: {
-      "@id": `${siteConfig.url}/#organization`,
-    },
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: siteConfig.elementHider.appStoreUrl,
-      description: "100% Free Forever — Zero Ads, Zero Subscriptions.",
-    },
-    isAccessibleForFree: true,
-  };
-
-  const colourInvertSoftwareSchema = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "@id": `${siteConfig.url}/invert#software`,
-    name: siteConfig.invert.name,
-    alternateName: ["Colour Invert", "Color Invert Safari Extension", "Colour Invert Dark Mode"],
-    operatingSystem: "macOS, iOS 16+, iPadOS 16+ (Safari)",
-    applicationCategory: "UtilitiesApplication",
-    applicationSubCategory: "Safari Web Extension, Dark Mode, Accessibility",
-    softwareVersion: siteConfig.invert.version,
-    url: `${siteConfig.url}/invert`,
-    downloadUrl: siteConfig.invert.appStoreUrl,
-    installUrl: siteConfig.invert.appStoreUrl,
-    sameAs: [siteConfig.invert.appStoreUrl],
-    image: `${siteConfig.url}/brand/Invert/icon.png`,
-    screenshot: [
-      ...siteConfig.invert.screenshotsMac.map((s) => `${siteConfig.url}${s.image}`),
-      ...siteConfig.invert.screenshotsIos.map((s) => `${siteConfig.url}${s.image}`),
-    ],
-    description: siteConfig.invert.fullDescription,
-    featureList: siteConfig.invert.features.map((f) => `${f.title}: ${f.description}`),
-    author: {
-      "@id": `${siteConfig.url}/#founder`,
-    },
-    publisher: {
-      "@id": `${siteConfig.url}/#organization`,
-    },
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: siteConfig.invert.appStoreUrl,
-      description: "100% Free Forever — Zero Ads, Zero Subscriptions.",
-    },
-    isAccessibleForFree: true,
-  };
-
-  const biodataWebAppSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "@id": `${siteConfig.url}/biodata#webapp`,
-    name: siteConfig.biodata.name,
-    alternateName: [
-      "Biodata Maker",
-      "Marriage Biodata Maker",
-      "Free Marriage Biodata Maker Online",
-      "Shadi Biodata Maker",
-      "Cogify Biodata Studio",
-      "biodata.cogify.me",
-    ],
-    url: siteConfig.biodata.webUrl,
-    sameAs: [`${siteConfig.url}/biodata`, siteConfig.biodata.webUrl],
-    applicationCategory: "DesignApplication",
-    applicationSubCategory:
-      "Marriage Biodata Maker, Cultural Document Studio, Real-Time Web Solution, PDF & DOCX Generator",
-    operatingSystem: "Any (Web Browser, macOS, Windows, iOS, iPadOS, Android — Installable PWA)",
-    browserRequirements: "Requires modern HTML5 browser with client-side Canvas & IndexedDB",
-    softwareVersion: siteConfig.biodata.version,
-    image: `${siteConfig.url}${siteConfig.biodata.ogBanner}`,
-    screenshot: [
-      `${siteConfig.url}${siteConfig.biodata.previewImage}`,
-      `${siteConfig.url}${siteConfig.biodata.mobilePreview}`,
-    ],
-    description: siteConfig.biodata.fullDescription,
-    featureList: siteConfig.biodata.features.map((f) => `${f.title}: ${f.description}`),
-    author: {
-      "@id": `${siteConfig.url}/#founder`,
-    },
-    publisher: {
-      "@id": `${siteConfig.url}/#organization`,
-    },
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: siteConfig.biodata.webUrl,
-      description: "100% Free Forever — Zero Watermarks, Zero Sign-Up, Zero Cloud Uploads.",
-    },
-    isAccessibleForFree: true,
-  };
-
-  const itemListSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "COGIFY Real-Time Web Solutions, Native Apps & Safari Extensions",
-    description:
-      "Complete suite of 100% free, zero-telemetry real-time web studios, native macOS apps, and iOS/iPadOS Safari extensions by COGIFY.",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: `${siteConfig.biodata.name} (biodata.cogify.me)`,
-        url: `${siteConfig.url}/biodata`,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "EmDoc PDF Workstation",
-        url: `${siteConfig.url}/products/emdoc`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: siteConfig.adBlocker.name,
-        url: `${siteConfig.url}/ad-blocker`,
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: siteConfig.readereasy.name,
-        url: `${siteConfig.url}/readereasy`,
-      },
-      {
-        "@type": "ListItem",
-        position: 5,
-        name: siteConfig.webclear.name,
-        url: `${siteConfig.url}/webclear`,
-      },
-      {
-        "@type": "ListItem",
-        position: 6,
-        name: siteConfig.weblenses.name,
-        url: `${siteConfig.url}/weblenses`,
-      },
-      {
-        "@type": "ListItem",
-        position: 7,
-        name: siteConfig.elementHider.name,
-        url: `${siteConfig.url}/element-hider`,
-      },
-      {
-        "@type": "ListItem",
-        position: 8,
-        name: siteConfig.invert.name,
-        url: `${siteConfig.url}/invert`,
-      },
-      {
-        "@type": "ListItem",
-        position: 9,
-        name: siteConfig.lumenview.name,
-        url: `${siteConfig.url}/lumenview`,
-      },
-      {
-        "@type": "ListItem",
-        position: 10,
-        name: siteConfig.metricove.name,
-        url: `${siteConfig.url}/metricove`,
-      },
-      {
-        "@type": "ListItem",
-        position: 11,
-        name: siteConfig.netguard.name,
-        url: `${siteConfig.url}/netguard`,
-      },
-      {
-        "@type": "ListItem",
-        position: 12,
-        name: siteConfig.klipora.name,
-        url: `${siteConfig.url}/klipora`,
-      },
-      {
-        "@type": "ListItem",
-        position: 13,
-        name: siteConfig.showFreeSpace.name,
-        url: `${siteConfig.url}/show-free-space`,
-      },
-    ],
-  };
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(founderPersonSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(biodataWebAppSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(emdocSoftwareSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(elementHiderSoftwareSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(colourInvertSoftwareSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(buildSafariSoftwareSchema(siteConfig.adBlocker)),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(buildSafariSoftwareSchema(siteConfig.readereasy)),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(buildSafariSoftwareSchema(siteConfig.webclear)),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(buildSafariSoftwareSchema(siteConfig.weblenses)),
-        }}
-      />
-    </>
-  );
-}
-
-export const JsonLdSchemas = RootJsonLd;
-
-export function EmDocPageJsonLd() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -525,10 +380,16 @@ export function EmDocPageJsonLd() {
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(emdocSoftwareSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+    </>
   );
 }
 

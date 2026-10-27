@@ -6,7 +6,7 @@ import { SafariAppPageJsonLd } from "@/components/seo/jsonld-schemas";
 const app = siteConfig.webclear;
 
 export const metadata: Metadata = {
-  title: `${app.name} | Clear Single Site Cookies & Cache in Safari`,
+  title: "WebClear — One-Tap Safari Cookie & Cache Cleaner",
   description: app.shortDescription,
   keywords: app.keywords,
   alternates: {
