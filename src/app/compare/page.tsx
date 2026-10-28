@@ -103,10 +103,10 @@ export default function CompareHubPage() {
 
             <div className="rounded-2xl bg-white dark:bg-[#0b0f17] border border-zinc-200/90 dark:border-white/[0.08] p-4">
               <div className="flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400">
-                <HardDrive className="w-3.5 h-3.5" /> 13.6 MB Total
+                <HardDrive className="w-3.5 h-3.5" /> 29.7 MB Total
               </div>
               <div className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1">
-                All 6 Mac Apps Combined vs 1.6 GB+
+                All 7 Native Cores vs 1.68 GB+
               </div>
             </div>
 
