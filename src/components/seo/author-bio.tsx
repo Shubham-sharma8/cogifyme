@@ -210,12 +210,20 @@ export function AuthorBio({
               Explore More Free Native Apple Apps &amp; Real-Time Web Studios
             </h2>
           </div>
-          <Link
-            href="/products"
-            className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1"
-          >
-            View All 14 Products &amp; Specs <ArrowUpRight className="w-3.5 h-3.5" />
-          </Link>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              href="/compare"
+              className="text-xs font-bold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1"
+            >
+              macOS Utility Benchmarks <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+            <Link
+              href="/products"
+              className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1"
+            >
+              View All 14 Products &amp; Specs <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">

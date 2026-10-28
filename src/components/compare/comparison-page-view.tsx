@@ -95,15 +95,21 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
     "@type": "TechArticle",
     headline: guide.h1Title,
     description: guide.metaDescription,
+    image: [
+      `https://cogify.me${guide.appScreenshot}`,
+      `https://cogify.me${guide.appIcon}`,
+    ],
     datePublished: "2026-03-01",
-    dateModified: "2026-04-19",
+    dateModified: "2026-10-28",
     author: {
       "@type": "Person",
+      "@id": "https://cogify.me/#founder",
       name: "Shubham Sharma",
       url: "https://cogify.me/about",
     },
     publisher: {
       "@type": "Organization",
+      "@id": "https://cogify.me/#organization",
       name: "COGIFY",
       url: "https://cogify.me",
     },
@@ -111,6 +117,7 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
     about: {
       "@type": "SoftwareApplication",
       name: guide.appName,
+      url: `https://cogify.me${guide.appHref}`,
       operatingSystem: "macOS 13.0 or later (Apple Silicon & Intel)",
       applicationCategory: "UtilitiesApplication",
       fileSize: guide.cogifySpec.binarySize,

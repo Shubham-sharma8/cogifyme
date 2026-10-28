@@ -5,10 +5,33 @@ import { Shield, Lock, CheckCircle2, ArrowLeft, Download } from "lucide-react";
 import { MacAppConfig, siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
+import { AuthorBio } from "@/components/seo/author-bio";
 
 export function MacAppPrivacyView({ app }: { app: MacAppConfig }) {
+  const privacyJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${siteConfig.url}/${app.slug}/privacy#webpage`,
+    url: `${siteConfig.url}/${app.slug}/privacy`,
+    name: `${app.name} — Zero-Telemetry Privacy Policy`,
+    description: `Official Zero-Telemetry Privacy Policy for ${app.name} (${app.bundleId}). 100% local macOS execution with zero data collection, zero analytics, and zero cloud transmission.`,
+    isPartOf: {
+      "@id": `${siteConfig.url}/#website`,
+    },
+    about: {
+      "@id": `${siteConfig.url}/${app.slug}#software`,
+    },
+    publisher: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+  };
+
   return (
     <div className="min-h-screen pt-28 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(privacyJsonLd) }}
+      />
       <Container>
         <div className="max-w-4xl mx-auto">
           <div className="mb-8 flex items-center justify-between gap-4">
@@ -153,6 +176,8 @@ export function MacAppPrivacyView({ app }: { app: MacAppConfig }) {
               </a>
             </div>
           </div>
+
+          <AuthorBio currentSlug={app.slug} />
         </div>
       </Container>
     </div>

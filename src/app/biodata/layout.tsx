@@ -71,29 +71,6 @@ export default function BiodataLayout({
           description: siteConfig.biodata.pricingModel,
         },
       },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: siteConfig.url,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Products",
-            item: `${siteConfig.url}/products`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: siteConfig.biodata.name,
-            item: `${siteConfig.url}/biodata`,
-          },
-        ],
-      },
     ],
   };
 

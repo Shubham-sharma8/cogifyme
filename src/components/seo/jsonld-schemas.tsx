@@ -321,9 +321,9 @@ export function EmDocPageJsonLd() {
     memoryRequirements: "45MB RAM",
     softwareVersion: siteConfig.emdoc.version,
     url: `${siteConfig.url}/products/emdoc`,
-    downloadUrl: siteConfig.emdoc.appStoreUrl,
+    downloadUrl: siteConfig.emdoc.downloadUrl,
     installUrl: siteConfig.emdoc.appStoreUrl,
-    sameAs: [siteConfig.emdoc.appStoreUrl],
+    sameAs: [siteConfig.emdoc.appStoreUrl, siteConfig.emdoc.downloadUrl],
     image: `${siteConfig.url}/brand/emdoc-icon.png`,
     screenshot: siteConfig.emdoc.screenshots.map((s) => `${siteConfig.url}${s.image}`),
     description: siteConfig.emdoc.fullDescription,
@@ -354,42 +354,11 @@ export function EmDocPageJsonLd() {
     isAccessibleForFree: true,
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: siteConfig.url,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Products",
-        item: `${siteConfig.url}/products`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "EmDoc PDF Workstation",
-        item: `${siteConfig.url}/products/emdoc`,
-      },
-    ],
-  };
-
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(emdocSoftwareSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(emdocSoftwareSchema) }}
+    />
   );
 }
 

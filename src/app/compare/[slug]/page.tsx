@@ -38,10 +38,11 @@ export async function generateMetadata({
       title: `${guide.metaTitle} | COGIFY`,
       description: guide.metaDescription,
       url: canonicalUrl,
+      siteName: "COGIFY",
       type: "article",
       images: [
         {
-          url: guide.appScreenshot,
+          url: `https://cogify.me${guide.appScreenshot}`,
           width: 1200,
           height: 630,
           alt: guide.h1Title,
@@ -52,7 +53,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${guide.metaTitle} | COGIFY`,
       description: guide.metaDescription,
-      images: [guide.appScreenshot],
+      images: [`https://cogify.me${guide.appScreenshot}`],
     },
   };
 }

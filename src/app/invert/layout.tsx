@@ -39,6 +39,12 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
+        url: "https://cogify.me/brand/Invert/Mac/App.png",
+        width: 2200,
+        height: 1271,
+        alt: "Colour Invert — Invert the Web Safari Extension",
+      },
+      {
         url: "https://cogify.me/brand/Invert/icon.png",
         width: 1024,
         height: 1024,
@@ -50,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Colour Invert — Smart Dark Mode for Safari on Mac | COGIFY",
     description: siteConfig.invert.shortDescription,
-    images: ["https://cogify.me/brand/Invert/icon.png"],
+    images: ["https://cogify.me/brand/Invert/Mac/App.png"],
   },
 };
 
@@ -71,8 +77,8 @@ export default function ColourInvertLayout({
         "installUrl": "https://apps.apple.com/in/app/colour-invert/id6811389278",
         "image": "https://cogify.me/brand/Invert/icon.png",
         "screenshot": [
-          "https://cogify.me/brand/Invert/mac/mac-1.jpg",
-          "https://cogify.me/brand/Invert/ios/1.jpg",
+          "https://cogify.me/brand/Invert/Mac/App.png",
+          "https://cogify.me/brand/Invert/Ios/App_Home.png",
         ],
         "operatingSystem": "macOS Safari, iOS 16+, iPadOS 16+ (Safari Web Extension)",
         "applicationCategory": "UtilitiesApplication",
@@ -101,29 +107,6 @@ export default function ColourInvertLayout({
           "url": "https://cogify.me",
         },
         "softwareVersion": "1.0",
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://cogify.me",
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Products",
-            "item": "https://cogify.me/products",
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Colour Invert Safari Extension",
-            "item": "https://cogify.me/invert",
-          },
-        ],
       },
     ],
   };

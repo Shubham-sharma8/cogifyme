@@ -337,7 +337,7 @@ export const siteConfig: SiteConfig = {
     name: "EmDoc",
     version: "1.0",
     build: "1",
-    appSize: "7.5 MB",
+    appSize: "5.0 MB",
     ramUsage: "~45 MB baseline",
     pricingModel: "100% Free Forever — All Features Included",
     downloadUrl:

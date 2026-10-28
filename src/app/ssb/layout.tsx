@@ -76,29 +76,6 @@ export default function SsbLayout({
           description: siteConfig.ssb.pricingModel,
         },
       },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: siteConfig.url,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Products",
-            item: `${siteConfig.url}/products`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: siteConfig.ssb.name,
-            item: `${siteConfig.url}/ssb`,
-          },
-        ],
-      },
     ],
   };
 

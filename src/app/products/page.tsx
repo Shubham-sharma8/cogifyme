@@ -259,7 +259,9 @@ const liveCatalog = [
     platforms: siteConfig.readereasy.platform,
     category: "Productivity • Reader Mode",
     icon: siteConfig.readereasy.icon,
-    previewImage: siteConfig.readereasy.screenshotsMac?.[0]?.image,
+    previewImage:
+      siteConfig.readereasy.screenshotsIpad?.[0]?.image ||
+      siteConfig.readereasy.screenshotsIos?.[0]?.image,
     href: "/readereasy",
     appStoreUrl: siteConfig.readereasy.appStoreUrl,
     ctaLabel: "Download on App Store",
@@ -278,7 +280,9 @@ const liveCatalog = [
     platforms: siteConfig.webclear.platform,
     category: "Utilities • Privacy & Storage",
     icon: siteConfig.webclear.icon,
-    previewImage: siteConfig.webclear.screenshotsMac?.[0]?.image,
+    previewImage:
+      siteConfig.webclear.screenshotsIpad?.[0]?.image ||
+      siteConfig.webclear.screenshotsIos?.[0]?.image,
     href: "/webclear",
     appStoreUrl: siteConfig.webclear.appStoreUrl,
     ctaLabel: "Download on App Store",

@@ -37,6 +37,12 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
+        url: "https://cogify.me/brand/Element-Hider/Home_Mac.png",
+        width: 2200,
+        height: 1270,
+        alt: "Element Hider — Hide Anything Safari Extension",
+      },
+      {
         url: "https://cogify.me/brand/Element-Hider/icon.png",
         width: 1024,
         height: 1024,
@@ -48,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Element Hider — Hide Webpage Distractions Safari | COGIFY",
     description: siteConfig.elementHider.shortDescription,
-    images: ["https://cogify.me/brand/Element-Hider/icon.png"],
+    images: ["https://cogify.me/brand/Element-Hider/Home_Mac.png"],
   },
 };
 
@@ -69,8 +75,8 @@ export default function ElementHiderLayout({
         "installUrl": "https://apps.apple.com/in/app/element-hider/id6811377087",
         "image": "https://cogify.me/brand/Element-Hider/icon.png",
         "screenshot": [
-          "https://cogify.me/brand/Element-Hider/mac/mac-1.jpg",
-          "https://cogify.me/brand/Element-Hider/ios/1.jpg",
+          "https://cogify.me/brand/Element-Hider/Home_Mac.png",
+          "https://cogify.me/brand/Element-Hider/Home.png",
         ],
         "operatingSystem": "iOS 16+, iPadOS 16+, macOS (Safari Web Extension)",
         "applicationCategory": "UtilitiesApplication",
@@ -99,29 +105,6 @@ export default function ElementHiderLayout({
           "url": "https://cogify.me",
         },
         "softwareVersion": "1.0",
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://cogify.me",
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Products",
-            "item": "https://cogify.me/products",
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Element Hider Safari Extension",
-            "item": "https://cogify.me/element-hider",
-          },
-        ],
       },
     ],
   };
