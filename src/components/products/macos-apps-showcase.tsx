@@ -18,6 +18,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { getComparisonByAppSlug } from "@/config/comparisons";
 
 interface MacShowcaseItem {
   slug: string;
@@ -419,6 +420,16 @@ export const MacOSAppsShowcase = () => {
                       <span>Explore {app.shortName}</span>
                       <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                     </Link>
+
+                    {getComparisonByAppSlug(app.slug) && (
+                      <Link
+                        href={`/compare/${getComparisonByAppSlug(app.slug)?.slug}`}
+                        className="px-4 py-3 rounded-xl text-xs font-bold bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/25 transition-colors inline-flex items-center gap-1.5"
+                      >
+                        <span>vs. Paid Alternatives</span>
+                        <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                      </Link>
+                    )}
 
                     {app.appStoreUrl && (
                       <a

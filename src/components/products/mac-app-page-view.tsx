@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
+import { InlineAppComparison } from "@/components/compare/inline-app-comparison";
 
 interface MacAppPageViewProps {
   app: MacAppConfig;
@@ -494,6 +495,9 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
             </div>
           </div>
         </section>
+
+        {/* Head-to-Head Comparison Preview */}
+        <InlineAppComparison appSlug={app.slug} />
 
         {/* FAQ Section */}
         <FaqSection

@@ -16,6 +16,7 @@ import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
 import { CatalogJsonLd } from "@/components/seo/jsonld-schemas";
+import { ComparisonHubSection } from "@/components/compare/comparison-hub-section";
 
 const PRODUCTS_FAQS: FaqItem[] = [
   {
@@ -504,6 +505,8 @@ export default function ProductsPage() {
           </div>
         </section>
       </Container>
+
+      <ComparisonHubSection compact={true} />
 
       <FaqSection
         title="COGIFY Product Catalog — Frequently Asked Questions"

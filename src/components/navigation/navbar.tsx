@@ -270,14 +270,31 @@ export const Navbar = () => {
                         <span>View All 14 Live Apps &amp; Studios</span>
                         <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                       </Link>
-                      <span className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
-                        macOS • iOS • iPadOS • Safari • Web
-                      </span>
+                      <Link
+                        href="/compare"
+                        onClick={() => setAppsDropdownOpen(false)}
+                        className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded"
+                      >
+                        <span>vs. Paid Alternatives (Benchmarks)</span>
+                        <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                      </Link>
                     </div>
                   </div>
                 </div>
               )}
             </div>
+
+            <Link
+              href="/compare"
+              className={cn(
+                "px-3.5 py-2 rounded-xl text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
+                pathname === "/compare" || pathname?.startsWith("/compare/")
+                  ? "text-indigo-600 dark:text-white bg-indigo-50 dark:bg-white/10 font-semibold"
+                  : "text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5"
+              )}
+            >
+              Comparisons
+            </Link>
 
             <Link
               href="/enterprise"
@@ -408,6 +425,14 @@ export const Navbar = () => {
               className="px-3 py-2 rounded-lg text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:bg-zinc-100 dark:hover:bg-white/5 flex items-center justify-between"
             >
               <span>Explore All Apps &amp; Studios</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/compare"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2 rounded-lg text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:bg-zinc-100 dark:hover:bg-white/5 flex items-center justify-between"
+            >
+              <span>macOS Comparisons &amp; Benchmarks</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link

@@ -180,6 +180,46 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/compare" className="hover:text-zinc-950 dark:hover:text-white transition-colors font-semibold text-emerald-700 dark:text-emerald-400">
+                  macOS Utility Comparisons
+                </Link>
+              </li>
+              <li>
+                <Link href="/compare/emdoc-vs-adobe-acrobat-pdf-expert" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
+                  EmDoc vs. Adobe Acrobat &amp; PDF Expert
+                </Link>
+              </li>
+              <li>
+                <Link href="/compare/lumenview-vs-betterdisplay-lunar" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
+                  LumenView vs. BetterDisplay &amp; Lunar
+                </Link>
+              </li>
+              <li>
+                <Link href="/compare/metricove-vs-istat-menus-stats" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
+                  Metricove vs. iStat Menus &amp; Stats
+                </Link>
+              </li>
+              <li>
+                <Link href="/compare/netguard-vs-little-snitch-lulu" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
+                  NetGuard vs. Little Snitch &amp; LuLu
+                </Link>
+              </li>
+              <li>
+                <Link href="/compare/klipora-vs-paste-maccy-raycast" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
+                  Klipora vs. Paste &amp; Maccy
+                </Link>
+              </li>
+              <li>
+                <Link href="/compare/show-free-space-vs-daisydisk-cleanmymac" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
+                  Show Free Space vs. DaisyDisk
+                </Link>
+              </li>
+              <li>
+                <Link href="/compare/safari-extensions-vs-1blocker-dark-reader" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
+                  Safari Suite vs. 1Blocker &amp; Noir
+                </Link>
+              </li>
+              <li>
                 <a
                   href={siteConfig.biodata.webUrl}
                   target="_blank"

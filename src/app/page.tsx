@@ -18,6 +18,9 @@ const WhatWeBuild = dynamic(() =>
 const EnterpriseSection = dynamic(() =>
   import("@/components/enterprise/enterprise-section").then((mod) => mod.EnterpriseSection)
 );
+const ComparisonHubSection = dynamic(() =>
+  import("@/components/compare/comparison-hub-section").then((mod) => mod.ComparisonHubSection)
+);
 const FinalCTA = dynamic(() =>
   import("@/components/cta/final-cta").then((mod) => mod.FinalCTA)
 );
@@ -64,6 +67,7 @@ export default function HomePage() {
       <HeroSection />
       <MacOSAppsShowcase />
       <SafariExtensionsShowcase />
+      <ComparisonHubSection compact={true} />
       <WhatWeBuild />
       <EnterpriseSection />
       <FaqSection

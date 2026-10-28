@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
+import { InlineAppComparison } from "@/components/compare/inline-app-comparison";
 
 interface SafariAppPageViewProps {
   app: SafariAppConfig;
@@ -499,6 +500,9 @@ export function SafariAppPageView({ app }: SafariAppPageViewProps) {
             </div>
           </div>
         </section>
+
+        {/* Head-to-Head Safari Extension Comparison Preview */}
+        <InlineAppComparison appSlug={app.slug} />
 
         {/* FAQ Section + FAQPage JSON-LD */}
         <FaqSection

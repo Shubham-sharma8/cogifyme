@@ -18,6 +18,7 @@ import { DownloadModal } from "@/components/products/download-modal";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
+import { InlineAppComparison } from "@/components/compare/inline-app-comparison";
 
 const EMDOC_FAQS: FaqItem[] = [
   {
@@ -356,6 +357,9 @@ export default function EmDocProductPage() {
           </Link>
         </div>
       </section>
+
+      {/* EmDoc vs Adobe Acrobat & PDF Expert Comparison Preview */}
+      <InlineAppComparison appSlug="emdoc" />
 
       <FaqSection
         title="EmDoc PDF Workstation — Frequently Asked Questions"

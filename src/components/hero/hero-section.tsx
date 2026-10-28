@@ -419,6 +419,14 @@ export const HeroSection = () => {
             </a>
 
             <Link
+              href="/compare"
+              className="px-5 py-3.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-900 font-bold text-sm border border-indigo-500/30 shadow-xs dark:bg-indigo-500/10 dark:hover:bg-indigo-500/20 dark:text-indigo-200 dark:border-indigo-400/30 transition-colors duration-200 flex items-center gap-2"
+            >
+              <span>Compare vs. Paid Apps ($1,115+ Saved)</span>
+              <ArrowRight className="w-4 h-4 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
+            </Link>
+
+            <Link
               href="/enterprise"
               className="px-5 py-3.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-800 hover:text-zinc-950 font-semibold text-sm border border-zinc-200/90 shadow-xs dark:bg-white/[0.04] dark:hover:bg-white/[0.08] dark:text-zinc-200 dark:hover:text-white dark:border-white/10 transition-colors duration-200 flex items-center gap-2 group"
             >

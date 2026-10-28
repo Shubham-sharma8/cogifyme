@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { COMPARISON_GUIDES } from "@/config/comparisons";
 
 export const dynamic = "force-static";
 export const revalidate = 86400;
@@ -231,5 +232,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+    {
+      url: `${baseUrl}/compare`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.92,
+      images: [`${baseUrl}/og-image.png`],
+    },
+    ...COMPARISON_GUIDES.map((guide) => ({
+      url: `${baseUrl}/compare/${guide.slug}`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
+      images: [`${baseUrl}${guide.appScreenshot}`],
+    })),
   ];
 }
