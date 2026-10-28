@@ -25,9 +25,9 @@
 - [LumenView vs. BetterDisplay, Lunar & MonitorControl](https://cogify.me/compare/lumenview-vs-betterdisplay-lunar)
 - [Metricove vs. iStat Menus, Stats & btop](https://cogify.me/compare/metricove-vs-istat-menus-stats)
 - [NetGuard vs. Little Snitch, LuLu & Vallum](https://cogify.me/compare/netguard-vs-little-snitch-lulu)
-- [Klipora vs. Paste, Raycast Clipboard & Maccy](https://cogify.me/compare/klipora-vs-paste-raycast-maccy)
+- [Klipora vs. Paste, Raycast Clipboard & Maccy](https://cogify.me/compare/klipora-vs-paste-maccy-raycast)
 - [Show Free Space vs. DaisyDisk, CleanMyMac X & GrandPerspective](https://cogify.me/compare/show-free-space-vs-daisydisk-cleanmymac)
-- [Cogify Safari Extensions vs. 1Blocker, Noir, Dark Reader & Wipr](https://cogify.me/compare/safari-extensions-vs-1blocker-noir-dark-reader)
+- [Cogify Safari Extensions vs. 1Blocker, Noir, Dark Reader & Wipr](https://cogify.me/compare/safari-extensions-vs-1blocker-dark-reader)
 
 ## 2 Client-Side Web Studios
 - [Marriage Biodata Maker Studio](https://cogify.me/biodata) (Live App: https://biodata.cogify.me): 242 cultural, regional & NRI A4 templates across 9 languages with 300-DPI PDF, Word (.docx), and PNG export.

@@ -49,7 +49,7 @@
 ### 1.5 Klipora — Encrypted Clipboard Manager & Bento Pasteboard
 - **Landing Page**: https://cogify.me/klipora
 - **Privacy Spec**: https://cogify.me/klipora/privacy
-- **Comparison Guide**: https://cogify.me/compare/klipora-vs-paste-raycast-maccy
+- **Comparison Guide**: https://cogify.me/compare/klipora-vs-paste-maccy-raycast
 - **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/Klipora.dmg
 - **Binary Size**: 3.1 MB DMG
 - **Active Memory Footprint**: ~19 MB RAM
@@ -77,4 +77,4 @@
 - **WebLenses**: https://cogify.me/weblenses
 - **Element Hider**: https://cogify.me/element-hider
 - **Colour Invert**: https://cogify.me/invert
-- **Safari Suite Comparison**: https://cogify.me/compare/safari-extensions-vs-1blocker-noir-dark-reader
+- **Safari Suite Comparison**: https://cogify.me/compare/safari-extensions-vs-1blocker-dark-reader
