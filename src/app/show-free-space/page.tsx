@@ -6,7 +6,7 @@ import { MacAppPageJsonLd } from "@/components/seo/jsonld-schemas";
 const app = siteConfig.showFreeSpace;
 
 export const metadata: Metadata = {
-  title: `${app.name} — macOS Disk Space & Cache Cleaner`,
+  title: "Show Free Space: Free Mac Disk Space Analyzer",
   description: app.shortDescription,
   keywords: app.keywords,
   alternates: {

@@ -6,7 +6,7 @@ import { MacAppPageJsonLd } from "@/components/seo/jsonld-schemas";
 const app = siteConfig.netguard;
 
 export const metadata: Metadata = {
-  title: `${app.name} — macOS Outbound Firewall & Traffic Radar`,
+  title: "NetGuard: Free Mac Firewall & Network Radar",
   description: app.shortDescription,
   keywords: app.keywords,
   alternates: {

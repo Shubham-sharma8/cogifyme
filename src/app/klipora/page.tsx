@@ -6,7 +6,7 @@ import { MacAppPageJsonLd } from "@/components/seo/jsonld-schemas";
 const app = siteConfig.klipora;
 
 export const metadata: Metadata = {
-  title: `${app.name} — Free macOS Clipboard Manager & OCR Board`,
+  title: "Klipora: Free Mac Clipboard Manager with OCR",
   description: app.shortDescription,
   keywords: app.keywords,
   alternates: {

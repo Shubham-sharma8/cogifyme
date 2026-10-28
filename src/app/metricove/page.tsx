@@ -6,7 +6,7 @@ import { MacAppPageJsonLd } from "@/components/seo/jsonld-schemas";
 const app = siteConfig.metricove;
 
 export const metadata: Metadata = {
-  title: `${app.name} — macOS CPU, GPU & Thermal Menu Monitor`,
+  title: "Metricove: Free Mac Menu Bar System Monitor",
   description: app.shortDescription,
   keywords: app.keywords,
   alternates: {
