@@ -100,7 +100,7 @@ export function MacAppPrivacyView({ app }: { app: MacAppConfig }) {
 
               <section className="space-y-2">
                 <h2 className="text-lg font-bold text-zinc-900 dark:text-white">
-                  4. Contact Us
+                  4. Contact Us &amp; Related Zero-Telemetry Specs
                 </h2>
                 <p>
                   If you have any questions regarding the privacy architecture of {app.name}, please contact us at{" "}
@@ -109,9 +109,30 @@ export function MacAppPrivacyView({ app }: { app: MacAppConfig }) {
                     className="text-indigo-700 dark:text-indigo-400 font-semibold hover:underline"
                   >
                     {siteConfig.contact.general}
-                  </a>
+                  </a>{" "}
+                  or review our{" "}
+                  <Link href="/privacy" className="text-indigo-700 dark:text-indigo-400 font-semibold hover:underline">
+                    Unified COGIFY Privacy Policy
+                  </Link>
                   .
                 </p>
+                <div className="pt-3 flex flex-wrap gap-2">
+                  {[
+                    { label: "LumenView Privacy", href: "/lumenview/privacy" },
+                    { label: "Metricove Privacy", href: "/metricove/privacy" },
+                    { label: "NetGuard Privacy", href: "/netguard/privacy" },
+                    { label: "Klipora Privacy", href: "/klipora/privacy" },
+                    { label: "Show Free Space Privacy", href: "/show-free-space/privacy" },
+                  ].map((spec) => (
+                    <Link
+                      key={spec.href}
+                      href={spec.href}
+                      className="text-xs font-mono px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-zinc-950/60 text-zinc-700 dark:text-zinc-300 hover:border-indigo-500/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                    >
+                      {spec.label}
+                    </Link>
+                  ))}
+                </div>
               </section>
             </div>
 

@@ -15,11 +15,27 @@ export const metadata: Metadata = {
     canonical: "https://cogify.me/compare",
   },
   openGraph: {
-    title: "macOS Utility Comparisons & Free Native Alternatives (2026) | COGIFY",
+    title: "macOS Utility Comparisons & Alternatives (2026) | COGIFY",
     description:
-      "Empirical benchmarks comparing Cogify's 1–5 MB native Swift & C++20 macOS utilities against bloated subscription software.",
+      "Compare Cogify's free, zero-telemetry native macOS apps against Adobe Acrobat, Little Snitch, iStat Menus, BetterDisplay, Paste, and DaisyDisk.",
     url: "https://cogify.me/compare",
+    siteName: "COGIFY",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "macOS Utility Comparisons & Alternatives (2026) | COGIFY",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "macOS Utility Comparisons & Alternatives (2026) | COGIFY",
+    description:
+      "Compare Cogify's free, zero-telemetry native macOS apps against Adobe Acrobat, Little Snitch, iStat Menus, BetterDisplay, Paste, and DaisyDisk.",
+    images: ["/og-image.png"],
   },
 };
 

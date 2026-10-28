@@ -49,12 +49,27 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/products`,
   },
   openGraph: {
-    title: "COGIFY Product Ecosystem — 14 Native macOS, Safari Apps & Web Studios",
+    title: "14 Free Native macOS, Safari Apps & Web Studios | COGIFY",
     description:
       "Explore COGIFY's 14 free, zero-telemetry apps and web studios: 6 native macOS DMG apps, Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
     url: `${siteConfig.url}/products`,
     siteName: siteConfig.name,
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "COGIFY Product Ecosystem — 14 Native macOS, Safari Apps & Web Studios",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "14 Free Native macOS, Safari Apps & Web Studios | COGIFY",
+    description:
+      "Explore COGIFY's 14 free, zero-telemetry apps and web studios: 6 native macOS DMG apps, Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
+    images: ["/og-image.png"],
   },
 };
 

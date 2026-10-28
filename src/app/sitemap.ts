@@ -6,7 +6,7 @@ export const revalidate = 86400;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://cogify.me";
-  const lastModified = new Date("2026-10-20T00:00:00.000Z");
+  const lastModified = new Date("2026-10-28T00:00:00.000Z");
 
   return [
     {
@@ -17,13 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [
         `${baseUrl}/og-image.png`,
         `${baseUrl}/brand/logo.png`,
-        `${baseUrl}/Others/EmDoc.png`,
-        `${baseUrl}/Others/Adblocker.png`,
-        `${baseUrl}/Others/ReaderEasy.png`,
-        `${baseUrl}/Others/WebClear.png`,
-        `${baseUrl}/Others/WebLenses.png`,
-        `${baseUrl}/Others/Element%20Hider.png`,
-        `${baseUrl}/Others/Color%20invert.png`,
+        `${baseUrl}/brand/emdoc-icon.png`,
+        `${baseUrl}/brand/Ad-Blocker/icon.png`,
+        `${baseUrl}/brand/ReaderEasy/icon.jpg`,
+        `${baseUrl}/brand/WebClear/icon.jpg`,
+        `${baseUrl}/brand/WebLenses/icon.png`,
+        `${baseUrl}/brand/Element-Hider/icon.png`,
+        `${baseUrl}/brand/Invert/icon.png`,
       ],
     },
     {
@@ -32,13 +32,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.95,
       images: [
-        `${baseUrl}/Others/EmDoc.png`,
-        `${baseUrl}/Others/Adblocker.png`,
-        `${baseUrl}/Others/ReaderEasy.png`,
-        `${baseUrl}/Others/WebClear.png`,
-        `${baseUrl}/Others/WebLenses.png`,
-        `${baseUrl}/Others/Element%20Hider.png`,
-        `${baseUrl}/Others/Color%20invert.png`,
+        `${baseUrl}/brand/emdoc-icon.png`,
+        `${baseUrl}/brand/Ad-Blocker/icon.png`,
+        `${baseUrl}/brand/ReaderEasy/icon.jpg`,
+        `${baseUrl}/brand/WebClear/icon.jpg`,
+        `${baseUrl}/brand/WebLenses/icon.png`,
+        `${baseUrl}/brand/Element-Hider/icon.png`,
+        `${baseUrl}/brand/Invert/icon.png`,
       ],
     },
     {
@@ -46,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: 0.95,
-      images: [`${baseUrl}/og-image.png`, `${baseUrl}/brand/logo.png`],
+      images: [`${baseUrl}/brand/Biodata/og-banner.png`, `${baseUrl}/brand/Biodata/studio-preview.webp`],
     },
     {
       url: `${baseUrl}/ssb`,
@@ -64,12 +64,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.95,
       images: [
-        `${baseUrl}/Others/EmDoc.png`,
-        `${baseUrl}/screenshots/emdoc/1-split-view.png`,
-        `${baseUrl}/screenshots/emdoc/2-edit-text.png`,
-        `${baseUrl}/screenshots/emdoc/3-annotate.png`,
-        `${baseUrl}/screenshots/emdoc/4-forms-sign.png`,
-        `${baseUrl}/screenshots/emdoc/5-organize.png`,
+        `${baseUrl}/brand/emdoc-icon.png`,
+        `${baseUrl}/brand/EmDoc_home.webp`,
+        `${baseUrl}/brand/edit_pdf.webp`,
+        `${baseUrl}/brand/Organise.webp`,
+        `${baseUrl}/brand/compress.webp`,
+        `${baseUrl}/brand/watermark.webp`,
       ],
     },
     {
@@ -157,42 +157,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-      images: [`${baseUrl}/Others/Adblocker.png`],
+      images: [`${baseUrl}/brand/Ad-Blocker/icon.png`],
     },
     {
       url: `${baseUrl}/readereasy`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-      images: [`${baseUrl}/Others/ReaderEasy.png`],
+      images: [`${baseUrl}/brand/ReaderEasy/icon.jpg`],
     },
     {
       url: `${baseUrl}/webclear`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-      images: [`${baseUrl}/Others/WebClear.png`],
+      images: [`${baseUrl}/brand/WebClear/icon.jpg`],
     },
     {
       url: `${baseUrl}/weblenses`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-      images: [`${baseUrl}/Others/WebLenses.png`],
+      images: [`${baseUrl}/brand/WebLenses/icon.png`],
     },
     {
       url: `${baseUrl}/element-hider`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-      images: [`${baseUrl}/Others/Element%20Hider.png`],
+      images: [`${baseUrl}/brand/Element-Hider/icon.png`],
     },
     {
       url: `${baseUrl}/invert`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-      images: [`${baseUrl}/Others/Color%20invert.png`],
+      images: [`${baseUrl}/brand/Invert/icon.png`],
     },
     {
       url: `${baseUrl}/enterprise`,

@@ -414,6 +414,46 @@ export default function BiodataStudioPage() {
             </div>
           </div>
         </div>
+
+        {/* Direct Subpage Crawl Hub for biodata.cogify.me */}
+        <div className="mt-12 rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white/95 dark:bg-zinc-900/40 p-6 sm:p-8 shadow-sm">
+          <h3 className="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            Direct Community, Regional &amp; Export Biodata Studios
+          </h3>
+          <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mb-5">
+            Launch specialized cultural, regional language, and document export templates directly inside <code className="font-mono">biodata.cogify.me</code>:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+            {[
+              { label: "Hindu Marriage Biodata Maker", href: "https://biodata.cogify.me/hindu-marriage-biodata" },
+              { label: "Muslim Nikah Biodata Maker", href: "https://biodata.cogify.me/muslim-nikah-biodata" },
+              { label: "Sikh Anand Karaj Biodata", href: "https://biodata.cogify.me/sikh-marriage-biodata" },
+              { label: "Christian Marriage Biodata", href: "https://biodata.cogify.me/christian-marriage-biodata" },
+              { label: "Jain Marriage Biodata Maker", href: "https://biodata.cogify.me/jain-marriage-biodata" },
+              { label: "Marathi Lagnaacha Biodata", href: "https://biodata.cogify.me/marathi-marriage-biodata" },
+              { label: "Gujarati Lagna Biodata", href: "https://biodata.cogify.me/gujarati-marriage-biodata" },
+              { label: "Hindi Shadi Biodata Maker", href: "https://biodata.cogify.me/hindi-shadi-biodata" },
+              { label: "Tamil Thirumana Biodata", href: "https://biodata.cogify.me/tamil-marriage-biodata" },
+              { label: "Telugu Pellichoopulu Biodata", href: "https://biodata.cogify.me/telugu-marriage-biodata" },
+              { label: "Bengali Biyer Biodata Maker", href: "https://biodata.cogify.me/bengali-marriage-biodata" },
+              { label: "NRI & Executive Biodata", href: "https://biodata.cogify.me/nri-executive-biodata" },
+              { label: "Biodata for Marriage PDF", href: "https://biodata.cogify.me/biodata-for-marriage-pdf" },
+              { label: "Biodata Word Format (.docx)", href: "https://biodata.cogify.me/biodata-word-format" },
+              { label: "WhatsApp Biodata Maker", href: "https://biodata.cogify.me/whatsapp-biodata-maker" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between gap-2 px-3.5 py-2.5 rounded-xl border border-zinc-200/80 dark:border-white/10 bg-zinc-50 dark:bg-zinc-950/60 text-xs font-semibold text-zinc-800 dark:text-zinc-200 hover:border-amber-500/50 hover:text-amber-700 dark:hover:text-amber-300 transition-colors"
+              >
+                <span>{item.label}</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-60 shrink-0" />
+              </a>
+            ))}
+          </div>
+        </div>
       </section>
 
       <FaqSection

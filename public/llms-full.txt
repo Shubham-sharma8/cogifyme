@@ -1,0 +1,80 @@
+# COGIFY Technologies — Complete Technical & Product Reference (llms-full.txt)
+
+> Canonical domain: https://cogify.me
+> Developer: Shubham Sharma (Founder & Systems Architect, COGIFY Technologies)
+> Apple Developer ID: #1643497398 (Team ID: 9TKKPN6F59)
+> Core Tenet: 100% local execution, zero telemetry, zero cloud uploads, $0 forever for personal use.
+
+## 1. Native macOS Workstation Suite (6 Applications)
+
+### 1.1 EmDoc PDF Workstation
+- **Landing Page**: https://cogify.me/products/emdoc
+- **Comparison Guide**: https://cogify.me/compare/emdoc-vs-adobe-acrobat-pdf-expert
+- **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/EmDoc.dmg
+- **Binary Size**: 5.0 MB Universal Binary (7.5 MB DMG)
+- **Active Memory Footprint**: ~45 MB RAM on 500-page PDF
+- **Architecture**: ISO C++20 Core + Swift 6 + PDFKit + Apple Vision Neural Engine OCR
+- **Capabilities**: Bates numbering, cryptographic stream redaction, vector-preserving PDF compression, split/merge/reorder, form filling & digital signatures, offline OCR.
+
+### 1.2 LumenView — External Monitor Brightness, HiDPI & LUT Controller
+- **Landing Page**: https://cogify.me/lumenview
+- **Privacy Spec**: https://cogify.me/lumenview/privacy
+- **Comparison Guide**: https://cogify.me/compare/lumenview-vs-betterdisplay-lunar
+- **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/LumenView.dmg
+- **Binary Size**: 7.8 MB DMG (v2.4.0)
+- **Active Memory Footprint**: ~18 MB RAM
+- **Architecture**: Swift + Metal 3 + IOKit I2C DDC/CI + CoreDisplay + ScreenCaptureKit
+- **Capabilities**: Native Mac keyboard brightness/contrast/volume keys on third-party HDMI/DisplayPort/USB-C monitors, custom HiDPI Retina scaling up to 240Hz, 3x1D GPU Gamma tables + 3D .cube LUT import, 60 FPS Virtual Displays & Picture-in-Picture, 6 Desktop HUD widgets.
+
+### 1.3 Metricove — Menu Bar System Telemetry & Fan Controller
+- **Landing Page**: https://cogify.me/metricove
+- **Privacy Spec**: https://cogify.me/metricove/privacy
+- **Comparison Guide**: https://cogify.me/compare/metricove-vs-istat-menus-stats
+- **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/Metricove.dmg
+- **Binary Size**: 2.3 MB DMG
+- **Active Memory Footprint**: ~11 MB RAM (<0.2% CPU overhead)
+- **Architecture**: Swift 6 + Mach Host APIs + IOKit + Apple SMC
+- **Capabilities**: Per-core Apple Silicon P/E CPU telemetry, GPU & ANE utilization, unified memory pressure & swap, NVMe SMART & disk I/O, per-process network bandwidth, 25+ SMC thermal sensors & custom fan RPM curves.
+
+### 1.4 NetGuard — Outbound Application Firewall & Socket Monitor
+- **Landing Page**: https://cogify.me/netguard
+- **Privacy Spec**: https://cogify.me/netguard/privacy
+- **Comparison Guide**: https://cogify.me/compare/netguard-vs-little-snitch-lulu
+- **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/NetGuard.dmg
+- **Binary Size**: 3.8 MB DMG
+- **Active Memory Footprint**: ~24 MB RAM
+- **Architecture**: Swift + Apple NetworkExtension (`NEFilterDataProvider`) + Metal 3D Globe + Local MaxMind ASN
+- **Capabilities**: Real-time outbound connection prompts, Apple code-signature verification, interactive 3D Metal GeoIP connection map, 500,000+ domain DNS sinkhole, Focus/Lockdown modes, Pcap/JSON/CSV export.
+
+### 1.5 Klipora — Encrypted Clipboard Manager & Bento Pasteboard
+- **Landing Page**: https://cogify.me/klipora
+- **Privacy Spec**: https://cogify.me/klipora/privacy
+- **Comparison Guide**: https://cogify.me/compare/klipora-vs-paste-raycast-maccy
+- **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/Klipora.dmg
+- **Binary Size**: 3.1 MB DMG
+- **Active Memory Footprint**: ~19 MB RAM
+- **Architecture**: Swift + SQLite WAL + FTS5 + CryptoKit AES-256-GCM + Apple Vision OCR
+- **Capabilities**: Sub-5ms Bento grid clipboard history, offline image OCR text extraction, sequential Paste Queue (`Cmd+Shift+V`), Touch ID AES-256-GCM encrypted vault, automatic 1Password/Bitwarden/Keychain exclusion.
+
+### 1.6 Show Free Space — APFS Disk Space Analyzer & Menu Bar Monitor
+- **Landing Page**: https://cogify.me/show-free-space
+- **Privacy Spec**: https://cogify.me/show-free-space/privacy
+- **Comparison Guide**: https://cogify.me/compare/show-free-space-vs-daisydisk-cleanmymac
+- **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/ShowFreeSpace.dmg
+- **Binary Size**: 4.2 MB Core (.appex)
+- **Active Memory Footprint**: ~14 MB RAM
+- **Architecture**: Swift + POSIX `getattrlistbulk` + APFS Snapshot Inspector + WidgetKit
+- **Capabilities**: True purgeable-aware APFS free space in menu bar, interactive multi-ring sunburst storage chart, developer cache scanner (`DerivedData`, `node_modules`, Docker, Homebrew), local Time Machine snapshot inspector.
+
+## 2. Client-Side Web Studios (2 Subdomains)
+- **Marriage Biodata Maker Studio**: https://biodata.cogify.me (Overview: https://cogify.me/biodata)
+- **SSB Stage-2 Test Practice Studio**: https://ssb.cogify.me (Overview: https://cogify.me/ssb)
+
+## 3. Native Safari Web Extensions (6 App Store Releases)
+- **Ad Blocker for Safari**: https://cogify.me/ad-blocker
+- **ReaderEasy**: https://cogify.me/readereasy
+- **WebClear**: https://cogify.me/webclear
+- **WebLenses**: https://cogify.me/weblenses
+- **Element Hider**: https://cogify.me/element-hider
+- **Colour Invert**: https://cogify.me/invert
+- **Safari Suite Comparison**: https://cogify.me/compare/safari-extensions-vs-1blocker-noir-dark-reader

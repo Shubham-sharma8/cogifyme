@@ -20,6 +20,21 @@ export const metadata: Metadata = {
     url: "https://cogify.me/terms",
     siteName: siteConfig.name,
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Terms of Use & EULA — COGIFY Apps & Web Studios | COGIFY",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Use & EULA — COGIFY Apps & Web Studios | COGIFY",
+    description:
+      "Terms of Use and software license agreement for COGIFY (cogify.me), 6 macOS apps, Biodata Maker (biodata.cogify.me), SSB Studio (ssb.cogify.me) & Safari apps.",
+    images: ["/og-image.png"],
   },
 };
 
