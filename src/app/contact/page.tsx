@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { Mail, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { TurnstileWidget } from "@/components/security/turnstile-widget";
@@ -103,7 +104,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-2xl">
-            Have a question about EmDoc, Marriage Biodata Maker Studio, enterprise software partnerships, or our Safari extensions? Reach out directly.
+            Have a question about EmDoc, our native macOS utilities, Marriage Biodata Maker Studio, SSB Stage-2 Practice Studio, enterprise software partnerships, or our Safari extensions? Reach out directly.
           </p>
         </div>
       </section>
@@ -120,13 +121,13 @@ export default function ContactPage() {
               <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 If you have an idea for an app, a feature suggestion for EmDoc, or encountered a bug, drop it directly in our dedicated suggestion form.
               </p>
-              <a
+              <Link
                 href="/suggestions"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300"
               >
                 <span>Open Suggestion & Report Form</span>
                 <span>&rarr;</span>
-              </a>
+              </Link>
             </div>
 
             <div className="p-6 rounded-2xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/10 space-y-4 shadow-xs dark:shadow-none">
@@ -314,6 +315,7 @@ export default function ContactPage() {
                         <option>EmDoc Workstation Support</option>
                         <option>macOS Utilities Support (LumenView, Metricove, NetGuard, Klipora, Show free space)</option>
                         <option>Marriage Biodata Maker Studio (biodata.cogify.me)</option>
+                        <option>SSB Stage-2 Test Practice Studio (ssb.cogify.me)</option>
                         <option>Safari Extensions Support (Ad Blocker, ReaderEasy, WebClear, WebLenses, Invert, Element Hider)</option>
                         <option>Enterprise Deployment &amp; Licensing</option>
                         <option>Technical Partnership</option>

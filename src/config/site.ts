@@ -1698,37 +1698,37 @@ export const siteConfig: SiteConfig = {
     communityLinks: [
       {
         name: "Hindu Marriage Biodata",
-        href: "https://biodata.cogify.me/hindu-marriage-biodata-format",
+        href: "https://biodata.cogify.me/hindu-marriage-biodata",
         badge: "Sacred Ganesh & Kundali",
         description: "Traditional Hindu format with || Shree Ganeshay Namah ||, Rashi, Nakshatra, Gotra, Manglik & Vedic Kundali chart.",
       },
       {
         name: "Muslim Nikah Biodata",
-        href: "https://biodata.cogify.me/muslim-marriage-biodata-format",
+        href: "https://biodata.cogify.me/muslim-nikah-biodata",
         badge: "Arabesque & Bismillah",
         description: "Features Bismillah-ir-Rahman-ir-Rahim, Mughal geometric frames, Sect/Maslak, and Wali contact details.",
       },
       {
         name: "Sikh (Anand Karaj) Biodata",
-        href: "https://biodata.cogify.me/sikh-marriage-biodata-format",
+        href: "https://biodata.cogify.me/sikh-marriage-biodata",
         badge: "Ik Onkar (ੴ)",
         description: "Opens with Ik Onkar Satnam Waheguru in Royal Navy & Gold with Gursikh lifestyle, parental & native Punjab details.",
       },
       {
         name: "Marathi Lagnaacha Biodata",
-        href: "https://biodata.cogify.me/marathi-biodata-maker",
+        href: "https://biodata.cogify.me/marathi-marriage-biodata",
         badge: "मराठी • Kuldaivat & Devak",
         description: "Authentic Marathi format supporting Kuldaivat, Devak, Mamakul, and Paithani silk-inspired traditional borders.",
       },
       {
         name: "Gujarati Lagna Biodata",
-        href: "https://biodata.cogify.me/gujarati-biodata-maker",
+        href: "https://biodata.cogify.me/gujarati-marriage-biodata",
         badge: "ગુજરાતી • Mosal & Native",
         description: "Tailored for Gujarati families with Mosal, Gol/Samaj, Naniyal, and one-click Gujarati label translation.",
       },
       {
         name: "Christian & Jain Formats",
-        href: "https://biodata.cogify.me/christian-marriage-biodata-format",
+        href: "https://biodata.cogify.me/christian-marriage-biodata",
         badge: "Global & Community",
         description: "Dedicated templates for Christian, Jain (Jai Jinendra), Punjabi, Tamil, Telugu & modern executive two-column layouts.",
       },
@@ -1765,7 +1765,7 @@ export const siteConfig: SiteConfig = {
     shortDescription:
       "Practice Indian Armed Forces SSB Stage-2 Psychology tests (TAT, WAT, SRT, SDT), OIR, PPDT, GTO & IO Interview online with authentic timers at ssb.cogify.me.",
     fullDescription:
-      "SSB Stage-2 Test Practice Studio (ssb.cogify.me) is Cogify's dedicated browser-native Services Selection Board simulator engineered forNDA, CDS, AFCAT, TES, SSC Tech, and ACC defence aspirants. It replicates exact selection center test hall pacing with automated 30-second TAT slide projection + 4-minute story timers, 15-second WAT word cues with Web Audio API beeps, 30-minute 60-situation SRT rapid response drills, 15-minute 5-paragraph SDT self-description templates, Stage-1 OIR & PPDT screening practice, GTO task guides, Personal Interview PIQ prep, and OLQ evaluation rubrics — running 100% client-side with instant PDF dossier export.",
+      "SSB Stage-2 Test Practice Studio (ssb.cogify.me) is Cogify's dedicated browser-native Services Selection Board simulator engineered for NDA, CDS, AFCAT, TES, SSC Tech, and ACC defence aspirants. It replicates exact selection center test hall pacing with automated 30-second TAT slide projection + 4-minute story timers, 15-second WAT word cues with Web Audio API beeps, 30-minute 60-situation SRT rapid response drills, 15-minute 5-paragraph SDT self-description templates, Stage-1 OIR & PPDT screening practice, GTO task guides, Personal Interview PIQ prep, and OLQ evaluation rubrics — running 100% client-side with instant PDF dossier export.",
     philosophy:
       "Defence aspirants preparing for Army, Navy, and Air Force SSB interviews shouldn't be locked out by expensive coaching portals just to practice real-time psychology timers. We built ssb.cogify.me as a 100% free, zero-telemetry web studio where every TAT, WAT, SRT, and SDT session runs locally in your browser.",
     features: [

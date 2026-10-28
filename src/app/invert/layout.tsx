@@ -64,16 +64,29 @@ export default function ColourInvertLayout({
     "@graph": [
       {
         "@type": "SoftwareApplication",
+        "@id": "https://cogify.me/invert#software",
         "name": "Colour Invert – Invert the Web",
         "url": "https://cogify.me/invert",
         "downloadUrl": "https://apps.apple.com/in/app/colour-invert/id6811389278",
         "installUrl": "https://apps.apple.com/in/app/colour-invert/id6811389278",
         "image": "https://cogify.me/brand/Invert/icon.png",
+        "screenshot": [
+          "https://cogify.me/brand/Invert/mac/mac-1.jpg",
+          "https://cogify.me/brand/Invert/ios/1.jpg",
+        ],
         "operatingSystem": "macOS Safari, iOS 16+, iPadOS 16+ (Safari Web Extension)",
         "applicationCategory": "UtilitiesApplication",
         "applicationSubCategory": "AccessibilityApplication",
+        "isAccessibleForFree": true,
         "description":
           "Flip webpage colors instantly. Reduce harsh brightness, change the way websites look, and browse with a completely different visual experience. Zero telemetry, 0 bytes transmitted, and 100% on-device CSS filter execution.",
+        "featureList": [
+          "Smart Invert Mode (Darkens Webpages While Preserving Photos & Videos)",
+          "Soft Invert Warm Night-Reading Palette & Full High-Contrast Invert",
+          "Real-Time Brightness, Contrast & Sepia Warmth Sliders",
+          "Per-Website Automatic Memory & Instant Toggle",
+          "100% On-Device CSS Filter Execution with Zero Tracking",
+        ],
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -83,6 +96,7 @@ export default function ColourInvertLayout({
         },
         "publisher": {
           "@type": "Organization",
+          "@id": "https://cogify.me/#organization",
           "name": "COGIFY",
           "url": "https://cogify.me",
         },

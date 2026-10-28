@@ -19,6 +19,7 @@ import { MovingBorderButton } from "@/components/ui/moving-border";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
+import { InlineAppComparison } from "@/components/compare/inline-app-comparison";
 
 const ELEMENT_HIDER_FAQS: FaqItem[] = [
   {
@@ -496,6 +497,8 @@ export default function ElementHiderPage() {
           </div>
         </div>
       </section>
+
+      <InlineAppComparison appSlug="element-hider" />
 
       <FaqSection
         title="Element Hider — Frequently Asked Questions"

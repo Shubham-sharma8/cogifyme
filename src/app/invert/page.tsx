@@ -26,12 +26,13 @@ import { MovingBorderButton } from "@/components/ui/moving-border";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
+import { InlineAppComparison } from "@/components/compare/inline-app-comparison";
 
 const COLOUR_INVERT_FAQS: FaqItem[] = [
   {
     question: "How does Smart Invert in Colour Invert avoid turning photos and videos into negative film?",
     answer:
-      "Colour Invert uses a dedicated media isolation engine inside Safari that counter-rotates and preserves <img>, <video>, YouTube/HTML5 players, colored SVGs, and <canvas> elements while inverting harsh white backgrounds.",
+      "Colour Invert uses a dedicated media isolation engine inside Safari that counter-rotates and preserves image, video, YouTube/HTML5 players, colored SVGs, and canvas elements while inverting harsh white backgrounds.",
   },
   {
     question: "What is the difference between Smart Invert, Soft Invert, and Full Invert?",
@@ -599,6 +600,8 @@ export default function ColourInvertPage() {
           </div>
         </div>
       </section>
+
+      <InlineAppComparison appSlug="invert" />
 
       <FaqSection
         title="Colour Invert — Frequently Asked Questions"

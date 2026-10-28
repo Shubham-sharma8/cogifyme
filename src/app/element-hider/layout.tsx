@@ -62,16 +62,29 @@ export default function ElementHiderLayout({
     "@graph": [
       {
         "@type": "SoftwareApplication",
+        "@id": "https://cogify.me/element-hider#software",
         "name": "Element Hider – Hide Anything",
         "url": "https://cogify.me/element-hider",
         "downloadUrl": "https://apps.apple.com/in/app/element-hider/id6811377087",
         "installUrl": "https://apps.apple.com/in/app/element-hider/id6811377087",
         "image": "https://cogify.me/brand/Element-Hider/icon.png",
+        "screenshot": [
+          "https://cogify.me/brand/Element-Hider/mac/mac-1.jpg",
+          "https://cogify.me/brand/Element-Hider/ios/1.jpg",
+        ],
         "operatingSystem": "iOS 16+, iPadOS 16+, macOS (Safari Web Extension)",
         "applicationCategory": "UtilitiesApplication",
         "applicationSubCategory": "ProductivityApplication",
+        "isAccessibleForFree": true,
         "description":
           "Hide anything that gets in your way. Clean up webpages, remove distractions, and make Safari feel like your browser again. Zero telemetry and 100% on-device rule execution.",
+        "featureList": [
+          "Point-and-Tap Interactive DOM Element Picker",
+          "Hide Sticky Headers, Sidebars, Popups & Floating Bars",
+          "Session-Only or Permanent Per-Domain Hiding Rules",
+          "Instant Undo, Restore & Per-Website Pause Controls",
+          "100% Local Safari WebKit Execution with Zero Telemetry",
+        ],
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -81,6 +94,7 @@ export default function ElementHiderLayout({
         },
         "publisher": {
           "@type": "Organization",
+          "@id": "https://cogify.me/#organization",
           "name": "COGIFY",
           "url": "https://cogify.me",
         },

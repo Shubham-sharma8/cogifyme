@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { BrandLogo } from "@/components/brand/brand-logo";
-import { Home, Layers, Mail } from "lucide-react";
+import { Home, Layers, Mail, Grid, Scale } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "404 Page Not Found — Software & Web Studio",
@@ -47,6 +47,22 @@ export default function NotFound() {
           >
             <Home className="w-4 h-4" />
             <span>Return Home</span>
+          </Link>
+
+          <Link
+            href="/products"
+            className="px-5 py-2.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-800 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-200 font-semibold text-xs sm:text-sm border border-zinc-200 dark:border-white/10 transition-colors flex items-center gap-2"
+          >
+            <Grid className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <span>All 14 Products</span>
+          </Link>
+
+          <Link
+            href="/compare"
+            className="px-5 py-2.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-800 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-200 font-semibold text-xs sm:text-sm border border-zinc-200 dark:border-white/10 transition-colors flex items-center gap-2"
+          >
+            <Scale className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+            <span>macOS Benchmarks</span>
           </Link>
 
           <Link

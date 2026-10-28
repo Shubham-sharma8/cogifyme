@@ -405,7 +405,7 @@ export default function SsbStudioPage() {
               { label: "Personal Interview & PIQ Simulator", href: "https://ssb.cogify.me/interview" },
               { label: "TAT Picture Library (120 Slides)", href: "https://ssb.cogify.me/library" },
               { label: "5-Day SSB Process & 15 OLQs", href: "https://ssb.cogify.me/about" },
-              { label: "SSB Preparation FAQs", href: "https://ssb.cogify.me/faq" },
+              { label: "16-Page SSB Answer Booklet PDF", href: "https://ssb.cogify.me/Phys-Test-Booklet.pdf" },
             ].map((item) => (
               <a
                 key={item.href}
