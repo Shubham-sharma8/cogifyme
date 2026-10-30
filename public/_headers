@@ -10,18 +10,22 @@
 /brand/*
   Cache-Control: public, max-age=31536000, immutable
 
-/invert/*
-  Cache-Control: public, max-age=31536000, immutable
-
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
 # Daily revalidation for crawl artifacts
 /sitemap.xml
+  Content-Type: application/xml; charset=utf-8
   Cache-Control: public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400
 
 /robots.txt
+  Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400
 
 /manifest.webmanifest
+  Content-Type: application/manifest+json; charset=utf-8
   Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+
+/cdn-cgi/_next_cache/*
+  Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate
+

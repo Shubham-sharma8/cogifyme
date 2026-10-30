@@ -2,7 +2,6 @@ import { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 
 export const dynamic = "force-static";
-export const revalidate = 86400;
 
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = siteConfig.url; // "https://cogify.me"
@@ -19,6 +18,7 @@ export default function robots(): MetadataRoute.Robots {
           "Googlebot",
           "Googlebot-Image",
           "Googlebot-News",
+          "GoogleOther",
           "Bingbot",
           "Applebot",
           "DuckDuckBot",
@@ -31,7 +31,11 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin", "/admin/", "/api", "/api/"],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    sitemap: [
+      `${baseUrl}/sitemap.xml`,
+      "https://biodata.cogify.me/sitemap.xml",
+      "https://ssb.cogify.me/sitemap.xml",
+    ],
   };
 }
+

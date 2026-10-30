@@ -1,29 +1,15 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/hero/hero-section";
+import { MacOSAppsShowcase } from "@/components/products/macos-apps-showcase";
+import { SafariExtensionsShowcase } from "@/components/products/safari-extensions-showcase";
+import { WhatWeBuild } from "@/components/company/what-we-build";
+import { EnterpriseSection } from "@/components/enterprise/enterprise-section";
+import { ComparisonHubSection } from "@/components/compare/comparison-hub-section";
+import { FinalCTA } from "@/components/cta/final-cta";
 import { FaqSection } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
 import { CatalogJsonLd } from "@/components/seo/jsonld-schemas";
 import { siteConfig } from "@/config/site";
-
-const MacOSAppsShowcase = dynamic(() =>
-  import("@/components/products/macos-apps-showcase").then((mod) => mod.MacOSAppsShowcase)
-);
-const SafariExtensionsShowcase = dynamic(() =>
-  import("@/components/products/safari-extensions-showcase").then((mod) => mod.SafariExtensionsShowcase)
-);
-const WhatWeBuild = dynamic(() =>
-  import("@/components/company/what-we-build").then((mod) => mod.WhatWeBuild)
-);
-const EnterpriseSection = dynamic(() =>
-  import("@/components/enterprise/enterprise-section").then((mod) => mod.EnterpriseSection)
-);
-const ComparisonHubSection = dynamic(() =>
-  import("@/components/compare/comparison-hub-section").then((mod) => mod.ComparisonHubSection)
-);
-const FinalCTA = dynamic(() =>
-  import("@/components/cta/final-cta").then((mod) => mod.FinalCTA)
-);
 
 export const metadata: Metadata = {
   title: {

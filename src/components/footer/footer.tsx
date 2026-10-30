@@ -325,8 +325,74 @@ export const Footer = () => {
           </div>
         </div>
 
+        {/* Cross-Subdomain Direct Studio Deep Links for Search Discovery */}
+        <div className="mt-10 pt-8 border-t border-zinc-200/80 dark:border-white/5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="font-semibold text-zinc-900 dark:text-white text-[11px] uppercase tracking-wider mb-2.5">
+                Marriage Biodata Maker Studios (biodata.cogify.me)
+              </h4>
+              <div className="flex flex-wrap gap-x-3 gap-y-1.5 text-[11px]">
+                <a href="https://biodata.cogify.me/hindu-marriage-biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Hindu Biodata</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/muslim-nikah-biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Muslim Nikah Biodata</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/sikh-marriage-biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Sikh Biodata</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/christian-marriage-biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Christian Biodata</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/jain-marriage-biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Jain Biodata</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/marathi-marriage-biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Marathi Biodata</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/gujarati-marriage-biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Gujarati Biodata</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/hindi-shadi-biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Hindi Biodata</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/tamil-marriage-biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Tamil Biodata</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/telugu-marriage-biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Telugu Biodata</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/bengali-marriage-biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Bengali Biodata</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/nri-executive-biodata" className="hover:text-zinc-950 dark:hover:text-white transition-colors">NRI Biodata</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/biodata-for-marriage-pdf" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Biodata PDF</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/biodata-word-format" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Biodata Word (.docx)</a>
+                <span>•</span>
+                <a href="https://biodata.cogify.me/whatsapp-biodata-maker" className="hover:text-zinc-950 dark:hover:text-white transition-colors">WhatsApp Biodata</a>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold text-zinc-900 dark:text-white text-[11px] uppercase tracking-wider mb-2.5">
+                SSB Stage-2 Psychology &amp; GTO Simulators (ssb.cogify.me)
+              </h4>
+              <div className="flex flex-wrap gap-x-3 gap-y-1.5 text-[11px]">
+                <a href="https://ssb.cogify.me/full-test" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Full 98-Min SSB Battery</a>
+                <span>•</span>
+                <a href="https://ssb.cogify.me/tat" className="hover:text-zinc-950 dark:hover:text-white transition-colors">TAT Simulator (30s/4m)</a>
+                <span>•</span>
+                <a href="https://ssb.cogify.me/wat" className="hover:text-zinc-950 dark:hover:text-white transition-colors">WAT Simulator (60 Words)</a>
+                <span>•</span>
+                <a href="https://ssb.cogify.me/srt" className="hover:text-zinc-950 dark:hover:text-white transition-colors">SRT Simulator (60 Situations)</a>
+                <span>•</span>
+                <a href="https://ssb.cogify.me/sdt" className="hover:text-zinc-950 dark:hover:text-white transition-colors">SDT Self-Description</a>
+                <span>•</span>
+                <a href="https://ssb.cogify.me/gto" className="hover:text-zinc-950 dark:hover:text-white transition-colors">GTO 9-Task Hub &amp; Lecturette</a>
+                <span>•</span>
+                <a href="https://ssb.cogify.me/interview" className="hover:text-zinc-950 dark:hover:text-white transition-colors">PIQ &amp; IO Interview</a>
+                <span>•</span>
+                <a href="https://ssb.cogify.me/library" className="hover:text-zinc-950 dark:hover:text-white transition-colors">120 TAT Pictures</a>
+                <span>•</span>
+                <a href="https://ssb.cogify.me/about" className="hover:text-zinc-950 dark:hover:text-white transition-colors">5-Day SSB Process &amp; 15 OLQs</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom copyright & theme row */}
-        <div className="mt-12 pt-8 border-t border-zinc-200/80 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-600 dark:text-zinc-400">
+        <div className="mt-8 pt-8 border-t border-zinc-200/80 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-600 dark:text-zinc-400">
           <div>
             © {currentYear} COGIFY Technologies. All rights reserved. EmDoc, LumenView, Metricove, NetGuard, Klipora, Show free space, Biodata Maker (biodata.cogify.me), SSB Practice Studio (ssb.cogify.me), Ad Blocker, ReaderEasy, WebClear, WebLenses, Element Hider &amp; Colour Invert are products of COGIFY.
           </div>

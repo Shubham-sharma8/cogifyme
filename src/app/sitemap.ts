@@ -2,11 +2,10 @@ import { MetadataRoute } from "next";
 import { COMPARISON_GUIDES } from "@/config/comparisons";
 
 export const dynamic = "force-static";
-export const revalidate = 86400;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://cogify.me";
-  const lastModified = new Date("2026-10-28T00:00:00.000Z");
+  const lastModified = new Date("2026-10-30T00:00:00.000Z");
 
   return [
     {
