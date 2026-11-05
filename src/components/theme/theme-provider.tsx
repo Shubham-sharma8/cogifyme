@@ -14,7 +14,7 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-const STORAGE_KEY = "cogify-theme";
+const STORAGE_KEY = "cogify-theme-v2";
 
 function subscribeMediaQuery(callback: () => void) {
   if (typeof window === "undefined") return () => {};
@@ -24,17 +24,17 @@ function subscribeMediaQuery(callback: () => void) {
 }
 
 function getSystemThemeSnapshot(): ResolvedTheme {
-  if (typeof window === "undefined") return "dark";
+  if (typeof window === "undefined") return "light";
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 function getServerThemeSnapshot(): ResolvedTheme {
-  return "dark";
+  return "light";
 }
 
 export function ThemeProvider({
   children,
-  defaultTheme = "system",
+  defaultTheme = "light",
 }: {
   children: React.ReactNode;
   defaultTheme?: Theme;

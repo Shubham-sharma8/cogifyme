@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/footer/footer";
@@ -8,10 +9,24 @@ import { ThemeScript } from "@/components/theme/theme-script";
 import { JsonLdSchemas } from "@/components/seo/jsonld-schemas";
 import { CrispChat } from "@/components/chat/crisp-chat";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbfcfe" },
-    { media: "(prefers-color-scheme: dark)", color: "#06080d" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f5f5" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0b0d" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -90,21 +105,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${instrumentSerif.variable} scroll-smooth`}
+    >
       <head>
         <ThemeScript />
         <JsonLdSchemas />
       </head>
-      <body className="min-h-dvh bg-[#fbfcfe] dark:bg-[#06080d] text-zinc-900 dark:text-zinc-100 antialiased selection:bg-indigo-500/20 dark:selection:bg-indigo-500/30 selection:text-indigo-900 dark:selection:text-white flex flex-col justify-between transition-colors duration-200">
+      <body className="min-h-dvh bg-[#f5f5f5] dark:bg-[#0b0b0d] text-black dark:text-white antialiased selection:bg-black/15 dark:selection:bg-white/20 selection:text-black dark:selection:text-white flex flex-col justify-between transition-colors duration-200">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:rounded-xl focus:bg-indigo-600 focus:text-white focus:font-semibold focus:text-xs focus:shadow-xl focus:outline-none"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:rounded-full focus:bg-black focus:text-white focus:font-semibold focus:text-xs focus:shadow-xl focus:outline-none"
         >
           Skip to main content
         </a>
-        <ThemeProvider defaultTheme="system">
+        <ThemeProvider defaultTheme="light">
           <Navbar />
-          <main id="main-content" className="flex-grow">{children}</main>
+          <main id="main-content" className="flex-grow">
+            {children}
+          </main>
           <Footer />
           <CrispChat />
         </ThemeProvider>

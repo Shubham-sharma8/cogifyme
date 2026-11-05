@@ -1,46 +1,11 @@
 import type { Metadata } from "next";
-import {
-  ExternalLink,
-  Sparkles,
-  Globe,
-} from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { siteConfig } from "@/config/site";
-import { Container } from "@/components/ui/container";
-import { Badge } from "@/components/ui/badge";
-import { Breadcrumbs } from "@/components/seo/breadcrumbs";
-import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
-import { AuthorBio } from "@/components/seo/author-bio";
 import { CatalogJsonLd } from "@/components/seo/jsonld-schemas";
-import { ComparisonHubSection } from "@/components/compare/comparison-hub-section";
 import {
   ProductsCatalogClient,
   type CatalogItem,
 } from "@/components/products/products-catalog-client";
-
-const PRODUCTS_FAQS: FaqItem[] = [
-  {
-    question:
-      "How many applications and web studios are currently live in the COGIFY catalog?",
-    answer:
-      "COGIFY currently ships 14 live products: 6 native macOS workstations with instant 1-click .DMG downloads (EmDoc PDF Workstation, LumenView, Metricove, NetGuard, Klipora, and Show free space), 2 real-time web studios (Marriage Biodata Maker at biodata.cogify.me and SSB Stage-2 Test Practice Studio at ssb.cogify.me), and 6 Safari Web Extensions (Ad Blocker for Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert).",
-  },
-  {
-    question:
-      "Are all COGIFY macOS apps, App Store apps, and web studios free for personal use?",
-    answer:
-      "Yes. Every live macOS application, Safari Web Extension, and web studio in our catalog is 100% free for individual users with zero subscriptions, zero in-app purchases, and zero watermarks.",
-  },
-  {
-    question: "Where are the direct .DMG downloads hosted and signed?",
-    answer:
-      "All 6 macOS .DMG installers (EmDoc, LumenView, Metricove, NetGuard, Klipora, and Show free space) are signed with our official Apple Developer ID (Shubham Sharma, Team ID 9TKKPN6F59) and hosted on GitHub Releases for instant single-click download.",
-  },
-  {
-    question: "Do COGIFY products work offline without internet access?",
-    answer:
-      "Yes. Native macOS apps like EmDoc, LumenView, Metricove, Klipora, and Show free space run 100% offline with zero telemetry, our 6 Safari extensions execute locally inside WebKit on your device, and both Marriage Biodata Maker Studio and SSB Stage-2 Practice Studio process all user data locally in your browser.",
-  },
-];
 
 export const metadata: Metadata = {
   title: "14 Free Native macOS, Safari Apps & Web Studios",
@@ -88,8 +53,8 @@ const liveCatalog: CatalogItem[] = [
     href: "/products/emdoc",
     downloadUrl: siteConfig.emdoc.downloadUrl,
     appStoreUrl: siteConfig.emdoc.appStoreUrl,
-    ctaLabel: `Direct Download (.DMG • ${siteConfig.emdoc.appSize})`,
-    badge: "Flagship macOS App",
+    ctaLabel: `Download .DMG (${siteConfig.emdoc.appSize})`,
+    badge: "For Mac",
     highlights: [
       "Tiny 5.0 MB native binary (~45 MB RAM)",
       "Visual Page Organizer, Vector Ink & Stamps",
@@ -109,8 +74,8 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.lumenview.slug}`,
     downloadUrl: siteConfig.lumenview.downloadUrl,
     appStoreUrl: siteConfig.lumenview.downloadUrl,
-    ctaLabel: `Direct Download (.DMG • ${siteConfig.lumenview.appSize})`,
-    badge: "macOS Display Utility",
+    ctaLabel: `Download .DMG (${siteConfig.lumenview.appSize})`,
+    badge: "For Mac",
     highlights: [
       "Native DDC/CI Hardware Brightness, Contrast & Volume Control",
       "Custom HiDPI Retina Scaling & Refresh Rate Switcher",
@@ -130,8 +95,8 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.metricove.slug}`,
     downloadUrl: siteConfig.metricove.downloadUrl,
     appStoreUrl: siteConfig.metricove.downloadUrl,
-    ctaLabel: `Direct Download (.DMG • ${siteConfig.metricove.appSize})`,
-    badge: "macOS Menu Bar Monitor",
+    ctaLabel: `Download .DMG (${siteConfig.metricove.appSize})`,
+    badge: "For Mac",
     highlights: [
       "Per-Core Apple Silicon P/E CPU & Metal GPU Utilization",
       "Memory Pressure, Disk I/O, Network Bandwidth & Battery Health",
@@ -151,8 +116,8 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.netguard.slug}`,
     downloadUrl: siteConfig.netguard.downloadUrl,
     appStoreUrl: siteConfig.netguard.downloadUrl,
-    ctaLabel: `Direct Download (.DMG • ${siteConfig.netguard.appSize})`,
-    badge: "macOS Outbound Firewall",
+    ctaLabel: `Download .DMG (${siteConfig.netguard.appSize})`,
+    badge: "For Mac",
     highlights: [
       "Interactive Per-App Outbound Connection Approval Alerts",
       "Global GeoIP World Traffic Map & Endpoint Inspector",
@@ -172,8 +137,8 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.klipora.slug}`,
     downloadUrl: siteConfig.klipora.downloadUrl,
     appStoreUrl: siteConfig.klipora.downloadUrl,
-    ctaLabel: `Direct Download (.DMG • ${siteConfig.klipora.appSize})`,
-    badge: "macOS Clipboard Manager",
+    ctaLabel: `Download .DMG (${siteConfig.klipora.appSize})`,
+    badge: "For Mac",
     highlights: [
       "Instant Global Hotkey Clipboard History Timeline",
       "Smart Content Filters (Text, Links, Images, Files & Color Swatches)",
@@ -193,8 +158,8 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.showFreeSpace.slug}`,
     downloadUrl: siteConfig.showFreeSpace.downloadUrl,
     appStoreUrl: siteConfig.showFreeSpace.downloadUrl,
-    ctaLabel: `Direct Download (.DMG • ${siteConfig.showFreeSpace.appSize})`,
-    badge: "macOS Disk Space Analyzer",
+    ctaLabel: `Download .DMG (${siteConfig.showFreeSpace.appSize})`,
+    badge: "For Mac",
     highlights: [
       "Interactive Multi-Ring Sunburst Storage Map",
       "One-Click Staging & Safe Trash Cleanup",
@@ -213,8 +178,8 @@ const liveCatalog: CatalogItem[] = [
     previewImage: siteConfig.biodata.previewImage,
     href: "/biodata",
     appStoreUrl: siteConfig.biodata.webUrl,
-    ctaLabel: "Launch biodata.cogify.me",
-    badge: "Web Studio • Subdomain",
+    ctaLabel: "Open biodata.cogify.me",
+    badge: "Web Studio",
     highlights: [
       "242 cultural, regional & modern templates across 9 languages",
       "300-DPI Vector PDF, Editable Word (.docx) & 3x Retina PNG exports",
@@ -233,8 +198,8 @@ const liveCatalog: CatalogItem[] = [
     previewImage: siteConfig.ssb.previewImage,
     href: "/ssb",
     appStoreUrl: siteConfig.ssb.webUrl,
-    ctaLabel: "Launch ssb.cogify.me",
-    badge: "Web Studio • Subdomain",
+    ctaLabel: "Open ssb.cogify.me",
+    badge: "Web Studio",
     highlights: [
       "Full timed Stage-2 Psychology Dossier: TAT, WAT (60 words/15s), SRT (60/30m) & SDT",
       "GTO Command Simulator: Group Discussion, GPE, Lecturette & Gorham Obstacles",
@@ -253,8 +218,8 @@ const liveCatalog: CatalogItem[] = [
     previewImage: siteConfig.adBlocker.screenshotsMac?.[0]?.image,
     href: "/ad-blocker",
     appStoreUrl: siteConfig.adBlocker.appStoreUrl,
-    ctaLabel: "Download on App Store",
-    badge: "Safari Content Blocker",
+    ctaLabel: "App Store",
+    badge: "For iOS & Safari",
     highlights: [
       "Native WebKit Content Blocking API",
       "Blocks Banner/Video Ads, Trackers & Cookie Walls",
@@ -275,8 +240,8 @@ const liveCatalog: CatalogItem[] = [
       siteConfig.readereasy.screenshotsIos?.[0]?.image,
     href: "/readereasy",
     appStoreUrl: siteConfig.readereasy.appStoreUrl,
-    ctaLabel: "Download on App Store",
-    badge: "Safari Extension",
+    ctaLabel: "App Store",
+    badge: "For iOS & Safari",
     highlights: [
       "Paper, Sepia, Slate & True OLED Dark themes",
       "Bionic Focus Mode, Reading Ruler & Auto-Scroll",
@@ -297,8 +262,8 @@ const liveCatalog: CatalogItem[] = [
       siteConfig.webclear.screenshotsIos?.[0]?.image,
     href: "/webclear",
     appStoreUrl: siteConfig.webclear.appStoreUrl,
-    ctaLabel: "Download on App Store",
-    badge: "Safari Extension",
+    ctaLabel: "App Store",
+    badge: "For iOS & Safari",
     highlights: [
       "One-Tap Per-Site Reset without losing other logins",
       "Granular Cookie Manager & LocalStorage Explorer",
@@ -317,8 +282,8 @@ const liveCatalog: CatalogItem[] = [
     previewImage: siteConfig.weblenses.screenshotsMac?.[0]?.image,
     href: "/weblenses",
     appStoreUrl: siteConfig.weblenses.appStoreUrl,
-    ctaLabel: "Download on App Store",
-    badge: "Safari Developer Tool",
+    ctaLabel: "App Store",
+    badge: "For iOS & Safari",
     highlights: [
       "Instant 0–100 Website Health Score across 4 pillars",
       "Live Core Web Vitals (FCP, LCP, CLS, TBT)",
@@ -337,8 +302,8 @@ const liveCatalog: CatalogItem[] = [
     previewImage: siteConfig.elementHider.screenshotsMac?.[0]?.image,
     href: "/element-hider",
     appStoreUrl: siteConfig.elementHider.appStoreUrl,
-    ctaLabel: "Download on App Store",
-    badge: "Safari Extension",
+    ctaLabel: "App Store",
+    badge: "For iOS & Safari",
     highlights: [
       "Point-and-tap visual element picker in Safari",
       "Hide sticky headers, sidebars, popups & clutter",
@@ -357,8 +322,8 @@ const liveCatalog: CatalogItem[] = [
     previewImage: siteConfig.invert.screenshotsMac?.[0]?.image,
     href: "/invert",
     appStoreUrl: siteConfig.invert.appStoreUrl,
-    ctaLabel: "Download on App Store",
-    badge: "Safari Extension",
+    ctaLabel: "App Store",
+    badge: "For iOS & Safari",
     highlights: [
       "Smart Invert, Soft Invert & Full High-Contrast modes",
       "Preserves photos, videos, YouTube & SVGs naturally",
@@ -369,74 +334,55 @@ const liveCatalog: CatalogItem[] = [
 
 export default function ProductsPage() {
   return (
-    <div className="min-h-screen pt-28 pb-24 relative overflow-hidden">
+    <div className="min-h-screen pt-28 sm:pt-32 pb-20">
       <CatalogJsonLd />
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[420px] bg-gradient-to-b from-indigo-600/8 via-emerald-500/6 to-transparent blur-3xl -z-10" />
 
-      <Container>
-        <Breadcrumbs items={[{ label: "Products & Studios", href: "/products" }]} />
-
-        {/* Header */}
-        <div className="max-w-3xl mb-12">
-          <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <Badge variant="success">
-              Apple App Store &amp; Web Studio Catalog
-            </Badge>
-            <Badge variant="outline">100% Free • Zero Telemetry</Badge>
+      <div className="max-w-[920px] mx-auto px-6">
+        {/* Helumi-Style Centered Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="text-[13px] text-black/55 dark:text-white/50 mb-1.5">
+            cogify product catalog
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-[-0.03em] text-zinc-950 dark:text-white">
-            The Complete COGIFY Software Suite
+          <h1 className="text-[36px] sm:text-[48px] font-semibold tracking-[-0.04em] text-black dark:text-white leading-[1.08]">
+            every tool, <em className="helumi-em">free</em> forever.
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">
-            Every application, Safari Web Extension, and interactive studio we publish is engineered with zero cloud dependencies, zero tracking, and zero subscriptions for individual users.
+          <p className="mt-3 text-[15px] sm:text-[16px] text-black/65 dark:text-white/65 leading-relaxed">
+            6 native macOS workstations, 6 Safari extensions for iPhone, iPad &amp; Mac, and 2 real-time web studios — built with zero cloud dependencies and zero tracking.
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
             <a
               href={siteConfig.appleDeveloperUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-tactile inline-flex items-center gap-2 rounded-xl bg-zinc-950 dark:bg-white px-5 py-3 text-xs sm:text-sm font-semibold text-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors shadow-xs"
+              className="helumi-pill helumi-pill-dark !h-9 !px-4 !text-[13px]"
             >
-              <Globe className="h-4 w-4" />
-              <span>Official Apple Developer Page</span>
+              <span>Apple App Store</span>
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
             <a
               href={siteConfig.biodata.webUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-tactile inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-400 px-5 py-3 text-xs sm:text-sm font-bold text-zinc-950 transition-colors shadow-xs"
+              className="helumi-pill helumi-pill-light !h-9 !px-4 !text-[13px]"
             >
-              <Sparkles className="h-4 w-4" />
-              <span>Launch Biodata Studio (biodata.cogify.me)</span>
+              <span>biodata.cogify.me</span>
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
             <a
               href={siteConfig.ssb.webUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-tactile inline-flex items-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 px-5 py-3 text-xs sm:text-sm font-bold text-zinc-950 transition-colors shadow-xs"
+              className="helumi-pill helumi-pill-light !h-9 !px-4 !text-[13px]"
             >
-              <Sparkles className="h-4 w-4" />
-              <span>Launch SSB Studio (ssb.cogify.me)</span>
+              <span>ssb.cogify.me</span>
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>
 
-        {/* Interactive Filterable 14-Product Catalog */}
+        {/* Filterable 14-Product Catalog */}
         <ProductsCatalogClient items={liveCatalog} />
-      </Container>
-
-      <ComparisonHubSection compact={true} />
-
-      <FaqSection
-        title="COGIFY Product Catalog — Frequently Asked Questions"
-        subtitle="Answers about our 14 free native Apple releases, Safari Web Extensions, and real-time web studios."
-        items={PRODUCTS_FAQS}
-      />
-
-      <AuthorBio />
+      </div>
     </div>
   );
 }

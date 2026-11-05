@@ -2,10 +2,9 @@ export function ThemeScript() {
   const code = `
 (function() {
   try {
-    var key = 'cogify-theme';
+    var key = 'cogify-theme-v2';
     var saved = localStorage.getItem(key);
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var isDark = saved === 'dark' || (!saved && prefersDark) || (saved === 'system' && prefersDark);
+    var isDark = saved === 'dark';
     var root = document.documentElement;
     if (isDark) {
       root.classList.add('dark');
