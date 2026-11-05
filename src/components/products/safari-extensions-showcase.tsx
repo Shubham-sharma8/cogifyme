@@ -118,25 +118,24 @@ export const SafariExtensionsShowcase = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-500/20 text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/20 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
               <Compass className="w-3.5 h-3.5" />
-              <span>Official Apple App Store Safari Ecosystem</span>
+              <span>Pillar 03 • 6 Official Apple App Store Safari Extensions</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white mb-4">
-              Native{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-indigo-600 to-cyan-600 dark:from-emerald-400 dark:via-indigo-300 dark:to-cyan-300">
-                Safari Extensions
-              </span>{" "}
-              Suite.
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.03em] text-zinc-950 dark:text-white mb-4">
+              Native Safari Extensions.{" "}
+              <span className="text-zinc-500 dark:text-zinc-400">
+                iOS, iPadOS &amp; Mac.
+              </span>
             </h2>
-            <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Every Cogify Safari extension runs 100% locally on your iPhone, iPad, and Mac with zero analytics, zero accounts, and zero subscriptions. Explore our 6 published Safari tools on the App Store.
             </p>
           </div>
 
           <Link
             href="/products"
-            className="px-5 py-3 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-100 font-semibold text-xs transition-colors inline-flex items-center gap-2 shrink-0 self-start md:self-auto shadow-sm"
+            className="btn-tactile px-5 py-3 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 font-semibold text-xs transition-colors inline-flex items-center gap-2 shrink-0 self-start md:self-auto shadow-xs"
           >
             <span>Explore Full App Catalog</span>
             <ArrowRight className="w-3.5 h-3.5" />

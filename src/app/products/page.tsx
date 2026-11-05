@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import {
-  ArrowUpRight,
   ExternalLink,
   Sparkles,
-  CheckCircle2,
   Globe,
-  Download,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
@@ -17,15 +12,21 @@ import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
 import { CatalogJsonLd } from "@/components/seo/jsonld-schemas";
 import { ComparisonHubSection } from "@/components/compare/comparison-hub-section";
+import {
+  ProductsCatalogClient,
+  type CatalogItem,
+} from "@/components/products/products-catalog-client";
 
 const PRODUCTS_FAQS: FaqItem[] = [
   {
-    question: "How many applications and web studios are currently live in the COGIFY catalog?",
+    question:
+      "How many applications and web studios are currently live in the COGIFY catalog?",
     answer:
       "COGIFY currently ships 14 live products: 6 native macOS workstations with instant 1-click .DMG downloads (EmDoc PDF Workstation, LumenView, Metricove, NetGuard, Klipora, and Show free space), 2 real-time web studios (Marriage Biodata Maker at biodata.cogify.me and SSB Stage-2 Test Practice Studio at ssb.cogify.me), and 6 Safari Web Extensions (Ad Blocker for Safari, ReaderEasy, WebClear, WebLenses, Element Hider, and Colour Invert).",
   },
   {
-    question: "Are all COGIFY macOS apps, App Store apps, and web studios free for personal use?",
+    question:
+      "Are all COGIFY macOS apps, App Store apps, and web studios free for personal use?",
     answer:
       "Yes. Every live macOS application, Safari Web Extension, and web studio in our catalog is 100% free for individual users with zero subscriptions, zero in-app purchases, and zero watermarks.",
   },
@@ -73,9 +74,10 @@ export const metadata: Metadata = {
   },
 };
 
-const liveCatalog = [
+const liveCatalog: CatalogItem[] = [
   {
     name: "EmDoc PDF Workstation",
+    pillar: "mac",
     tagline: siteConfig.emdoc.tagline,
     description: siteConfig.emdoc.shortDescription,
     version: `v${siteConfig.emdoc.version}`,
@@ -96,6 +98,7 @@ const liveCatalog = [
   },
   {
     name: siteConfig.lumenview.name,
+    pillar: "mac",
     tagline: siteConfig.lumenview.tagline,
     description: siteConfig.lumenview.shortDescription,
     version: `v${siteConfig.lumenview.version}`,
@@ -116,6 +119,7 @@ const liveCatalog = [
   },
   {
     name: siteConfig.metricove.name,
+    pillar: "mac",
     tagline: siteConfig.metricove.tagline,
     description: siteConfig.metricove.shortDescription,
     version: `v${siteConfig.metricove.version}`,
@@ -131,11 +135,12 @@ const liveCatalog = [
     highlights: [
       "Per-Core Apple Silicon P/E CPU & Metal GPU Utilization",
       "Memory Pressure, Disk I/O, Network Bandwidth & Battery Health",
-      "SMC Die Thermals & Fan RPM Controls in 2.3 MB",
+      "SMC Die Thermals & Fan RPM Controls in 1.5 MB",
     ],
   },
   {
     name: siteConfig.netguard.name,
+    pillar: "mac",
     tagline: siteConfig.netguard.tagline,
     description: siteConfig.netguard.shortDescription,
     version: `v${siteConfig.netguard.version}`,
@@ -156,6 +161,7 @@ const liveCatalog = [
   },
   {
     name: siteConfig.klipora.name,
+    pillar: "mac",
     tagline: siteConfig.klipora.tagline,
     description: siteConfig.klipora.shortDescription,
     version: `v${siteConfig.klipora.version}`,
@@ -176,6 +182,7 @@ const liveCatalog = [
   },
   {
     name: siteConfig.showFreeSpace.name,
+    pillar: "mac",
     tagline: siteConfig.showFreeSpace.tagline,
     description: siteConfig.showFreeSpace.shortDescription,
     version: `v${siteConfig.showFreeSpace.version}`,
@@ -196,6 +203,7 @@ const liveCatalog = [
   },
   {
     name: siteConfig.biodata.name,
+    pillar: "web",
     tagline: siteConfig.biodata.tagline,
     description: siteConfig.biodata.shortDescription,
     version: `v${siteConfig.biodata.version}`,
@@ -215,6 +223,7 @@ const liveCatalog = [
   },
   {
     name: siteConfig.ssb.name,
+    pillar: "web",
     tagline: siteConfig.ssb.tagline,
     description: siteConfig.ssb.shortDescription,
     version: `v${siteConfig.ssb.version}`,
@@ -234,6 +243,7 @@ const liveCatalog = [
   },
   {
     name: siteConfig.adBlocker.name,
+    pillar: "safari",
     tagline: siteConfig.adBlocker.tagline,
     description: siteConfig.adBlocker.shortDescription,
     version: `v${siteConfig.adBlocker.version}`,
@@ -253,6 +263,7 @@ const liveCatalog = [
   },
   {
     name: siteConfig.readereasy.name,
+    pillar: "safari",
     tagline: siteConfig.readereasy.tagline,
     description: siteConfig.readereasy.shortDescription,
     version: `v${siteConfig.readereasy.version}`,
@@ -274,6 +285,7 @@ const liveCatalog = [
   },
   {
     name: siteConfig.webclear.name,
+    pillar: "safari",
     tagline: siteConfig.webclear.tagline,
     description: siteConfig.webclear.shortDescription,
     version: `v${siteConfig.webclear.version}`,
@@ -295,6 +307,7 @@ const liveCatalog = [
   },
   {
     name: siteConfig.weblenses.name,
+    pillar: "safari",
     tagline: siteConfig.weblenses.tagline,
     description: siteConfig.weblenses.shortDescription,
     version: `v${siteConfig.weblenses.version}`,
@@ -314,6 +327,7 @@ const liveCatalog = [
   },
   {
     name: siteConfig.elementHider.name,
+    pillar: "safari",
     tagline: siteConfig.elementHider.tagline,
     description: siteConfig.elementHider.shortDescription,
     version: `v${siteConfig.elementHider.version}`,
@@ -333,6 +347,7 @@ const liveCatalog = [
   },
   {
     name: siteConfig.invert.name,
+    pillar: "safari",
     tagline: siteConfig.invert.tagline,
     description: siteConfig.invert.shortDescription,
     version: `v${siteConfig.invert.version}`,
@@ -356,179 +371,61 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen pt-28 pb-24 relative overflow-hidden">
       <CatalogJsonLd />
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[420px] bg-gradient-to-b from-indigo-600/10 via-emerald-500/8 to-transparent blur-3xl -z-10" />
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[420px] bg-gradient-to-b from-indigo-600/8 via-emerald-500/6 to-transparent blur-3xl -z-10" />
 
       <Container>
         <Breadcrumbs items={[{ label: "Products & Studios", href: "/products" }]} />
 
         {/* Header */}
-        <div className="max-w-3xl mb-14">
+        <div className="max-w-3xl mb-12">
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <Badge variant="success">
               Apple App Store &amp; Web Studio Catalog
             </Badge>
-            <Badge variant="outline">
-              100% Free • Zero Telemetry
-            </Badge>
+            <Badge variant="outline">100% Free • Zero Telemetry</Badge>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-[-0.03em] text-zinc-950 dark:text-white">
             The Complete COGIFY Software Suite
           </h1>
           <p className="mt-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">
             Every application, Safari Web Extension, and interactive studio we publish is engineered with zero cloud dependencies, zero tracking, and zero subscriptions for individual users.
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-4">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <a
               href={siteConfig.appleDeveloperUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-zinc-900 dark:bg-white px-5 py-3 text-sm font-semibold text-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors shadow-sm"
+              className="btn-tactile inline-flex items-center gap-2 rounded-xl bg-zinc-950 dark:bg-white px-5 py-3 text-xs sm:text-sm font-semibold text-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors shadow-xs"
             >
               <Globe className="h-4 w-4" />
-              Official Apple Developer Page
+              <span>Official Apple Developer Page</span>
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
             <a
               href={siteConfig.biodata.webUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-400 px-5 py-3 text-sm font-bold text-zinc-950 transition-colors shadow-sm"
+              className="btn-tactile inline-flex items-center gap-2 rounded-xl bg-amber-500 hover:bg-amber-400 px-5 py-3 text-xs sm:text-sm font-bold text-zinc-950 transition-colors shadow-xs"
             >
               <Sparkles className="h-4 w-4" />
-              Launch Biodata Studio (biodata.cogify.me)
+              <span>Launch Biodata Studio (biodata.cogify.me)</span>
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
             <a
               href={siteConfig.ssb.webUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 px-5 py-3 text-sm font-bold text-zinc-950 transition-colors shadow-sm"
+              className="btn-tactile inline-flex items-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 px-5 py-3 text-xs sm:text-sm font-bold text-zinc-950 transition-colors shadow-xs"
             >
               <Sparkles className="h-4 w-4" />
-              Launch SSB Studio (ssb.cogify.me)
+              <span>Launch SSB Studio (ssb.cogify.me)</span>
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>
 
-        {/* Live App Store Apps Grid */}
-        <section className="mb-24">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
-              Available Now — Native Apps &amp; Web Studios
-            </h2>
-            <span className="text-xs font-semibold text-emerald-800 dark:text-emerald-400">
-              macOS • iOS • iPadOS • Safari • Web
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {liveCatalog.map((item, idx) => (
-              <div
-                key={item.href}
-                className="rounded-3xl border border-zinc-200/90 dark:border-white/10 bg-white dark:bg-zinc-900/40 p-6 sm:p-8 flex flex-col justify-between hover:border-indigo-500/40 dark:hover:border-white/25 transition-all shadow-xs dark:shadow-none"
-              >
-                <div>
-                  <div className="flex items-start justify-between gap-4 mb-5">
-                    <div className="flex items-center gap-4">
-                      <div className="relative h-16 w-16 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/15 bg-zinc-100 dark:bg-zinc-950 shrink-0 shadow-md">
-                        <Image
-                          src={item.icon}
-                          alt={item.name}
-                          fill
-                          priority={idx < 2}
-                          className="object-cover"
-                          sizes="64px"
-                        />
-                      </div>
-                      <div>
-                        <div className="flex flex-wrap items-center gap-2 mb-1">
-                          <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-400">
-                            {item.badge}
-                          </span>
-                          <span className="text-[11px] text-zinc-600 dark:text-zinc-400">•</span>
-                          <span className="text-[11px] font-mono text-zinc-600 dark:text-zinc-400">
-                            {item.version}
-                          </span>
-                        </div>
-                        <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
-                          <Link href={item.href} className="hover:text-indigo-700 dark:hover:text-indigo-400 transition-colors">
-                            {item.name}
-                          </Link>
-                        </h3>
-                        <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-0.5">
-                          {item.platforms}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed mb-5">
-                    {item.description}
-                  </p>
-
-                  {"previewImage" in item && item.previewImage && (
-                    <Link
-                      href={item.href}
-                      className="block relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 mb-5 bg-zinc-950 group"
-                    >
-                      <Image
-                        src={item.previewImage}
-                        alt={`${item.name} Screenshot Preview`}
-                        fill
-                        priority={idx < 2}
-                        className="object-contain group-hover:scale-[1.02] transition-transform duration-300"
-                        sizes="(max-width: 768px) 100vw, 540px"
-                      />
-                    </Link>
-                  )}
-
-                  <ul className="space-y-2 mb-6">
-                    {item.highlights.map((h) => (
-                      <li
-                        key={h}
-                        className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300"
-                      >
-                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-700 dark:text-emerald-400 shrink-0" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-4 border-t border-zinc-200/80 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
-                  {"downloadUrl" in item && item.downloadUrl ? (
-                    <a
-                      href={item.downloadUrl}
-                      download
-                      className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 px-4 py-2.5 text-xs font-bold text-zinc-950 transition-colors shadow-xs"
-                    >
-                      <Download className="h-3.5 w-3.5" />
-                      {item.ctaLabel}
-                    </a>
-                  ) : (
-                    <a
-                      href={item.appStoreUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 px-4 py-2.5 text-xs font-bold text-zinc-950 transition-colors shadow-xs"
-                    >
-                      <ExternalLink className="h-3.5 w-3.5" />
-                      {item.ctaLabel}
-                    </a>
-                  )}
-                  <Link
-                    href={item.href}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-indigo-700 dark:hover:text-white transition-colors"
-                  >
-                    Explore Features & Screenshots
-                    <ArrowUpRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Interactive Filterable 14-Product Catalog */}
+        <ProductsCatalogClient items={liveCatalog} />
       </Container>
 
       <ComparisonHubSection compact={true} />

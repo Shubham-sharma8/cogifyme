@@ -21,9 +21,9 @@ export const FinalCTA = () => {
           <span>100% Free Consumer Apps • Native Engineering • Absolute Privacy</span>
         </div>
 
-        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-6 leading-tight max-w-3xl mx-auto">
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-[-0.03em] text-zinc-950 dark:text-white mb-6 leading-tight max-w-3xl mx-auto">
           Experience native software{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-600 dark:from-indigo-300 dark:via-indigo-100 dark:to-cyan-300">
+          <span className="text-indigo-600 dark:text-indigo-400">
             built without compromise.
           </span>
         </h2>
@@ -32,10 +32,10 @@ export const FinalCTA = () => {
           Explore all 14 free COGIFY applications and real-time web studios (biodata.cogify.me &amp; ssb.cogify.me) across macOS, iOS, iPadOS, Safari, and Web — or partner with our engineering team for custom enterprise license replacements.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
           <Link
             href="/products"
-            className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all duration-200 shadow-xl shadow-indigo-600/25 flex items-center justify-center gap-2 cursor-pointer"
+            className="btn-tactile w-full sm:w-auto px-7 py-3.5 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-zinc-950 font-semibold text-sm transition-colors shadow-lg flex items-center justify-center gap-2 cursor-pointer"
           >
             <Sparkles className="w-4 h-4" />
             <span>Explore All 14 Apps &amp; Studios</span>
@@ -46,7 +46,7 @@ export const FinalCTA = () => {
             href={siteConfig.appleDeveloperUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-sm transition-all duration-200 shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2"
+            className="btn-tactile w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-sm transition-colors shadow-sm flex items-center justify-center gap-2"
           >
             <ExternalLink className="w-4 h-4" />
             <span>Apple App Store Profile</span>
@@ -54,7 +54,7 @@ export const FinalCTA = () => {
 
           <Link
             href="/contact"
-            className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-800 hover:text-zinc-950 border border-zinc-200/90 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-200 dark:border-white/10 font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2"
+            className="btn-tactile w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-800 hover:text-zinc-950 border border-zinc-200/90 dark:bg-white/[0.06] dark:hover:bg-white/[0.1] dark:text-zinc-200 dark:border-white/10 font-semibold text-sm transition-colors flex items-center justify-center gap-2"
           >
             <MessageSquareCode className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
             <span>Talk to COGIFY</span>

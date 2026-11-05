@@ -68,10 +68,10 @@ export default function HomePage() {
     <div className="flex flex-col">
       <CatalogJsonLd />
       <HeroSection />
+      <WhatWeBuild />
       <MacOSAppsShowcase />
       <SafariExtensionsShowcase />
       <ComparisonHubSection compact={true} />
-      <WhatWeBuild />
       <EnterpriseSection />
       <FaqSection
         badge="COGIFY Ecosystem FAQ"

@@ -143,25 +143,24 @@ export const MacOSAppsShowcase = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border border-indigo-200/80 dark:border-indigo-500/20 text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20 text-xs font-mono font-semibold uppercase tracking-wider mb-4">
               <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>6 Native macOS Apps • Direct 1-Click .DMG Downloads</span>
+              <span>Pillar 02 • 6 Native macOS Apps • Direct 1-Click .DMG Downloads</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white mb-4 text-balance">
-              Native{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-600 to-emerald-600 dark:from-indigo-400 dark:via-cyan-300 dark:to-emerald-300">
-                macOS Workstations
-              </span>{" "}
-              &amp; System Utilities.
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.03em] text-zinc-950 dark:text-white mb-4 text-balance">
+              Native macOS Workstations.{" "}
+              <span className="text-zinc-500 dark:text-zinc-400">
+                1.4 MB to 5.0 MB Binaries.
+              </span>
             </h2>
-            <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty">
+            <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty">
               Engineered natively in Swift 6, AppKit, and C++20 for Apple Silicon &amp; Intel Macs. Signed with our official Apple Developer ID (9TKKPN6F59) and hosted on GitHub Releases for instant <strong>single-click .DMG download</strong> — 100% free with zero telemetry.
             </p>
           </div>
 
           <Link
             href="/products"
-            className="px-5 py-3 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-100 font-semibold text-xs transition-colors inline-flex items-center gap-2 shrink-0 self-start md:self-auto shadow-sm"
+            className="btn-tactile px-5 py-3 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 font-semibold text-xs transition-colors inline-flex items-center gap-2 shrink-0 self-start md:self-auto shadow-xs"
           >
             <span>All 6 macOS Downloads</span>
             <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
