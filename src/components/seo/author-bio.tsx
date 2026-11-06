@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ShieldCheck, Terminal, ExternalLink, Sparkles, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Terminal, ExternalLink, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 interface AuthorBioProps {
@@ -27,7 +27,7 @@ const ECOSYSTEM_LINKS = [
   {
     slug: "emdoc",
     name: "EmDoc PDF Workstation",
-    badge: "macOS Native • 5.0 MB",
+    badge: "macOS Native • v1.1 (7.8 MB)",
     href: "/products/emdoc",
     desc: "C++20 & AppKit offline PDF editor, Bates numbering, OCR, and vector compression.",
   },
@@ -119,53 +119,53 @@ export function AuthorBio({
   return (
     <section
       aria-label="Author & Engineering Attribution"
-      className="max-w-6xl mx-auto px-6 py-14 border-t border-zinc-200/80 dark:border-white/[0.06]"
+      className="max-w-[980px] mx-auto px-5 sm:px-8 py-14 border-t border-black/[0.06] dark:border-white/[0.07]"
     >
       {/* E-E-A-T Author Card */}
-      <div className="rounded-3xl bg-white dark:bg-[#0b0f17] border border-zinc-200/90 dark:border-white/[0.08] p-6 sm:p-8 shadow-sm mb-12">
+      <div className="rounded-[24px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] p-6 sm:p-8 mb-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-start gap-4 sm:gap-5">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-zinc-950 dark:bg-zinc-900 border border-zinc-800 flex items-center justify-center shrink-0 shadow-md overflow-hidden">
+            <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#111] dark:bg-[#0b0b0d] border border-black/10 dark:border-white/10 flex items-center justify-center shrink-0 overflow-hidden">
               <Image
                 src="/brand/logo_white.png"
                 alt="Shubham Sharma — Founder & Systems Architect at COGIFY"
-                width={44}
-                height={44}
-                className="w-10 h-10 object-contain"
+                width={36}
+                height={36}
+                className="w-8 h-8 object-contain"
               />
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-[11px] font-bold uppercase tracking-wider">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f5f5f5] dark:bg-white/[0.07] text-[#111] dark:text-[#f5f5f7] text-[11px] font-semibold uppercase tracking-wider">
                   <CheckCircle2 className="w-3 h-3" /> Verified Systems Architect
                 </span>
-                <span className="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
+                <span className="text-xs text-[#666] dark:text-[#a1a1aa] font-mono">
                   {contextLabel}
                 </span>
               </div>
 
-              <h2 className="text-lg sm:text-xl font-extrabold text-zinc-950 dark:text-white">
-                <Link href="/about" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+              <h2 className="text-lg sm:text-xl font-bold text-[#111] dark:text-white">
+                <Link href="/about" className="hover:underline">
                   Shubham Sharma
                 </Link>{" "}
-                <span className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                <span className="text-sm font-normal text-[#666] dark:text-[#a1a1aa]">
                   — Founder &amp; Lead Systems Architect, COGIFY
                 </span>
               </h2>
 
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-2 max-w-3xl">
-                Systems engineer specializing in native Apple Silicon software (<code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">C++20</code>,{" "}
-                <code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">Swift 6</code>,{" "}
-                <code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">AppKit</code>,{" "}
-                <code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">Safari WebKit Extensions</code>) and real-time client-side web studios (<code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">biodata.cogify.me</code> &amp; <code className="text-xs font-mono text-zinc-800 dark:text-zinc-200">ssb.cogify.me</code>). Every Cogify application is hand-architected for sub-second startup, deterministic memory bounds, and 100% air-gapped local privacy with zero third-party telemetry SDKs.
+              <p className="text-xs sm:text-sm text-[#555] dark:text-[#a1a1aa] leading-relaxed mt-2 max-w-3xl">
+                Systems engineer specializing in native Apple Silicon software (<code className="text-xs font-mono text-[#111] dark:text-[#e4e4e7]">C++20</code>,{" "}
+                <code className="text-xs font-mono text-[#111] dark:text-[#e4e4e7]">Swift 6</code>,{" "}
+                <code className="text-xs font-mono text-[#111] dark:text-[#e4e4e7]">AppKit</code>,{" "}
+                <code className="text-xs font-mono text-[#111] dark:text-[#e4e4e7]">Safari WebKit Extensions</code>) and real-time client-side web studios (<code className="text-xs font-mono text-[#111] dark:text-[#e4e4e7]">biodata.cogify.me</code> &amp; <code className="text-xs font-mono text-[#111] dark:text-[#e4e4e7]">ssb.cogify.me</code>). Every Cogify application is hand-architected for sub-second startup, deterministic memory bounds, and 100% air-gapped local privacy.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 mt-4 text-xs font-semibold">
+              <div className="flex flex-wrap items-center gap-4 mt-4 text-xs font-semibold text-[#111] dark:text-white">
                 <a
                   href={siteConfig.appleDeveloperUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-indigo-600 dark:text-indigo-400 hover:underline"
+                  className="inline-flex items-center gap-1.5 hover:underline"
                 >
                   <ShieldCheck className="w-3.5 h-3.5" />
                   Apple Developer ID #1643497398
@@ -175,7 +175,7 @@ export function AuthorBio({
                   href="https://github.com/Shubham-sharma8"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-[#555] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white transition-colors"
                 >
                   <Terminal className="w-3.5 h-3.5" />
                   GitHub (@Shubham-sharma8)
@@ -183,15 +183,15 @@ export function AuthorBio({
                 </a>
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-1 text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="inline-flex items-center gap-1 text-[#555] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white transition-colors"
                 >
-                  Engineering Manifesto &amp; Timeline →
+                  About →
                 </Link>
                 <Link
                   href="/privacy"
-                  className="inline-flex items-center gap-1 text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="inline-flex items-center gap-1 text-[#555] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white transition-colors"
                 >
-                  Zero-Telemetry Privacy Spec →
+                  Privacy Spec →
                 </Link>
               </div>
             </div>
@@ -199,51 +199,51 @@ export function AuthorBio({
         </div>
       </div>
 
-      {/* Internal Cross-Linking Mesh to Eliminate Orphan Pages */}
+      {/* Internal Cross-Linking Mesh */}
       <div>
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
           <div>
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
-              <Sparkles className="w-3.5 h-3.5" /> Complete Cogify Ecosystem
-            </span>
-            <h2 className="text-lg sm:text-xl font-extrabold text-zinc-950 dark:text-white mt-0.5">
-              Explore More Free Native Apple Apps &amp; Real-Time Web Studios
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#777] dark:text-[#888]">
+              complete cogify ecosystem
+            </p>
+            <h2 className="text-lg sm:text-xl font-bold text-[#111] dark:text-white mt-0.5">
+              More free native apps &amp; web studios.
             </h2>
           </div>
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4 text-xs font-semibold">
             <Link
               href="/compare"
-              className="text-xs font-bold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1"
+              className="text-[#555] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white inline-flex items-center gap-1"
             >
-              macOS Utility Benchmarks <ArrowUpRight className="w-3.5 h-3.5" />
+              Benchmarks <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               href="/products"
-              className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1"
+              className="text-[#111] dark:text-white hover:underline inline-flex items-center gap-1"
             >
-              View All 14 Products &amp; Specs <ArrowUpRight className="w-3.5 h-3.5" />
+              All 14 Products <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {relatedApps.slice(0, 8).map((app) => (
             <Link
               key={app.slug}
               href={app.href}
-              className="group rounded-2xl bg-white dark:bg-[#0b0f17] border border-zinc-200/80 dark:border-white/[0.07] hover:border-indigo-500/40 dark:hover:border-indigo-500/40 p-4 transition-colors flex flex-col justify-between"
+              className="group rounded-[18px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] hover:border-black/25 dark:hover:border-white/25 p-4 transition-colors flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-1.5">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-md bg-zinc-100 dark:bg-white/[0.06] text-zinc-600 dark:text-zinc-400">
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-[#f5f5f5] dark:bg-white/[0.06] text-[#666] dark:text-[#a1a1aa]">
                     {app.badge}
                   </span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-indigo-500 transition-colors shrink-0" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#888] group-hover:text-[#111] dark:group-hover:text-white transition-colors shrink-0" />
                 </div>
-                <h3 className="text-sm font-bold text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                <h3 className="text-sm font-bold text-[#111] dark:text-white">
                   {app.name}
                 </h3>
-                <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-[#666] dark:text-[#a1a1aa] mt-1 line-clamp-2 leading-relaxed">
                   {app.desc}
                 </p>
               </div>

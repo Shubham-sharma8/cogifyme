@@ -53,6 +53,12 @@ export const Footer = () => {
             Web
           </Link>
           <Link
+            href="/products/emdoc/releases"
+            className="hover:text-black dark:hover:text-white transition-colors"
+          >
+            Releases
+          </Link>
+          <Link
             href="/compare"
             className="hover:text-black dark:hover:text-white transition-colors"
           >

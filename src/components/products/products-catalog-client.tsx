@@ -18,6 +18,8 @@ export interface CatalogItem {
   tagline: string;
   description: string;
   version: string;
+  releaseDate?: string;
+  releasesHref?: string;
   platforms: string;
   category: string;
   icon: string;
@@ -186,6 +188,12 @@ export function ProductsCatalogClient({ items }: { items: CatalogItem[] }) {
                         </span>
                         <span>·</span>
                         <span className="tabular-nums">{item.version}</span>
+                        {item.releaseDate && (
+                          <>
+                            <span>·</span>
+                            <span>{item.releaseDate}</span>
+                          </>
+                        )}
                       </div>
                       <h2 className="text-[19px] font-semibold tracking-[-0.02em] text-black dark:text-white">
                         <Link
@@ -256,13 +264,23 @@ export function ProductsCatalogClient({ items }: { items: CatalogItem[] }) {
                     <span>{item.ctaLabel}</span>
                   </a>
                 )}
-                <Link
-                  href={item.href}
-                  className="inline-flex items-center gap-1 text-[13px] font-medium text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white transition-colors"
-                >
-                  <span>Product page</span>
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
+                <div className="flex items-center gap-3">
+                  {item.releasesHref && (
+                    <Link
+                      href={item.releasesHref}
+                      className="text-[12px] font-medium text-black/55 dark:text-white/55 hover:text-black dark:hover:text-white underline underline-offset-4 transition-colors"
+                    >
+                      Previous versions
+                    </Link>
+                  )}
+                  <Link
+                    href={item.href}
+                    className="inline-flex items-center gap-1 text-[13px] font-medium text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white transition-colors"
+                  >
+                    <span>Product page</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
           );

@@ -12,7 +12,6 @@ import {
   Globe,
   ExternalLink,
   ArrowRight,
-  CheckCircle2,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";

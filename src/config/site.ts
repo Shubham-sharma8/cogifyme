@@ -8,10 +8,28 @@ export interface ScreenshotItem {
   highlights: string[];
 }
 
+export interface EmDocReleaseItem {
+  version: string;
+  build: string;
+  releaseDate: string;
+  releaseDateIso: string;
+  size: string;
+  bytes: string;
+  downloadUrl: string;
+  sha256: string;
+  minMacOs: string;
+  architecture: string;
+  isLatest?: boolean;
+  notes: string[];
+}
+
 export interface EmDocConfig {
   name: string;
   version: string;
   build: string;
+  releaseDate: string;
+  releaseDateIso: string;
+  sha256: string;
   downloadUrl?: string;
   appStoreUrl: string;
   appStoreId: string;
@@ -23,6 +41,7 @@ export interface EmDocConfig {
   tagline: string;
   shortDescription: string;
   fullDescription: string;
+  releases: EmDocReleaseItem[];
   features: {
     title: string;
     description: string;
@@ -335,26 +354,99 @@ export const siteConfig: SiteConfig = {
   },
   emdoc: {
     name: "EmDoc",
-    version: "1.0",
-    build: "1",
-    appSize: "5.0 MB",
+    version: "1.1",
+    build: "2",
+    releaseDate: "November 6, 2026",
+    releaseDateIso: "2026-11-06",
+    sha256: "5bb8ac0884e6cd4b96c77ac7d9d6fde7eb94ef99584d8b14d1d4afc721e658c5",
+    appSize: "7.8 MB",
     ramUsage: "~45 MB baseline",
     pricingModel: "100% Free Forever — All Features Included",
     downloadUrl:
       process.env.NEXT_PUBLIC_EMDOC_DOWNLOAD_URL ||
-      "https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/EmDoc.dmg",
+      "https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.1/EmDoc-1.1.dmg",
     appStoreUrl: "https://apps.apple.com/in/app/emdoc/id6810306925?mt=12",
     appStoreId: "6810306925",
-    minMacOsVersion: "macOS 13.0 (Ventura, Sonoma, Sequoia)",
+    minMacOsVersion: "macOS 13.0+ (Ventura, Sonoma, Sequoia, Tahoe)",
     supportedArchitectures: ["Apple Silicon (arm64)", "Intel 64-bit (x86_64)"],
-    tagline: "A powerful, 5.0 MB PDF workstation designed for macOS.",
+    tagline: "A powerful, 7.8 MB PDF workstation designed for macOS.",
     shortDescription:
-      "EmDoc is a 5.0 MB native macOS PDF editor and Adobe Acrobat alternative. Edit, organize, compress, watermark, and redact PDFs 100% offline with zero telemetry.",
+      "EmDoc v1.1 is a 7.8 MB native macOS PDF editor and Adobe Acrobat alternative. Edit, organize, compress, watermark, and redact PDFs 100% offline with zero telemetry.",
     fullDescription:
-      "EmDoc is a professional PDF workstation crafted specifically for users who value speed, privacy, and precision. Unlike legacy suites that weigh over 1 GB and consume gigabytes of memory, EmDoc packs a complete editing, organization, compression, watermarking, Bates numbering, and signing suite into a 5.0 MB native binary with zero telemetry.",
+      "EmDoc is a professional PDF workstation crafted specifically for users who value speed, privacy, and precision. Unlike legacy suites that weigh over 1 GB and consume gigabytes of memory, EmDoc packs a complete editing, organization, compression, watermarking, Bates numbering, and signing suite into a 7.8 MB native binary with zero telemetry.",
+    releases: [
+      {
+        version: "1.1",
+        build: "2",
+        releaseDate: "November 6, 2026",
+        releaseDateIso: "2026-11-06",
+        size: "7.8 MB",
+        bytes: "8,191,590 bytes",
+        downloadUrl: "https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.1/EmDoc-1.1.dmg",
+        sha256: "5bb8ac0884e6cd4b96c77ac7d9d6fde7eb94ef99584d8b14d1d4afc721e658c5",
+        minMacOs: "macOS 13.0+ / macOS 26 SDK",
+        architecture: "Universal (Apple Silicon arm64 & Intel x86_64)",
+        isLatest: true,
+        notes: [
+          "Enhanced native PDF canvas rendering engine and multi-tab document memory responsiveness (~45 MB baseline).",
+          "Improved Visual Page Organizer batch drag-and-drop, range extraction, and 90° rotational transforms.",
+          "Refined freehand vector ink annotations, rubber stamps, and running header/footer Bates numbering accuracy.",
+          "Built-in GitHub Releases version checker connected to v1.1 (Build 2) signed installer.",
+        ],
+      },
+      {
+        version: "1.0.0",
+        build: "1",
+        releaseDate: "September 9, 2026",
+        releaseDateIso: "2026-09-09",
+        size: "7.1 MB",
+        bytes: "7,475,346 bytes",
+        downloadUrl: "https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/EmDoc.dmg",
+        sha256: "059d274cd27155c569676d98f8446de000739f17075d5179d0c6aec872f374e9",
+        minMacOs: "macOS 13.0+ (Ventura or later)",
+        architecture: "Universal (Apple Silicon arm64 & Intel x86_64)",
+        notes: [
+          "First Mac App Store & Direct Universal Binary production release.",
+          "Added 100% on-device PDF compression engine with 3 presets and custom MB ceiling limiter.",
+          "Added Precision Watermark Engine, Running Headers & Bates Numbering, and Light/Dark/Sepia reading themes.",
+        ],
+      },
+      {
+        version: "0.0.2",
+        build: "2",
+        releaseDate: "September 7, 2026",
+        releaseDateIso: "2026-09-07",
+        size: "4.5 MB",
+        bytes: "4,719,939 bytes",
+        downloadUrl: "https://github.com/Shubham-sharma8/cogifyme/releases/download/V0.0.2/EmDoc.dmg",
+        sha256: "a7adf3871fe510b0c397c08565cfce65b0ffe1e1414fbbeb144197b9c2f90165",
+        minMacOs: "macOS 13.0+",
+        architecture: "Apple Silicon & Intel",
+        notes: [
+          "Added native GitHub Releases update checker for seamless direct DMG upgrades.",
+          "Major stability fixes in PDF stream parsing, annotation layer serialization, and print imposition.",
+        ],
+      },
+      {
+        version: "0.0.1",
+        build: "1",
+        releaseDate: "September 6, 2026",
+        releaseDateIso: "2026-09-06",
+        size: "4.4 MB",
+        bytes: "4,606,544 bytes",
+        downloadUrl: "https://github.com/Shubham-sharma8/cogifyme/releases/download/v0.0.1/EmDoc.dmg",
+        sha256: "811a00fea2528c34a42a18e9938c13691e1721fb59fb0831d2e65272e5151d6d",
+        minMacOs: "macOS 13.0+",
+        architecture: "Apple Silicon & Intel",
+        notes: [
+          "Initial foundational preview release of the native macOS AppKit & PDFKit workstation.",
+          "Core multi-tab PDF reader, thumbnail sidebar, and fast offline page rendering.",
+        ],
+      },
+    ],
     features: [
       {
-        title: "Tiny 5.0 MB Footprint & Minimal RAM",
+        title: "Compact 7.8 MB Footprint & Minimal RAM",
         description:
           "Engineered in native Swift and CoreGraphics. Consumes just ~45 MB of RAM baseline compared to 800 MB - 2.5 GB in competitor suites, running silently without battery drain or thermal throttling.",
         tag: "Ultra-Lightweight",
@@ -391,14 +483,15 @@ export const siteConfig: SiteConfig = {
       },
     ],
     specifications: [
-      { label: "Distribution", value: "Live on Mac App Store (v1.0) & Direct Enterprise DMG" },
-      { label: "Application Binary Size", value: "5.0 MB (Ultra-compact native app)" },
+      { label: "Latest Version", value: "v1.1 (Build 2) — Released November 6, 2026" },
+      { label: "Distribution", value: "Direct Signed DMG (v1.1) & Mac App Store" },
+      { label: "Installer Size", value: "7.8 MB (8,191,590 bytes)" },
       { label: "Memory Footprint", value: "~45 MB baseline (Tile-based demand streaming)" },
       { label: "Pricing for Individuals", value: "100% Free — Every feature unlocked" },
       { label: "Target Operating System", value: "macOS 13.0 (Ventura) or later" },
       { label: "Hardware Architecture", value: "Universal Binary (Apple Silicon M-Series & Intel x86_64)" },
       { label: "Execution Model", value: "100% Native macOS AppKit / SwiftUI & CoreGraphics" },
-      { label: "Network Connectivity", value: "0 bytes transmitted / 100% Offline by Architecture" },
+      { label: "Network Connectivity", value: "0 bytes telemetry / 100% Offline Document Engine" },
       { label: "Security & Encryption", value: "AES-256 Password Protection & Verification" },
       { label: "Product Support", value: "contact@cogify.me" },
     ],

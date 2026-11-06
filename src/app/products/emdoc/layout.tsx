@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { EmDocPageJsonLd } from "@/components/seo/jsonld-schemas";
 
 export const metadata: Metadata = {
-  title: "EmDoc — Free macOS PDF Editor & Acrobat Alternative",
+  title: "EmDoc v1.1 — Free macOS PDF Editor & Acrobat Alternative",
   description:
-    "5.0 MB native macOS PDF workstation (~45 MB RAM). 100% offline air-gapped C++20 & AppKit PDF editor with vector ink, page organizer, OCR & compression.",
+    "7.8 MB native macOS PDF workstation (~45 MB RAM). Released Nov 6, 2026. 100% offline air-gapped PDF editor with vector ink, page organizer & compression.",
   alternates: {
     canonical: "https://cogify.me/products/emdoc",
   },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "best free PDF editor Mac",
     "Adobe Acrobat Pro alternative Mac",
     "lightweight PDF editor macOS",
-    "5MB PDF reader",
+    "EmDoc v1.1 DMG",
     "low RAM PDF app",
     "macOS PDF editor free",
     "offline air-gapped PDF suite",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     "fastest PDF reader macOS",
   ],
   openGraph: {
-    title: "EmDoc — Free macOS PDF Editor & Acrobat Alternative | COGIFY",
+    title: "EmDoc v1.1 — Free macOS PDF Editor & Acrobat Alternative | COGIFY",
     description:
-      "5.0 MB native macOS PDF workstation (~45 MB RAM). 100% offline air-gapped C++20 & AppKit PDF editor with vector ink, page organizer, OCR & compression.",
+      "7.8 MB native macOS PDF workstation (~45 MB RAM). Released Nov 6, 2026. 100% offline air-gapped PDF editor with vector ink, page organizer & compression.",
     url: "https://cogify.me/products/emdoc",
     images: [
       {

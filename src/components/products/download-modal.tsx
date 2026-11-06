@@ -7,7 +7,8 @@ import {
   ShieldCheck,
   CheckCircle2,
   ExternalLink,
-  Building2,
+  History,
+  Calendar,
 } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
@@ -33,21 +34,7 @@ export const DownloadModal = ({ isOpen, onClose }: DownloadModalProps) => {
   if (!isOpen) return null;
 
   const handleDownload = () => {
-    import("canvas-confetti")
-      .then((mod) => {
-        mod.default({
-          particleCount: 80,
-          spread: 60,
-          origin: { y: 0.7 },
-          colors: ["#6366f1", "#3b82f6", "#06b6d4", "#10b981"],
-        });
-      })
-      .catch(() => {
-        // ignore in headless test environments
-      });
-
     setDownloadStarted(true);
-
     const targetUrl = siteConfig.emdoc.downloadUrl || siteConfig.emdoc.appStoreUrl;
     window.open(targetUrl, "_blank", "noopener,noreferrer");
   };
@@ -58,20 +45,17 @@ export const DownloadModal = ({ isOpen, onClose }: DownloadModalProps) => {
       aria-modal="true"
       aria-labelledby="download-modal-title"
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 dark:bg-black/80 backdrop-blur-md animate-in fade-in duration-200 overscroll-contain"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/55 dark:bg-black/80 backdrop-blur-sm animate-in fade-in duration-200 overscroll-contain"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 rounded-2xl shadow-2xl p-6 sm:p-8 overflow-hidden text-zinc-900 dark:text-zinc-100 transition-colors duration-200"
+        className="relative w-full max-w-xl bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/15 rounded-[26px] shadow-2xl p-6 sm:p-8 overflow-hidden text-[#111] dark:text-[#f5f5f7] transition-colors duration-200"
       >
-        {/* Background glow */}
-        <div className="absolute -top-24 -right-24 w-60 h-60 bg-indigo-500/10 dark:bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
-
         {/* Close button */}
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-5 right-5 p-1.5 rounded-lg text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/10 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+          className="absolute top-5 right-5 p-1.5 rounded-full text-[#777] hover:text-[#111] dark:hover:text-white hover:bg-black/[0.05] dark:hover:bg-white/10 transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" aria-hidden="true" />
@@ -79,7 +63,7 @@ export const DownloadModal = ({ isOpen, onClose }: DownloadModalProps) => {
 
         {/* Modal Header */}
         <div className="flex items-center space-x-4 mb-6">
-          <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/15 shadow-lg bg-zinc-100 dark:bg-zinc-800 shrink-0">
+          <div className="relative w-16 h-16 rounded-[18px] overflow-hidden border border-black/[0.08] dark:border-white/15 bg-[#f5f5f5] dark:bg-[#0b0b0d] shrink-0">
             <Image
               src="/brand/emdoc-icon-sm.webp"
               alt="EmDoc App Icon"
@@ -89,57 +73,42 @@ export const DownloadModal = ({ isOpen, onClose }: DownloadModalProps) => {
             />
           </div>
           <div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <h3
                 id="download-modal-title"
-                className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white text-balance"
+                className="text-xl font-bold tracking-tight text-[#111] dark:text-white"
               >
-                Download EmDoc Workstation
+                Download EmDoc v{siteConfig.emdoc.version}
               </h3>
-              <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">
-                Mac App Store Live
+              <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-[#111] text-white dark:bg-white dark:text-[#111]">
+                Build {siteConfig.emdoc.build}
               </span>
             </div>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5 tabular-nums">
-              Version {siteConfig.emdoc.version} • Universal macOS Binary ({siteConfig.emdoc.appSize})
+            <p className="text-xs text-[#666] dark:text-[#a1a1aa] mt-1 inline-flex items-center gap-1.5 tabular-nums">
+              <Calendar className="w-3.5 h-3.5" />
+              <span>
+                Released {siteConfig.emdoc.releaseDate} • Universal Binary ({siteConfig.emdoc.appSize})
+              </span>
             </p>
           </div>
         </div>
 
-        {/* Privacy Callout */}
-        <div className="p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 mb-6 flex items-start gap-3">
-          <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" aria-hidden="true" />
-          <div className="text-xs text-emerald-900 dark:text-emerald-200/90 leading-relaxed text-pretty">
-            <strong className="text-emerald-700 dark:text-emerald-300 block mb-0.5">
-              100% Air-Gapped Zero-Cloud Guarantee
-            </strong>
-            All PDF rendering, compression, page organization, and AES-256 encryptions execute purely on your local Mac processor. Zero analytics, zero telemetric beacons.
+        {/* Privacy & Checksum Callout */}
+        <div className="p-4 rounded-2xl bg-[#f5f5f5] dark:bg-[#0b0b0d] border border-black/[0.06] dark:border-white/[0.08] mb-5 space-y-2">
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#111] dark:text-white">
+            <ShieldCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
+            <span>100% Air-Gapped Native Binary • SHA-256 Verified</span>
           </div>
-        </div>
-
-        {/* System Specifications Grid */}
-        <div className="grid grid-cols-2 gap-3 mb-6 text-xs">
-          <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200/80 dark:border-white/5 shadow-xs">
-            <span className="text-zinc-500 block mb-1">Compatibility</span>
-            <span className="font-semibold text-zinc-900 dark:text-zinc-200 tabular-nums">macOS 13.0+</span>
-            <span className="text-zinc-500 dark:text-zinc-400 block text-[11px] mt-0.5">
-              Ventura, Sonoma, Sequoia
-            </span>
-          </div>
-          <div className="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200/80 dark:border-white/5 shadow-xs">
-            <span className="text-zinc-500 block mb-1">Architecture</span>
-            <span className="font-semibold text-zinc-900 dark:text-zinc-200">Universal Binary</span>
-            <span className="text-zinc-500 dark:text-zinc-400 block text-[11px] mt-0.5">
-              Apple Silicon & Intel x86_64
-            </span>
-          </div>
+          <p className="text-[11px] font-mono break-all text-[#555] dark:text-[#a1a1aa] select-all">
+            {siteConfig.emdoc.sha256}
+          </p>
         </div>
 
         {/* Architecture Selector */}
         <div className="mb-6">
           <span
             id="arch-selector-label"
-            className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 block mb-2"
+            className="text-[11px] font-semibold uppercase tracking-wider text-[#777] dark:text-[#888] block mb-2"
           >
             Target Architecture
           </span>
@@ -149,76 +118,73 @@ export const DownloadModal = ({ isOpen, onClose }: DownloadModalProps) => {
             className="grid grid-cols-3 gap-2"
           >
             {[
-              { id: "universal", label: "Universal App", sub: "M1/M2/M3/M4 & Intel" },
-              { id: "arm64", label: "Apple Silicon", sub: "Optimized M-Series" },
-              { id: "x86_64", label: "Intel Core", sub: "64-bit Mac hardware" },
+              { id: "universal", label: "Universal App", sub: "M1–M4 & Intel" },
+              { id: "arm64", label: "Apple Silicon", sub: "Native arm64" },
+              { id: "x86_64", label: "Intel Core", sub: "64-bit Mac" },
             ].map((option) => (
               <button
                 key={option.id}
                 type="button"
                 aria-pressed={arch === option.id}
                 onClick={() => setArch(option.id as "universal" | "arm64" | "x86_64")}
-                className={`p-2.5 rounded-xl text-left border transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+                className={`p-2.5 rounded-xl text-left border transition-colors cursor-pointer ${
                   arch === option.id
-                    ? "bg-indigo-50 border-indigo-400 text-indigo-700 dark:bg-indigo-600/20 dark:border-indigo-500/50 dark:text-indigo-300 shadow-xs"
-                    : "bg-zinc-50 dark:bg-zinc-950/40 border-zinc-200 dark:border-white/5 text-zinc-600 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-white/15"
+                    ? "bg-[#111] text-white border-[#111] dark:bg-white dark:text-[#111] dark:border-white"
+                    : "bg-[#f5f5f5] dark:bg-[#0b0b0d] border-black/[0.07] dark:border-white/[0.08] text-[#555] dark:text-[#a1a1aa]"
                 }`}
               >
-                <div className="text-xs font-bold text-zinc-900 dark:text-zinc-200">
-                  {option.label}
-                </div>
-                <div className="text-[10px] text-zinc-500">{option.sub}</div>
+                <div className="text-xs font-semibold">{option.label}</div>
+                <div className="text-[10px] opacity-75">{option.sub}</div>
               </button>
             ))}
           </div>
         </div>
 
         {/* Download Actions */}
-        <div className="space-y-3">
+        <div className="space-y-2.5">
+          {siteConfig.emdoc.downloadUrl && (
+            <button
+              type="button"
+              onClick={handleDownload}
+              className="helumi-pill w-full justify-center text-sm cursor-pointer"
+            >
+              <Download className="w-4 h-4" aria-hidden="true" />
+              <span>
+                Download EmDoc-{siteConfig.emdoc.version}.dmg ({siteConfig.emdoc.appSize} • {arch.toUpperCase()})
+              </span>
+            </button>
+          )}
+
           <a
             href={siteConfig.emdoc.appStoreUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setDownloadStarted(true)}
-            className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-semibold text-sm transition-colors duration-200 shadow-lg shadow-indigo-600/25 flex items-center justify-center gap-2 cursor-pointer"
+            className="helumi-pill-secondary w-full justify-center text-sm"
           >
             <ExternalLink className="w-4 h-4" aria-hidden="true" />
-            <span>Download on the Mac App Store</span>
-            <span className="text-xs font-normal opacity-85 font-mono tabular-nums">
-              (v{siteConfig.emdoc.version} • Free)
-            </span>
+            <span>Open on Mac App Store</span>
           </a>
-
-          {siteConfig.emdoc.downloadUrl && (
-            <button
-              type="button"
-              onClick={handleDownload}
-              className="w-full py-2.5 px-5 rounded-xl border border-zinc-200 dark:border-white/10 hover:bg-zinc-100 dark:hover:bg-white/5 text-zinc-700 dark:text-zinc-300 font-medium text-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <Download className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>Direct Standalone DMG ({arch.toUpperCase()})</span>
-            </button>
-          )}
 
           {downloadStarted && (
             <div
               role="status"
               aria-live="polite"
-              className="p-3 rounded-lg bg-emerald-50 dark:bg-zinc-950/80 border border-emerald-300 dark:border-indigo-500/30 text-xs text-emerald-900 dark:text-indigo-300 flex items-center gap-2 animate-in fade-in"
+              className="p-3 rounded-xl bg-[#f5f5f5] dark:bg-[#0b0b0d] border border-black/[0.08] dark:border-white/10 text-xs text-[#111] dark:text-[#f5f5f7] flex items-center gap-2"
             >
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" aria-hidden="true" />
-              <span>Opening official Apple Mac App Store page for EmDoc…</span>
+              <CheckCircle2 className="w-4 h-4 shrink-0" aria-hidden="true" />
+              <span>Starting EmDoc v{siteConfig.emdoc.version} installer download…</span>
             </div>
           )}
 
-          <div className="flex items-center justify-between text-[11px] text-zinc-500 pt-2 border-t border-zinc-200/80 dark:border-white/5">
+          <div className="flex items-center justify-between text-xs text-[#666] dark:text-[#a1a1aa] pt-3 border-t border-black/[0.06] dark:border-white/[0.08]">
             <Link
-              href="/enterprise"
+              href="/products/emdoc/releases"
               onClick={onClose}
-              className="flex items-center gap-1 hover:text-indigo-400 transition-colors"
+              className="inline-flex items-center gap-1.5 hover:text-[#111] dark:hover:text-white transition-colors font-medium"
             >
-              <Building2 className="w-3.5 h-3.5" aria-hidden="true" />
-              Need MDM / PKG Enterprise Deployment?
+              <History className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>Download Previous Versions (v1.0.0, v0.0.2, v0.0.1)</span>
             </Link>
           </div>
         </div>

@@ -69,6 +69,21 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/emdoc/releases",
+        destination: "/products/emdoc/releases",
+        permanent: true,
+      },
+      {
+        source: "/releases",
+        destination: "/products/emdoc/releases",
+        permanent: true,
+      },
+      {
+        source: "/downloads",
+        destination: "/products/emdoc/releases",
+        permanent: true,
+      },
+      {
         source: "/products/biodata",
         destination: "/biodata",
         permanent: true,

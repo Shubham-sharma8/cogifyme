@@ -138,10 +138,10 @@ export const EmDocGallery = () => {
                   });
                 }}
                 className={cn(
-                  "flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-[background-color,border-color,color,transform] duration-200 shrink-0 cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
+                  "flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-[background-color,border-color,color,transform] duration-200 shrink-0 cursor-pointer border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white",
                   isActive
-                    ? "bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-600/25 scale-[1.02]"
-                    : "bg-white/90 dark:bg-zinc-900/70 text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white border-zinc-200/90 dark:border-white/10 hover:bg-zinc-100 dark:hover:bg-zinc-800/80"
+                    ? "bg-[#111] text-white border-[#111] dark:bg-white dark:text-[#111] dark:border-white shadow-sm"
+                    : "bg-white dark:bg-[#141417] text-[#555] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white border-black/[0.08] dark:border-white/[0.1]"
                 )}
                 title={item.title}
               >
@@ -265,21 +265,21 @@ export const EmDocGallery = () => {
         </div>
 
         {/* Bottom Feature Details & Highlights */}
-        <div className="p-6 sm:p-8 bg-white dark:bg-zinc-950 border-t border-zinc-200/90 dark:border-white/10">
+        <div className="p-6 sm:p-8 bg-white dark:bg-[#141417] border-t border-black/[0.07] dark:border-white/10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             <div className="lg:col-span-7 space-y-2">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-500/20">
+                <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-[#f5f5f5] text-[#111] dark:bg-white/[0.08] dark:text-[#f5f5f7] border border-black/[0.07] dark:border-white/[0.1]">
                   {activeScreenshot.tag}
                 </span>
-                <span className="text-xs text-zinc-600 dark:text-zinc-400 font-mono tabular-nums">
+                <span className="text-xs text-[#666] dark:text-[#a1a1aa] font-mono tabular-nums">
                   Screenshot {activeIndex + 1} of {screenshots.length}
                 </span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white text-balance">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#111] dark:text-white text-balance">
                 {activeScreenshot.title}
               </h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty">
+              <p className="text-sm text-[#555] dark:text-[#a1a1aa] leading-relaxed text-pretty">
                 {activeScreenshot.description}
               </p>
             </div>
@@ -289,9 +289,9 @@ export const EmDocGallery = () => {
               {activeScreenshot.highlights.map((highlight, idx) => (
                 <div
                   key={idx}
-                  className="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200/70 dark:border-white/5 flex items-start gap-2 text-xs text-zinc-700 dark:text-zinc-300"
+                  className="p-2.5 rounded-xl bg-[#f5f5f5] dark:bg-[#0b0b0d] border border-black/[0.06] dark:border-white/[0.08] flex items-start gap-2 text-xs text-[#333] dark:text-[#d4d4d8]"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" aria-hidden="true" />
+                  <CheckCircle2 className="w-4 h-4 text-[#111] dark:text-white shrink-0 mt-0.5" aria-hidden="true" />
                   <span className="leading-tight">{highlight}</span>
                 </div>
               ))}

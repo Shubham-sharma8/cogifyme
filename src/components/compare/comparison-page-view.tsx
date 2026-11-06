@@ -4,18 +4,10 @@ import Link from "next/link";
 import {
   Download,
   CheckCircle2,
-  ShieldCheck,
   Cpu,
   HardDrive,
   DollarSign,
   ArrowUpRight,
-  Scale,
-  Sparkles,
-  ChevronRight,
-  Lock,
-  Terminal,
-  Layers,
-  Info,
   ExternalLink,
 } from "lucide-react";
 import { FaqSection } from "@/components/seo/faq-section";
@@ -27,51 +19,7 @@ interface ComparisonPageViewProps {
   guide: ComparisonGuide;
 }
 
-const ACCENT_STYLES = {
-  indigo: {
-    badge: "bg-indigo-500/10 border-indigo-500/25 text-indigo-700 dark:text-indigo-300",
-    button: "bg-indigo-600 hover:bg-indigo-500 text-white shadow-indigo-500/25",
-    bar: "bg-gradient-to-r from-indigo-500 to-cyan-400",
-    borderHighlight: "border-indigo-500/40 dark:border-indigo-400/40",
-    glow: "from-indigo-500/15 via-cyan-500/5 to-transparent",
-    text: "text-indigo-600 dark:text-indigo-400",
-  },
-  emerald: {
-    badge: "bg-emerald-500/10 border-emerald-500/25 text-emerald-700 dark:text-emerald-300",
-    button: "bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-500/25",
-    bar: "bg-gradient-to-r from-emerald-500 to-teal-400",
-    borderHighlight: "border-emerald-500/40 dark:border-emerald-400/40",
-    glow: "from-emerald-500/15 via-teal-500/5 to-transparent",
-    text: "text-emerald-600 dark:text-emerald-400",
-  },
-  cyan: {
-    badge: "bg-cyan-500/10 border-cyan-500/25 text-cyan-700 dark:text-cyan-300",
-    button: "bg-cyan-600 hover:bg-cyan-500 text-white shadow-cyan-500/25",
-    bar: "bg-gradient-to-r from-cyan-500 to-blue-400",
-    borderHighlight: "border-cyan-500/40 dark:border-cyan-400/40",
-    glow: "from-cyan-500/15 via-blue-500/5 to-transparent",
-    text: "text-cyan-600 dark:text-cyan-400",
-  },
-  amber: {
-    badge: "bg-amber-500/10 border-amber-500/25 text-amber-800 dark:text-amber-300",
-    button: "bg-amber-600 hover:bg-amber-500 text-white shadow-amber-500/25",
-    bar: "bg-gradient-to-r from-amber-500 to-orange-400",
-    borderHighlight: "border-amber-500/40 dark:border-amber-400/40",
-    glow: "from-amber-500/15 via-orange-500/5 to-transparent",
-    text: "text-amber-600 dark:text-amber-400",
-  },
-  violet: {
-    badge: "bg-violet-500/10 border-violet-500/25 text-violet-700 dark:text-violet-300",
-    button: "bg-violet-600 hover:bg-violet-500 text-white shadow-violet-500/25",
-    bar: "bg-gradient-to-r from-violet-500 to-fuchsia-400",
-    borderHighlight: "border-violet-500/40 dark:border-violet-400/40",
-    glow: "from-violet-500/15 via-fuchsia-500/5 to-transparent",
-    text: "text-violet-600 dark:text-violet-400",
-  },
-};
-
 export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
-  const accent = ACCENT_STYLES[guide.accentColor] || ACCENT_STYLES.indigo;
   const otherGuides = COMPARISON_GUIDES.filter((g) => g.slug !== guide.slug);
 
   const maxBinaryMb = Math.max(
@@ -100,7 +48,7 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
       `https://cogify.me${guide.appIcon}`,
     ],
     datePublished: "2026-03-01",
-    dateModified: "2026-10-28",
+    dateModified: "2026-11-06",
     author: {
       "@type": "Person",
       "@id": "https://cogify.me/#founder",
@@ -130,21 +78,15 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] dark:bg-[#060911] text-zinc-900 dark:text-white selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-[#f5f5f5] dark:bg-[#0b0b0d] text-black dark:text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(comparisonJsonLd) }}
       />
 
       {/* Hero Section */}
-      <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-20 overflow-hidden border-b border-zinc-200/80 dark:border-white/[0.06]">
-        <div
-          className={`pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-gradient-to-b ${accent.glow}`}
-          aria-hidden="true"
-        />
-
-        <div className="relative max-w-6xl mx-auto px-6">
-          {/* Visible Breadcrumb Trail + JSON-LD */}
+      <section className="pt-28 pb-14 sm:pt-36 sm:pb-16 border-b border-black/[0.07] dark:border-white/[0.08]">
+        <div className="max-w-[920px] mx-auto px-6">
           <Breadcrumbs
             items={[
               { label: "macOS Comparisons", href: "/compare" },
@@ -156,26 +98,23 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
             className="mb-6"
           />
 
-          <div
-            className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-bold uppercase tracking-widest mb-5 whitespace-nowrap ${accent.badge}`}
-          >
-            <Scale className="w-3.5 h-3.5" />
-            <span>{guide.heroBadge}</span>
-          </div>
+          <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-black/45 dark:text-white/45 mb-3">
+            {guide.heroBadge}
+          </p>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-zinc-950 dark:text-white leading-[1.12] text-balance max-w-4xl">
+          <h1 className="text-[32px] sm:text-[48px] font-semibold tracking-[-0.035em] text-black dark:text-white leading-[1.1] max-w-3xl">
             {guide.h1Title}
           </h1>
 
-          <p className="mt-5 text-base sm:text-xl text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-3xl text-pretty">
+          <p className="mt-4 text-[16px] sm:text-[18px] text-black/60 dark:text-white/60 leading-[1.6] max-w-2xl">
             {guide.subtitle}
           </p>
 
           {/* Top Action & Quick Spec Bar */}
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="mt-7 flex flex-wrap items-center gap-3">
             <a
               href={guide.downloadUrl}
-              className={`inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-sm shadow-lg transition-all active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${accent.button}`}
+              className="helumi-pill px-6 py-3 text-[13px] font-medium inline-flex items-center gap-2"
             >
               <Download className="w-4 h-4" />
               <span>
@@ -187,10 +126,10 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
 
             <Link
               href={guide.appHref}
-              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white dark:bg-white/[0.05] hover:bg-zinc-100 dark:hover:bg-white/[0.1] border border-zinc-200/90 dark:border-white/[0.1] text-zinc-900 dark:text-white font-bold text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/[0.1] hover:border-black/25 dark:hover:border-white/25 text-black dark:text-white font-medium text-[13px] transition-colors"
             >
               <span>Inspect {guide.appShortName} Full Specs</span>
-              <ArrowUpRight className="w-4 h-4 text-zinc-400" />
+              <ArrowUpRight className="w-4 h-4 text-black/45 dark:text-white/45" />
             </Link>
 
             {guide.appStoreUrl && guide.appStoreUrl !== guide.downloadUrl && (
@@ -198,7 +137,7 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
                 href={guide.appStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-3.5 rounded-2xl text-xs font-bold text-zinc-600 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-3 text-[12px] font-medium text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
               >
                 <span>Mac App Store Verified</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -207,10 +146,8 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
           </div>
 
           {/* Executive Verdict Callout Box */}
-          <div
-            className={`mt-10 rounded-3xl bg-white dark:bg-[#0b0f19] border-2 ${accent.borderHighlight} p-6 sm:p-8 shadow-sm`}
-          >
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 mb-5 border-b border-zinc-200/80 dark:border-white/[0.07]">
+          <div className="mt-10 rounded-[24px] bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/[0.09] p-6 sm:p-8 shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 mb-5 border-b border-black/[0.07] dark:border-white/[0.08]">
               <div className="flex items-center gap-3.5">
                 <Image
                   src={guide.appIcon}
@@ -220,78 +157,78 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
                   className="w-12 h-12 rounded-xl object-contain shrink-0"
                 />
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700 dark:text-emerald-400 block">
                     60-Second Engineering Verdict
                   </span>
-                  <h2 className="text-lg sm:text-xl font-extrabold text-zinc-950 dark:text-white">
-                    Why {guide.appShortName} Leads on Apple Silicon
+                  <h2 className="text-[18px] sm:text-[20px] font-semibold text-black dark:text-white">
+                    Why {guide.appShortName} leads on Apple Silicon
                   </h2>
                 </div>
               </div>
 
               <div className="flex flex-wrap items-center gap-2 tabular-nums">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold whitespace-nowrap">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-[12px] font-medium whitespace-nowrap">
                   <DollarSign className="w-3.5 h-3.5" /> {guide.cogifySpec.price}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/[0.06] text-zinc-800 dark:text-zinc-200 text-xs font-mono font-semibold whitespace-nowrap">
-                  <HardDrive className="w-3.5 h-3.5 text-indigo-500" /> {guide.cogifySpec.binarySize}
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f5f5] dark:bg-white/[0.06] text-black/80 dark:text-white/80 text-[12px] font-mono whitespace-nowrap">
+                  <HardDrive className="w-3.5 h-3.5" /> {guide.cogifySpec.binarySize}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/[0.06] text-zinc-800 dark:text-zinc-200 text-xs font-mono font-semibold whitespace-nowrap">
-                  <Cpu className="w-3.5 h-3.5 text-cyan-500" /> {guide.cogifySpec.ramUsage}
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f5f5] dark:bg-white/[0.06] text-black/80 dark:text-white/80 text-[12px] font-mono whitespace-nowrap">
+                  <Cpu className="w-3.5 h-3.5" /> {guide.cogifySpec.ramUsage}
                 </span>
               </div>
             </div>
 
-            <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+            <p className="text-[14px] sm:text-[15px] text-black/70 dark:text-white/70 leading-relaxed">
               {guide.verdictSummary}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Section 1: Visual Resource & Cost Benchmark Bars (UI/UX Pro Max Data Viz) */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-b border-zinc-200/80 dark:border-white/[0.06]">
-        <div className="mb-10">
-          <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
-            <Cpu className="w-3.5 h-3.5" /> Empirical Telemetry Benchmarks
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white mt-1">
+      {/* Section 1: Visual Resource & Cost Benchmark Bars */}
+      <section className="max-w-[920px] mx-auto px-6 py-14 border-b border-black/[0.07] dark:border-white/[0.08]">
+        <div className="mb-8">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-black/45 dark:text-white/45 mb-1">
+            Empirical Telemetry Benchmarks
+          </p>
+          <h2 className="text-[24px] sm:text-[30px] font-semibold tracking-[-0.025em] text-black dark:text-white">
             Resource Footprint &amp; 3-Year Cost Comparison
           </h2>
-          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mt-1.5 max-w-2xl">
-            Measured on macOS Sequoia (Apple Silicon M-Series). Lower bars indicate smaller disk bloat, lower RAM footprint, and lower subscription cost.
+          <p className="text-[14px] text-black/60 dark:text-white/60 mt-1 max-w-2xl">
+            Measured on macOS Sequoia (Apple Silicon M-Series). Lower bars indicate smaller disk footprint, lower RAM usage, and lower cost.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 tabular-nums">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 tabular-nums">
           {/* Card 1: Binary Size */}
-          <div className="rounded-3xl bg-white dark:bg-[#0b0f17] border border-zinc-200/90 dark:border-white/[0.08] p-6 shadow-xs">
+          <div className="rounded-[22px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] p-6">
             <div className="flex items-center justify-between gap-2 mb-5">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 block">
+                <span className="text-[11px] font-medium uppercase tracking-wider text-black/45 dark:text-white/45 block">
                   Disk Footprint
                 </span>
-                <h3 className="text-base font-extrabold text-zinc-950 dark:text-white">
-                  Installer / App Size (MB)
+                <h3 className="text-[15px] font-semibold text-black dark:text-white">
+                  Installer / App Size
                 </h3>
               </div>
-              <HardDrive className="w-5 h-5 text-indigo-500 shrink-0" />
+              <HardDrive className="w-4 h-4 text-black/45 dark:text-white/45 shrink-0" />
             </div>
 
             <div className="space-y-4">
-              {/* Cogify Bar */}
               <div>
-                <div className="flex items-center justify-between text-xs font-bold mb-1.5">
-                  <span className="text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> {guide.appShortName} (Cogify)
+                <div className="flex items-center justify-between text-[12px] font-semibold mb-1.5">
+                  <span className="text-black dark:text-white flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />{" "}
+                    {guide.appShortName}
                   </span>
-                  <span className="font-mono text-zinc-950 dark:text-white">
+                  <span className="font-mono text-black dark:text-white">
                     {guide.cogifySpec.binarySize}
                   </span>
                 </div>
-                <div className="w-full h-2.5 rounded-full bg-zinc-100 dark:bg-white/[0.06] overflow-hidden">
+                <div className="w-full h-2 rounded-full bg-[#f5f5f5] dark:bg-white/[0.06] overflow-hidden">
                   <div
-                    className={`h-full rounded-full ${accent.bar}`}
+                    className="h-full rounded-full bg-black dark:bg-white"
                     style={{
                       width: `${Math.max((guide.cogifySpec.binarySizeMb / maxBinaryMb) * 100, 5)}%`,
                     }}
@@ -299,18 +236,17 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
                 </div>
               </div>
 
-              {/* Competitors */}
               {guide.competitors.map((comp) => (
                 <div key={comp.name}>
-                  <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="font-medium text-zinc-600 dark:text-zinc-400">{comp.name}</span>
-                    <span className="font-mono text-zinc-700 dark:text-zinc-300">
+                  <div className="flex items-center justify-between text-[12px] mb-1.5">
+                    <span className="text-black/60 dark:text-white/60">{comp.name}</span>
+                    <span className="font-mono text-black/65 dark:text-white/65">
                       {comp.binarySize}
                     </span>
                   </div>
-                  <div className="w-full h-2.5 rounded-full bg-zinc-100 dark:bg-white/[0.06] overflow-hidden">
+                  <div className="w-full h-2 rounded-full bg-[#f5f5f5] dark:bg-white/[0.06] overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-zinc-400 dark:bg-zinc-600"
+                      className="h-full rounded-full bg-black/25 dark:bg-white/25"
                       style={{
                         width: `${Math.max((comp.binarySizeMb / maxBinaryMb) * 100, 6)}%`,
                       }}
@@ -322,32 +258,33 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
           </div>
 
           {/* Card 2: Baseline RAM */}
-          <div className="rounded-3xl bg-white dark:bg-[#0b0f17] border border-zinc-200/90 dark:border-white/[0.08] p-6 shadow-xs">
+          <div className="rounded-[22px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] p-6">
             <div className="flex items-center justify-between gap-2 mb-5">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 block">
-                  Unified Memory Pressure
+                <span className="text-[11px] font-medium uppercase tracking-wider text-black/45 dark:text-white/45 block">
+                  Unified Memory
                 </span>
-                <h3 className="text-base font-extrabold text-zinc-950 dark:text-white">
-                  Active RAM Footprint (MB)
+                <h3 className="text-[15px] font-semibold text-black dark:text-white">
+                  Active RAM Footprint
                 </h3>
               </div>
-              <Cpu className="w-5 h-5 text-emerald-500 shrink-0" />
+              <Cpu className="w-4 h-4 text-black/45 dark:text-white/45 shrink-0" />
             </div>
 
             <div className="space-y-4">
               <div>
-                <div className="flex items-center justify-between text-xs font-bold mb-1.5">
-                  <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> {guide.appShortName} (Cogify)
+                <div className="flex items-center justify-between text-[12px] font-semibold mb-1.5">
+                  <span className="text-black dark:text-white flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />{" "}
+                    {guide.appShortName}
                   </span>
-                  <span className="font-mono text-zinc-950 dark:text-white">
+                  <span className="font-mono text-black dark:text-white">
                     {guide.cogifySpec.ramUsage}
                   </span>
                 </div>
-                <div className="w-full h-2.5 rounded-full bg-zinc-100 dark:bg-white/[0.06] overflow-hidden">
+                <div className="w-full h-2 rounded-full bg-[#f5f5f5] dark:bg-white/[0.06] overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400"
+                    className="h-full rounded-full bg-black dark:bg-white"
                     style={{
                       width: `${Math.max((guide.cogifySpec.ramUsageMb / maxRamMb) * 100, 5)}%`,
                     }}
@@ -357,15 +294,15 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
 
               {guide.competitors.map((comp) => (
                 <div key={comp.name}>
-                  <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="font-medium text-zinc-600 dark:text-zinc-400">{comp.name}</span>
-                    <span className="font-mono text-zinc-700 dark:text-zinc-300">
+                  <div className="flex items-center justify-between text-[12px] mb-1.5">
+                    <span className="text-black/60 dark:text-white/60">{comp.name}</span>
+                    <span className="font-mono text-black/65 dark:text-white/65">
                       {comp.ramUsage}
                     </span>
                   </div>
-                  <div className="w-full h-2.5 rounded-full bg-zinc-100 dark:bg-white/[0.06] overflow-hidden">
+                  <div className="w-full h-2 rounded-full bg-[#f5f5f5] dark:bg-white/[0.06] overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-zinc-400 dark:bg-zinc-600"
+                      className="h-full rounded-full bg-black/25 dark:bg-white/25"
                       style={{
                         width: `${Math.max((comp.ramUsageMb / maxRamMb) * 100, 6)}%`,
                       }}
@@ -377,43 +314,44 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
           </div>
 
           {/* Card 3: 3-Year Cost */}
-          <div className="rounded-3xl bg-white dark:bg-[#0b0f17] border border-zinc-200/90 dark:border-white/[0.08] p-6 shadow-xs">
+          <div className="rounded-[22px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] p-6">
             <div className="flex items-center justify-between gap-2 mb-5">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 block">
+                <span className="text-[11px] font-medium uppercase tracking-wider text-black/45 dark:text-white/45 block">
                   Total Cost of Ownership
                 </span>
-                <h3 className="text-base font-extrabold text-zinc-950 dark:text-white">
-                  3-Year License Cost ($ USD)
+                <h3 className="text-[15px] font-semibold text-black dark:text-white">
+                  3-Year License Cost
                 </h3>
               </div>
-              <DollarSign className="w-5 h-5 text-amber-500 shrink-0" />
+              <DollarSign className="w-4 h-4 text-black/45 dark:text-white/45 shrink-0" />
             </div>
 
             <div className="space-y-4">
               <div>
-                <div className="flex items-center justify-between text-xs font-bold mb-1.5">
-                  <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> {guide.appShortName} (Cogify)
+                <div className="flex items-center justify-between text-[12px] font-semibold mb-1.5">
+                  <span className="text-black dark:text-white flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />{" "}
+                    {guide.appShortName}
                   </span>
-                  <span className="font-mono text-emerald-600 dark:text-emerald-400 font-extrabold">
+                  <span className="font-mono text-emerald-700 dark:text-emerald-400 font-semibold">
                     $0.00 Forever
                   </span>
                 </div>
-                <div className="w-full h-2.5 rounded-full bg-zinc-100 dark:bg-white/[0.06] overflow-hidden">
+                <div className="w-full h-2 rounded-full bg-[#f5f5f5] dark:bg-white/[0.06] overflow-hidden">
                   <div className="h-full rounded-full bg-emerald-500" style={{ width: "4%" }} />
                 </div>
               </div>
 
               {guide.competitors.map((comp) => (
                 <div key={comp.name}>
-                  <div className="flex items-center justify-between text-xs mb-1.5">
-                    <span className="font-medium text-zinc-600 dark:text-zinc-400">{comp.name}</span>
-                    <span className="font-mono text-zinc-700 dark:text-zinc-300">{comp.price}</span>
+                  <div className="flex items-center justify-between text-[12px] mb-1.5">
+                    <span className="text-black/60 dark:text-white/60">{comp.name}</span>
+                    <span className="font-mono text-black/65 dark:text-white/65">{comp.price}</span>
                   </div>
-                  <div className="w-full h-2.5 rounded-full bg-zinc-100 dark:bg-white/[0.06] overflow-hidden">
+                  <div className="w-full h-2 rounded-full bg-[#f5f5f5] dark:bg-white/[0.06] overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-rose-500/80 dark:bg-rose-500/70"
+                      className="h-full rounded-full bg-black/25 dark:bg-white/25"
                       style={{
                         width: `${
                           comp.threeYearCostUsd === 0
@@ -431,97 +369,89 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
       </section>
 
       {/* Section 2: Full Feature & Architecture Matrix Table */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-b border-zinc-200/80 dark:border-white/[0.06]">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <section className="max-w-[920px] mx-auto px-6 py-14 border-b border-black/[0.07] dark:border-white/[0.08]">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
           <div>
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
-              <Layers className="w-3.5 h-3.5" /> Head-to-Head Specification Matrix
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white mt-1">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-black/45 dark:text-white/45 mb-1">
+              Specification Matrix
+            </p>
+            <h2 className="text-[24px] sm:text-[30px] font-semibold tracking-[-0.025em] text-black dark:text-white">
               {guide.appShortName} vs. {guide.competitors[0].name}, {guide.competitors[1].name} &amp;{" "}
               {guide.competitors[2].name}
             </h2>
           </div>
-          <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400 whitespace-nowrap">
-            Swipe horizontally on mobile →
-          </span>
         </div>
 
-        <div className="rounded-3xl bg-white dark:bg-[#0b0f17] border border-zinc-200/90 dark:border-white/[0.08] shadow-sm overflow-hidden">
+        <div className="rounded-[24px] bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/[0.09] overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[760px] tabular-nums">
+            <table className="w-full text-left border-collapse min-w-[720px] tabular-nums">
               <thead>
-                <tr className="border-b border-zinc-200/90 dark:border-white/[0.08] bg-zinc-50/80 dark:bg-white/[0.02]">
-                  <th className="py-4 px-5 text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 w-[28%]">
+                <tr className="border-b border-black/[0.07] dark:border-white/[0.08] bg-[#f5f5f5]/60 dark:bg-white/[0.02]">
+                  <th className="py-4 px-5 text-[11px] font-semibold uppercase tracking-wider text-black/50 dark:text-white/50 w-[28%]">
                     Capability / Architecture
                   </th>
-                  <th className="py-4 px-5 text-sm font-black text-indigo-600 dark:text-indigo-400 bg-indigo-500/[0.05] dark:bg-indigo-500/[0.08] border-x border-indigo-500/20 w-[24%]">
+                  <th className="py-4 px-5 text-[13px] font-semibold text-black dark:text-white bg-black/[0.03] dark:bg-white/[0.04] border-x border-black/[0.07] dark:border-white/[0.08] w-[24%]">
                     <div className="flex items-center gap-2">
                       <Image
                         src={guide.appIcon}
                         alt={guide.appShortName}
-                        width={22}
-                        height={22}
-                        className="w-5.5 h-5.5 rounded-md object-contain"
+                        width={20}
+                        height={20}
+                        className="w-5 h-5 rounded-md object-contain"
                       />
                       <span>{guide.appShortName}</span>
-                      <span className="ml-auto px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 whitespace-nowrap">
+                      <span className="ml-auto px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">
                         FREE
                       </span>
                     </div>
                   </th>
-                  <th className="py-4 px-5 text-xs font-bold text-zinc-800 dark:text-zinc-200 w-[16%]">
+                  <th className="py-4 px-5 text-[12px] font-semibold text-black/75 dark:text-white/75 w-[16%]">
                     {guide.competitors[0].name}
                   </th>
-                  <th className="py-4 px-5 text-xs font-bold text-zinc-800 dark:text-zinc-200 w-[16%]">
+                  <th className="py-4 px-5 text-[12px] font-semibold text-black/75 dark:text-white/75 w-[16%]">
                     {guide.competitors[1].name}
                   </th>
-                  <th className="py-4 px-5 text-xs font-bold text-zinc-800 dark:text-zinc-200 w-[16%]">
+                  <th className="py-4 px-5 text-[12px] font-semibold text-black/75 dark:text-white/75 w-[16%]">
                     {guide.competitors[2].name}
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-zinc-200/70 dark:divide-white/[0.06] text-xs sm:text-sm">
-                {/* Architecture Row */}
-                <tr className="hover:bg-zinc-50/70 dark:hover:bg-white/[0.015] transition-colors">
-                  <td className="py-4 px-5 font-bold text-zinc-900 dark:text-white">
+              <tbody className="divide-y divide-black/[0.06] dark:divide-white/[0.06] text-[13px]">
+                <tr>
+                  <td className="py-4 px-5 font-semibold text-black dark:text-white">
                     Core Engine &amp; Stack
                   </td>
-                  <td className="py-4 px-5 font-bold text-zinc-950 dark:text-white bg-indigo-500/[0.04] dark:bg-indigo-500/[0.06] border-x border-indigo-500/15">
+                  <td className="py-4 px-5 font-semibold text-black dark:text-white bg-black/[0.02] dark:bg-white/[0.03] border-x border-black/[0.06] dark:border-white/[0.07]">
                     {guide.cogifySpec.architecture}
                   </td>
-                  <td className="py-4 px-5 text-zinc-600 dark:text-zinc-400">
+                  <td className="py-4 px-5 text-black/60 dark:text-white/60">
                     {guide.competitors[0].architecture}
                   </td>
-                  <td className="py-4 px-5 text-zinc-600 dark:text-zinc-400">
+                  <td className="py-4 px-5 text-black/60 dark:text-white/60">
                     {guide.competitors[1].architecture}
                   </td>
-                  <td className="py-4 px-5 text-zinc-600 dark:text-zinc-400">
+                  <td className="py-4 px-5 text-black/60 dark:text-white/60">
                     {guide.competitors[2].architecture}
                   </td>
                 </tr>
 
-                {/* Dynamic Feature Rows */}
                 {guide.featureMatrix.map((row, idx) => (
-                  <tr
-                    key={idx}
-                    className="hover:bg-zinc-50/70 dark:hover:bg-white/[0.015] transition-colors"
-                  >
+                  <tr key={idx}>
                     <td className="py-4 px-5">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 block mb-0.5">
+                      <span className="text-[10px] font-semibold uppercase tracking-wider text-black/40 dark:text-white/40 block mb-0.5">
                         {row.category}
                       </span>
-                      <span className="font-bold text-zinc-900 dark:text-white">{row.feature}</span>
+                      <span className="font-semibold text-black dark:text-white">{row.feature}</span>
                     </td>
-                    <td className="py-4 px-5 font-bold text-zinc-950 dark:text-white bg-indigo-500/[0.04] dark:bg-indigo-500/[0.06] border-x border-indigo-500/15">
+                    <td className="py-4 px-5 font-medium text-black dark:text-white bg-black/[0.02] dark:bg-white/[0.03] border-x border-black/[0.06] dark:border-white/[0.07]">
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                         <span>{row.cogify}</span>
                       </div>
                     </td>
-                    <td className="py-4 px-5 text-zinc-600 dark:text-zinc-400">{row.comp1}</td>
-                    <td className="py-4 px-5 text-zinc-600 dark:text-zinc-400">{row.comp2}</td>
-                    <td className="py-4 px-5 text-zinc-600 dark:text-zinc-400">{row.comp3}</td>
+                    <td className="py-4 px-5 text-black/60 dark:text-white/60">{row.comp1}</td>
+                    <td className="py-4 px-5 text-black/60 dark:text-white/60">{row.comp2}</td>
+                    <td className="py-4 px-5 text-black/60 dark:text-white/60">{row.comp3}</td>
                   </tr>
                 ))}
               </tbody>
@@ -530,50 +460,47 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
         </div>
       </section>
 
-      {/* Section 3: Honest Buyer Guidance (When to Choose Cogify vs Competitors) */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-b border-zinc-200/80 dark:border-white/[0.06]">
-        <div className="mb-10">
-          <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
-            <ShieldCheck className="w-3.5 h-3.5" /> Transparent Engineering Recommendation
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white mt-1">
-            Which macOS Tool Should You Actually Install?
-          </h2>
-          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mt-1.5 max-w-2xl">
-            We believe in honest technical comparisons. Here is exactly when {guide.appShortName} is your best fit—and when a competitor might serve a niche workflow better.
+      {/* Section 3: Honest Buyer Guidance */}
+      <section className="max-w-[920px] mx-auto px-6 py-14 border-b border-black/[0.07] dark:border-white/[0.08]">
+        <div className="mb-8">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-black/45 dark:text-white/45 mb-1">
+            Transparent Recommendation
           </p>
+          <h2 className="text-[24px] sm:text-[30px] font-semibold tracking-[-0.025em] text-black dark:text-white">
+            Which macOS tool should you install?
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Choose Cogify Column */}
-          <div
-            className={`lg:col-span-7 rounded-3xl bg-white dark:bg-[#0b0f17] border-2 ${accent.borderHighlight} p-6 sm:p-8 shadow-sm flex flex-col justify-between`}
-          >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <div className="lg:col-span-7 rounded-[24px] bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/[0.09] p-6 sm:p-8 flex flex-col justify-between">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[11px] font-semibold uppercase tracking-wider mb-4">
                 <CheckCircle2 className="w-3.5 h-3.5" /> Recommended for 95% of Mac Users
-              </div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-zinc-950 dark:text-white mb-5">
+              </span>
+              <h3 className="text-[20px] font-semibold text-black dark:text-white mb-4">
                 Choose {guide.appName} if:
               </h3>
 
-              <ul className="space-y-4">
+              <ul className="space-y-3.5">
                 {guide.whenToChooseCogify.map((point, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <li
+                    key={i}
+                    className="flex items-start gap-2.5 text-[14px] text-black/70 dark:text-white/70 leading-relaxed"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-1" />
                     <span>{point}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-zinc-200/80 dark:border-white/[0.07] flex flex-wrap items-center justify-between gap-4">
-              <div className="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
-                Apple Developer ID Notarized • macOS 13+ Universal
+            <div className="mt-7 pt-5 border-t border-black/[0.07] dark:border-white/[0.08] flex flex-wrap items-center justify-between gap-4">
+              <div className="text-[11px] text-black/45 dark:text-white/45 font-mono">
+                Apple Developer ID Notarized · macOS 13+ Universal
               </div>
               <a
                 href={guide.downloadUrl}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs shadow-md transition-all ${accent.button}`}
+                className="helumi-pill px-5 py-2.5 text-[12px] font-medium inline-flex items-center gap-2"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Download {guide.appShortName} ($0)</span>
@@ -581,99 +508,67 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
             </div>
           </div>
 
-          {/* Choose Competitors Column */}
-          <div className="lg:col-span-5 rounded-3xl bg-white dark:bg-[#0b0f17] border border-zinc-200/90 dark:border-white/[0.08] p-6 sm:p-8 shadow-xs flex flex-col justify-between">
+          <div className="lg:col-span-5 rounded-[24px] bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/[0.09] p-6 sm:p-8 flex flex-col justify-between">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-white/[0.06] text-zinc-700 dark:text-zinc-300 text-xs font-bold uppercase tracking-wider mb-4">
-                <Info className="w-3.5 h-3.5" /> Niche &amp; Enterprise Edge Cases
-              </div>
-              <h3 className="text-xl font-extrabold text-zinc-950 dark:text-white mb-5">
-                When to Consider Alternatives:
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f5f5] dark:bg-white/[0.06] text-black/65 dark:text-white/65 text-[11px] font-semibold uppercase tracking-wider mb-4">
+                Niche Edge Cases
+              </span>
+              <h3 className="text-[18px] font-semibold text-black dark:text-white mb-4">
+                When to consider alternatives:
               </h3>
 
-              <div className="space-y-5">
+              <div className="space-y-3.5">
                 {guide.whenToChooseCompetitors.map((item) => (
                   <div
                     key={item.competitorName}
-                    className="rounded-2xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-200/70 dark:border-white/[0.06] p-4"
+                    className="rounded-[16px] bg-[#f5f5f5] dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.06] p-4"
                   >
-                    <h4 className="text-sm font-bold text-zinc-900 dark:text-white mb-1">
+                    <h4 className="text-[13px] font-semibold text-black dark:text-white mb-1">
                       {item.competitorName}
                     </h4>
-                    <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                    <p className="text-[12px] text-black/60 dark:text-white/60 leading-relaxed">
                       {item.reason}
                     </p>
                   </div>
                 ))}
               </div>
             </div>
-
-            <p className="mt-6 text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-              Because {guide.appShortName} is {guide.cogifySpec.binarySize} and installs zero background daemons, you can safely keep it alongside any existing tool on your Mac.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Section 4: Systems Architecture Deep Dive + Native Screenshot */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-b border-zinc-200/80 dark:border-white/[0.06]">
+      {/* Section 4: Systems Architecture Deep Dive */}
+      <section className="max-w-[920px] mx-auto px-6 py-14 border-b border-black/[0.07] dark:border-white/[0.08]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase tracking-wider mb-4">
-              <Terminal className="w-3.5 h-3.5" /> Under the Hood • Systems Engineering
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-tight">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-black/45 dark:text-white/45 mb-2">
+              Under the Hood · Systems Engineering
+            </p>
+            <h2 className="text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-black dark:text-white leading-snug">
               {guide.architecturalDeepDive.title}
             </h2>
 
-            <div className="mt-4 space-y-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
+            <div className="mt-4 space-y-3.5 text-[14px] text-black/65 dark:text-white/65 leading-relaxed">
               {guide.architecturalDeepDive.paragraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
-
-            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 tabular-nums">
-              <div className="rounded-2xl bg-white dark:bg-[#0b0f17] border border-zinc-200/80 dark:border-white/[0.07] p-3.5">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 block">
-                  Cold Launch
-                </span>
-                <span className="text-sm font-extrabold font-mono text-zinc-950 dark:text-white mt-0.5 block">
-                  {guide.cogifySpec.startupTime}
-                </span>
-              </div>
-              <div className="rounded-2xl bg-white dark:bg-[#0b0f17] border border-zinc-200/80 dark:border-white/[0.07] p-3.5">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 block">
-                  Telemetry SDKs
-                </span>
-                <span className="text-sm font-extrabold font-mono text-emerald-600 dark:text-emerald-400 mt-0.5 block">
-                  0 Bytes
-                </span>
-              </div>
-              <div className="rounded-2xl bg-white dark:bg-[#0b0f17] border border-zinc-200/80 dark:border-white/[0.07] p-3.5 col-span-2 sm:col-span-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 block">
-                  Code Signature
-                </span>
-                <span className="text-sm font-extrabold font-mono text-zinc-950 dark:text-white mt-0.5 block">
-                  Apple ID #1643497398
-                </span>
-              </div>
-            </div>
           </div>
 
           <div className="lg:col-span-6">
-            <div className="rounded-3xl bg-zinc-950 border border-white/10 p-3 shadow-2xl overflow-hidden">
+            <div className="rounded-[22px] bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/[0.09] p-3 shadow-sm overflow-hidden">
               <Image
                 src={guide.appScreenshot}
                 alt={`${guide.appName} native macOS interface screenshot`}
                 width={1200}
                 height={780}
-                className="w-full h-auto rounded-2xl object-cover"
+                className="w-full h-auto rounded-[16px] object-cover"
               />
-              <div className="mt-3 px-2 flex items-center justify-between text-xs text-zinc-400">
-                <span className="font-semibold text-zinc-200">{guide.appName}</span>
+              <div className="mt-3 px-2 flex items-center justify-between text-[12px] text-black/55 dark:text-white/55">
+                <span className="font-medium text-black dark:text-white">{guide.appName}</span>
                 <Link
                   href={guide.appHref}
-                  className="text-indigo-400 hover:text-indigo-300 font-bold inline-flex items-center gap-1"
+                  className="text-black dark:text-white hover:underline font-medium inline-flex items-center gap-1"
                 >
                   Open Product Page <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
@@ -684,30 +579,30 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
       </section>
 
       {/* Section 5: Explore Other Cogify Comparison Guides */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <section className="max-w-[920px] mx-auto px-6 py-14">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
           <div>
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
-              <Sparkles className="w-3.5 h-3.5" /> Complete Benchmark Series
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white mt-1">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-black/45 dark:text-white/45 mb-1">
+              Complete Benchmark Series
+            </p>
+            <h2 className="text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-black dark:text-white">
               More macOS Utility Comparisons
             </h2>
           </div>
           <Link
             href="/compare"
-            className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1"
+            className="text-[12px] font-medium text-black/65 dark:text-white/65 hover:text-black dark:hover:text-white inline-flex items-center gap-1"
           >
-            View All Comparison Guides &amp; Savings Calculator <ArrowUpRight className="w-3.5 h-3.5" />
+            All Comparison Guides <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {otherGuides.map((item) => (
             <Link
               key={item.slug}
               href={`/compare/${item.slug}`}
-              className="group rounded-2xl bg-white dark:bg-[#0b0f17] border border-zinc-200/90 dark:border-white/[0.08] hover:border-indigo-500/40 dark:hover:border-indigo-400/40 p-5 transition-all flex flex-col justify-between shadow-xs"
+              className="group rounded-[20px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] hover:border-black/20 dark:hover:border-white/20 p-5 transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
@@ -719,24 +614,24 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
                       height={32}
                       className="w-8 h-8 rounded-lg object-contain"
                     />
-                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-white/[0.06] text-zinc-700 dark:text-zinc-300">
+                    <span className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-[#f5f5f5] dark:bg-white/[0.06] text-black/70 dark:text-white/70">
                       {item.category}
                     </span>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-indigo-500 transition-colors shrink-0" />
+                  <ArrowUpRight className="w-4 h-4 text-black/35 dark:text-white/35 group-hover:text-black dark:group-hover:text-white transition-colors shrink-0" />
                 </div>
 
-                <h3 className="text-base font-extrabold text-zinc-950 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-snug">
+                <h3 className="text-[15px] font-semibold text-black dark:text-white leading-snug">
                   {item.h1Title}
                 </h3>
-                <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-2 line-clamp-2 leading-relaxed">
+                <p className="text-[12px] text-black/60 dark:text-white/60 mt-1.5 line-clamp-2 leading-relaxed">
                   {item.subtitle}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-white/[0.05] flex items-center justify-between text-[11px] font-mono text-zinc-500 dark:text-zinc-400 tabular-nums">
+              <div className="mt-4 pt-3 border-t border-black/[0.06] dark:border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-black/50 dark:text-white/50 tabular-nums">
                 <span>{item.cogifySpec.binarySize}</span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+                <span className="text-emerald-700 dark:text-emerald-400 font-semibold">
                   {item.cogifySpec.price}
                 </span>
               </div>
@@ -745,18 +640,16 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
         </div>
       </section>
 
-      {/* Section 6: Technical & Product FAQs */}
       <FaqSection
-        badge={`${guide.appShortName} Comparison FAQ`}
-        title={`Frequently Asked Questions: ${guide.appShortName} vs. Competitors`}
+        badge={`${guide.appShortName} FAQ`}
+        title={`Frequently Asked Questions: ${guide.appShortName}`}
         subtitle="Direct architectural answers on licensing, memory efficiency, Apple Silicon support, and zero-telemetry privacy."
         faqs={guide.faqs}
       />
 
-      {/* Section 7: E-E-A-T Author Bio & Ecosystem Mesh */}
       <AuthorBio
         currentSlug={guide.appSlug}
-        contextLabel={`Benchmarked & Engineered by Shubham Sharma`}
+        contextLabel="Benchmarked & Engineered by Shubham Sharma"
       />
     </div>
   );

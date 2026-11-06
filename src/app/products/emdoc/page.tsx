@@ -8,11 +8,12 @@ import {
   Download,
   HardDrive,
   MessageSquare,
-  Sparkles,
   ExternalLink,
+  History,
+  Calendar,
+  ArrowUpRight,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
-import { MovingBorderButton } from "@/components/ui/moving-border";
 import { EmDocGallery } from "@/components/products/emdoc-gallery";
 import { DownloadModal } from "@/components/products/download-modal";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
@@ -22,24 +23,24 @@ import { InlineAppComparison } from "@/components/compare/inline-app-comparison"
 
 const EMDOC_FAQS: FaqItem[] = [
   {
-    question: "How is EmDoc only 5.0 MB compared to Adobe Acrobat's 1.2 GB?",
+    question: "How is EmDoc v1.1 only 7.8 MB compared to Adobe Acrobat's 1.2 GB?",
     answer:
-      "EmDoc is compiled as a 100% native macOS Universal Binary (ARM64 + x86_64) using Swift, AppKit, PDFKit, and CoreGraphics without Electron, Chromium, or bundled cross-platform runtimes. This achieves a 5.0 MB disk footprint and ~45 MB baseline RAM.",
+      "EmDoc is compiled as a 100% native macOS Universal Binary (ARM64 + x86_64) using Swift, AppKit, PDFKit, and CoreGraphics without Electron, Chromium, or bundled cross-platform runtimes. This achieves a 7.8 MB installer footprint and ~45 MB baseline RAM.",
+  },
+  {
+    question: "Where can I download previous versions of EmDoc (.DMG)?",
+    answer:
+      "All current and archived macOS releases—including v1.1 (November 6, 2026), v1.0.0, v0.0.2, and v0.0.1—are available with direct .DMG links and SHA-256 checksums on our dedicated EmDoc Releases & Previous Versions page (/products/emdoc/releases).",
   },
   {
     question: "Does EmDoc require an internet connection or cloud account to compress or edit PDFs?",
     answer:
-      "No. EmDoc operates with 100% air-gapped data sovereignty. Zero network sockets are opened, and all vector ink annotations, Bates numbering, page reorganization, and quartz filter compression run locally on your Mac.",
+      "No. EmDoc operates with 100% air-gapped data sovereignty. All vector ink annotations, Bates numbering, page reorganization, and on-device PDF compression run locally on your Mac.",
   },
   {
-    question: "Is EmDoc really 100% free on the Mac App Store?",
+    question: "Is EmDoc really 100% free on macOS?",
     answer:
-      "Yes. EmDoc is completely free for individual users on the Mac App Store (id6810306925) with zero subscriptions, zero trial limits, and zero watermarks.",
-  },
-  {
-    question: "Which macOS versions and processors are supported by EmDoc?",
-    answer:
-      "EmDoc supports macOS 13.0 Ventura, macOS 14 Sonoma, and macOS 15 Sequoia natively on Apple Silicon (M1, M2, M3, M4) as well as Intel Macs.",
+      "Yes. EmDoc is completely free for individual users both via direct Universal .DMG download and on the Mac App Store (id6810306925) with zero subscriptions, zero trial limits, and zero watermarks.",
   },
 ];
 
@@ -48,8 +49,8 @@ export default function EmDocProductPage() {
   const emdoc = siteConfig.emdoc;
 
   return (
-    <div className="pt-28 pb-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen pt-28 sm:pt-32 pb-20 bg-[#f5f5f5] dark:bg-[#0b0b0d] text-[#111] dark:text-[#f5f5f7]">
+      <div className="max-w-[980px] mx-auto px-5 sm:px-8">
         <Breadcrumbs
           items={[
             { label: "Products", href: "/products" },
@@ -59,270 +60,279 @@ export default function EmDocProductPage() {
         />
       </div>
 
-      {/* Product Hero Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="max-w-4xl space-y-6">
-          <div className="flex items-center space-x-3">
-            <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-lg bg-zinc-100 dark:bg-zinc-800">
+      {/* Minimal Helumi Hero Header */}
+      <section className="max-w-[980px] mx-auto px-5 sm:px-8 pt-6 pb-12">
+        <div className="max-w-3xl space-y-6">
+          <div className="flex items-center gap-4">
+            <div className="relative w-16 h-16 rounded-[18px] overflow-hidden border border-black/[0.08] dark:border-white/[0.12] shadow-sm bg-white dark:bg-[#141417] shrink-0">
               <Image
                 src="/brand/emdoc-icon-sm.webp"
                 alt="EmDoc App Icon"
                 fill
                 priority
-                sizes="56px"
+                sizes="64px"
                 className="object-cover"
               />
             </div>
             <div>
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">
-                  Live on Mac App Store • v{emdoc.version}
+              <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-[#666] dark:text-[#a1a1aa]">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#111] text-white dark:bg-white dark:text-[#111] font-semibold">
+                  v{emdoc.version} (Build {emdoc.build})
                 </span>
-                <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/30">
-                  macOS Native Workstation
+                <span>·</span>
+                <span className="inline-flex items-center gap-1">
+                  <Calendar className="w-3.5 h-3.5" />
+                  Released {emdoc.releaseDate}
                 </span>
-                <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10">
-                  Universal Apple Silicon &amp; Intel
-                </span>
+                <span>·</span>
+                <span>{emdoc.appSize} Universal .DMG</span>
               </div>
-              <div className="text-xs text-zinc-600 dark:text-zinc-400 font-mono mt-1">
-                Version {emdoc.version} (Build {emdoc.build}) • Size: {emdoc.appSize} • RAM: {emdoc.ramUsage}
-              </div>
+              <p className="text-xs text-[#666] dark:text-[#a1a1aa] mt-1.5">
+                macOS 13.0+ (Apple Silicon &amp; Intel) · {emdoc.ramUsage} · 100% Free
+              </p>
             </div>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-zinc-900 dark:text-white tracking-tight leading-tight">
-            Precision PDF Workstation.{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-600 dark:from-indigo-300 dark:via-indigo-100 dark:to-cyan-300">
-              Only 5.0 MB. 100% Free.
-            </span>
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-[-0.04em] leading-[1.05] text-[#111] dark:text-[#f5f5f7]">
+            Native PDF workstation.{" "}
+            <span className="font-display italic font-normal">Only {emdoc.appSize}.</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-3xl">
+          <p className="text-base sm:text-lg text-[#555] dark:text-[#a1a1aa] leading-relaxed max-w-2xl">
             {emdoc.shortDescription}
           </p>
 
-          {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          {/* Helumi Pill Action CTAs */}
+          <div className="flex flex-wrap items-center gap-3 pt-1">
             <a
               href={emdoc.downloadUrl}
               download
-              className="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2"
+              className="helumi-pill text-sm"
             >
               <Download className="w-4 h-4" />
-              <span>Direct Download (.DMG • {emdoc.appSize})</span>
+              <span>Download EmDoc v{emdoc.version} (.DMG • {emdoc.appSize})</span>
             </a>
 
             <a
               href={emdoc.appStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-xl bg-zinc-900 dark:bg-white hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-950 font-bold text-sm shadow-lg transition-all flex items-center gap-2"
+              className="helumi-pill-secondary text-sm"
             >
               <ExternalLink className="w-4 h-4" />
-              <span>Get on Mac App Store</span>
+              <span>Mac App Store</span>
             </a>
 
-            <MovingBorderButton
-              onClick={() => setDownloadModalOpen(true)}
-              borderRadius="0.75rem"
-              className="px-5 py-3.5 font-semibold text-sm cursor-pointer"
-            >
-              <span className="flex items-center gap-2">
-                <Cpu className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                <span>Architectures &amp; Specs</span>
-              </span>
-            </MovingBorderButton>
-
             <Link
-              href="/suggestions"
-              className="px-5 py-3.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-950/40 dark:hover:bg-indigo-900/40 dark:text-indigo-300 font-semibold text-sm border border-indigo-200 dark:border-indigo-500/30 transition-colors flex items-center gap-2"
+              href="/products/emdoc/releases"
+              className="helumi-pill-secondary text-sm"
             >
-              <MessageSquare className="w-4 h-4" />
-              <span>Suggest a Feature</span>
+              <History className="w-4 h-4" />
+              <span>Previous Versions &amp; Releases</span>
             </Link>
+
+            <button
+              type="button"
+              onClick={() => setDownloadModalOpen(true)}
+              className="helumi-pill-secondary text-sm cursor-pointer"
+            >
+              <Cpu className="w-4 h-4" />
+              <span>Specs &amp; Checksum</span>
+            </button>
           </div>
 
-          {/* 4 Core Pillars */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4">
-            <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200/80 dark:border-white/5">
-              <span className="text-zinc-600 dark:text-zinc-400 block text-[10px] uppercase font-mono">Download Size</span>
-              <span className="text-sm font-bold text-indigo-700 dark:text-indigo-400">{emdoc.appSize}</span>
+          {/* 4 Minimal Metric Tiles */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3">
+            <div className="p-4 rounded-[18px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08]">
+              <span className="text-[#777] dark:text-[#888] block text-[11px] uppercase tracking-wider">
+                Latest Build
+              </span>
+              <span className="text-sm font-semibold text-[#111] dark:text-white mt-0.5 block">
+                v{emdoc.version} • {emdoc.releaseDate}
+              </span>
             </div>
-            <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200/80 dark:border-white/5">
-              <span className="text-zinc-600 dark:text-zinc-400 block text-[10px] uppercase font-mono">RAM Footprint</span>
-              <span className="text-sm font-bold text-emerald-800 dark:text-emerald-400">{emdoc.ramUsage}</span>
+            <div className="p-4 rounded-[18px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08]">
+              <span className="text-[#777] dark:text-[#888] block text-[11px] uppercase tracking-wider">
+                Installer Size
+              </span>
+              <span className="text-sm font-semibold text-[#111] dark:text-white mt-0.5 block">
+                {emdoc.appSize} (.DMG)
+              </span>
             </div>
-            <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200/80 dark:border-white/5">
-              <span className="text-zinc-600 dark:text-zinc-400 block text-[10px] uppercase font-mono">Pricing</span>
-              <span className="text-sm font-bold text-cyan-800 dark:text-cyan-400">100% Free Users</span>
+            <div className="p-4 rounded-[18px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08]">
+              <span className="text-[#777] dark:text-[#888] block text-[11px] uppercase tracking-wider">
+                RAM Footprint
+              </span>
+              <span className="text-sm font-semibold text-[#111] dark:text-white mt-0.5 block">
+                {emdoc.ramUsage}
+              </span>
             </div>
-            <div className="p-3 rounded-xl bg-white/80 dark:bg-zinc-900/40 border border-zinc-200/80 dark:border-white/5">
-              <span className="text-zinc-600 dark:text-zinc-400 block text-[10px] uppercase font-mono">Architecture</span>
-              <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">macOS Universal</span>
+            <div className="p-4 rounded-[18px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08]">
+              <span className="text-[#777] dark:text-[#888] block text-[11px] uppercase tracking-wider">
+                License
+              </span>
+              <span className="text-sm font-semibold text-[#111] dark:text-white mt-0.5 block">
+                100% Free Forever
+              </span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Interactive Screenshot Showcase Gallery */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <section className="max-w-[980px] mx-auto px-5 sm:px-8 py-8">
         <div className="mb-6">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border border-indigo-200/80 dark:border-indigo-500/20 text-xs font-semibold uppercase tracking-wider mb-2">
-            Real Application Interface
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-bold text-zinc-900 dark:text-white">
-            High-Resolution Screenshot Showcase
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#777] dark:text-[#888] mb-1">
+            interface walkthrough
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-[-0.03em] text-[#111] dark:text-white">
+            Eight native tools.{" "}
+            <span className="font-display italic font-normal">Zero clutter.</span>
           </h2>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">
-            Browse through all 8 integrated tools and views. Click any screenshot to open in full-resolution zoom.
+          <p className="text-sm text-[#666] dark:text-[#a1a1aa] mt-1">
+            Click any module below to inspect the native macOS workspace.
           </p>
         </div>
 
         <EmDocGallery />
       </section>
 
-      {/* Comparison Matrix: EmDoc vs Bloated Competitors */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-3xl mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white tracking-tight mb-2">
-            Why EmDoc is Different
-          </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-            Legacy PDF suites have grown bloated, battery-hungry, and overly commercialized. We built EmDoc from zero to give you maximum speed without the bloat.
-          </p>
-        </div>
+      {/* Release History & Previous Versions Preview */}
+      <section className="max-w-[980px] mx-auto px-5 sm:px-8 py-14">
+        <div className="rounded-[26px] bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/[0.1] p-6 sm:p-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-black/[0.06] dark:border-white/[0.08]">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#777] dark:text-[#888] mb-1">
+                release history &amp; archive
+              </p>
+              <h2 className="text-2xl font-bold tracking-[-0.03em] text-[#111] dark:text-white">
+                Current &amp;{" "}
+                <span className="font-display italic font-normal">previous</span>{" "}
+                versions.
+              </h2>
+            </div>
+            <Link
+              href="/products/emdoc/releases"
+              className="helumi-pill-secondary text-xs self-start sm:self-auto"
+            >
+              <span>All Release Notes &amp; Checksums</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
 
-        <div className="rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-white/90 dark:bg-zinc-950/60 shadow-lg overflow-x-auto">
-          <table className="w-full text-left text-xs min-w-[640px]">
-            <thead>
-              <tr className="border-b border-zinc-200 dark:border-white/10 bg-zinc-50/80 dark:bg-zinc-900/50">
-                <th className="py-4 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Dimension</th>
-                <th className="py-4 px-6 font-bold text-indigo-700 dark:text-indigo-400 bg-indigo-50/50 dark:bg-indigo-500/10">
-                  EmDoc Workstation
-                </th>
-                <th className="py-4 px-6 font-medium text-zinc-600 dark:text-zinc-400">Legacy Commercial Suites (e.g. Acrobat)</th>
-                <th className="py-4 px-6 font-medium text-zinc-600 dark:text-zinc-400">Other Mac PDF Tools</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-zinc-200/70 dark:divide-white/5">
-              <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
-                <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Application Size</td>
-                <td className="py-3.5 px-6 font-bold text-emerald-800 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
-                  5.0 MB (Instant download)
-                </td>
-                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">~1,200 MB (1.2 GB download)</td>
-                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">120 MB - 300 MB</td>
-              </tr>
-              <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
-                <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">RAM Memory Baseline</td>
-                <td className="py-3.5 px-6 font-bold text-emerald-800 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
-                  ~45 MB (Lightweight &amp; cool)
-                </td>
-                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">800 MB - 2.5 GB</td>
-                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">250 MB - 600 MB</td>
-              </tr>
-              <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
-                <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Pricing for Individuals</td>
-                <td className="py-3.5 px-6 font-bold text-emerald-800 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
-                  100% Free (Zero paywalls)
-                </td>
-                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">$239.88 / year subscription</td>
-                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">$79.99 / year or paid tiers</td>
-              </tr>
-              <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
-                <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Cloud &amp; Telemetry</td>
-                <td className="py-3.5 px-6 font-bold text-emerald-800 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
-                  100% Air-Gapped (0 bytes online)
-                </td>
-                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">Mandatory cloud sync &amp; telemetry</td>
-                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">Analytics beacons &amp; cloud features</td>
-              </tr>
-              <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
-                <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Offline Compression</td>
-                <td className="py-3.5 px-6 font-bold text-emerald-800 dark:text-emerald-400 bg-indigo-50/30 dark:bg-indigo-500/5">
-                  Included Free (On-device engine)
-                </td>
-                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">Requires Pro subscription</td>
-                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">Often limited or cloud-based</td>
-              </tr>
-              <tr className="hover:bg-zinc-50/50 dark:hover:bg-white/[0.02]">
-                <td className="py-3.5 px-6 font-semibold text-zinc-700 dark:text-zinc-300">Apple Neural Engine OCR</td>
-                <td className="py-3.5 px-6 font-bold text-indigo-700 dark:text-indigo-400 bg-indigo-50/30 dark:bg-indigo-500/5">
-                  Included Free (100% On-Device Vision)
-                </td>
-                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">Paid tier / cloud OCR</td>
-                <td className="py-3.5 px-6 text-zinc-600 dark:text-zinc-400">Paid Pro upgrade</td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="divide-y divide-black/[0.06] dark:divide-white/[0.07]">
+            {emdoc.releases.map((rel) => (
+              <div
+                key={rel.version}
+                className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+              >
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-sm font-bold text-[#111] dark:text-white">
+                      EmDoc v{rel.version}
+                    </span>
+                    {rel.isLatest && (
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#111] text-white dark:bg-white dark:text-[#111]">
+                        Latest
+                      </span>
+                    )}
+                    <span className="text-xs text-[#666] dark:text-[#a1a1aa]">
+                      · Released {rel.releaseDate} · {rel.size}
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#666] dark:text-[#a1a1aa] mt-0.5">
+                    {rel.notes[0]}
+                  </p>
+                </div>
+
+                <a
+                  href={rel.downloadUrl}
+                  download
+                  className={
+                    rel.isLatest
+                      ? "helumi-pill text-xs shrink-0 !py-2 !px-4"
+                      : "helumi-pill-secondary text-xs shrink-0 !py-2 !px-4"
+                  }
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>v{rel.version} .DMG ({rel.size})</span>
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Deep-Dive Architectural Tenets */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-zinc-200/80 dark:border-white/5">
-        <div className="max-w-3xl mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white tracking-tight mb-3">
-            Core Architectural Tenets
-          </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-            EmDoc is intentionally engineered without cloud backend services, telemetry SDKs, or foreign runtime wrappers.
+      <section className="max-w-[980px] mx-auto px-5 sm:px-8 py-10">
+        <div className="max-w-2xl mb-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#777] dark:text-[#888] mb-1">
+            architecture
           </p>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-[-0.03em] text-[#111] dark:text-white">
+            Built without bloat.
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/10 space-y-3 shadow-xs dark:shadow-none">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
-              <ShieldCheck className="w-5 h-5" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="p-6 rounded-[22px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] space-y-2.5">
+            <div className="w-9 h-9 rounded-xl bg-[#f5f5f5] dark:bg-white/[0.06] flex items-center justify-center text-[#111] dark:text-white">
+              <ShieldCheck className="w-4 h-4" />
             </div>
-            <h3 className="text-base font-bold text-zinc-900 dark:text-white">100% Air-Gapped Privacy</h3>
-            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Zero network sockets opened. Documents, annotations, cryptographic signatures, compression, and watermarks happen solely on your Mac&apos;s CPU and Apple Neural Engine.
+            <h3 className="text-base font-semibold text-[#111] dark:text-white">
+              100% Air-Gapped Privacy
+            </h3>
+            <p className="text-xs text-[#555] dark:text-[#a1a1aa] leading-relaxed">
+              Documents, annotations, cryptographic signatures, compression, and watermarks execute solely on your Mac&apos;s CPU and Apple Neural Engine.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/10 space-y-3 shadow-xs dark:shadow-none">
-            <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
-              <Cpu className="w-5 h-5" />
+          <div className="p-6 rounded-[22px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] space-y-2.5">
+            <div className="w-9 h-9 rounded-xl bg-[#f5f5f5] dark:bg-white/[0.06] flex items-center justify-center text-[#111] dark:text-white">
+              <Cpu className="w-4 h-4" />
             </div>
-            <h3 className="text-base font-bold text-zinc-900 dark:text-white">5.0 MB Native Swift & CoreGraphics</h3>
-            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Sub-millisecond page rasterization, virtualized multi-threaded tile rendering, and bounded LRU page caches engineered for instantaneous document responsiveness on ~45 MB of memory.
+            <h3 className="text-base font-semibold text-[#111] dark:text-white">
+              {emdoc.appSize} Native Swift &amp; CoreGraphics
+            </h3>
+            <p className="text-xs text-[#555] dark:text-[#a1a1aa] leading-relaxed">
+              Sub-millisecond page rasterization, virtualized multi-threaded tile rendering, and bounded LRU page caches engineered for ~45 MB of memory.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/10 space-y-3 shadow-xs dark:shadow-none">
-            <div className="w-10 h-10 rounded-xl bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
-              <HardDrive className="w-5 h-5" />
+          <div className="p-6 rounded-[22px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] space-y-2.5">
+            <div className="w-9 h-9 rounded-xl bg-[#f5f5f5] dark:bg-white/[0.06] flex items-center justify-center text-[#111] dark:text-white">
+              <HardDrive className="w-4 h-4" />
             </div>
-            <h3 className="text-base font-bold text-zinc-900 dark:text-white">Zero Telemetry & Zero Paywalls</h3>
-            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              No tracking scripts, no analytics beacons, no mandatory account signups. Every single feature is free for individual users without trial countdowns or crippled exports.
+            <h3 className="text-base font-semibold text-[#111] dark:text-white">
+              Zero Telemetry &amp; Zero Paywalls
+            </h3>
+            <p className="text-xs text-[#555] dark:text-[#a1a1aa] leading-relaxed">
+              No tracking scripts, no analytics beacons, no mandatory account signups. Every single feature is unlocked forever.
             </p>
           </div>
         </div>
       </section>
 
       {/* Verified Technical Specifications */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-zinc-200/80 dark:border-white/5">
-        <div className="max-w-3xl mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white tracking-tight mb-2">
+      <section className="max-w-[980px] mx-auto px-5 sm:px-8 py-12">
+        <div className="max-w-2xl mb-6">
+          <h2 className="text-2xl font-bold tracking-[-0.03em] text-[#111] dark:text-white mb-1">
             Technical Specifications
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 text-sm">
-            Exact system requirements and build specifications verified directly against our codebase.
+          <p className="text-xs sm:text-sm text-[#666] dark:text-[#a1a1aa]">
+            Verified system requirements and build metadata for EmDoc v{emdoc.version}.
           </p>
         </div>
 
-        <div className="rounded-2xl border border-zinc-200/90 dark:border-white/10 bg-white/90 dark:bg-zinc-950/60 shadow-xs overflow-hidden">
+        <div className="rounded-[22px] border border-black/[0.07] dark:border-white/[0.08] bg-white dark:bg-[#141417] overflow-hidden">
           <table className="w-full text-left text-xs">
-            <tbody className="divide-y divide-zinc-200/70 dark:divide-white/5">
+            <tbody className="divide-y divide-black/[0.06] dark:divide-white/[0.06]">
               {emdoc.specifications.map((spec, idx) => (
-                <tr key={idx} className="hover:bg-zinc-50 dark:hover:bg-white/[0.02] transition-colors">
-                  <td className="py-4 px-6 font-semibold text-zinc-600 dark:text-zinc-400 w-1/3">
+                <tr key={idx}>
+                  <td className="py-3.5 px-6 font-medium text-[#666] dark:text-[#a1a1aa] w-1/3">
                     {spec.label}
                   </td>
-                  <td className="py-4 px-6 text-zinc-900 dark:text-zinc-200 font-mono">
+                  <td className="py-3.5 px-6 text-[#111] dark:text-[#f5f5f7] font-mono">
                     {spec.value}
                   </td>
                 </tr>
@@ -332,38 +342,33 @@ export default function EmDocProductPage() {
         </div>
       </section>
 
-      {/* Community Suggestions Callout */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-indigo-50 via-white to-purple-50 dark:from-indigo-950/30 dark:via-zinc-900 dark:to-purple-950/30 border border-indigo-200/80 dark:border-indigo-500/20 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-indigo-600/10 dark:bg-indigo-400/10 text-indigo-700 dark:text-indigo-300 text-xs font-semibold">
-              <Sparkles className="w-3.5 h-3.5" />
-              Community Driven
-            </div>
-            <h3 className="text-2xl font-bold text-zinc-900 dark:text-white">
-              Have an idea or want to report an issue?
+      {/* Minimal Feedback Banner */}
+      <section className="max-w-[980px] mx-auto px-5 sm:px-8 py-8">
+        <div className="p-7 sm:p-8 rounded-[24px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+          <div className="space-y-1 max-w-xl">
+            <h3 className="text-lg font-bold text-[#111] dark:text-white">
+              Have a feature request or bug report for EmDoc?
             </h3>
-            <p className="text-sm text-zinc-600 dark:text-zinc-300">
-              We build tools based on user feedback. If you have a feature suggestion, bug report, or want us to build an app for another workflow, let us know!
+            <p className="text-xs sm:text-sm text-[#666] dark:text-[#a1a1aa]">
+              We ship updates directly from user feedback. Let us know what workflow you want next.
             </p>
           </div>
 
-          <Link
-            href="/suggestions"
-            className="px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all duration-200 shrink-0 shadow-lg shadow-indigo-600/30 flex items-center gap-2 cursor-pointer"
-          >
-            <MessageSquare className="w-4 h-4" />
-            <span>Drop a Suggestion / Report</span>
+          <Link href="/suggestions" className="helumi-pill text-xs shrink-0">
+            <MessageSquare className="w-3.5 h-3.5" />
+            <span>Submit Feedback</span>
           </Link>
         </div>
       </section>
 
       {/* EmDoc vs Adobe Acrobat & PDF Expert Comparison Preview */}
-      <InlineAppComparison appSlug="emdoc" />
+      <div className="max-w-[980px] mx-auto">
+        <InlineAppComparison appSlug="emdoc" />
+      </div>
 
       <FaqSection
         title="EmDoc PDF Workstation — Frequently Asked Questions"
-        subtitle="Technical answers about our 5.0 MB native macOS PDF editor, air-gapped security, and Mac App Store distribution."
+        subtitle="Technical answers about EmDoc v1.1, previous versions, air-gapped security, and Mac App Store distribution."
         items={EMDOC_FAQS}
       />
 

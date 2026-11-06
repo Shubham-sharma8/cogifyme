@@ -1,5 +1,5 @@
 import React from "react";
-import { HelpCircle, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export type FaqItem =
   | { q: string; a: string; question?: never; answer?: never }
@@ -42,7 +42,7 @@ export function FaqSection({
   };
 
   return (
-    <section className="max-w-4xl mx-auto px-6 py-16 border-t border-zinc-200/80 dark:border-white/[0.06]">
+    <section className="max-w-[980px] mx-auto px-5 sm:px-8 py-14 border-t border-black/[0.06] dark:border-white/[0.07]">
       {includeJsonLd && (
         <script
           type="application/ld+json"
@@ -50,33 +50,32 @@ export function FaqSection({
         />
       )}
 
-      <div className="text-center mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-xs font-semibold uppercase tracking-widest mb-3">
-          <HelpCircle className="w-3.5 h-3.5" />
-          <span>{badge}</span>
-        </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white">
+      <div className="mb-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#777] dark:text-[#888] mb-1">
+          {badge}
+        </p>
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-[-0.03em] text-[#111] dark:text-white">
           {title}
         </h2>
         {subtitle && (
-          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mt-2 max-w-2xl mx-auto">
+          <p className="text-sm text-[#666] dark:text-[#a1a1aa] mt-1.5 max-w-2xl">
             {subtitle}
           </p>
         )}
       </div>
 
-      <div className="space-y-3.5">
+      <div className="space-y-3">
         {normalizedList.map((faq, idx) => (
           <details
             key={idx}
             open={idx === 0}
-            className="group rounded-2xl bg-white dark:bg-[#0b0f17] border border-zinc-200/90 dark:border-white/[0.08] p-5 sm:p-6 shadow-xs transition-all open:border-indigo-500/30 dark:open:border-indigo-500/30"
+            className="group rounded-[20px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] p-5 sm:p-6 transition-colors open:border-black/20 dark:open:border-white/25"
           >
-            <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-bold text-base sm:text-lg text-zinc-900 dark:text-white">
+            <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-sm sm:text-base text-[#111] dark:text-white">
               <span>{faq.q}</span>
-              <ChevronDown className="w-4 h-4 text-zinc-400 shrink-0 transition-transform duration-200 group-open:rotate-180" />
+              <ChevronDown className="w-4 h-4 text-[#777] shrink-0 transition-transform duration-200 group-open:rotate-180" />
             </summary>
-            <p className="mt-3.5 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed border-t border-zinc-100 dark:border-white/[0.05] pt-3.5">
+            <p className="mt-3 text-xs sm:text-sm text-[#555] dark:text-[#a1a1aa] leading-relaxed border-t border-black/[0.05] dark:border-white/[0.06] pt-3">
               {faq.a}
             </p>
           </details>

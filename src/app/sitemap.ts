@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://cogify.me";
-  const lastModified = new Date("2026-10-30T00:00:00.000Z");
+  const lastModified = new Date("2026-11-06T00:00:00.000Z");
 
   return [
     {
@@ -69,6 +69,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${baseUrl}/brand/Organise.webp`,
         `${baseUrl}/brand/compress.webp`,
         `${baseUrl}/brand/watermark.webp`,
+      ],
+    },
+    {
+      url: `${baseUrl}/products/emdoc/releases`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      images: [
+        `${baseUrl}/brand/emdoc-icon.png`,
+        `${baseUrl}/brand/EmDoc_home.webp`,
       ],
     },
     {

@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Mail, Send, CheckCircle2, AlertCircle } from "lucide-react";
-import { BrandLogo } from "@/components/brand/brand-logo";
 import { TurnstileWidget } from "@/components/security/turnstile-widget";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { AuthorBio } from "@/components/seo/author-bio";
@@ -28,7 +27,9 @@ export default function ContactPage() {
     formStartTimeRef.current = Date.now();
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -86,70 +87,67 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="pt-28 pb-20 relative">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen pt-28 sm:pt-32 pb-20 bg-[#f5f5f5] dark:bg-[#0b0b0d] text-[#111] dark:text-[#f5f5f7]">
+      <section className="max-w-[980px] mx-auto px-5 sm:px-8 py-8">
         <Breadcrumbs items={[{ label: "Contact", href: "/contact" }]} />
-        <div className="max-w-4xl space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
-              <BrandLogo width={40} height={40} priority />
-            </div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200/80 dark:border-indigo-500/20 text-indigo-700 dark:text-indigo-400 text-xs font-semibold uppercase tracking-wider shadow-xs">
-              Get In Touch
-            </div>
-          </div>
+        <div className="mt-6 max-w-3xl space-y-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#777] dark:text-[#888]">
+            get in touch
+          </p>
 
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-zinc-900 dark:text-white tracking-tight leading-tight">
-            Contact <span className="text-indigo-600 dark:text-indigo-400">COGIFY.</span>
+          <h1 className="text-4xl sm:text-6xl font-bold text-[#111] dark:text-white tracking-[-0.04em] leading-[1.05]">
+            Contact <span className="font-display italic font-normal">Cogify.</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-2xl">
-            Have a question about EmDoc, our native macOS utilities, Marriage Biodata Maker Studio, SSB Stage-2 Practice Studio, enterprise software partnerships, or our Safari extensions? Reach out directly.
+          <p className="text-base sm:text-lg text-[#555] dark:text-[#a1a1aa] leading-relaxed max-w-2xl">
+            Have a question about EmDoc v1.1, our native macOS utilities, Marriage Biodata Maker Studio, SSB Stage-2 Practice Studio, or our Safari extensions? Reach out directly.
           </p>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <section className="max-w-[980px] mx-auto px-5 sm:px-8 py-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column: Direct Inquiries */}
-          <div className="lg:col-span-5 space-y-6">
-            {/* Suggestions & Bug Report Callout */}
-            <div className="p-6 rounded-2xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200/80 dark:border-indigo-500/20 space-y-3 shadow-xs">
-              <div className="flex items-center gap-2 text-indigo-700 dark:text-indigo-400 font-bold text-sm">
-                <span>💡 Have a Suggestion or Bug Report?</span>
+          <div className="lg:col-span-5 space-y-4">
+            <div className="p-6 rounded-[22px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] space-y-2.5">
+              <div className="font-bold text-sm text-[#111] dark:text-white">
+                Have a feature request or bug report?
               </div>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                If you have an idea for an app, a feature suggestion for EmDoc, or encountered a bug, drop it directly in our dedicated suggestion form.
+              <p className="text-xs text-[#666] dark:text-[#a1a1aa] leading-relaxed">
+                If you have an idea for an app, a feature suggestion for EmDoc, or encountered a bug, drop it directly in our suggestion form.
               </p>
               <Link
                 href="/suggestions"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#111] dark:text-white hover:underline"
               >
-                <span>Open Suggestion & Report Form</span>
-                <span>&rarr;</span>
+                <span>Open Suggestion &amp; Report Form →</span>
               </Link>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white/90 dark:bg-zinc-900/40 border border-zinc-200/90 dark:border-white/10 space-y-4 shadow-xs dark:shadow-none">
-              <h2 className="text-base font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                <Mail className="w-4 h-4 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
+            <div className="p-6 rounded-[22px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] space-y-4">
+              <h2 className="text-sm font-bold text-[#111] dark:text-white flex items-center gap-2">
+                <Mail className="w-4 h-4" aria-hidden="true" />
                 Direct Email Channels
               </h2>
-              <div className="space-y-4 text-xs">
+              <div className="space-y-3 text-xs">
                 <div>
-                  <span className="text-zinc-500 block mb-0.5">EmDoc Product Support & Feedback</span>
+                  <span className="text-[#666] dark:text-[#a1a1aa] block mb-0.5">
+                    Product Support &amp; Feedback
+                  </span>
                   <a
-                    href="mailto:contact@cogify.me?subject=EmDoc%20Support%20Inquiry"
-                    className="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 font-mono font-medium"
+                    href="mailto:contact@cogify.me?subject=Cogify%20Support%20Inquiry"
+                    className="text-[#111] dark:text-white font-mono font-semibold hover:underline"
                   >
                     contact@cogify.me
                   </a>
                 </div>
                 <div>
-                  <span className="text-zinc-500 block mb-0.5">General & Enterprise Inquiries</span>
+                  <span className="text-[#666] dark:text-[#a1a1aa] block mb-0.5">
+                    General Inquiries
+                  </span>
                   <a
                     href="mailto:contact@cogify.me"
-                    className="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 font-mono font-medium"
+                    className="text-[#111] dark:text-white font-mono font-semibold hover:underline"
                   >
                     contact@cogify.me
                   </a>
@@ -157,35 +155,37 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-200 dark:border-indigo-500/20 space-y-3 text-xs text-zinc-600 dark:text-zinc-400 shadow-xs dark:shadow-none">
-              <h3 className="font-semibold text-zinc-900 dark:text-white flex items-center gap-1.5">
-                <span>⏱️ 24-Hour Response SLA</span>
+            <div className="p-6 rounded-[22px] bg-white dark:bg-[#141417] border border-black/[0.07] dark:border-white/[0.08] space-y-2 text-xs text-[#666] dark:text-[#a1a1aa]">
+              <h3 className="font-semibold text-[#111] dark:text-white">
+                24-Hour Response Window
               </h3>
               <p className="leading-relaxed">
-                Messages submitted through this portal are delivered directly to founder Shubham Sharma and our engineering team. You will receive an immediate confirmation email with your ticket reference number, and we commit to a response within 24 hours.
+                Messages submitted here are delivered directly to founder Shubham Sharma. You will receive an immediate confirmation with your ticket reference code.
               </p>
             </div>
           </div>
 
           {/* Right Column: Interactive Form */}
           <div className="lg:col-span-7">
-            <div className="rounded-3xl bg-white/95 dark:bg-zinc-900/60 border border-zinc-200/90 dark:border-white/10 p-8 sm:p-10 shadow-xl backdrop-blur-md">
+            <div className="rounded-[26px] bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/[0.1] p-6 sm:p-9">
               {status === "success" ? (
                 <div
                   role="status"
                   aria-live="polite"
-                  className="p-8 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-900 dark:text-emerald-300 space-y-4 text-center"
+                  className="p-8 rounded-2xl bg-[#f5f5f5] dark:bg-[#0b0b0d] border border-black/[0.08] dark:border-white/10 space-y-4 text-center"
                 >
-                  <CheckCircle2 className="w-12 h-12 text-emerald-600 dark:text-emerald-400 mx-auto" aria-hidden="true" />
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white text-balance">Ticket Created Successfully</h3>
+                  <CheckCircle2 className="w-10 h-10 text-[#111] dark:text-white mx-auto" aria-hidden="true" />
+                  <h3 className="text-xl font-bold text-[#111] dark:text-white">
+                    Ticket Created Successfully
+                  </h3>
                   {referenceCode && (
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-900 dark:text-emerald-200 font-mono text-xs tabular-nums">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-[#141417] border border-black/10 dark:border-white/10 font-mono text-xs tabular-nums">
                       <span>Ticket Number:</span>
                       <span className="font-bold">#{referenceCode}</span>
                     </div>
                   )}
-                  <p className="text-xs text-emerald-800 dark:text-emerald-200/90 max-w-md mx-auto leading-relaxed text-pretty">
-                    Thank you, {formData.name}. A confirmation email with your ticket number has been dispatched to <strong>{formData.email}</strong>. Our engineering team commits to responding within <strong>24 hours</strong>.
+                  <p className="text-xs text-[#555] dark:text-[#a1a1aa] max-w-md mx-auto leading-relaxed">
+                    Thank you, {formData.name}. A confirmation email has been dispatched to <strong>{formData.email}</strong>.
                   </p>
                   <button
                     type="button"
@@ -200,7 +200,7 @@ export default function ContactPage() {
                         message: "",
                       });
                     }}
-                    className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors cursor-pointer"
+                    className="helumi-pill text-xs cursor-pointer"
                   >
                     Send Another Message
                   </button>
@@ -213,7 +213,7 @@ export default function ContactPage() {
                       aria-live="polite"
                       className="p-4 rounded-xl bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 text-red-700 dark:text-red-300 text-xs flex items-center gap-2"
                     >
-                      <AlertCircle className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" aria-hidden="true" />
+                      <AlertCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
                       <span>{errorMessage}</span>
                     </div>
                   )}
@@ -222,7 +222,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="contact-name"
-                        className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+                        className="block text-xs font-semibold text-[#333] dark:text-[#d4d4d8] mb-1.5"
                       >
                         Your Name *
                       </label>
@@ -235,13 +235,13 @@ export default function ContactPage() {
                         onChange={handleChange}
                         required
                         placeholder="Your full name"
-                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-[#f5f5f5] dark:bg-[#0b0b0d] border border-black/[0.08] dark:border-white/10 text-[#111] dark:text-white placeholder-[#888] text-xs focus:outline-none focus:border-black dark:focus:border-white transition-colors"
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="contact-email"
-                        className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+                        className="block text-xs font-semibold text-[#333] dark:text-[#d4d4d8] mb-1.5"
                       >
                         Email Address *
                       </label>
@@ -255,7 +255,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         required
                         placeholder="you@domain.com"
-                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-[#f5f5f5] dark:bg-[#0b0b0d] border border-black/[0.08] dark:border-white/10 text-[#111] dark:text-white placeholder-[#888] text-xs focus:outline-none focus:border-black dark:focus:border-white transition-colors"
                       />
                     </div>
                   </div>
@@ -264,9 +264,9 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="contact-phone"
-                        className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+                        className="block text-xs font-semibold text-[#333] dark:text-[#d4d4d8] mb-1.5"
                       >
-                        Mobile Number (Optional)
+                        Mobile (Optional)
                       </label>
                       <input
                         id="contact-phone"
@@ -276,15 +276,15 @@ export default function ContactPage() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+1 (555) 000-0000"
-                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-[#f5f5f5] dark:bg-[#0b0b0d] border border-black/[0.08] dark:border-white/10 text-[#111] dark:text-white placeholder-[#888] text-xs focus:outline-none focus:border-black dark:focus:border-white transition-colors"
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="contact-company"
-                        className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+                        className="block text-xs font-semibold text-[#333] dark:text-[#d4d4d8] mb-1.5"
                       >
-                        Company / Team (Optional)
+                        Company (Optional)
                       </label>
                       <input
                         id="contact-company"
@@ -293,14 +293,14 @@ export default function ContactPage() {
                         autoComplete="organization"
                         value={formData.company}
                         onChange={handleChange}
-                        placeholder="Organization name"
-                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
+                        placeholder="Organization"
+                        className="w-full px-4 py-3 rounded-xl bg-[#f5f5f5] dark:bg-[#0b0b0d] border border-black/[0.08] dark:border-white/10 text-[#111] dark:text-white placeholder-[#888] text-xs focus:outline-none focus:border-black dark:focus:border-white transition-colors"
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="contact-inquiry-type"
-                        className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+                        className="block text-xs font-semibold text-[#333] dark:text-[#d4d4d8] mb-1.5"
                       >
                         Inquiry Topic
                       </label>
@@ -309,15 +309,14 @@ export default function ContactPage() {
                         name="inquiryType"
                         value={formData.inquiryType}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-800 dark:text-zinc-200 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-[#f5f5f5] dark:bg-[#0b0b0d] border border-black/[0.08] dark:border-white/10 text-[#111] dark:text-white text-xs focus:outline-none focus:border-black dark:focus:border-white transition-colors"
                       >
                         <option>General Software Inquiry</option>
-                        <option>EmDoc Workstation Support</option>
+                        <option>EmDoc Workstation Support (v1.1)</option>
                         <option>macOS Utilities Support (LumenView, Metricove, NetGuard, Klipora, Show free space)</option>
                         <option>Marriage Biodata Maker Studio (biodata.cogify.me)</option>
                         <option>SSB Stage-2 Test Practice Studio (ssb.cogify.me)</option>
                         <option>Safari Extensions Support (Ad Blocker, ReaderEasy, WebClear, WebLenses, Invert, Element Hider)</option>
-                        <option>Enterprise Deployment &amp; Licensing</option>
                         <option>Technical Partnership</option>
                       </select>
                     </div>
@@ -326,7 +325,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="contact-message"
-                      className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5"
+                      className="block text-xs font-semibold text-[#333] dark:text-[#d4d4d8] mb-1.5"
                     >
                       Message *
                     </label>
@@ -337,8 +336,8 @@ export default function ContactPage() {
                       onChange={handleChange}
                       rows={5}
                       required
-                      placeholder="How can COGIFY assist with your software requirements?"
-                      className="w-full px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 text-xs focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 transition-colors resize-none"
+                      placeholder="How can Cogify assist you?"
+                      className="w-full px-4 py-3 rounded-xl bg-[#f5f5f5] dark:bg-[#0b0b0d] border border-black/[0.08] dark:border-white/10 text-[#111] dark:text-white placeholder-[#888] text-xs focus:outline-none focus:border-black dark:focus:border-white transition-colors resize-none"
                     />
                   </div>
 
@@ -369,7 +368,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-colors duration-200 flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30 cursor-pointer disabled:opacity-50"
+                    className="helumi-pill text-sm cursor-pointer disabled:opacity-50"
                   >
                     {status === "loading" ? (
                       <span>Sending message…</span>
