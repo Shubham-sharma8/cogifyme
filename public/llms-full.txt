@@ -9,9 +9,10 @@
 
 ### 1.1 EmDoc PDF Workstation
 - **Landing Page**: https://cogify.me/products/emdoc
+- **Release History & Previous Versions**: https://cogify.me/products/emdoc/releases
 - **Comparison Guide**: https://cogify.me/compare/emdoc-vs-adobe-acrobat-pdf-expert
-- **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/EmDoc.dmg
-- **Binary Size**: 5.0 MB Universal Binary (7.5 MB DMG)
+- **Direct DMG Download (v1.1 Latest)**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.1/EmDoc-1.1.dmg
+- **Binary Size**: 7.8 MB Universal Binary DMG (v1.1 Build 2, Released November 6, 2026)
 - **Active Memory Footprint**: ~45 MB RAM on 500-page PDF
 - **Architecture**: ISO C++20 Core + Swift 6 + PDFKit + Apple Vision Neural Engine OCR
 - **Capabilities**: Bates numbering, cryptographic stream redaction, vector-preserving PDF compression, split/merge/reorder, form filling & digital signatures, offline OCR.

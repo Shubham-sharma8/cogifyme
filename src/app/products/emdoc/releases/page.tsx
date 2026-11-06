@@ -13,9 +13,8 @@ import {
   History,
   Terminal,
 } from "lucide-react";
-import { Navbar } from "@/components/navigation/navbar";
-import { Footer } from "@/components/footer/footer";
 import { siteConfig } from "@/config/site";
+import { AuthorBio } from "@/components/seo/author-bio";
 
 export const metadata: Metadata = {
   title: "EmDoc Releases & Previous Versions (.DMG Download)",
@@ -135,23 +134,29 @@ export default function EmDocReleasesPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f5f5f5] dark:bg-[#0b0b0d] text-[#111] dark:text-[#f5f5f7] selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
+    <div className="min-h-screen pt-28 md:pt-36 pb-20 px-5 sm:px-8 bg-[#f5f5f5] dark:bg-[#0b0b0d] text-[#111] dark:text-[#f5f5f7] selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <Navbar />
 
-      <main id="main-content" className="flex-1 pt-28 md:pt-36 pb-20 px-5 sm:px-8">
-        <div className="max-w-[960px] mx-auto">
-          {/* Top Navigation Link */}
-          <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
+      <div className="max-w-[960px] mx-auto">
+        {/* Top Navigation Link */}
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
+          <Link
+            href="/products/emdoc"
+            className="inline-flex items-center gap-2 text-xs font-medium text-[#666] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white transition-colors"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Back to EmDoc Overview</span>
+          </Link>
+          <div className="flex flex-wrap items-center gap-4">
             <Link
-              href="/products/emdoc"
-              className="inline-flex items-center gap-2 text-xs font-medium text-[#666] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white transition-colors"
+              href="/compare/emdoc-vs-adobe-acrobat-pdf-expert"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-[#666] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white transition-colors"
             >
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Back to EmDoc Overview</span>
+              <span>EmDoc vs. Acrobat &amp; PDF Expert</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
             <a
               href="https://github.com/Shubham-sharma8/cogifyme/releases"
@@ -163,6 +168,7 @@ export default function EmDocReleasesPage() {
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
+        </div>
 
           {/* Minimal Helumi Header */}
           <header className="mb-12">
@@ -447,10 +453,12 @@ export default function EmDocReleasesPage() {
               ))}
             </div>
           </section>
-        </div>
-      </main>
+      </div>
 
-      <Footer />
+      <AuthorBio
+        currentSlug="emdoc"
+        contextLabel="EmDoc PDF Workstation • Release Archive"
+      />
     </div>
   );
 }

@@ -287,7 +287,7 @@ export const HeroSection = () => {
                   <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-[16px] overflow-hidden bg-[#18181d] border border-white/[0.12] shadow-lg transition-transform duration-200 group-hover:scale-105 mb-3.5">
                     <Image
                       src={app.icon}
-                      alt={app.name}
+                      alt={`${app.name} — ${app.solutionTag} (${app.platform})`}
                       fill
                       className="object-cover"
                       sizes="64px"
@@ -305,8 +305,8 @@ export const HeroSection = () => {
                   </span>
 
                   {/* Subtle Solution Subtitle */}
-                  <span className="text-[11px] text-white/40 mt-0.5">
-                    {app.platform}
+                  <span className="text-[11px] text-white/45 mt-0.5 leading-tight">
+                    {app.solutionTag}
                   </span>
                 </Link>
               );

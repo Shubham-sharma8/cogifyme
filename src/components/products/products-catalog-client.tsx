@@ -20,6 +20,7 @@ export interface CatalogItem {
   version: string;
   releaseDate?: string;
   releasesHref?: string;
+  compareHref?: string;
   platforms: string;
   category: string;
   icon: string;
@@ -265,6 +266,14 @@ export function ProductsCatalogClient({ items }: { items: CatalogItem[] }) {
                   </a>
                 )}
                 <div className="flex items-center gap-3">
+                  {item.compareHref && (
+                    <Link
+                      href={item.compareHref}
+                      className="text-[12px] font-medium text-black/55 dark:text-white/55 hover:text-black dark:hover:text-white underline underline-offset-4 transition-colors"
+                    >
+                      Compare
+                    </Link>
+                  )}
                   {item.releasesHref && (
                     <Link
                       href={item.releasesHref}

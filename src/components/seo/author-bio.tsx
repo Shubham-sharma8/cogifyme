@@ -193,6 +193,12 @@ export function AuthorBio({
                 >
                   Privacy Spec →
                 </Link>
+                <Link
+                  href="/enterprise"
+                  className="inline-flex items-center gap-1 text-[#555] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white transition-colors"
+                >
+                  Enterprise →
+                </Link>
               </div>
             </div>
           </div>
@@ -227,7 +233,7 @@ export function AuthorBio({
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {relatedApps.slice(0, 8).map((app) => (
+          {relatedApps.map((app) => (
             <Link
               key={app.slug}
               href={app.href}
