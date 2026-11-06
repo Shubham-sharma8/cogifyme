@@ -3,15 +3,14 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   X,
-  Download,
   ShieldCheck,
   CheckCircle2,
-  ExternalLink,
   History,
   Calendar,
 } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import { AppleLogoIcon, AppStoreIcon } from "@/components/ui/platform-icons";
 
 interface DownloadModalProps {
   isOpen: boolean;
@@ -148,9 +147,9 @@ export const DownloadModal = ({ isOpen, onClose }: DownloadModalProps) => {
               onClick={handleDownload}
               className="helumi-pill w-full justify-center text-sm cursor-pointer"
             >
-              <Download className="w-4 h-4" aria-hidden="true" />
+              <AppleLogoIcon className="w-4 h-4 -mt-0.5" />
               <span>
-                Download EmDoc-{siteConfig.emdoc.version}.dmg ({siteConfig.emdoc.appSize} • {arch.toUpperCase()})
+                download for mac ({siteConfig.emdoc.appSize} • {arch.toUpperCase()})
               </span>
             </button>
           )}
@@ -162,8 +161,8 @@ export const DownloadModal = ({ isOpen, onClose }: DownloadModalProps) => {
             onClick={() => setDownloadStarted(true)}
             className="helumi-pill-secondary w-full justify-center text-sm"
           >
-            <ExternalLink className="w-4 h-4" aria-hidden="true" />
-            <span>Open on Mac App Store</span>
+            <AppStoreIcon className="w-4 h-4" />
+            <span>Download on the Mac App Store</span>
           </a>
 
           {downloadStarted && (

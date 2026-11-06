@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { ExternalLink } from "lucide-react";
+import { Globe } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { CatalogJsonLd } from "@/components/seo/jsonld-schemas";
+import { AppStoreIcon } from "@/components/ui/platform-icons";
 import {
   ProductsCatalogClient,
   type CatalogItem,
@@ -56,7 +57,7 @@ const liveCatalog: CatalogItem[] = [
     href: "/products/emdoc",
     downloadUrl: siteConfig.emdoc.downloadUrl,
     appStoreUrl: siteConfig.emdoc.appStoreUrl,
-    ctaLabel: `Download v${siteConfig.emdoc.version} .DMG (${siteConfig.emdoc.appSize})`,
+    ctaLabel: `download for mac (${siteConfig.emdoc.appSize})`,
     badge: "For Mac",
     highlights: [
       `Compact ${siteConfig.emdoc.appSize} Universal binary (~45 MB RAM)`,
@@ -78,7 +79,7 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.lumenview.slug}`,
     downloadUrl: siteConfig.lumenview.downloadUrl,
     appStoreUrl: siteConfig.lumenview.downloadUrl,
-    ctaLabel: `Download .DMG (${siteConfig.lumenview.appSize})`,
+    ctaLabel: `download for mac (${siteConfig.lumenview.appSize})`,
     badge: "For Mac",
     highlights: [
       "Native DDC/CI Hardware Brightness, Contrast & Volume Control",
@@ -100,7 +101,7 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.metricove.slug}`,
     downloadUrl: siteConfig.metricove.downloadUrl,
     appStoreUrl: siteConfig.metricove.downloadUrl,
-    ctaLabel: `Download .DMG (${siteConfig.metricove.appSize})`,
+    ctaLabel: `download for mac (${siteConfig.metricove.appSize})`,
     badge: "For Mac",
     highlights: [
       "Per-Core Apple Silicon P/E CPU & Metal GPU Utilization",
@@ -122,7 +123,7 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.netguard.slug}`,
     downloadUrl: siteConfig.netguard.downloadUrl,
     appStoreUrl: siteConfig.netguard.downloadUrl,
-    ctaLabel: `Download .DMG (${siteConfig.netguard.appSize})`,
+    ctaLabel: `download for mac (${siteConfig.netguard.appSize})`,
     badge: "For Mac",
     highlights: [
       "Interactive Per-App Outbound Connection Approval Alerts",
@@ -144,7 +145,7 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.klipora.slug}`,
     downloadUrl: siteConfig.klipora.downloadUrl,
     appStoreUrl: siteConfig.klipora.downloadUrl,
-    ctaLabel: `Download .DMG (${siteConfig.klipora.appSize})`,
+    ctaLabel: `download for mac (${siteConfig.klipora.appSize})`,
     badge: "For Mac",
     highlights: [
       "Instant Global Hotkey Clipboard History Timeline",
@@ -166,7 +167,7 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.showFreeSpace.slug}`,
     downloadUrl: siteConfig.showFreeSpace.downloadUrl,
     appStoreUrl: siteConfig.showFreeSpace.downloadUrl,
-    ctaLabel: `Download .DMG (${siteConfig.showFreeSpace.appSize})`,
+    ctaLabel: `download for mac (${siteConfig.showFreeSpace.appSize})`,
     badge: "For Mac",
     highlights: [
       "Interactive Multi-Ring Sunburst Storage Map",
@@ -227,7 +228,7 @@ const liveCatalog: CatalogItem[] = [
     previewImage: siteConfig.adBlocker.screenshotsMac?.[0]?.image,
     href: "/ad-blocker",
     appStoreUrl: siteConfig.adBlocker.appStoreUrl,
-    ctaLabel: "App Store",
+    ctaLabel: "Download on the App Store",
     badge: "For iOS & Safari",
     highlights: [
       "Native WebKit Content Blocking API",
@@ -250,7 +251,7 @@ const liveCatalog: CatalogItem[] = [
       siteConfig.readereasy.screenshotsIos?.[0]?.image,
     href: "/readereasy",
     appStoreUrl: siteConfig.readereasy.appStoreUrl,
-    ctaLabel: "App Store",
+    ctaLabel: "Download on the App Store",
     badge: "For iOS & Safari",
     highlights: [
       "Paper, Sepia, Slate & True OLED Dark themes",
@@ -273,7 +274,7 @@ const liveCatalog: CatalogItem[] = [
       siteConfig.webclear.screenshotsIos?.[0]?.image,
     href: "/webclear",
     appStoreUrl: siteConfig.webclear.appStoreUrl,
-    ctaLabel: "App Store",
+    ctaLabel: "Download on the App Store",
     badge: "For iOS & Safari",
     highlights: [
       "One-Tap Per-Site Reset without losing other logins",
@@ -294,7 +295,7 @@ const liveCatalog: CatalogItem[] = [
     previewImage: siteConfig.weblenses.screenshotsMac?.[0]?.image,
     href: "/weblenses",
     appStoreUrl: siteConfig.weblenses.appStoreUrl,
-    ctaLabel: "App Store",
+    ctaLabel: "Download on the App Store",
     badge: "For iOS & Safari",
     highlights: [
       "Instant 0–100 Website Health Score across 4 pillars",
@@ -315,7 +316,7 @@ const liveCatalog: CatalogItem[] = [
     previewImage: siteConfig.elementHider.screenshotsMac?.[0]?.image,
     href: "/element-hider",
     appStoreUrl: siteConfig.elementHider.appStoreUrl,
-    ctaLabel: "App Store",
+    ctaLabel: "Download on the App Store",
     badge: "For iOS & Safari",
     highlights: [
       "Point-and-tap visual element picker in Safari",
@@ -336,7 +337,7 @@ const liveCatalog: CatalogItem[] = [
     previewImage: siteConfig.invert.screenshotsMac?.[0]?.image,
     href: "/invert",
     appStoreUrl: siteConfig.invert.appStoreUrl,
-    ctaLabel: "App Store",
+    ctaLabel: "Download on the App Store",
     badge: "For iOS & Safari",
     highlights: [
       "Smart Invert, Soft Invert & Full High-Contrast modes",
@@ -370,8 +371,8 @@ export default function ProductsPage() {
               rel="noopener noreferrer"
               className="helumi-pill helumi-pill-dark !h-9 !px-4 !text-[13px]"
             >
+              <AppStoreIcon className="h-3.5 w-3.5" />
               <span>Apple App Store</span>
-              <ExternalLink className="h-3.5 w-3.5" />
             </a>
             <a
               href={siteConfig.biodata.webUrl}
@@ -379,8 +380,8 @@ export default function ProductsPage() {
               rel="noopener noreferrer"
               className="helumi-pill helumi-pill-light !h-9 !px-4 !text-[13px]"
             >
+              <Globe className="h-3.5 w-3.5" />
               <span>biodata.cogify.me</span>
-              <ExternalLink className="h-3.5 w-3.5" />
             </a>
             <a
               href={siteConfig.ssb.webUrl}
@@ -388,8 +389,8 @@ export default function ProductsPage() {
               rel="noopener noreferrer"
               className="helumi-pill helumi-pill-light !h-9 !px-4 !text-[13px]"
             >
+              <Globe className="h-3.5 w-3.5" />
               <span>ssb.cogify.me</span>
-              <ExternalLink className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>

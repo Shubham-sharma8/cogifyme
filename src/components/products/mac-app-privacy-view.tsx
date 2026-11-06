@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Shield, Lock, CheckCircle2, ArrowLeft, Download } from "lucide-react";
+import { Shield, Lock, CheckCircle2, ArrowLeft } from "lucide-react";
 import { MacAppConfig, siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { AuthorBio } from "@/components/seo/author-bio";
+import { AppleLogoIcon } from "@/components/ui/platform-icons";
 
 export function MacAppPrivacyView({ app }: { app: MacAppConfig }) {
   const privacyJsonLd = {
@@ -169,10 +170,10 @@ export function MacAppPrivacyView({ app }: { app: MacAppConfig }) {
               <a
                 href={app.downloadUrl}
                 download
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition-colors"
+                className="helumi-pill text-xs"
               >
-                <Download className="w-3.5 h-3.5" />
-                <span>Download {app.shortName} (.DMG • {app.appSize})</span>
+                <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />
+                <span>download for mac ({app.appSize})</span>
               </a>
             </div>
           </div>

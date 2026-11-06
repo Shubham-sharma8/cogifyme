@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ShieldCheck, Terminal, ExternalLink, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ExternalLink, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { AppleLogoIcon, GitHubIcon } from "@/components/ui/platform-icons";
 
 interface AuthorBioProps {
   currentSlug?: string;
@@ -167,7 +168,7 @@ export function AuthorBio({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:underline"
                 >
-                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />
                   Apple Developer ID #1643497398
                   <ExternalLink className="w-3 h-3" />
                 </a>
@@ -177,7 +178,7 @@ export function AuthorBio({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-[#555] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white transition-colors"
                 >
-                  <Terminal className="w-3.5 h-3.5" />
+                  <GitHubIcon className="w-3.5 h-3.5" />
                   GitHub (@Shubham-sharma8)
                   <ExternalLink className="w-3 h-3" />
                 </a>

@@ -9,11 +9,9 @@ import {
   Lock,
   ArrowUpRight,
   Smartphone,
-  Monitor,
   Tablet,
   Cpu,
   Heart,
-  ExternalLink,
   MessageSquare,
 } from "lucide-react";
 import { SafariAppConfig } from "@/config/site";
@@ -21,6 +19,7 @@ import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
 import { InlineAppComparison } from "@/components/compare/inline-app-comparison";
+import { AppleLogoIcon, AppStoreIcon } from "@/components/ui/platform-icons";
 
 interface SafariAppPageViewProps {
   app: SafariAppConfig;
@@ -116,7 +115,7 @@ export function SafariAppPageView({ app }: SafariAppPageViewProps) {
                   rel="noopener noreferrer"
                   className="helumi-pill text-sm"
                 >
-                  <ExternalLink className="h-4 w-4" />
+                  <AppStoreIcon className="h-4 w-4" />
                   <span>Download on the App Store</span>
                 </a>
                 <Link href="/suggestions" className="helumi-pill-secondary text-sm">
@@ -235,7 +234,7 @@ export function SafariAppPageView({ app }: SafariAppPageViewProps) {
                         : "text-[#666] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white"
                     }`}
                   >
-                    <Monitor className="h-3.5 w-3.5" />
+                    <AppleLogoIcon className="h-3.5 w-3.5 -mt-0.5" />
                     macOS
                   </button>
                 )}
@@ -386,7 +385,9 @@ export function SafariAppPageView({ app }: SafariAppPageViewProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#111] dark:text-white hover:underline"
               >
-                Get {app.shortName} on App Store <ArrowUpRight className="h-3.5 w-3.5" />
+                <AppStoreIcon className="h-3.5 w-3.5" />
+                <span>Download on the App Store</span>
+                <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>

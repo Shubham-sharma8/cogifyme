@@ -5,12 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  ExternalLink,
   CheckCircle2,
-  Download,
+  Globe,
   Search,
   X,
 } from "lucide-react";
+import {
+  AppleLogoIcon,
+  AppStoreIcon,
+  SafariIcon,
+} from "@/components/ui/platform-icons";
 
 export interface CatalogItem {
   name: string;
@@ -111,6 +115,9 @@ export function ProductsCatalogClient({ items }: { items: CatalogItem[] }) {
                     : "text-black/65 dark:text-white/65 hover:text-black dark:hover:text-white"
                 }`}
               >
+                {tab.id === "mac" && <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />}
+                {tab.id === "safari" && <SafariIcon className="w-3.5 h-3.5" />}
+                {tab.id === "web" && <Globe className="w-3.5 h-3.5" />}
                 <span>{tab.label}</span>
                 <span
                   className={`text-[11px] tabular-nums ${
@@ -251,7 +258,17 @@ export function ProductsCatalogClient({ items }: { items: CatalogItem[] }) {
                     download
                     className="helumi-pill helumi-pill-dark !h-9 !px-4 !text-[13px] tabular-nums"
                   >
-                    <Download className="h-3.5 w-3.5" />
+                    <AppleLogoIcon className="h-3.5 w-3.5 -mt-0.5 shrink-0" />
+                    <span>{item.ctaLabel}</span>
+                  </a>
+                ) : item.pillar === "safari" ? (
+                  <a
+                    href={item.appStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="helumi-pill helumi-pill-dark !h-9 !px-4 !text-[13px]"
+                  >
+                    <AppStoreIcon className="h-3.5 w-3.5 shrink-0" />
                     <span>{item.ctaLabel}</span>
                   </a>
                 ) : (
@@ -261,7 +278,7 @@ export function ProductsCatalogClient({ items }: { items: CatalogItem[] }) {
                     rel="noopener noreferrer"
                     className="helumi-pill helumi-pill-dark !h-9 !px-4 !text-[13px]"
                   >
-                    <ExternalLink className="h-3.5 w-3.5" />
+                    <Globe className="h-3.5 w-3.5 shrink-0" />
                     <span>{item.ctaLabel}</span>
                   </a>
                 )}

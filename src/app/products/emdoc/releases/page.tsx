@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Download,
   ArrowLeft,
   ArrowUpRight,
   CheckCircle2,
@@ -15,6 +14,11 @@ import {
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { AuthorBio } from "@/components/seo/author-bio";
+import {
+  AppleLogoIcon,
+  AppStoreIcon,
+  GitHubIcon,
+} from "@/components/ui/platform-icons";
 
 export const metadata: Metadata = {
   title: "EmDoc Releases & Previous Versions (.DMG Download)",
@@ -164,8 +168,8 @@ export default function EmDocReleasesPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-medium text-[#666] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white transition-colors"
             >
-              <span>View on GitHub Releases</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <GitHubIcon className="w-3.5 h-3.5" />
+              <span>GitHub Releases</span>
             </a>
           </div>
         </div>
@@ -258,8 +262,8 @@ export default function EmDocReleasesPage() {
                     download
                     className="helumi-pill text-sm"
                   >
-                    <Download className="w-4 h-4" />
-                    <span>Download EmDoc v{latestRelease.version} (.DMG • {latestRelease.size})</span>
+                    <AppleLogoIcon className="w-4 h-4 -mt-0.5" />
+                    <span>download for mac (v{latestRelease.version} • {latestRelease.size})</span>
                   </a>
                   <a
                     href={emdoc.appStoreUrl}
@@ -267,8 +271,8 @@ export default function EmDocReleasesPage() {
                     rel="noopener noreferrer"
                     className="helumi-pill-secondary text-sm"
                   >
-                    <span>Mac App Store</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    <AppStoreIcon className="w-4 h-4" />
+                    <span>Download on the Mac App Store</span>
                   </a>
                 </div>
               </div>
@@ -362,8 +366,8 @@ export default function EmDocReleasesPage() {
                         download
                         className="helumi-pill-secondary text-xs"
                       >
-                        <Download className="w-3.5 h-3.5" />
-                        <span>Download v{rel.version} (.DMG • {rel.size})</span>
+                        <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />
+                        <span>download v{rel.version} ({rel.size})</span>
                       </a>
                     </div>
                   </div>
@@ -446,7 +450,7 @@ export default function EmDocReleasesPage() {
                     className="helumi-pill-secondary text-xs shrink-0 !px-3.5 !py-2"
                     title={`Download ${app.name} (${app.size} .DMG)`}
                   >
-                    <Download className="w-3.5 h-3.5" />
+                    <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />
                     <span>{app.size}</span>
                   </a>
                 </div>

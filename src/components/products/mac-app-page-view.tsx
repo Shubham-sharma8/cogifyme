@@ -7,7 +7,6 @@ import {
   Shield,
   CheckCircle2,
   Lock,
-  Download,
   Monitor,
   Cpu,
   Heart,
@@ -18,6 +17,7 @@ import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
 import { InlineAppComparison } from "@/components/compare/inline-app-comparison";
+import { AppleLogoIcon } from "@/components/ui/platform-icons";
 
 interface MacAppPageViewProps {
   app: MacAppConfig;
@@ -96,8 +96,8 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                   download
                   className="helumi-pill text-sm tabular-nums"
                 >
-                  <Download className="h-4 w-4" aria-hidden="true" />
-                  <span>Download {app.shortName} (.DMG • {app.appSize})</span>
+                  <AppleLogoIcon className="h-4 w-4 -mt-0.5" />
+                  <span>download for mac ({app.appSize})</span>
                 </a>
                 <Link href="/suggestions" className="helumi-pill-secondary text-sm">
                   <MessageSquare className="h-4 w-4" aria-hidden="true" />
@@ -157,9 +157,10 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                 <a
                   href={app.downloadUrl}
                   download
-                  className="text-[#111] dark:text-white font-semibold hover:underline inline-flex items-center gap-1 shrink-0"
+                  className="text-[#111] dark:text-white font-semibold hover:underline inline-flex items-center gap-1.5 shrink-0"
                 >
-                  Direct DMG <Download className="h-3.5 w-3.5" aria-hidden="true" />
+                  <AppleLogoIcon className="h-3.5 w-3.5 -mt-0.5" />
+                  <span>Direct DMG</span>
                 </a>
               </div>
             </div>
@@ -186,8 +187,8 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                 download
                 className="helumi-pill-secondary text-xs self-start md:self-auto tabular-nums"
               >
-                <Download className="w-3.5 h-3.5" aria-hidden="true" />
-                <span>Download .DMG ({app.appSize})</span>
+                <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />
+                <span>download for mac ({app.appSize})</span>
               </a>
             </div>
 
@@ -359,8 +360,8 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
                 download
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#111] dark:text-white hover:underline tabular-nums"
               >
-                <Download className="h-3.5 w-3.5" aria-hidden="true" />
-                Download {app.shortName}.dmg ({app.appSize})
+                <AppleLogoIcon className="h-3.5 w-3.5 -mt-0.5" />
+                download for mac ({app.appSize})
               </a>
               <Link
                 href={`/${app.slug}/privacy`}

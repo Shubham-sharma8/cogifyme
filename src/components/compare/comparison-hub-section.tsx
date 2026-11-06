@@ -6,10 +6,10 @@ import Link from "next/link";
 import {
   CheckCircle2,
   ArrowUpRight,
-  Download,
   ShieldCheck,
 } from "lucide-react";
 import { COMPARISON_GUIDES } from "@/config/comparisons";
+import { AppleLogoIcon, AppStoreIcon } from "@/components/ui/platform-icons";
 
 interface ComparisonHubSectionProps {
   compact?: boolean;
@@ -251,8 +251,16 @@ export function ComparisonHubSection({ compact = false }: ComparisonHubSectionPr
                 href={activeGuide.downloadUrl}
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#f5f5f5] dark:bg-white/[0.06] hover:bg-black/[0.07] dark:hover:bg-white/[0.1] text-black dark:text-white text-[13px] font-medium transition-colors"
               >
-                <Download className="w-3.5 h-3.5" />
-                <span>Download ({activeGuide.cogifySpec.binarySize})</span>
+                {activeGuide.category === "Safari WebKit Suite" ? (
+                  <AppStoreIcon className="w-3.5 h-3.5" />
+                ) : (
+                  <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />
+                )}
+                <span>
+                  {activeGuide.category === "Safari WebKit Suite"
+                    ? "Download on the App Store"
+                    : `download for mac (${activeGuide.cogifySpec.binarySize})`}
+                </span>
               </a>
             </div>
           </div>

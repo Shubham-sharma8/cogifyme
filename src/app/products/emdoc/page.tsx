@@ -5,10 +5,8 @@ import Link from "next/link";
 import {
   ShieldCheck,
   Cpu,
-  Download,
   HardDrive,
   MessageSquare,
-  ExternalLink,
   History,
   Calendar,
   ArrowUpRight,
@@ -20,6 +18,7 @@ import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
 import { InlineAppComparison } from "@/components/compare/inline-app-comparison";
+import { AppleLogoIcon, AppStoreIcon } from "@/components/ui/platform-icons";
 
 const EMDOC_FAQS: FaqItem[] = [
   {
@@ -109,8 +108,8 @@ export default function EmDocProductPage() {
               download
               className="helumi-pill text-sm"
             >
-              <Download className="w-4 h-4" />
-              <span>Download EmDoc v{emdoc.version} (.DMG • {emdoc.appSize})</span>
+              <AppleLogoIcon className="w-4 h-4 -mt-0.5" />
+              <span>download for mac (v{emdoc.version} • {emdoc.appSize})</span>
             </a>
 
             <a
@@ -119,8 +118,8 @@ export default function EmDocProductPage() {
               rel="noopener noreferrer"
               className="helumi-pill-secondary text-sm"
             >
-              <ExternalLink className="w-4 h-4" />
-              <span>Mac App Store</span>
+              <AppStoreIcon className="w-4 h-4" />
+              <span>Download on the Mac App Store</span>
             </a>
 
             <Link
@@ -254,8 +253,8 @@ export default function EmDocProductPage() {
                       : "helumi-pill-secondary text-xs shrink-0 !py-2 !px-4"
                   }
                 >
-                  <Download className="w-3.5 h-3.5" />
-                  <span>v{rel.version} .DMG ({rel.size})</span>
+                  <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />
+                  <span>download v{rel.version} ({rel.size})</span>
                 </a>
               </div>
             ))}

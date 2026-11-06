@@ -5,18 +5,16 @@ import Link from "next/link";
 import {
   SunMoon,
   CheckCircle2,
-  Monitor,
   Smartphone,
-  Compass,
   MessageSquare,
   ChevronRight,
-  ExternalLink,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
 import { InlineAppComparison } from "@/components/compare/inline-app-comparison";
+import { AppleLogoIcon, AppStoreIcon, SafariIcon } from "@/components/ui/platform-icons";
 
 const COLOUR_INVERT_FAQS: FaqItem[] = [
   {
@@ -117,7 +115,7 @@ export default function ColourInvertPage() {
                 rel="noopener noreferrer"
                 className="helumi-pill text-sm"
               >
-                <ExternalLink className="w-4 h-4" />
+                <AppStoreIcon className="w-4 h-4" />
                 <span>Download on the App Store</span>
               </a>
 
@@ -129,7 +127,7 @@ export default function ColourInvertPage() {
                   el?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                <Compass className="w-4 h-4" />
+                <SafariIcon className="w-4 h-4" />
                 <span>Explore Extension Gallery</span>
               </button>
 
@@ -207,7 +205,7 @@ export default function ColourInvertPage() {
                     : "text-[#666] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white"
                 }`}
               >
-                <Monitor className="w-3.5 h-3.5" />
+                <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />
                 <span>macOS Safari</span>
               </button>
             </div>

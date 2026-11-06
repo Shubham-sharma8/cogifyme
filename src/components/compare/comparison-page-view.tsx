@@ -2,18 +2,17 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Download,
   CheckCircle2,
   Cpu,
   HardDrive,
   DollarSign,
   ArrowUpRight,
-  ExternalLink,
 } from "lucide-react";
 import { FaqSection } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { ComparisonGuide, COMPARISON_GUIDES } from "@/config/comparisons";
+import { AppleLogoIcon, AppStoreIcon } from "@/components/ui/platform-icons";
 
 interface ComparisonPageViewProps {
   guide: ComparisonGuide;
@@ -116,11 +115,15 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
               href={guide.downloadUrl}
               className="helumi-pill px-6 py-3 text-[13px] font-medium inline-flex items-center gap-2"
             >
-              <Download className="w-4 h-4" />
+              {guide.category === "Safari WebKit Suite" ? (
+                <AppStoreIcon className="w-4 h-4" />
+              ) : (
+                <AppleLogoIcon className="w-4 h-4 -mt-0.5" />
+              )}
               <span>
                 {guide.category === "Safari WebKit Suite"
-                  ? "Get Free on Apple App Store"
-                  : `Download ${guide.appShortName} Free (${guide.cogifySpec.binarySize})`}
+                  ? "Download on the App Store"
+                  : `download for mac (${guide.cogifySpec.binarySize})`}
               </span>
             </a>
 
@@ -139,8 +142,8 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-4 py-3 text-[12px] font-medium text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
               >
+                <AppStoreIcon className="w-3.5 h-3.5" />
                 <span>Mac App Store Verified</span>
-                <ExternalLink className="w-3.5 h-3.5" />
               </a>
             )}
           </div>
@@ -502,8 +505,16 @@ export function ComparisonPageView({ guide }: ComparisonPageViewProps) {
                 href={guide.downloadUrl}
                 className="helumi-pill px-5 py-2.5 text-[12px] font-medium inline-flex items-center gap-2"
               >
-                <Download className="w-3.5 h-3.5" />
-                <span>Download {guide.appShortName} ($0)</span>
+                {guide.category === "Safari WebKit Suite" ? (
+                  <AppStoreIcon className="w-3.5 h-3.5" />
+                ) : (
+                  <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />
+                )}
+                <span>
+                  {guide.category === "Safari WebKit Suite"
+                    ? "Download on the App Store"
+                    : `download for mac (${guide.cogifySpec.binarySize})`}
+                </span>
               </a>
             </div>
           </div>

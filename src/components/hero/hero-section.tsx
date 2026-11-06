@@ -2,9 +2,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Lock, Laptop, Smartphone, Globe } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Lock, Globe } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { BrandLogo } from "@/components/brand/brand-logo";
+import { AppleLogoIcon, SafariIcon } from "@/components/ui/platform-icons";
 
 interface AppBoxItem {
   id: string;
@@ -149,35 +150,35 @@ const SOLUTIONS = [
   {
     id: "for-mac",
     badge: "For Mac",
-    icon: <Laptop className="w-4 h-4" />,
+    icon: <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />,
     title: "Native macOS utilities that respect your Mac.",
     description:
-      "Replace bloated 1 GB background daemons with 1.4 MB to 5.0 MB native Swift & C++20 apps for PDF editing, external monitor brightness, menu bar stats, firewall rules, clipboard history, and disk space analysis.",
+      "Replace bloated 1 GB background daemons with 1.4 MB to 7.8 MB native Swift & C++20 apps for PDF editing, external monitor brightness, menu bar stats, firewall rules, clipboard history, and disk space analysis.",
     apps: "EmDoc · LumenView · Metricove · NetGuard · Klipora · ShowFreeSpace",
     href: "/products#for-mac",
-    cta: "Explore Mac apps",
+    cta: "Download for Mac",
   },
   {
     id: "for-ios",
     badge: "For iOS & Safari",
-    icon: <Smartphone className="w-4 h-4" />,
+    icon: <SafariIcon className="w-3.5 h-3.5" />,
     title: "Zero-telemetry Safari extensions for iPhone, iPad & Mac.",
     description:
       "Block 75,000+ trackers natively, read articles in Bionic focus mode, clear single-site cookies in one tap, inspect Core Web Vitals, hide annoying page elements, and apply smart dark mode.",
     apps: "Ad Blocker · ReaderEasy · WebClear · WebLenses · Element Hider · Colour Invert",
     href: "/products#for-ios",
-    cta: "Explore iOS & Safari apps",
+    cta: "Get on App Store",
   },
   {
     id: "web",
     badge: "Web Solutions",
-    icon: <Globe className="w-4 h-4" />,
+    icon: <Globe className="w-3.5 h-3.5" />,
     title: "Instant browser studios with zero sign-up.",
     description:
       "Design 300-DPI marriage biodata across 242 cultural templates and 9 scripts (biodata.cogify.me), or practice full timed Indian Armed Forces SSB Stage-2 Psych & GTO tests (ssb.cogify.me) 100% locally in your browser.",
     apps: "Marriage Biodata Maker · SSB Stage-2 Practice Studio",
     href: "/products#web",
-    cta: "Explore Web studios",
+    cta: "Launch Web studios",
   },
 ];
 
@@ -205,12 +206,13 @@ export const HeroSection = () => {
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-2.5">
-          <Link href="/products" className="helumi-pill helumi-pill-dark">
-            <span>explore all 14 products</span>
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
+          <Link href="/products#for-mac" className="helumi-pill helumi-pill-dark">
+            <AppleLogoIcon className="w-4 h-4 -mt-0.5" />
+            <span>download for mac &amp; ios</span>
           </Link>
-          <Link href="/compare" className="helumi-pill helumi-pill-light">
-            <span>compare vs paid apps</span>
+          <Link href="/products" className="helumi-pill helumi-pill-light">
+            <span>explore all 14 apps</span>
+            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
           </Link>
         </div>
 
@@ -223,31 +225,31 @@ export const HeroSection = () => {
         </div>
       </section>
 
-      {/* 2. "Fourteen apps. One craft." Icon Box Grid (Matches Uploaded Reference Design) */}
+      {/* 2. "Everyday tools. Zero bloat." Icon Box Grid */}
       <section className="max-w-[1120px] mx-auto px-4 sm:px-6 mb-20 sm:mb-24">
         <div className="rounded-[24px] bg-[#0e0e11] text-white border border-black/10 dark:border-white/[0.12] overflow-hidden shadow-[0_24px_60px_-15px_rgba(0,0,0,0.22)]">
           {/* Box Grid Header */}
           <div className="p-6 sm:p-10 lg:px-12 lg:pt-12 lg:pb-9 border-b border-white/[0.1]">
             <div className="flex items-center justify-between gap-4 mb-3">
               <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-white/45">
-                COGIFY SUITE
+                COGIFY ECOSYSTEM
               </span>
               <span className="text-[11px] font-mono uppercase tracking-[0.18em] text-white/55 hidden sm:inline">
-                CRAFTING EVERYDAY TOOLS
+                MACOS · IOS · SAFARI · WEB
               </span>
             </div>
 
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div>
                 <h2 className="text-[32px] sm:text-[46px] lg:text-[52px] font-semibold tracking-[-0.035em] text-white leading-[1.06]">
-                  Fourteen apps. One{" "}
+                  Everyday tools. Zero{" "}
                   <span className="craft-serif font-normal italic text-[1.08em]">
-                    craft
+                    bloat
                   </span>
                   .
                 </h2>
-                <p className="mt-3 text-[14px] sm:text-[15px] text-white/60 max-w-[48ch] leading-relaxed">
-                  Native, zero-telemetry desktop, mobile, and web apps from the Cogify team, built in Swift, C++20 &amp; Web and free to use.
+                <p className="mt-3 text-[14px] sm:text-[15px] text-white/60 max-w-[50ch] leading-relaxed">
+                  14 native macOS apps, Safari extensions, and instant web studios — engineered for speed, 100% offline privacy, and free forever.
                 </p>
               </div>
 
@@ -388,10 +390,16 @@ export const HeroSection = () => {
         <p className="mt-3 mb-6 text-[15px] text-black/65 dark:text-white/65">
           Explore all 14 native Mac, iOS, Safari, and Web solutions on our product page.
         </p>
-        <Link href="/products" className="helumi-pill helumi-pill-dark">
-          <span>go to product page</span>
-          <ArrowRight className="w-4 h-4" aria-hidden="true" />
-        </Link>
+        <div className="flex flex-wrap items-center justify-center gap-2.5">
+          <Link href="/products#for-mac" className="helumi-pill helumi-pill-dark">
+            <AppleLogoIcon className="w-4 h-4 -mt-0.5" />
+            <span>download for mac &amp; ios</span>
+          </Link>
+          <Link href="/products" className="helumi-pill helumi-pill-light">
+            <span>go to product page</span>
+            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+          </Link>
+        </div>
       </section>
     </div>
   );
