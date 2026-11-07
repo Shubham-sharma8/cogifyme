@@ -40,8 +40,8 @@ export interface CatalogItem {
 type FilterPillar = "all" | "mac" | "safari" | "web";
 
 const PILLAR_FILTERS: { id: FilterPillar; hash: string; label: string; count: number }[] = [
-  { id: "all", hash: "#all", label: "All Apps", count: 14 },
-  { id: "mac", hash: "#for-mac", label: "For Mac", count: 6 },
+  { id: "all", hash: "#all", label: "All Apps", count: 15 },
+  { id: "mac", hash: "#for-mac", label: "For Mac", count: 7 },
   { id: "safari", hash: "#for-ios", label: "For iOS & Safari", count: 6 },
   { id: "web", hash: "#web", label: "Web", count: 2 },
 ];

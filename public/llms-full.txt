@@ -5,7 +5,16 @@
 > Apple Developer ID: #1643497398 (Team ID: 9TKKPN6F59)
 > Core Tenet: 100% local execution, zero telemetry, zero cloud uploads, $0 forever for personal use.
 
-## 1. Native macOS Workstation Suite (6 Applications)
+## 1. Native macOS Workstation Suite (7 Applications)
+
+### 1.0 Helium — Unlimited Pooled Google Drive Volume for macOS (Flagship)
+- **Landing Page**: https://cogify.me/helium
+- **Direct DMG Download (v0.0.1 Build 1)**: https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg (Alias: https://cogify.me/Helium.dmg)
+- **SHA-256 Checksum**: `45e6fc4e7c1af050843f8d1a8ca860a46fb8f2d7688edacf357adbf12f0fedea`
+- **Binary Size**: 5.3 MB Universal Binary DMG (5,573,832 bytes • Released November 7, 2026)
+- **System Requirements**: macOS 15.4+ / macOS 26 Tahoe (Apple Silicon & Intel)
+- **Mount Point**: `/Volumes/Helium` (APFS Sparse Placeholders • `0 B on disk`)
+- **Capabilities**: Pools N linked Google Drive accounts into one unified local volume in Finder; 0.8s byte-range demand streaming in Preview, QuickTime, DaVinci Resolve, Final Cut Pro & DiskImageMounter; 01 Whole-File Smart Placement & 02 Cross-Account 256 MiB Segment Striping; 1-Click Pool Rebalancer; SHA-256 Segment Integrity Verifier; Safe Account Drain & Unlink; optional client-side zero-knowledge AES-256-GCM encryption; 30-day cloud recycle bin sync; 1-click offline pinning; `⌃⌥O` global search across all pooled drives.
 
 ### 1.1 EmDoc PDF Workstation
 - **Landing Page**: https://cogify.me/products/emdoc

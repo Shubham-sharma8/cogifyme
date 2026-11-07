@@ -1,10 +1,11 @@
 # COGIFY Technologies — cogify.me
 
-> Sovereign, zero-telemetry native macOS workstations, Safari Web Extensions, and client-side web studios engineered by Shubham Sharma (Apple Developer ID #1643497398). 14 live products with 100% local execution, zero subscriptions ($0 forever for individual users), and zero cloud tracking.
+> Sovereign, zero-telemetry native macOS workstations, Safari Web Extensions, and client-side web studios engineered by Shubham Sharma (Apple Developer ID #1643497398). 15 live products led by Helium (Multi-Google-Drive Pool Volume for macOS) and EmDoc PDF Workstation, with zero subscriptions ($0 forever for individual users) and zero tracking.
 
 ## Primary URLs
 - **Official Website**: https://cogify.me
-- **Complete Product Catalog (14 Apps & Studios)**: https://cogify.me/products
+- **Helium Flagship Product Page**: https://cogify.me/helium
+- **Complete Product Catalog (15 Apps & Studios)**: https://cogify.me/products
 - **macOS Utility Comparisons & Benchmarks Hub**: https://cogify.me/compare
 - **Marriage Biodata Maker Web Studio**: https://biodata.cogify.me
 - **SSB Stage-2 Test Practice Web Studio**: https://ssb.cogify.me
@@ -12,7 +13,8 @@
 - **XML Sitemap**: https://cogify.me/sitemap.xml
 - **Full Technical & Architecture Reference**: https://cogify.me/llms-full.txt
 
-## 6 Native macOS Workstations (100% Free • Signed & Notarized .DMG)
+## 7 Native macOS Workstations (100% Free • Signed & Notarized .DMG)
+- [Helium — Unlimited Pooled Cloud Drive for macOS](https://cogify.me/helium): 5.3 MB universal macOS app (v0.0.1 Build 1, macOS 15.4+ / macOS 26 Tahoe) that mounts a real local drive at `/Volumes/Helium` in Finder pooling unlimited Google Drive accounts into one unified volume with Zero bytes on disk (`0 B on disk`), Whole-File Smart Placement, Cross-Account 256 MiB Segment Striping, 30-day Recycle Bin sync, and optional client-side zero-knowledge AES-256-GCM encryption. Direct DMG: https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg
 - [EmDoc PDF Workstation](https://cogify.me/products/emdoc) ([Releases & SHA-256 Archive](https://cogify.me/products/emdoc/releases)): 7.8 MB native C++20 & Swift PDF editor (v1.1, released Nov 6, 2026), redactor, Bates stamper, form signer, compressor, and Apple Vision OCR engine (~45 MB RAM, $0 vs. Adobe Acrobat Pro $239.88/yr). Direct DMG: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.1/EmDoc-1.1.dmg
 - [LumenView — External Monitor Controller](https://cogify.me/lumenview): 7.8 MB native Swift & Metal 3 macOS external monitor utility with hardware I2C DDC/CI brightness/contrast/volume, HiDPI Retina scaling up to 240Hz, 3D .cube LUT calibration, and 60 FPS ScreenCaptureKit Virtual Displays ($0 vs. BetterDisplay $22 / Lunar $23). Direct DMG: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/LumenView.dmg
 - [Metricove — Menu Bar System Telemetry](https://cogify.me/metricove): 2.3 MB native Swift 6 & IOKit/SMC hardware monitor for Apple Silicon P/E-cores, GPU, ANE, thermal sensors, custom fan curves, and process telemetry (~11 MB RAM, $0 vs. iStat Menus $11.99). Direct DMG: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/Metricove.dmg

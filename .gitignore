@@ -26,6 +26,7 @@
 .DS_Store
 *.pem
 *.dmg
+/Helium/
 
 # debug
 npm-debug.log*

@@ -19,6 +19,15 @@ interface AppBoxItem {
 
 const COGIFY_APPS: AppBoxItem[] = [
   {
+    id: "helium",
+    name: "Helium",
+    platform: "For Mac",
+    solutionTag: "Google Drive Pool",
+    icon: siteConfig.helium.icon,
+    href: "/helium",
+    accentColor: "#10b981",
+  },
+  {
     id: "emdoc",
     name: "EmDoc",
     platform: "For Mac",
@@ -153,8 +162,8 @@ const SOLUTIONS = [
     icon: <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />,
     title: "Native macOS utilities that respect your Mac.",
     description:
-      "Replace bloated 1 GB background daemons with 1.4 MB to 7.8 MB native Swift & C++20 apps for PDF editing, external monitor brightness, menu bar stats, firewall rules, clipboard history, and disk space analysis.",
-    apps: "EmDoc · LumenView · Metricove · NetGuard · Klipora · ShowFreeSpace",
+      "Pool unlimited Google Drives into /Volumes/Helium with 0 B used on your Mac SSD, edit PDFs offline in a 7.8 MB workstation, and control displays, telemetry, firewall rules, clipboard, and disk space.",
+    apps: "Helium · EmDoc · LumenView · Metricove · NetGuard · Klipora · ShowFreeSpace",
     href: "/products#for-mac",
     cta: "Download for Mac",
   },
@@ -183,12 +192,27 @@ const SOLUTIONS = [
 ];
 
 export const HeroSection = () => {
-  const [hoveredId, setHoveredId] = useState<string>("emdoc");
+  const [hoveredId, setHoveredId] = useState<string>("helium");
 
   return (
     <div className="pt-28 sm:pt-36 pb-20">
       {/* 1. Helumi-Style Centered Minimal Hero */}
       <section className="max-w-[920px] mx-auto px-6 text-center pb-14 sm:pb-16">
+        <div className="mb-5">
+          <Link
+            href="/helium"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#16161a] border border-black/[0.08] dark:border-white/[0.12] text-[12.5px] text-black/80 dark:text-white/85 shadow-2xs hover:border-black/25 dark:hover:border-white/25 transition-all"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="font-semibold">New Flagship: Helium for Mac</span>
+            <span className="text-black/35 dark:text-white/35">·</span>
+            <span className="text-black/65 dark:text-white/65">
+              Pool Google Drives at /Volumes/Helium (0 B on disk)
+            </span>
+            <ArrowRight className="w-3.5 h-3.5 opacity-60" />
+          </Link>
+        </div>
+
         <h1 className="hero-title text-[38px] sm:text-[52px] font-semibold tracking-[-0.045em] leading-[1.08] text-black dark:text-white flex flex-wrap items-center justify-center gap-x-2.5">
           <span className="helumi-em font-medium italic">meet</span>
           <span className="hero-tile w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white dark:bg-[#1a1a1f] border border-black/[0.08] dark:border-white/[0.12] shadow-sm inline-flex items-center justify-center">
@@ -198,20 +222,20 @@ export const HeroSection = () => {
           <span>.</span>
         </h1>
 
-        <p className="mt-3 mb-6 text-[16px] sm:text-[18px] text-black/65 dark:text-white/65 max-w-[40ch] mx-auto leading-[1.5] text-balance">
+        <p className="mt-3 mb-6 text-[16px] sm:text-[18px] text-black/65 dark:text-white/65 max-w-[42ch] mx-auto leading-[1.5] text-balance">
           <span className="marker text-black dark:text-white">
-            14 free solutions
+            15 free solutions
           </span>{" "}
           for your Mac, iPhone, iPad, and Web — built for speed and privacy, without subscriptions.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-2.5">
-          <Link href="/products#for-mac" className="helumi-pill helumi-pill-dark">
+          <Link href="/helium" className="helumi-pill helumi-pill-dark">
             <AppleLogoIcon className="w-4 h-4 -mt-0.5" />
-            <span>download for mac &amp; ios</span>
+            <span>meet helium (mac drive pool)</span>
           </Link>
           <Link href="/products" className="helumi-pill helumi-pill-light">
-            <span>explore all 14 apps</span>
+            <span>explore all 15 apps</span>
             <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
           </Link>
         </div>
@@ -249,7 +273,7 @@ export const HeroSection = () => {
                   .
                 </h2>
                 <p className="mt-3 text-[14px] sm:text-[15px] text-white/60 max-w-[50ch] leading-relaxed">
-                  14 native macOS apps, Safari extensions, and instant web studios — engineered for speed, 100% offline privacy, and free forever.
+                  15 native macOS apps, Safari extensions, and instant web studios — engineered for speed, 100% offline privacy, and free forever.
                 </p>
               </div>
 
@@ -263,8 +287,8 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* 14-App Hairline Box Grid (7 columns x 2 rows on desktop, 4 on tablet, 2 on mobile) */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 border-l border-white/[0.09]">
+          {/* 15-App Hairline Box Grid (5 columns x 3 rows on desktop, 3 on tablet) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 border-l border-white/[0.09]">
             {COGIFY_APPS.map((app) => {
               const isHighlighted = hoveredId === app.id;
               return (
@@ -388,7 +412,7 @@ export const HeroSection = () => {
           for <em className="helumi-em">everyday</em> tools.
         </h2>
         <p className="mt-3 mb-6 text-[15px] text-black/65 dark:text-white/65">
-          Explore all 14 native Mac, iOS, Safari, and Web solutions on our product page.
+          Explore all 15 native Mac, iOS, Safari, and Web solutions on our product page.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-2.5">
           <Link href="/products#for-mac" className="helumi-pill helumi-pill-dark">

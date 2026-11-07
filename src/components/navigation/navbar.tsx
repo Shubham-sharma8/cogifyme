@@ -33,6 +33,10 @@ export const Navbar = () => {
     return null;
   }
 
+  if (pathname?.startsWith("/helium")) {
+    return <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} />;
+  }
+
   return (
     <>
       <header className="fixed top-3 left-0 right-0 z-50 flex justify-center px-3 pointer-events-none">

@@ -9,16 +9,16 @@ import {
 } from "@/components/products/products-catalog-client";
 
 export const metadata: Metadata = {
-  title: "14 Free Native macOS, Safari Apps & Web Studios",
+  title: "15 Free Native macOS, Safari Apps & Web Studios",
   description:
-    "Explore COGIFY's 14 free, zero-telemetry apps and web studios: 6 native macOS DMG apps, Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
+    "Explore COGIFY's 15 free, zero-telemetry apps and web studios: 7 native macOS DMG apps (including Helium & EmDoc), Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
   alternates: {
     canonical: `${siteConfig.url}/products`,
   },
   openGraph: {
-    title: "14 Free Native macOS, Safari Apps & Web Studios | COGIFY",
+    title: "15 Free Native macOS, Safari Apps & Web Studios | COGIFY",
     description:
-      "Explore COGIFY's 14 free, zero-telemetry apps and web studios: 6 native macOS DMG apps, Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
+      "Explore COGIFY's 15 free, zero-telemetry apps and web studios: 7 native macOS DMG apps (including Helium & EmDoc), Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
     url: `${siteConfig.url}/products`,
     siteName: siteConfig.name,
     type: "website",
@@ -27,20 +27,42 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "COGIFY Product Ecosystem — 14 Native macOS, Safari Apps & Web Studios",
+        alt: "COGIFY Product Ecosystem — 15 Native macOS, Safari Apps & Web Studios",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "14 Free Native macOS, Safari Apps & Web Studios | COGIFY",
+    title: "15 Free Native macOS, Safari Apps & Web Studios | COGIFY",
     description:
-      "Explore COGIFY's 14 free, zero-telemetry apps and web studios: 6 native macOS DMG apps, Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
+      "Explore COGIFY's 15 free, zero-telemetry apps and web studios: 7 native macOS DMG apps (including Helium & EmDoc), Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
     images: ["/og-image.png"],
   },
 };
 
 const liveCatalog: CatalogItem[] = [
+  {
+    name: siteConfig.helium.name,
+    pillar: "mac",
+    tagline: siteConfig.helium.tagline,
+    description: siteConfig.helium.shortDescription,
+    version: `v${siteConfig.helium.version}`,
+    releaseDate: siteConfig.helium.releaseDate,
+    platforms: siteConfig.helium.platform,
+    category: "Flagship • Cloud Drive Pool",
+    icon: siteConfig.helium.icon,
+    previewImage: "/brand/Helium/02-helium-hero-finder-zero-bytes.webp",
+    href: "/helium",
+    downloadUrl: "/Helium.dmg",
+    appStoreUrl: siteConfig.helium.downloadUrl,
+    ctaLabel: `download for mac (${siteConfig.helium.appSize})`,
+    badge: "Flagship • For Mac",
+    highlights: [
+      "Mounts /Volumes/Helium in Finder pooling unlimited Google Drives",
+      "Zero bytes on disk (0 B on disk) via APFS sparse placeholders",
+      "Whole-File Smart Placement, 256 MiB Striping & AES-256-GCM Encryption",
+    ],
+  },
   {
     name: "EmDoc PDF Workstation",
     pillar: "mac",
@@ -362,7 +384,7 @@ export default function ProductsPage() {
             every tool, <em className="helumi-em">free</em> forever.
           </h1>
           <p className="mt-3 text-[15px] sm:text-[16px] text-black/65 dark:text-white/65 leading-relaxed">
-            6 native macOS workstations, 6 Safari extensions for iPhone, iPad &amp; Mac, and 2 real-time web studios — built with zero cloud dependencies and zero tracking.
+            7 native macOS workstations (led by Helium &amp; EmDoc), 6 Safari extensions for iPhone, iPad &amp; Mac, and 2 real-time web studios — built for speed and zero tracking.
           </p>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
             <a

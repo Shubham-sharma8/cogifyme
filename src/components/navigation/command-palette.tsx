@@ -77,6 +77,17 @@ const COMMAND_ITEMS: CommandItem[] = [
 
   // macOS Workstations
   {
+    id: "helium",
+    title: "Helium — Unlimited Pooled Cloud Drive for macOS (v0.0.1)",
+    subtitle: "Pool multiple Google Drives into /Volumes/Helium in Finder with 0 B used on your Mac SSD",
+    category: "macOS Workstations (.DMG)",
+    href: "/helium",
+    downloadUrl: "/Helium.dmg",
+    badge: "v0.0.1 • 5.3 MB DMG",
+    icon: "/brand/Helium/icon-sm.webp",
+    keywords: "helium google drive pool macos finder zero bytes on disk cloud storage ssd helumi dmg v0.0.1",
+  },
+  {
     id: "emdoc",
     title: "EmDoc PDF Workstation (v1.1)",
     subtitle: "7.8 MB Air-Gapped Native macOS PDF Editor, Merger, OCR & Bates Numbering • Released Nov 6, 2026",

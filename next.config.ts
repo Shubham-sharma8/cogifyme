@@ -65,6 +65,23 @@ const nextConfig: NextConfig = {
       },
       // 2. Short URL, App Store Support URL, & product path aliases (single-hop 308 redirects)
       {
+        source: "/Helium.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg",
+        permanent: false,
+      },
+      {
+        source: "/helium.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg",
+        permanent: false,
+      },
+      {
+        source: "/products/helium",
+        destination: "/helium",
+        permanent: true,
+      },
+      {
         source: "/emdoc",
         destination: "/products/emdoc",
         permanent: true,
@@ -230,6 +247,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // 3. Consolidate all app-specific & legacy privacy paths to Privacy Policy (/privacy)
+      {
+        source: "/helium/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/products/helium/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
       {
         source: "/emdoc/privacy",
         destination: "/privacy",

@@ -35,6 +35,12 @@ export const Footer = () => {
           className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
         >
           <Link
+            href="/helium"
+            className="font-medium text-black/85 dark:text-white/85 hover:text-black dark:hover:text-white transition-colors"
+          >
+            Helium
+          </Link>
+          <Link
             href="/products#for-mac"
             className="hover:text-black dark:hover:text-white transition-colors"
           >

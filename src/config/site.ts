@@ -129,6 +129,12 @@ export interface MacAppConfig {
   fullDescription: string;
   philosophy: string;
   version: string;
+  build?: string;
+  releaseDate?: string;
+  releaseDateIso?: string;
+  sha256?: string;
+  bytes?: string;
+  directPath?: string;
   appSize: string;
   bundleId: string;
   minMacOsVersion: string;
@@ -141,6 +147,7 @@ export interface MacAppConfig {
   appStoreUrl?: string;
   icon: string;
   iconLarge: string;
+  mascot?: string;
   accentColor: "emerald" | "indigo" | "amber" | "sky" | "rose" | "violet" | "cyan";
   features: {
     title: string;
@@ -279,6 +286,7 @@ export interface SiteConfig {
   weblenses: SafariAppConfig;
   biodata: BiodataStudioConfig;
   ssb: BiodataStudioConfig;
+  helium: MacAppConfig;
   lumenview: MacAppConfig;
   metricove: MacAppConfig;
   netguard: MacAppConfig;
@@ -296,12 +304,17 @@ export const siteConfig: SiteConfig = {
   ogImage: "https://cogify.me/og-image.png",
   appleDeveloperUrl: "https://apps.apple.com/in/developer/shubham-sharma/id1643497398",
   description:
-    "Cogify builds 14 free, zero-telemetry web studios (biodata.cogify.me, ssb.cogify.me) and native macOS, iOS, iPadOS & Safari apps with 100% local privacy.",
+    "Cogify builds 15 free, zero-telemetry web studios (biodata.cogify.me, ssb.cogify.me) and native macOS, iOS, iPadOS & Safari apps including Helium and EmDoc with 100% local privacy.",
   keywords: [
     "Cogify",
     "cogify.me",
     "Cogify Technologies",
     "Shubham Sharma Apple Developer",
+    "Helium Mac",
+    "Helium Google Drive Pool Mac",
+    "pool multiple Google Drives macOS Finder",
+    "unlimited cloud drive Mac zero bytes on disk",
+    "Helumi alternative Mac",
     "biodata maker",
     "biodata.cogify.me",
     "Marriage Biodata Maker",
@@ -2765,6 +2778,161 @@ export const siteConfig: SiteConfig = {
       "Vision OCR clipboard Mac",
     ],
   },
+  helium: {
+    slug: "helium",
+    name: "Helium: Unlimited Pooled Cloud Drive for macOS",
+    shortName: "Helium",
+    tagline: "Unlimited pooled space for your Mac, without buying a new SSD.",
+    subtitle: "Multi-Google-Drive Pool Volume in Finder (0 B on disk)",
+    promotionalText:
+      "Helium mounts a real local drive at /Volumes/Helium in macOS Finder that pools unlimited linked Google Drive accounts into one unified cloud volume using zero bytes on your Mac SSD.",
+    shortDescription:
+      "Mount a real local drive at /Volumes/Helium in macOS Finder that pools multiple Google Drive accounts into one unified volume. Open 50 GB 4K videos, RAW catalogs, and .dmg files in 0.8s while using 0 B on your Mac SSD.",
+    fullDescription:
+      "Helium mounts a real local drive at /Volumes/Helium in macOS Finder that pools N linked Google Drive accounts into one unified cloud volume. Files show their full size and open immediately in any macOS app (Preview, QuickTime, DaVinci Resolve, Final Cut Pro, DiskImageMounter), while using Zero bytes on disk (0 B on disk) on your Mac's internal SSD. Powered by Whole-File Smart Placement, Cross-Account Segment Striping (256 MiB chunks), 30-day Recycle Bin sync, and optional client-side zero-knowledge AES-256-GCM encryption.",
+    philosophy:
+      "iCloud and Dropbox download the whole file before you can open it — and a single Google Drive caps out fast. Helium links unlimited Google accounts into one storage pool and only streams the bytes you're using, keeping 0 bytes used on your Mac.",
+    version: "0.0.1",
+    build: "1",
+    releaseDate: "November 7, 2026",
+    releaseDateIso: "2026-11-07",
+    sha256: "45e6fc4e7c1af050843f8d1a8ca860a46fb8f2d7688edacf357adbf12f0fedea",
+    bytes: "5,573,832 bytes",
+    directPath: "/Helium.dmg",
+    appSize: "5.3 MB",
+    bundleId: "me.cogify.helium",
+    minMacOsVersion: "macOS 15.4+ / macOS 26 Tahoe",
+    architecture: "Universal Binary (Apple Silicon arm64 & Intel x86_64)",
+    primaryCategory: "Productivity",
+    secondaryCategory: "Utilities",
+    pricingModel: "100% Free to Download — Pool Your Own Google Drives",
+    platform: "macOS 15.4+ / macOS 26 Tahoe",
+    downloadUrl:
+      "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg",
+    icon: "/brand/Helium/icon-sm.webp",
+    iconLarge: "/brand/Helium/icon.webp",
+    mascot: "/brand/Helium/mascot.webp",
+    accentColor: "emerald",
+    features: [
+      {
+        title: "Real Local Drive at /Volumes/Helium (0 B on Disk)",
+        description:
+          "Sits right next to Macintosh HD in Finder. Files live as 0-byte APFS sparse placeholders on your Mac and stream only the byte ranges you open in 0.8 seconds.",
+        tag: "Zero Bytes on Disk",
+      },
+      {
+        title: "Multi-Account Google Drive Pool Engine",
+        description:
+          "Link 1, 2, or N Google Drive accounts (free 15 GB accounts + Google Workspace / Google One terabytes) into a single unified volume with live segmented capacity tracking.",
+        tag: "Drive Pool",
+      },
+      {
+        title: "Whole-File Smart Placement & Cross-Account Striping",
+        description:
+          "Places complete files on the highest-priority drive with free space, or automatically slices massive files into 256 MiB segments across multiple drives when no single account fits.",
+        tag: "Smart Placement",
+      },
+      {
+        title: "Open & Edit Straight from Finder in 0.8s",
+        description:
+          "Double-click any 50 GB ProRes film, RAW photo catalog, PDF, or .dmg installer—it opens right away in QuickTime, Preview, DaVinci Resolve, Final Cut Pro, or DiskImageMounter.",
+        tag: "Instant Streaming",
+      },
+      {
+        title: "Client-Side Zero-Knowledge AES-256-GCM Encryption",
+        description:
+          "Lock filenames and file segments on your Mac before a single byte touches Google Drive. Only you hold the recovery key—not Cogify, not Google.",
+        tag: "End-to-End Encrypted",
+      },
+      {
+        title: "Offline Pinning, 30-Day Recycle Bin & Menu Bar Drop",
+        description:
+          "Pin any file or folder in 1 click to work without Wi-Fi, drop files onto the smiling Helium icon in your menu bar, search across all drives with ⌃⌥O, and undo deletes for 30 days.",
+        tag: "Workflow Native",
+      },
+    ],
+    specifications: [
+      { label: "Application Name", value: "Helium (helium)" },
+      { label: "Latest Version", value: "v0.0.1 (Build 1) — Released November 7, 2026" },
+      { label: "Direct Download", value: "/Helium.dmg (5.3 MB • 5,573,832 bytes)" },
+      { label: "SHA-256 Checksum", value: "45e6fc4e7c1af050843f8d1a8ca860a46fb8f2d7688edacf357adbf12f0fedea" },
+      { label: "System Requirements", value: "macOS 15.4+ / macOS 26 Tahoe (Apple Silicon & Intel)" },
+      { label: "Mount Point", value: "/Volumes/Helium (APFS Sparse Placeholder & Demand Streaming)" },
+      { label: "Storage Placement Engine", value: "01 Whole-File Smart Placement & 02 Cross-Account Striping (256 MiB)" },
+      { label: "Encryption Standard", value: "Optional Client-Side Zero-Knowledge AES-256-GCM" },
+      { label: "Global Shortcut", value: "⌃⌥O Find Any File Across All Pooled Drives" },
+      { label: "Code Signing", value: "Apple Developer ID Signed & Notarized Universal Installer" },
+    ],
+    screenshotsMac: [
+      {
+        id: "helium-hero",
+        title: "/Volumes/Helium in macOS Finder & Get Info Inspector",
+        subtitle: "48.2 GB movie files using Zero bytes on disk on your Mac SSD",
+        image: "/brand/Helium/02-helium-hero-finder-zero-bytes.webp",
+        tag: "0 B on Disk",
+        description:
+          "Helium mounts next to Macintosh HD at /Volumes/Helium. Every file shows its full size and opens in Preview, QuickTime, or Final Cut Pro while occupying 0 bytes on your internal SSD.",
+        highlights: [
+          "Real local volume at /Volumes/Helium",
+          "Zero bytes on disk (APFS sparse placeholders)",
+          "0.8s instant byte-range streaming",
+        ],
+      },
+      {
+        id: "helium-pool",
+        title: "Multi-Account Google Drive Pool & Placement Engine",
+        subtitle: "Combine unlimited Google Drives with Whole-File & Cross-Account Striping",
+        image: "/brand/Helium/03-helium-multi-drive-pool.webp",
+        tag: "Drive Pool",
+        description:
+          "Combine multiple Google accounts into one unified pool with 1-Click Pool Rebalancer, SHA-256 Segment Integrity Verifier, and Safe Account Drain & Unlink.",
+        highlights: [
+          "Whole-File Smart Placement for Google Drive Web",
+          "Cross-Account 256 MiB Segment Striping",
+          "1-Click Pool Rebalancer & SHA-256 Verifier",
+        ],
+      },
+      {
+        id: "helium-storage",
+        title: "macOS System Settings › Storage View",
+        subtitle: "Keep Macintosh HD free with 11+ TB pooled in the cloud",
+        image: "/brand/Helium/sections/01-system-storage-zero-kb.webp",
+        tag: "System Storage",
+        description:
+          "Stop deleting files to make space. Keep terabytes of video timelines, RAW catalogs, and .dmg installers mounted in Finder with 0 KB used on your Mac.",
+        highlights: [
+          "Eliminates 'Startup Disk Almost Full' alerts",
+          "1-click offline pinning & unpinning",
+          "30-day cloud recycle bin recovery",
+        ],
+      },
+      {
+        id: "helium-editorial",
+        title: "12 Built-In Cloud Volume Capabilities",
+        subtitle: "Edit in DaVinci & Final Cut, save from Claude/ChatGPT, and search with ⌃⌥O",
+        image: "/brand/Helium/01-helium-editorial-features.webp",
+        tag: "Full Suite",
+        description:
+          "Bi-directional sync between Finder, cogify.me/helium, and Google Drive Web, menu bar drop target, background throttling that never slows your Wi-Fi, and automatic resume.",
+        highlights: [
+          "Edit directly in DaVinci Resolve & Final Cut Pro",
+          "AI tools (Claude, ChatGPT) save right into Helium",
+          "Zero-knowledge AES-256-GCM client-side encryption",
+        ],
+      },
+    ],
+    keywords: [
+      "Helium",
+      "Helium Mac",
+      "Helium cloud drive macOS",
+      "pool multiple Google Drives Mac",
+      "combine Google Drive accounts Finder",
+      "mount Google Drive as local disk Mac zero space",
+      "Helumi alternative Mac",
+      "unlimited cloud storage Mac without SSD",
+      "zero knowledge encrypted Google Drive Mac",
+    ],
+  },
   showFreeSpace: {
     slug: "show-free-space",
     name: "Show free space: Disk Analyzer & Storage Widget",
@@ -2945,6 +3113,7 @@ export const siteConfig: SiteConfig = {
 };
 
 export const liveMacApps: MacAppConfig[] = [
+  siteConfig.helium,
   siteConfig.lumenview,
   siteConfig.metricove,
   siteConfig.netguard,

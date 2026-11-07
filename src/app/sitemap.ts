@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://cogify.me";
-  const lastModified = new Date("2026-11-06T00:00:00.000Z");
+  const lastModified = new Date("2026-11-07T00:00:00.000Z");
 
   return [
     {
@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [
         `${baseUrl}/og-image.png`,
         `${baseUrl}/brand/logo.png`,
+        `${baseUrl}/brand/Helium/icon.png`,
         `${baseUrl}/brand/emdoc-icon.png`,
         `${baseUrl}/brand/Ad-Blocker/icon.png`,
         `${baseUrl}/brand/ReaderEasy/icon.jpg`,
@@ -26,11 +27,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${baseUrl}/helium`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.98,
+      images: [
+        `${baseUrl}/brand/Helium/icon.png`,
+        `${baseUrl}/brand/Helium/mascot.png`,
+        `${baseUrl}/brand/Helium/02-helium-hero-finder-zero-bytes.png`,
+        `${baseUrl}/brand/Helium/03-helium-multi-drive-pool.png`,
+        `${baseUrl}/brand/Helium/01-helium-editorial-features.png`,
+        `${baseUrl}/brand/Helium/04-helium-dmg-installer-preview.png`,
+        `${baseUrl}/brand/Helium/sections/07-hero-finder-zero-bytes.webp`,
+        `${baseUrl}/brand/Helium/sections/01-system-storage-zero-kb.webp`,
+        `${baseUrl}/brand/Helium/sections/02-macbook-disk-almost-full.webp`,
+      ],
+    },
+    {
       url: `${baseUrl}/products`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.95,
       images: [
+        `${baseUrl}/brand/Helium/icon.png`,
         `${baseUrl}/brand/emdoc-icon.png`,
         `${baseUrl}/brand/Ad-Blocker/icon.png`,
         `${baseUrl}/brand/ReaderEasy/icon.jpg`,
