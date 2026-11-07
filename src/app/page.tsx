@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   alternates: {
-    canonical: siteConfig.url,
+    canonical: `${siteConfig.url}/`,
   },
   openGraph: {
     title: "COGIFY — Free Native macOS, Safari Apps & Web Studios",
     description: siteConfig.description,
-    url: siteConfig.url,
+    url: `${siteConfig.url}/`,
     siteName: siteConfig.name,
     locale: "en_US",
     type: "website",
