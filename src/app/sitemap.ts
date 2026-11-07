@@ -111,12 +111,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
-      url: `${baseUrl}/lumenview/privacy`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.65,
-    },
-    {
       url: `${baseUrl}/metricove`,
       lastModified,
       changeFrequency: "weekly",
@@ -125,12 +119,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${baseUrl}/brand/Metricove/icon.png`,
         `${baseUrl}/brand/Metricove/1.webp`,
       ],
-    },
-    {
-      url: `${baseUrl}/metricove/privacy`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.65,
     },
     {
       url: `${baseUrl}/netguard`,
@@ -143,12 +131,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
-      url: `${baseUrl}/netguard/privacy`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.65,
-    },
-    {
       url: `${baseUrl}/klipora`,
       lastModified,
       changeFrequency: "weekly",
@@ -159,12 +141,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
-      url: `${baseUrl}/klipora/privacy`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.65,
-    },
-    {
       url: `${baseUrl}/show-free-space`,
       lastModified,
       changeFrequency: "weekly",
@@ -173,12 +149,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${baseUrl}/brand/ShowFreeSpace/icon.png`,
         `${baseUrl}/brand/ShowFreeSpace/1.webp`,
       ],
-    },
-    {
-      url: `${baseUrl}/show-free-space/privacy`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.65,
     },
     {
       url: `${baseUrl}/ad-blocker`,

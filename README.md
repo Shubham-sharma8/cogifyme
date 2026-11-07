@@ -1,96 +1,53 @@
-# COGIFY Website (`cogify.me`)
+# COGIFY (`cogify.me`) — 15 Free Native macOS, Safari Apps & Web Studios
 
-The official marketing and product website for **COGIFY** and its flagship product, **EmDoc** (macOS Native PDF Workstation).
+**Official Website:** [https://cogify.me](https://cogify.me)  
+**Complete Product Catalog:** [https://cogify.me/products](https://cogify.me/products)  
+**Flagship macOS Cloud Drive Pool (Helium):** [https://cogify.me/helium](https://cogify.me/helium)  
+**Marriage Biodata Maker Studio:** [https://biodata.cogify.me](https://biodata.cogify.me)  
+**SSB Stage-2 Psychology & GTO Practice Studio:** [https://ssb.cogify.me](https://ssb.cogify.me)  
+**Apple App Store Developer Profile:** [Shubham Sharma on the App Store](https://apps.apple.com/in/developer/shubham-sharma/id1643497398)
 
-## Architecture & Tech Stack
+---
 
-- **Framework**: Next.js 16 (App Router, Turbopack, React 19)
-- **Styling**: Tailwind CSS v4, Custom CSS Utilities, Glassmorphism, Modern Dark Theme
-- **Typography**: Apple / Linear System Typography stack (`-apple-system, BlinkMacSystemFont, "SF Pro Display"`) for 100% offline, zero-network, sub-millisecond font rendering.
-- **Motion & UI**: Framer Motion, Aceternity UI components (Spotlight, Background Beams, Bento Grid, Moving Border, Timeline, Sparkles, macOS Window Mockup)
-- **Icons**: Lucide React
-- **Celebration Effects**: Canvas Confetti
-- **SEO & Legal**: Dynamic `sitemap.ts`, `robots.ts`, OpenGraph metadata, public privacy policy (`/privacy`), terms of use (`/terms`), and dedicated air-gapped EmDoc privacy statement (`/emdoc/privacy`).
+## 7 Native macOS Workstations (Signed & Notarized `.DMG`)
 
-## Project Structure
+1. **[Helium for Mac (`v0.0.1`)](https://cogify.me/helium)** — Mounts a real local drive at `/Volumes/Helium` in macOS Finder pooling unlimited Google Drive accounts into one unified cloud volume while using **Zero bytes on disk (`0 B on disk`)** on your Mac's internal SSD.
+   - Direct Installer: [`Helium.dmg` (5.3 MB)](https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg) · Mirror: [https://cogify.me/Helium.dmg](https://cogify.me/Helium.dmg)
+2. **[EmDoc PDF Workstation (`v1.1`)](https://cogify.me/products/emdoc)** ([All Releases](https://cogify.me/products/emdoc/releases)) — 7.8 MB native macOS PDF editor, Visual Page Organizer, vector annotations, offline PDF compressor, watermark engine, and Bates numbering (~45 MB RAM).
+   - Direct Installer: [`EmDoc-1.1.dmg` (7.8 MB)](https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.1/EmDoc-1.1.dmg)
+3. **[LumenView Display & HiDPI Manager](https://cogify.me/lumenview)** — Hardware DDC/CI external monitor brightness, contrast, volume, and HiDPI Retina scaling.
+4. **[Metricove Menu Bar Telemetry](https://cogify.me/metricove)** — Real-time Apple Silicon P/E-core CPU, GPU, RAM, disk, network, and SMC fan controller.
+5. **[NetGuard Outbound Firewall](https://cogify.me/netguard)** — Native macOS NetworkExtension per-app outbound firewall, 3D traffic radar, and DNS sinkhole.
+6. **[Klipora Clipboard & Dev Scratchpad](https://cogify.me/klipora)** — Floating NSPanel clipboard history (`⌘⇧V`), Bento visual board, Apple Vision OCR, and developer transforms.
+7. **[Show free space Disk Analyzer](https://cogify.me/show-free-space)** — Interactive Sunburst & Treemap storage map, Xcode/Docker developer cache cleaner, SHA-256 duplicate finder, and 7 native macOS widgets.
 
-```
-website/
-├── public/
-│   └── brand/
-│       └── emdoc-icon.png         # macOS 512@2x Retina App Icon
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx             # Root layout with SEO and system fonts
-│   │   ├── page.tsx               # Homepage assembling all sections
-│   │   ├── globals.css            # Tailwind theme, grid/dot patterns, glassmorphism
-│   │   ├── sitemap.ts             # XML Sitemap generator
-│   │   ├── robots.ts              # Robots.txt generator
-│   │   ├── privacy/page.tsx       # Public company privacy policy (/privacy)
-│   │   ├── terms/page.tsx         # Public terms of use (/terms)
-│   │   ├── emdoc/
-│   │   │   └── privacy/page.tsx   # Dedicated EmDoc air-gapped privacy policy (/emdoc/privacy)
-│   │   ├── products/
-│   │   │   └── emdoc/page.tsx     # Deep-dive product page for EmDoc Workstation
-│   │   ├── enterprise/page.tsx    # Enterprise capabilities & inquiry intake
-│   │   ├── about/page.tsx         # Company manifesto, principles & timeline
-│   │   ├── contact/page.tsx       # Contact form with live state validation
-│   │   └── legal/
-│   │       ├── privacy/page.tsx   # Re-exports /privacy
-│   │       └── terms/page.tsx     # Re-exports /terms
-│   ├── components/
-│   │   ├── ui/                    # Aceternity UI components
-│   │   │   ├── spotlight.tsx
-│   │   │   ├── background-beams.tsx
-│   │   │   ├── bento-grid.tsx
-│   │   │   ├── moving-border.tsx
-│   │   │   ├── timeline.tsx
-│   │   │   ├── sparkles.tsx
-│   │   │   └── macos-window.tsx   # Interactive Retina macOS window mockup
-│   │   ├── navigation/            # Sticky floating glassmorphism navbar
-│   │   ├── hero/                  # Hero section with spotlight & CTA
-│   │   ├── products/              # EmDoc showcase & download modal
-│   │   ├── company/               # Bento grid ("What We Build"), principles, roadmap
-│   │   ├── enterprise/            # Enterprise capabilities
-│   │   ├── cta/                   # High-impact closing CTA
-│   │   └── footer/                # Comprehensive footer with legal links
-│   ├── config/
-│   │   └── site.ts                # Centralized site and EmDoc metadata
-│   └── lib/
-│       └── utils.ts               # clsx + tailwind-merge helper
-```
+---
 
-## Configuration & Environment Variables
+## 2 Client-Side Web Studios
 
-The website is designed with a centralized configuration system (`src/config/site.ts`).
+- **[Marriage Biodata Maker Studio (`biodata.cogify.me`)](https://biodata.cogify.me)** ([Overview on Cogify](https://cogify.me/biodata)) — 242 cultural templates across 9 languages with 300-DPI Vector PDF, Editable Word (`.docx`), and Vedic Kundali builder.
+- **[SSB Stage-2 Test Practice Studio (`ssb.cogify.me`)](https://ssb.cogify.me)** ([Overview on Cogify](https://cogify.me/ssb)) — Full timed TAT, WAT (60 words/15s), SRT (60 situations/30m), SDT, GTO 9-Task Hub, and Personal Interview PIQ simulator.
 
-To set a production binary download URL for EmDoc:
+---
 
-```bash
-# In .env.local or your deployment environment:
-NEXT_PUBLIC_EMDOC_DOWNLOAD_URL="https://releases.cogify.me/EmDoc-v0.1-macOS-Universal.dmg"
-```
+## 6 Native Safari Extensions (macOS, iOS & iPadOS)
 
-If `NEXT_PUBLIC_EMDOC_DOWNLOAD_URL` is omitted, the interactive Download Modal will gracefully provide a release descriptor package along with local build instructions.
+- **[Ad Blocker for Safari](https://cogify.me/ad-blocker)**
+- **[ReaderEasy — Bionic Reader Mode](https://cogify.me/readereasy)**
+- **[WebClear — Cookie & Site Data Cleaner](https://cogify.me/webclear)**
+- **[WebLenses — Core Web Vitals & SEO Inspector](https://cogify.me/weblenses)**
+- **[Element Hider — Hide Distracting Page Elements](https://cogify.me/element-hider)**
+- **[Colour Invert — Smart Dark Mode for Safari](https://cogify.me/invert)**
 
-## Running Locally
+---
 
-```bash
-cd website
+## Benchmarks & Comparisons
 
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Run production build (Turbopack)
-npm run build
-
-# Start production server
-npm start
-```
-
-## Strict Project Rule Adherence
-
-The existing macOS application (`pdf/` and `offline-pdf/`) remains completely untouched and isolated. All web assets, builds, and components reside strictly within `website/`.
+- [All macOS & Safari Comparison Guides](https://cogify.me/compare)
+- [EmDoc vs. Adobe Acrobat Pro & PDF Expert](https://cogify.me/compare/emdoc-vs-adobe-acrobat-pdf-expert)
+- [LumenView vs. BetterDisplay & Lunar](https://cogify.me/compare/lumenview-vs-betterdisplay-lunar)
+- [Metricove vs. iStat Menus & Stats](https://cogify.me/compare/metricove-vs-istat-menus-stats)
+- [NetGuard vs. Little Snitch & LuLu](https://cogify.me/compare/netguard-vs-little-snitch-lulu)
+- [Klipora vs. Paste, Maccy & Raycast](https://cogify.me/compare/klipora-vs-paste-maccy-raycast)
+- [Show Free Space vs. DaisyDisk & CleanMyMac X](https://cogify.me/compare/show-free-space-vs-daisydisk-cleanmymac)
+- [Cogify Safari Extensions vs. 1Blocker & Dark Reader](https://cogify.me/compare/safari-extensions-vs-1blocker-dark-reader)

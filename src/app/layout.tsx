@@ -47,13 +47,11 @@ export const metadata: Metadata = {
   creator: "Shubham Sharma (COGIFY)",
   publisher: "COGIFY",
   category: "technology",
-  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
-    ? {
-        verification: {
-          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-        },
-      }
-    : {}),
+  verification: {
+    google:
+      process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+      "4Abu6CfxLhQo89_eAQt5COiOlZ7S5-beuRzWVo9ZCsY",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
