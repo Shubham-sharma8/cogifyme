@@ -78,14 +78,14 @@ const COMMAND_ITEMS: CommandItem[] = [
   // macOS Workstations
   {
     id: "helium",
-    title: "Helium — Unlimited Pooled Cloud Drive for macOS (v0.0.1)",
-    subtitle: "Pool multiple Google Drives into /Volumes/Helium in Finder with 0 B used on your Mac SSD",
+    title: "Helium — Multi-Protocol & Google Drive Pool Volume for macOS (v0.0.2)",
+    subtitle: "Pool Google Drives + 25+ S3/R2/WebDAV/SFTP/SMB presets into /Volumes/Helium with Safe-Write & Time Travel",
     category: "macOS Workstations (.DMG)",
     href: "/helium",
     downloadUrl: "/Helium.dmg",
-    badge: "v0.0.1 • 5.3 MB DMG",
+    badge: "v0.0.2 • 8.3 MB DMG",
     icon: "/brand/Helium/icon-sm.webp",
-    keywords: "helium google drive pool macos finder zero bytes on disk cloud storage ssd helumi dmg v0.0.1",
+    keywords: "helium google drive pool s3 r2 b2 webdav sftp smb nas macos finder zero bytes on disk time travel backup dmg v0.0.2",
   },
   {
     id: "emdoc",
@@ -155,14 +155,14 @@ const COMMAND_ITEMS: CommandItem[] = [
   },
   {
     id: "show-free-space",
-    title: "Show free space Disk Analyzer",
-    subtitle: "Interactive Multi-Ring Sunburst Storage Map & Safe One-Click Trash Cleaner",
+    title: "Show free space Disk Analyzer (v1.1.0)",
+    subtitle: "Interactive Multi-Ring Sunburst & Treemap Storage Map, Dev Cache Cleaner & 7 Widgets",
     category: "macOS Workstations (.DMG)",
     href: "/show-free-space",
     downloadUrl: siteConfig.showFreeSpace.downloadUrl,
-    badge: "1.2 MB DMG • APFS",
+    badge: "v1.1.0 • 86.0 MB DMG",
     icon: "/brand/ShowFreeSpace/icon-sm.webp",
-    keywords: "disk space analyzer storage cleaner sunburst daisydisk cleanmymac macos",
+    keywords: "disk space analyzer storage cleaner sunburst daisydisk cleanmymac macos v1.1.0",
   },
 
   // Safari Extensions

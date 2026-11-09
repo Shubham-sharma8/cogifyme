@@ -35,14 +35,17 @@ import {
   EXTENDED_BENTO_CARDS,
   COMPARISON_ROWS,
   HELIUM_FAQS,
+  WHATS_NEW_V002_PILLARS,
   type WhatYouGetItem,
 } from "./helium-data";
 
 const GITHUB_DMG_URL =
+  "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.2/Helium-0.0.2.dmg";
+const GITHUB_V001_DMG_URL =
   "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg";
 const DIRECT_DMG_HREF = "/Helium.dmg";
 const SHA256_HASH =
-  "45e6fc4e7c1af050843f8d1a8ca860a46fb8f2d7688edacf357adbf12f0fedea";
+  "039a4aeb5ff033d5a2cc86e354b8ec19ab9ccff929c0df8f59e67d938c69233e";
 
 function FeatureLineIcon({ type }: { type: WhatYouGetItem["iconType"] }) {
   const cls = "w-4 h-4 text-[#111110]/70 dark:text-white/75 shrink-0";
@@ -144,6 +147,12 @@ export function HeliumLandingView() {
           </a>
 
           <a
+            href="#whats-new"
+            className="h-8 px-2.5 sm:px-3 rounded-full inline-flex items-center gap-1 text-emerald-700 dark:text-emerald-300 font-medium hover:bg-emerald-500/10 transition-colors"
+          >
+            <span>what&apos;s new v0.0.2</span>
+          </a>
+          <a
             href="#how-it-works"
             className="h-8 px-2.5 sm:px-3 rounded-full inline-flex items-center text-[#111110]/70 dark:text-white/70 hover:text-[#111110] dark:hover:text-white hover:bg-black/[0.04] dark:hover:bg-white/[0.06] transition-colors"
           >
@@ -194,7 +203,11 @@ export function HeliumLandingView() {
           {/* Version & Platform Pill */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#161618] border border-[#E6E6E4] dark:border-white/10 text-[12px] text-[#111110]/70 dark:text-white/70 mb-6 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>helium v0.0.1 (build 1)</span>
+            <span className="font-semibold text-[#111110] dark:text-white">
+              helium v0.0.2 (build 2)
+            </span>
+            <span className="text-[#111110]/30 dark:text-white/30">·</span>
+            <span>25+ cloud &amp; nas presets</span>
             <span className="text-[#111110]/30 dark:text-white/30">·</span>
             <span>macOS 15.4+ &amp; macOS 26 tahoe</span>
           </div>
@@ -228,21 +241,21 @@ export function HeliumLandingView() {
               className="inline-flex items-center justify-center gap-2.5 h-12 px-7 rounded-full bg-[#111110] dark:bg-white text-white dark:text-[#111110] text-[15px] font-medium shadow-[0_10px_28px_rgba(0,0,0,0.14)] hover:scale-[1.015] active:scale-[0.99] transition-all"
             >
               <AppleLogoIcon className="w-4 h-4 shrink-0 -mt-0.5" />
-              <span>download for mac</span>
+              <span>download for mac (v0.0.2)</span>
             </a>
             <a
               href={GITHUB_DMG_URL}
               className="inline-flex items-center justify-center gap-1.5 h-12 px-5 rounded-full bg-white dark:bg-[#161618] border border-[#E6E6E4] dark:border-white/10 text-[13.5px] text-[#111110]/80 dark:text-white/80 hover:text-[#111110] dark:hover:text-white hover:border-black/20 transition-colors"
             >
-              <span>direct github release (5.3 MB .dmg)</span>
+              <span>direct github release (v0.0.2 · 8.3 MB .dmg)</span>
               <ExternalLink className="w-3.5 h-3.5 opacity-60" />
             </a>
           </div>
 
           {/* Meta Microcopy */}
           <p className="mt-4 text-[12.5px] text-[#111110]/55 dark:text-white/55 tracking-[-0.01em]">
-            free to download · apple notarized · end-to-end encrypted ·
-            multi-google-drive pool
+            free to download · apple notarized · google drive pool + 25+ S3 / R2
+            / WebDAV / SFTP / SMB presets · 5-step safe-write · time travel
           </p>
 
           {/* Featured on TryMacApps Badge */}
@@ -556,6 +569,198 @@ export function HeliumLandingView() {
             .
           </figcaption>
         </figure>
+      </section>
+
+      {/* =====================================================================
+          SECTION 1B: What's New in Helium v0.0.2 (Build 2)
+          ===================================================================== */}
+      <section
+        id="whats-new"
+        className="py-16 sm:py-24 px-5 max-w-[1080px] mx-auto"
+      >
+        <div className="rounded-[32px] bg-white dark:bg-[#141417] border border-[#E6E6E4] dark:border-white/10 p-6 sm:p-10 shadow-[0_18px_54px_rgba(0,0,0,0.05)]">
+          {/* Header Banner */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-[#E6E6E4] dark:border-white/10">
+            <div className="max-w-[680px]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/12 text-emerald-700 dark:text-emerald-300 text-[12px] font-semibold mb-3">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span>new release · helium v0.0.2 (build 2) · nov 9, 2026</span>
+              </div>
+              <h2 className="text-[30px] sm:text-[42px] font-semibold tracking-[-0.035em] leading-[1.1]">
+                what&apos;s new in{" "}
+                <span className="marker font-serif italic font-normal px-2.5 py-0.5">
+                  helium v0.0.2
+                </span>
+                .
+              </h2>
+              <p className="mt-3 text-[16px] sm:text-[17.5px] leading-[1.6] text-[#111110]/70 dark:text-white/70">
+                Beyond multi-account Google Drive pooling with{" "}
+                <strong className="text-[#111110] dark:text-white">
+                  64 MiB RAID-0 cross-account striping
+                </strong>
+                , Build 2 introduces{" "}
+                <strong className="text-[#111110] dark:text-white">
+                  25+ multi-protocol cloud &amp; NAS presets
+                </strong>
+                , 5-Step Safe-Write Verification, Scheduled Add-Only Mac Backups (
+                <code className="font-mono text-[14px]">⌘⇧K</code>), Time Travel
+                Snapshots (<code className="font-mono text-[14px]">⌘⇧Y</code>), a
+                Right-Hand File Inspector, and Activity &amp; Health (
+                <code className="font-mono text-[14px]">⌘⇧A</code>).
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+              <a
+                href={DIRECT_DMG_HREF}
+                className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-[#111110] dark:bg-white text-white dark:text-[#111110] text-[13.5px] font-medium hover:opacity-90 transition-opacity"
+              >
+                <AppleLogoIcon className="w-4 h-4 shrink-0 -mt-0.5" />
+                <span>Download v0.0.2 (8.3 MB)</span>
+              </a>
+              <a
+                href={GITHUB_V001_DMG_URL}
+                className="inline-flex items-center gap-1.5 h-11 px-4 rounded-full bg-[#F7F7F7] dark:bg-white/10 border border-[#E6E6E4] dark:border-white/10 text-[12px] text-[#111110]/70 dark:text-white/70 hover:text-[#111110] dark:hover:text-white transition-colors"
+              >
+                <span>Previous v0.0.1 (5.3 MB)</span>
+                <ExternalLink className="w-3 h-3 opacity-60" />
+              </a>
+            </div>
+          </div>
+
+          {/* 25+ Supported Cloud & Protocol Presets Strip */}
+          <div className="py-6 border-b border-[#E6E6E4] dark:border-white/10">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <span className="text-[11.5px] font-mono uppercase tracking-wider text-[#111110]/55 dark:text-white/55 font-semibold">
+                25+ Built-In Storage Presets + Smart Endpoint &amp; S3 Region Inference (auto, us-east-1, eu-west-1…)
+              </span>
+              <span className="text-[11.5px] font-mono text-emerald-700 dark:text-emerald-400 font-semibold">
+                OAuth 2.0 PKCE · S3 · WebDAV · SFTP/SSH · SMB · BYOK · External SSD
+              </span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {[
+                "Google Drive Pool (64 MiB RAID-0)",
+                "Amazon S3",
+                "Cloudflare R2 (Zero Egress)",
+                "Backblaze B2",
+                "Wasabi",
+                "Hetzner Object Storage",
+                "DigitalOcean Spaces",
+                "Storj DCS",
+                "Tigris",
+                "Google Cloud Storage (HMAC)",
+                "MinIO / Garage / Ceph",
+                "Nextcloud (WebDAV)",
+                "ownCloud",
+                "Fastmail Files",
+                "pCloud",
+                "Synology NAS",
+                "Hetzner Storage Box (SFTP)",
+                "rsync.net (SSH)",
+                "Standard SFTP",
+                "Local NAS / Time Capsule (_smb._tcp)",
+                "Azure Files (SMB)",
+                "Dropbox (BYOK OAuth)",
+                "Microsoft OneDrive (BYOK)",
+                "Box (BYOK)",
+                "External USB / Thunderbolt SSD",
+              ].map((preset) => (
+                <span
+                  key={preset}
+                  className="px-2.5 py-1 rounded-full bg-[#F7F7F7] dark:bg-white/[0.05] border border-[#E6E6E4] dark:border-white/10 text-[11.5px] font-medium text-[#111110]/80 dark:text-white/80"
+                >
+                  {preset}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* 6 Pillars Grid */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+            {WHATS_NEW_V002_PILLARS.map((pillar) => (
+              <article
+                key={pillar.id}
+                className="rounded-[24px] bg-[#F7F7F7] dark:bg-white/[0.03] border border-[#E6E6E4] dark:border-white/10 p-5 sm:p-6 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <div className="inline-flex items-center gap-2">
+                      <span className="font-mono text-[11.5px] font-semibold px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-[#E6E6E4] dark:border-white/15 text-[#111110] dark:text-white">
+                        {pillar.number}
+                      </span>
+                      <span className="text-[11.5px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/12 text-emerald-700 dark:text-emerald-300">
+                        {pillar.badge}
+                      </span>
+                    </div>
+                    {pillar.shortcut && (
+                      <kbd className="px-2 py-0.5 rounded-md bg-white dark:bg-white/10 border border-[#E6E6E4] dark:border-white/15 font-mono text-[11px] font-semibold text-[#111110]/75 dark:text-white/75">
+                        {pillar.shortcut}
+                      </kbd>
+                    )}
+                  </div>
+
+                  <h3 className="text-[20px] sm:text-[22px] font-semibold tracking-[-0.02em] leading-[1.2] text-[#111110] dark:text-white">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-1.5 text-[13.5px] leading-[1.55] text-[#111110]/68 dark:text-white/68">
+                    {pillar.subtitle}
+                  </p>
+
+                  <ul className="mt-4 space-y-2.5 pt-3 border-t border-[#E6E6E4] dark:border-white/10">
+                    {pillar.bullets.map((b) => (
+                      <li key={b.heading} className="text-[13px] leading-[1.5]">
+                        <div className="font-semibold text-[#111110] dark:text-white flex items-center gap-1.5">
+                          <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                          <span>{b.heading}</span>
+                        </div>
+                        <p className="pl-5 text-[12.5px] text-[#111110]/65 dark:text-white/65 mt-0.5">
+                          {b.detail}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Executable Command Palette (⌃⌥O) Quick Action Chips */}
+          <div className="mt-6 rounded-2xl bg-[#F7F7F7] dark:bg-white/[0.03] border border-[#E6E6E4] dark:border-white/10 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div className="text-[12px] font-mono font-semibold text-[#111110] dark:text-white flex items-center gap-2">
+                <kbd className="px-2 py-0.5 rounded bg-white dark:bg-white/10 border border-[#E6E6E4] dark:border-white/15">
+                  ⌃⌥O
+                </kbd>
+                <span>Executable Command Palette + Privacy Network Contact Map</span>
+              </div>
+              <p className="text-[12.5px] text-[#111110]/65 dark:text-white/65 mt-1">
+                Search files across all pooled drives or trigger instant pool operations—with{" "}
+                <strong className="text-emerald-700 dark:text-emerald-400">
+                  0 analytics/telemetry contacts
+                </strong>{" "}
+                and 1-click <strong className="text-[#111110] dark:text-white">Save Redacted Log…</strong>.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {[
+                "Take Pool Snapshot",
+                "Run All Mac Backups",
+                "5-Step Safe-Write Check",
+                "Connect S3 / R2 / WebDAV / NAS",
+                "Pause / Resume Transfers",
+                "Rebalance Pool",
+              ].map((cmd) => (
+                <span
+                  key={cmd}
+                  className="px-2.5 py-1 rounded-lg bg-white dark:bg-[#141417] border border-[#E6E6E4] dark:border-white/10 font-mono text-[11px] text-[#111110]/80 dark:text-white/80"
+                >
+                  ⌘ {cmd}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* =====================================================================
@@ -1334,10 +1539,10 @@ export function HeliumLandingView() {
         >
           <div className="lg:col-span-7 space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/12 text-emerald-700 dark:text-emerald-300 text-[12px] font-semibold">
-              <span>free forever release · v0.0.1</span>
+              <span>free forever release · v0.0.2 (build 2)</span>
             </div>
             <h3 className="text-[28px] sm:text-[36px] font-semibold tracking-[-0.03em] leading-[1.12]">
-              bring your own google drives.{" "}
+              bring your own google drives, S3, R2 &amp; NAS.{" "}
               <span className="marker font-serif italic font-normal px-2">
                 $0 / month
               </span>{" "}
@@ -1345,8 +1550,9 @@ export function HeliumLandingView() {
             </h3>
             <p className="text-[15px] leading-[1.6] text-[#111110]/70 dark:text-white/70">
               Why pay another monthly cloud storage subscription when you
-              already have Google Drive accounts? Pool unlimited 15 GB free
-              Google accounts or Google One / Workspace accounts into{" "}
+              already have Google Drive accounts, S3/R2 buckets, or a home NAS?
+              Pool unlimited 15 GB free Google accounts, Workspace terabytes, or
+              25+ multi-protocol presets into{" "}
               <code className="font-mono text-[13.5px]">/Volumes/Helium</code>{" "}
               for free.
             </p>
@@ -1356,7 +1562,7 @@ export function HeliumLandingView() {
                 className="inline-flex items-center gap-2 h-11 px-6 rounded-full bg-[#111110] dark:bg-white text-white dark:text-[#111110] text-[14px] font-medium hover:opacity-90 transition-opacity"
               >
                 <AppleLogoIcon className="w-4 h-4 shrink-0 -mt-0.5" />
-                <span>download helium v0.0.1 (free)</span>
+                <span>download helium v0.0.2 (8.3 MB · free)</span>
               </a>
               <button
                 type="button"
@@ -1367,7 +1573,7 @@ export function HeliumLandingView() {
                 <span>
                   {copiedSha
                     ? "Copied SHA-256!"
-                    : "SHA-256: 45e6fc4e...0fedea"}
+                    : "SHA-256: 039a4aeb...c69233e"}
                 </span>
               </button>
             </div>
@@ -1467,20 +1673,27 @@ export function HeliumLandingView() {
             today.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 flex-wrap">
             <a
               href={DIRECT_DMG_HREF}
               className="inline-flex items-center justify-center gap-2.5 h-12 px-8 rounded-full bg-[#111110] dark:bg-white text-white dark:text-[#111110] text-[15px] font-medium shadow-[0_10px_28px_rgba(0,0,0,0.16)] hover:scale-[1.015] transition-transform"
             >
               <AppleLogoIcon className="w-4 h-4 shrink-0 -mt-0.5" />
-              <span>download for mac (v0.0.1)</span>
+              <span>download for mac (v0.0.2 · 8.3 MB)</span>
             </a>
             <a
               href={GITHUB_DMG_URL}
               className="inline-flex items-center justify-center gap-1.5 h-12 px-5 rounded-full bg-[#F7F7F7] dark:bg-white/10 border border-[#E6E6E4] dark:border-white/10 text-[13px] text-[#111110]/75 dark:text-white/75 hover:text-[#111110] transition-colors"
             >
-              <span>GitHub Release Mirror (Build 1 · 5.3 MB)</span>
+              <span>GitHub Release Mirror (v0.0.2 Build 2 · 8.3 MB)</span>
               <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+            </a>
+            <a
+              href={GITHUB_V001_DMG_URL}
+              className="inline-flex items-center justify-center gap-1.5 h-12 px-4 rounded-full bg-[#F7F7F7] dark:bg-white/10 border border-[#E6E6E4] dark:border-white/10 text-[12px] text-[#111110]/60 dark:text-white/60 hover:text-[#111110] transition-colors"
+            >
+              <span>Previous v0.0.1 (Build 1 · 5.3 MB)</span>
+              <ExternalLink className="w-3 h-3 opacity-60" />
             </a>
           </div>
 

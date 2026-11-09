@@ -376,8 +376,8 @@ export interface ComparisonRow {
 
 export const COMPARISON_ROWS: ComparisonRow[] = [
   {
-    feature: "combines multiple google accounts into one drive",
-    helium: "✓",
+    feature: "pools unlimited google drives + 25+ S3 / R2 / WebDAV / SFTP / SMB presets",
+    helium: "✓ (25+ presets)",
     icloud: "✕",
     gdrive: "✕",
     dropbox: "✕",
@@ -390,11 +390,25 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
     dropbox: "downloads to disk",
   },
   {
-    feature: "splits huge files across drives automatically",
+    feature: "64 MiB RAID-0 cross-account striping & smart placement",
     helium: "✓",
     icloud: "✕",
     gdrive: "✕",
     dropbox: "✕",
+  },
+  {
+    feature: "5-step safe-write SHA-256 canary verification",
+    helium: "✓",
+    icloud: "✕",
+    gdrive: "✕",
+    dropbox: "✕",
+  },
+  {
+    feature: "scheduled add-only Mac backups (⌘⇧K) & Time Travel diffing (⌘⇧Y)",
+    helium: "✓",
+    icloud: "2-way sync deletes",
+    gdrive: "2-way sync deletes",
+    dropbox: "paid add-on",
   },
   {
     feature: "real local volume in /Volumes/Helium",
@@ -404,11 +418,192 @@ export const COMPARISON_ROWS: ComparisonRow[] = [
     dropbox: "partly",
   },
   {
-    feature: "optional client-side zero-knowledge encryption",
+    feature: "optional client-side zero-knowledge AES-256-GCM encryption",
     helium: "✓",
     icloud: "✕",
     gdrive: "✕",
     dropbox: "✕",
+  },
+];
+
+export interface WhatsNewPillar {
+  id: string;
+  number: string;
+  badge: string;
+  shortcut?: string;
+  title: string;
+  subtitle: string;
+  bullets: { heading: string; detail: string }[];
+}
+
+export const WHATS_NEW_V002_PILLARS: WhatsNewPillar[] = [
+  {
+    id: "multi-protocol",
+    number: "01",
+    badge: "25+ Cloud & Local Presets",
+    title: "Multi-Protocol & Multi-Provider Cloud Support",
+    subtitle:
+      "Pool Google Drives alongside S3, Cloudflare R2, Backblaze B2, WebDAV, SFTP, SMB & External SSDs with automatic endpoint & region inference.",
+    bullets: [
+      {
+        heading: "Google Drive Pool (64 MiB RAID-0 Striping)",
+        detail:
+          "Link unlimited Google accounts via OAuth 2.0 PKCE with Mode 1 Whole-File Smart Placement and Mode 2 64 MiB RAID-0 cross-account striping.",
+      },
+      {
+        heading: "S3-Compatible Object Storage",
+        detail:
+          "Amazon S3, Cloudflare R2 (zero egress), Backblaze B2, Wasabi, Hetzner Object Storage, DigitalOcean Spaces, Storj DCS, Tigris, Google Cloud Storage (HMAC), and MinIO / Garage / Ceph.",
+      },
+      {
+        heading: "WebDAV, SFTP / SSH & SMB / Bonjour",
+        detail:
+          "Nextcloud, ownCloud, Fastmail Files, pCloud, Synology NAS, Hetzner Storage Box, rsync.net, standard SFTP, Local NAS / Time Capsule (_smb._tcp Bonjour), and Azure Files.",
+      },
+      {
+        heading: "BYOK OAuth, External SSD & Smart Inference",
+        detail:
+          "Bring your own app key for Dropbox, Microsoft OneDrive, or Box; pool external USB/Thunderbolt SSDs; paste any URL to auto-detect provider preset & S3 signing region (auto, us-east-1, eu-west-1).",
+      },
+    ],
+  },
+  {
+    id: "safe-write",
+    number: "02",
+    badge: "Canary SHA-256 Verified",
+    title: "5-Step Safe-Write Verification",
+    subtitle:
+      "Before trusting any storage endpoint (or anytime from Activity & Health), Helium runs five measured cryptographic and network checks.",
+    bullets: [
+      {
+        heading: "1. Reach Server & 2. Verify TLS 1.3 / 1.2",
+        detail:
+          "Measures exact round-trip latency in ms and validates the full TLS 1.3 / TLS 1.2 certificate chain before sending credentials.",
+      },
+      {
+        heading: "3. Sign In & Verify Permissions",
+        detail:
+          "Confirms authenticated bucket, vault, or drive read & list access with least-privilege scope checks.",
+      },
+      {
+        heading: "4. Test Safe Reads & Writes (SHA-256 Canary)",
+        detail:
+          "Writes a temporary canary payload, reads it back over the wire, and verifies its SHA-256 digest matches byte-for-byte.",
+      },
+      {
+        heading: "5. Zero-Residue Cleanup (0 B Left Behind)",
+        detail:
+          "Removes the temporary canary object and confirms 0 B residue remains on your storage endpoint.",
+      },
+    ],
+  },
+  {
+    id: "scheduled-backups",
+    number: "03",
+    badge: "Add-Only Cloud Safety",
+    shortcut: "⌘⇧K",
+    title: "Scheduled Add-Only Mac Folder Backups",
+    subtitle:
+      "One-way, version-preserving backups to /Volumes/Helium/Backups — deleting a file on your Mac never deletes its cloud backup.",
+    bullets: [
+      {
+        heading: "One-Click Folder Presets",
+        detail:
+          "Protect ~/Desktop, ~/Documents, or ~/Pictures in one click, or pick any custom project folder on your Mac.",
+      },
+      {
+        heading: "Live Folder Scan & Exclusion Preview",
+        detail:
+          "Scans locally before creation and displays exact file count and GB saved by skipping Caches, node_modules, .git, .DS_Store, .photoslibrary, .fcpbundle, or single files > 2 GB.",
+      },
+      {
+        heading: "Add-Only Cloud Safety",
+        detail:
+          "Strictly one-way and version-preserving in /Volumes/Helium/Backups so accidental local deletions never propagate to your backup vault.",
+      },
+      {
+        heading: "Countdown Ring & 14-Run History Dots",
+        detail:
+          "Visual countdown ring (Every Hour, Every Day, Every Week, or Manual Only), Skip on Personal Hotspot toggle, and color-coded status dots for the last 14 runs.",
+      },
+    ],
+  },
+  {
+    id: "time-travel",
+    number: "04",
+    badge: "Then vs. Now Diffing",
+    shortcut: "⌘⇧Y",
+    title: "Time Travel: Snapshots & 'Then vs. Now' Diffing",
+    subtitle:
+      "Capture point-in-time manifest snapshots of /Volumes/Helium and visually diff every file against your live pool.",
+    bullets: [
+      {
+        heading: "Point-in-Time Pool Snapshots",
+        detail:
+          "Capture the complete manifest state of /Volumes/Helium at any moment with a custom title and release note.",
+      },
+      {
+        heading: "Visual 'Then vs. Now' Comparison Badges",
+        detail:
+          "Every item is compared against your live pool and badged as Deleted since then, Changed since then (showing THEN size vs. NOW size), Added after snapshot, or Unchanged.",
+      },
+      {
+        heading: "One-Click Non-Destructive Recovery",
+        detail:
+          "Restore any snapshot item as a non-destructive copy (Restore Copy) or revert it in place (Restore Version) alongside the 30-Day Recently Deleted trash.",
+      },
+    ],
+  },
+  {
+    id: "file-inspector",
+    number: "05",
+    badge: "Right-Hand Drawer",
+    title: "Right-Hand File Inspector & Conflict Resolution",
+    subtitle:
+      "Inspect exact drive placement, segment striping, and cryptographic verification for any file—and resolve multi-Mac conflicts safely.",
+    bullets: [
+      {
+        heading: "Verification & Placement Badges",
+        detail:
+          "Instant status badges: Verified • 0 B on Mac, Striped (N segments), Kept on this Mac, or 2 Versions (Conflict).",
+      },
+      {
+        heading: "'Where It Lives' Card & Copy Path Chip",
+        detail:
+          "Shows exact drive account email, placement mode (Mode 1 Whole-File vs. Mode 2 64 MiB Striped), AES-256-GCM / SHA-256 shield, Keep Downloaded switch, and 1-click /Volumes/Helium/<filename> chip.",
+      },
+      {
+        heading: "Non-Destructive Conflict Resolver",
+        detail:
+          "Resolve simultaneous edits across two Macs with Keep Both or Use Newer (safely moving the older copy to the 30-Day Recycle Bin).",
+      },
+    ],
+  },
+  {
+    id: "activity-health",
+    number: "06",
+    badge: "Self-Healing & 0 Telemetry",
+    shortcut: "⌘⇧A · ⌃⌥O",
+    title: "Activity & Health, Executable Command Palette & Privacy Audit",
+    subtitle:
+      "Self-healing health cards, live HTTP Range 206 throughput charts, instant ⌃⌥O actions, and a verifiable zero-telemetry network map.",
+    bullets: [
+      {
+        heading: "Actionable 'Needs You' Cards (⌘⇧A)",
+        detail:
+          "Self-healing cards for unmounted drives, file conflicts, low-space accounts, or unverified canaries with 1-click fix buttons (idle → Fixing… → Fixed ✓).",
+      },
+      {
+        heading: "Live Dual-Series Throughput Chart",
+        detail:
+          "Rolling 2-minute area chart tracking both Sending to Pool and Streaming to Mac (HTTP Range 206) speeds in MB/s.",
+      },
+      {
+        heading: "Executable Command Palette (⌃⌥O) & Privacy Map",
+        detail:
+          "Search files across all drives, run instant commands, inspect the Privacy Network Contact Map (0 analytics/telemetry), and export via Save Redacted Log….",
+      },
+    ],
   },
 ];
 
@@ -419,33 +614,33 @@ export interface FaqItem {
 
 export const HELIUM_FAQS: FaqItem[] = [
   {
-    question: "what is helium?",
+    question: "what is helium and what's new in v0.0.2 (build 2)?",
     answer:
-      "helium is a native macOS app that mounts a real local drive at /Volumes/Helium in Finder by pooling 1, 2, or unlimited linked Google Drive accounts into one unified cloud volume. Your files show their full size and open right away in Preview, QuickTime, DaVinci Resolve, Final Cut Pro, or DiskImageMounter while using Zero bytes on disk (0 B on disk) on your Mac's internal SSD.",
+      "helium is a native macOS app that mounts a real local drive at /Volumes/Helium in Finder while using Zero bytes on disk (0 B on disk) on your Mac's internal SSD. In v0.0.2 (Build 2), Helium expands beyond Google Drive Pool (with 64 MiB RAID-0 striping) to support 25+ multi-protocol presets (Amazon S3, Cloudflare R2, Backblaze B2, Wasabi, Hetzner, DigitalOcean, Storj, Tigris, Nextcloud/WebDAV, SFTP/SSH, SMB/Bonjour, BYOK Dropbox/OneDrive/Box, and External SSDs), plus 5-Step Safe-Write Verification, Scheduled Add-Only Mac Backups (⌘⇧K), Time Travel Snapshots & 'Then vs. Now' Diffing (⌘⇧Y), a Right-Hand File Inspector with Conflict Resolution, and Activity & Health (⌘⇧A).",
   },
   {
-    question: "how does multi-google-drive pooling work?",
+    question: "how does multi-google-drive & multi-cloud pooling work?",
     answer:
-      "when you link multiple Google accounts in Helium (whether free 15 GB accounts or Google Workspace / Google One terabyte accounts), Helium's Storage Placement Engine combines their available space into one continuous pool. In Whole-File Smart Placement mode, complete files are placed on the highest-priority drive with enough free space so they also open in Google Drive Web. In Cross-Account Segment Striping mode, files larger than any single drive's remaining space are automatically sliced into 256 MiB segments across multiple drives and reassembled transparently on the fly.",
+      "when you link multiple Google accounts, S3/R2/B2 buckets, WebDAV/SFTP servers, or SMB shares in Helium, the Storage Placement Engine combines their available space into one continuous pool. In Mode 1 (Whole-File Smart Placement), complete files are placed on the highest-priority drive with enough free space. In Mode 2 (64 MiB RAID-0 Cross-Account Striping), large files are automatically sliced into 64 MiB segments across multiple drives and reassembled transparently on the fly.",
   },
   {
-    question: "how can a file open in preview or quicktime if it uses 0 bytes on my mac?",
+    question: "what is the 5-step safe-write verification?",
     answer:
-      "helium registers /Volumes/Helium using APFS sparse placeholders and byte-range demand streaming. When you double-click a 48.2 GB movie or a 195 MB .dmg file in Finder, macOS only requests the exact header and frame byte ranges currently being viewed. Helium streams those bytes over HTTPS in ~0.8 seconds without ever copying or caching the full file onto your internal SSD.",
+      "before trusting any storage endpoint (or anytime from Activity & Health), Helium runs 5 measured checks: (1) Reach the server (round-trip latency in ms), (2) Secure connection (TLS 1.3 / TLS 1.2 certificate chain), (3) Sign in & verify permissions (bucket/vault read & list access), (4) Test safe reads & writes (writes a temporary canary payload, reads it back, and verifies its SHA-256 digest byte-for-byte), and (5) Zero-residue cleanup (removes the canary and confirms 0 B left behind).",
   },
   {
-    question: "what happens when i delete a file in finder or google drive?",
+    question: "how do scheduled add-only backups (⌘⇧K) and time travel (⌘⇧Y) protect my files?",
     answer:
-      "nothing is lost by accident. Every deletion in /Volumes/Helium, the Helium files manager, or Google Drive Web is synchronized with Helium's 30-day cloud recycle bin. You have a full 30 days to restore any deleted file or striped segment back to its original path in one click.",
+      "Scheduled Add-Only Mac Folder Backups (⌘⇧K) protect ~/Desktop, ~/Documents, ~/Pictures, or custom folders on an hourly, daily, or weekly schedule while skipping heavy caches (node_modules, .git, Caches) — and because they are strictly add-only, deleting a file on your Mac never deletes its backup in /Volumes/Helium/Backups. Time Travel (⌘⇧Y) captures point-in-time pool snapshots and badges every item as Deleted, Changed (THEN vs. NOW size), Added, or Unchanged with 1-click Restore Copy or Restore Version.",
   },
   {
-    question: "are my google credentials and files safe?",
+    question: "are my credentials and files private?",
     answer:
-      "yes. Helium is Apple Developer ID signed and notarized, authenticates directly with Google OAuth 2.0 storing tokens exclusively in your local macOS Keychain, and includes optional client-side zero-knowledge AES-256-GCM encryption. When encryption is enabled, both filenames and 256 MiB segments are encrypted on your Mac before a single byte touches Google Drive—only you hold the key.",
+      "yes. Helium is Apple Developer ID signed and notarized, stores credentials exclusively in your local macOS Keychain, and includes optional client-side zero-knowledge AES-256-GCM encryption. You can verify every outbound host in Settings → Privacy (Privacy Network Contact Map showing 0 analytics/telemetry contacts) and export diagnostic logs with Save Redacted Log… which automatically strips emails, tokens, and paths.",
   },
   {
-    question: "what are the system requirements?",
+    question: "what are the system requirements and download details?",
     answer:
-      "helium v0.0.1 (Build 1) is a universal native macOS binary (5.3 MB installer) supporting Apple Silicon (M1, M2, M3, M4) and Intel Macs running macOS 15.4+ or macOS 26 Tahoe.",
+      "helium v0.0.2 (Build 2) is an 8.3 MB (8,676,028 bytes) universal native macOS installer supporting Apple Silicon (M1, M2, M3, M4) and Intel Macs running macOS 15.4+ or macOS 26 Tahoe. Previous release v0.0.1 (Build 1, 5.3 MB) is also archived on GitHub Releases.",
   },
 ];

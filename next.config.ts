@@ -67,13 +67,31 @@ const nextConfig: NextConfig = {
       {
         source: "/Helium.dmg",
         destination:
-          "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg",
+          "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.2/Helium-0.0.2.dmg",
         permanent: false,
       },
       {
         source: "/helium.dmg",
         destination:
-          "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg",
+          "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.2/Helium-0.0.2.dmg",
+        permanent: false,
+      },
+      {
+        source: "/Helium-0.0.2.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.2/Helium-0.0.2.dmg",
+        permanent: false,
+      },
+      {
+        source: "/Show-free-space-1.1.0-Installer.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/cogifyme/releases/download/show-free-space-v1.1.0/Show-free-space-1.1.0-Installer.dmg",
+        permanent: false,
+      },
+      {
+        source: "/ShowFreeSpace.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/cogifyme/releases/download/show-free-space-v1.1.0/Show-free-space-1.1.0-Installer.dmg",
         permanent: false,
       },
       {

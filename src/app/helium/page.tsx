@@ -6,19 +6,19 @@ import { HELIUM_FAQS } from "@/components/helium/helium-data";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Helium for Mac — Unlimited Pooled Google Drive Volume (/Volumes/Helium • 0 B on Disk) | COGIFY",
+      "Helium for Mac (v0.0.2) — Unlimited Pooled Google Drive, S3, R2, WebDAV & NAS Volume (/Volumes/Helium • 0 B on Disk) | COGIFY",
   },
   description:
-    "Helium v0.0.1 mounts a real local drive at /Volumes/Helium in macOS Finder that pools multiple Google Drive accounts into one unified volume. Open 50 GB 4K videos, RAW catalogs & .dmg files in 0.8s with Zero bytes on disk.",
+    "Helium v0.0.2 (Build 2) mounts a real local drive at /Volumes/Helium in macOS Finder pooling Google Drives (64 MiB RAID-0 striping) and 25+ S3, R2, B2, WebDAV, SFTP, SMB & External SSD presets with 5-Step Safe-Write Verification, Scheduled Add-Only Backups (⌘⇧K), and Time Travel (⌘⇧Y).",
   keywords: siteConfig.helium.keywords,
   alternates: {
     canonical: `${siteConfig.url}/helium`,
   },
   openGraph: {
     title:
-      "meet helium. — unlimited pooled space for your mac, without buying a new ssd.",
+      "meet helium v0.0.2. — unlimited pooled space for your mac, without buying a new ssd.",
     description:
-      "Pool unlimited Google Drive accounts into /Volumes/Helium in macOS Finder. Open 50 GB films, RAW photos, and .dmg images in 0.8s while using 0 bytes on your Mac SSD.",
+      "Pool unlimited Google Drive accounts + 25+ S3, R2, WebDAV, SFTP, and SMB presets into /Volumes/Helium in macOS Finder with 5-Step Safe-Write Verification, Scheduled Add-Only Backups, and Time Travel.",
     url: `${siteConfig.url}/helium`,
     siteName: siteConfig.name,
     locale: "en_US",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "meet helium. — unlimited pooled space for your mac, without buying a new ssd.",
+      "meet helium v0.0.2. — unlimited pooled space for your mac, without buying a new ssd.",
     description:
-      "Mount /Volumes/Helium in macOS Finder pooling multiple Google Drives into one volume with 0 B used on your Mac SSD.",
+      "Mount /Volumes/Helium in macOS Finder pooling Google Drives, S3, R2, WebDAV & NAS into one volume with 0 B used on your Mac SSD.",
     images: [
       `${siteConfig.url}/brand/Helium/02-helium-hero-finder-zero-bytes.png`,
     ],
@@ -51,18 +51,18 @@ export default function HeliumPage() {
     "@type": "SoftwareApplication",
     "@id": `${siteConfig.url}/helium#software`,
     name: "Helium",
-    alternateName: "Helium — Multi-Google-Drive Pool Volume for macOS",
+    alternateName: "Helium — Multi-Protocol & Multi-Google-Drive Pool Volume for macOS",
     operatingSystem: "macOS 15.4+, macOS 26 Tahoe (Apple Silicon & Intel)",
     applicationCategory: "UtilitiesApplication",
     applicationSubCategory: "Cloud Storage & Virtual Filesystem",
-    softwareVersion: "0.0.1",
-    fileSize: "5.3 MB",
+    softwareVersion: "0.0.2",
+    fileSize: "8.3 MB",
     downloadUrl:
-      "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg",
+      "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.2/Helium-0.0.2.dmg",
     installUrl: `${siteConfig.url}/Helium.dmg`,
     releaseNotes:
-      "Initial v0.0.1 (Build 1) universal macOS release with Multi-Account Google Drive Pool Engine, /Volumes/Helium APFS sparse placeholder mounting (0 B on disk), Whole-File Smart Placement, Cross-Account 256 MiB Segment Striping, and optional client-side zero-knowledge AES-256-GCM encryption.",
-    datePublished: "2026-11-07",
+      "Helium v0.0.2 (Build 2) adds Multi-Protocol & Multi-Provider Cloud Support (25+ presets including Google Drive Pool with 64 MiB RAID-0 striping, S3, Cloudflare R2, Backblaze B2, Wasabi, Hetzner, DigitalOcean, Storj, Tigris, GCS, MinIO, WebDAV Nextcloud/ownCloud/Fastmail/pCloud/Synology, SFTP/SSH, SMB/Bonjour, BYOK Dropbox/OneDrive/Box, and External SSDs with Smart Endpoint & Region Inference), 5-Step Safe-Write Verification, Scheduled Add-Only Mac Folder Backups (⌘⇧K), Time Travel Snapshots & 'Then vs. Now' Diffing (⌘⇧Y), Right-Hand File Inspector & Conflict Resolution, and Activity & Health (⌘⇧A) + Executable Command Palette (⌃⌥O) + Privacy Network Contact Map.",
+    datePublished: "2026-11-09",
     screenshot: [
       `${siteConfig.url}/brand/Helium/02-helium-hero-finder-zero-bytes.png`,
       `${siteConfig.url}/brand/Helium/03-helium-multi-drive-pool.png`,
@@ -70,12 +70,13 @@ export default function HeliumPage() {
       `${siteConfig.url}/brand/Helium/04-helium-dmg-installer-preview.png`,
     ],
     featureList: [
-      "Mounts a real local volume at /Volumes/Helium in macOS Finder",
-      "Pools unlimited Google Drive accounts into one unified cloud volume",
-      "Zero bytes on disk (0 B on disk) via APFS sparse placeholders",
-      "01 Whole-File Smart Placement & 02 Cross-Account 256 MiB Segment Striping",
-      "Optional client-side zero-knowledge AES-256-GCM encryption",
-      "30-day cloud recycle bin sync & 1-click offline pinning",
+      "Mounts a real local volume at /Volumes/Helium in macOS Finder (0 B on disk)",
+      "Multi-Protocol & Multi-Provider Cloud Support (25+ presets: Google Drive Pool, S3, R2, B2, Wasabi, WebDAV, SFTP/SSH, SMB, BYOK OAuth, External SSD)",
+      "5-Step Safe-Write SHA-256 Canary Verification with 0 B residue cleanup",
+      "Scheduled Add-Only Mac Folder Backups (⌘⇧K) with live exclusion preview & 14-run history dots",
+      "Time Travel: Point-in-Time Pool Snapshots & 'Then vs. Now' Diffing (⌘⇧Y)",
+      "Right-Hand File Inspector & Non-Destructive Conflict Resolution (Keep Both / Use Newer)",
+      "Activity & Health (⌘⇧A), HTTP Range 206 Throughput Chart, Executable Command Palette (⌃⌥O) & Privacy Network Contact Map",
     ],
     offers: {
       "@type": "Offer",

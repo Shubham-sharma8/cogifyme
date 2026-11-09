@@ -62,8 +62,27 @@ const OTHER_MAC_RELEASES = [
     size: siteConfig.helium.appSize,
     href: "/helium",
     downloadUrl: "/Helium.dmg",
+    previousVersion: "0.0.1",
+    previousSize: "5.3 MB",
+    previousDownloadUrl:
+      "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg",
     icon: siteConfig.helium.icon,
-    subtitle: "Multi-Google-Drive Pool in /Volumes/Helium (0 B on disk)",
+    subtitle:
+      "Multi-Cloud & Google Drive Pool in /Volumes/Helium (25+ Presets • Safe-Write • Time Travel)",
+  },
+  {
+    name: siteConfig.showFreeSpace.shortName,
+    version: siteConfig.showFreeSpace.version,
+    size: siteConfig.showFreeSpace.appSize,
+    href: `/${siteConfig.showFreeSpace.slug}`,
+    downloadUrl: siteConfig.showFreeSpace.downloadUrl,
+    previousVersion: "1.0.0",
+    previousSize: "579 MB",
+    previousDownloadUrl:
+      "https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/ShowFreeSpace.dmg",
+    icon: siteConfig.showFreeSpace.icon,
+    subtitle:
+      "Interactive Sunburst & Treemap APFS Storage Map, Dev Cache Cleaner & 7 Widgets",
   },
   {
     name: siteConfig.lumenview.shortName,
@@ -100,15 +119,6 @@ const OTHER_MAC_RELEASES = [
     downloadUrl: siteConfig.klipora.downloadUrl,
     icon: siteConfig.klipora.icon,
     subtitle: "Instant Local Clipboard History Timeline & Snippet Manager",
-  },
-  {
-    name: siteConfig.showFreeSpace.shortName,
-    version: siteConfig.showFreeSpace.version,
-    size: siteConfig.showFreeSpace.appSize,
-    href: `/${siteConfig.showFreeSpace.slug}`,
-    downloadUrl: siteConfig.showFreeSpace.downloadUrl,
-    icon: siteConfig.showFreeSpace.icon,
-    subtitle: "Interactive Sunburst APFS Storage Map & Safe Disk Cleaner",
   },
 ];
 
@@ -464,15 +474,27 @@ export default function EmDocReleasesPage() {
                   </div>
                 </Link>
 
-                <a
-                  href={app.downloadUrl}
-                  download
-                  className="helumi-pill-secondary text-xs shrink-0 !px-3.5 !py-2"
-                  title={`Download ${app.name} (${app.size} .DMG)`}
-                >
-                  <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />
-                  <span>{app.size}</span>
-                </a>
+                <div className="flex flex-col items-end gap-1.5 shrink-0">
+                  <a
+                    href={app.downloadUrl}
+                    download
+                    className="helumi-pill-secondary text-xs shrink-0 !px-3.5 !py-2"
+                    title={`Download ${app.name} v${app.version} (${app.size} .DMG)`}
+                  >
+                    <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />
+                    <span>v{app.version} ({app.size})</span>
+                  </a>
+                  {app.previousDownloadUrl && (
+                    <a
+                      href={app.previousDownloadUrl}
+                      download
+                      className="text-[10.5px] font-mono text-[#666] dark:text-[#a1a1aa] hover:underline"
+                      title={`Download previous ${app.name} v${app.previousVersion} (${app.previousSize} .DMG)`}
+                    >
+                      prev v{app.previousVersion} ({app.previousSize})
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>
