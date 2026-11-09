@@ -43,7 +43,7 @@ export const MacOSAppsShowcase = () => {
   const macApps: MacShowcaseItem[] = [
     {
       slug: "emdoc",
-      href: "/products/emdoc",
+      href: "/emdoc",
       name: "EmDoc PDF Workstation",
       shortName: "EmDoc",
       tagline: siteConfig.emdoc.tagline,

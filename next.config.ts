@@ -82,23 +82,59 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/emdoc",
-        destination: "/products/emdoc",
+        source: "/products/emdoc",
+        destination: "/emdoc",
+        permanent: true,
+      },
+      {
+        source: "/products/emdoc/releases",
+        destination: "/releases",
         permanent: true,
       },
       {
         source: "/emdoc/releases",
-        destination: "/products/emdoc/releases",
-        permanent: true,
-      },
-      {
-        source: "/releases",
-        destination: "/products/emdoc/releases",
+        destination: "/releases",
         permanent: true,
       },
       {
         source: "/downloads",
-        destination: "/products/emdoc/releases",
+        destination: "/releases",
+        permanent: true,
+      },
+      // Short /compare/* canonical redirects from legacy long comparison URLs
+      {
+        source: "/compare/emdoc-vs-adobe-acrobat-pdf-expert",
+        destination: "/compare/emdoc",
+        permanent: true,
+      },
+      {
+        source: "/compare/lumenview-vs-betterdisplay-lunar",
+        destination: "/compare/lumenview",
+        permanent: true,
+      },
+      {
+        source: "/compare/metricove-vs-istat-menus-stats",
+        destination: "/compare/metricove",
+        permanent: true,
+      },
+      {
+        source: "/compare/netguard-vs-little-snitch-lulu",
+        destination: "/compare/netguard",
+        permanent: true,
+      },
+      {
+        source: "/compare/klipora-vs-paste-maccy-raycast",
+        destination: "/compare/klipora",
+        permanent: true,
+      },
+      {
+        source: "/compare/show-free-space-vs-daisydisk-cleanmymac",
+        destination: "/compare/show-free-space",
+        permanent: true,
+      },
+      {
+        source: "/compare/safari-extensions-vs-1blocker-dark-reader",
+        destination: "/compare/safari",
         permanent: true,
       },
       {
@@ -254,6 +290,31 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/products/helium/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/lumenview/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/metricove/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/netguard/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/klipora/privacy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/show-free-space/privacy",
         destination: "/privacy",
         permanent: true,
       },

@@ -12,6 +12,13 @@ interface AuthorBioProps {
 
 const ECOSYSTEM_LINKS = [
   {
+    slug: "helium",
+    name: "Helium Drive Pool",
+    badge: "macOS Flagship • /Volumes/Helium",
+    href: "/helium",
+    desc: "Pool unlimited Google Drives into one local Finder volume with 0 B used on your Mac SSD.",
+  },
+  {
     slug: "biodata",
     name: "Marriage Biodata Maker",
     badge: "Web Studio • biodata.cogify.me",
@@ -29,7 +36,7 @@ const ECOSYSTEM_LINKS = [
     slug: "emdoc",
     name: "EmDoc PDF Workstation",
     badge: "macOS Native • v1.1 (7.8 MB)",
-    href: "/products/emdoc",
+    href: "/emdoc",
     desc: "C++20 & AppKit offline PDF editor, Bates numbering, OCR, and vector compression.",
   },
   {
@@ -228,7 +235,7 @@ export function AuthorBio({
               href="/products"
               className="text-[#111] dark:text-white hover:underline inline-flex items-center gap-1"
             >
-              All 14 Products <ArrowUpRight className="w-3.5 h-3.5" />
+              All 15 Products <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>

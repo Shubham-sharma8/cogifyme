@@ -178,7 +178,7 @@ export const DownloadModal = ({ isOpen, onClose }: DownloadModalProps) => {
 
           <div className="flex items-center justify-between text-xs text-[#666] dark:text-[#a1a1aa] pt-3 border-t border-black/[0.06] dark:border-white/[0.08]">
             <Link
-              href="/products/emdoc/releases"
+              href="/releases"
               onClick={onClose}
               className="inline-flex items-center gap-1.5 hover:text-[#111] dark:hover:text-white transition-colors font-medium"
             >

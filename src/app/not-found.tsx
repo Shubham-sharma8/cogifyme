@@ -56,7 +56,7 @@ export default function NotFound() {
           </Link>
 
           <Link
-            href="/products/emdoc/releases"
+            href="/releases"
             className="inline-flex items-center gap-1.5 px-4 py-2.5 text-[13px] font-medium text-black/65 dark:text-white/65 hover:text-black dark:hover:text-white transition-colors"
           >
             <span>EmDoc Releases</span>

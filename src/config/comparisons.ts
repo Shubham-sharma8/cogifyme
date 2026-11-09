@@ -69,12 +69,12 @@ export interface ComparisonGuide {
 
 export const COMPARISON_GUIDES: ComparisonGuide[] = [
   {
-    slug: "emdoc-vs-adobe-acrobat-pdf-expert",
+    slug: "emdoc",
     appSlug: "emdoc",
     appName: "EmDoc PDF Workstation",
     appShortName: "EmDoc",
     appTagline: "7.8 MB C++20 & AppKit Native PDF Workstation (v1.1)",
-    appHref: "/products/emdoc",
+    appHref: "/emdoc",
     appIcon: "/brand/emdoc-icon-sm.webp",
     appScreenshot: "/brand/EmDoc_home.webp",
     downloadUrl: "https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.1/EmDoc-1.1.dmg",
@@ -277,7 +277,7 @@ export const COMPARISON_GUIDES: ComparisonGuide[] = [
     ],
   },
   {
-    slug: "lumenview-vs-betterdisplay-lunar",
+    slug: "lumenview",
     appSlug: "lumenview",
     appName: "LumenView",
     appShortName: "LumenView",
@@ -462,7 +462,7 @@ export const COMPARISON_GUIDES: ComparisonGuide[] = [
     ],
   },
   {
-    slug: "metricove-vs-istat-menus-stats",
+    slug: "metricove",
     appSlug: "metricove",
     appName: "Metricove",
     appShortName: "Metricove",
@@ -633,7 +633,7 @@ export const COMPARISON_GUIDES: ComparisonGuide[] = [
     ],
   },
   {
-    slug: "netguard-vs-little-snitch-lulu",
+    slug: "netguard",
     appSlug: "netguard",
     appName: "NetGuard Firewall",
     appShortName: "NetGuard",
@@ -804,7 +804,7 @@ export const COMPARISON_GUIDES: ComparisonGuide[] = [
     ],
   },
   {
-    slug: "klipora-vs-paste-maccy-raycast",
+    slug: "klipora",
     appSlug: "klipora",
     appName: "Klipora Clipboard",
     appShortName: "Klipora",
@@ -980,7 +980,7 @@ export const COMPARISON_GUIDES: ComparisonGuide[] = [
     ],
   },
   {
-    slug: "show-free-space-vs-daisydisk-cleanmymac",
+    slug: "show-free-space",
     appSlug: "show-free-space",
     appName: "Show Free Space",
     appShortName: "Show Free Space",
@@ -1153,7 +1153,7 @@ export const COMPARISON_GUIDES: ComparisonGuide[] = [
     ],
   },
   {
-    slug: "safari-extensions-vs-1blocker-dark-reader",
+    slug: "safari",
     appSlug: "ad-blocker",
     appName: "Cogify Safari Extension Suite",
     appShortName: "Cogify Safari Suite",
@@ -1327,13 +1327,15 @@ export const COMPARISON_GUIDES: ComparisonGuide[] = [
 ];
 
 export function getComparisonBySlug(slug: string): ComparisonGuide | undefined {
-  return COMPARISON_GUIDES.find((item) => item.slug === slug);
+  return COMPARISON_GUIDES.find(
+    (item) => item.slug === slug || item.appSlug === slug
+  );
 }
 
 export function getComparisonByAppSlug(appSlug: string): ComparisonGuide | undefined {
-  const safariSlugs = ["ad-blocker", "readereasy", "webclear", "weblenses", "element-hider", "invert"];
+  const safariSlugs = ["ad-blocker", "readereasy", "webclear", "weblenses", "element-hider", "invert", "safari"];
   if (safariSlugs.includes(appSlug)) {
-    return COMPARISON_GUIDES.find((item) => item.slug === "safari-extensions-vs-1blocker-dark-reader");
+    return COMPARISON_GUIDES.find((item) => item.slug === "safari");
   }
-  return COMPARISON_GUIDES.find((item) => item.appSlug === appSlug);
+  return COMPARISON_GUIDES.find((item) => item.appSlug === appSlug || item.slug === appSlug);
 }

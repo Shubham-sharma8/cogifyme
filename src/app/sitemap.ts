@@ -77,7 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
-      url: `${baseUrl}/products/emdoc`,
+      url: `${baseUrl}/emdoc`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.95,
@@ -91,7 +91,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
-      url: `${baseUrl}/products/emdoc/releases`,
+      url: `${baseUrl}/releases`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,

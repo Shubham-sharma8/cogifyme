@@ -140,7 +140,7 @@ export default function EnterprisePage() {
             </a>
 
             <Link
-              href="/products/emdoc"
+              href="/emdoc"
               className="px-6 py-3.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-800 hover:text-zinc-950 font-semibold text-sm border border-zinc-200/90 shadow-xs dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-300 dark:hover:text-white dark:border-white/10 transition-colors"
             >
               Explore EmDoc (5.0 MB)

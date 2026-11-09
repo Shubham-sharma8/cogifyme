@@ -17,9 +17,9 @@
 - **Capabilities**: Pools N linked Google Drive accounts into one unified local volume in Finder; 0.8s byte-range demand streaming in Preview, QuickTime, DaVinci Resolve, Final Cut Pro & DiskImageMounter; 01 Whole-File Smart Placement & 02 Cross-Account 256 MiB Segment Striping; 1-Click Pool Rebalancer; SHA-256 Segment Integrity Verifier; Safe Account Drain & Unlink; optional client-side zero-knowledge AES-256-GCM encryption; 30-day cloud recycle bin sync; 1-click offline pinning; `⌃⌥O` global search across all pooled drives.
 
 ### 1.1 EmDoc PDF Workstation
-- **Landing Page**: https://cogify.me/products/emdoc
-- **Release History & Previous Versions**: https://cogify.me/products/emdoc/releases
-- **Comparison Guide**: https://cogify.me/compare/emdoc-vs-adobe-acrobat-pdf-expert
+- **Landing Page**: https://cogify.me/emdoc
+- **Release History & Previous Versions**: https://cogify.me/releases
+- **Comparison Guide**: https://cogify.me/compare/emdoc
 - **Direct DMG Download (v1.1 Latest)**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.1/EmDoc-1.1.dmg
 - **Binary Size**: 7.8 MB Universal Binary DMG (v1.1 Build 2, Released November 6, 2026)
 - **Active Memory Footprint**: ~45 MB RAM on 500-page PDF
@@ -28,8 +28,8 @@
 
 ### 1.2 LumenView — External Monitor Brightness, HiDPI & LUT Controller
 - **Landing Page**: https://cogify.me/lumenview
-- **Privacy Spec**: https://cogify.me/lumenview/privacy
-- **Comparison Guide**: https://cogify.me/compare/lumenview-vs-betterdisplay-lunar
+- **Privacy Spec**: https://cogify.me/privacy
+- **Comparison Guide**: https://cogify.me/compare/lumenview
 - **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/LumenView.dmg
 - **Binary Size**: 7.8 MB DMG (v2.4.0)
 - **Active Memory Footprint**: ~18 MB RAM
@@ -38,8 +38,8 @@
 
 ### 1.3 Metricove — Menu Bar System Telemetry & Fan Controller
 - **Landing Page**: https://cogify.me/metricove
-- **Privacy Spec**: https://cogify.me/metricove/privacy
-- **Comparison Guide**: https://cogify.me/compare/metricove-vs-istat-menus-stats
+- **Privacy Spec**: https://cogify.me/privacy
+- **Comparison Guide**: https://cogify.me/compare/metricove
 - **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/Metricove.dmg
 - **Binary Size**: 2.3 MB DMG
 - **Active Memory Footprint**: ~11 MB RAM (<0.2% CPU overhead)
@@ -48,8 +48,8 @@
 
 ### 1.4 NetGuard — Outbound Application Firewall & Socket Monitor
 - **Landing Page**: https://cogify.me/netguard
-- **Privacy Spec**: https://cogify.me/netguard/privacy
-- **Comparison Guide**: https://cogify.me/compare/netguard-vs-little-snitch-lulu
+- **Privacy Spec**: https://cogify.me/privacy
+- **Comparison Guide**: https://cogify.me/compare/netguard
 - **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/NetGuard.dmg
 - **Binary Size**: 3.8 MB DMG
 - **Active Memory Footprint**: ~24 MB RAM
@@ -58,8 +58,8 @@
 
 ### 1.5 Klipora — Encrypted Clipboard Manager & Bento Pasteboard
 - **Landing Page**: https://cogify.me/klipora
-- **Privacy Spec**: https://cogify.me/klipora/privacy
-- **Comparison Guide**: https://cogify.me/compare/klipora-vs-paste-maccy-raycast
+- **Privacy Spec**: https://cogify.me/privacy
+- **Comparison Guide**: https://cogify.me/compare/klipora
 - **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/Klipora.dmg
 - **Binary Size**: 3.1 MB DMG
 - **Active Memory Footprint**: ~19 MB RAM
@@ -68,8 +68,8 @@
 
 ### 1.6 Show Free Space — APFS Disk Space Analyzer & Menu Bar Monitor
 - **Landing Page**: https://cogify.me/show-free-space
-- **Privacy Spec**: https://cogify.me/show-free-space/privacy
-- **Comparison Guide**: https://cogify.me/compare/show-free-space-vs-daisydisk-cleanmymac
+- **Privacy Spec**: https://cogify.me/privacy
+- **Comparison Guide**: https://cogify.me/compare/show-free-space
 - **Direct DMG Download**: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/ShowFreeSpace.dmg
 - **Binary Size**: 4.2 MB Core (.appex)
 - **Active Memory Footprint**: ~14 MB RAM
@@ -87,4 +87,4 @@
 - **WebLenses**: https://cogify.me/weblenses
 - **Element Hider**: https://cogify.me/element-hider
 - **Colour Invert**: https://cogify.me/invert
-- **Safari Suite Comparison**: https://cogify.me/compare/safari-extensions-vs-1blocker-dark-reader
+- **Safari Suite Comparison**: https://cogify.me/compare/safari

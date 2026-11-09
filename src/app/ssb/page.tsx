@@ -18,6 +18,7 @@ import { siteConfig } from "@/config/site";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
+import { OtherAppsShowcase } from "@/components/products/other-apps-showcase";
 
 const SSB_FAQS: FaqItem[] = [
   {
@@ -338,6 +339,10 @@ export default function SsbStudioPage() {
         subtitle="Everything you need to know about practicing TAT, WAT, SRT, SDT, GTO, and Personal Interview modules at ssb.cogify.me."
         items={SSB_FAQS}
       />
+
+      <div className="max-w-[980px] mx-auto px-5 sm:px-8">
+        <OtherAppsShowcase currentSlug="ssb" />
+      </div>
 
       <AuthorBio currentSlug="ssb" />
     </div>

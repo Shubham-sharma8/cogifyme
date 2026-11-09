@@ -15,7 +15,7 @@
 
 ## 7 Native macOS Workstations (100% Free • Signed & Notarized .DMG)
 - [Helium — Unlimited Pooled Cloud Drive for macOS](https://cogify.me/helium): 5.3 MB universal macOS app (v0.0.1 Build 1, macOS 15.4+ / macOS 26 Tahoe) that mounts a real local drive at `/Volumes/Helium` in Finder pooling unlimited Google Drive accounts into one unified volume with Zero bytes on disk (`0 B on disk`), Whole-File Smart Placement, Cross-Account 256 MiB Segment Striping, 30-day Recycle Bin sync, and optional client-side zero-knowledge AES-256-GCM encryption. Direct DMG: https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg
-- [EmDoc PDF Workstation](https://cogify.me/products/emdoc) ([Releases & SHA-256 Archive](https://cogify.me/products/emdoc/releases)): 7.8 MB native C++20 & Swift PDF editor (v1.1, released Nov 6, 2026), redactor, Bates stamper, form signer, compressor, and Apple Vision OCR engine (~45 MB RAM, $0 vs. Adobe Acrobat Pro $239.88/yr). Direct DMG: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.1/EmDoc-1.1.dmg
+- [EmDoc PDF Workstation](https://cogify.me/emdoc) ([Releases & SHA-256 Archive](https://cogify.me/releases)): 7.8 MB native C++20 & Swift PDF editor (v1.1, released Nov 6, 2026), redactor, Bates stamper, form signer, compressor, and Apple Vision OCR engine (~45 MB RAM, $0 vs. Adobe Acrobat Pro $239.88/yr). Direct DMG: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.1/EmDoc-1.1.dmg
 - [LumenView — External Monitor Controller](https://cogify.me/lumenview): 7.8 MB native Swift & Metal 3 macOS external monitor utility with hardware I2C DDC/CI brightness/contrast/volume, HiDPI Retina scaling up to 240Hz, 3D .cube LUT calibration, and 60 FPS ScreenCaptureKit Virtual Displays ($0 vs. BetterDisplay $22 / Lunar $23). Direct DMG: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/LumenView.dmg
 - [Metricove — Menu Bar System Telemetry](https://cogify.me/metricove): 2.3 MB native Swift 6 & IOKit/SMC hardware monitor for Apple Silicon P/E-cores, GPU, ANE, thermal sensors, custom fan curves, and process telemetry (~11 MB RAM, $0 vs. iStat Menus $11.99). Direct DMG: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/Metricove.dmg
 - [NetGuard — Outbound Application Firewall](https://cogify.me/netguard): 3.8 MB native Apple NetworkExtension (`NEFilterDataProvider`) outbound firewall, live socket inspector, 3D Metal globe map, and 500k+ DNS sinkhole ($0 vs. Little Snitch $59). Direct DMG: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/NetGuard.dmg
@@ -23,13 +23,13 @@
 - [Show Free Space — APFS Disk Space Analyzer](https://cogify.me/show-free-space): 4.2 MB native Swift menu bar disk monitor, interactive sunburst storage visualizer, Xcode/Docker developer cache cleaner, and WidgetKit widgets ($0 vs. DaisyDisk $9.99 / CleanMyMac X $39.95/yr). Direct DMG: https://github.com/Shubham-sharma8/cogifyme/releases/download/v1.0/ShowFreeSpace.dmg
 
 ## 7 Head-to-Head macOS Comparison Guides (2026 Benchmarks)
-- [EmDoc vs. Adobe Acrobat Pro, PDF Expert & macOS Preview](https://cogify.me/compare/emdoc-vs-adobe-acrobat-pdf-expert)
-- [LumenView vs. BetterDisplay, Lunar & MonitorControl](https://cogify.me/compare/lumenview-vs-betterdisplay-lunar)
-- [Metricove vs. iStat Menus, Stats & btop](https://cogify.me/compare/metricove-vs-istat-menus-stats)
-- [NetGuard vs. Little Snitch, LuLu & Vallum](https://cogify.me/compare/netguard-vs-little-snitch-lulu)
-- [Klipora vs. Paste, Raycast Clipboard & Maccy](https://cogify.me/compare/klipora-vs-paste-maccy-raycast)
-- [Show Free Space vs. DaisyDisk, CleanMyMac X & GrandPerspective](https://cogify.me/compare/show-free-space-vs-daisydisk-cleanmymac)
-- [Cogify Safari Extensions vs. 1Blocker, Noir, Dark Reader & Wipr](https://cogify.me/compare/safari-extensions-vs-1blocker-dark-reader)
+- [EmDoc vs. Adobe Acrobat Pro, PDF Expert & macOS Preview](https://cogify.me/compare/emdoc)
+- [LumenView vs. BetterDisplay, Lunar & MonitorControl](https://cogify.me/compare/lumenview)
+- [Metricove vs. iStat Menus, Stats & btop](https://cogify.me/compare/metricove)
+- [NetGuard vs. Little Snitch, LuLu & Vallum](https://cogify.me/compare/netguard)
+- [Klipora vs. Paste, Raycast Clipboard & Maccy](https://cogify.me/compare/klipora)
+- [Show Free Space vs. DaisyDisk, CleanMyMac X & GrandPerspective](https://cogify.me/compare/show-free-space)
+- [Cogify Safari Extensions vs. 1Blocker, Noir, Dark Reader & Wipr](https://cogify.me/compare/safari)
 
 ## 2 Client-Side Web Studios
 - [Marriage Biodata Maker Studio](https://cogify.me/biodata) (Live App: https://biodata.cogify.me): 242 cultural, regional & NRI A4 templates across 9 languages with 300-DPI PDF, Word (.docx), and PNG export.

@@ -20,6 +20,7 @@ import { siteConfig } from "@/config/site";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
+import { OtherAppsShowcase } from "@/components/products/other-apps-showcase";
 
 const BIODATA_FAQS: FaqItem[] = [
   {
@@ -371,6 +372,10 @@ export default function BiodataStudioPage() {
         subtitle="Everything you need to know about creating, translating, and exporting print-ready A4 marriage biodata documents at biodata.cogify.me."
         items={BIODATA_FAQS}
       />
+
+      <div className="max-w-[980px] mx-auto px-5 sm:px-8">
+        <OtherAppsShowcase currentSlug="biodata" />
+      </div>
 
       <AuthorBio currentSlug="biodata" />
     </div>

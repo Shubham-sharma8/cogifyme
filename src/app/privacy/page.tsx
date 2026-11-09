@@ -44,9 +44,17 @@ export const metadata: Metadata = {
 
 const coveredApps = [
   {
+    name: "Helium Drive Pool",
+    platform: "macOS 15.4+ / macOS 26 Tahoe (Universal)",
+    href: "/helium",
+    appStoreUrl: "/Helium.dmg",
+    summary:
+      "Mounts /Volumes/Helium in Finder pooling Google Drive accounts with optional client-side AES-256-GCM encryption and zero telemetry.",
+  },
+  {
     name: "EmDoc Workstation",
     platform: "macOS (Apple Silicon & Intel Universal)",
-    href: "/products/emdoc",
+    href: "/emdoc",
     appStoreUrl: siteConfig.emdoc.appStoreUrl,
     summary:
       "100% air-gapped native PDF workstation. Zero network permissions, zero cloud uploads, and local-only Apple Vision OCR.",
@@ -55,7 +63,6 @@ const coveredApps = [
     name: "LumenView",
     platform: "macOS (Apple Silicon & Intel Universal)",
     href: "/lumenview",
-    privacyHref: "/lumenview/privacy",
     summary:
       "Hardware DDC/CI external monitor brightness, contrast, and volume control. Zero network sockets or display telemetry.",
   },
@@ -63,7 +70,6 @@ const coveredApps = [
     name: "Metricove",
     platform: "macOS (Apple Silicon & Intel Universal)",
     href: "/metricove",
-    privacyHref: "/metricove/privacy",
     summary:
       "Real-time macOS menu bar CPU, GPU, RAM, network, and battery diagnostics. 100% local hardware polling with zero cloud metrics.",
   },
@@ -71,7 +77,6 @@ const coveredApps = [
     name: "NetGuard",
     platform: "macOS (Apple Silicon & Intel Universal)",
     href: "/netguard",
-    privacyHref: "/netguard/privacy",
     summary:
       "On-device macOS outbound firewall and application socket monitor. All connection rules and logs stay strictly on your Mac.",
   },
@@ -79,7 +84,6 @@ const coveredApps = [
     name: "Klipora",
     platform: "macOS (Apple Silicon & Intel Universal)",
     href: "/klipora",
-    privacyHref: "/klipora/privacy",
     summary:
       "Local-only macOS clipboard history manager with password-manager exclusion rules and zero cloud clipboard sync.",
   },
@@ -87,7 +91,6 @@ const coveredApps = [
     name: "Show free space",
     platform: "macOS (Apple Silicon & Intel Universal)",
     href: "/show-free-space",
-    privacyHref: "/show-free-space/privacy",
     summary:
       "Native macOS menu bar disk analyzer and APFS volume monitor. File paths and disk metadata never leave your device.",
   },
@@ -249,14 +252,6 @@ export default function PrivacyPolicyPage() {
                         <span>Open</span>
                         <ExternalLink className="w-3 h-3" />
                       </a>
-                    )}
-                    {"privacyHref" in app && app.privacyHref && (
-                      <Link
-                        href={app.privacyHref}
-                        className="text-[11px] font-mono text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1 shrink-0"
-                      >
-                        <span>Privacy Spec →</span>
-                      </Link>
                     )}
                   </div>
                   <div className="text-[11px] font-mono text-black/45 dark:text-white/45 mt-0.5">

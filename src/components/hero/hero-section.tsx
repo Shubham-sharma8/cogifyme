@@ -33,7 +33,7 @@ const COGIFY_APPS: AppBoxItem[] = [
     platform: "For Mac",
     solutionTag: "PDF Workstation",
     icon: "/brand/emdoc-icon-sm.webp",
-    href: "/products/emdoc",
+    href: "/emdoc",
     accentColor: "#6366f1",
   },
   {

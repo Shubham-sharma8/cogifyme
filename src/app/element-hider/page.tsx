@@ -15,6 +15,7 @@ import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
 import { InlineAppComparison } from "@/components/compare/inline-app-comparison";
+import { OtherAppsShowcase } from "@/components/products/other-apps-showcase";
 import { AppleLogoIcon, AppStoreIcon, SafariIcon } from "@/components/ui/platform-icons";
 
 const ELEMENT_HIDER_FAQS: FaqItem[] = [
@@ -389,6 +390,10 @@ export default function ElementHiderPage() {
         subtitle="Answers about hiding distracting webpage elements, saving domain rules, and Safari privacy."
         items={ELEMENT_HIDER_FAQS}
       />
+
+      <div className="max-w-[980px] mx-auto px-5 sm:px-8">
+        <OtherAppsShowcase currentSlug="element-hider" />
+      </div>
 
       <AuthorBio currentSlug="element-hider" />
     </div>

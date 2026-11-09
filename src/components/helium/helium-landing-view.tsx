@@ -25,6 +25,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { AppleLogoIcon } from "@/components/ui/platform-icons";
+import { OtherAppsShowcase } from "@/components/products/other-apps-showcase";
 import {
   HERO_FINDER_FILES,
   ROLE_SHOWCASE_TABS,
@@ -1415,6 +1416,11 @@ export function HeliumLandingView() {
           })}
         </div>
       </section>
+
+      {/* Supaste.com-Style Sister Apps Cross-Promotion Showcase */}
+      <div className="max-w-[980px] mx-auto px-5">
+        <OtherAppsShowcase currentSlug="helium" />
+      </div>
 
       {/* =====================================================================
           SECTION 8: Footer CTA ("stop deleting files to make space.")

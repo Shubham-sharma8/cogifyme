@@ -233,7 +233,7 @@ export function CatalogJsonLd() {
         "@type": "ListItem",
         position: 4,
         name: "EmDoc PDF Workstation",
-        url: `${siteConfig.url}/products/emdoc`,
+        url: `${siteConfig.url}/emdoc`,
       },
       {
         "@type": "ListItem",
@@ -316,7 +316,7 @@ export function EmDocPageJsonLd() {
   const emdocSoftwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "@id": `${siteConfig.url}/products/emdoc#software`,
+    "@id": `${siteConfig.url}/emdoc#software`,
     name: "EmDoc PDF Workstation",
     alternateName: ["EmDoc", "EmDoc for macOS", "EmDoc PDF Editor"],
     operatingSystem: "macOS 13.0 (Ventura, Sonoma, Sequoia) or later",
@@ -328,8 +328,8 @@ export function EmDocPageJsonLd() {
     softwareVersion: siteConfig.emdoc.version,
     datePublished: "2026-02-23",
     dateModified: siteConfig.emdoc.releaseDateIso,
-    releaseNotes: `${siteConfig.url}/products/emdoc/releases`,
-    url: `${siteConfig.url}/products/emdoc`,
+    releaseNotes: `${siteConfig.url}/releases`,
+    url: `${siteConfig.url}/emdoc`,
     downloadUrl: siteConfig.emdoc.downloadUrl,
     installUrl: siteConfig.emdoc.appStoreUrl,
     sameAs: [siteConfig.emdoc.appStoreUrl, siteConfig.emdoc.downloadUrl],

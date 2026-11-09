@@ -14,6 +14,7 @@ import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FaqSection, type FaqItem } from "@/components/seo/faq-section";
 import { AuthorBio } from "@/components/seo/author-bio";
 import { InlineAppComparison } from "@/components/compare/inline-app-comparison";
+import { OtherAppsShowcase } from "@/components/products/other-apps-showcase";
 import { AppleLogoIcon, AppStoreIcon, SafariIcon } from "@/components/ui/platform-icons";
 
 const COLOUR_INVERT_FAQS: FaqItem[] = [
@@ -400,6 +401,10 @@ export default function ColourInvertPage() {
         subtitle="Answers about Smart Invert, photo/video preservation, custom contrast sliders, and Safari Web Extension privacy."
         items={COLOUR_INVERT_FAQS}
       />
+
+      <div className="max-w-[980px] mx-auto px-5 sm:px-8">
+        <OtherAppsShowcase currentSlug="invert" />
+      </div>
 
       <AuthorBio currentSlug="invert" />
     </div>

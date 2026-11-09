@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Globe } from "lucide-react";
+import { Globe, CheckCircle2 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { CatalogJsonLd } from "@/components/seo/jsonld-schemas";
-import { AppStoreIcon } from "@/components/ui/platform-icons";
+import { AppleLogoIcon, AppStoreIcon } from "@/components/ui/platform-icons";
 import {
   ProductsCatalogClient,
   type CatalogItem,
 } from "@/components/products/products-catalog-client";
+import { OtherAppsShowcase } from "@/components/products/other-apps-showcase";
 
 export const metadata: Metadata = {
   title: "15 Free Native macOS, Safari Apps & Web Studios",
@@ -55,7 +56,7 @@ const liveCatalog: CatalogItem[] = [
     href: "/helium",
     downloadUrl: "/Helium.dmg",
     appStoreUrl: siteConfig.helium.downloadUrl,
-    ctaLabel: `download for mac (${siteConfig.helium.appSize})`,
+    ctaLabel: `Download for macOS (${siteConfig.helium.appSize})`,
     badge: "Flagship • For Mac",
     highlights: [
       "Mounts /Volumes/Helium in Finder pooling unlimited Google Drives",
@@ -70,16 +71,16 @@ const liveCatalog: CatalogItem[] = [
     description: siteConfig.emdoc.shortDescription,
     version: `v${siteConfig.emdoc.version}`,
     releaseDate: siteConfig.emdoc.releaseDate,
-    releasesHref: "/products/emdoc/releases",
-    compareHref: "/compare/emdoc-vs-adobe-acrobat-pdf-expert",
+    releasesHref: "/releases",
+    compareHref: "/compare/emdoc",
     platforms: "macOS 13+ (Universal Binary)",
     category: "Productivity • PDF Suite",
     icon: "/brand/emdoc-icon-sm.webp",
     previewImage: "/brand/EmDoc_home.webp",
-    href: "/products/emdoc",
+    href: "/emdoc",
     downloadUrl: siteConfig.emdoc.downloadUrl,
     appStoreUrl: siteConfig.emdoc.appStoreUrl,
-    ctaLabel: `download for mac (${siteConfig.emdoc.appSize})`,
+    ctaLabel: `Download for macOS (${siteConfig.emdoc.appSize})`,
     badge: "For Mac",
     highlights: [
       `Compact ${siteConfig.emdoc.appSize} Universal binary (~45 MB RAM)`,
@@ -93,7 +94,7 @@ const liveCatalog: CatalogItem[] = [
     tagline: siteConfig.lumenview.tagline,
     description: siteConfig.lumenview.shortDescription,
     version: `v${siteConfig.lumenview.version}`,
-    compareHref: "/compare/lumenview-vs-betterdisplay-lunar",
+    compareHref: "/compare/lumenview",
     platforms: siteConfig.lumenview.platform,
     category: `${siteConfig.lumenview.primaryCategory} • ${siteConfig.lumenview.secondaryCategory}`,
     icon: siteConfig.lumenview.icon,
@@ -101,7 +102,7 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.lumenview.slug}`,
     downloadUrl: siteConfig.lumenview.downloadUrl,
     appStoreUrl: siteConfig.lumenview.downloadUrl,
-    ctaLabel: `download for mac (${siteConfig.lumenview.appSize})`,
+    ctaLabel: `Download for macOS (${siteConfig.lumenview.appSize})`,
     badge: "For Mac",
     highlights: [
       "Native DDC/CI Hardware Brightness, Contrast & Volume Control",
@@ -115,7 +116,7 @@ const liveCatalog: CatalogItem[] = [
     tagline: siteConfig.metricove.tagline,
     description: siteConfig.metricove.shortDescription,
     version: `v${siteConfig.metricove.version}`,
-    compareHref: "/compare/metricove-vs-istat-menus-stats",
+    compareHref: "/compare/metricove",
     platforms: siteConfig.metricove.platform,
     category: `${siteConfig.metricove.primaryCategory} • ${siteConfig.metricove.secondaryCategory}`,
     icon: siteConfig.metricove.icon,
@@ -123,7 +124,7 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.metricove.slug}`,
     downloadUrl: siteConfig.metricove.downloadUrl,
     appStoreUrl: siteConfig.metricove.downloadUrl,
-    ctaLabel: `download for mac (${siteConfig.metricove.appSize})`,
+    ctaLabel: `Download for macOS (${siteConfig.metricove.appSize})`,
     badge: "For Mac",
     highlights: [
       "Per-Core Apple Silicon P/E CPU & Metal GPU Utilization",
@@ -137,7 +138,7 @@ const liveCatalog: CatalogItem[] = [
     tagline: siteConfig.netguard.tagline,
     description: siteConfig.netguard.shortDescription,
     version: `v${siteConfig.netguard.version}`,
-    compareHref: "/compare/netguard-vs-little-snitch-lulu",
+    compareHref: "/compare/netguard",
     platforms: siteConfig.netguard.platform,
     category: `${siteConfig.netguard.primaryCategory} • ${siteConfig.netguard.secondaryCategory}`,
     icon: siteConfig.netguard.icon,
@@ -145,7 +146,7 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.netguard.slug}`,
     downloadUrl: siteConfig.netguard.downloadUrl,
     appStoreUrl: siteConfig.netguard.downloadUrl,
-    ctaLabel: `download for mac (${siteConfig.netguard.appSize})`,
+    ctaLabel: `Download for macOS (${siteConfig.netguard.appSize})`,
     badge: "For Mac",
     highlights: [
       "Interactive Per-App Outbound Connection Approval Alerts",
@@ -159,7 +160,7 @@ const liveCatalog: CatalogItem[] = [
     tagline: siteConfig.klipora.tagline,
     description: siteConfig.klipora.shortDescription,
     version: `v${siteConfig.klipora.version}`,
-    compareHref: "/compare/klipora-vs-paste-maccy-raycast",
+    compareHref: "/compare/klipora",
     platforms: siteConfig.klipora.platform,
     category: `${siteConfig.klipora.primaryCategory} • ${siteConfig.klipora.secondaryCategory}`,
     icon: siteConfig.klipora.icon,
@@ -167,7 +168,7 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.klipora.slug}`,
     downloadUrl: siteConfig.klipora.downloadUrl,
     appStoreUrl: siteConfig.klipora.downloadUrl,
-    ctaLabel: `download for mac (${siteConfig.klipora.appSize})`,
+    ctaLabel: `Download for macOS (${siteConfig.klipora.appSize})`,
     badge: "For Mac",
     highlights: [
       "Instant Global Hotkey Clipboard History Timeline",
@@ -181,7 +182,7 @@ const liveCatalog: CatalogItem[] = [
     tagline: siteConfig.showFreeSpace.tagline,
     description: siteConfig.showFreeSpace.shortDescription,
     version: `v${siteConfig.showFreeSpace.version}`,
-    compareHref: "/compare/show-free-space-vs-daisydisk-cleanmymac",
+    compareHref: "/compare/show-free-space",
     platforms: siteConfig.showFreeSpace.platform,
     category: `${siteConfig.showFreeSpace.primaryCategory} • ${siteConfig.showFreeSpace.secondaryCategory}`,
     icon: siteConfig.showFreeSpace.icon,
@@ -189,7 +190,7 @@ const liveCatalog: CatalogItem[] = [
     href: `/${siteConfig.showFreeSpace.slug}`,
     downloadUrl: siteConfig.showFreeSpace.downloadUrl,
     appStoreUrl: siteConfig.showFreeSpace.downloadUrl,
-    ctaLabel: `download for mac (${siteConfig.showFreeSpace.appSize})`,
+    ctaLabel: `Download for macOS (${siteConfig.showFreeSpace.appSize})`,
     badge: "For Mac",
     highlights: [
       "Interactive Multi-Ring Sunburst Storage Map",
@@ -243,7 +244,7 @@ const liveCatalog: CatalogItem[] = [
     tagline: siteConfig.adBlocker.tagline,
     description: siteConfig.adBlocker.shortDescription,
     version: `v${siteConfig.adBlocker.version}`,
-    compareHref: "/compare/safari-extensions-vs-1blocker-dark-reader",
+    compareHref: "/compare/safari",
     platforms: siteConfig.adBlocker.platform,
     category: "Utilities • Content Blocker",
     icon: siteConfig.adBlocker.icon,
@@ -264,7 +265,7 @@ const liveCatalog: CatalogItem[] = [
     tagline: siteConfig.readereasy.tagline,
     description: siteConfig.readereasy.shortDescription,
     version: `v${siteConfig.readereasy.version}`,
-    compareHref: "/compare/safari-extensions-vs-1blocker-dark-reader",
+    compareHref: "/compare/safari",
     platforms: siteConfig.readereasy.platform,
     category: "Productivity • Reader Mode",
     icon: siteConfig.readereasy.icon,
@@ -287,7 +288,7 @@ const liveCatalog: CatalogItem[] = [
     tagline: siteConfig.webclear.tagline,
     description: siteConfig.webclear.shortDescription,
     version: `v${siteConfig.webclear.version}`,
-    compareHref: "/compare/safari-extensions-vs-1blocker-dark-reader",
+    compareHref: "/compare/safari",
     platforms: siteConfig.webclear.platform,
     category: "Utilities • Privacy & Storage",
     icon: siteConfig.webclear.icon,
@@ -310,7 +311,7 @@ const liveCatalog: CatalogItem[] = [
     tagline: siteConfig.weblenses.tagline,
     description: siteConfig.weblenses.shortDescription,
     version: `v${siteConfig.weblenses.version}`,
-    compareHref: "/compare/safari-extensions-vs-1blocker-dark-reader",
+    compareHref: "/compare/safari",
     platforms: siteConfig.weblenses.platform,
     category: "Developer Tools • Web Vitals",
     icon: siteConfig.weblenses.icon,
@@ -331,7 +332,7 @@ const liveCatalog: CatalogItem[] = [
     tagline: siteConfig.elementHider.tagline,
     description: siteConfig.elementHider.shortDescription,
     version: `v${siteConfig.elementHider.version}`,
-    compareHref: "/compare/safari-extensions-vs-1blocker-dark-reader",
+    compareHref: "/compare/safari",
     platforms: siteConfig.elementHider.platform,
     category: "Utilities • Web Customizer",
     icon: "/brand/Element-Hider/icon-sm.webp",
@@ -352,7 +353,7 @@ const liveCatalog: CatalogItem[] = [
     tagline: siteConfig.invert.tagline,
     description: siteConfig.invert.shortDescription,
     version: `v${siteConfig.invert.version}`,
-    compareHref: "/compare/safari-extensions-vs-1blocker-dark-reader",
+    compareHref: "/compare/safari",
     platforms: siteConfig.invert.platform,
     category: "Utilities • Accessibility",
     icon: "/brand/Invert/icon-sm.webp",
@@ -371,27 +372,38 @@ const liveCatalog: CatalogItem[] = [
 
 export default function ProductsPage() {
   return (
-    <div className="min-h-screen pt-28 sm:pt-32 pb-20">
+    <div className="min-h-screen pt-28 sm:pt-32 pb-20 bg-[#FAFAFA] dark:bg-[#0B0B0D]">
       <CatalogJsonLd />
 
-      <div className="max-w-[920px] mx-auto px-6">
-        {/* Helumi-Style Centered Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="text-[13px] text-black/55 dark:text-white/50 mb-1.5">
-            cogify product catalog
+      <div className="max-w-[1040px] mx-auto px-5 sm:px-8">
+        {/* Supaste.com-Style Centered Hero Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] dark:border-white/[0.12] bg-white dark:bg-[#141417] px-3.5 py-1.5 text-[12px] font-medium text-[#52525B] dark:text-[#A1A1AA] shadow-xs mb-5">
+            <AppleLogoIcon className="h-3.5 w-3.5 -mt-0.5 text-[#111] dark:text-white" />
+            <span>Cogify Software Ecosystem</span>
+            <span>·</span>
+            <span className="font-semibold text-[#111] dark:text-white">
+              15 Native Apps &amp; Web Studios
+            </span>
           </div>
-          <h1 className="text-[36px] sm:text-[48px] font-semibold tracking-[-0.04em] text-black dark:text-white leading-[1.08]">
-            every tool, <em className="helumi-em">free</em> forever.
+
+          <h1 className="text-[40px] sm:text-[56px] font-bold tracking-[-0.04em] text-[#09090B] dark:text-white leading-[1.05]">
+            Every tool crafted to feel native.
+            <span className="block font-display italic font-normal text-[#006FFF] dark:text-[#60A5FA] mt-1">
+              Free forever. Zero telemetry.
+            </span>
           </h1>
-          <p className="mt-3 text-[15px] sm:text-[16px] text-black/65 dark:text-white/65 leading-relaxed">
-            7 native macOS workstations (led by Helium &amp; EmDoc), 6 Safari extensions for iPhone, iPad &amp; Mac, and 2 real-time web studios — built for speed and zero tracking.
+
+          <p className="mt-4 text-[15px] sm:text-[17px] text-[#52525B] dark:text-[#A1A1AA] leading-relaxed max-w-2xl mx-auto">
+            7 native macOS workstations (led by Helium &amp; EmDoc), 6 Safari extensions for iPhone, iPad &amp; Mac, and 2 real-time web studios — built for speed and complete local privacy.
           </p>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5">
             <a
               href={siteConfig.appleDeveloperUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="helumi-pill helumi-pill-dark !h-9 !px-4 !text-[13px]"
+              className="helumi-pill helumi-pill-dark !h-10 !px-5 !text-[13px] shadow-[0_8px_20px_rgba(0,0,0,0.12)]"
             >
               <AppStoreIcon className="h-3.5 w-3.5" />
               <span>Apple App Store</span>
@@ -400,7 +412,7 @@ export default function ProductsPage() {
               href={siteConfig.biodata.webUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="helumi-pill helumi-pill-light !h-9 !px-4 !text-[13px]"
+              className="helumi-pill helumi-pill-light !h-10 !px-4 !text-[13px]"
             >
               <Globe className="h-3.5 w-3.5" />
               <span>biodata.cogify.me</span>
@@ -409,16 +421,34 @@ export default function ProductsPage() {
               href={siteConfig.ssb.webUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="helumi-pill helumi-pill-light !h-9 !px-4 !text-[13px]"
+              className="helumi-pill helumi-pill-light !h-10 !px-4 !text-[13px]"
             >
               <Globe className="h-3.5 w-3.5" />
               <span>ssb.cogify.me</span>
             </a>
           </div>
+
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[12px] font-medium text-[#52525B] dark:text-[#A1A1AA]">
+            <span className="inline-flex items-center gap-1.5">
+              <CheckCircle2 className="h-3.5 w-3.5 text-[#10B981]" />
+              100% Free Forever
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <CheckCircle2 className="h-3.5 w-3.5 text-[#10B981]" />
+              Apple Developer ID Signed (9TKKPN6F59)
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <CheckCircle2 className="h-3.5 w-3.5 text-[#10B981]" />
+              Short Direct URLs
+            </span>
+          </div>
         </div>
 
-        {/* Filterable 14-Product Catalog */}
+        {/* Filterable 15-Product Catalog */}
         <ProductsCatalogClient items={liveCatalog} />
+
+        {/* Supaste-Style Featured Sister App Spotlights */}
+        <OtherAppsShowcase maxSpotlights={3} />
       </div>
     </div>
   );

@@ -41,14 +41,14 @@ export default function SuggestionsPage() {
           </Link>
           <span>·</span>
           <Link
-            href="/products/emdoc"
+            href="/emdoc"
             className="hover:text-[#111] dark:hover:text-white font-medium transition-colors"
           >
             EmDoc v1.1 (7.8 MB)
           </Link>
           <span>·</span>
           <Link
-            href="/products/emdoc/releases"
+            href="/releases"
             className="hover:text-[#111] dark:hover:text-white font-medium transition-colors"
           >
             EmDoc Previous Versions
