@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useState } from "react";
@@ -243,6 +244,23 @@ export function HeliumLandingView() {
             free to download · apple notarized · end-to-end encrypted ·
             multi-google-drive pool
           </p>
+
+          {/* Featured on TryMacApps Badge */}
+          <div className="mt-6 flex justify-center">
+            <a
+              href="https://www.trymacapps.com"
+              target="_blank"
+              rel="noopener"
+              className="inline-block hover:opacity-90 transition-opacity"
+            >
+              <img
+                src="https://www.trymacapps.com/badge.png"
+                alt="Featured on TryMacApps"
+                width="200"
+                height="67"
+              />
+            </a>
+          </div>
         </div>
 
         {/* Interactive Hero Visual: macOS Finder + Floating "Get Info" Inspector */}
