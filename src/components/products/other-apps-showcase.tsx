@@ -119,6 +119,28 @@ export const SISTER_APP_REFERENCES: SisterAppReference[] = [
     pills: ["1.9 MB Open Source (MIT)", "16 Radial Tools (⌥ Space)", "Inline Math, ECB FX & Frontier AI"],
   },
   {
+    slug: "screenify",
+    name: "Screenify for macOS",
+    shortName: "Screenify",
+    badge: "Screenify for macOS · v1.12.0 · Open Source (MIT)",
+    pillar: "mac",
+    headlineSans: "Screen recordings that look directed.",
+    headlineSerif: "Not just captured.",
+    description:
+      "Meet Screenify v1.12.0, our open-source (MIT) macOS screen recorder and studio video editor. Records display, camera, mic, and 240Hz cursor telemetry on separate tracks with automatic RK4 spring click-zooms, 100% local Whisper AI captions, neural mic denoising, a plain-English AI Smart Edit Assistant, and a content-protected invisible Teleprompter.",
+    icon: siteConfig.screenify.icon,
+    screenshot: "/screenify/02-studio-editor.png",
+    windowTitle: "Screenify v1.12 — Multi-Track Studio Editor, 240Hz Auto-Zoom & Whisper AI",
+    href: "/screenify",
+    primaryCtaLabel: "Download for macOS (v1.12.0 · DMG)",
+    primaryCtaHref:
+      "https://github.com/Shubham-sharma8/screenify/releases/download/v1.12.0/Screenify.dmg",
+    isDirectDownload: true,
+    stageGradient:
+      "from-[#6366F1]/20 via-[#111110]/15 to-[#0F172A] dark:from-[#6366F1]/25 dark:via-[#111110]/20 dark:to-[#090D16]",
+    pills: ["240Hz Spring Auto-Zoom", "100% Local Whisper Captions", "Invisible Teleprompter & AI Edit"],
+  },
+  {
     slug: "emdoc",
     name: "EmDoc for macOS",
     shortName: "EmDoc",

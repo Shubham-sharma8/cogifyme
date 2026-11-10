@@ -101,6 +101,16 @@ const OTHER_MAC_RELEASES = [
       "Open-Source (MIT) 16-Tool Radial Command Workspace (⌥ Space / Middle-Click) — Inline Math, Live ECB FX, Clipboard, Window Snap & Frontier/Ollama AI",
   },
   {
+    name: siteConfig.screenify.name,
+    version: siteConfig.screenify.version,
+    size: siteConfig.screenify.appSize,
+    href: "/screenify",
+    downloadUrl: siteConfig.screenify.downloadUrl,
+    icon: siteConfig.screenify.icon,
+    subtitle:
+      "Open-Source (MIT) macOS Screen Recorder & Studio Video Editor — 240Hz Spring Auto-Zoom, Local Whisper AI Captions, Plain-English AI Smart Edit & Invisible Teleprompter",
+  },
+  {
     name: siteConfig.showFreeSpace.shortName,
     version: siteConfig.showFreeSpace.version,
     size: siteConfig.showFreeSpace.appSize,

@@ -295,6 +295,7 @@ export interface SiteConfig {
   findy: MacAppConfig;
   taskyfy: MacAppConfig;
   wheelify: MacAppConfig;
+  screenify: MacAppConfig;
   lumenview: MacAppConfig;
   metricove: MacAppConfig;
   netguard: MacAppConfig;
@@ -3721,6 +3722,172 @@ export const siteConfig: SiteConfig = {
       "open source Swift radial launcher",
     ],
   },
+  screenify: {
+    name: "Screenify",
+    shortName: "Screenify",
+    slug: "screenify",
+    tagline:
+      "Screenify — Native-grade, open-source macOS screen recorder & post-production studio with 240Hz spring zooms, local Whisper AI captions, AI Smart Edit Assistant, and an invisible Teleprompter.",
+    subtitle:
+      "Screen recordings that look directed, not just captured • 240Hz Spring Zooms • Local Whisper AI • Invisible Teleprompter • MIT Open Source",
+    promotionalText:
+      "Record your display, camera, microphone, and 240Hz cursor telemetry on separate synchronized tracks — automatically synthesizing smooth 2x–3.5x spring zooms around every click, transcribing Whisper AI captions on-device, removing background noise with DeepFilterNet, and letting you edit the timeline in plain English.",
+    shortDescription:
+      "Studio-quality screen recordings and product demos for macOS — with automatic 240Hz spring-physics zooms, 100% local Whisper AI captions, plain-English AI Smart Edit Assistant, and a content-protected invisible Teleprompter.",
+    fullDescription:
+      "Screenify is a native-grade, open-source macOS screen recorder and post-production studio built for Apple Silicon (arm64, macOS 13.5+). It combines a low-overhead ScreenCaptureKit capture engine with a non-destructive multi-track timeline editor, 240Hz RK4 spring-physics cursor stabilization, on-device Whisper AI captions, DeepFilterNet neural noise suppression, an AI Smart Edit Assistant, and a content-protected floating Teleprompter.",
+    philosophy:
+      "Capture separate synchronized streams so every cursor size, spring zoom, aspect ratio, and caption stays editable after you finish recording.",
+    version: "1.12.0",
+    build: "112",
+    releaseDate: "November 10, 2026",
+    releaseDateIso: "2026-11-10",
+    sha256: "07e59ce8193d5145cfb2e03e7dacbfee4f0664092a15e70c15a0ea168804d229",
+    bytes: "290,196,286 bytes",
+    directPath:
+      "https://github.com/Shubham-sharma8/screenify/releases/download/v1.12.0/Screenify.dmg",
+    githubRepoUrl: "https://github.com/Shubham-sharma8/screenify",
+    license: "MIT License (100% Open Source)",
+    appSize: "277 MB",
+    bundleId: "com.cogify.screenify",
+    minMacOsVersion: "macOS 13.5+ (Ventura, Sonoma, Sequoia & Tahoe 26)",
+    architecture: "Apple Silicon (arm64 — M1, M2, M3, M4)",
+    primaryCategory: "Video & Design",
+    secondaryCategory: "Developer Tools",
+    pricingModel: "100% Free & Open Source Forever (MIT License)",
+    platform: "macOS 13.5+ (Apple Silicon)",
+    downloadUrl:
+      "https://github.com/Shubham-sharma8/screenify/releases/download/v1.12.0/Screenify.dmg",
+    icon: "/brand/Screenify/icon.png",
+    iconLarge: "/brand/Screenify/icon.png",
+    accentColor: "indigo",
+    features: [
+      {
+        title: "240Hz RK4 Spring-Physics Cursor & Auto Click-Zooms",
+        description:
+          "Synthesizes smooth 1.25x–3.5x camera pans around click clusters, removes trackpad jitter, and replaces bitmap cursors with crisp HiDPI vector pointers (0.5x–5x size).",
+        tag: "240Hz Spring Engine",
+      },
+      {
+        title: "AI Smart Edit Assistant (100% Offline + Cloud)",
+        description:
+          "Type plain-English timeline instructions ('Zoom in 2.2x at 0:02 for 3s, switch aspect ratio to 16:9, and set padding to 8%') with instant 1-click Undo.",
+        tag: "Plain-English AI Edit",
+      },
+      {
+        title: "Precision Capture & Aspect-Ratio Framing",
+        description:
+          "Capture a full Retina display, a specific window, or an interactive 16:9, 16:10, 4:3, 1:1, or 9:16 crop region at up to 4K 60fps via ScreenCaptureKit.",
+        tag: "ScreenCaptureKit 60fps",
+      },
+      {
+        title: "On-Device Whisper AI Captions & Neural Audio",
+        description:
+          "Generate word-accurate timed captions in 20+ languages locally on Apple Silicon and strip room echo or fan noise with DeepFilterNet neural denoising.",
+        tag: "100% Local Whisper AI",
+      },
+      {
+        title: "Content-Protected Floating Teleprompter HUD",
+        description:
+          "Read your script right below your webcam with variable scroll speed, live word/duration telemetry, and macOS window content protection so it stays 100% invisible in the recording.",
+        tag: "Invisible Teleprompter",
+      },
+      {
+        title: "5 Curated Studio Presets & 4K 60fps Export",
+        description:
+          "Switch aspect ratios (16:9 ↔ 9:16) after recording, apply Cinematic macOS Glass or Social Reels 9:16 presets, and export hardware-accelerated MP4, MOV, or GIF.",
+        tag: "Studio Timeline",
+      },
+    ],
+    specifications: [
+      { label: "Current Version", value: "1.12.0 (Build 112)" },
+      { label: "License", value: "MIT Open Source (github.com/Shubham-sharma8/screenify)" },
+      { label: "Installer Size", value: "277 MB .DMG (Includes Local Whisper & Neural Audio Models)" },
+      { label: "SHA-256 Checksum", value: "07e59ce8193d5145cfb2e03e7dacbfee4f0664092a15e70c15a0ea168804d229" },
+      { label: "Supported Hardware", value: "Apple Silicon (M1, M2, M3, M4 — arm64) • macOS 13.5+" },
+      { label: "Privacy", value: "100% Local Processing • Zero Watermarks • Zero Cloud Uploads" },
+    ],
+    screenshotsMac: [
+      {
+        id: "screenify-1",
+        title: "Studio Video Editor & Multi-Track Timeline",
+        subtitle: "16:9 to 9:16 Reframing, Custom Wallpapers & Automatic 2x Zoom Blocks",
+        image: "/screenify/02-studio-editor.png",
+        tag: "Studio Editor",
+        description:
+          "White-minimal Studio Video Editor with Aspect Ratio & Background inspector, 60fps canvas preview, and multi-track timeline.",
+        highlights: [
+          "Separate video, cursor, mic, system audio & camera tracks",
+          "Automatic 2x Zoom blocks synthesized around click clusters",
+          "Instant post-capture switching between 16:9, 4:3, 1:1 & 9:16",
+        ],
+      },
+      {
+        id: "screenify-2",
+        title: "Precision Capture Bar & Aspect-Ratio Crop Overlay",
+        subtitle: "Native ScreenCaptureKit • Display, Window & Locked Crop Presets",
+        image: "/screenify/01-recorder-and-overlay.png",
+        tag: "Precision Capture",
+        description:
+          "Floating white-minimal recorder dock paired with the interactive 16:10 aspect-ratio crop overlay and Auto zoom toggle.",
+        highlights: [
+          "Summon from anywhere on macOS with ⌘⇧2",
+          "One-click Free, 16:9, 16:10, 4:3, 1:1 & 9:16 crop presets",
+          "Simultaneous Camera PiP, Mic, System Audio & Teleprompter",
+        ],
+      },
+      {
+        id: "screenify-3",
+        title: "AI Smart Edit Assistant",
+        subtitle: "Plain-English Timeline Control with Instant 1-Click Undo",
+        image: "/screenify/03-ai-smart-edit-assistant.png",
+        tag: "AI Smart Edit",
+        description:
+          "Natural-language editing drawer applying zoom, aspect ratio, and padding changes locally with zero API keys required.",
+        highlights: [
+          "Works 100% offline out-of-the-box",
+          "Applies zooms, trims, aspect ratios & padding in one prompt",
+          "Full change log with 1-click Undo",
+        ],
+      },
+      {
+        id: "screenify-4",
+        title: "On-Device Whisper AI Captions & Vector Cursor Studio",
+        subtitle: "100% Local Speech-to-Text — Audio Never Leaves Your Mac",
+        image: "/screenify/04-cursor-and-captions.png",
+        tag: "Whisper Captions",
+        description:
+          "Local Whisper AI speech-to-text caption generator with automatic language detection and inline transcript editing.",
+        highlights: [
+          "Transcribes 20+ languages locally on Apple Silicon",
+          "DeepFilterNet neural mic denoising strips echo & fan noise",
+          "240Hz RK4 spring cursor smoothing & vector pointers",
+        ],
+      },
+      {
+        id: "screenify-5",
+        title: "Content-Protected Floating Teleprompter & Native Setup",
+        subtitle: "Visible to Your Eyes — 100% Invisible in the Screen Recording",
+        image: "/screenify/05-teleprompter-and-permissions.png",
+        tag: "Invisible Teleprompter",
+        description:
+          "Floating Teleprompter window excluded from screen capture via macOS window content protection, alongside 1-click permission setup.",
+        highlights: [
+          "100% invisible in recorded video via macOS content protection",
+          "Adjustable scroll speed, font size, opacity & Mirror X mode",
+          "Live word count & speaking-time telemetry",
+        ],
+      },
+    ],
+    keywords: [
+      "Screenify",
+      "Screenify Mac",
+      "macOS screen recorder auto zoom",
+      "open source screen studio macOS",
+      "local Whisper captions Mac",
+      "invisible teleprompter Mac screen recorder",
+    ],
+  },
 };
 
 export const liveMacApps: MacAppConfig[] = [
@@ -3728,6 +3895,7 @@ export const liveMacApps: MacAppConfig[] = [
   siteConfig.findy,
   siteConfig.taskyfy,
   siteConfig.wheelify,
+  siteConfig.screenify,
   siteConfig.lumenview,
   siteConfig.metricove,
   siteConfig.netguard,

@@ -98,6 +98,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${baseUrl}/screenify`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.96,
+      images: [
+        `${baseUrl}/brand/Screenify/icon.png`,
+        `${baseUrl}/screenify/02-studio-editor.png`,
+        `${baseUrl}/screenify/01-recorder-and-overlay.png`,
+        `${baseUrl}/screenify/03-ai-smart-edit-assistant.png`,
+        `${baseUrl}/screenify/04-cursor-and-captions.png`,
+        `${baseUrl}/screenify/05-teleprompter-and-permissions.png`,
+        `${baseUrl}/screenify/00-dmg-background.png`,
+      ],
+    },
+    {
       url: `${baseUrl}/products`,
       lastModified,
       changeFrequency: "weekly",

@@ -132,6 +132,17 @@ const COMMAND_ITEMS: CommandItem[] = [
     keywords: "wheelify radial menu launcher pie menu clipboard history scientific calculator hex bin unit currency converter ecb fx ask ai claude opus 5.5 gpt-6 astra gemini 4 argon ollama window manager color picker pomodoro open source mit macos dmg v2.0.0",
   },
   {
+    id: "screenify",
+    title: "Screenify — Open-Source macOS Screen Recorder, 240Hz Auto-Zoom & Local Whisper AI (v1.12.0)",
+    subtitle: "Multi-track screen studio with 240Hz spring cursor smoothing, auto click-zooms, local Whisper captions, AI Smart Edit & invisible Teleprompter",
+    category: "macOS Workstations (.DMG)",
+    href: "/screenify",
+    downloadUrl: siteConfig.screenify.downloadUrl,
+    badge: "v1.12.0 • DMG • MIT",
+    icon: "/brand/Screenify/icon.png",
+    keywords: "screenify screen recorder studio video editor auto zoom 240hz spring cursor smoothing whisper ai captions deepfilternet teleprompter ai smart edit open source mit macos dmg v1.12.0",
+  },
+  {
     id: "emdoc",
     title: "EmDoc PDF Workstation (v1.1)",
     subtitle: "7.8 MB Air-Gapped Native macOS PDF Editor, Merger, OCR & Bates Numbering • Released Nov 6, 2026",

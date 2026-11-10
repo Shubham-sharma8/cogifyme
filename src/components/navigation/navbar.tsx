@@ -33,7 +33,13 @@ export const Navbar = () => {
     return null;
   }
 
-  if (pathname?.startsWith("/helium")) {
+  if (
+    pathname?.startsWith("/helium") ||
+    pathname?.startsWith("/findy") ||
+    pathname?.startsWith("/taskyfy") ||
+    pathname?.startsWith("/wheelify") ||
+    pathname?.startsWith("/screenify")
+  ) {
     return <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} />;
   }
 

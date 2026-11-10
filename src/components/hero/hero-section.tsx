@@ -55,6 +55,15 @@ const COGIFY_APPS: AppBoxItem[] = [
     accentColor: "#111113",
   },
   {
+    id: "screenify",
+    name: "Screenify",
+    platform: "For Mac",
+    solutionTag: "Screen Studio & AI Zoom",
+    icon: siteConfig.screenify.icon,
+    href: "/screenify",
+    accentColor: "#6366f1",
+  },
+  {
     id: "emdoc",
     name: "EmDoc",
     platform: "For Mac",

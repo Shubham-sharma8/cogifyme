@@ -47,6 +47,26 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/findy" className="hover:text-[#09090B] dark:hover:text-white transition-colors font-medium text-[#09090B] dark:text-white">
+                  Findy File Search
+                </Link>
+              </li>
+              <li>
+                <Link href="/taskyfy" className="hover:text-[#09090B] dark:hover:text-white transition-colors font-medium text-[#09090B] dark:text-white">
+                  Taskyfy Telemetry
+                </Link>
+              </li>
+              <li>
+                <Link href="/wheelify" className="hover:text-[#09090B] dark:hover:text-white transition-colors font-medium text-[#09090B] dark:text-white">
+                  Wheelify Radial Wheel
+                </Link>
+              </li>
+              <li>
+                <Link href="/screenify" className="hover:text-[#09090B] dark:hover:text-white transition-colors font-medium text-[#09090B] dark:text-white">
+                  Screenify Screen Studio
+                </Link>
+              </li>
+              <li>
                 <Link href="/emdoc" className="hover:text-[#09090B] dark:hover:text-white transition-colors">
                   EmDoc PDF Suite
                 </Link>
