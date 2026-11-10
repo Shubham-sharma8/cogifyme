@@ -95,6 +95,24 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
       {
+        source: "/Findy.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/findy/releases/download/v1.2/Findy.dmg",
+        permanent: false,
+      },
+      {
+        source: "/findy.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/findy/releases/download/v1.2/Findy.dmg",
+        permanent: false,
+      },
+      {
+        source: "/Findy-1.2.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/findy/releases/download/v1.2/Findy-1.2.dmg",
+        permanent: false,
+      },
+      {
         source: "/Show-free-space-1.1.0-Installer.dmg",
         destination:
           "https://github.com/Shubham-sharma8/cogifyme/releases/download/show-free-space-v1.1.0/Show-free-space-1.1.0-Installer.dmg",
@@ -109,6 +127,11 @@ const nextConfig: NextConfig = {
       {
         source: "/products/helium",
         destination: "/helium",
+        permanent: true,
+      },
+      {
+        source: "/products/findy",
+        destination: "/findy",
         permanent: true,
       },
       {

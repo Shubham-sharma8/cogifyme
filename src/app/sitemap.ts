@@ -54,6 +54,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${baseUrl}/findy`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.96,
+      images: [
+        `${baseUrl}/brand/Findy/icon.png`,
+        `${baseUrl}/brand/Findy/01-findy-home-overview.png`,
+        `${baseUrl}/brand/Findy/03-findy-space-lens.png`,
+        `${baseUrl}/brand/Findy/09-findy-dmg-installer-preview.png`,
+      ],
+    },
+    {
       url: `${baseUrl}/products`,
       lastModified,
       changeFrequency: "weekly",

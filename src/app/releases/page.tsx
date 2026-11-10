@@ -71,6 +71,16 @@ const OTHER_MAC_RELEASES = [
       "Open-Source (MIT) Multi-Cloud & Google Drive Pool in /Volumes/Helium — Auto-Updater & v0.0.2 / v0.0.1 Archive",
   },
   {
+    name: siteConfig.findy.shortName,
+    version: siteConfig.findy.version,
+    size: siteConfig.findy.appSize,
+    href: "/findy",
+    downloadUrl: "/Findy.dmg",
+    icon: siteConfig.findy.icon,
+    subtitle:
+      "Open-Source (MIT) Plain-English File Search (⌘K), Space Lens Storage Treemap (⌘4), Vision OCR & Trash-Safe Clean Up",
+  },
+  {
     name: siteConfig.showFreeSpace.shortName,
     version: siteConfig.showFreeSpace.version,
     size: siteConfig.showFreeSpace.appSize,

@@ -56,6 +56,27 @@ export const SISTER_APP_REFERENCES: SisterAppReference[] = [
     pills: ["Open Source (MIT)", "25+ Cloud & NAS Presets", "0 B on Mac SSD"],
   },
   {
+    slug: "findy",
+    name: "Findy for macOS",
+    shortName: "Findy",
+    badge: "Findy for macOS · v1.2 · Open Source (MIT)",
+    pillar: "mac",
+    headlineSans: "Plain-English file search.",
+    headlineSerif: "Space Lens & Vision OCR.",
+    description:
+      "Meet Findy v1.2, our 4.5 MB open-source (MIT) native Swift & SwiftUI workspace. Type how you think ('pdfs this week over 1mb'), visualize disk space with Space Lens (⌘4), clean clutter safely via macOS Trash (⌘5), find SHA-256 + Vision duplicates (⌘6), group downloads by website, and extract text inside screenshots locally (⌘I).",
+    icon: siteConfig.findy.icon,
+    screenshot: "/brand/Findy/01-findy-home-overview.webp",
+    windowTitle: "Findy v1.2 — Plain-English Search, Space Lens & Vision OCR",
+    href: "/findy",
+    primaryCtaLabel: "Download for macOS (v1.2 · 4.5 MB)",
+    primaryCtaHref: "/Findy.dmg",
+    isDirectDownload: true,
+    stageGradient:
+      "from-[#10B981]/20 via-[#F59E0B]/15 to-[#0F172A] dark:from-[#10B981]/25 dark:via-[#F59E0B]/15 dark:to-[#090D16]",
+    pills: ["4.5 MB Open Source (MIT)", "Plain-English Chips (⌘K)", "Local Vision OCR & Space Lens"],
+  },
+  {
     slug: "emdoc",
     name: "EmDoc for macOS",
     shortName: "EmDoc",

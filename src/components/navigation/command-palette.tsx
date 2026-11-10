@@ -99,6 +99,17 @@ const COMMAND_ITEMS: CommandItem[] = [
     keywords: "helium releases changelog whats new previous versions v0.0.3 v0.0.2 v0.0.1 github open source dmg",
   },
   {
+    id: "findy",
+    title: "Findy — Open-Source Plain-English File Search, Space Lens & Vision OCR (v1.2)",
+    subtitle: "Type 'pdfs this week over 1mb', Space Lens treemap (⌘4), Trash-safe Clean Up (⌘5), SHA-256 Duplicates (⌘6) & Downloaded From",
+    category: "macOS Workstations (.DMG)",
+    href: "/findy",
+    downloadUrl: "/Findy.dmg",
+    badge: "v1.2 • 4.5 MB DMG • MIT",
+    icon: "/brand/Findy/icon-sm.webp",
+    keywords: "findy file search spotlight finder alternative space lens treemap vision ocr duplicate finder sha256 downloaded from file shelf batch rename open source mit macos dmg v1.2",
+  },
+  {
     id: "emdoc",
     title: "EmDoc PDF Workstation (v1.1)",
     subtitle: "7.8 MB Air-Gapped Native macOS PDF Editor, Merger, OCR & Bates Numbering • Released Nov 6, 2026",

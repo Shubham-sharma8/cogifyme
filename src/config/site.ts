@@ -292,6 +292,7 @@ export interface SiteConfig {
   biodata: BiodataStudioConfig;
   ssb: BiodataStudioConfig;
   helium: MacAppConfig;
+  findy: MacAppConfig;
   lumenview: MacAppConfig;
   metricove: MacAppConfig;
   netguard: MacAppConfig;
@@ -3205,10 +3206,190 @@ export const siteConfig: SiteConfig = {
       "macOS storage widget",
     ],
   },
+  findy: {
+    slug: "findy",
+    name: "Findy — Plain-English File Search, Space Lens & Smart Clean Up",
+    shortName: "Findy",
+    tagline:
+      "Instant plain-English file search, Space Lens storage treemap, and non-destructive cleanup for macOS. 100% on-device & open source.",
+    subtitle: "Plain-English Search, Space Lens & Vision OCR",
+    promotionalText:
+      "Type how you think ('pdfs this week over 1mb'), see where your gigabytes went with Space Lens, group browser downloads by source website, and extract text inside screenshots with local Apple Vision OCR.",
+    shortDescription:
+      "Type how you think ('pdfs this week over 1mb'), see where your gigabytes went with Space Lens, group browser downloads by source website, and extract text inside screenshots with local Apple Vision OCR.",
+    fullDescription:
+      "Findy is a 4.5 MB open-source (MIT) native Swift & SwiftUI workspace that indexes your 8 Mac home folders (~/Downloads, ~/Desktop, ~/Documents, ~/Pictures, ~/Movies, ~/Music, /Applications, and iCloud Drive) 100% on-device. It translates plain-English queries into live removable filter chips, maps your heaviest folders in an interactive squarified treemap (Space Lens), detects exact SHA-256 duplicates and Vision look-alike photos, remembers which website every download came from, stages files from multiple folders in a File Shelf drop basket, and extracts copyable text from screenshots using 100% local Apple Vision OCR — with zero telemetry and zero cloud uploads.",
+    philosophy:
+      "macOS Finder wasn't built for how we work today, and Spotlight hides results inside a tiny floating menu that vanishes the moment you click away. Findy gives your Mac an instant, keyboard-first workspace that searches by memory and reclaims disk space safely via macOS Trash.",
+    version: "1.2",
+    build: "2",
+    releaseDate: "November 10, 2026",
+    releaseDateIso: "2026-11-10",
+    sha256: "7773b4b2c2bf61fb3b3ee2c63e92f9073654c500b86d0df359cdc1c488259cde",
+    bytes: "4,771,627 bytes",
+    directPath: "/Findy.dmg",
+    githubRepoUrl: "https://github.com/Shubham-sharma8/findy",
+    license: "MIT License (100% Open Source)",
+    appSize: "4.5 MB",
+    bundleId: "com.cogify.findy",
+    minMacOsVersion: "macOS 14.0 Sonoma, macOS 15.0 Sequoia & macOS 26 Tahoe",
+    architecture:
+      "Universal Binary (Apple Silicon M1/M2/M3/M4 & Intel) • Swift & SwiftUI",
+    primaryCategory: "Utilities",
+    secondaryCategory: "Productivity",
+    pricingModel: "100% Free & Open Source Forever (MIT License)",
+    platform: "macOS 14.0+ (Apple Silicon & Intel)",
+    downloadUrl:
+      "https://github.com/Shubham-sharma8/findy/releases/download/v1.2/Findy.dmg",
+    icon: "/brand/Findy/icon-sm.webp",
+    iconLarge: "/brand/Findy/icon.webp",
+    accentColor: "emerald",
+    features: [
+      {
+        title: "Plain-English Search & Live Filter Chips (⌘K / ⌘F)",
+        description:
+          "Type 'pdfs this week over 1mb', 'screenshots from today', or 'videos over 100mb'. Findy parses file types, dates, byte thresholds, and folders into removable 'Understood as:' filter chips.",
+        tag: "Natural Search",
+      },
+      {
+        title: "Space Lens Visual Storage Treemap (⌘4 / ⇧⌘L)",
+        description:
+          "Interactive proportional treemap, Storage by Home Folder breakdown across 8 Mac folders, and Top 25 Largest Files with 1-click drill-down.",
+        tag: "Space Lens",
+      },
+      {
+        title: "Non-Destructive Smart Clean Up (⌘5)",
+        description:
+          "Audits Duplicates, Old Installers (.dmg/.pkg > 7d), Forgotten Downloads (> 90d), Old Screenshots (> 30d), Big Videos (> 200 MB), and Unused Apps — moving items strictly to macOS Trash.",
+        tag: "Trash-Safe Clean Up",
+      },
+      {
+        title: "SHA-256 Duplicates & Apple Vision Similar Photos (⌘6)",
+        description:
+          "3-stage byte-size + 16 KB window + full SHA-256 clone detection, plus on-device Vision feature-print clustering for burst photos with automatic Keep badge protection.",
+        tag: "SHA-256 + Vision",
+      },
+      {
+        title: "'Downloaded From' Website Provenance & Menu Bar Popover",
+        description:
+          "Decodes Spotlight and binary-plist kMDItemWhereFroms extended attributes to group ~/Downloads across 40+ origin domains (GitHub, Figma, ChatGPT, Gmail, Stripe) with a 370×460 Menu Bar popover.",
+        tag: "Downloaded From",
+      },
+      {
+        title: "File Shelf Drop Basket (⌘7), Regex Batch Rename (⇧⌘R) & Vision OCR (⌘I)",
+        description:
+          "Stage files across multiple folders for 1-click .zip archiving or 5-mode Regex batch rename (⌥⌘Z undo), and extract copyable text inside screenshots with 100% local Apple Vision OCR.",
+        tag: "Shelf & Vision OCR",
+      },
+    ],
+    specifications: [
+      {
+        label: "Application Type",
+        value: "Native Swift & SwiftUI File Search, Space Lens & Cleanup Workspace",
+      },
+      {
+        label: "Latest Version",
+        value: "v1.2 (Build 2) — Released November 10, 2026 (4.5 MB • 4,771,627 bytes)",
+      },
+      {
+        label: "SHA-256 Checksum",
+        value: "7773b4b2c2bf61fb3b3ee2c63e92f9073654c500b86d0df359cdc1c488259cde",
+      },
+      {
+        label: "Open-Source Repository",
+        value: "https://github.com/Shubham-sharma8/findy (MIT License)",
+      },
+      {
+        label: "Platforms Supported",
+        value: "macOS 14.0 Sonoma, macOS 15.0 Sequoia & macOS 26 Tahoe",
+      },
+      {
+        label: "Indexing Engine",
+        value: "Hybrid Spotlight (NSMetadataQuery) + Concurrent Local FileManager Walker",
+      },
+      {
+        label: "On-Device AI / Vision",
+        value: "VNRecognizeTextRequest (OCR) & VNGenerateImageFeaturePrintRequest",
+      },
+      {
+        label: "Data Transmission",
+        value: "0 bytes transmitted / 100% On-Device Execution",
+      },
+    ],
+    screenshotsMac: [
+      {
+        id: "findy-1",
+        title: "Home Overview & Playful Category Cards (⌘1)",
+        subtitle: "230,000+ files indexed across 8 Mac home folders",
+        image: "/brand/Findy/01-findy-home-overview.webp",
+        tag: "Home Overview",
+        description:
+          "Browse Images, Videos, Music, Documents, Archives, Applications, Code, and Folders with live file counts and 4 visual themes.",
+        highlights: [
+          "8 indexed Mac home folders + iCloud Drive",
+          "Hybrid Spotlight + FileManager indexer",
+          "Playful, Standard, Classic & Monochrome themes",
+        ],
+      },
+      {
+        id: "findy-2",
+        title: "Plain-English Search & Live Filter Chips (⌘K)",
+        subtitle: "Type 'images from this year' or 'pdfs this week over 1mb'",
+        image: "/brand/Findy/02-findy-natural-search.webp",
+        tag: "Natural Search",
+        description:
+          "Translates natural queries into live removable 'Understood as:' filter chips for Kind, Date, Size, Tag, and Location.",
+        highlights: [
+          "Live removable filter chips",
+          "Sub-15ms on-device token parser",
+          "Searches filenames, paths, source URLs & OCR text",
+        ],
+      },
+      {
+        id: "findy-3",
+        title: "Space Lens Visual Storage Treemap (⌘4)",
+        subtitle: "Proportional category treemap & Top 25 Largest Files",
+        image: "/brand/Findy/03-findy-space-lens.webp",
+        tag: "Space Lens",
+        description:
+          "See where your gigabytes went across Applications, Downloads, Desktop, Documents, and iCloud Drive.",
+        highlights: [
+          "Interactive squarified treemap",
+          "Storage by Home Folder breakdown",
+          "Top 25 Largest Files across your Mac",
+        ],
+      },
+      {
+        id: "findy-4",
+        title: "Non-Destructive Smart Clean Up (⌘5)",
+        subtitle: "6 clutter categories moved safely to macOS Trash",
+        image: "/brand/Findy/04-findy-smart-cleanup.webp",
+        tag: "Smart Clean Up",
+        description:
+          "Reclaim gigabytes from Duplicates, Old Installers, Forgotten Downloads, Old Screenshots, Big Videos, and Unused Apps.",
+        highlights: [
+          "100% reversible via FileManager.trashItem",
+          "Optional hourly Automatic Clean Up rules",
+          "Never runs destructive rm commands",
+        ],
+      },
+    ],
+    keywords: [
+      "Findy",
+      "Findy Mac",
+      "plain English file search macOS",
+      "Space Lens Mac free",
+      "Apple Vision OCR screenshot search Mac",
+      "SHA-256 duplicate finder Mac",
+      "Downloaded From kMDItemWhereFroms Mac",
+      "open source Finder Spotlight alternative Mac",
+    ],
+  },
 };
 
 export const liveMacApps: MacAppConfig[] = [
   siteConfig.helium,
+  siteConfig.findy,
   siteConfig.lumenview,
   siteConfig.metricove,
   siteConfig.netguard,

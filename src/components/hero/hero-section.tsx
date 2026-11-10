@@ -28,6 +28,15 @@ const COGIFY_APPS: AppBoxItem[] = [
     accentColor: "#10b981",
   },
   {
+    id: "findy",
+    name: "Findy",
+    platform: "For Mac",
+    solutionTag: "Search & Space Lens",
+    icon: siteConfig.findy.icon,
+    href: "/findy",
+    accentColor: "#10b981",
+  },
+  {
     id: "emdoc",
     name: "EmDoc",
     platform: "For Mac",
