@@ -67,19 +67,25 @@ const nextConfig: NextConfig = {
       {
         source: "/Helium.dmg",
         destination:
-          "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.2/Helium-0.0.2.dmg",
+          "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.2/Helium-0.0.2.dmg",
         permanent: false,
       },
       {
         source: "/helium.dmg",
         destination:
-          "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.2/Helium-0.0.2.dmg",
+          "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.2/Helium-0.0.2.dmg",
         permanent: false,
       },
       {
         source: "/Helium-0.0.2.dmg",
         destination:
-          "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.2/Helium-0.0.2.dmg",
+          "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.2/Helium-0.0.2.dmg",
+        permanent: false,
+      },
+      {
+        source: "/Helium-0.0.1.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.1/Helium.dmg",
         permanent: false,
       },
       {

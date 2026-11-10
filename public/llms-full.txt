@@ -7,12 +7,14 @@
 
 ## 1. Native macOS Workstation Suite (7 Applications)
 
-### 1.0 Helium — Multi-Protocol & Google Drive Pool Volume for macOS (Flagship)
+### 1.0 Helium — Open-Source Multi-Protocol & Google Drive Pool Volume for macOS (Flagship)
 - **Landing Page**: https://cogify.me/helium
-- **Direct DMG Download (v0.0.2 Build 2 Latest)**: https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.2/Helium-0.0.2.dmg (Alias: https://cogify.me/Helium.dmg)
-- **SHA-256 Checksum (v0.0.2)**: `039a4aeb5ff033d5a2cc86e354b8ec19ab9ccff929c0df8f59e67d938c69233e`
-- **Binary Size (v0.0.2)**: 8.3 MB Universal Binary DMG (8,676,028 bytes • Released November 9, 2026)
-- **Previous Release (v0.0.1 Build 1)**: https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg (5.3 MB • `45e6fc4e7c1af050843f8d1a8ca860a46fb8f2d7688edacf357adbf12f0fedea` • Released November 7, 2026)
+- **Release History & What's New**: https://cogify.me/helium/releases
+- **Open-Source Repository (MIT License, Swift 6.0)**: https://github.com/Shubham-sharma8/helium
+- **Direct DMG Download (v0.0.2 Build 2 Latest)**: https://github.com/Shubham-sharma8/helium/releases/download/v0.0.2/Helium-0.0.2.dmg (Alias: https://cogify.me/Helium.dmg)
+- **SHA-256 Checksum (v0.0.2)**: `197d07f184e59a3b7cd121978994cd349d92b16371366ecb56fcaeef0361d805`
+- **Binary Size (v0.0.2)**: 8.4 MB Universal Binary DMG (8,798,017 bytes • Released November 10, 2026)
+- **Previous Release (v0.0.1 Build 1)**: https://github.com/Shubham-sharma8/helium/releases/download/v0.0.1/Helium.dmg (5.3 MB • `45e6fc4e7c1af050843f8d1a8ca860a46fb8f2d7688edacf357adbf12f0fedea` • Released November 7, 2026)
 - **System Requirements**: macOS 15.4+ / macOS 26 Tahoe (Apple Silicon & Intel)
 - **Mount Point**: `/Volumes/Helium` (APFS Sparse Placeholders • `0 B on disk` • HTTP Range 206 Streaming)
 - **Capabilities**: Multi-Protocol & Multi-Provider Cloud Support (25+ presets: Google Drive Pool via OAuth 2.0 PKCE with 64 MiB RAID-0 cross-account striping; S3-compatible Amazon S3, Cloudflare R2, Backblaze B2, Wasabi, Hetzner, DigitalOcean Spaces, Storj DCS, Tigris, GCS HMAC, MinIO/Garage/Ceph; WebDAV Nextcloud, ownCloud, Fastmail Files, pCloud, Synology NAS; SFTP/SSH Hetzner Storage Box, rsync.net, standard SFTP; SMB/Bonjour NAS & Azure Files; BYOK OAuth Dropbox, OneDrive, Box; External USB/Thunderbolt SSD; Smart Endpoint & Region Inference); 5-Step Safe-Write Verification (ms latency, TLS 1.3/1.2 cert chain, read/list permissions, SHA-256 canary write/read check, 0 B residue cleanup); Scheduled Add-Only Mac Folder Backups (`⌘⇧K`) with 1-click presets, exclusion preview, add-only `/Volumes/Helium/Backups` safety, countdown ring & 14-run history dots; Time Travel Snapshots & "Then vs. Now" Diffing (`⌘⇧Y`) with Restore Copy & Restore Version; Right-Hand File Inspector & Non-Destructive Conflict Resolution (Keep Both / Use Newer); Activity & Health (`⌘⇧A`) with self-healing cards & live dual-series throughput chart; Executable Command Palette (`⌃⌥O`); Privacy Network Contact Map (0 analytics/telemetry) & Save Redacted Log.

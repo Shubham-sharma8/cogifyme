@@ -44,6 +44,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${baseUrl}/helium/releases`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.92,
+      images: [
+        `${baseUrl}/brand/Helium/icon.png`,
+        `${baseUrl}/brand/Helium/04-helium-dmg-installer-preview.png`,
+      ],
+    },
+    {
       url: `${baseUrl}/products`,
       lastModified,
       changeFrequency: "weekly",

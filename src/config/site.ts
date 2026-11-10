@@ -16,6 +16,7 @@ export interface EmDocReleaseItem {
   size: string;
   bytes: string;
   downloadUrl: string;
+  githubTagUrl?: string;
   sha256: string;
   minMacOs: string;
   architecture: string;
@@ -135,6 +136,10 @@ export interface MacAppConfig {
   sha256?: string;
   bytes?: string;
   directPath?: string;
+  githubRepoUrl?: string;
+  releasesPath?: string;
+  license?: string;
+  releases?: EmDocReleaseItem[];
   appSize: string;
   bundleId: string;
   minMacOsVersion: string;
@@ -2794,21 +2799,77 @@ export const siteConfig: SiteConfig = {
       "iCloud and Dropbox download the whole file before you can open it — and a single cloud drive caps out fast. Helium links unlimited Google accounts and 25+ S3, WebDAV, SFTP, and NAS endpoints into one verified storage pool and only streams the bytes you're using, keeping 0 bytes used on your Mac.",
     version: "0.0.2",
     build: "2",
-    releaseDate: "November 9, 2026",
-    releaseDateIso: "2026-11-09",
-    sha256: "039a4aeb5ff033d5a2cc86e354b8ec19ab9ccff929c0df8f59e67d938c69233e",
-    bytes: "8,676,028 bytes",
+    releaseDate: "November 10, 2026",
+    releaseDateIso: "2026-11-10",
+    sha256: "197d07f184e59a3b7cd121978994cd349d92b16371366ecb56fcaeef0361d805",
+    bytes: "8,798,017 bytes",
     directPath: "/Helium.dmg",
-    appSize: "8.3 MB",
+    appSize: "8.4 MB",
     bundleId: "me.cogify.helium",
     minMacOsVersion: "macOS 15.4+ / macOS 26 Tahoe",
     architecture: "Universal Binary (Apple Silicon arm64 & Intel x86_64)",
     primaryCategory: "Productivity",
     secondaryCategory: "Utilities",
-    pricingModel: "100% Free to Download — Pool Google Drives, S3, R2, WebDAV & NAS",
+    pricingModel: "100% Free & Open Source (MIT License) — Pool Google Drives, S3, R2, WebDAV & NAS",
     platform: "macOS 15.4+ / macOS 26 Tahoe",
+    githubRepoUrl: "https://github.com/Shubham-sharma8/helium",
+    releasesPath: "/helium/releases",
+    license: "MIT License (Open Source)",
     downloadUrl:
-      "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.2/Helium-0.0.2.dmg",
+      "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.2/Helium-0.0.2.dmg",
+    releases: [
+      {
+        version: "0.0.2",
+        build: "2",
+        releaseDate: "November 10, 2026",
+        releaseDateIso: "2026-11-10",
+        size: "8.4 MB",
+        bytes: "8,798,017 bytes",
+        sha256:
+          "197d07f184e59a3b7cd121978994cd349d92b16371366ecb56fcaeef0361d805",
+        downloadUrl:
+          "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.2/Helium-0.0.2.dmg",
+        githubTagUrl:
+          "https://github.com/Shubham-sharma8/helium/releases/tag/v0.0.2",
+        architecture: "Universal Binary (arm64 + x86_64)",
+        minMacOs: "macOS 15.4+ / macOS 26 Tahoe",
+        isLatest: true,
+        notes: [
+          "Multi-Protocol & Multi-Provider Cloud Support (25+ Presets): Connect Google Drive Pool (OAuth 2.0 PKCE + 64 MiB RAID-0 cross-account striping), Amazon S3, Cloudflare R2, Backblaze B2, Wasabi, Hetzner Object Storage, DigitalOcean Spaces, Storj DCS, Tigris, Google Cloud Storage (HMAC), MinIO/Garage/Ceph, WebDAV (Nextcloud, ownCloud, Fastmail, pCloud, Synology NAS), SFTP/SSH (Hetzner Storage Box, rsync.net), SMB/Bonjour NAS & Azure Files, BYOK OAuth (Dropbox, OneDrive, Box), and External USB/Thunderbolt SSDs with Smart Endpoint & S3 Region Inference.",
+          "5-Step Safe-Write Verification (SafeWriteVerifier): Measures server RTT latency in ms, verifies TLS 1.3 / TLS 1.2 certificate chain, checks bucket/vault permissions, writes & reads back a temporary SHA-256 canary payload byte-for-byte, and performs zero-residue (0 B) cleanup.",
+          "Scheduled Add-Only Mac Folder Backups (⌘⇧K • HeliumBackupEngine): One-click folder presets (~/Desktop, ~/Documents, ~/Pictures, or custom folder), live local folder scan & exclusion preview (skipping Caches, node_modules, .git, .DS_Store, .photoslibrary, .fcpbundle, or files > 2 GB), strictly add-only safety in /Volumes/Helium/Backups, countdown ring, Skip on Personal Hotspot, and 14-run history dots.",
+          "Time Travel: Point-in-Time Snapshots & 'Then vs. Now' Diffing (⌘⇧Y • SnapshotTimelineManager): Capture complete pool manifest snapshots, inspect visual diff badges (Deleted since then, Changed since then showing THEN vs. NOW size, Added after snapshot, Unchanged), and 1-click Restore Copy or Restore Version alongside 30-Day Recently Deleted trash.",
+          "Right-Hand File Inspector & Non-Destructive Conflict Resolution (HeliumRightFilesInspectorDrawer): Inspect verification & placement badges, 'Where It Lives' card (drive email, Mode 1 Whole-File vs. Mode 2 64 MiB Striped, AES-256-GCM/SHA-256 shield), Keep Downloaded offline switch, 1-click /Volumes/Helium/<filename> copy chip, and resolve multi-Mac edit conflicts with Keep Both or Use Newer.",
+          "Activity & Health (⌘⇧A), Executable Command Palette (⌃⌥O) & Privacy Network Contact Map: Self-healing 'Needs You' cards (idle → Fixing… → Fixed ✓), live dual-series throughput chart (Sending + Streaming HTTP Range 206 in MB/s), instant ⌃⌥O pool commands, and Settings → Privacy Network Contact Map (0 analytics/telemetry) with Save Redacted Log….",
+          "Open-Sourced under the MIT License at github.com/Shubham-sharma8/helium with latest v0.0.2 stability & bug fixes.",
+        ],
+      },
+      {
+        version: "0.0.1",
+        build: "1",
+        releaseDate: "November 7, 2026",
+        releaseDateIso: "2026-11-07",
+        size: "5.3 MB",
+        bytes: "5,573,832 bytes",
+        sha256:
+          "45e6fc4e7c1af050843f8d1a8ca860a46fb8f2d7688edacf357adbf12f0fedea",
+        downloadUrl:
+          "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.1/Helium.dmg",
+        githubTagUrl:
+          "https://github.com/Shubham-sharma8/helium/releases/tag/v0.0.1",
+        architecture: "Universal Binary (arm64 + x86_64)",
+        minMacOs: "macOS 15.4+ / macOS 26 Tahoe",
+        isLatest: false,
+        notes: [
+          "Initial universal macOS release mounting /Volumes/Helium in Finder with 0 B local SSD usage via APFS sparse placeholders.",
+          "Multi-Account Google Drive Pool Engine combining unlimited Google accounts into one unified volume.",
+          "Dual-Mode Storage Placement Engine (Mode 1 Whole-File Smart Placement & Mode 2 Cross-Account Segment Striping).",
+          "On-demand 1 MiB byte-range streaming (ContentReader + LRU ChunkStore) for instant playback in QuickTime, Preview, Final Cut Pro, DaVinci Resolve & DiskImageMounter.",
+          "Client-side zero-knowledge AES-256-GCM encryption (OrbitCore.ZK) with HKDF-SHA256 & P-256 key agreement stored in macOS Keychain.",
+          "30-day cloud Recycle Bin sync, 1-click offline pinning, menu bar quick dropzone, and AIMD UploadGovernor.",
+        ],
+      },
+    ],
     icon: "/brand/Helium/icon-sm.webp",
     iconLarge: "/brand/Helium/icon.webp",
     mascot: "/brand/Helium/mascot.webp",
@@ -2853,15 +2914,16 @@ export const siteConfig: SiteConfig = {
     ],
     specifications: [
       { label: "Application Name", value: "Helium (helium)" },
-      { label: "Latest Version", value: "v0.0.2 (Build 2) — Released November 9, 2026" },
-      { label: "Direct Download", value: "/Helium.dmg (8.3 MB • 8,676,028 bytes)" },
-      { label: "SHA-256 Checksum", value: "039a4aeb5ff033d5a2cc86e354b8ec19ab9ccff929c0df8f59e67d938c69233e" },
-      { label: "Previous Version", value: "v0.0.1 (Build 1 • 5.3 MB • Nov 7, 2026)" },
+      { label: "Open Source Repository", value: "github.com/Shubham-sharma8/helium (MIT License • Swift 6.0)" },
+      { label: "Latest Version", value: "v0.0.2 (Build 2) — Released November 10, 2026" },
+      { label: "Direct Download", value: "/Helium.dmg (8.4 MB • 8,798,017 bytes)" },
+      { label: "SHA-256 Checksum", value: "197d07f184e59a3b7cd121978994cd349d92b16371366ecb56fcaeef0361d805" },
+      { label: "Previous Version", value: "v0.0.1 (Build 1 • 5.3 MB • Nov 7, 2026 • /helium/releases)" },
       { label: "System Requirements", value: "macOS 15.4+ / macOS 26 Tahoe (Apple Silicon & Intel)" },
       { label: "Mount Point", value: "/Volumes/Helium (APFS Sparse Placeholder & HTTP Range 206 Streaming)" },
       { label: "Supported Protocols", value: "Google Drive Pool, S3/R2/B2/Wasabi, WebDAV, SFTP/SSH, SMB, BYOK OAuth & Local SSD (25+ Presets)" },
       { label: "Storage Placement Engine", value: "Mode 1 Whole-File Smart Placement & Mode 2 64 MiB RAID-0 Cross-Account Striping" },
-      { label: "Encryption & Verification", value: "Client-Side AES-256-GCM + 5-Step Safe-Write SHA-256 Canary Check" },
+      { label: "Encryption & Verification", value: "Client-Side AES-256-GCM (OrbitCore.ZK) + 5-Step Safe-Write SHA-256 Canary Check" },
       { label: "Global Shortcuts", value: "⌃⌥O Command Palette • ⌘⇧K Backups • ⌘⇧Y Time Travel • ⌘⇧A Health" },
       { label: "Code Signing", value: "Apple Developer ID Signed & Notarized Universal Installer" },
     ],

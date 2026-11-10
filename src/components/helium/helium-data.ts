@@ -251,18 +251,18 @@ export interface WhatYouGetItem {
 }
 
 export const WHAT_YOU_GET_LIST: WhatYouGetItem[] = [
-  { id: "1", text: "combine unlimited google drives into one unified mac volume", iconType: "pool" },
-  { id: "2", text: "end-to-end encrypted. only you hold the key", iconType: "lock" },
-  { id: "3", text: "whole-file smart placement & cross-account segment striping", iconType: "stripe" },
-  { id: "4", text: "edit in davinci, final cut, imovie and capcut", iconType: "film" },
-  { id: "5", text: "ai tools like claude and chatgpt save right into helium", iconType: "sparkles" },
-  { id: "6", text: "bi-directional sync between finder, cogify.me/helium & google drive web", iconType: "sync" },
-  { id: "7", text: "undo a delete for 30 days with cloud recycle bin sync", iconType: "undo" },
-  { id: "8", text: "keep folders or files on your mac to work offline", iconType: "pin" },
-  { id: "9", text: "find any file across all drives with ⌃⌥O", iconType: "search" },
-  { id: "10", text: "drop files on the menu bar icon", iconType: "menubar" },
-  { id: "11", text: "uploads that don't slow your internet", iconType: "wifi" },
-  { id: "12", text: "big uploads pick up after wi-fi drops", iconType: "resume" },
+  { id: "1", text: "combine unlimited google drives + 25+ S3, R2, B2, WebDAV, SFTP & SMB presets into /Volumes/Helium", iconType: "pool" },
+  { id: "2", text: "client-side zero-knowledge AES-256-GCM (OrbitCore.ZK) with HKDF-SHA256 & P-256 key agreement", iconType: "lock" },
+  { id: "3", text: "whole-file smart placement & 64 MiB RAID-0 cross-account chunk striping", iconType: "stripe" },
+  { id: "4", text: "5-step safe-write canary check (RTT ms → TLS 1.3 → auth → SHA-256 canary → 0 B cleanup)", iconType: "resume" },
+  { id: "5", text: "scheduled add-only Mac folder backups (⌘⇧K) with live exclusion previews & 14-run history dots", iconType: "sync" },
+  { id: "6", text: "Time Travel point-in-time snapshots & 'Then vs. Now' visual diffing (⌘⇧Y) + 30-day Recycle Bin", iconType: "undo" },
+  { id: "7", text: "right-hand file inspector ('Where it lives', Keep Downloaded & two-Mac conflict resolver)", iconType: "pin" },
+  { id: "8", text: "edit directly in DaVinci Resolve, Final Cut Pro, QuickTime, Preview & DiskImageMounter", iconType: "film" },
+  { id: "9", text: "executable command palette (⌃⌥O) & menu bar quick dropzone for instant offload", iconType: "search" },
+  { id: "10", text: "status-first Activity & Health (⌘⇧A) with self-healing Fix cards & HTTP 206 throughput chart", iconType: "wifi" },
+  { id: "11", text: "local Privacy Network Contact Map (0 analytics/telemetry) & 1-click redacted diagnostics", iconType: "menubar" },
+  { id: "12", text: "100% open-source Swift 6.0 codebase under the MIT License (github.com/Shubham-sharma8/helium)", iconType: "sparkles" },
 ];
 
 export interface BentoFeatureCard {
@@ -634,13 +634,13 @@ export const HELIUM_FAQS: FaqItem[] = [
       "Scheduled Add-Only Mac Folder Backups (⌘⇧K) protect ~/Desktop, ~/Documents, ~/Pictures, or custom folders on an hourly, daily, or weekly schedule while skipping heavy caches (node_modules, .git, Caches) — and because they are strictly add-only, deleting a file on your Mac never deletes its backup in /Volumes/Helium/Backups. Time Travel (⌘⇧Y) captures point-in-time pool snapshots and badges every item as Deleted, Changed (THEN vs. NOW size), Added, or Unchanged with 1-click Restore Copy or Restore Version.",
   },
   {
-    question: "are my credentials and files private?",
+    question: "is helium open source and are my credentials private?",
     answer:
-      "yes. Helium is Apple Developer ID signed and notarized, stores credentials exclusively in your local macOS Keychain, and includes optional client-side zero-knowledge AES-256-GCM encryption. You can verify every outbound host in Settings → Privacy (Privacy Network Contact Map showing 0 analytics/telemetry contacts) and export diagnostic logs with Save Redacted Log… which automatically strips emails, tokens, and paths.",
+      "yes — Helium is 100% open source under the MIT License at github.com/Shubham-sharma8/helium. It is Apple Developer ID signed and notarized, exchanges OAuth 2.0 PKCE tokens directly with oauth2.googleapis.com storing secrets exclusively in your local macOS Keychain, and includes optional client-side zero-knowledge AES-256-GCM encryption (OrbitCore.ZK with HKDF-SHA256 & P-256). You can verify every outbound host in Settings → Privacy (Privacy Network Contact Map showing 0 analytics/telemetry contacts) and export diagnostic logs with Save Redacted Log….",
   },
   {
-    question: "what are the system requirements and download details?",
+    question: "what are the system requirements and where can i find previous releases?",
     answer:
-      "helium v0.0.2 (Build 2) is an 8.3 MB (8,676,028 bytes) universal native macOS installer supporting Apple Silicon (M1, M2, M3, M4) and Intel Macs running macOS 15.4+ or macOS 26 Tahoe. Previous release v0.0.1 (Build 1, 5.3 MB) is also archived on GitHub Releases.",
+      "helium v0.0.2 (Build 2) is an 8.4 MB (8,798,017 bytes) universal native macOS installer supporting Apple Silicon (M1, M2, M3, M4) and Intel Macs running macOS 15.4+ or macOS 26 Tahoe. You can view the full What's New changelog and download previous versions (including v0.0.1 Build 1, 5.3 MB) on cogify.me/helium/releases or github.com/Shubham-sharma8/helium/releases.",
   },
 ];

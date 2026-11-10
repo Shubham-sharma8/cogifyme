@@ -60,15 +60,15 @@ const OTHER_MAC_RELEASES = [
     name: siteConfig.helium.shortName,
     version: siteConfig.helium.version,
     size: siteConfig.helium.appSize,
-    href: "/helium",
+    href: "/helium/releases",
     downloadUrl: "/Helium.dmg",
     previousVersion: "0.0.1",
     previousSize: "5.3 MB",
     previousDownloadUrl:
-      "https://github.com/Shubham-sharma8/cogifyme/releases/download/helium-v0.0.1/Helium.dmg",
+      "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.1/Helium.dmg",
     icon: siteConfig.helium.icon,
     subtitle:
-      "Multi-Cloud & Google Drive Pool in /Volumes/Helium (25+ Presets • Safe-Write • Time Travel)",
+      "Open-Source (MIT) Multi-Cloud & Google Drive Pool in /Volumes/Helium — Full What's New & v0.0.1 Archive",
   },
   {
     name: siteConfig.showFreeSpace.shortName,
@@ -171,6 +171,13 @@ export default function EmDocReleasesPage() {
           </Link>
           <div className="flex flex-wrap items-center gap-4">
             <Link
+              href="/helium/releases"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 hover:underline"
+            >
+              <span>Helium v0.0.2 &amp; v0.0.1 Releases (/helium/releases)</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+            <Link
               href="/compare/emdoc"
               className="inline-flex items-center gap-1.5 text-xs font-medium text-[#666] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white transition-colors"
             >
@@ -178,13 +185,13 @@ export default function EmDocReleasesPage() {
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
             <a
-              href="https://github.com/Shubham-sharma8/cogifyme/releases"
+              href="https://github.com/Shubham-sharma8/helium/releases"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-medium text-[#666] dark:text-[#a1a1aa] hover:text-[#111] dark:hover:text-white transition-colors"
             >
               <GitHubIcon className="w-3.5 h-3.5" />
-              <span>GitHub Releases</span>
+              <span>Helium Open-Source GitHub</span>
             </a>
           </div>
         </div>
