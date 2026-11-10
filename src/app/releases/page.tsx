@@ -81,6 +81,16 @@ const OTHER_MAC_RELEASES = [
       "Open-Source (MIT) Plain-English File Search (⌘K), Space Lens Storage Treemap (⌘4), Vision OCR & Trash-Safe Clean Up",
   },
   {
+    name: siteConfig.taskyfy.shortName,
+    version: siteConfig.taskyfy.version,
+    size: siteConfig.taskyfy.appSize,
+    href: "/taskyfy",
+    downloadUrl: "/Taskyfy.dmg",
+    icon: siteConfig.taskyfy.icon,
+    subtitle:
+      "Open-Source (MIT) macOS Telemetry Studio & Plain-English Activity Monitor — 230+ Daemons, 7-Day RAM Advisor, Port Radar & 30-Day SQLite WAL",
+  },
+  {
     name: siteConfig.showFreeSpace.shortName,
     version: siteConfig.showFreeSpace.version,
     size: siteConfig.showFreeSpace.appSize,

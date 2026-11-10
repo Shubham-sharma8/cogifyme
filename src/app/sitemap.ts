@@ -66,6 +66,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${baseUrl}/taskyfy`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.96,
+      images: [
+        `${baseUrl}/brand/Taskyfy/icon.png`,
+        `${baseUrl}/brand/Taskyfy/01-taskyfy-overview-hero.png`,
+        `${baseUrl}/brand/Taskyfy/02-taskyfy-processes-grouped.png`,
+        `${baseUrl}/brand/Taskyfy/03-taskyfy-memory-advisor.png`,
+        `${baseUrl}/brand/Taskyfy/04-taskyfy-energy-watts.png`,
+        `${baseUrl}/brand/Taskyfy/05-taskyfy-sensors-thermals.png`,
+        `${baseUrl}/brand/Taskyfy/06-taskyfy-network-port-radar.png`,
+        `${baseUrl}/brand/Taskyfy/07-taskyfy-history-sqlite-wal.png`,
+        `${baseUrl}/brand/Taskyfy/08-taskyfy-command-palette.png`,
+      ],
+    },
+    {
       url: `${baseUrl}/products`,
       lastModified,
       changeFrequency: "weekly",

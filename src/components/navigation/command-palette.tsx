@@ -110,6 +110,17 @@ const COMMAND_ITEMS: CommandItem[] = [
     keywords: "findy file search spotlight finder alternative space lens treemap vision ocr duplicate finder sha256 downloaded from file shelf batch rename open source mit macos dmg v1.2",
   },
   {
+    id: "taskyfy",
+    title: "Taskyfy — Open-Source macOS Telemetry Studio & Plain-English Activity Monitor (v2.0)",
+    subtitle: "Grouped process tree, 230+ plain-English daemons, 15-min leak watch, 7-day RAM advisor, port radar (:3000) & 30-day SQLite WAL",
+    category: "macOS Workstations (.DMG)",
+    href: "/taskyfy",
+    downloadUrl: "/Taskyfy.dmg",
+    badge: "v2.0 • 3.2 MB DMG • MIT",
+    icon: "/brand/Taskyfy/icon-sm.webp",
+    keywords: "taskyfy taskify activity monitor alternative process tree mds_stores windowserver memory leak watch 7 day ram advisor port radar 3000 sqlite wal open source mit macos dmg v2.0",
+  },
+  {
     id: "emdoc",
     title: "EmDoc PDF Workstation (v1.1)",
     subtitle: "7.8 MB Air-Gapped Native macOS PDF Editor, Merger, OCR & Bates Numbering • Released Nov 6, 2026",

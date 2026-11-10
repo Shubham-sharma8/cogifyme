@@ -113,6 +113,24 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
       {
+        source: "/Taskyfy.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/taskyfy/releases/download/v2.0/Taskyfy.dmg",
+        permanent: false,
+      },
+      {
+        source: "/taskyfy.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/taskyfy/releases/download/v2.0/Taskyfy.dmg",
+        permanent: false,
+      },
+      {
+        source: "/Taskyfy-2.0.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/taskyfy/releases/download/v2.0/Taskyfy-2.0.dmg",
+        permanent: false,
+      },
+      {
         source: "/Show-free-space-1.1.0-Installer.dmg",
         destination:
           "https://github.com/Shubham-sharma8/cogifyme/releases/download/show-free-space-v1.1.0/Show-free-space-1.1.0-Installer.dmg",
@@ -132,6 +150,21 @@ const nextConfig: NextConfig = {
       {
         source: "/products/findy",
         destination: "/findy",
+        permanent: true,
+      },
+      {
+        source: "/products/taskyfy",
+        destination: "/taskyfy",
+        permanent: true,
+      },
+      {
+        source: "/taskify",
+        destination: "/taskyfy",
+        permanent: true,
+      },
+      {
+        source: "/taskfy",
+        destination: "/taskyfy",
         permanent: true,
       },
       {

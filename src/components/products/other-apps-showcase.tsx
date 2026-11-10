@@ -77,6 +77,27 @@ export const SISTER_APP_REFERENCES: SisterAppReference[] = [
     pills: ["4.5 MB Open Source (MIT)", "Plain-English Chips (⌘K)", "Local Vision OCR & Space Lens"],
   },
   {
+    slug: "taskyfy",
+    name: "Taskyfy for macOS",
+    shortName: "Taskyfy",
+    badge: "Taskyfy for macOS · v2.0 · Open Source (MIT)",
+    pillar: "mac",
+    headlineSans: "Every metric on your Mac.",
+    headlineSerif: "Clear in a second.",
+    description:
+      "Meet Taskyfy v2.0, our 3.2 MB open-source (MIT) native Swift telemetry studio & plain-English Activity Monitor. Groups helper processes under parent apps, explains 230+ macOS daemons in plain English with Safe-to-Quit verdicts, catches 15-min memory leaks, advises 7-day RAM sizing, scans listening TCP/UDP ports (:3000), and records 30 days of SQLite WAL history.",
+    icon: siteConfig.taskyfy.icon,
+    screenshot: "/brand/Taskyfy/01-taskyfy-overview-hero.webp",
+    windowTitle: "Taskyfy v2.0 — Plain-English Activity Monitor & Telemetry Studio",
+    href: "/taskyfy",
+    primaryCtaLabel: "Download for macOS (v2.0 · 3.2 MB)",
+    primaryCtaHref: "/Taskyfy.dmg",
+    isDirectDownload: true,
+    stageGradient:
+      "from-[#16A34A]/20 via-[#111113]/15 to-[#0F172A] dark:from-[#16A34A]/25 dark:via-[#111113]/20 dark:to-[#090D16]",
+    pills: ["3.2 MB Open Source (MIT)", "230+ Daemons Explained", "30-Day SQLite WAL & Port Radar"],
+  },
+  {
     slug: "emdoc",
     name: "EmDoc for macOS",
     shortName: "EmDoc",

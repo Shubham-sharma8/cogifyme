@@ -293,6 +293,7 @@ export interface SiteConfig {
   ssb: BiodataStudioConfig;
   helium: MacAppConfig;
   findy: MacAppConfig;
+  taskyfy: MacAppConfig;
   lumenview: MacAppConfig;
   metricove: MacAppConfig;
   netguard: MacAppConfig;
@@ -3385,11 +3386,191 @@ export const siteConfig: SiteConfig = {
       "open source Finder Spotlight alternative Mac",
     ],
   },
+  taskyfy: {
+    slug: "taskyfy",
+    name: "Taskyfy — Minimal macOS Telemetry Studio & Plain-English Activity Monitor",
+    shortName: "Taskyfy",
+    tagline: "Every metric on your Mac. Clear in a second.",
+    subtitle: "Plain-English Activity Monitor & Apple Silicon Telemetry Studio",
+    promotionalText:
+      "Grouped processes, 230+ plain-English daemon explanations, 15-min memory leak detection, 7-day RAM advisor, live port radar, and 30-day SQLite WAL history. Native Swift. Open Source.",
+    shortDescription:
+      "Taskyfy replaces macOS Activity Monitor's cryptic Unix tables with a calm, paper-white telemetry studio built natively in Swift and SwiftUI. Groups helper daemons under parent apps, explains 230+ macOS daemons in plain English, tracks 15-min memory leaks & 7-day RAM sizing in SQLite WAL, and inspects live listening TCP/UDP ports.",
+    fullDescription:
+      "Taskyfy is a 3.2 MB open-source (MIT) native Swift 5.10 and SwiftUI telemetry studio for macOS Sonoma, Sequoia, and Tahoe. Using a zero-allocation 2-process Mach XPC architecture (TaskyfyHelper with 64-byte RawProcRecord structs and 120s IdleExit), it rolls up helper processes under their parent application, explains 230+ macOS daemons in plain English with Safe-to-Quit verdicts, catches 15-minute memory leaks, advises 7-day hardware RAM sizing, monitors 36+ AppleSMC/IOKit die sensors and live wattage, scans listening TCP/UDP ports (:3000), and persists 30 days of historical rollups in a local SQLite WAL database.",
+    philosophy:
+      "Most system monitors use more CPU than the apps they watch, and macOS Activity Monitor dumps 550+ cryptic processes into a flat table that resets the moment you close it. Taskyfy gives humans and engineers a calm, <0.3% idle CPU studio that explains every process and remembers 30 days of history locally.",
+    version: "2.0",
+    build: "1",
+    releaseDate: "November 10, 2026",
+    releaseDateIso: "2026-11-10",
+    sha256: "85394df089866a052b277bef9090f4d8fd3f0b99398b8bfc2b3563244b7e3464",
+    bytes: "3,393,861 bytes",
+    directPath: "/Taskyfy.dmg",
+    githubRepoUrl: "https://github.com/Shubham-sharma8/taskyfy",
+    license: "MIT License (100% Open Source)",
+    appSize: "3.2 MB",
+    bundleId: "app.taskyfy.mac",
+    minMacOsVersion: "macOS 14.0 Sonoma, macOS 15.0 Sequoia & macOS 26 Tahoe",
+    architecture:
+      "Universal Binary (Apple Silicon arm64 & Intel x86_64) • Swift 5.10 & SwiftUI",
+    primaryCategory: "Developer Tools",
+    secondaryCategory: "Utilities",
+    pricingModel: "100% Free & Open Source Forever (MIT License)",
+    platform: "macOS 14.0+ (Apple Silicon & Intel)",
+    downloadUrl:
+      "https://github.com/Shubham-sharma8/taskyfy/releases/download/v2.0/Taskyfy.dmg",
+    icon: "/brand/Taskyfy/icon-sm.webp",
+    iconLarge: "/brand/Taskyfy/icon.png",
+    accentColor: "emerald",
+    features: [
+      {
+        title: "Plain-English Daemon Encyclopedia (230+ macOS Processes)",
+        description:
+          "Explains what mds_stores, WindowServer, kernel_task, and 230+ macOS daemons do, why they spike, and whether they are Safe to Quit or System Critical.",
+        tag: "230+ Daemons",
+      },
+      {
+        title: "Grouped Applications & Process Tree + SecStaticCode Inspector (⌘I)",
+        description:
+          "Rolls up Chrome, Safari, Cursor, Xcode, and Docker helper processes under their parent app to show true combined CPU, RAM, Energy Impact, and notarization status.",
+        tag: "Grouped Tree",
+      },
+      {
+        title: "Unified Memory, 7-Day RAM Advisor & 15-Minute Leak Watch",
+        description:
+          "Tracks resident phys_footprint growth trails per process to flag memory leaks and analyzes 7-day P95 pressure/swap to recommend 8 GB, 16 GB, 32 GB, or 64 GB.",
+        tag: "RAM & Leak Watch",
+      },
+      {
+        title: "Developer Listening Port Radar (:3000) & NVMe Disk I/O",
+        description:
+          "Lists every active listening TCP/UDP port mapped to its PID, binary path, and code signature with 1-click Quit (SIGTERM) or Force Quit (SIGKILL).",
+        tag: "Port Radar",
+      },
+      {
+        title: "Apple Silicon P/E Core Matrix, 36+ Die Sensors & Live Wattage",
+        description:
+          "Direct Mach host_processor_info, IOKit HID, AppleSMC, and IOPMPowerSource telemetry for per-core loads, 36+ die temperatures, fan RPM, and system Watts (W).",
+        tag: "Hardware Sensors",
+      },
+      {
+        title: "30-Day Local SQLite WAL Time Machine & ⌘K Command Palette",
+        description:
+          "Scrub 1H, 24H, 7D, or 30D of historical CPU, Memory, and Power metrics stored in SQLite WAL with 1-click JSON/CSV export and ⌥⌘T global Menu Bar popover.",
+        tag: "SQLite WAL",
+      },
+    ],
+    specifications: [
+      {
+        label: "Application Type",
+        value: "Native Swift 5.10 macOS Telemetry Studio & Activity Monitor Replacement",
+      },
+      {
+        label: "Latest Version",
+        value: "v2.0 — Released November 10, 2026 (3.2 MB • 3,393,861 bytes)",
+      },
+      {
+        label: "SHA-256 Checksum",
+        value: "85394df089866a052b277bef9090f4d8fd3f0b99398b8bfc2b3563244b7e3464",
+      },
+      {
+        label: "Open-Source Repository",
+        value: "https://github.com/Shubham-sharma8/taskyfy (MIT License)",
+      },
+      {
+        label: "Architecture",
+        value: "2-Process Mach XPC (64-Byte RawProcRecord + 120s IdleExit)",
+      },
+      {
+        label: "Historical Engine",
+        value: "Local SQLite3 Write-Ahead Logging (WAL) • 1H / 24H / 7D / 30D",
+      },
+      {
+        label: "Self-Footprint",
+        value: "< 2.8% Active CPU (< 0.3% Idle CPU when window closed)",
+      },
+      {
+        label: "Data Transmission",
+        value: "0 bytes transmitted / 100% On-Device Execution",
+      },
+    ],
+    screenshotsMac: [
+      {
+        id: "taskyfy-1",
+        title: "Overview Telemetry Deck & Process Inspector",
+        subtitle: "Apple Silicon P/E Core Matrix, Unified Memory, GPU & Wattage",
+        image: "/brand/Taskyfy/01-taskyfy-overview-hero.png",
+        tag: "Overview Deck",
+        description:
+          "4 live executive KPI cards, Apple Silicon P/E core sparklines, and right-hand Process & Security Inspector.",
+        highlights: [
+          "Apple Silicon P/E core sparklines",
+          "Pin Baseline (Δ CPU · Δ RAM)",
+          "Right-hand SecStaticCode Inspector (⌘I)",
+        ],
+      },
+      {
+        id: "taskyfy-2",
+        title: "Grouped Applications & 230+ Daemon Encyclopedia",
+        subtitle: "True combined app footprint & plain-English process explanations",
+        image: "/brand/Taskyfy/02-taskyfy-processes-grouped.png",
+        tag: "Process Tree",
+        description:
+          "Folds child helper processes under their parent app and explains 230+ macOS system daemons in plain English.",
+        highlights: [
+          "Parent + helper process rollup",
+          "230+ daemons explained in plain English",
+          "Safe to Quit vs. System Critical badges",
+        ],
+      },
+      {
+        id: "taskyfy-3",
+        title: "Unified Memory, 7-Day RAM Advisor & 15-Min Leak Watch",
+        subtitle: "Catch creeping memory leaks & size your next Mac's RAM",
+        image: "/brand/Taskyfy/03-taskyfy-memory-advisor.png",
+        tag: "Memory & Advisor",
+        description:
+          "Real-time App/Wired/Compressed/Swap breakdown, 7-Day RAM Capacity Advisor, Browser Tab Optimizer, and 15-Minute Leak Watch.",
+        highlights: [
+          "7-Day P95 RAM Capacity Advisor",
+          "15-Minute monotonic memory leak detector",
+          "1-click Browser Task Manager launcher",
+        ],
+      },
+      {
+        id: "taskyfy-4",
+        title: "30-Day SQLite WAL Historical Telemetry & Export",
+        subtitle: "Scrub 1H, 24H, 7D, or 30D of CPU, Memory & Power Watts",
+        image: "/brand/Taskyfy/07-taskyfy-history-sqlite-wal.png",
+        tag: "SQLite WAL History",
+        description:
+          "Local SQLite WAL time-series history correlated with Recorded System Events and 1-click JSON/CSV export.",
+        highlights: [
+          "1H / 24H / 7D / 30D historical scrubber",
+          "Timestamped Recorded System Events feed",
+          "1-click JSON & CSV export",
+        ],
+      },
+    ],
+    keywords: [
+      "Taskyfy",
+      "Taskyfy Mac",
+      "macOS Activity Monitor alternative",
+      "Apple Silicon system monitor",
+      "macOS process explorer",
+      "Mac memory leak detector",
+      "macOS port scanner GUI",
+      "SwiftUI telemetry app",
+      "open source Mac monitor",
+    ],
+  },
 };
 
 export const liveMacApps: MacAppConfig[] = [
   siteConfig.helium,
   siteConfig.findy,
+  siteConfig.taskyfy,
   siteConfig.lumenview,
   siteConfig.metricove,
   siteConfig.netguard,

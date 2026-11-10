@@ -37,6 +37,15 @@ const COGIFY_APPS: AppBoxItem[] = [
     accentColor: "#10b981",
   },
   {
+    id: "taskyfy",
+    name: "Taskyfy",
+    platform: "For Mac",
+    solutionTag: "Activity & Port Studio",
+    icon: siteConfig.taskyfy.icon,
+    href: "/taskyfy",
+    accentColor: "#16a34a",
+  },
+  {
     id: "emdoc",
     name: "EmDoc",
     platform: "For Mac",
