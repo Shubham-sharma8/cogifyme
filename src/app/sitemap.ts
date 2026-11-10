@@ -83,6 +83,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ],
     },
     {
+      url: `${baseUrl}/wheelify`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.96,
+      images: [
+        `${baseUrl}/images/wheelify/WheelifyLogo.png`,
+        `${baseUrl}/images/wheelify/01-wheelify-hero-radial-workspace.png`,
+        `${baseUrl}/images/wheelify/02-wheelify-ask-ai-frontier-models.png`,
+        `${baseUrl}/images/wheelify/03-wheelify-calculator-todo-links.png`,
+        `${baseUrl}/images/wheelify/04-wheelify-editorial-features-and-settings.png`,
+        `${baseUrl}/images/wheelify/05-wheelify-dmg-installer-preview.png`,
+        `${baseUrl}/images/wheelify/wheel-radial-white.png`,
+      ],
+    },
+    {
       url: `${baseUrl}/products`,
       lastModified,
       changeFrequency: "weekly",

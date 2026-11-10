@@ -5,7 +5,7 @@
 > Apple Developer ID: #1643497398 (Team ID: 9TKKPN6F59)
 > Core Tenet: 100% local execution, zero telemetry, zero cloud uploads, $0 forever for personal use.
 
-## 1. Native macOS Workstation Suite (9 Applications)
+## 1. Native macOS Workstation Suite (10 Applications)
 
 ### 1.0 Helium — Open-Source Multi-Protocol & Google Drive Pool Volume for macOS (Flagship)
 - **Landing Page**: https://cogify.me/helium
@@ -39,6 +39,16 @@
 - **System Requirements**: macOS 14.0 Sonoma, macOS 15.0 Sequoia, and macOS 26 Tahoe (Apple Silicon M1/M2/M3/M4 & Intel)
 - **Architecture**: Swift 5.10 + SwiftUI + Mach Host APIs (`host_processor_info`, `host_statistics64`) + `libproc` (`proc_pid_rusage`) + IOKit SMC (`AppleSMC`) + `IOHIDEventSystemClient` + `IOPSCopyPowerSourcesInfo` + `SecCodeCopySigningInformation` + SQLite3 WAL (`~/Library/Application Support/Taskyfy/telemetry.sqlite`)
 - **Capabilities**: Overview Telemetry Deck (`⌘1`) with plain-English system health headline, 4 metric cards (CPU Load + P/E cluster split, Unified Memory Pressure + Swap, Thermal State + Die Peak °C, Storage & Network I/O), and Top CPU/Memory Consumers; Grouped Application & Helper Process Tree (`⌘2`) rolling parent apps and child renderer/GPU helpers into one expandable row with combined `phys_footprint` RAM + CPU%; 230+ Plain-English macOS Daemon Encyclopedia (`ProcessKnowledgeBase.swift`) with 3-Tier Kill Safety Guardrails (`SAFE`, `CAUTION`, `CRITICAL`) and Process & Security Inspector (Apple code signing, sandbox, Mach-O architecture, parent PID, executable path, listening ports); Unified Memory, 15-Minute Leak Watch (`+MB/15m`), Browser Tab & App Memory Optimizer, and 7-Day RAM Capacity Advisor (`⌘3`); Energy, Real-Time System Power Draw in Watts (`W`), Battery Health %, Cycle Count & Time Remaining (`⌘4`); Apple Silicon Thermal Envelope, 36+ Hardware Die Sensors (CPU P/E cores, GPU clusters, ANE, SSD, battery, palm rest) & Fan RPM (`⌘5`); Network & NVMe Disk I/O + Live Port & Socket Radar (`:3000`, `:5432`, `:8080`, `LISTEN`) with 1-click dev server kill (`⌘6`); 30-Day SQLite WAL Historical Telemetry & 1-Click JSON/CSV Snapshot Export (`⌘7`); Instant `⌘K` Quick Command Palette & Menu Bar Live Telemetry Popover (`CPU 14% · 61%`).
+
+### 1.0d Wheelify — Open-Source 16-Tool Radial Command Workspace & Frontier AI for macOS
+- **Landing Page**: https://cogify.me/wheelify
+- **Open-Source Repository (MIT License, Swift 5.9+, AppKit & SwiftUI)**: https://github.com/Shubham-sharma8/wheelify
+- **Direct DMG Download (v2.0.0 Build 20 Latest)**: https://github.com/Shubham-sharma8/wheelify/releases/download/v2.0.0/Wheelify.dmg (Alias: https://cogify.me/Wheelify.dmg)
+- **SHA-256 Checksum (v2.0.0)**: `8e23637e5b2a7fc5af2e8e96e3c04009d29d85671d9664272479162c269a9861`
+- **Binary Size (v2.0.0)**: 1.9 MB Universal Binary DMG (1,953,001 bytes • Released November 10, 2026 • Signed with Developer ID Application: Shubham Sharma (9TKKPN6F59) & Apple Notarized)
+- **System Requirements**: macOS 14.0 Sonoma, macOS 15.0 Sequoia, and macOS 26 Tahoe (Apple Silicon M1/M2/M3/M4 & Intel)
+- **Architecture**: Pure Swift 5.9+ + AppKit (`NSPanel`, `LSUIElement`, `NSColorSampler`) + SwiftUI + Carbon (`RegisterEventHotKey`) + `CGEventTap` (`MouseTrigger`) + `AXUIElement` (Window Snapper) + `EventKit` (Apple Reminders) + `AVFoundation` + `AudioToolbox` + macOS `Keychain` (`kSecClassGenericPassword`) + 68-Assertion Self-Test Suite (`Wheelify --self-test`).
+- **Capabilities**: Summons an 8-sector Helium-White radial wheel directly under your cursor via Hold `⌥ Space` or Middle-Click (`O(1)` polar hit-testing at 120 FPS ProMotion with outer concentric sub-arcs and Apple Force Touch haptics); Inline Command Bar (`RingView.swift`) for live scientific math (`2^10 * 3.14 = 3,215.36`) and unit/currency conversion (`250 usd to eur`); 16 built-in native tools (`Toolbox.swift` in ~20 MB RAM, 0% idle CPU): (1) Clipboard History with `#HEX`/`rgb()` color swatches & UPPER/lower/Title/JSON/Base64/URL/SHA-256 transforms, (2) Scientific Calculator with `RAD • HEX • BIN` programmer readout & history tape, (3) Unit & Currency Converter with live European Central Bank (ECB) FX rates across 9 currencies, (4) Ask AI Assistant supporting Claude Opus 5.5 / Fable 5.2 / Sonnet 5.5, GPT-6 Astra / 6.1 Sol, Gemini 4 Argon & 100% offline local Ollama (`qwen3.5`, `gemma4`, `gpt-oss:20b`, `deepseek-r1:8b`), (5) Clock, Timer & 25m Pomodoro, (6) Scratchpad Notes, (7) Screenshot Studio, (8) Screen Recorder, (9) AX Window Manager (`Left/Right/Top/Bottom Half`, `Maximize`, `Center 80%`), (10) Magnifier Color Picker (`HEX`, `RGB`, `HSL`, `SwiftUI`), (11) Quick To-Do List, (12) Saved Links & Bookmarks, (13) Apple Reminders Sync, (14) Voice Memo Recorder, (15) Radial Volume & Media Arc Slider, and (16) Pinned App Launcher.
 
 ### 1.1 EmDoc PDF Workstation
 - **Landing Page**: https://cogify.me/emdoc

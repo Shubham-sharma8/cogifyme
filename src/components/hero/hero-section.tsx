@@ -46,6 +46,15 @@ const COGIFY_APPS: AppBoxItem[] = [
     accentColor: "#16a34a",
   },
   {
+    id: "wheelify",
+    name: "Wheelify",
+    platform: "For Mac",
+    solutionTag: "16-Tool Radial Wheel",
+    icon: siteConfig.wheelify.icon,
+    href: "/wheelify",
+    accentColor: "#111113",
+  },
+  {
     id: "emdoc",
     name: "EmDoc",
     platform: "For Mac",

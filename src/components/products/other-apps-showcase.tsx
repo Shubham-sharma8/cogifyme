@@ -98,6 +98,27 @@ export const SISTER_APP_REFERENCES: SisterAppReference[] = [
     pills: ["3.2 MB Open Source (MIT)", "230+ Daemons Explained", "30-Day SQLite WAL & Port Radar"],
   },
   {
+    slug: "wheelify",
+    name: "Wheelify for macOS",
+    shortName: "Wheelify",
+    badge: "Wheelify for macOS · v2.0.0 · Open Source (MIT)",
+    pillar: "mac",
+    headlineSans: "16 instant macOS tools.",
+    headlineSerif: "Right under your cursor.",
+    description:
+      "Meet Wheelify v2.0.0, our 1.9 MB open-source (MIT) native Swift & AppKit radial command workspace. Hold ⌥ Space or middle-click to flick toward 16 built-in utilities (Clipboard History, Scientific Calc, Live ECB FX, Frontier/Ollama AI, Window Snap, Color Picker, Timers) in <100 ms—or type math and currency conversions live inside the wheel.",
+    icon: siteConfig.wheelify.icon,
+    screenshot: "/images/wheelify/01-wheelify-hero-radial-workspace.webp",
+    windowTitle: "Wheelify v2.0.0 — 16-Tool Radial Command Workspace & Inline Math",
+    href: "/wheelify",
+    primaryCtaLabel: "Download for macOS (v2.0.0 · 1.9 MB)",
+    primaryCtaHref: "/Wheelify.dmg",
+    isDirectDownload: true,
+    stageGradient:
+      "from-[#111113]/20 via-[#16A34A]/15 to-[#0F172A] dark:from-[#111113]/25 dark:via-[#16A34A]/20 dark:to-[#090D16]",
+    pills: ["1.9 MB Open Source (MIT)", "16 Radial Tools (⌥ Space)", "Inline Math, ECB FX & Frontier AI"],
+  },
+  {
     slug: "emdoc",
     name: "EmDoc for macOS",
     shortName: "EmDoc",

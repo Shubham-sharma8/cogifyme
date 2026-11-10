@@ -91,6 +91,16 @@ const OTHER_MAC_RELEASES = [
       "Open-Source (MIT) macOS Telemetry Studio & Plain-English Activity Monitor — 230+ Daemons, 7-Day RAM Advisor, Port Radar & 30-Day SQLite WAL",
   },
   {
+    name: siteConfig.wheelify.shortName,
+    version: siteConfig.wheelify.version,
+    size: siteConfig.wheelify.appSize,
+    href: "/wheelify",
+    downloadUrl: "/Wheelify.dmg",
+    icon: siteConfig.wheelify.icon,
+    subtitle:
+      "Open-Source (MIT) 16-Tool Radial Command Workspace (⌥ Space / Middle-Click) — Inline Math, Live ECB FX, Clipboard, Window Snap & Frontier/Ollama AI",
+  },
+  {
     name: siteConfig.showFreeSpace.shortName,
     version: siteConfig.showFreeSpace.version,
     size: siteConfig.showFreeSpace.appSize,

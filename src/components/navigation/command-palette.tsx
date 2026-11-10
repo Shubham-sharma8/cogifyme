@@ -121,6 +121,17 @@ const COMMAND_ITEMS: CommandItem[] = [
     keywords: "taskyfy taskify activity monitor alternative process tree mds_stores windowserver memory leak watch 7 day ram advisor port radar 3000 sqlite wal open source mit macos dmg v2.0",
   },
   {
+    id: "wheelify",
+    title: "Wheelify — Open-Source 16-Tool Radial Command Workspace & Frontier AI (v2.0.0)",
+    subtitle: "Hold ⌥ Space or middle-click for 16 radial Mac tools, inline math (2^10 * 3.14), live ECB FX, clipboard & Claude/GPT-6/Gemini/Ollama",
+    category: "macOS Workstations (.DMG)",
+    href: "/wheelify",
+    downloadUrl: "/Wheelify.dmg",
+    badge: "v2.0.0 • 1.9 MB DMG • MIT",
+    icon: "/brand/Wheelify/icon-sm.webp",
+    keywords: "wheelify radial menu launcher pie menu clipboard history scientific calculator hex bin unit currency converter ecb fx ask ai claude opus 5.5 gpt-6 astra gemini 4 argon ollama window manager color picker pomodoro open source mit macos dmg v2.0.0",
+  },
+  {
     id: "emdoc",
     title: "EmDoc PDF Workstation (v1.1)",
     subtitle: "7.8 MB Air-Gapped Native macOS PDF Editor, Merger, OCR & Bates Numbering • Released Nov 6, 2026",

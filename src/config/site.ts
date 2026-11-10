@@ -294,6 +294,7 @@ export interface SiteConfig {
   helium: MacAppConfig;
   findy: MacAppConfig;
   taskyfy: MacAppConfig;
+  wheelify: MacAppConfig;
   lumenview: MacAppConfig;
   metricove: MacAppConfig;
   netguard: MacAppConfig;
@@ -3565,12 +3566,168 @@ export const siteConfig: SiteConfig = {
       "open source Mac monitor",
     ],
   },
+  wheelify: {
+    slug: "wheelify",
+    name: "Wheelify — 16-Tool Radial Command Workspace & Frontier AI for macOS",
+    shortName: "Wheelify",
+    tagline:
+      "16 instant macOS tools right under your cursor, with zero dock clutter.",
+    subtitle:
+      "The open-source (MIT) Helium-White radial command wheel, inline math & live ECB currency converter, clipboard manager, window snapper, and Frontier/Ollama AI assistant for macOS.",
+    promotionalText:
+      "Hold ⌥ Space or middle-click anywhere on your Mac to summon an 8-sector radial workspace centered at your cursor. 16 native utilities, inline math & live ECB FX, Claude Opus 5.5 / GPT-6 Astra / Gemini 4 Argon / local Ollama, ~20 MB RAM, 1.9 MB Universal DMG, 100% open-source Swift (MIT).",
+    shortDescription:
+      "Open-source 1.9 MB native Swift, AppKit & SwiftUI radial command workspace (MIT). Hold ⌥ Space or middle-click to flick toward 16 built-in utilities (Clipboard History, Scientific Calculator, Live ECB Currency & Unit Converter, Ask AI, Window Manager, Color Picker, Screenshot Studio, Pomodoro, Notes, To-Do, Links, Reminders, Voice Memos, Volume Arc) in <100 ms—or type math and conversions live inside the wheel.",
+    fullDescription:
+      "Wheelify replaces 10–12 separate macOS menu bar apps with a single 1.9 MB native Swift, AppKit, and SwiftUI radial workspace (~20 MB RAM, 0% idle CPU, zero Dock icon). Hold ⌥ Space or middle-click anywhere on your screen to spawn an O(1) polar hit-tested 8-sector wheel at 120 FPS ProMotion with outer concentric sub-arcs, an inline math and live European Central Bank (ECB) FX command bar, Frontier Cloud AI (Claude Opus 5.5, GPT-6 Astra, Gemini 4 Argon) + 100% offline Ollama local models, and encrypted macOS Keychain storage.",
+    philosophy:
+      "Spatial muscle memory beats scanning menus. Angles under your cursor execute in under 100 ms with zero window clutter.",
+    version: "2.0.0",
+    build: "20",
+    releaseDate: "November 10, 2026",
+    releaseDateIso: "2026-11-10",
+    sha256: "8e23637e5b2a7fc5af2e8e96e3c04009d29d85671d9664272479162c269a9861",
+    bytes: "1,953,001 bytes",
+    directPath: "/Wheelify.dmg",
+    githubRepoUrl: "https://github.com/Shubham-sharma8/wheelify",
+    license: "MIT License (100% Open Source)",
+    appSize: "1.9 MB",
+    bundleId: "app.wheelify.Wheelify",
+    minMacOsVersion: "macOS 14.0 Sonoma, macOS 15.0 Sequoia & macOS 26 Tahoe",
+    architecture:
+      "Universal Binary (Apple Silicon arm64 & Intel x86_64) • Swift 5.9+, AppKit & SwiftUI",
+    primaryCategory: "Developer Tools",
+    secondaryCategory: "Productivity",
+    pricingModel: "100% Free & Open Source Forever (MIT License)",
+    platform: "macOS 14.0+ (Apple Silicon & Intel)",
+    downloadUrl:
+      "https://github.com/Shubham-sharma8/wheelify/releases/download/v2.0.0/Wheelify.dmg",
+    icon: "/brand/Wheelify/icon-sm.webp",
+    iconLarge: "/brand/Wheelify/icon.png",
+    accentColor: "emerald",
+    features: [
+      {
+        title: "O(1) Polar Radial Wheel & Outer Concentric Sub-Arcs",
+        description:
+          "Hold ⌥ Space or middle-click to spawn an 8-sector Helium-White wheel under your cursor. Hovering over Clock, Windows, Screenshot, Color Picker, or Volume expands an outer concentric sub-arc in one continuous gesture.",
+        tag: "RingView & RingGeometry",
+      },
+      {
+        title: "Inline Math & Live Unit/FX Command Bar",
+        description:
+          "Type 2^10 * 3.14, sin(pi/4) * 100, or 250 usd to eur while the wheel is open to evaluate scientific math and unit conversions live inside the wheel; press ⏎ Return to copy.",
+        tag: "Inline Command Bar",
+      },
+      {
+        title: "Clipboard History with #HEX Swatches & Transforms",
+        description:
+          "Captures text, links, and images with source-app badges, renders live #HEX and rgb() color swatches, and applies 1-click UPPER/lower, JSON Pretty-Print, Base64, URL, and SHA-256 transforms.",
+        tag: "Clipboard History",
+      },
+      {
+        title: "Frontier Cloud AI + 100% Offline Ollama Local AI",
+        description:
+          "Multi-turn chat and 1-click clipboard actions (Summarize, Fix Grammar, Translate, Explain Code) with Claude Opus 5.5, GPT-6 Astra, Gemini 4 Argon, or local Ollama (qwen3.5, gemma4, deepseek-r1:8b).",
+        tag: "Ask AI Assistant",
+      },
+      {
+        title: "Scientific Calculator (RAD • HEX • BIN) & Live ECB FX",
+        description:
+          "Recursive-descent scientific calculator with live HEX/OCT/BIN programmer readout and history tape, plus simultaneous 9-currency conversion using live European Central Bank rates.",
+        tag: "Calculator & Converter",
+      },
+      {
+        title: "Window Snapper, Color Picker, Screenshots, Notes & Timers",
+        description:
+          "Includes AXUIElement Window Snapper, NSColorSampler Loupe (HEX/RGB/HSL/SwiftUI), Screenshot & Screen Recorder, Pomodoro Timer, Notes, To-Do, Saved Links, Apple Reminders Sync, and Voice Memos.",
+        tag: "16 Built-In Tools",
+      },
+    ],
+    specifications: [
+      { label: "Current Version", value: "2.0.0 (Build 20)" },
+      { label: "License", value: "MIT Open Source (github.com/Shubham-sharma8/wheelify)" },
+      { label: "Installer Size", value: "1.9 MB Universal .DMG (Signed & Notarized)" },
+      { label: "SHA-256 Checksum", value: "8e23637e5b2a7fc5af2e8e96e3c04009d29d85671d9664272479162c269a9861" },
+      { label: "Memory Footprint", value: "~18–25 MB RAM • 0% Idle CPU" },
+      { label: "Frameworks", value: "Swift 5.9+, AppKit, SwiftUI, Carbon, AXUIElement, EventKit, AVFoundation, Keychain" },
+    ],
+    screenshotsMac: [
+      {
+        id: "wheelify-1",
+        title: "Helium-White Radial Wheel, Inline Math & Clipboard History",
+        subtitle: "Hold ⌥ Space or Middle-Click — 16 Tools Under Your Cursor",
+        image: "/images/wheelify/01-wheelify-hero-radial-workspace.png",
+        tag: "Radial Workspace",
+        description:
+          "8-sector Helium-White radial wheel with inline math command bar (2^10 * 3.14 = 3,215.36) and live Clipboard History panel.",
+        highlights: [
+          "O(1) polar hit-testing at 120 FPS ProMotion",
+          "Inline math & unit command bar (⏎ to copy)",
+          "Clipboard History with #HEX swatches & Base64/JSON",
+        ],
+      },
+      {
+        id: "wheelify-2",
+        title: "Frontier AI Assistant & Live ECB Currency Converter",
+        subtitle: "Claude Opus 5.5, GPT-6 Astra, Gemini 4 Argon & Local Ollama",
+        image: "/images/wheelify/02-wheelify-ask-ai-frontier-models.png",
+        tag: "Frontier AI & FX",
+        description:
+          "Ask AI Assistant side-by-side with the simultaneous 9-currency & multi-unit converter powered by live European Central Bank FX rates.",
+        highlights: [
+          "Claude Opus 5.5, GPT-6 Astra & Gemini 4 Argon",
+          "100% offline local Ollama (qwen3.5, gemma4, deepseek-r1)",
+          "Live ECB FX across USD, EUR, GBP, INR, JPY, CAD, CHF",
+        ],
+      },
+      {
+        id: "wheelify-3",
+        title: "Scientific Calculator (RAD • HEX • BIN), To-Do & Saved Links",
+        subtitle: "Replace a Dozen Menu Bar Apps in Clean Apple System UI",
+        image: "/images/wheelify/03-wheelify-calculator-todo-links.png",
+        tag: "Calc, Tasks & Links",
+        description:
+          "Scientific Calculator with live HEX/BIN programmer readout and history tape, Quick To-Do List with priority tags, and Saved Links.",
+        highlights: [
+          "sin, cos, tan, log, ln, sqrt, x^y, factorials (n!)",
+          "Live HEX 0x2D4 & BIN 0b1011010100 readout",
+          "Priority To-Do List & automatic domain link stash",
+        ],
+      },
+      {
+        id: "wheelify-4",
+        title: "7 Themes, Custom Triggers & Keychain Privacy",
+        subtitle: "Helium White, Apple Frosted, Warm Paper & Carbon Dark",
+        image: "/images/wheelify/04-wheelify-editorial-features-and-settings.png",
+        tag: "Settings & Themes",
+        description:
+          "Configure your summon shortcut (⌥ Space), mouse trigger (Middle Click Hold), 7 themes, ring capacity, and Frontier AI engines.",
+        highlights: [
+          "7 handcrafted themes led by Helium White",
+          "Hold-and-release flick (<100 ms) or quick-tap sticky mode",
+          "Encrypted macOS Keychain API storage & modular permissions",
+        ],
+      },
+    ],
+    keywords: [
+      "Wheelify",
+      "Wheelify Mac",
+      "macOS radial menu",
+      "radial command workspace macOS",
+      "Mac clipboard history hex swatch",
+      "inline calculator macOS",
+      "Claude Opus 5.5 Mac app",
+      "Ollama local AI Mac",
+      "open source Swift radial launcher",
+    ],
+  },
 };
 
 export const liveMacApps: MacAppConfig[] = [
   siteConfig.helium,
   siteConfig.findy,
   siteConfig.taskyfy,
+  siteConfig.wheelify,
   siteConfig.lumenview,
   siteConfig.metricove,
   siteConfig.netguard,
