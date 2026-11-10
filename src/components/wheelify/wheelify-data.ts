@@ -16,7 +16,7 @@ export const WHEELIFY_COMMAND_DEMOS: WheelifyCommandDemo[] = [
     category: "SCIENTIFIC MATH",
     headlineResult: "3,215.36",
     secondaryReadout: "HEX 0xC8F • BIN 0b110010001111",
-    subDetail: "Evaluated live in the Inline Command Bar via recursive-descent parser (Calculator.swift). Press ⏎ Return to copy.",
+    subDetail: "Evaluated live in the Inline Command Bar as you type. Press ⏎ Return to copy.",
     activeSectorIndex: 2,
     activeSectorLabel: "Calculator • f(x)",
   },
@@ -36,7 +36,7 @@ export const WHEELIFY_COMMAND_DEMOS: WheelifyCommandDemo[] = [
     category: "LIVE ECB FX",
     headlineResult: "€231.45 EUR",
     secondaryReadout: "£197.80 GBP • ₹21,095.00 INR • ¥38,412 JPY • C$348.25 CAD",
-    subDetail: "Simultaneous multi-currency conversion powered by live European Central Bank (ECB) foreign exchange rates (Units.swift).",
+    subDetail: "Simultaneous multi-currency conversion powered by live European Central Bank (ECB) foreign exchange rates.",
     activeSectorIndex: 3,
     activeSectorLabel: "Unit & FX Converter",
   },
@@ -77,7 +77,6 @@ export interface WheelifyToolSpec {
   name: string;
   shortLabel: string;
   symbol: string;
-  sourceFile: string;
   ringPage: "Page 1 (Primary Ring)" | "Page 2 (Extended Ring)";
   subArcActions?: string[];
   summary: string;
@@ -90,7 +89,6 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Clipboard History",
     shortLabel: "Clipboard",
     symbol: "doc.on.clipboard.fill",
-    sourceFile: "ClipboardAndNotesViews.swift",
     ringPage: "Page 1 (Primary Ring)",
     summary:
       "Stores text, images, and links with source-app badges; auto-detects #HEX and rgb() strings to render live color swatches; supports pinning, search, ⌘1–⌘9 quick-paste, privacy app ignore-list, and 1-click text transforms.",
@@ -106,15 +104,14 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Scientific Calculator",
     shortLabel: "Calculator",
     symbol: "function",
-    sourceFile: "CalculatorAndUnitsViews.swift",
     ringPage: "Page 1 (Primary Ring)",
     summary:
-      "Recursive-descent parser supporting sin, cos, tan, asin, acos, atan, sqrt, cbrt, log, ln, abs, x^y, factorials (n!), pi, e, RAD/DEG modes, persistent calculation history tape, and live Programmer Base Readout (HEX, OCT, BIN).",
+      "Supports sin, cos, tan, asin, acos, atan, sqrt, cbrt, log, ln, abs, x^y, factorials (n!), pi, e, RAD/DEG modes, persistent calculation history tape, and live Programmer Base Readout (HEX, OCT, BIN).",
     highlights: [
       "RAD / DEG scientific trig & factorials",
       "Live HEX • OCT • BIN programmer readout",
       "Persistent calculation history tape",
-      "Inline wheel evaluation via RingView",
+      "Inline wheel evaluation while holding ⌥ Space",
     ],
   },
   {
@@ -122,7 +119,6 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Clock, Timer & Pomodoro",
     shortLabel: "Clock",
     symbol: "timer",
-    sourceFile: "ClockAndProductivityViews.swift",
     ringPage: "Page 1 (Primary Ring)",
     subArcActions: ["1m", "5m", "10m", "15m", "30m", "25m Pomodoro"],
     summary:
@@ -139,10 +135,9 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Scratchpad Notes",
     shortLabel: "Notes",
     symbol: "note.text",
-    sourceFile: "ClipboardAndNotesViews.swift",
     ringPage: "Page 1 (Primary Ring)",
     summary:
-      "Multi-note scratchpad with instant full-text search, note pinning, live character and word count, one-click copy, and automatic local persistence in Application Support.",
+      "Multi-note scratchpad with instant full-text search, note pinning, live character and word count, one-click copy, and automatic local saving.",
     highlights: [
       "Multi-note instant markdown scratchpad",
       "Pin important notes to the top",
@@ -155,7 +150,6 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Screenshot Studio",
     shortLabel: "Screenshot",
     symbol: "camera.viewfinder",
-    sourceFile: "SystemActionTools.swift",
     ringPage: "Page 1 (Primary Ring)",
     subArcActions: [
       "Interactive Region",
@@ -178,7 +172,6 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Quick To-Do List",
     shortLabel: "To-Do",
     symbol: "checklist",
-    sourceFile: "ClockAndProductivityViews.swift",
     ringPage: "Page 1 (Primary Ring)",
     summary:
       "Lightweight task manager with priority tags (Low, Normal, High), completion checkboxes, strike-through state, and 1-click Clear Done.",
@@ -186,7 +179,7 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
       "Low, Normal & High priority badges",
       "Instant keyboard task entry",
       "1-click Clear Done cleanup",
-      "100% local JSON persistence",
+      "Saved locally on your Mac",
     ],
   },
   {
@@ -194,7 +187,6 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Saved Links & Bookmarks",
     shortLabel: "Links",
     symbol: "link",
-    sourceFile: "ClockAndProductivityViews.swift",
     ringPage: "Page 1 (Primary Ring)",
     summary:
       "Quick URL stash with automatic domain extraction, 1-click Paste URL from clipboard, and instant launch in your default macOS browser.",
@@ -210,14 +202,13 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Radial Volume & Media Arc",
     shortLabel: "Volume",
     symbol: "speaker.wave.3.fill",
-    sourceFile: "SystemActionTools.swift",
     ringPage: "Page 1 (Primary Ring)",
     subArcActions: ["Arc Slider (0–100%)", "Mute Toggle", "+10%", "-10%"],
     summary:
-      "Continuous circular ArcSlider around the wheel for system audio output (CoreAudio / AudioHardwareService) plus Mute, +10%, and -10% sub-arc triggers.",
+      "Continuous circular arc slider around the wheel for system audio volume plus Mute, +10%, and -10% sub-arc triggers.",
     highlights: [
-      "Continuous circular ArcSlider",
-      "Direct CoreAudio hardware volume control",
+      "Continuous circular volume arc slider",
+      "Direct macOS hardware volume control",
       "Sub-arc Mute, +10% & -10% flicks",
       "Center hub Now Playing Play/Pause",
     ],
@@ -227,7 +218,6 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Ask AI Assistant",
     shortLabel: "Ask AI",
     symbol: "sparkles",
-    sourceFile: "AskAndVoiceViews.swift",
     ringPage: "Page 2 (Extended Ring)",
     summary:
       "Multi-turn streaming chat + 1-click clipboard actions (Summarize, Fix Grammar, Translate, Explain Code) powered by Claude Opus 5.5 / Fable 5.2, GPT-6 Astra / 6.1 Sol, Gemini 4 Argon, or 100% offline local Ollama.",
@@ -243,7 +233,6 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Unit & Currency Converter",
     shortLabel: "Converter",
     symbol: "arrow.left.arrow.right.circle.fill",
-    sourceFile: "CalculatorAndUnitsViews.swift",
     ringPage: "Page 2 (Extended Ring)",
     summary:
       "Simultaneous multi-unit conversion across Currency (live European Central Bank FX rates for USD, EUR, GBP, INR, JPY, CAD, AUD, CHF, CNY), Length, Mass, Temperature, Digital Data, and Speed.",
@@ -259,7 +248,6 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Window Manager",
     shortLabel: "Windows",
     symbol: "macwindow.on.rectangle",
-    sourceFile: "SystemActionTools.swift",
     ringPage: "Page 2 (Extended Ring)",
     subArcActions: [
       "Left Half",
@@ -270,12 +258,12 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
       "Center (80%)",
     ],
     summary:
-      "Uses macOS Accessibility (AXUIElement) to snap the frontmost window via the outer concentric sub-arc: Left Half, Right Half, Top Half, Bottom Half, Maximize, or Center (80%).",
+      "Snaps the frontmost window via the outer concentric sub-arc in one continuous flick: Left Half, Right Half, Top Half, Bottom Half, Maximize, or Center (80%).",
     highlights: [
       "Single continuous gesture window snapping",
       "Left/Right/Top/Bottom halves & Maximize",
       "Center (80%) focus window mode",
-      "Native AXUIElement zero-lag positioning",
+      "Instant zero-lag window positioning",
     ],
   },
   {
@@ -283,7 +271,6 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Magnifier Color Picker",
     shortLabel: "Color Picker",
     symbol: "eyedropper.halffull",
-    sourceFile: "SystemActionTools.swift",
     ringPage: "Page 2 (Extended Ring)",
     subArcActions: [
       "HEX (#RRGGBB)",
@@ -292,9 +279,9 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
       "SwiftUI Color(...)",
     ],
     summary:
-      "Native NSColorSampler pixel-accurate screen loupe with outer sub-arc format options: HEX (#RRGGBB), RGB (r, g, b), HSL, or ready-to-paste SwiftUI Color(...).",
+      "Pixel-accurate screen magnifier loupe with outer sub-arc format options: HEX (#RRGGBB), RGB (r, g, b), HSL, or ready-to-paste SwiftUI Color(...).",
     highlights: [
-      "Pixel-accurate NSColorSampler screen loupe",
+      "Pixel-accurate screen magnifier loupe",
       "Outer sub-arc format selection before sampling",
       "HEX, RGB, HSL & SwiftUI Color(...) output",
       "Auto-copies sampled color to clipboard",
@@ -305,12 +292,11 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Apple Reminders Sync",
     shortLabel: "Reminders",
     symbol: "bell.badge.fill",
-    sourceFile: "ClockAndProductivityViews.swift",
     ringPage: "Page 2 (Extended Ring)",
     summary:
-      "Native Apple EventKit integration to view, check off, and create items directly inside your macOS Reminders lists without opening the Reminders app.",
+      "Two-way integration to view, check off, and create items directly inside your macOS Reminders lists without opening the Reminders app.",
     highlights: [
-      "Two-way native EventKit synchronization",
+      "Two-way Apple Reminders synchronization",
       "Check off or add reminders in 1 second",
       "Syncs seamlessly with iCloud Reminders",
       "Requested only when tool is opened",
@@ -321,12 +307,11 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Voice Memo Recorder",
     shortLabel: "Voice Memo",
     symbol: "waveform.circle.fill",
-    sourceFile: "AskAndVoiceViews.swift",
     ringPage: "Page 2 (Extended Ring)",
     summary:
-      "Records high-clarity .m4a voice memos via AVAudioRecorder with a real-time dB waveform meter, inline playback, and 1-click Finder export.",
+      "Records high-clarity .m4a voice memos with a real-time dB waveform meter, inline playback, and 1-click Finder export.",
     highlights: [
-      "AAC .m4a recording via AVAudioRecorder",
+      "High-clarity .m4a audio recording",
       "Real-time decibel waveform visualizer",
       "Inline audio playback & scrub",
       "1-click reveal in macOS Finder",
@@ -337,10 +322,9 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Screen Recorder",
     shortLabel: "Screen Record",
     symbol: "record.circle",
-    sourceFile: "SystemActionTools.swift",
     ringPage: "Page 2 (Extended Ring)",
     summary:
-      "Launches native macOS interactive video recording (screencapture -v) with optional microphone narration and automatically reveals the saved recording in Finder.",
+      "Launches native macOS interactive video recording with optional microphone narration and automatically reveals the saved recording in Finder.",
     highlights: [
       "Native macOS hardware-encoded capture",
       "Interactive region or full-display video",
@@ -353,11 +337,10 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
     name: "Pinned App Launcher",
     shortLabel: "Apps",
     symbol: "square.grid.2x2.fill",
-    sourceFile: "SystemActionTools.swift",
     ringPage: "Page 2 (Extended Ring)",
     subArcActions: ["Pinned macOS .app Bundles"],
     summary:
-      "Pin any macOS .app bundles to launch or bring them to the front immediately from a radial outer sub-arc without touching Cmd+Tab or the Dock.",
+      "Pin any macOS apps to launch or bring them to the front immediately from a radial outer sub-arc without touching Cmd+Tab or the Dock.",
     highlights: [
       "Radial sub-arc fan-out of favorite apps",
       "Brings running apps to front in <50 ms",
@@ -378,30 +361,28 @@ export interface WheelifyPillarTab {
   image: string;
   imageAlt: string;
   highlights: string[];
-  codeRef: string;
 }
 
 export const WHEELIFY_PILLAR_TABS: WheelifyPillarTab[] = [
   {
     id: "radial-workspace",
-    badge: "01 • O(1) RADIAL ENGINE & INLINE MATH",
+    badge: "01 • RADIAL WHEEL & INLINE MATH",
     label: "Radial Ring & Clipboard",
     shortcut: "⌥ Space",
     title: "Flick 35 pt under your cursor. Or type math live inside the wheel.",
     subtitle:
-      "Summon at exact cursor coordinates with O(1) polar hit-testing, 120 FPS ProMotion rendering, and Apple Force Touch haptics.",
+      "Summon at exact cursor coordinates with instant radial selection, 120 FPS ProMotion rendering, and Apple Force Touch haptics.",
     description:
       "Hold ⌥ Space or middle-click anywhere on your Mac and Wheelify spawns centered under your pointer. Flick toward any sector and release to execute in under 100 ms—or start typing 2^10 * 3.14 or 100 km to mi to evaluate math and unit conversions live inside the Inline Command Bar without even opening a panel.",
     image: "/images/wheelify/01-wheelify-hero-radial-workspace.png",
     imageAlt:
       "Wheelify Hero Radial Workspace showing Helium-White 8-sector radial wheel, inline math command bar (2^10 * 3.14 = 3,215.36), and Clipboard History panel",
     highlights: [
-      "O(1) polar hit-testing: Hub (r < 34 pt), Primary Sector (34 ≤ r ≤ 132 pt), Outer Sub-Arc (r > 132 pt)",
+      "Three concentric zones: Center Hub, 8-Sector Primary Ring, and Outer Sub-Arcs",
       "Inline Command Bar evaluates scientific math & unit conversions live; press ⏎ to copy",
       "Clipboard History with source-app badges, live #HEX swatches, and JSON/Base64/SHA-256 transforms",
       "Center Hub shows active tool, live math result, or macOS Now Playing media controls",
     ],
-    codeRef: "RingView.swift • RingGeometry.swift • ClipboardAndNotesViews.swift",
   },
   {
     id: "frontier-ai",
@@ -422,7 +403,6 @@ export const WHEELIFY_PILLAR_TABS: WheelifyPillarTab[] = [
       "Live European Central Bank (ECB) FX rates across USD, EUR, GBP, INR, JPY, CAD, AUD, CHF, CNY",
       "Simultaneous conversion across Currency, Length, Mass, Temperature, Digital Data & Speed",
     ],
-    codeRef: "AskAndVoiceViews.swift • AIProviders.swift • CalculatorAndUnitsViews.swift",
   },
   {
     id: "calc-todo-links",
@@ -438,12 +418,11 @@ export const WHEELIFY_PILLAR_TABS: WheelifyPillarTab[] = [
     imageAlt:
       "Wheelify Scientific Calculator (RAD • HEX • BIN), Quick To-Do List, and Saved Links & Bookmarks in clean Apple System UI",
     highlights: [
-      "Recursive-descent scientific calculator with RAD/DEG toggle and persistent history tape",
+      "Scientific calculator with RAD/DEG toggle and persistent history tape",
       "Real-time Programmer Base Readout: HEX (0x2D4), OCT, and BIN (0b1011010100)",
       "Quick To-Do List with High / Normal / Low priority tags and 1-click Clear Done",
       "Saved Links & Bookmarks with 1-click Paste URL and automatic domain extraction",
     ],
-    codeRef: "CalculatorAndUnitsViews.swift • ClockAndProductivityViews.swift",
   },
   {
     id: "settings-themes",
@@ -464,7 +443,6 @@ export const WHEELIFY_PILLAR_TABS: WheelifyPillarTab[] = [
       "Customizable ring capacity (6, 8, or 10 sectors per page) and wheel size (Compact, Regular, Large)",
       "Encrypted macOS Keychain API storage + modular opt-in permissions (Accessibility, Screen, Mic, Reminders)",
     ],
-    codeRef: "SettingsView.swift • AppSettings.swift • Keychain.swift",
   },
 ];
 
@@ -627,7 +605,7 @@ export const WHEELIFY_FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Is my clipboard history and AI data private?",
-    a: "100% private. Wheelify has zero analytics, zero telemetry, and zero cloud accounts. All notes, clipboard items, saved links, and tasks are stored locally on your Mac in ~/Library/Application Support/Wheelify/. You can pause clipboard monitoring at any time or add sensitive apps (like 1Password, Keychain Access, or banking apps) to the Ignored Apps list. All AI API keys (Anthropic, OpenAI, Gemini) are stored encrypted in the macOS Keychain (kSecClassGenericPassword), never in plain-text plists.",
+    a: "100% private. Wheelify has zero analytics, zero telemetry, and zero cloud accounts. All notes, clipboard items, saved links, and tasks are stored locally on your Mac in ~/Library/Application Support/Wheelify/. You can pause clipboard monitoring at any time or add sensitive apps (like 1Password, Keychain Access, or banking apps) to the Ignored Apps list. All AI API keys (Anthropic, OpenAI, Gemini) are stored encrypted in the macOS Keychain, never in plain-text files.",
   },
   {
     q: "Can I use the AI Assistant completely offline for free?",
@@ -635,7 +613,7 @@ export const WHEELIFY_FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Why does Wheelify ask for Accessibility or Screen Recording permissions?",
-    a: "macOS permissions are modular and strictly opt-in inside Settings → Permissions: Accessibility enables the global mouse trigger (Middle Click Hold) and the Window Manager tool to resize/snap windows (keyboard shortcuts like ⌥ Space work via Carbon RegisterEventHotKey even without Accessibility). Screen Recording is only needed when you use the Screenshot or Screen Recorder tools. Microphone and Reminders permissions are only requested when you open Voice Memos or Apple Reminders.",
+    a: "macOS permissions are modular and strictly opt-in inside Settings → Permissions: Accessibility enables the global mouse trigger (Middle Click Hold) and the Window Manager tool to resize/snap windows (keyboard shortcuts like ⌥ Space work even without Accessibility). Screen Recording is only needed when you use the Screenshot or Screen Recorder tools. Microphone and Reminders permissions are only requested when you open Voice Memos or Apple Reminders.",
   },
   {
     q: "Can I customize which tools appear on the wheel and change the theme?",
@@ -643,6 +621,6 @@ export const WHEELIFY_FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Is Wheelify open source?",
-    a: "Yes! Wheelify is released under the MIT License at github.com/Shubham-sharma8/wheelify. You can inspect the entire Swift codebase, run the built-in 68-assertion self-test verification suite (Wheelify --self-test), open Wheelify.xcodeproj in Xcode, or build and sign the app bundle yourself with ./scripts/build_app.sh.",
+    a: "Yes! Wheelify is 100% free and open source under the MIT License at github.com/Shubham-sharma8/wheelify.",
   },
 ];

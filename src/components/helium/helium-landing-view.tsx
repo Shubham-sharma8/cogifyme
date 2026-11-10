@@ -1367,135 +1367,7 @@ export function HeliumLandingView() {
       </section>
 
       {/* =====================================================================
-          SECTION 6B: 100% Open Source in Swift 6.0 (#open-source)
-          ===================================================================== */}
-      <section
-        id="open-source"
-        className="py-12 sm:py-20 px-5 max-w-[1040px] mx-auto"
-      >
-        <div className="rounded-[28px] bg-white dark:bg-[#141417] border border-[#E6E6E4] dark:border-white/10 p-6 sm:p-9 shadow-[0_16px_48px_rgba(0,0,0,0.045)]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/12 text-emerald-700 dark:text-emerald-300 text-[12px] font-semibold">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span>100% open source · MIT license · swift 6.0</span>
-              </div>
-
-              <h2 className="text-[28px] sm:text-[38px] font-semibold tracking-[-0.03em] leading-[1.12]">
-                open source down to the{" "}
-                <span className="marker font-serif italic font-normal px-2">
-                  cryptography
-                </span>
-                .
-              </h2>
-
-              <p className="text-[15.5px] leading-[1.6] text-[#111110]/72 dark:text-white/72">
-                Trusting an app with your Google Drives, S3 buckets, and NAS
-                requires verifiable transparency. Every line of Helium — from
-                the <code className="font-mono text-[13.5px]">OrbitCore.ZK</code>{" "}
-                <code className="font-mono text-[13.5px]">AES-256-GCM</code> +{" "}
-                <code className="font-mono text-[13.5px]">HKDF-SHA256</code>{" "}
-                zero-knowledge vault to the 64 MiB RAID-0 chunk distributor and
-                5-Step Safe-Write Canary verifier — is open source under the MIT
-                License at{" "}
-                <a
-                  href={GITHUB_REPO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-[#111110] dark:text-white underline underline-offset-4"
-                >
-                  github.com/Shubham-sharma8/helium
-                </a>
-                .
-              </p>
-
-              {/* 6 Swift Package Targets */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                {[
-                  {
-                    target: "OrbitCore",
-                    desc: "Pooling engine, 64 MiB RAID-0 chunking, SQLite WAL & AES-256-GCM ZK vault",
-                  },
-                  {
-                    target: "HeliumApp",
-                    desc: "SwiftUI macOS workspace, GitHub Releases auto-updater, backups (⌘⇧K) & snapshots (⌘⇧Y)",
-                  },
-                  {
-                    target: "OrbitFS",
-                    desc: "macOS FSKit / FileProvider extension mounting /Volumes/Helium",
-                  },
-                  {
-                    target: "HeliumOpener & OrbitFinder",
-                    desc: "Zero-disk streaming proxy, Finder badges & context actions",
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.target}
-                    className="rounded-2xl bg-[#F7F7F7] dark:bg-white/[0.04] border border-[#E6E6E4] dark:border-white/10 p-3.5"
-                  >
-                    <div className="font-mono text-[12.5px] font-semibold text-emerald-700 dark:text-emerald-400">
-                      Sources/{item.target}
-                    </div>
-                    <div className="mt-1 text-[12px] leading-[1.45] text-[#111110]/68 dark:text-white/68">
-                      {item.desc}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-2 flex flex-wrap items-center gap-3">
-                <a
-                  href={GITHUB_REPO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-[#111110] dark:bg-white text-white dark:text-[#111110] text-[13.5px] font-medium hover:opacity-90 transition-opacity"
-                >
-                  <span>Star &amp; Inspect on GitHub</span>
-                  <ExternalLink className="w-3.5 h-3.5 opacity-75" />
-                </a>
-                <Link
-                  href="/helium/releases"
-                  className="inline-flex items-center gap-1.5 h-11 px-5 rounded-full bg-[#F7F7F7] dark:bg-white/10 border border-[#E6E6E4] dark:border-white/10 text-[13.5px] font-medium text-[#111110] dark:text-white hover:bg-black/[0.04] dark:hover:bg-white/15 transition-colors"
-                >
-                  <span>What&apos;s New in v0.0.3 &amp; Previous Releases →</span>
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl bg-[#111110] text-white p-5 font-mono text-[12px] leading-[1.7] border border-white/10 shadow-inner">
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-[11px] text-white/55">
-                  <span>zsh — build helium from source (Swift 6.0)</span>
-                  <span className="text-emerald-400">MIT License</span>
-                </div>
-                <pre className="overflow-x-auto text-emerald-300">
-                  <code>{`git clone https://github.com/Shubham-sharma8/helium.git
-cd helium
-
-# Build & run tests
-swift build -c release
-swift test
-
-# Package universal Helium.app + DMG
-./scripts/build-dmg.sh`}</code>
-                </pre>
-                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-white/60">
-                  <span>0 telemetry · 0 analytics SDKs</span>
-                  <Link
-                    href="/helium/releases"
-                    className="text-emerald-400 hover:underline"
-                  >
-                    v0.0.3, v0.0.2 &amp; v0.0.1 DMGs →
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================================
-          SECTION 7A: Love & Pricing (#love, #pricing)
+          SECTION 7A: Love & Pricing (#love, #pricing, #open-source)
           ===================================================================== */}
       <section
         id="love"
@@ -1549,12 +1421,12 @@ swift test
           ))}
         </div>
 
-        {/* Pricing Card (#pricing) */}
+        {/* Pricing & Open Source Download Card (#pricing, #open-source) */}
         <div
-          id="pricing"
+          id="open-source"
           className="mt-14 rounded-[28px] bg-white dark:bg-[#141417] border border-[#E6E6E4] dark:border-white/10 p-6 sm:p-9 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center shadow-xs"
         >
-          <div className="lg:col-span-7 space-y-3">
+          <div id="pricing" className="lg:col-span-7 space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/12 text-emerald-700 dark:text-emerald-300 text-[12px] font-semibold">
               <span>free &amp; open source forever · v0.0.3 (build 3 · MIT)</span>
             </div>
@@ -1580,6 +1452,15 @@ swift test
               >
                 <AppleLogoIcon className="w-4 h-4 shrink-0 -mt-0.5" />
                 <span>download helium v0.0.3 (8.4 MB · free)</span>
+              </a>
+              <a
+                href={GITHUB_REPO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 h-11 px-4 rounded-full bg-[#F7F7F7] dark:bg-white/10 border border-[#E6E6E4] dark:border-white/10 text-[12px] font-medium text-[#111110]/80 dark:text-white/80 hover:text-[#111110]"
+              >
+                <GitHubIcon className="w-3.5 h-3.5" />
+                <span>Open Source on GitHub (MIT)</span>
               </a>
               <button
                 type="button"

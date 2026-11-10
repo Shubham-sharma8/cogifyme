@@ -22,7 +22,6 @@ import {
   ChevronDown,
   Copy,
   ExternalLink,
-  Terminal,
 } from "lucide-react";
 import { AppleLogoIcon, GitHubIcon } from "@/components/ui/platform-icons";
 import { OtherAppsShowcase } from "@/components/products/other-apps-showcase";
@@ -309,7 +308,7 @@ export function TaskyfyLandingView() {
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#16A34A]" />
               <span className="text-[13px] font-semibold text-[#111113] dark:text-white">
-                Interactive 230+ Daemon Plain-English Encyclopedia (processes.json + ProcessLibrary.swift)
+                Interactive 230+ Daemon Plain-English Encyclopedia
               </span>
             </div>
             <span className="text-[11.5px] font-mono px-2.5 py-0.5 rounded-full bg-[#16A34A]/10 text-[#16A34A] dark:text-emerald-400 font-medium">
@@ -473,16 +472,9 @@ export function TaskyfyLandingView() {
               most system monitors use more CPU than the apps they watch.
             </p>
             <p>
-              Taskyfy separates kernel telemetry into a read-only Mach XPC
-              helper (
-              <code className="px-1.5 py-0.5 rounded bg-white dark:bg-white/10 border border-black/[0.08] dark:border-white/10 font-mono text-[14px]">
-                TaskyfyHelper
-              </code>
-              ) using a zero-allocation{" "}
-              <strong className="text-[#111113] dark:text-white">
-                64-byte binary wire struct (RawProcRecord)
-              </strong>{" "}
-              and automatically throttles when its window is closed:
+              Taskyfy samples system metrics natively at low overhead and
+              automatically pauses heavy background polling the moment its
+              window is closed:
             </p>
           </div>
 
@@ -502,9 +494,9 @@ export function TaskyfyLandingView() {
             </div>
             <div className="px-4 py-2.5 rounded-full bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/10 text-[13.5px] font-medium shadow-2xs">
               <strong className="text-[#111113] dark:text-white">
-                64-byte
+                30-day
               </strong>{" "}
-              zero-alloc XPC wire record
+              local history timeline
             </div>
             <div className="px-4 py-2.5 rounded-full bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/10 text-[13.5px] font-medium shadow-2xs">
               <strong className="text-[#16A34A] dark:text-emerald-400">
@@ -636,15 +628,6 @@ export function TaskyfyLandingView() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
                 <span>{activeTab.badgeText}</span>
               </div>
-              <a
-                href={`${GITHUB_REPO_URL}/blob/main/${activeTab.sourceFile}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#E8E8E5]/70 dark:bg-white/10 border border-black/[0.08] dark:border-white/10 font-mono text-[11px] text-[#111113]/70 dark:text-white/70 hover:text-[#111113] dark:hover:text-white"
-              >
-                <span>{activeTab.sourceFile}</span>
-                <ExternalLink className="w-3 h-3 opacity-60" />
-              </a>
             </div>
 
             <h3 className="text-[24px] sm:text-[28px] font-bold tracking-[-0.025em] leading-[1.15]">
@@ -1090,148 +1073,84 @@ export function TaskyfyLandingView() {
       </section>
 
       {/* =====================================================================
-          SECTION 5: Open-Source Architecture Section (#open-source)
+          SECTION 5: Download DMG & Open-Source Card (#open-source)
           ===================================================================== */}
       <section
         id="open-source"
         className="py-12 sm:py-20 px-5 max-w-[1040px] mx-auto"
       >
         <div className="rounded-[28px] bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/10 p-6 sm:p-9 shadow-[0_16px_48px_rgba(0,0,0,0.045)]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-7 space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-6 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16A34A]/10 text-[#16A34A] dark:text-emerald-400 text-[12px] font-semibold">
                 <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
-                <span>100% open source · MIT license · swift 5.10</span>
+                <span>free &amp; open source forever · v2.0 (MIT)</span>
               </div>
 
               <h2 className="text-[28px] sm:text-[38px] font-bold tracking-[-0.03em] leading-[1.08]">
-                open source down to the{" "}
+                install in 3 seconds.{" "}
                 <span className="bg-black/[0.07] dark:bg-white/[0.1] px-2.5 py-0.5 rounded-xl font-semibold">
-                  64-byte XPC wire struct
+                  $0 / month forever.
                 </span>
-                .
               </h2>
 
               <p className="text-[15.5px] leading-[1.6] text-[#111113]/72 dark:text-white/72">
-                A system monitor that inspects every process, port, and code
-                signature on your Mac should be 100% auditable. Taskyfy is open
-                source under the MIT License at{" "}
+                Download the signed and Apple-notarized{" "}
+                <strong className="text-[#111113] dark:text-white">
+                  3.2 MB Universal macOS installer
+                </strong>
+                , drag Taskyfy into Applications, and open it. Zero
+                subscriptions, zero accounts, and 100% local privacy. For
+                developers, the complete project is available on{" "}
                 <a
                   href={GITHUB_REPO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-[#111113] dark:text-white underline underline-offset-4"
                 >
-                  github.com/Shubham-sharma8/taskyfy
-                </a>{" "}
-                with 41/41 passing architecture tests and zero third-party
-                dependencies.
+                  GitHub under the MIT License
+                </a>
+                .
               </p>
 
-              {/* 3 Swift Package Modules */}
-              <div className="grid grid-cols-1 gap-2.5 pt-2">
-                {[
-                  {
-                    target: "Sources/TaskyfyCore",
-                    url: `${GITHUB_REPO_URL}/tree/main/Sources/TaskyfyCore`,
-                    desc: "Mach host_processor_info P/E cluster readers, AppleSMC/IOKit sensor readers, 64-byte RawProcRecord wire protocol, 230+ daemon processes.json encyclopedia, and SQLite3 WAL HistoryStore.",
-                  },
-                  {
-                    target: "Sources/Taskyfy",
-                    url: `${GITHUB_REPO_URL}/tree/main/Sources/Taskyfy`,
-                    desc: "Native SwiftUI + AppKit telemetry studio, ⌥⌘T Carbon global hotkey Menu Bar popover, ⌘K Command Palette, and Paper Minimal theme.",
-                  },
-                  {
-                    target: "Sources/TaskyfyHelper",
-                    url: `${GITHUB_REPO_URL}/tree/main/Sources/TaskyfyHelper`,
-                    desc: "On-demand SMAppService Mach XPC daemon (app.taskyfy.helper) with proc_pid_rusage(RUSAGE_INFO_V6) sampling and automatic 120-second IdleExit battery guard.",
-                  },
-                ].map((item) => (
-                  <a
-                    key={item.target}
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-2xl bg-[#F6F6F4] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/10 p-3.5 hover:border-black/25 transition-colors block"
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-[13px] font-semibold text-[#16A34A] dark:text-emerald-400">
-                        {item.target}
-                      </span>
-                      <ExternalLink className="w-3.5 h-3.5 opacity-50" />
-                    </div>
-                    <div className="mt-1 text-[12.5px] leading-[1.5] text-[#111113]/70 dark:text-white/70">
-                      {item.desc}
-                    </div>
-                  </a>
-                ))}
-              </div>
-
               <div className="pt-2 flex flex-wrap items-center gap-3">
+                <a
+                  href={DIRECT_DMG_HREF}
+                  className="inline-flex items-center gap-2 h-11 px-6 rounded-full bg-[#111113] dark:bg-white text-white dark:text-[#111113] text-[14px] font-semibold hover:bg-black/85 transition-colors"
+                >
+                  <AppleLogoIcon className="w-4 h-4 -mt-0.5" />
+                  <span>Download Taskyfy.dmg (3.2 MB)</span>
+                </a>
                 <a
                   href={GITHUB_REPO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-[#111113] dark:bg-white text-white dark:text-[#111113] text-[13.5px] font-medium hover:bg-black/85 transition-colors"
+                  className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-[#F6F6F4] dark:bg-white/10 border border-black/[0.08] dark:border-white/10 text-[13.5px] font-medium text-[#111113] dark:text-white hover:bg-black/[0.04] transition-colors"
                 >
                   <GitHubIcon className="w-4 h-4" />
-                  <span>Star &amp; Inspect on GitHub</span>
+                  <span>Open Source on GitHub (MIT)</span>
                   <ExternalLink className="w-3.5 h-3.5 opacity-75" />
                 </a>
-                <a
-                  href={GITHUB_RELEASE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 h-11 px-5 rounded-full bg-[#F6F6F4] dark:bg-white/10 border border-black/[0.08] dark:border-white/10 text-[13.5px] font-medium text-[#111113] dark:text-white hover:bg-black/[0.04] transition-colors"
+              </div>
+
+              <div className="pt-1 flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleCopySha}
+                  className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full bg-[#F6F6F4] dark:bg-white/10 border border-black/[0.08] dark:border-white/10 text-[11.5px] font-mono text-[#111113]/70 dark:text-white/70 hover:text-[#111113]"
                 >
-                  <span>GitHub Release v2.0 (Taskyfy.dmg) →</span>
-                </a>
+                  <Copy className="w-3 h-3" />
+                  <span>
+                    {copiedSha
+                      ? "Copied SHA-256!"
+                      : "SHA-256: 85394df089866a052b277bef...4b7e3464"}
+                  </span>
+                </button>
               </div>
             </div>
 
-            <div className="lg:col-span-5 space-y-4">
-              <div className="rounded-2xl bg-[#111113] text-white p-5 font-mono text-[12px] leading-[1.7] border border-white/10 shadow-inner">
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-[11px] text-white/55">
-                  <span className="flex items-center gap-1.5">
-                    <Terminal className="w-3.5 h-3.5 text-[#16A34A]" />
-                    <span>zsh — build taskyfy from source</span>
-                  </span>
-                  <span className="text-[#16A34A]">41/41 Tests Passing</span>
-                </div>
-                <pre className="overflow-x-auto text-emerald-300">
-                  <code>{`git clone https://github.com/Shubham-sharma8/taskyfy.git
-cd taskyfy
-
-# One-command build, test & bundle
-./setup.sh
-
-# Or run tests & studio directly
-swift run TaskyfyTests
-swift run Taskyfy`}</code>
-                </pre>
-                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-white/60">
-                  <span>0 external dependencies · 0 telemetry</span>
-                  <a
-                    href={GITHUB_RELEASE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-emerald-400 hover:underline"
-                  >
-                    v2.0 Notarized DMG →
-                  </a>
-                </div>
-              </div>
-
-              {/* Pricing / DMG Installer Card */}
-              <div className="rounded-2xl bg-[#F6F6F4] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/10 p-4 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-[12px] font-semibold text-[#16A34A] dark:text-emerald-400">
-                    $0 / month · Free &amp; Open Source Forever
-                  </span>
-                  <span className="font-mono text-[11px] text-[#111113]/55 dark:text-white/55">
-                    3.2 MB Universal DMG
-                  </span>
-                </div>
+            <div className="lg:col-span-6">
+              <div className="rounded-2xl bg-[#F6F6F4] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/10 p-3">
                 <Image
                   src="/brand/Taskyfy/00-dmg-background.png"
                   alt="Taskyfy.dmg installer — drag taskyfy into applications, then open it."
@@ -1240,25 +1159,6 @@ swift run Taskyfy`}</code>
                   loading="lazy"
                   className="w-full h-auto rounded-xl border border-black/[0.08] dark:border-white/10"
                 />
-                <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
-                  <a
-                    href={DIRECT_DMG_HREF}
-                    className="inline-flex items-center gap-1.5 h-9 px-4 rounded-full bg-[#111113] dark:bg-white text-white dark:text-[#111113] text-[12.5px] font-medium"
-                  >
-                    <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />
-                    <span>Download Taskyfy.dmg (3.2 MB)</span>
-                  </a>
-                  <button
-                    type="button"
-                    onClick={handleCopySha}
-                    className="inline-flex items-center gap-1 h-9 px-3 rounded-full bg-white dark:bg-white/10 border border-black/[0.08] dark:border-white/10 text-[11px] font-mono text-[#111113]/70 dark:text-white/70 hover:text-[#111113]"
-                  >
-                    <Copy className="w-3 h-3" />
-                    <span>
-                      {copiedSha ? "Copied SHA-256!" : "SHA-256: 85394df0...7e3464"}
-                    </span>
-                  </button>
-                </div>
               </div>
             </div>
           </div>

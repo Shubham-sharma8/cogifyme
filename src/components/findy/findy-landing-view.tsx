@@ -24,7 +24,6 @@ import {
   ExternalLink,
   Sparkles,
   FileText,
-  Command,
 } from "lucide-react";
 import { AppleLogoIcon, GitHubIcon } from "@/components/ui/platform-icons";
 import { OtherAppsShowcase } from "@/components/products/other-apps-showcase";
@@ -32,7 +31,6 @@ import {
   FINDY_WORKFLOW_TABS,
   NATURAL_QUERY_DEMOS,
   FINDY_WHAT_YOU_GET_LIST,
-  FINDY_FEATURE_SPECS,
   FINDY_PRIMARY_BENTO_CARDS,
   FINDY_COMPARISON_ROWS,
   FINDY_SHORTCUTS,
@@ -315,13 +313,11 @@ export function FindyLandingView() {
               <span className="w-3 h-3 rounded-full bg-[#28C840] border border-black/10" />
               <span className="ml-2 text-[12.5px] font-semibold text-[#111110] dark:text-white flex items-center gap-1.5">
                 <Search className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                <span>
-                  Try Plain-English Search Parser (Sources/Findy/NaturalSearch.swift)
-                </span>
+                <span>Try Plain-English Search</span>
               </span>
             </div>
             <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
-              ⌘K · 100% On-Device Token Parser
+              ⌘K · Instant On-Device Search
             </span>
           </div>
 
@@ -383,17 +379,12 @@ export function FindyLandingView() {
                 </div>
               </div>
 
-              {/* Generated Spotlight + Local Walker Predicate */}
-              <div className="pt-3 border-t border-[#E6E6E4] dark:border-white/10">
-                <div className="flex items-center justify-between text-[11px] text-[#111110]/50 dark:text-white/50 mb-1">
-                  <span>Compiled Hybrid Spotlight + Local Walker Query</span>
-                  <span className="font-semibold text-emerald-700 dark:text-emerald-400">
-                    {selectedQuery.resultCount}
-                  </span>
-                </div>
-                <code className="block text-[11.5px] font-mono text-[#111110]/75 dark:text-white/75 bg-white dark:bg-black/30 px-3 py-2 rounded-xl border border-[#E6E6E4] dark:border-white/10 overflow-x-auto">
-                  {selectedQuery.spotlightPredicate}
-                </code>
+              {/* Instant Summary Footer */}
+              <div className="pt-3 border-t border-[#E6E6E4] dark:border-white/10 flex items-center justify-between text-[12px] text-[#111110]/65 dark:text-white/65">
+                <span>Searches across your Mac home folders &amp; iCloud Drive</span>
+                <span className="font-semibold text-emerald-700 dark:text-emerald-400">
+                  {selectedQuery.resultCount}
+                </span>
               </div>
             </div>
 
@@ -517,15 +508,6 @@ export function FindyLandingView() {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 <span>{activeTab.badgeText}</span>
               </div>
-              <a
-                href={`${GITHUB_REPO_URL}/blob/main/${activeTab.sourceFile}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#F7F7F7] dark:bg-white/10 border border-[#E6E6E4] dark:border-white/10 font-mono text-[11px] text-[#111110]/70 dark:text-white/70 hover:text-[#111110] dark:hover:text-white"
-              >
-                <span>{activeTab.sourceFile}</span>
-                <ExternalLink className="w-3 h-3 opacity-60" />
-              </a>
             </div>
 
             <h3 className="text-[24px] sm:text-[28px] font-semibold tracking-[-0.025em] leading-[1.18]">
@@ -849,8 +831,7 @@ export function FindyLandingView() {
             keyboard-first down to every shortcut.
           </h2>
           <p className="mt-2.5 text-[16.5px] text-[#111110]/65 dark:text-white/65">
-            every feature in findy is mapped to a fast macOS shortcut and open
-            Swift source file.
+            every feature in findy is mapped to a fast macOS keyboard shortcut.
           </p>
         </div>
 
@@ -869,65 +850,6 @@ export function FindyLandingView() {
               </kbd>
             </div>
           ))}
-        </div>
-
-        {/* Complete Feature Architecture & Source Table */}
-        <div className="mt-10 rounded-[26px] bg-white dark:bg-[#141417] border border-[#E6E6E4] dark:border-white/10 overflow-hidden shadow-[0_12px_36px_rgba(0,0,0,0.04)]">
-          <div className="px-6 py-4 border-b border-[#E6E6E4] dark:border-white/10 bg-[#FAFAFA] dark:bg-white/[0.03] flex flex-wrap items-center justify-between gap-2">
-            <div className="flex items-center gap-2 text-[13.5px] font-semibold">
-              <Command className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>Findy v1.2 Complete Feature &amp; Swift Source Map</span>
-            </div>
-            <a
-              href={`${GITHUB_REPO_URL}/tree/main/Sources/Findy`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[12px] font-mono text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1"
-            >
-              <span>Browse Sources/Findy on GitHub</span>
-              <ExternalLink className="w-3 h-3" />
-            </a>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[680px]">
-              <thead>
-                <tr className="border-b border-[#E6E6E4] dark:border-white/10 text-[12.5px] text-[#111110]/55 dark:text-white/55">
-                  <th className="py-3.5 px-5 font-medium">feature</th>
-                  <th className="py-3.5 px-4 font-medium">shortcut</th>
-                  <th className="py-3.5 px-4 font-medium">what it does</th>
-                  <th className="py-3.5 px-5 font-medium text-right">
-                    swift source
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#E6E6E4] dark:divide-white/10 text-[13.5px]">
-                {FINDY_FEATURE_SPECS.map((spec) => (
-                  <tr key={spec.feature}>
-                    <td className="py-3.5 px-5 font-semibold text-[#111110] dark:text-white whitespace-nowrap">
-                      {spec.feature}
-                    </td>
-                    <td className="py-3.5 px-4 font-mono text-[12px] text-emerald-700 dark:text-emerald-400 whitespace-nowrap">
-                      {spec.shortcut}
-                    </td>
-                    <td className="py-3.5 px-4 text-[#111110]/70 dark:text-white/70 leading-[1.5]">
-                      {spec.description}
-                    </td>
-                    <td className="py-3.5 px-5 text-right whitespace-nowrap">
-                      <a
-                        href={spec.sourceUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 font-mono text-[12px] text-[#111110]/75 dark:text-white/75 hover:text-emerald-600 dark:hover:text-emerald-400 underline underline-offset-4"
-                      >
-                        <span>{spec.sourceFile}</span>
-                        <ExternalLink className="w-3 h-3 opacity-60" />
-                      </a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
       </section>
 
@@ -1020,155 +942,13 @@ export function FindyLandingView() {
       </section>
 
       {/* =====================================================================
-          SECTION 6B: 100% Open Source in Swift & SwiftUI (#open-source)
+          SECTION 7A: Pricing & DMG Installer Preview (#pricing & #open-source)
           ===================================================================== */}
       <section
         id="open-source"
-        className="py-12 sm:py-20 px-5 max-w-[1040px] mx-auto"
-      >
-        <div className="rounded-[28px] bg-white dark:bg-[#141417] border border-[#E6E6E4] dark:border-white/10 p-6 sm:p-9 shadow-[0_16px_48px_rgba(0,0,0,0.045)]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/12 text-emerald-700 dark:text-emerald-300 text-[12px] font-semibold">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span>
-                  100% open source · MIT license · native swift &amp; swiftui
-                </span>
-              </div>
-
-              <h2 className="text-[28px] sm:text-[38px] font-semibold tracking-[-0.03em] leading-[1.12]">
-                open source down to the{" "}
-                <span className="marker font-serif italic font-normal px-2">
-                  file indexer
-                </span>
-                .
-              </h2>
-
-              <p className="text-[15.5px] leading-[1.6] text-[#111110]/72 dark:text-white/72">
-                An app that indexes your personal documents, screenshots, and
-                downloads should have nothing to hide. Every line of Findy —
-                from{" "}
-                <code className="font-mono text-[13.5px]">
-                  NaturalSearch.swift
-                </code>{" "}
-                and{" "}
-                <code className="font-mono text-[13.5px]">SpaceLens.swift</code>{" "}
-                to{" "}
-                <code className="font-mono text-[13.5px]">
-                  Duplicates.swift
-                </code>{" "}
-                and{" "}
-                <code className="font-mono text-[13.5px]">OCRService.swift</code>{" "}
-                — is open source under the MIT License at{" "}
-                <a
-                  href={GITHUB_REPO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-[#111110] dark:text-white underline underline-offset-4"
-                >
-                  github.com/Shubham-sharma8/findy
-                </a>
-                .
-              </p>
-
-              {/* 4 Key Architecture Modules */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                {[
-                  {
-                    target: "NaturalSearch & Library",
-                    desc: "Plain-English query parser + hybrid NSMetadataQuery & FileManager indexer",
-                  },
-                  {
-                    target: "SpaceLens & Cleanup",
-                    desc: "Squarified treemap, Home folder breakdown & Trash-safe FileManager.trashItem rules",
-                  },
-                  {
-                    target: "Duplicates & OCRService",
-                    desc: "3-stage SHA-256 clone detector + Vision feature prints & VNRecognizeTextRequest OCR",
-                  },
-                  {
-                    target: "DownloadSources & FileShelf",
-                    desc: "kMDItemWhereFroms binary plist parser, 370×460 menu bar popover & Regex batch rename",
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.target}
-                    className="rounded-2xl bg-[#F7F7F7] dark:bg-white/[0.04] border border-[#E6E6E4] dark:border-white/10 p-3.5"
-                  >
-                    <div className="font-mono text-[12.5px] font-semibold text-emerald-700 dark:text-emerald-400">
-                      Sources/Findy/{item.target}
-                    </div>
-                    <div className="mt-1 text-[12px] leading-[1.45] text-[#111110]/68 dark:text-white/68">
-                      {item.desc}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-2 flex flex-wrap items-center gap-3">
-                <a
-                  href={GITHUB_REPO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-[#111110] dark:bg-white text-white dark:text-[#111110] text-[13.5px] font-medium hover:opacity-90 transition-opacity"
-                >
-                  <GitHubIcon className="w-4 h-4" />
-                  <span>Star &amp; Inspect on GitHub</span>
-                  <ExternalLink className="w-3.5 h-3.5 opacity-75" />
-                </a>
-                <a
-                  href={GITHUB_RELEASE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 h-11 px-5 rounded-full bg-[#F7F7F7] dark:bg-white/10 border border-[#E6E6E4] dark:border-white/10 text-[13.5px] font-medium text-[#111110] dark:text-white hover:bg-black/[0.04] dark:hover:bg-white/15 transition-colors"
-                >
-                  <span>GitHub Release v1.2 (Findy.dmg) →</span>
-                </a>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl bg-[#111110] text-white p-5 font-mono text-[12px] leading-[1.7] border border-white/10 shadow-inner">
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-[11px] text-white/55">
-                  <span>zsh — build findy from source (Swift 5.9+ / 6.0)</span>
-                  <span className="text-emerald-400">MIT License</span>
-                </div>
-                <pre className="overflow-x-auto text-emerald-300">
-                  <code>{`git clone https://github.com/Shubham-sharma8/findy.git
-cd findy
-
-# Build & run native SwiftUI app
-swift build -c release
-swift run
-
-# Package universal Findy.app + DMG
-./Scripts/package_app.sh`}</code>
-                </pre>
-                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-white/60">
-                  <span>0 external dependencies · 0 telemetry</span>
-                  <a
-                    href={GITHUB_RELEASE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-emerald-400 hover:underline"
-                  >
-                    Download notarized v1.2 DMG →
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================================
-          SECTION 7A: Pricing & DMG Installer Preview (#pricing)
-          ===================================================================== */}
-      <section
-        id="pricing"
         className="py-12 sm:py-16 px-5 max-w-[1040px] mx-auto"
       >
-        <div className="rounded-[28px] bg-white dark:bg-[#141417] border border-[#E6E6E4] dark:border-white/10 p-6 sm:p-9 grid grid-cols-1 lg:grid-cols-12 gap-7 items-center shadow-xs">
+        <div id="pricing" className="rounded-[28px] bg-white dark:bg-[#141417] border border-[#E6E6E4] dark:border-white/10 p-6 sm:p-9 grid grid-cols-1 lg:grid-cols-12 gap-7 items-center shadow-xs">
           <div className="lg:col-span-7 space-y-3.5">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/12 text-emerald-700 dark:text-emerald-300 text-[12px] font-semibold">
               <span>

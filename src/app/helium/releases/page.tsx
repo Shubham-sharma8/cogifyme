@@ -579,27 +579,24 @@ export default function HeliumReleasesPage() {
           </div>
         </section>
 
-        {/* Open Source Repository & Build from Source Card */}
+        {/* Open Source Repository Card */}
         <section aria-labelledby="helium-oss-heading">
           <div className="rounded-[26px] bg-white dark:bg-[#141417] border border-[#E6E6E4] dark:border-white/10 p-6 sm:p-8">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#E6E6E4] dark:border-white/10">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <div className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-semibold">
                   <Code2 className="w-4 h-4" />
-                  <span>Open Source • MIT License • Swift 6.0</span>
+                  <span>100% Open Source • MIT License • Zero Telemetry</span>
                 </div>
                 <h2
                   id="helium-oss-heading"
                   className="text-2xl font-bold tracking-[-0.025em] mt-1"
                 >
-                  Inspect the source or build Helium.app yourself.
+                  Open Source on GitHub.
                 </h2>
                 <p className="text-sm text-[#555] dark:text-[#a1a1aa] mt-1">
-                  Full source code for <code className="font-mono text-xs">OrbitCore</code>,{" "}
-                  <code className="font-mono text-xs">HeliumApp</code>,{" "}
-                  <code className="font-mono text-xs">HeliumOpener</code>,{" "}
-                  <code className="font-mono text-xs">OrbitFS</code>, and{" "}
-                  <code className="font-mono text-xs">OrbitFinder</code> is available on GitHub.
+                  All official Helium macOS releases, changelogs, and open-source
+                  repository files are available on GitHub under the MIT License.
                 </p>
               </div>
               <a
@@ -612,13 +609,6 @@ export default function HeliumReleasesPage() {
                 <span>github.com/Shubham-sharma8/helium</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
-            </div>
-
-            <div className="mt-5 rounded-2xl bg-[#111110] text-white p-4 font-mono text-xs leading-relaxed overflow-x-auto">
-              <div className="text-white/50"># Clone, run tests, and package Helium.app locally (macOS 15.4+ / Xcode 16.3+)</div>
-              <div>git clone https://github.com/Shubham-sharma8/helium.git &amp;&amp; cd helium</div>
-              <div>swift build &amp;&amp; swift test</div>
-              <div>./scripts/build-app-bundle.sh &amp;&amp; open build/Helium.app</div>
             </div>
           </div>
         </section>

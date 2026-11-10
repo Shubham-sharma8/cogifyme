@@ -7,7 +7,6 @@ export interface FindyWorkflowTab {
   subline: string;
   visualImage: string;
   visualAlt: string;
-  sourceFile: string;
   metrics: { label: string; value: string; accent?: boolean }[];
   highlights: { title: string; detail: string; badge: string }[];
 }
@@ -24,7 +23,6 @@ export const FINDY_WORKFLOW_TABS: FindyWorkflowTab[] = [
     visualImage: "/brand/Findy/02-findy-natural-search.webp",
     visualAlt:
       "Findy Plain-English Search parsing 'images from this year' into live 'Understood as: Images, This year' filter chips across 250 results",
-    sourceFile: "Sources/Findy/NaturalSearch.swift",
     metrics: [
       { label: "Query Latency", value: "< 15 ms", accent: true },
       { label: "Parsed Tokens", value: "Kind · Date · Size", accent: false },
@@ -59,7 +57,6 @@ export const FINDY_WORKFLOW_TABS: FindyWorkflowTab[] = [
     visualImage: "/brand/Findy/03-findy-space-lens.webp",
     visualAlt:
       "Findy Space Lens storage treemap analyzing 17.52 GB across Applications, Downloads, Desktop, and iCloud Drive with Top 25 Largest Files",
-    sourceFile: "Sources/Findy/SpaceLens.swift",
     metrics: [
       { label: "Home Folders", value: "8 Indexed", accent: false },
       { label: "Largest Files", value: "Top 25 Live", accent: true },
@@ -90,11 +87,10 @@ export const FINDY_WORKFLOW_TABS: FindyWorkflowTab[] = [
     badgeText: "non-destructive audit · moves only to macos trash",
     headline: "Reclaim Gigabytes of Clutter. Nothing Deleted Without Asking.",
     subline:
-      "Audits Duplicates, Old Installers (.dmg/.pkg > 7 days), Forgotten Downloads (> 90 days), Old Screenshots (> 30 days), Big Old Videos (> 200 MB), and Unused Apps — using FileManager.trashItem so everything is 100% reversible from macOS Trash.",
+      "Audits Duplicates, Old Installers (.dmg/.pkg > 7 days), Forgotten Downloads (> 90 days), Old Screenshots (> 30 days), Big Old Videos (> 200 MB), and Unused Apps — moving selected clutter to macOS Trash so everything is 100% reversible.",
     visualImage: "/brand/Findy/04-findy-smart-cleanup.webp",
     visualAlt:
       "Findy Smart Clean Up dashboard auditing Duplicates, Old Installers, Forgotten Downloads, Old Screenshots, Big Old Videos, and Unused Apps",
-    sourceFile: "Sources/Findy/Cleanup.swift",
     metrics: [
       { label: "Audit Rules", value: "6 Categories", accent: false },
       { label: "Deletion Mode", value: "macOS Trash Only", accent: true },
@@ -125,11 +121,10 @@ export const FINDY_WORKFLOW_TABS: FindyWorkflowTab[] = [
     badgeText: "cryptographic sha-256 + apple vision feature-print clustering",
     headline: "Byte-for-Byte SHA-256 Exact Duplicates & Look-Alike Photos.",
     subline:
-      "Two-stage byte-size pre-filtering + 16 KB window hashing + full streaming SHA-256 finds 100% identical clones, while Apple Vision VNGenerateImageFeaturePrintRequest groups burst and similar photos on-device.",
+      "Two-stage byte-size pre-filtering + 16 KB window hashing + full streaming SHA-256 finds 100% identical clones, while Apple Vision groups burst and similar photos on-device.",
     visualImage: "/brand/Findy/05-findy-duplicate-finder.webp",
     visualAlt:
       "Findy Duplicate Finder comparing files with SHA-256 and Apple Vision Similar Photos with Keep badge protection",
-    sourceFile: "Sources/Findy/Duplicates.swift",
     metrics: [
       { label: "Exact Match", value: "SHA-256", accent: true },
       { label: "Photo Clustering", value: "Apple Vision", accent: false },
@@ -157,17 +152,16 @@ export const FINDY_WORKFLOW_TABS: FindyWorkflowTab[] = [
     id: "downloaded-from",
     label: "downloaded from",
     shortcut: "Sidebar + Menu Bar",
-    badgeText: "kMDItemWhereFroms + binary plist xattr + 370×460 menu bar popover",
+    badgeText: "website origin tracking + 370×460 menu bar recent downloads popover",
     headline: "Every Download Remembers Which Website It Came From.",
     subline:
-      "Combines Spotlight kMDItemWhereFroms queries with direct binary-plist decoding of com.apple.metadata:kMDItemWhereFroms extended attributes to group ~/Downloads by origin domain (GitHub, Figma, ChatGPT, Gmail, Stripe, Hugging Face).",
+      "Automatically reads macOS download origin metadata to group ~/Downloads by source website or app (GitHub, Figma, ChatGPT, Gmail, Stripe, Hugging Face).",
     visualImage: "/brand/Findy/06-findy-downloaded-from.webp",
     visualAlt:
       "Findy Downloaded From view grouping files by Gmail, ChatGPT, GitHub, Figma, Stripe, and Hugging Face alongside the 370x460 Menu Bar Recent Downloads Popover",
-    sourceFile: "Sources/Findy/DownloadSources.swift",
     metrics: [
       { label: "Recognized Sources", value: "40+ Domains", accent: true },
-      { label: "Extended Attr", value: "kMDItemWhereFroms", accent: false },
+      { label: "Browser Support", value: "All Browsers", accent: false },
       { label: "Menu Bar Popover", value: "370 × 460 px", accent: true },
     ],
     highlights: [
@@ -183,7 +177,7 @@ export const FINDY_WORKFLOW_TABS: FindyWorkflowTab[] = [
       },
       {
         title: "Works Across Safari, Chrome, Arc & Brave",
-        detail: "Reads standard macOS quarantine & WhereFroms metadata written by every modern browser.",
+        detail: "Reads standard macOS download metadata written by every modern browser.",
         badge: "All Browsers",
       },
     ],
@@ -199,10 +193,9 @@ export const FINDY_WORKFLOW_TABS: FindyWorkflowTab[] = [
     visualImage: "/brand/Findy/07-findy-file-shelf.webp",
     visualAlt:
       "Findy File Shelf staging 5 files across Desktop and Downloads with Move All, Copy All, Create .zip Archive, and Batch Rename actions",
-    sourceFile: "Sources/Findy/FileShelf.swift",
     metrics: [
       { label: "Batch Modes", value: "5 Rename Rules", accent: false },
-      { label: "Archive Engine", value: "/usr/bin/ditto .zip", accent: true },
+      { label: "Archive Engine", value: "1-Click .zip", accent: true },
       { label: "Rename Safety", value: "1-Click Undo ⌥⌘Z", accent: true },
     ],
     highlights: [
@@ -218,7 +211,7 @@ export const FINDY_WORKFLOW_TABS: FindyWorkflowTab[] = [
       },
       {
         title: "1-Click Conflict-Free .zip Archive",
-        detail: "Compresses staged items into a clean macOS .zip archive via native /usr/bin/ditto.",
+        detail: "Compresses staged items into a clean macOS .zip archive in one click.",
         badge: ".zip Archive",
       },
     ],
@@ -227,14 +220,13 @@ export const FINDY_WORKFLOW_TABS: FindyWorkflowTab[] = [
     id: "inspector-ocr",
     label: "inspector & vision ocr",
     shortcut: "⌘I · ⇧⌘C",
-    badgeText: "VNRecognizeTextRequest · 100% local apple silicon neural engine",
+    badgeText: "on-device text recognition · 100% local apple silicon neural engine",
     headline: "Read Text Inside Screenshots. 100% On-Device Vision OCR.",
     subline:
-      "Select any screenshot or image to extract copyable text on-device via Apple Vision (VNRecognizeTextRequest), assign native Finder color tags (0–7), verify SHA-256 checksums, and inspect UTI & POSIX permissions.",
+      "Select any screenshot or image to extract copyable text on-device via Apple Vision, assign native Finder color tags (0–7), verify SHA-256 checksums, and inspect file metadata.",
     visualImage: "/brand/Findy/08-findy-file-inspector.webp",
     visualAlt:
       "Findy Right-Hand File Inspector (⌘I) extracting copyable OCR text from a screenshot on-device alongside Finder color tags and POSIX metadata",
-    sourceFile: "Sources/Findy/InspectorView.swift",
     metrics: [
       { label: "OCR Engine", value: "Apple Vision", accent: true },
       { label: "Finder Tags", value: "7 Native Colors", accent: false },
@@ -252,8 +244,8 @@ export const FINDY_WORKFLOW_TABS: FindyWorkflowTab[] = [
         badge: "Finder Sync",
       },
       {
-        title: "Developer Metadata & SHA-256 Digest",
-        detail: "Inspects UTI type trees, pixel dimensions, octal POSIX permissions (0644), and on-demand SHA-256.",
+        title: "File Metadata & SHA-256 Digest",
+        detail: "Inspects file types, pixel dimensions, permissions, and on-demand SHA-256 checksums.",
         badge: "⌘I Inspector",
       },
     ],
@@ -269,7 +261,6 @@ export const FINDY_WORKFLOW_TABS: FindyWorkflowTab[] = [
     visualImage: "/brand/Findy/01-findy-home-overview.webp",
     visualAlt:
       "Findy Home Overview showing Playful theme category cards, 8 indexed Mac locations, and Smart Clean Up summary",
-    sourceFile: "Sources/Findy/HomeView.swift",
     metrics: [
       { label: "Indexed Scope", value: "8 Home Folders", accent: true },
       { label: "Visual Themes", value: "4 Built-In", accent: false },
@@ -427,11 +418,11 @@ export const NATURAL_QUERY_DEMOS: NaturalQueryDemo[] = [
         badge: "huggingface.co",
       },
       {
-        name: "NaturalSearch.swift",
-        path: "~/Downloads/Findy/Sources/Findy",
+        name: "Release-Checklist-2026.md",
+        path: "~/Downloads",
         size: "14 KB",
         date: "Today",
-        badge: "Swift 6.0",
+        badge: "Markdown",
       },
       {
         name: "tsconfig.json",
@@ -470,12 +461,12 @@ export const FINDY_WHAT_YOU_GET_LIST: FindyWhatYouGetItem[] = [
   },
   {
     id: "2",
-    text: "100% on-device Apple Vision OCR (VNRecognizeTextRequest) to find & copy text inside screenshots",
+    text: "100% on-device Apple Vision OCR to find & copy text inside screenshots",
     iconType: "ocr",
   },
   {
     id: "3",
-    text: "'Downloaded From' browser provenance grouping files by 40+ origin websites (kMDItemWhereFroms)",
+    text: "'Downloaded From' browser provenance grouping files by 40+ origin websites",
     iconType: "globe",
   },
   {
@@ -522,105 +513,6 @@ export const FINDY_WHAT_YOU_GET_LIST: FindyWhatYouGetItem[] = [
     id: "12",
     text: "100% open-source native Swift & SwiftUI app under the MIT License (zero telemetry, 0 cloud calls)",
     iconType: "opensource",
-  },
-];
-
-export interface FindyFeatureSpecRow {
-  feature: string;
-  shortcut: string;
-  description: string;
-  sourceFile: string;
-  sourceUrl: string;
-}
-
-export const FINDY_FEATURE_SPECS: FindyFeatureSpecRow[] = [
-  {
-    feature: "Plain-English Search",
-    shortcut: "⌘K / ⌘F",
-    description:
-      "Parses natural queries ('pdfs this week > 5mb', '2026-11-10', 'large archives') into live filter chips for Kind, Date, Size, Tag, and Location.",
-    sourceFile: "NaturalSearch.swift",
-    sourceUrl: "https://github.com/Shubham-sharma8/findy/blob/main/Sources/Findy/NaturalSearch.swift",
-  },
-  {
-    feature: "Hybrid Indexing Engine",
-    shortcut: "⌘R",
-    description:
-      "Merges live macOS Spotlight (NSMetadataQuery) results with a concurrent local FileManager directory walker so files appear even if Spotlight is disabled.",
-    sourceFile: "Library.swift",
-    sourceUrl: "https://github.com/Shubham-sharma8/findy/blob/main/Sources/Findy/Library.swift",
-  },
-  {
-    feature: "Space Lens Treemap",
-    shortcut: "⌘4 / ⇧⌘L",
-    description:
-      "Interactive proportional treemap, Storage by Home Folder cards, Top 25 Largest Files, and subfolder drill-down with concurrent directory size calculation.",
-    sourceFile: "SpaceLens.swift",
-    sourceUrl: "https://github.com/Shubham-sharma8/findy/blob/main/Sources/Findy/SpaceLens.swift",
-  },
-  {
-    feature: "Smart Clean Up",
-    shortcut: "⌘5",
-    description:
-      "Audits Duplicates, Old Installers (.dmg/.pkg > 7 days), Forgotten Downloads (> 90 days), Old Screenshots (> 30 days), Big Old Videos (> 200 MB), and Unused Apps, plus optional hourly auto-tidy rules.",
-    sourceFile: "Cleanup.swift",
-    sourceUrl: "https://github.com/Shubham-sharma8/findy/blob/main/Sources/Findy/Cleanup.swift",
-  },
-  {
-    feature: "SHA-256 Duplicates & Look-Alike Photos",
-    shortcut: "⌘6",
-    description:
-      "Two-stage byte-size pre-filter + cryptographic SHA256 hashing for 100% identical clones, plus Apple Vision VNGenerateImageFeaturePrintRequest clustering for burst/similar photos.",
-    sourceFile: "Duplicates.swift",
-    sourceUrl: "https://github.com/Shubham-sharma8/findy/blob/main/Sources/Findy/Duplicates.swift",
-  },
-  {
-    feature: "Downloaded From Browser Tracker",
-    shortcut: "Sidebar",
-    description:
-      "Groups downloaded files by source website/app (GitHub, Figma, ChatGPT, Gmail, Slack, etc.) via Spotlight & binary plist com.apple.metadata:kMDItemWhereFroms xattr.",
-    sourceFile: "DownloadSources.swift",
-    sourceUrl: "https://github.com/Shubham-sharma8/findy/blob/main/Sources/Findy/DownloadSources.swift",
-  },
-  {
-    feature: "File Shelf (Drop Basket)",
-    shortcut: "⌘7 / ⇧⌘B",
-    description:
-      "Persistent staging area to collect files across folders, then Move All, Copy All, Create .zip Archive, Batch Rename, or Copy Paths.",
-    sourceFile: "FileShelf.swift",
-    sourceUrl: "https://github.com/Shubham-sharma8/findy/blob/main/Sources/Findy/FileShelf.swift",
-  },
-  {
-    feature: "Batch Rename + Regex & Undo",
-    shortcut: "⇧⌘R / ⌥⌘Z",
-    description:
-      "5 rename modes (Find & Replace, Prefix/Suffix, Sequential Numbering, Case Transform, and Regular Expression) + extension override, collision detector, and 1-click Undo (⌥⌘Z).",
-    sourceFile: "BatchRename.swift",
-    sourceUrl: "https://github.com/Shubham-sharma8/findy/blob/main/Sources/Findy/BatchRename.swift",
-  },
-  {
-    feature: "Right-Hand File Inspector & Vision OCR",
-    shortcut: "⌘I / ⇧⌘C",
-    description:
-      "Shows high-res preview, Finder color tags (0–7), Text in Image (OCR) with 1-click Copy, full POSIX path, dimensions, permissions, and source URL.",
-    sourceFile: "InspectorView.swift",
-    sourceUrl: "https://github.com/Shubham-sharma8/findy/blob/main/Sources/Findy/InspectorView.swift",
-  },
-  {
-    feature: "Menu Bar Recent Downloads Popover",
-    shortcut: "Menu Bar",
-    description:
-      "Always-ready 370×460 menu bar popover with instant search filter, origin domain badges, Quick Look (🔍), Add to File Shelf, and Reveal in Finder.",
-    sourceFile: "MenuBarDownloads.swift",
-    sourceUrl: "https://github.com/Shubham-sharma8/findy/blob/main/Sources/Findy/MenuBarDownloads.swift",
-  },
-  {
-    feature: "4 Visual Themes & Zoom Controls",
-    shortcut: "⌃⌘T / ⌘+",
-    description:
-      "Switch between Standard, Playful (vibrant category cards), Classic (native macOS blue), and Monochrome themes, plus adjustable UI scale (⌘+, ⌘-, ⌘0).",
-    sourceFile: "Theme.swift",
-    sourceUrl: "https://github.com/Shubham-sharma8/findy/blob/main/Sources/Findy/Theme.swift",
   },
 ];
 

@@ -11,7 +11,6 @@ import {
   ClipboardCheck,
   Layers,
   ShieldCheck,
-  Terminal,
   Check,
   ChevronDown,
   Copy,
@@ -49,7 +48,6 @@ export function WheelifyLandingView() {
   >("all");
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [copiedSha, setCopiedSha] = useState(false);
-  const [copiedClone, setCopiedClone] = useState(false);
   const [copiedInlineResult, setCopiedInlineResult] = useState(false);
 
   const selectedCommand = WHEELIFY_COMMAND_DEMOS[selectedCommandIndex];
@@ -73,16 +71,6 @@ export function WheelifyLandingView() {
       navigator.clipboard.writeText(WHEELIFY_SHA256);
       setCopiedSha(true);
       setTimeout(() => setCopiedSha(false), 2000);
-    }
-  };
-
-  const handleCopyClone = () => {
-    if (typeof navigator !== "undefined" && navigator.clipboard) {
-      navigator.clipboard.writeText(
-        "git clone https://github.com/Shubham-sharma8/wheelify.git && cd wheelify && ./setup.sh"
-      );
-      setCopiedClone(true);
-      setTimeout(() => setCopiedClone(false), 2000);
     }
   };
 
@@ -334,14 +322,13 @@ export function WheelifyLandingView() {
 
           <div className="rounded-2xl border border-black/[0.08] bg-white p-4 sm:p-5">
             <div className="text-[11px] font-semibold tracking-wider text-black/45 uppercase">
-              Automated Verification
+              Handcrafted Themes
             </div>
             <div className="mt-1 text-2xl font-bold tracking-tight tabular-nums text-[#111113] sm:text-3xl">
-              68 / 68
+              7 styles
             </div>
             <div className="mt-1 text-xs text-black/55">
-              Built-in <code className="font-mono">--self-test</code> assertions
-              + XCTest
+              Helium White, Apple Frosted, Warm Paper &amp; Carbon Dark
             </div>
           </div>
         </div>
@@ -373,7 +360,7 @@ export function WheelifyLandingView() {
         </div>
 
         <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-12">
-          {/* Left Column: Standalone High-Res Wheel Graphic + O(1) Polar Math */}
+          {/* Left Column: Standalone High-Res Wheel Graphic + Concentric Zones */}
           <div className="flex flex-col justify-between rounded-[28px] border border-black/[0.08] bg-white p-6 shadow-xs lg:col-span-5">
             <div>
               <div className="flex items-center justify-between">
@@ -381,7 +368,7 @@ export function WheelifyLandingView() {
                   Helium White Theme • 120 FPS
                 </span>
                 <span className="font-mono text-xs text-black/45">
-                  RingView.swift
+                  8-Sector Ring
                 </span>
               </div>
 
@@ -396,38 +383,37 @@ export function WheelifyLandingView() {
               </div>
             </div>
 
-            {/* Polar Hit-Testing Breakdown */}
+            {/* Concentric Zones Breakdown */}
             <div className="rounded-2xl border border-black/[0.07] bg-[#F6F6F4] p-4">
               <div className="flex items-center justify-between text-xs font-semibold text-[#111113]">
-                <span>O(1) Constant-Time Polar Hit-Testing</span>
+                <span>Three Concentric Gesture Zones</span>
                 <span className="font-mono text-[11px] text-[#16A34A]">
-                  RingGeometry.swift
+                  &lt; 100 ms flick
                 </span>
               </div>
               <div className="mt-3 space-y-2 text-xs text-black/65">
                 <div className="flex items-start justify-between gap-2 rounded-xl bg-white px-3 py-2 border border-black/[0.05]">
                   <span className="font-mono font-semibold text-[#111113]">
-                    r &lt; 34 pt
+                    Center Hub
                   </span>
                   <span className="text-right">
-                    Center Hub (Inline Math Copy / Now Playing Play-Pause)
+                    Inline Math Copy / Now Playing Play-Pause
                   </span>
                 </div>
                 <div className="flex items-start justify-between gap-2 rounded-xl bg-white px-3 py-2 border border-black/[0.05]">
                   <span className="font-mono font-semibold text-[#111113]">
-                    34 ≤ r ≤ 132 pt
+                    Primary Ring
                   </span>
                   <span className="text-right">
-                    Primary 8-Sector Ring via{" "}
-                    <code className="font-mono">atan2(dy, dx)</code>
+                    8-Sector Tool Ring (Clipboard, Calc, Timer, AI…)
                   </span>
                 </div>
                 <div className="flex items-start justify-between gap-2 rounded-xl bg-white px-3 py-2 border border-black/[0.05]">
                   <span className="font-mono font-semibold text-[#111113]">
-                    r &gt; 132 pt
+                    Outer Sub-Arc
                   </span>
                   <span className="text-right">
-                    Outer Concentric Sub-Arc (Pomodoro, Snap, Capture, Volume)
+                    Instant Sub-Actions (Pomodoro, Snap, Capture, Volume)
                   </span>
                 </div>
               </div>
@@ -523,9 +509,8 @@ export function WheelifyLandingView() {
                   1. Zero-Travel Cursor Spawning
                 </div>
                 <p className="mt-1 text-xs leading-relaxed text-black/60">
-                  Spawns at your exact pointer coordinates (
-                  <code className="font-mono">RingPanel.swift</code>) whether on
-                  a MacBook display or a 49-inch ultrawide monitor.
+                  Spawns at your exact pointer coordinates whether on a MacBook
+                  display or a 49-inch ultrawide monitor.
                 </p>
               </div>
 
@@ -568,9 +553,8 @@ export function WheelifyLandingView() {
                   4. Force Touch Trackpad Haptics
                 </div>
                 <p className="mt-1 text-xs leading-relaxed text-black/60">
-                  Crisp Apple trackpad alignment haptics (
-                  <code className="font-mono">Haptics.swift</code>) confirm
-                  every sector boundary crossing eyes-free.
+                  Crisp Apple trackpad alignment haptics confirm every sector
+                  boundary crossing eyes-free.
                 </p>
               </div>
             </div>
@@ -653,11 +637,6 @@ export function WheelifyLandingView() {
                   </li>
                 ))}
               </ul>
-
-              <div className="mt-5 inline-flex items-center gap-2 rounded-xl border border-black/[0.07] bg-[#F6F6F4] px-3 py-1.5 font-mono text-[11px] text-black/60">
-                <Terminal className="h-3.5 w-3.5 text-black/50" />
-                <span>{activePillar.codeRef}</span>
-              </div>
             </div>
 
             <div className="lg:col-span-7">
@@ -683,7 +662,7 @@ export function WheelifyLandingView() {
         <div className="text-center">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-black/[0.06] px-3 py-1 text-xs font-semibold text-black/75">
             <Sliders className="h-3.5 w-3.5" />
-            Toolbox.swift • 16 native utilities
+            16 native macOS utilities
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-[-0.03em] leading-[1.06] text-[#111113] sm:text-5xl">
             16 built-in macOS tools.{" "}
@@ -746,7 +725,7 @@ export function WheelifyLandingView() {
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="rounded-full bg-black/[0.05] px-2.5 py-0.5 font-mono text-[11px] text-black/60">
-                      {tool.sourceFile}
+                      {tool.ringPage}
                     </span>
                   </div>
                 </div>
@@ -810,7 +789,7 @@ export function WheelifyLandingView() {
               </h2>
             </div>
             <span className="rounded-full border border-black/[0.08] bg-[#F6F6F4] px-3.5 py-1.5 font-mono text-xs font-medium text-black/70">
-              AIProviders.swift • Keychain.swift
+              macOS Keychain Protected
             </span>
           </div>
 
@@ -867,7 +846,7 @@ export function WheelifyLandingView() {
               </h2>
             </div>
             <span className="rounded-full border border-black/[0.08] bg-[#F6F6F4] px-3.5 py-1.5 font-mono text-xs font-medium text-black/70">
-              CalculatorAndUnitsViews.swift
+              RAD • HEX • BIN • Tasks • Links
             </span>
           </div>
 
@@ -1060,7 +1039,7 @@ export function WheelifyLandingView() {
               </h3>
             </div>
             <span className="font-mono text-xs text-black/50">
-              HotKey.swift • MouseTrigger.swift
+              Customizable in Settings (⌘,)
             </span>
           </div>
 
@@ -1097,49 +1076,20 @@ export function WheelifyLandingView() {
               <h2 className="mt-4 text-3xl font-bold tracking-[-0.03em] leading-[1.06] text-[#111113] sm:text-4xl">
                 install in 3 seconds.{" "}
                 <span className="rounded-xl bg-black/[0.07] px-3 py-0.5 font-semibold">
-                  or compile from swift source.
+                  100% free &amp; open source.
                 </span>
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-black/60">
-                Wheelify is built in pure Swift 5.9+, AppKit, and SwiftUI with{" "}
-                <strong className="font-semibold text-black/80">
-                  zero third-party dependencies
-                </strong>
-                . Download the Apple-notarized Universal DMG below, or clone the
-                MIT repository and run the 68-assertion self-test verification
-                suite yourself.
+                Download the Apple-notarized Universal{" "}
+                <code className="font-mono text-xs">Wheelify.dmg</code> installer
+                below, drag <strong className="font-semibold text-black/80">Wheelify.app</strong>{" "}
+                into Applications, and hold{" "}
+                <kbd className="rounded border border-black/15 bg-[#F6F6F4] px-1.5 py-0.5 font-mono text-xs font-semibold">
+                  ⌥ Space
+                </kbd>{" "}
+                anywhere on your Mac. Developers can also explore the open-source
+                repository on GitHub.
               </p>
-
-              {/* Build from Source Command Box */}
-              <div className="mt-5 rounded-2xl border border-black/[0.08] bg-[#111113] p-4 text-white">
-                <div className="flex items-center justify-between text-[11px] text-white/55">
-                  <span className="font-mono">
-                    Terminal — Build from Source &amp; Run 68 Self-Tests
-                  </span>
-                  <button
-                    type="button"
-                    onClick={handleCopyClone}
-                    className="inline-flex items-center gap-1 rounded-md bg-white/10 px-2 py-0.5 text-[11px] font-medium text-white hover:bg-white/20"
-                  >
-                    {copiedClone ? (
-                      <>
-                        <Check className="h-3 w-3 text-[#4ADE80]" />
-                        <span>Copied</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="h-3 w-3" />
-                        <span>Copy</span>
-                      </>
-                    )}
-                  </button>
-                </div>
-                <pre className="mt-2 overflow-x-auto font-mono text-xs leading-relaxed text-white/90">
-                  <code>{`git clone https://github.com/Shubham-sharma8/wheelify.git
-cd wheelify
-./setup.sh --install`}</code>
-                </pre>
-              </div>
 
               {/* SHA-256 Checksum Box */}
               <div className="mt-4 rounded-2xl border border-black/[0.08] bg-[#F6F6F4] p-4">

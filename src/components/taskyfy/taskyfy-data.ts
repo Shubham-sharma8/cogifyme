@@ -83,7 +83,6 @@ export interface TaskyfyPillarTab {
   subline: string;
   visualImage: string;
   visualAlt: string;
-  sourceFile: string;
   metrics: { label: string; value: string; accent?: boolean }[];
   highlights: { title: string; detail: string; badge: string }[];
 }
@@ -100,7 +99,6 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
     visualImage: "/brand/Taskyfy/01-taskyfy-overview-hero.png",
     visualAlt:
       "Taskyfy Overview Telemetry Deck showing Processor Load, Unified Memory, Apple Silicon GPU, Power & Thermal, and Apple Silicon P/E Core Matrix alongside Process Inspector",
-    sourceFile: "Sources/Taskyfy/Views/OverviewView.swift",
     metrics: [
       { label: "Core Topology", value: "P-Core & E-Core", accent: true },
       { label: "Self-Footprint", value: "< 0.3% Idle CPU", accent: true },
@@ -115,7 +113,7 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
       {
         title: "Apple Silicon P/E Core Telemetry Matrix",
         detail: "Individual per-core sparklines separating Efficiency cores (E1–E4) from Performance cores (P5–P8+).",
-        badge: "Mach Ticks",
+        badge: "Per-Core",
       },
       {
         title: "Pin Baseline (Δ CPU · Δ RAM)",
@@ -128,17 +126,16 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
     id: "processes",
     label: "grouped process tree",
     shortcut: "Tab 2 · ⌘I",
-    badgeText: "parent app rollups · 230+ daemon encyclopedia · SecStaticCode",
+    badgeText: "parent app rollups · 230+ daemon encyclopedia · code signature",
     headline: "True App Footprints & 230+ Daemons Explained in Plain English.",
     subline:
       "Folds Chrome, Safari, Cursor, Xcode, and Docker helper processes under their parent app so you see real combined CPU, RAM, and Energy Impact — while explaining cryptic macOS daemons with Safe-to-Quit verdicts.",
     visualImage: "/brand/Taskyfy/02-taskyfy-processes-grouped.png",
     visualAlt:
       "Taskyfy Grouped Applications & Process Tree with 230+ plain-English daemon descriptions and right-hand Process & Security Inspector",
-    sourceFile: "Sources/Taskyfy/Views/AppsView.swift",
     metrics: [
       { label: "Daemon Library", value: "230+ Explained", accent: true },
-      { label: "Code Signing", value: "SecStaticCode", accent: false },
+      { label: "Code Signing", value: "Apple Verified", accent: false },
       { label: "Process Control", value: "Quit · Pause · Nice", accent: true },
     ],
     highlights: [
@@ -154,8 +151,8 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
       },
       {
         title: "Process & Security Inspector (⌘I)",
-        detail: "Verifies Developer ID + Notarization status, open TCP ports, 15-min memory trail, and POSIX path.",
-        badge: "SecStaticCode",
+        detail: "Verifies Developer ID + Notarization status, open TCP ports, 15-min memory trail, and file path.",
+        badge: "Security Check",
       },
     ],
   },
@@ -170,7 +167,6 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
     visualImage: "/brand/Taskyfy/03-taskyfy-memory-advisor.png",
     visualAlt:
       "Taskyfy Memory & Swap view showing Unified Memory Architecture, 7-Day RAM Capacity Advisor, Browser Tab Optimizer, and 15-Minute Memory Leak Watch",
-    sourceFile: "Sources/Taskyfy/Views/MemoryAndEnergyViews.swift",
     metrics: [
       { label: "Leak Detection", value: "15-Min Slope", accent: true },
       { label: "RAM Sizing", value: "7-Day P95 Advisor", accent: true },
@@ -184,7 +180,7 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
       },
       {
         title: "15-Minute Memory Growth / Leak Watch",
-        detail: "Flags any process whose phys_footprint grows monotonically over a 15-minute window without releasing pages.",
+        detail: "Flags any process whose memory footprint grows continuously over a 15-minute window without releasing pages.",
         badge: "Leak Hunter",
       },
       {
@@ -201,11 +197,10 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
     badgeText: "live system wattage (W) · battery health & cycles · wakeups/s",
     headline: "Real-Time System Power Draw in Watts & Battery Health.",
     subline:
-      "Reads IOPMPowerSource hardware telemetry for live system power draw in Watts (W), adapter wattage, battery health %, cycle count, temperature, and Today's Wh — plus a per-app Energy Impact & CPU wakeups/s leaderboard.",
+      "Reads hardware power telemetry for live system power draw in Watts (W), adapter wattage, battery health %, cycle count, temperature, and Today's Wh — plus a per-app Energy Impact & CPU wakeups/s leaderboard.",
     visualImage: "/brand/Taskyfy/04-taskyfy-energy-watts.png",
     visualAlt:
       "Taskyfy Energy & Power view showing 6.2 W live system power draw, 99% battery health, 72 cycles, and Top Live Energy Impact Applications",
-    sourceFile: "Sources/Taskyfy/Views/MemoryAndEnergyViews.swift",
     metrics: [
       { label: "Power Readout", value: "Live Watts (W)", accent: true },
       { label: "Battery Metrics", value: "Health · Cycles · Wh", accent: false },
@@ -215,7 +210,7 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
       {
         title: "Live System Power Draw & Adapter Rating",
         detail: "Monitor exact wattage draw (e.g., 6.2 W on AC 55W Adapter) and average power over the day.",
-        badge: "IOPMPowerSource",
+        badge: "Live Watts",
       },
       {
         title: "Battery Health, Cycles & Wh Telemetry",
@@ -224,7 +219,7 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
       },
       {
         title: "Top Live Energy Impact Leaderboard",
-        detail: "Ranks apps and background daemons by Energy Impact score and kernel wakeups per second.",
+        detail: "Ranks apps and background daemons by Energy Impact score and wakeups per second.",
         badge: "Wakeups/s",
       },
     ],
@@ -233,14 +228,13 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
     id: "sensors",
     label: "36+ die sensors",
     shortcut: "Tab 5",
-    badgeText: "IOKit HID & AppleSMC · CPU/GPU/NAND/PMU · fan RPM & headroom",
+    badgeText: "Apple Silicon sensors · CPU/GPU/NAND/PMU · fan RPM & headroom",
     headline: "36+ Apple Silicon Hardware Die Sensors & Acoustic Fan Telemetry.",
     subline:
-      "Reads calibrated temperature channels directly from IOKit HID and AppleSMC across Efficiency cores, Performance cores, Tdie1–Tdie8, PMU rails, NVMe NAND storage, and battery sensors — plus fan RPM and thermal headroom.",
+      "Reads calibrated temperature channels across Efficiency cores, Performance cores, Tdie1–Tdie8, PMU rails, NVMe NAND storage, and battery sensors — plus fan RPM and thermal headroom.",
     visualImage: "/brand/Taskyfy/05-taskyfy-sensors-thermals.png",
     visualAlt:
       "Taskyfy Thermals & Sensors view displaying 36 active Apple Silicon hardware sensors across CPU/SoC, NVMe Storage, and Battery/PMU with 0 RPM Silent Fan status",
-    sourceFile: "Sources/TaskyfyCore/Readers/SensorReader.swift",
     metrics: [
       { label: "Active Sensors", value: "36+ Die Channels", accent: true },
       { label: "Thermal Headroom", value: "Live °C Margin", accent: true },
@@ -275,11 +269,10 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
     visualImage: "/brand/Taskyfy/06-taskyfy-network-port-radar.png",
     visualAlt:
       "Taskyfy Network & Disk view showing live network throughput, NVMe storage I/O & capacity, and Top Disk I/O Applications",
-    sourceFile: "Sources/TaskyfyCore/Readers/NetworkAndDiskReader.swift",
     metrics: [
       { label: "Port Discovery", value: "TCP / UDP LISTEN", accent: true },
       { label: "NVMe Telemetry", value: "Read / Write MB/s", accent: false },
-      { label: "Dev Server Kill", value: "1-Click SIGTERM", accent: true },
+      { label: "Dev Server Kill", value: "1-Click Stop", accent: true },
     ],
     highlights: [
       {
@@ -301,18 +294,17 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
   },
   {
     id: "history",
-    label: "30-day sqlite wal",
+    label: "30-day history",
     shortcut: "Tab 7",
-    badgeText: "PRAGMA journal_mode=WAL · 1H / 24H / 7D / 30D · JSON/CSV export",
-    headline: "30-Day SQLite WAL Time Machine & Recorded System Events.",
+    badgeText: "30-day local history · 1H / 24H / 7D / 30D · JSON/CSV export",
+    headline: "30-Day Telemetry Time Machine & Recorded System Events.",
     subline:
-      "Activity Monitor forgets everything the moment you close it. Taskyfy records 1-minute historical rollups in a local SQLite WAL database so you can scrub 1H, 24H, 7D, or 30D of CPU, Memory, and Watts — and export to JSON or CSV.",
+      "Activity Monitor forgets everything the moment you close it. Taskyfy records 1-minute historical rollups locally on your Mac so you can scrub 1H, 24H, 7D, or 30D of CPU, Memory, and Watts — and export to JSON or CSV.",
     visualImage: "/brand/Taskyfy/07-taskyfy-history-sqlite-wal.png",
     visualAlt:
       "Taskyfy History Timeline showing 24-Hour Processor Utilization, Memory Usage %, System Power Watts, Historical Top Consumers, and Recorded System Events",
-    sourceFile: "Sources/TaskyfyCore/Services/HistoryStore.swift",
     metrics: [
-      { label: "Storage Engine", value: "SQLite3 WAL", accent: true },
+      { label: "Storage Engine", value: "100% On-Device", accent: true },
       { label: "Retention Window", value: "1H · 24H · 7D · 30D", accent: false },
       { label: "Data Export", value: "1-Click JSON / CSV", accent: true },
     ],
@@ -324,11 +316,11 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
       },
       {
         title: "Correlated Recorded System Events Feed",
-        detail: "Timestamped log of CPU spikes, elevated memory pressure, and +MB/+GB application heap growth.",
+        detail: "Timestamped log of CPU spikes, elevated memory pressure, and +MB/+GB application memory growth.",
         badge: "Anomaly Log",
       },
       {
-        title: "Zero-Allocation JSON & CSV Telemetry Export",
+        title: "Instant JSON & CSV Telemetry Export",
         detail: "Export structured time-series snapshots in one click for bug reports or performance audits.",
         badge: "JSON / CSV",
       },
@@ -345,7 +337,6 @@ export const TASKYFY_PILLAR_TABS: TaskyfyPillarTab[] = [
     visualImage: "/brand/Taskyfy/08-taskyfy-command-palette.png",
     visualAlt:
       "Taskyfy ⌘K Quick Command Palette searching apps, PIDs, ports (:3000), and the built-in macOS Process Encyclopedia",
-    sourceFile: "Sources/Taskyfy/Views/InspectorAndPaletteViews.swift",
     metrics: [
       { label: "Command Bar", value: "⌘K Instant", accent: true },
       { label: "Global Hotkey", value: "⌥⌘T Popover", accent: true },
@@ -619,6 +610,6 @@ export const TASKYFY_FAQS: TaskyfyFaqItem[] = [
   {
     question: "is taskyfy open source?",
     answer:
-      "Yes! Taskyfy is 100% open source under the MIT License at github.com/Shubham-sharma8/taskyfy. You can inspect the entire Swift 5.10 codebase, verify the 64-byte XPC wire protocol and SQLite WAL schema, or build it from source using swift build or Taskyfy.xcodeproj.",
+      "Yes! Taskyfy is 100% free and open source under the MIT License at github.com/Shubham-sharma8/taskyfy.",
   },
 ];

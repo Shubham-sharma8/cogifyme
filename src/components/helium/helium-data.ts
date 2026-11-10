@@ -253,7 +253,7 @@ export interface WhatYouGetItem {
 export const WHAT_YOU_GET_LIST: WhatYouGetItem[] = [
   { id: "1", text: "combine unlimited google drives + 25+ S3, R2, B2, WebDAV, SFTP & SMB presets into /Volumes/Helium", iconType: "pool" },
   { id: "2", text: "automatic GitHub Releases auto-updater (Settings → Updates) with 1-click in-place .dmg install & persistent OAuth sign-in", iconType: "resume" },
-  { id: "3", text: "client-side zero-knowledge AES-256-GCM (OrbitCore.ZK) with HKDF-SHA256 & P-256 key agreement", iconType: "lock" },
+  { id: "3", text: "client-side zero-knowledge AES-256-GCM encryption with HKDF-SHA256 & P-256 key agreement", iconType: "lock" },
   { id: "4", text: "whole-file smart placement & 64 MiB RAID-0 cross-account chunk striping", iconType: "stripe" },
   { id: "5", text: "5-step safe-write canary check (RTT ms → TLS 1.3 → auth → SHA-256 canary → 0 B cleanup)", iconType: "sync" },
   { id: "6", text: "scheduled add-only Mac folder backups (⌘⇧K) with live exclusion previews & 14-run history dots", iconType: "sync" },
@@ -262,7 +262,7 @@ export const WHAT_YOU_GET_LIST: WhatYouGetItem[] = [
   { id: "9", text: "edit directly in DaVinci Resolve, Final Cut Pro, QuickTime, Preview & DiskImageMounter", iconType: "film" },
   { id: "10", text: "executable command palette (⌃⌥O) & menu bar quick dropzone for instant offload", iconType: "search" },
   { id: "11", text: "status-first Activity & Health (⌘⇧A) with self-healing Fix cards & HTTP 206 throughput chart", iconType: "wifi" },
-  { id: "12", text: "100% open-source Swift 6.0 codebase under the MIT License + Privacy Network Contact Map (0 telemetry)", iconType: "sparkles" },
+  { id: "12", text: "100% open source under the MIT License + Privacy Network Contact Map (0 telemetry)", iconType: "sparkles" },
 ];
 
 export interface BentoFeatureCard {
@@ -641,7 +641,7 @@ export const HELIUM_FAQS: FaqItem[] = [
   {
     question: "is helium open source and are my credentials private?",
     answer:
-      "yes — Helium is 100% open source under the MIT License at github.com/Shubham-sharma8/helium. It is Apple Developer ID signed and notarized, exchanges OAuth 2.0 PKCE tokens directly with oauth2.googleapis.com storing secrets exclusively in your local macOS Keychain, and includes optional client-side zero-knowledge AES-256-GCM encryption (OrbitCore.ZK with HKDF-SHA256 & P-256). You can verify every outbound host in Settings → Privacy (Privacy Network Contact Map showing 0 analytics/telemetry contacts) and export diagnostic logs with Save Redacted Log….",
+      "yes — Helium is 100% open source under the MIT License at github.com/Shubham-sharma8/helium. It is Apple Developer ID signed and notarized, exchanges OAuth 2.0 PKCE tokens directly with Google storing secrets exclusively in your local macOS Keychain, and includes optional client-side zero-knowledge AES-256-GCM encryption. You can verify every outbound host in Settings → Privacy (Privacy Network Contact Map showing 0 analytics/telemetry contacts) and export diagnostic logs with Save Redacted Log….",
   },
   {
     question: "what are the system requirements and where can i find previous releases?",
