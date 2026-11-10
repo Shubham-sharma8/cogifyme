@@ -2797,12 +2797,12 @@ export const siteConfig: SiteConfig = {
       "Helium v0.0.2 (Build 2) mounts a real local drive at /Volumes/Helium in macOS Finder that pools N linked Google Drive accounts (with 64 MiB RAID-0 cross-account striping) alongside 25+ multi-protocol storage presets—including Amazon S3, Cloudflare R2, Backblaze B2, Wasabi, Hetzner, DigitalOcean Spaces, Storj, Tigris, Nextcloud/WebDAV, SFTP/SSH, SMB/Bonjour NAS, BYOK Dropbox/OneDrive/Box, and external USB/Thunderbolt SSDs. Includes 5-Step Safe-Write Verification, Scheduled Add-Only Mac Folder Backups (⌘⇧K), Time Travel Snapshots & 'Then vs. Now' Diffing (⌘⇧Y), Right-Hand File Inspector with Non-Destructive Conflict Resolution, Activity & Health (⌘⇧A) with HTTP Range 206 throughput charts, Executable Command Palette (⌃⌥O), and client-side zero-knowledge AES-256-GCM encryption.",
     philosophy:
       "iCloud and Dropbox download the whole file before you can open it — and a single cloud drive caps out fast. Helium links unlimited Google accounts and 25+ S3, WebDAV, SFTP, and NAS endpoints into one verified storage pool and only streams the bytes you're using, keeping 0 bytes used on your Mac.",
-    version: "0.0.2",
-    build: "2",
+    version: "0.0.3",
+    build: "3",
     releaseDate: "November 10, 2026",
     releaseDateIso: "2026-11-10",
-    sha256: "197d07f184e59a3b7cd121978994cd349d92b16371366ecb56fcaeef0361d805",
-    bytes: "8,798,017 bytes",
+    sha256: "b9099e6c192d4662ae008bec4766c59f0d1dd911a0dc3f52eddc4edd5dcb88c8",
+    bytes: "8,842,531 bytes",
     directPath: "/Helium.dmg",
     appSize: "8.4 MB",
     bundleId: "me.cogify.helium",
@@ -2816,8 +2816,32 @@ export const siteConfig: SiteConfig = {
     releasesPath: "/helium/releases",
     license: "MIT License (Open Source)",
     downloadUrl:
-      "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.2/Helium-0.0.2.dmg",
+      "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.3/Helium-0.0.3.dmg",
     releases: [
+      {
+        version: "0.0.3",
+        build: "3",
+        releaseDate: "November 10, 2026",
+        releaseDateIso: "2026-11-10",
+        size: "8.4 MB",
+        bytes: "8,842,531 bytes",
+        sha256:
+          "b9099e6c192d4662ae008bec4766c59f0d1dd911a0dc3f52eddc4edd5dcb88c8",
+        downloadUrl:
+          "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.3/Helium-0.0.3.dmg",
+        githubTagUrl:
+          "https://github.com/Shubham-sharma8/helium/releases/tag/v0.0.3",
+        architecture: "Universal Binary (arm64 + x86_64)",
+        minMacOs: "macOS 15.4+ / macOS 26 Tahoe",
+        isLatest: true,
+        notes: [
+          "GitHub Releases Auto-Update & Check for Updates (Settings → Updates): Directly checks github.com/Shubham-sharma8/helium/releases for new releases, displays release notes, and supports automatic or 1-click .dmg download and in-place installation to /Applications/Helium.app.",
+          "Persistent Multi-Account Google Drive Sign-In: Hardened OAuth 2.0 refresh token persistence and automatic account recovery across app restarts and macOS reboots.",
+          "Refined Menu Bar Popover & Pool Workspace Layout: Top-aligned menu bar settings & search panels and responsive two-row toolbar layout in the Google Drive Pool header.",
+          "Multi-Protocol & Multi-Provider Cloud Support (25+ Presets): Connect Google Drive Pool (OAuth 2.0 PKCE + 64 MiB RAID-0 cross-account striping), Amazon S3, Cloudflare R2, Backblaze B2, Wasabi, Hetzner Object Storage, DigitalOcean Spaces, Storj DCS, Tigris, Google Cloud Storage (HMAC), MinIO/Garage/Ceph, WebDAV (Nextcloud, ownCloud, Fastmail, pCloud, Synology NAS), SFTP/SSH (Hetzner Storage Box, rsync.net), SMB/Bonjour NAS & Azure Files, BYOK OAuth (Dropbox, OneDrive, Box), and External USB/Thunderbolt SSDs with Smart Endpoint & S3 Region Inference.",
+          "5-Step Safe-Write Verification (SafeWriteVerifier), Scheduled Add-Only Mac Folder Backups (⌘⇧K), Time Travel Snapshots & 'Then vs. Now' Diffing (⌘⇧Y), Right-Hand File Inspector & Conflict Resolution, Activity & Health (⌘⇧A), and Executable Command Palette (⌃⌥O).",
+        ],
+      },
       {
         version: "0.0.2",
         build: "2",
@@ -2833,7 +2857,7 @@ export const siteConfig: SiteConfig = {
           "https://github.com/Shubham-sharma8/helium/releases/tag/v0.0.2",
         architecture: "Universal Binary (arm64 + x86_64)",
         minMacOs: "macOS 15.4+ / macOS 26 Tahoe",
-        isLatest: true,
+        isLatest: false,
         notes: [
           "Multi-Protocol & Multi-Provider Cloud Support (25+ Presets): Connect Google Drive Pool (OAuth 2.0 PKCE + 64 MiB RAID-0 cross-account striping), Amazon S3, Cloudflare R2, Backblaze B2, Wasabi, Hetzner Object Storage, DigitalOcean Spaces, Storj DCS, Tigris, Google Cloud Storage (HMAC), MinIO/Garage/Ceph, WebDAV (Nextcloud, ownCloud, Fastmail, pCloud, Synology NAS), SFTP/SSH (Hetzner Storage Box, rsync.net), SMB/Bonjour NAS & Azure Files, BYOK OAuth (Dropbox, OneDrive, Box), and External USB/Thunderbolt SSDs with Smart Endpoint & S3 Region Inference.",
           "5-Step Safe-Write Verification (SafeWriteVerifier): Measures server RTT latency in ms, verifies TLS 1.3 / TLS 1.2 certificate chain, checks bucket/vault permissions, writes & reads back a temporary SHA-256 canary payload byte-for-byte, and performs zero-residue (0 B) cleanup.",
@@ -2841,7 +2865,7 @@ export const siteConfig: SiteConfig = {
           "Time Travel: Point-in-Time Snapshots & 'Then vs. Now' Diffing (⌘⇧Y • SnapshotTimelineManager): Capture complete pool manifest snapshots, inspect visual diff badges (Deleted since then, Changed since then showing THEN vs. NOW size, Added after snapshot, Unchanged), and 1-click Restore Copy or Restore Version alongside 30-Day Recently Deleted trash.",
           "Right-Hand File Inspector & Non-Destructive Conflict Resolution (HeliumRightFilesInspectorDrawer): Inspect verification & placement badges, 'Where It Lives' card (drive email, Mode 1 Whole-File vs. Mode 2 64 MiB Striped, AES-256-GCM/SHA-256 shield), Keep Downloaded offline switch, 1-click /Volumes/Helium/<filename> copy chip, and resolve multi-Mac edit conflicts with Keep Both or Use Newer.",
           "Activity & Health (⌘⇧A), Executable Command Palette (⌃⌥O) & Privacy Network Contact Map: Self-healing 'Needs You' cards (idle → Fixing… → Fixed ✓), live dual-series throughput chart (Sending + Streaming HTTP Range 206 in MB/s), instant ⌃⌥O pool commands, and Settings → Privacy Network Contact Map (0 analytics/telemetry) with Save Redacted Log….",
-          "Open-Sourced under the MIT License at github.com/Shubham-sharma8/helium with latest v0.0.2 stability & bug fixes.",
+          "Open-Sourced under the MIT License at github.com/Shubham-sharma8/helium with v0.0.2 stability & bug fixes.",
         ],
       },
       {
@@ -2915,10 +2939,11 @@ export const siteConfig: SiteConfig = {
     specifications: [
       { label: "Application Name", value: "Helium (helium)" },
       { label: "Open Source Repository", value: "github.com/Shubham-sharma8/helium (MIT License • Swift 6.0)" },
-      { label: "Latest Version", value: "v0.0.2 (Build 2) — Released November 10, 2026" },
-      { label: "Direct Download", value: "/Helium.dmg (8.4 MB • 8,798,017 bytes)" },
-      { label: "SHA-256 Checksum", value: "197d07f184e59a3b7cd121978994cd349d92b16371366ecb56fcaeef0361d805" },
-      { label: "Previous Version", value: "v0.0.1 (Build 1 • 5.3 MB • Nov 7, 2026 • /helium/releases)" },
+      { label: "Latest Version", value: "v0.0.3 (Build 3) — Released November 10, 2026" },
+      { label: "Auto-Updater", value: "GitHub Releases Auto-Update (Settings → Updates • 1-Click In-Place Install)" },
+      { label: "Direct Download", value: "/Helium.dmg (8.4 MB • 8,842,531 bytes)" },
+      { label: "SHA-256 Checksum", value: "b9099e6c192d4662ae008bec4766c59f0d1dd911a0dc3f52eddc4edd5dcb88c8" },
+      { label: "Previous Versions", value: "v0.0.2 (8.4 MB) & v0.0.1 (5.3 MB) at /helium/releases" },
       { label: "System Requirements", value: "macOS 15.4+ / macOS 26 Tahoe (Apple Silicon & Intel)" },
       { label: "Mount Point", value: "/Volumes/Helium (APFS Sparse Placeholder & HTTP Range 206 Streaming)" },
       { label: "Supported Protocols", value: "Google Drive Pool, S3/R2/B2/Wasabi, WebDAV, SFTP/SSH, SMB, BYOK OAuth & Local SSD (25+ Presets)" },

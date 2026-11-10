@@ -41,7 +41,7 @@ import {
 const GITHUB_REPO_URL = "https://github.com/Shubham-sharma8/helium";
 const DIRECT_DMG_HREF = "/Helium.dmg";
 const SHA256_HASH =
-  "197d07f184e59a3b7cd121978994cd349d92b16371366ecb56fcaeef0361d805";
+  "b9099e6c192d4662ae008bec4766c59f0d1dd911a0dc3f52eddc4edd5dcb88c8";
 
 function FeatureLineIcon({ type }: { type: WhatYouGetItem["iconType"] }) {
   const cls = "w-4 h-4 text-[#111110]/70 dark:text-white/75 shrink-0";
@@ -200,7 +200,7 @@ export function HeliumLandingView() {
           <div className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#161618] border border-[#E6E6E4] dark:border-white/10 text-[12px] text-[#111110]/70 dark:text-white/70 mb-6 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="font-semibold text-[#111110] dark:text-white">
-              helium v0.0.2 (build 2)
+              helium v0.0.3 (build 3) · auto-updater
             </span>
             <span className="text-[#111110]/30 dark:text-white/30">·</span>
             <a
@@ -250,7 +250,7 @@ export function HeliumLandingView() {
               className="inline-flex items-center justify-center gap-2.5 h-12 px-7 rounded-full bg-[#111110] dark:bg-white text-white dark:text-[#111110] text-[15px] font-medium shadow-[0_10px_28px_rgba(0,0,0,0.14)] hover:scale-[1.015] active:scale-[0.99] transition-all"
             >
               <AppleLogoIcon className="w-4 h-4 shrink-0 -mt-0.5" />
-              <span>download for mac (v0.0.2 · 8.4 MB)</span>
+              <span>download for mac (v0.0.3 · 8.4 MB)</span>
             </a>
             <a
               href={GITHUB_REPO_URL}
@@ -272,9 +272,9 @@ export function HeliumLandingView() {
 
           {/* Meta Microcopy */}
           <p className="mt-4 text-[12.5px] text-[#111110]/55 dark:text-white/55 tracking-[-0.01em]">
-            100% open source (MIT) · apple notarized · google drive pool + 25+
-            S3 / R2 / WebDAV / SFTP / SMB presets · 5-step safe-write · time
-            travel
+            100% open source (MIT) · github releases auto-updater · google drive
+            pool + 25+ S3 / R2 / WebDAV / SFTP / SMB presets · 5-step safe-write
+            · time travel
           </p>
 
           {/* Featured on TryMacApps Badge */}
@@ -1418,7 +1418,7 @@ export function HeliumLandingView() {
                   },
                   {
                     target: "HeliumApp",
-                    desc: "SwiftUI macOS workspace, menu bar popover, backups (⌘⇧K) & snapshots (⌘⇧Y)",
+                    desc: "SwiftUI macOS workspace, GitHub Releases auto-updater, backups (⌘⇧K) & snapshots (⌘⇧Y)",
                   },
                   {
                     target: "OrbitFS",
@@ -1457,7 +1457,7 @@ export function HeliumLandingView() {
                   href="/helium/releases"
                   className="inline-flex items-center gap-1.5 h-11 px-5 rounded-full bg-[#F7F7F7] dark:bg-white/10 border border-[#E6E6E4] dark:border-white/10 text-[13.5px] font-medium text-[#111110] dark:text-white hover:bg-black/[0.04] dark:hover:bg-white/15 transition-colors"
                 >
-                  <span>What&apos;s New in v0.0.2 &amp; Previous Releases →</span>
+                  <span>What&apos;s New in v0.0.3 &amp; Previous Releases →</span>
                 </Link>
               </div>
             </div>
@@ -1485,7 +1485,7 @@ swift test
                     href="/helium/releases"
                     className="text-emerald-400 hover:underline"
                   >
-                    v0.0.2 &amp; v0.0.1 DMGs →
+                    v0.0.3, v0.0.2 &amp; v0.0.1 DMGs →
                   </Link>
                 </div>
               </div>
@@ -1556,7 +1556,7 @@ swift test
         >
           <div className="lg:col-span-7 space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/12 text-emerald-700 dark:text-emerald-300 text-[12px] font-semibold">
-              <span>free &amp; open source forever · v0.0.2 (build 2 · MIT)</span>
+              <span>free &amp; open source forever · v0.0.3 (build 3 · MIT)</span>
             </div>
             <h3 className="text-[28px] sm:text-[36px] font-semibold tracking-[-0.03em] leading-[1.12]">
               bring your own google drives, S3, R2 &amp; NAS.{" "}
@@ -1571,7 +1571,7 @@ swift test
               Pool unlimited 15 GB free Google accounts, Workspace terabytes, or
               25+ multi-protocol presets into{" "}
               <code className="font-mono text-[13.5px]">/Volumes/Helium</code>{" "}
-              for free.
+              for free — with built-in GitHub Releases auto-updates.
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
@@ -1579,7 +1579,7 @@ swift test
                 className="inline-flex items-center gap-2 h-11 px-6 rounded-full bg-[#111110] dark:bg-white text-white dark:text-[#111110] text-[14px] font-medium hover:opacity-90 transition-opacity"
               >
                 <AppleLogoIcon className="w-4 h-4 shrink-0 -mt-0.5" />
-                <span>download helium v0.0.2 (8.4 MB · free)</span>
+                <span>download helium v0.0.3 (8.4 MB · free)</span>
               </a>
               <button
                 type="button"
@@ -1590,7 +1590,7 @@ swift test
                 <span>
                   {copiedSha
                     ? "Copied SHA-256!"
-                    : "SHA-256: 197d07f1...61d805"}
+                    : "SHA-256: b9099e6c...cb88c8"}
                 </span>
               </button>
               <Link
@@ -1702,7 +1702,7 @@ swift test
               className="inline-flex items-center justify-center gap-2.5 h-12 px-8 rounded-full bg-[#111110] dark:bg-white text-white dark:text-[#111110] text-[15px] font-medium shadow-[0_10px_28px_rgba(0,0,0,0.16)] hover:scale-[1.015] transition-transform"
             >
               <AppleLogoIcon className="w-4 h-4 shrink-0 -mt-0.5" />
-              <span>download for mac (v0.0.2 · 8.4 MB)</span>
+              <span>download for mac (v0.0.3 · 8.4 MB)</span>
             </a>
             <a
               href={GITHUB_REPO_URL}
@@ -1717,7 +1717,7 @@ swift test
               href="/helium/releases"
               className="inline-flex items-center justify-center gap-1.5 h-12 px-5 rounded-full bg-[#F7F7F7] dark:bg-white/10 border border-[#E6E6E4] dark:border-white/10 text-[13px] font-medium text-[#111110]/75 dark:text-white/75 hover:text-[#111110] transition-colors"
             >
-              <span>What&apos;s New &amp; Previous Releases (v0.0.1) →</span>
+              <span>What&apos;s New &amp; Previous Releases (v0.0.2 / v0.0.1) →</span>
             </Link>
           </div>
 

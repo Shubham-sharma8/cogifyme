@@ -252,17 +252,17 @@ export interface WhatYouGetItem {
 
 export const WHAT_YOU_GET_LIST: WhatYouGetItem[] = [
   { id: "1", text: "combine unlimited google drives + 25+ S3, R2, B2, WebDAV, SFTP & SMB presets into /Volumes/Helium", iconType: "pool" },
-  { id: "2", text: "client-side zero-knowledge AES-256-GCM (OrbitCore.ZK) with HKDF-SHA256 & P-256 key agreement", iconType: "lock" },
-  { id: "3", text: "whole-file smart placement & 64 MiB RAID-0 cross-account chunk striping", iconType: "stripe" },
-  { id: "4", text: "5-step safe-write canary check (RTT ms → TLS 1.3 → auth → SHA-256 canary → 0 B cleanup)", iconType: "resume" },
-  { id: "5", text: "scheduled add-only Mac folder backups (⌘⇧K) with live exclusion previews & 14-run history dots", iconType: "sync" },
-  { id: "6", text: "Time Travel point-in-time snapshots & 'Then vs. Now' visual diffing (⌘⇧Y) + 30-day Recycle Bin", iconType: "undo" },
-  { id: "7", text: "right-hand file inspector ('Where it lives', Keep Downloaded & two-Mac conflict resolver)", iconType: "pin" },
-  { id: "8", text: "edit directly in DaVinci Resolve, Final Cut Pro, QuickTime, Preview & DiskImageMounter", iconType: "film" },
-  { id: "9", text: "executable command palette (⌃⌥O) & menu bar quick dropzone for instant offload", iconType: "search" },
-  { id: "10", text: "status-first Activity & Health (⌘⇧A) with self-healing Fix cards & HTTP 206 throughput chart", iconType: "wifi" },
-  { id: "11", text: "local Privacy Network Contact Map (0 analytics/telemetry) & 1-click redacted diagnostics", iconType: "menubar" },
-  { id: "12", text: "100% open-source Swift 6.0 codebase under the MIT License (github.com/Shubham-sharma8/helium)", iconType: "sparkles" },
+  { id: "2", text: "automatic GitHub Releases auto-updater (Settings → Updates) with 1-click in-place .dmg install & persistent OAuth sign-in", iconType: "resume" },
+  { id: "3", text: "client-side zero-knowledge AES-256-GCM (OrbitCore.ZK) with HKDF-SHA256 & P-256 key agreement", iconType: "lock" },
+  { id: "4", text: "whole-file smart placement & 64 MiB RAID-0 cross-account chunk striping", iconType: "stripe" },
+  { id: "5", text: "5-step safe-write canary check (RTT ms → TLS 1.3 → auth → SHA-256 canary → 0 B cleanup)", iconType: "sync" },
+  { id: "6", text: "scheduled add-only Mac folder backups (⌘⇧K) with live exclusion previews & 14-run history dots", iconType: "sync" },
+  { id: "7", text: "Time Travel point-in-time snapshots & 'Then vs. Now' visual diffing (⌘⇧Y) + 30-day Recycle Bin", iconType: "undo" },
+  { id: "8", text: "right-hand file inspector ('Where it lives', Keep Downloaded & two-Mac conflict resolver)", iconType: "pin" },
+  { id: "9", text: "edit directly in DaVinci Resolve, Final Cut Pro, QuickTime, Preview & DiskImageMounter", iconType: "film" },
+  { id: "10", text: "executable command palette (⌃⌥O) & menu bar quick dropzone for instant offload", iconType: "search" },
+  { id: "11", text: "status-first Activity & Health (⌘⇧A) with self-healing Fix cards & HTTP 206 throughput chart", iconType: "wifi" },
+  { id: "12", text: "100% open-source Swift 6.0 codebase under the MIT License + Privacy Network Contact Map (0 telemetry)", iconType: "sparkles" },
 ];
 
 export interface BentoFeatureCard {
@@ -614,9 +614,14 @@ export interface FaqItem {
 
 export const HELIUM_FAQS: FaqItem[] = [
   {
-    question: "what is helium and what's new in v0.0.2 (build 2)?",
+    question: "what is helium and what's new in v0.0.3 (build 3)?",
     answer:
-      "helium is a native macOS app that mounts a real local drive at /Volumes/Helium in Finder while using Zero bytes on disk (0 B on disk) on your Mac's internal SSD. In v0.0.2 (Build 2), Helium expands beyond Google Drive Pool (with 64 MiB RAID-0 striping) to support 25+ multi-protocol presets (Amazon S3, Cloudflare R2, Backblaze B2, Wasabi, Hetzner, DigitalOcean, Storj, Tigris, Nextcloud/WebDAV, SFTP/SSH, SMB/Bonjour, BYOK Dropbox/OneDrive/Box, and External SSDs), plus 5-Step Safe-Write Verification, Scheduled Add-Only Mac Backups (⌘⇧K), Time Travel Snapshots & 'Then vs. Now' Diffing (⌘⇧Y), a Right-Hand File Inspector with Conflict Resolution, and Activity & Health (⌘⇧A).",
+      "helium is an open-source (MIT) native macOS app that mounts a real local drive at /Volumes/Helium in Finder while using Zero bytes on disk (0 B on disk) on your Mac's internal SSD. Helium v0.0.3 (Build 3) adds a built-in GitHub Releases Auto-Updater (Settings → Updates) with 1-click in-place .dmg installation, persistent multi-account Google Drive OAuth refresh-token recovery across reboots, and a refined menu bar & pool workspace layout—on top of 25+ multi-protocol presets (Google Drive Pool with 64 MiB RAID-0 striping, S3, Cloudflare R2, Backblaze B2, WebDAV, SFTP/SSH, SMB/Bonjour, BYOK Dropbox/OneDrive/Box, and External SSDs), 5-Step Safe-Write Verification, Scheduled Add-Only Mac Backups (⌘⇧K), Time Travel Snapshots & 'Then vs. Now' Diffing (⌘⇧Y), a Right-Hand File Inspector with Conflict Resolution, and Activity & Health (⌘⇧A).",
+  },
+  {
+    question: "how does the new auto-updater work in v0.0.3?",
+    answer:
+      "in Helium v0.0.3, Settings → Updates directly queries github.com/Shubham-sharma8/helium/releases for new versions, shows the full release notes inside the app, and lets you automatically or in 1 click download the signed .dmg and install the update in place to /Applications/Helium.app without losing your mounted pool or OAuth sessions.",
   },
   {
     question: "how does multi-google-drive & multi-cloud pooling work?",
@@ -641,6 +646,6 @@ export const HELIUM_FAQS: FaqItem[] = [
   {
     question: "what are the system requirements and where can i find previous releases?",
     answer:
-      "helium v0.0.2 (Build 2) is an 8.4 MB (8,798,017 bytes) universal native macOS installer supporting Apple Silicon (M1, M2, M3, M4) and Intel Macs running macOS 15.4+ or macOS 26 Tahoe. You can view the full What's New changelog and download previous versions (including v0.0.1 Build 1, 5.3 MB) on cogify.me/helium/releases or github.com/Shubham-sharma8/helium/releases.",
+      "helium v0.0.3 (Build 3) is an 8.4 MB (8,842,531 bytes) universal native macOS installer supporting Apple Silicon (M1, M2, M3, M4) and Intel Macs running macOS 15.4+ or macOS 26 Tahoe. You can view the full What's New changelog and download previous versions (v0.0.2 and v0.0.1) on cogify.me/helium/releases or github.com/Shubham-sharma8/helium/releases.",
   },
 ];

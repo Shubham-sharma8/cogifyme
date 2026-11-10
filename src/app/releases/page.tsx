@@ -62,13 +62,13 @@ const OTHER_MAC_RELEASES = [
     size: siteConfig.helium.appSize,
     href: "/helium/releases",
     downloadUrl: "/Helium.dmg",
-    previousVersion: "0.0.1",
-    previousSize: "5.3 MB",
+    previousVersion: "0.0.2",
+    previousSize: "8.4 MB",
     previousDownloadUrl:
-      "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.1/Helium.dmg",
+      "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.2/Helium-0.0.2.dmg",
     icon: siteConfig.helium.icon,
     subtitle:
-      "Open-Source (MIT) Multi-Cloud & Google Drive Pool in /Volumes/Helium — Full What's New & v0.0.1 Archive",
+      "Open-Source (MIT) Multi-Cloud & Google Drive Pool in /Volumes/Helium — Auto-Updater & v0.0.2 / v0.0.1 Archive",
   },
   {
     name: siteConfig.showFreeSpace.shortName,
@@ -174,7 +174,7 @@ export default function EmDocReleasesPage() {
               href="/helium/releases"
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 hover:underline"
             >
-              <span>Helium v0.0.2 &amp; v0.0.1 Releases (/helium/releases)</span>
+              <span>Helium v0.0.3, v0.0.2 &amp; v0.0.1 Releases (/helium/releases)</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
             <Link

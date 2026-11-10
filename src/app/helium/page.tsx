@@ -6,19 +6,19 @@ import { HELIUM_FAQS } from "@/components/helium/helium-data";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Helium for Mac (v0.0.2 • Open Source) — Unlimited Pooled Google Drive, S3, R2, WebDAV & NAS Volume (/Volumes/Helium • 0 B on Disk) | COGIFY",
+      "Helium for Mac (v0.0.3 • Open Source) — Unlimited Pooled Google Drive, S3, R2, WebDAV & NAS Volume (/Volumes/Helium • 0 B on Disk) | COGIFY",
   },
   description:
-    "Helium v0.0.2 (Build 2) is an open-source (MIT) native Swift 6.0 macOS app that mounts /Volumes/Helium in Finder pooling Google Drives (64 MiB RAID-0 striping) and 25+ S3, R2, B2, WebDAV, SFTP, SMB & External SSD presets with 5-Step Safe-Write Verification, Scheduled Add-Only Backups (⌘⇧K), and Time Travel (⌘⇧Y).",
+    "Helium v0.0.3 (Build 3) is an open-source (MIT) native Swift 6.0 macOS app with GitHub Releases Auto-Updater that mounts /Volumes/Helium in Finder pooling Google Drives (64 MiB RAID-0 striping) and 25+ S3, R2, B2, WebDAV, SFTP, SMB & External SSD presets with 5-Step Safe-Write Verification, Scheduled Add-Only Backups (⌘⇧K), and Time Travel (⌘⇧Y).",
   keywords: siteConfig.helium.keywords,
   alternates: {
     canonical: `${siteConfig.url}/helium`,
   },
   openGraph: {
     title:
-      "meet helium v0.0.2 (open source). — unlimited pooled space for your mac, without buying a new ssd.",
+      "meet helium v0.0.3 (open source). — unlimited pooled space for your mac, without buying a new ssd.",
     description:
-      "100% open-source (MIT) macOS app: pool unlimited Google Drive accounts + 25+ S3, R2, WebDAV, SFTP, and SMB presets into /Volumes/Helium in Finder with 0 B on your Mac SSD.",
+      "100% open-source (MIT) macOS app with built-in Auto-Updater: pool unlimited Google Drive accounts + 25+ S3, R2, WebDAV, SFTP, and SMB presets into /Volumes/Helium in Finder with 0 B on your Mac SSD.",
     url: `${siteConfig.url}/helium`,
     siteName: siteConfig.name,
     locale: "en_US",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "meet helium v0.0.2 (open source). — unlimited pooled space for your mac, without buying a new ssd.",
+      "meet helium v0.0.3 (open source). — unlimited pooled space for your mac, without buying a new ssd.",
     description:
       "Open-source (MIT) macOS app mounting /Volumes/Helium in Finder pooling Google Drives, S3, R2, WebDAV & NAS into one volume with 0 B used on your Mac SSD.",
     images: [
@@ -55,12 +55,12 @@ export default function HeliumPage() {
     operatingSystem: "macOS 15.4+, macOS 26 Tahoe (Apple Silicon & Intel)",
     applicationCategory: "UtilitiesApplication",
     applicationSubCategory: "Cloud Storage & Virtual Filesystem",
-    softwareVersion: "0.0.2",
+    softwareVersion: "0.0.3",
     fileSize: "8.4 MB",
     license: "https://opensource.org/licenses/MIT",
     codeRepository: "https://github.com/Shubham-sharma8/helium",
     downloadUrl:
-      "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.2/Helium-0.0.2.dmg",
+      "https://github.com/Shubham-sharma8/helium/releases/download/v0.0.3/Helium-0.0.3.dmg",
     installUrl: `${siteConfig.url}/Helium.dmg`,
     releaseNotes: `${siteConfig.url}/helium/releases`,
     datePublished: "2026-11-10",

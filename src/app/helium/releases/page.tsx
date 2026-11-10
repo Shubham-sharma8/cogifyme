@@ -26,11 +26,12 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "Helium Releases, What's New in v0.0.2 & Previous Versions (.DMG Download) | COGIFY",
+    "Helium Releases, What's New in v0.0.3 & Previous Versions (.DMG Download) | COGIFY",
   description:
-    "Download Helium v0.0.2 (Build 2, 8.4 MB DMG) or previous version v0.0.1 (5.3 MB DMG) for macOS. Read the full What's New in Helium v0.0.2 changelog, verify SHA-256 checksums, and explore the open-source Swift 6 repository at github.com/Shubham-sharma8/helium.",
+    "Download Helium v0.0.3 (Build 3, 8.4 MB DMG with GitHub Releases Auto-Updater) or previous versions v0.0.2 and v0.0.1 for macOS. Read the full What's New changelog, verify SHA-256 checksums, and explore the open-source Swift 6 repository at github.com/Shubham-sharma8/helium.",
   keywords: [
     "Helium download",
+    "Helium v0.0.3 DMG",
     "Helium v0.0.2 DMG",
     "Helium v0.0.1 DMG",
     "Helium previous versions",
@@ -44,9 +45,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Helium Releases, What's New in v0.0.2 & Previous Versions — Open-Source macOS Cloud Pool",
+      "Helium Releases, What's New in v0.0.3 & Previous Versions — Open-Source macOS Cloud Pool",
     description:
-      "Download Helium v0.0.2 (8.4 MB Universal DMG) or v0.0.1 (5.3 MB DMG) from GitHub Releases (Shubham-sharma8/helium) with full release notes and SHA-256 verification.",
+      "Download Helium v0.0.3 (8.4 MB Universal DMG with GitHub Releases Auto-Updater), v0.0.2, or v0.0.1 from GitHub Releases (Shubham-sharma8/helium) with full release notes and SHA-256 verification.",
     url: "https://cogify.me/helium/releases",
     type: "website",
     images: [
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
         url: "https://cogify.me/brand/Helium/02-helium-hero-finder-zero-bytes.png",
         width: 1440,
         height: 900,
-        alt: "Helium for macOS Release Archive & What's New in v0.0.2",
+        alt: "Helium for macOS Release Archive & What's New in v0.0.3",
       },
     ],
   },
@@ -312,14 +313,76 @@ export default function HeliumReleasesPage() {
               </div>
             </div>
 
-            {/* Full What's New in Helium v0.0.2 (Build 2) */}
+            {/* Full What's New in Helium v0.0.3 (Build 3) & v0.0.2 Architecture */}
             <div className="pt-7">
               <div className="mb-6">
                 <span className="text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700 dark:text-emerald-400">
-                  Full Release Notes • What&apos;s New in Helium v0.0.2 (Build 2)
+                  New in Helium v0.0.3 (Build 3) • Released November 10, 2026
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold tracking-[-0.025em] mt-1">
-                  6 Major Feature Pillars + Latest Stability &amp; Bug Fixes
+                  GitHub Releases Auto-Updater, Persistent Multi-Drive Sign-In &amp; Refined Workspace
+                </h3>
+              </div>
+
+              {/* v0.0.3 Highlights Grid */}
+              <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="rounded-2xl bg-emerald-500/[0.06] border border-emerald-500/20 p-5">
+                  <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 mb-2">
+                    <Check className="w-3.5 h-3.5" />
+                    <span>New in v0.0.3 • Settings → Updates</span>
+                  </div>
+                  <h4 className="text-base font-bold text-[#111110] dark:text-white">
+                    GitHub Releases Auto-Update
+                  </h4>
+                  <p className="mt-1.5 text-xs leading-relaxed text-[#111110]/70 dark:text-white/70">
+                    Directly checks{" "}
+                    <code className="font-mono text-[11px]">
+                      github.com/Shubham-sharma8/helium/releases
+                    </code>{" "}
+                    for new versions, displays release notes in-app, and supports
+                    automatic or 1-click <code className="font-mono text-[11px]">.dmg</code>{" "}
+                    download and in-place installation to{" "}
+                    <code className="font-mono text-[11px]">/Applications/Helium.app</code>.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl bg-[#F7F7F7] dark:bg-white/[0.03] border border-[#E6E6E4] dark:border-white/10 p-5">
+                  <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 mb-2">
+                    <Check className="w-3.5 h-3.5" />
+                    <span>New in v0.0.3 • OAuth 2.0 PKCE</span>
+                  </div>
+                  <h4 className="text-base font-bold text-[#111110] dark:text-white">
+                    Persistent Multi-Drive Sign-In
+                  </h4>
+                  <p className="mt-1.5 text-xs leading-relaxed text-[#111110]/70 dark:text-white/70">
+                    Hardened OAuth 2.0 refresh-token persistence in macOS Keychain
+                    with automatic account session recovery across app restarts and
+                    macOS reboots.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl bg-[#F7F7F7] dark:bg-white/[0.03] border border-[#E6E6E4] dark:border-white/10 p-5">
+                  <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 mb-2">
+                    <Check className="w-3.5 h-3.5" />
+                    <span>New in v0.0.3 • SwiftUI Polish</span>
+                  </div>
+                  <h4 className="text-base font-bold text-[#111110] dark:text-white">
+                    Refined Menu Bar &amp; Pool Layout
+                  </h4>
+                  <p className="mt-1.5 text-xs leading-relaxed text-[#111110]/70 dark:text-white/70">
+                    Top-aligned menu bar settings &amp; search panels plus a
+                    responsive two-row toolbar layout in the Google Drive Pool
+                    header that prevents text wrapping.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <span className="text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700 dark:text-emerald-400">
+                  Core v0.0.2 / v0.0.3 Architecture • 6 Major Feature Pillars
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold tracking-[-0.025em] mt-1">
+                  25+ Multi-Protocol Cloud Presets, Safe-Write Canary, Backups &amp; Time Travel
                 </h3>
               </div>
 
