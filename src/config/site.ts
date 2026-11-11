@@ -296,6 +296,7 @@ export interface SiteConfig {
   taskyfy: MacAppConfig;
   wheelify: MacAppConfig;
   screenify: MacAppConfig;
+  wifyy: MacAppConfig;
   lumenview: MacAppConfig;
   metricove: MacAppConfig;
   netguard: MacAppConfig;
@@ -3888,6 +3889,189 @@ export const siteConfig: SiteConfig = {
       "invisible teleprompter Mac screen recorder",
     ],
   },
+  wifyy: {
+    name: "Wifyy",
+    shortName: "Wifyy",
+    slug: "wifyy",
+    tagline:
+      "Wifyy — Real-time 4-hop Wi-Fi & call reliability engine in your macOS menu bar with ITU-T Call MOS, pre-call checks, and upload bufferbloat detection.",
+    subtitle:
+      "4-Hop Wi-Fi & Call Reliability Engine • ITU-T Call MOS • Pre-Call Verification • 100% Local • MIT Open Source",
+    promotionalText:
+      "Wifyy sits quietly in your menu bar at <0.2% CPU. Instead of vague Wi-Fi bars, it continuously probes your Mac wireless chip, Wi-Fi radio airwaves, local router gateway, and upstream internet anchors in parallel — translating raw RF and packet timing into a plain-English verdict before video calls drop.",
+    shortDescription:
+      "A real-time 4-hop Wi-Fi & call reliability engine in your macOS menu bar — with live ITU-T Call MOS, 5-minute pre-call calendar checks, upload bufferbloat detection, and 100% local air-gapped privacy.",
+    fullDescription:
+      "Wifyy is a native Swift 6 macOS menu bar and desktop telemetry studio that monitors your Wi-Fi RF link, local router hop, upstream ISP latency, per-app bandwidth bufferbloat, and ITU-T Call MOS in real time. It features a clean white Apple System UI, a 6-view Wifyy Studio workspace, instant subnet LAN device discovery, and automatic Ethernet + Wi-Fi RPM speed benchmarking with 0 bytes of cloud telemetry.",
+    philosophy:
+      "Know why your call dropped before your team does — isolating Mac radio, RF airwaves, router, and upstream ISP in parallel.",
+    version: "1.0.0",
+    build: "100",
+    releaseDate: "November 11, 2026",
+    releaseDateIso: "2026-11-11",
+    sha256: "b380ee1f7df4c8815e7744bb5cfd5e9e7eecfdf05c84908b7f53da1a5f70834a",
+    bytes: "2,911,058 bytes",
+    directPath:
+      "https://github.com/Shubham-sharma8/wifyy/releases/download/v1.0.0/Wifyy.dmg",
+    githubRepoUrl: "https://github.com/Shubham-sharma8/wifyy",
+    license: "MIT License (100% Open Source)",
+    appSize: "2.9 MB",
+    bundleId: "com.wifyy.Wifyy",
+    minMacOsVersion: "macOS 14.0+ (Sonoma, Sequoia & Tahoe 26)",
+    architecture: "Universal (Apple Silicon & Intel)",
+    primaryCategory: "Networking & Telemetry",
+    secondaryCategory: "Utilities",
+    pricingModel: "100% Free & Open Source Forever (MIT License)",
+    platform: "macOS 14.0+ (Universal)",
+    downloadUrl:
+      "https://github.com/Shubham-sharma8/wifyy/releases/download/v1.0.0/Wifyy.dmg",
+    icon: "/brand/Wifyy/icon.png",
+    iconLarge: "/brand/Wifyy/icon.png",
+    accentColor: "sky",
+    features: [
+      {
+        title: "4-Hop Parallel Fault Isolation",
+        description:
+          "Probes Mac radio, Wi-Fi RF airwaves, router gateway (192.168.1.1), and upstream ISP anchors (1.1.1.1) simultaneously.",
+        tag: "Fault Isolation",
+      },
+      {
+        title: "ITU-T G.107 E-Model Call MOS",
+        description:
+          "Calculates a real-time 1.00–4.50 Call Quality Score and 0–100 stability index for crystal-clear voice and video verification.",
+        tag: "Call MOS",
+      },
+      {
+        title: "5-Minute Pre-Call Check & 1-Click Join",
+        description:
+          "Inspects upcoming calendar meetings locally, verifies network readiness 5 minutes prior, and provides 1-click meeting join.",
+        tag: "Pre-Call Check",
+      },
+      {
+        title: "Auto-Shield Quiet Mode",
+        description:
+          "Automatically pauses heavy cloud uploads (OneDrive, Dropbox, iCloud) the moment your camera or mic turns on.",
+        tag: "Auto-Shield",
+      },
+      {
+        title: "Apple networkQuality RPM Speed Test",
+        description:
+          "Measures both Mbps throughput and Round-Trips Per Minute responsiveness under heavy queuing load.",
+        tag: "RPM Responsiveness",
+      },
+      {
+        title: "Subnet LAN Device Radar",
+        description:
+          "Discovers local network hosts with IP, MAC, hostname, vendor, and live ICMP ping latency.",
+        tag: "Subnet Devices",
+      },
+    ],
+    specifications: [
+      { label: "Current Version", value: "1.0.0 (Build 100)" },
+      { label: "License", value: "MIT Open Source (github.com/Shubham-sharma8/wifyy)" },
+      { label: "Installer Size", value: "2.9 MB .DMG Universal macOS Installer" },
+      { label: "SHA-256 Checksum", value: "b380ee1f7df4c8815e7744bb5cfd5e9e7eecfdf05c84908b7f53da1a5f70834a" },
+      { label: "Supported Hardware", value: "Universal (Apple Silicon & Intel) • macOS 14.0+" },
+      { label: "Privacy", value: "100% Local & Air-Gapped • 0 Bytes Telemetry • Zero Accounts" },
+    ],
+    screenshotsMac: [
+      {
+        id: "wifyy-1",
+        title: "Menu Bar Pulse Popover",
+        subtitle: "Real-Time 4-Hop Topology & Call Readiness Verdict",
+        image: "/images/wifyy/01-wifyy-hero-pulse-menu.png",
+        tag: "Pulse Telemetry",
+        description:
+          "Instant menu bar popover showing 4.40 Call MOS, 4-Hop Clean latency, and 1,480 RPM responsiveness.",
+        highlights: [
+          "Ready for Calls (4.40 MOS) plain-English verdict",
+          "Parallel Mac, RF, Router & ISP latency telemetry",
+          "Fast & Low-Bufferbloat connection verification",
+        ],
+      },
+      {
+        id: "wifyy-2",
+        title: "RF Spectrum & Channel Congestion",
+        subtitle: "CoreWLAN Radio Telemetry & Clean Channel Recommender",
+        image: "/images/wifyy/02-wifyy-spectrum-and-hop.png",
+        tag: "RF Spectrum",
+        description:
+          "Full radio metrics with RSSI, Noise Floor, SNR Margin, and 2.4/5/6 GHz channel congestion scanner.",
+        highlights: [
+          "-52 dBm RSSI, -92 dBm Noise Floor, 40 dB SNR Margin",
+          "Nearby AP channel overlap & interference detection",
+          "Cleanest channel recommendation (e.g. Recommend Ch 40)",
+        ],
+      },
+      {
+        id: "wifyy-3",
+        title: "Pre-Call Check & Auto-Shield",
+        subtitle: "Calendar Integration & Upload Bandwidth Protection",
+        image: "/images/wifyy/03-wifyy-calls-and-protection.png",
+        tag: "Call Shield",
+        description:
+          "Local calendar scan with 5-minute pre-call alert, 1-click join, and automatic cloud sync quieting.",
+        highlights: [
+          "5-min pre-call burst test (20 rapid probes)",
+          "1-click join for Zoom, Meet, Teams, Webex, FaceTime",
+          "Auto-Shield quiets OneDrive/Dropbox during active calls",
+        ],
+      },
+      {
+        id: "wifyy-4",
+        title: "Wifyy Studio Workspace",
+        subtitle: "Full Desktop Telemetry, 4-Hop Matrix & Connection Inspector",
+        image: "/images/wifyy/04-wifyy-studio-timeline.png",
+        tag: "Studio Matrix",
+        description:
+          "Dedicated desktop workspace with left sidebar, 4-card overview, 4-hop bottleneck matrix, and connection inspector.",
+        highlights: [
+          "4-hop bottleneck & fault isolation matrix",
+          "Real-time connection inspector and link status",
+          "Global shortcut ⌘K for instant studio launch",
+        ],
+      },
+      {
+        id: "wifyy-5",
+        title: "App Traffic & Bufferbloat Attribution",
+        subtitle: "Native macOS nettop Process Bandwidth Monitoring",
+        image: "/images/wifyy/07-wifyy-studio-app-traffic.png",
+        tag: "App Traffic",
+        description:
+          "Live per-process bandwidth attribution identifying the exact application saturating upload queues.",
+        highlights: [
+          "Live per-process upload and download rates",
+          "Queue inflation and bufferbloat culprit identification",
+          "Zero kernel extension — uses native macOS nettop",
+        ],
+      },
+      {
+        id: "wifyy-6",
+        title: "Subnet Wi-Fi & LAN Device Discovery",
+        subtitle: "Local Network Host Discovery & Ping Latencies",
+        image: "/images/wifyy/08-wifyy-studio-devices.png",
+        tag: "LAN Devices",
+        description:
+          "Subnet device discovery displaying IP, hostname, MAC, IEEE OUI vendor, and live ping latencies with 1-click copy.",
+        highlights: [
+          "Subnet-wide ICMP ping scan and response times",
+          "Normalized MAC address and IEEE vendor lookup",
+          "1-click copy for IP, hostname, and MAC addresses",
+        ],
+      },
+    ],
+    keywords: [
+      "Wifyy",
+      "Wifyy Mac",
+      "macOS Wi-Fi analyzer",
+      "4-hop network fault isolation mac",
+      "Call MOS score macOS",
+      "Zoom call lag detector mac",
+      "upload bufferbloat nettop mac",
+      "Apple networkQuality RPM",
+      "local Wi-Fi menu bar tool",
+    ],
+  },
 };
 
 export const liveMacApps: MacAppConfig[] = [
@@ -3896,6 +4080,7 @@ export const liveMacApps: MacAppConfig[] = [
   siteConfig.taskyfy,
   siteConfig.wheelify,
   siteConfig.screenify,
+  siteConfig.wifyy,
   siteConfig.lumenview,
   siteConfig.metricove,
   siteConfig.netguard,

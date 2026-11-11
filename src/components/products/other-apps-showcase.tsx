@@ -141,6 +141,28 @@ export const SISTER_APP_REFERENCES: SisterAppReference[] = [
     pills: ["240Hz Spring Auto-Zoom", "100% Local Whisper Captions", "Invisible Teleprompter & AI Edit"],
   },
   {
+    slug: "wifyy",
+    name: "Wifyy for macOS",
+    shortName: "Wifyy",
+    badge: "Wifyy for macOS · v1.0.0 · Open Source (MIT)",
+    pillar: "mac",
+    headlineSans: "4-hop Wi-Fi & call reliability engine.",
+    headlineSerif: "Directly in your menu bar.",
+    description:
+      "Meet Wifyy v1.0.0, our open-source (MIT) macOS menu bar utility that isolates call lag across Mac radio, Wi-Fi RF airwaves, local router, and upstream ISP in real time. Featuring ITU-T Call MOS, 5-minute pre-call calendar checks, 1-click meeting join, and upload bufferbloat detection with 0 bytes of cloud telemetry.",
+    icon: siteConfig.wifyy.icon,
+    screenshot: "/images/wifyy/04-wifyy-studio-timeline.png",
+    windowTitle: "Wifyy v1.0 — 4-Hop Network Fault Isolation, Call MOS & Subnet Radar",
+    href: "/wifyy",
+    primaryCtaLabel: "Download for macOS (v1.0.0 · DMG)",
+    primaryCtaHref:
+      "https://github.com/Shubham-sharma8/wifyy/releases/download/v1.0.0/Wifyy.dmg",
+    isDirectDownload: true,
+    stageGradient:
+      "from-[#007AFF]/20 via-[#111110]/15 to-[#0F172A] dark:from-[#007AFF]/25 dark:via-[#111110]/20 dark:to-[#090D16]",
+    pills: ["4-Hop Fault Isolation", "ITU-T 4.40 Call MOS", "Pre-Call Check & Auto-Shield"],
+  },
+  {
     slug: "emdoc",
     name: "EmDoc for macOS",
     shortName: "EmDoc",
@@ -312,6 +334,7 @@ export const SISTER_APP_REFERENCES: SisterAppReference[] = [
 
 export const ALL_SHORT_APP_LINKS = [
   { slug: "helium", name: "Helium", tag: "Drive Pool", href: "/helium", icon: siteConfig.helium.icon, pillar: "Mac" },
+  { slug: "wifyy", name: "Wifyy", tag: "Wi-Fi 4-Hop", href: "/wifyy", icon: siteConfig.wifyy.icon, pillar: "Mac" },
   { slug: "emdoc", name: "EmDoc", tag: "PDF Suite", href: "/emdoc", icon: "/brand/emdoc-icon-sm.webp", pillar: "Mac" },
   { slug: "klipora", name: "Klipora", tag: "Clipboard", href: "/klipora", icon: siteConfig.klipora.icon, pillar: "Mac" },
   { slug: "lumenview", name: "LumenView", tag: "Display DDC", href: "/lumenview", icon: siteConfig.lumenview.icon, pillar: "Mac" },

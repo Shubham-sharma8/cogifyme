@@ -64,6 +64,15 @@ const COGIFY_APPS: AppBoxItem[] = [
     accentColor: "#6366f1",
   },
   {
+    id: "wifyy",
+    name: "Wifyy",
+    platform: "For Mac",
+    solutionTag: "4-Hop Wi-Fi & Call Engine",
+    icon: siteConfig.wifyy.icon,
+    href: "/wifyy",
+    accentColor: "#007aff",
+  },
+  {
     id: "emdoc",
     name: "EmDoc",
     platform: "For Mac",

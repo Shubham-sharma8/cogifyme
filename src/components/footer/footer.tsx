@@ -67,6 +67,11 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/wifyy" className="hover:text-[#09090B] dark:hover:text-white transition-colors font-medium text-[#09090B] dark:text-white">
+                  Wifyy 4-Hop Wi-Fi
+                </Link>
+              </li>
+              <li>
                 <Link href="/emdoc" className="hover:text-[#09090B] dark:hover:text-white transition-colors">
                   EmDoc PDF Suite
                 </Link>

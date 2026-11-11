@@ -143,6 +143,17 @@ const COMMAND_ITEMS: CommandItem[] = [
     keywords: "screenify screen recorder studio video editor auto zoom 240hz spring cursor smoothing whisper ai captions deepfilternet teleprompter ai smart edit open source mit macos dmg v1.12.0",
   },
   {
+    id: "wifyy",
+    title: "Wifyy — 4-Hop Wi-Fi & Call Reliability Engine in Your Menu Bar (v1.0.0)",
+    subtitle: "Real-time 4-hop network fault isolation, ITU-T 4.40 Call MOS, 5-min pre-call check, 1-click meeting join & bufferbloat radar",
+    category: "macOS Workstations (.DMG)",
+    href: "/wifyy",
+    downloadUrl: siteConfig.wifyy.downloadUrl,
+    badge: "v1.0.0 • 2.9 MB DMG • MIT",
+    icon: "/brand/Wifyy/icon.png",
+    keywords: "wifyy wifi wi-fi 4-hop network fault isolation call mos quality video call freeze zoom pre-call check auto-shield bufferbloat nettop speedtest networkquality rpm router ping lan devices open source mit macos dmg v1.0.0",
+  },
+  {
     id: "emdoc",
     title: "EmDoc PDF Workstation (v1.1)",
     subtitle: "7.8 MB Air-Gapped Native macOS PDF Editor, Merger, OCR & Bates Numbering • Released Nov 6, 2026",

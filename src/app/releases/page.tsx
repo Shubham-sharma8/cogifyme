@@ -111,6 +111,16 @@ const OTHER_MAC_RELEASES = [
       "Open-Source (MIT) macOS Screen Recorder & Studio Video Editor — 240Hz Spring Auto-Zoom, Local Whisper AI Captions, Plain-English AI Smart Edit & Invisible Teleprompter",
   },
   {
+    name: siteConfig.wifyy.name,
+    version: siteConfig.wifyy.version,
+    size: siteConfig.wifyy.appSize,
+    href: "/wifyy",
+    downloadUrl: siteConfig.wifyy.downloadUrl,
+    icon: siteConfig.wifyy.icon,
+    subtitle:
+      "Open-Source (MIT) 4-Hop Wi-Fi & Call Reliability Engine — ITU-T 4.40 Call MOS, 5-Min Pre-Call Check, Auto-Shield Quiet Mode, RPM Speed Test & Subnet Radar",
+  },
+  {
     name: siteConfig.showFreeSpace.shortName,
     version: siteConfig.showFreeSpace.version,
     size: siteConfig.showFreeSpace.appSize,

@@ -38,7 +38,8 @@ export const Navbar = () => {
     pathname?.startsWith("/findy") ||
     pathname?.startsWith("/taskyfy") ||
     pathname?.startsWith("/wheelify") ||
-    pathname?.startsWith("/screenify")
+    pathname?.startsWith("/screenify") ||
+    pathname?.startsWith("/wifyy")
   ) {
     return <CommandPalette open={commandOpen} onClose={() => setCommandOpen(false)} />;
   }
