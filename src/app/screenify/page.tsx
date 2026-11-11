@@ -6,7 +6,7 @@ import { SCREENIFY_FAQS } from "@/components/screenify/screenify-data";
 
 export const metadata: Metadata = {
   title:
-    "Screenify for macOS — Open-Source Screen Recorder, 240Hz Auto-Zoom, Local Whisper Captions & Invisible Teleprompter | COGIFY",
+    "Screenify for macOS — Open-Source Screen Recorder, 240Hz Auto-Zoom & Local Whisper Captions",
   description:
     "Screenify v1.12.0 is a native-grade, open-source macOS screen recorder and studio video editor for Apple Silicon. Captures display, camera, mic, and 240Hz cursor telemetry on separate tracks with automatic RK4 spring click-zooms, 100% local Whisper AI captions, DeepFilterNet neural audio denoising, plain-English AI Smart Edit Assistant, and a content-protected invisible Teleprompter.",
   keywords: [

@@ -4,7 +4,7 @@ import { WHEELIFY_FAQS } from "@/components/wheelify/wheelify-data";
 
 export const metadata: Metadata = {
   title:
-    "Wheelify — 16-Tool Radial Command Workspace & Frontier AI for macOS | COGIFY",
+    "Wheelify — 16-Tool Radial Command Workspace & Frontier AI for macOS",
   description:
     "Hold ⌥ Space or middle-click anywhere on your Mac to summon 16 native utilities under your cursor: Clipboard History, Scientific Calculator (RAD • HEX • BIN), Live ECB Currency & Unit Converter, Frontier AI (Claude Opus 5.5, GPT-6 Astra, Gemini 4 Argon & local Ollama), Window Snapper, Magnifier Color Picker, and Pomodoro Timers. 1.9 MB Universal DMG, MIT Open Source.",
   keywords: [

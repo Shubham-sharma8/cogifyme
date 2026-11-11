@@ -6,7 +6,7 @@ import { WIFYY_FAQS } from "@/components/wifyy/wifyy-data";
 
 export const metadata: Metadata = {
   title:
-    "Wifyy for macOS — 4-Hop Wi-Fi & Call Reliability Engine in Your Menu Bar | COGIFY",
+    "Wifyy for macOS — 4-Hop Wi-Fi & Call Reliability Engine in Your Menu Bar",
   description:
     "Wifyy is a real-time 4-hop Wi-Fi & call reliability engine in your macOS menu bar. Isolate call lag across Mac radio, Wi-Fi RF airwaves, router, and upstream ISP in parallel. Featuring ITU-T Call MOS, 5-min pre-call calendar checks, upload bufferbloat detection, and 100% local privacy (0 telemetry).",
   keywords: [
