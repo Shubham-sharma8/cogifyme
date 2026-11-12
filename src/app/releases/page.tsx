@@ -291,21 +291,6 @@ export default function EmDocReleasesPage() {
             </code>{" "}
             binary. Download the latest <strong className="font-semibold text-[#111] dark:text-white">v{latestRelease.version}</strong> build or roll back to any previous version below.
           </p>
-          <div className="mt-5">
-            <a
-              href="https://www.trymacapps.com"
-              target="_blank"
-              rel="noopener"
-              className="inline-block hover:opacity-90 transition-opacity"
-            >
-              <img
-                src="https://www.trymacapps.com/badge.png"
-                alt="Featured on TryMacApps"
-                width="200"
-                height="67"
-              />
-            </a>
-          </div>
         </header>
 
         {/* Latest Release Spotlight Card */}

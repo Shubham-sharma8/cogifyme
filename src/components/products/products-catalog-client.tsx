@@ -292,24 +292,6 @@ export function ProductsCatalogClient({ items }: { items: CatalogItem[] }) {
                     </li>
                   ))}
                 </ul>
-
-                {item.pillar === "mac" && (
-                  <div className="mb-4">
-                    <a
-                      href="https://www.trymacapps.com"
-                      target="_blank"
-                      rel="noopener"
-                      className="inline-block hover:opacity-90 transition-opacity"
-                    >
-                      <img
-                        src="https://www.trymacapps.com/badge.png"
-                        alt="Featured on TryMacApps"
-                        width="200"
-                        height="67"
-                      />
-                    </a>
-                  </div>
-                )}
               </div>
 
               <div className="pt-4 border-t border-black/[0.06] dark:border-white/[0.08] flex flex-wrap items-center justify-between gap-3">

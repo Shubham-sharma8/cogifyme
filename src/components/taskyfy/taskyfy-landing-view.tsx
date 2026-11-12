@@ -262,23 +262,6 @@ export function TaskyfyLandingView() {
             daemons explained in plain english · 30-day SQLite WAL history ·
             live port radar · zero telemetry
           </p>
-
-          {/* Featured on TryMacApps Badge */}
-          <div className="mt-6 flex justify-center">
-            <a
-              href="https://www.trymacapps.com"
-              target="_blank"
-              rel="noopener"
-              className="inline-block hover:opacity-90 transition-opacity"
-            >
-              <img
-                src="https://www.trymacapps.com/badge.png"
-                alt="Featured on TryMacApps"
-                width="200"
-                height="67"
-              />
-            </a>
-          </div>
         </div>
 
         {/* Hero Image Showcase: 01-taskyfy-overview-hero.png */}

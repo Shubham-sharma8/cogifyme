@@ -191,24 +191,6 @@ export function OttieLandingView() {
               </a>
             </div>
 
-            {/* Featured on TryMacApps Badge */}
-            <div className="flex items-center justify-center pt-2 pb-6">
-              <a
-                href={TRYMACAPPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block transition-transform hover:scale-[1.02]"
-              >
-                <img
-                  src={TRYMACAPPS_BADGE_IMG}
-                  alt="Featured on TryMacApps"
-                  width={200}
-                  height={67}
-                  className="h-12 w-auto object-contain"
-                />
-              </a>
-            </div>
-
             {/* Micro Highlights */}
             <p className="text-xs text-[#5E6B73] max-w-3xl mx-auto leading-relaxed">
               macos 14+ (apple silicon &amp; intel) · 7 full-screen wellness

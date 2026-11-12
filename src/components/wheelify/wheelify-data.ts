@@ -350,6 +350,81 @@ export const WHEELIFY_16_TOOLS: WheelifyToolSpec[] = [
   },
 ];
 
+export interface WheelifyFileDialSector {
+  number: string;
+  name: string;
+  symbol: string;
+  subtitle: string;
+  description: string;
+}
+
+export const WHEELIFY_FILE_DIAL_SECTORS: WheelifyFileDialSector[] = [
+  {
+    number: "01",
+    name: "Quick Dial",
+    symbol: "bolt.circle",
+    subtitle: "Auto-Curated Smart Actions",
+    description:
+      "Automatically surfaces the top 6 actions for the active file family—such as Upload-Safe JPG (No GPS), Strip GPS Location when coordinates are detected, Compress Under 1 MB, Remove Background (Vision), or Compress PDF.",
+  },
+  {
+    number: "02",
+    name: "Convert",
+    symbol: "arrow.triangle.2.circlepath",
+    subtitle: "Universal Format Conversion",
+    description:
+      "Convert images between JPG, PNG, HEIC, TIFF, and PDF; export PDF pages to 2× Retina JPGs; transcode MOV/M4V video to H.264 MP4; or extract AAC .m4a audio tracks.",
+  },
+  {
+    number: "03",
+    name: "Compress",
+    symbol: "arrow.down.right.and.arrow.up.left",
+    subtitle: "Exact Byte-Budget Encoding",
+    description:
+      "Fit images strictly Under 2 MB, Under 1 MB, Under 500 KB, or Under 200 KB for strict web portals, or run Auto Balanced (78%), 50% Quality, PDF stream compression, and 720p email-safe video encoding.",
+  },
+  {
+    number: "04",
+    name: "Resize & Edit",
+    symbol: "crop.rotate",
+    subtitle: "Scale, Crop & Apple Vision Cutout",
+    description:
+      "Scale to 50%, fit Max 2048 px or Max 1080 px edges, crop Square 1:1, isolate subjects with on-device Apple Vision Remove Background (.png cutout), Auto Enhance tone, convert to Black & White, or rotate/flip.",
+  },
+  {
+    number: "05",
+    name: "PDF & OCR",
+    symbol: "text.viewfinder",
+    subtitle: "Vision Text Recognition & PDF Toolkit",
+    description:
+      "Extract text from images or scanned PDFs via Apple Vision OCR (copies to clipboard + saves sidecar .txt), Merge PDFs, Split PDF pages, Reverse page order, Stamp Page Numbers, or apply a CONFIDENTIAL watermark.",
+  },
+  {
+    number: "06",
+    name: "Privacy & Dev",
+    symbol: "shield.lefthalf.filled",
+    subtitle: "EXIF/GPS Scrubber & Checksums",
+    description:
+      "Remove GPS coordinates, strip all EXIF/TIFF camera metadata, clear macOS Gatekeeper quarantine flags (xattr -cr), copy SHA-256 or MD5 checksums, copy Base64 Data URIs, pretty-format JSON, or copy ASCII folder trees.",
+  },
+  {
+    number: "07",
+    name: "Batch & ZIP",
+    symbol: "archivebox",
+    subtitle: "Clean Archives, Renaming & Folder Sort",
+    description:
+      "Create clean .zip (without .DS_Store / __MACOSX) or .tar.gz archives, unpack archives into a subfolder, batch-rename files (Slugify kebab-case, YYYY-MM-DD date prefix, lowercase), sort messy folders by file type, or scan for SHA-256 duplicates.",
+  },
+  {
+    number: "08",
+    name: "Shelf & Share",
+    symbol: "square.and.arrow.up",
+    subtitle: "Floating File Shelf & Instant Share",
+    description:
+      "Park files on the Floating File Shelf for multi-folder batch processing, Reveal in Finder, copy POSIX paths, open the parent directory in Terminal, or share via AirDrop and Mail.",
+  },
+];
+
 export interface WheelifyPillarTab {
   id: string;
   badge: string;
@@ -385,8 +460,28 @@ export const WHEELIFY_PILLAR_TABS: WheelifyPillarTab[] = [
     ],
   },
   {
+    id: "advance-file-dial",
+    badge: "02 • ADVANCE FILE & MEDIA DIAL (⌃ SPACE)",
+    label: "Advance File Dial",
+    shortcut: "⌃ Space",
+    title: "Select any file in Finder. Press ⌃ Space. Convert, compress, OCR, or strip GPS in one flick.",
+    subtitle:
+      "Context-aware 8-sector file wheel with non-destructive job receipts, a Floating File Shelf, chained recipes, and 1-Click Undo.",
+    description:
+      "When you press Control + Space, Wheelify inspects your active Finder selection (or parked files on the Floating Shelf), detects file dimensions, PDF page count, and embedded GPS/EXIF metadata, and tailors 8 radial sectors and outer sub-arcs to that exact file type.",
+    image: "/images/wheelify/06-wheelify-advance-file-dial-control-space.png",
+    imageAlt:
+      "Wheelify Advance File & Media Dial (⌃ Space) showing 8-sector radial file wheel and Advance File Dial Workspace panel with Job Receipt and 1-Click Undo",
+    highlights: [
+      "Smart Quick Dial surfaces the best actions automatically (e.g., Upload-Safe JPG No GPS when GPS tags are detected)",
+      "Every action is non-destructive and generates a Job Receipt (4.2 MB → 680 KB • -84%) with Reveal and 1-Click Undo",
+      "Floating File Shelf lets you park files from multiple folders and run batch actions on the entire stack",
+      "Can be enabled, disabled, or rebound anytime in Settings → General & Triggers → Enable Advance Wheel",
+    ],
+  },
+  {
     id: "frontier-ai",
-    badge: "02 • FRONTIER AI & LIVE ECB CONVERTER",
+    badge: "03 • FRONTIER AI & LIVE ECB CONVERTER",
     label: "Frontier AI & Live FX",
     shortcut: "Ask AI • FX",
     title: "Claude Opus 5.5, GPT-6 Astra, Gemini 4 Argon & local Ollama—plus live ECB FX.",
@@ -406,7 +501,7 @@ export const WHEELIFY_PILLAR_TABS: WheelifyPillarTab[] = [
   },
   {
     id: "calc-todo-links",
-    badge: "03 • SCIENTIFIC MATH, TASKS & LINKS",
+    badge: "04 • SCIENTIFIC MATH, TASKS & LINKS",
     label: "Calculator, To-Do & Links",
     shortcut: "f(x) • Tasks",
     title: "Replace a dozen separate menu bar apps in clean Apple System UI.",
@@ -426,21 +521,21 @@ export const WHEELIFY_PILLAR_TABS: WheelifyPillarTab[] = [
   },
   {
     id: "settings-themes",
-    badge: "04 • THEMES, TRIGGERS & KEYCHAIN PRIVACY",
+    badge: "05 • THEMES, TRIGGERS & KEYCHAIN PRIVACY",
     label: "Settings & 7 Themes",
     shortcut: "⌘,",
     title: "7 handcrafted themes, custom mouse/hotkey triggers & modular permissions.",
     subtitle:
       "Configure Helium White, Apple Frosted, Warm Paper, or Carbon Dark—and customize every sector, page size, and AI engine.",
     description:
-      "Open Wheelify Settings (⌘,) to switch between 7 themes, choose your summon shortcut (⌥ Space) or one-handed mouse trigger (Middle Click Hold, Back/Forward buttons), reorder or toggle any of the 16 radial tools across 6, 8, or 10 sectors per ring, and verify modular macOS permissions.",
+      "Open Wheelify Settings (⌘,) to switch between 7 themes, choose your summon shortcut (⌥ Space), enable or customize the Advance File Wheel (⌃ Space), configure one-handed mouse triggers (Middle Click Hold, Back/Forward buttons), reorder or toggle any of the 16 radial tools across 6, 8, or 10 sectors per ring, and verify modular macOS permissions.",
     image: "/images/wheelify/04-wheelify-editorial-features-and-settings.png",
     imageAlt:
-      "Wheelify editorial 01/02/03 workflow, what you get checklist, and Wheelify Settings window showing Appearance & Radial Triggers",
+      "Wheelify editorial 01/02/03 workflow, what you get checklist, and Wheelify Settings window showing Enable Advance Wheel & ⌃ Space",
     highlights: [
       "7 built-in themes: Helium White, Apple Frosted Light, Warm Paper, System Aqua, Soft Pastel, Carbon Dark, Slate Dark",
       "Dual invocation: Hold & Release flick mode (<100 ms) or Quick-Tap sticky mode (<230 ms)",
-      "Customizable ring capacity (6, 8, or 10 sectors per page) and wheel size (Compact, Regular, Large)",
+      "Toggleable Advance File Wheel (⌃ Space) + customizable ring capacity (6, 8, or 10 sectors per page)",
       "Encrypted macOS Keychain API storage + modular opt-in permissions (Accessibility, Screen, Mic, Reminders)",
     ],
   },
@@ -451,28 +546,28 @@ export const WHEELIFY_WHAT_YOU_GET_LIST: {
   text: string;
 }[] = [
   {
-    code: "16",
-    text: "16 radial utilities: clipboard, window snap, calc, notes & more",
+    code: "⌥ Space",
+    text: "primary wheel: 16 everyday utilities (clipboard, window snap, calc, notes & more)",
+  },
+  {
+    code: "⌃ Space",
+    text: "advance file dial: 50+ photo, PDF, video, Vision OCR, EXIF & ZIP actions",
+  },
+  {
+    code: "UNDO",
+    text: "non-destructive job receipts, floating file shelf, recipes & 1-click undo",
   },
   {
     code: "f(x)",
-    text: "inline command bar for instant math (2^10) & live FX/units",
+    text: "inline command bar for instant math (2^10) & live ECB FX/units",
   },
   {
     code: "AI",
-    text: "claude opus 5.5, fable 5.2, gpt-6 astra, gemini 4 argon & ollama",
+    text: "claude opus 5.5, fable 5.2, gpt-6 astra, gemini 4 argon & offline ollama",
   },
   {
     code: "⌘V",
-    text: "clipboard history with hex color swatches & base64/json tools",
-  },
-  {
-    code: "HEX",
-    text: "eyedropper color sampler (HEX, RGB, HSL, SwiftUI) & screen capture",
-  },
-  {
-    code: "ARC",
-    text: "radial volume arc slider, apple reminders sync & pomodoro timer",
+    text: "clipboard history with hex color swatches & base64/json/sha-256 tools",
   },
   {
     code: "MIT",
@@ -511,11 +606,18 @@ export const WHEELIFY_COMPARISON_ROWS: WheelifyComparisonRow[] = [
     basicPieMenus: "No",
   },
   {
-    capability: "16 Built-In Native Utilities Included",
-    wheelify: "All 16 built-in (Clipboard, Calc, FX, AI, Snap, Color, Timer, Notes…)",
+    capability: "Dual Radial Wheels (16 Workspace Tools + 50+ File Dial Actions)",
+    wheelify: "All 16 workspace tools (⌥ Space) + 50+ file dial actions (⌃ Space)",
     separateApps: "Requires installing 10–12 separate apps",
     keyboardLaunchers: "Requires third-party store plugins",
     basicPieMenus: "No — only triggers external shortcuts",
+  },
+  {
+    capability: "Context-Aware Finder File & Media Dial (Convert, Compress, PDF, OCR, EXIF, Undo)",
+    wheelify: "Built-in on ⌃ Space with Floating Shelf, Recipes & 1-Click Undo",
+    separateApps: "Requires separate $29–$49 file converter & compression apps",
+    keyboardLaunchers: "Basic scripts without byte-budget compression or receipt undo",
+    basicPieMenus: "No",
   },
   {
     capability: "Frontier Cloud AI + Offline Ollama Local AI",
@@ -555,6 +657,10 @@ export const WHEELIFY_SHORTCUTS: { keys: string; action: string }[] = [
   {
     keys: "Tap ⌥ Space",
     action: "Toggle the radial wheel open in sticky click-to-select mode (<230 ms)",
+  },
+  {
+    keys: "Hold / Tap ⌃ Space",
+    action: "Summon the Advance File & Media Dial for selected Finder files (toggleable in Settings)",
   },
   {
     keys: "Hold Middle Mouse",
@@ -598,6 +704,10 @@ export const WHEELIFY_FAQS: { q: string; a: string }[] = [
   {
     q: "How do I summon and use Wheelify?",
     a: "Hold ⌥ Space (Option + Space) or hold the middle mouse button anywhere on your screen. The radial wheel appears centered under your cursor. Move your mouse slightly toward a tool to highlight it (or push further out into the outer concentric sub-arc to select a sub-action like 25m Pomodoro or Left Half window snap), then release the key or mouse button to execute in under 100 ms. You can also quick-tap ⌥ Space for sticky mode, press number keys 1–8, or click a slice directly.",
+  },
+  {
+    q: "What is the difference between the ⌥ Space wheel and the ⌃ Space Advance Wheel?",
+    a: "⌥ Space (or middle mouse click) opens your Primary Workspace Wheel containing 16 everyday macOS utilities (Clipboard History, Scientific Calculator, Timers/Pomodoro, Scratchpad Notes, Screenshot/Screen Record, Window Snapping, Color Picker, Unit/Currency Converter, and Frontier AI) plus the live Inline Math Command Bar. Pressing ⌃ Space (Control + Space) opens the Advance File & Media Dial, which automatically inspects the files selected in Finder and gives you 50+ non-destructive file actions across 8 radial sectors (Quick Dial, Convert, Compress, Resize & Edit, PDF & OCR, Privacy & Dev, Batch & ZIP, and Shelf & Share), complete with a Floating File Shelf, Chained Recipes, and 1-Click Undo. You can enable, disable, or change the shortcut for the Advance Wheel anytime in Wheelify Settings → General & Triggers → Enable Advance Wheel.",
   },
   {
     q: "Does Wheelify clutter my Dock or slow down my Mac?",

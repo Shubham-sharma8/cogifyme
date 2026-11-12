@@ -121,23 +121,6 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
             </span>
           </div>
 
-          {/* Featured on TryMacApps Badge */}
-          <div className="mt-6 flex justify-center">
-            <a
-              href="https://www.trymacapps.com"
-              target="_blank"
-              rel="noopener"
-              className="inline-block hover:opacity-90 transition-opacity"
-            >
-              <img
-                src="https://www.trymacapps.com/badge.png"
-                alt="Featured on TryMacApps"
-                width="200"
-                height="67"
-              />
-            </a>
-          </div>
-
           {/* Horizontal Feature Capability Pills Strip */}
           <div className="mt-7 flex flex-wrap items-center justify-center gap-2">
             {app.features.map((feat) => (
@@ -384,6 +367,23 @@ export function MacAppPageView({ app }: MacAppPageViewProps) {
           currentSlug={app.slug}
           contextLabel={`Native macOS Systems Engineering • v${app.version} Direct DMG Release`}
         />
+
+        {/* Featured on TryMacApps Badge (Bottom of macOS App Page) */}
+        <div className="pt-4 pb-8 flex justify-center">
+          <a
+            href="https://www.trymacapps.com"
+            target="_blank"
+            rel="noopener"
+            className="inline-block hover:opacity-90 transition-opacity"
+          >
+            <img
+              src="https://www.trymacapps.com/badge.png"
+              alt="Featured on TryMacApps"
+              width="200"
+              height="67"
+            />
+          </a>
+        </div>
       </div>
     </div>
   );

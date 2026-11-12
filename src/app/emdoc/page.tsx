@@ -183,23 +183,6 @@ export default function EmDocProductPage() {
           </span>
         </div>
 
-        {/* Featured on TryMacApps Badge */}
-        <div className="mt-6 flex justify-center">
-          <a
-            href="https://www.trymacapps.com"
-            target="_blank"
-            rel="noopener"
-            className="inline-block hover:opacity-90 transition-opacity"
-          >
-            <img
-              src="https://www.trymacapps.com/badge.png"
-              alt="Featured on TryMacApps"
-              width="200"
-              height="67"
-            />
-          </a>
-        </div>
-
         {/* Supaste-Style Capability Pills Strip */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
           {[
@@ -485,6 +468,23 @@ export default function EmDocProductPage() {
       <OtherAppsShowcase currentSlug="emdoc" />
 
       <AuthorBio currentSlug="emdoc" />
+
+      {/* Featured on TryMacApps Badge (Bottom of macOS App Page) */}
+      <div className="pb-12 pt-4 flex justify-center">
+        <a
+          href="https://www.trymacapps.com"
+          target="_blank"
+          rel="noopener"
+          className="inline-block hover:opacity-90 transition-opacity"
+        >
+          <img
+            src="https://www.trymacapps.com/badge.png"
+            alt="Featured on TryMacApps"
+            width="200"
+            height="67"
+          />
+        </a>
+      </div>
 
       {/* Centralized Download Modal */}
       <DownloadModal

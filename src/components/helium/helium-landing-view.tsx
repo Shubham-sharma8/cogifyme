@@ -276,23 +276,6 @@ export function HeliumLandingView() {
             pool + 25+ S3 / R2 / WebDAV / SFTP / SMB presets · 5-step safe-write
             · time travel
           </p>
-
-          {/* Featured on TryMacApps Badge */}
-          <div className="mt-6 flex justify-center">
-            <a
-              href="https://www.trymacapps.com"
-              target="_blank"
-              rel="noopener"
-              className="inline-block hover:opacity-90 transition-opacity"
-            >
-              <img
-                src="https://www.trymacapps.com/badge.png"
-                alt="Featured on TryMacApps"
-                width="200"
-                height="67"
-              />
-            </a>
-          </div>
         </div>
 
         {/* Interactive Hero Visual: macOS Finder + Floating "Get Info" Inspector */}
@@ -1606,6 +1589,23 @@ export function HeliumLandingView() {
             macOS 15.4+ / macOS 26 Tahoe · Universal Apple Silicon &amp; Intel ·
             Apple Developer ID Signed &amp; Notarized · MIT License
           </p>
+
+          {/* TryMacApps Badge inside Footer CTA */}
+          <div className="mt-6 flex justify-center">
+            <a
+              href="https://www.trymacapps.com"
+              target="_blank"
+              rel="noopener"
+              className="inline-block hover:opacity-90 transition-opacity"
+            >
+              <img
+                src="https://www.trymacapps.com/badge.png"
+                alt="Featured on TryMacApps"
+                width="200"
+                height="67"
+              />
+            </a>
+          </div>
 
           <div className="mt-10 pt-6 border-t border-[#E6E6E4] dark:border-white/10 text-[13px] text-[#111110]/60 dark:text-white/60 flex flex-col sm:flex-row items-center justify-between gap-3">
             <span>

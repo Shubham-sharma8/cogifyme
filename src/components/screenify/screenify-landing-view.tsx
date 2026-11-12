@@ -197,7 +197,7 @@ export function ScreenifyLandingView() {
           </a>
         </div>
 
-        {/* Sub-CTA Trust Row + TryMacApps Badge */}
+        {/* Sub-CTA Trust Row */}
         <div className="mt-5 flex flex-col items-center justify-center gap-3">
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-[#8C8C87]">
             <span className="inline-flex items-center gap-1 text-[#111110]/75">
@@ -218,21 +218,6 @@ export function ScreenifyLandingView() {
               Release v1.12.0 Notes ↗
             </a>
           </div>
-
-          <a
-            href="https://www.trymacapps.com"
-            target="_blank"
-            rel="noopener"
-            className="mt-1 inline-block transition-transform hover:scale-[1.02]"
-          >
-            <img
-              src="https://www.trymacapps.com/badge.png"
-              alt="Featured on TryMacApps"
-              width="200"
-              height="67"
-              className="h-[52px] w-auto"
-            />
-          </a>
         </div>
 
         {/* Hero Screenshot 02 Card (Studio Video Editor) */}

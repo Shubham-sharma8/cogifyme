@@ -198,24 +198,6 @@ export function WifyyLandingView() {
               </a>
             </div>
 
-            {/* Featured on TryMacApps Badge */}
-            <div className="flex items-center justify-center pt-2 pb-6">
-              <a
-                href={TRYMACAPPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block transition-transform hover:scale-[1.02]"
-              >
-                <img
-                  src={TRYMACAPPS_BADGE_IMG}
-                  alt="Featured on TryMacApps"
-                  width={200}
-                  height={67}
-                  className="h-10 w-auto object-contain"
-                />
-              </a>
-            </div>
-
             {/* Micro Highlights */}
             <p className="text-xs text-[#86868B] max-w-3xl mx-auto leading-relaxed">
               100% local &amp; air-gapped · 4-hop fault isolation (mac → wi-fi RF → router → ISP) · ITU-T E-Model Call MOS (1.0–4.50) · 5-min pre-call calendar check · live bufferbloat &amp; culprit app attribution · 7-day incident timeline
@@ -711,23 +693,6 @@ export function WifyyLandingView() {
                   </button>
                 </div>
 
-                <div className="pt-3">
-                  <a
-                    href={TRYMACAPPS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block transition-transform hover:scale-[1.02]"
-                  >
-                    <img
-                      src={TRYMACAPPS_BADGE_IMG}
-                      alt="Featured on TryMacApps"
-                      width={200}
-                      height={67}
-                      className="h-10 w-auto object-contain"
-                    />
-                  </a>
-                </div>
-
                 <div className="font-mono text-[11px] text-[#86868B] pt-2 break-all">
                   SHA-256: {WIFYY_SHA256}
                 </div>
@@ -819,6 +784,24 @@ export function WifyyLandingView() {
               >
                 <GitHubIcon className="w-4 h-4 fill-current" />
                 <span>view on github</span>
+              </a>
+            </div>
+
+            {/* TryMacApps Footer Badge */}
+            <div className="pt-4 flex items-center justify-center">
+              <a
+                href={TRYMACAPPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block transition-transform hover:scale-[1.02]"
+              >
+                <img
+                  src={TRYMACAPPS_BADGE_IMG}
+                  alt="Featured on TryMacApps"
+                  width={200}
+                  height={67}
+                  className="h-11 w-auto object-contain"
+                />
               </a>
             </div>
           </div>

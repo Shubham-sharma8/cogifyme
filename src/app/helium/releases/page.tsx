@@ -201,19 +201,6 @@ export default function HeliumReleasesPage() {
 
           <div className="mt-5 flex flex-wrap items-center gap-4">
             <a
-              href="https://www.trymacapps.com"
-              target="_blank"
-              rel="noopener"
-              className="inline-block hover:opacity-90 transition-opacity"
-            >
-              <img
-                src="https://www.trymacapps.com/badge.png"
-                alt="Featured on TryMacApps"
-                width="200"
-                height="67"
-              />
-            </a>
-            <a
               href="https://github.com/Shubham-sharma8/helium"
               target="_blank"
               rel="noopener noreferrer"

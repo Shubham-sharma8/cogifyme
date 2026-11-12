@@ -25,6 +25,7 @@ import { OtherAppsShowcase } from "@/components/products/other-apps-showcase";
 import {
   WHEELIFY_COMMAND_DEMOS,
   WHEELIFY_16_TOOLS,
+  WHEELIFY_FILE_DIAL_SECTORS,
   WHEELIFY_PILLAR_TABS,
   WHEELIFY_WHAT_YOU_GET_LIST,
   WHEELIFY_COMPARISON_ROWS,
@@ -43,6 +44,9 @@ const WHEELIFY_SHA256 =
 export function WheelifyLandingView() {
   const [selectedCommandIndex, setSelectedCommandIndex] = useState(0);
   const [activePillarIndex, setActivePillarIndex] = useState(0);
+  const [wheelPreviewMode, setWheelPreviewMode] = useState<
+    "workspace" | "file-dial"
+  >("workspace");
   const [toolFilter, setToolFilter] = useState<
     "all" | "page1" | "page2" | "subarc"
   >("all");
@@ -123,6 +127,12 @@ export function WheelifyLandingView() {
             16 tools
           </a>
           <a
+            href="#file-dial"
+            className="hidden rounded-full px-2.5 py-1 text-xs font-medium text-black/65 transition-colors hover:bg-black/[0.05] hover:text-black md:inline-block"
+          >
+            file dial (⌃space)
+          </a>
+          <a
             href="#frontier-ai"
             className="hidden rounded-full px-2.5 py-1 text-xs font-medium text-black/65 transition-colors hover:bg-black/[0.05] hover:text-black md:inline-block"
           >
@@ -162,7 +172,9 @@ export function WheelifyLandingView() {
             v2.0.0 Open Source (MIT)
           </span>
           <span className="text-black/25">•</span>
-          <span className="tabular-nums">Hold ⌥ Space or Middle-Click</span>
+          <span className="tabular-nums">
+            ⌥ Space (16 Tools) + ⌃ Space (File Dial)
+          </span>
           <span className="text-black/25">•</span>
           <span className="tabular-nums">
             1.9 MB Universal DMG • macOS 14+ &amp; Tahoe 26
@@ -176,7 +188,7 @@ export function WheelifyLandingView() {
 
         <p className="mx-auto mt-5 max-w-3xl text-lg font-normal leading-relaxed text-black/65 sm:text-2xl">
           <span className="rounded-xl bg-black/[0.07] px-3 py-0.5 font-semibold text-[#111113]">
-            16 instant macOS tools
+            2 radial wheels &amp; 66+ instant macOS tools
           </span>{" "}
           right under your cursor, with{" "}
           <span className="rounded-xl bg-black/[0.07] px-3 py-0.5 font-semibold text-[#111113]">
@@ -184,23 +196,32 @@ export function WheelifyLandingView() {
           </span>
         </p>
 
-        <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-black/55 sm:text-base">
-          Hold <kbd className="rounded-md border border-black/15 bg-white px-1.5 py-0.5 font-mono text-xs font-semibold text-black">⌥ Space</kbd>{" "}
+        <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-black/55 sm:text-base">
+          Hold{" "}
+          <kbd className="rounded-md border border-black/15 bg-white px-1.5 py-0.5 font-mono text-xs font-semibold text-black">
+            ⌥ Space
+          </kbd>{" "}
           or <strong className="font-semibold text-black/80">middle-click</strong>{" "}
-          anywhere on your screen to summon a 120 FPS Helium-White radial command
-          wheel centered at your pointer. Flick{" "}
-          <span className="tabular-nums font-medium text-black/75">35 pt</span>{" "}
-          and release in under{" "}
-          <span className="tabular-nums font-medium text-black/75">100 ms</span>—or
-          start typing{" "}
+          anywhere on your screen for 16 everyday macOS utilities and live inline
+          math (
           <code className="rounded bg-black/[0.06] px-1.5 py-0.5 font-mono text-xs text-black/85">
             2^10 * 3.14
-          </code>{" "}
-          or{" "}
+          </code>
+          ,{" "}
           <code className="rounded bg-black/[0.06] px-1.5 py-0.5 font-mono text-xs text-black/85">
             250 usd to eur
-          </code>{" "}
-          live inside the wheel.
+          </code>
+          ). Or press{" "}
+          <kbd className="rounded-md border border-black/15 bg-white px-1.5 py-0.5 font-mono text-xs font-semibold text-black">
+            ⌃ Space
+          </kbd>{" "}
+          (<strong className="font-semibold text-black/80">Control + Space</strong>
+          ) on any Finder file to summon the{" "}
+          <strong className="font-semibold text-black/80">
+            Advance File &amp; Media Dial
+          </strong>
+          —with 50+ local photo, PDF, video, Vision OCR, EXIF privacy, and
+          archive actions, a Floating File Shelf, and 1-Click Undo.
         </p>
 
         {/* Primary CTA Buttons */}
@@ -230,7 +251,7 @@ export function WheelifyLandingView() {
           </a>
         </div>
 
-        {/* Sub-CTA Trust Row + TryMacApps Badge */}
+        {/* Sub-CTA Trust Row */}
         <div className="mt-5 flex flex-col items-center justify-center gap-3">
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-black/50">
             <span className="inline-flex items-center gap-1">
@@ -251,21 +272,6 @@ export function WheelifyLandingView() {
               Release v2.0.0 Notes ↗
             </a>
           </div>
-
-          <a
-            href="https://www.trymacapps.com"
-            target="_blank"
-            rel="noopener"
-            className="mt-1 inline-block transition-transform hover:scale-[1.02]"
-          >
-            <img
-              src="https://www.trymacapps.com/badge.png"
-              alt="Featured on TryMacApps"
-              width="200"
-              height="67"
-              className="h-[52px] w-auto"
-            />
-          </a>
         </div>
 
         {/* Hero Screenshot 01 Card */}
@@ -273,7 +279,7 @@ export function WheelifyLandingView() {
           <div className="overflow-hidden rounded-[20px] border border-black/[0.06] bg-[#FAF9F6]">
             <Image
               src="/images/wheelify/01-wheelify-hero-radial-workspace.png"
-              alt="Wheelify v2.0.0 — Helium-White 8-sector radial command workspace, inline math command bar (2^10 * 3.14 = 3,215.36), and live Clipboard History panel"
+              alt="Wheelify v2.0.0 — 2 radial wheels & 66+ macOS tools, Helium-White 8-sector radial command workspace, inline math command bar (2^10 * 3.14 = 3,215.36), and live Clipboard History panel"
               width={2560}
               height={1720}
               priority
@@ -298,13 +304,25 @@ export function WheelifyLandingView() {
 
           <div className="rounded-2xl border border-black/[0.08] bg-white p-4 sm:p-5">
             <div className="text-[11px] font-semibold tracking-wider text-black/45 uppercase">
-              Consolidated Suite
+              Dual Radial Wheels
             </div>
             <div className="mt-1 text-2xl font-bold tracking-tight tabular-nums text-[#111113] sm:text-3xl">
-              16 tools
+              16 + 50+
             </div>
             <div className="mt-1 text-xs text-black/55">
-              Replaces 10–12 separate menu bar utilities
+              ⌥ Space Workspace Wheel + ⌃ Space File Dial
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-black/[0.08] bg-white p-4 sm:p-5">
+            <div className="text-[11px] font-semibold tracking-wider text-black/45 uppercase">
+              Non-Destructive File Jobs
+            </div>
+            <div className="mt-1 text-2xl font-bold tracking-tight tabular-nums text-[#16A34A] sm:text-3xl">
+              1-Click Undo
+            </div>
+            <div className="mt-1 text-xs text-black/55">
+              Verifiable byte-delta receipts &amp; Floating Shelf
             </div>
           </div>
 
@@ -312,23 +330,11 @@ export function WheelifyLandingView() {
             <div className="text-[11px] font-semibold tracking-wider text-black/45 uppercase">
               Memory &amp; Binary Size
             </div>
-            <div className="mt-1 text-2xl font-bold tracking-tight tabular-nums text-[#16A34A] sm:text-3xl">
+            <div className="mt-1 text-2xl font-bold tracking-tight tabular-nums text-[#111113] sm:text-3xl">
               ~20 MB
             </div>
             <div className="mt-1 text-xs text-black/55">
-              1.9 MB Universal DMG • 0% idle CPU
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-black/[0.08] bg-white p-4 sm:p-5">
-            <div className="text-[11px] font-semibold tracking-wider text-black/45 uppercase">
-              Handcrafted Themes
-            </div>
-            <div className="mt-1 text-2xl font-bold tracking-tight tabular-nums text-[#111113] sm:text-3xl">
-              7 styles
-            </div>
-            <div className="mt-1 text-xs text-black/55">
-              Helium White, Apple Frosted, Warm Paper &amp; Carbon Dark
+              1.9 MB Universal DMG • 0% idle CPU • 7 themes
             </div>
           </div>
         </div>
@@ -372,10 +378,44 @@ export function WheelifyLandingView() {
                 </span>
               </div>
 
+              {/* 2-Pill Dual-Wheel Toggle */}
+              <div className="mt-4 grid grid-cols-1 gap-1.5 rounded-2xl border border-black/[0.07] bg-[#F6F6F4] p-1.5">
+                <button
+                  type="button"
+                  onClick={() => setWheelPreviewMode("workspace")}
+                  className={`rounded-xl px-3 py-2 text-left text-xs font-semibold transition-all ${
+                    wheelPreviewMode === "workspace"
+                      ? "bg-[#111113] text-white shadow-2xs"
+                      : "text-black/65 hover:bg-black/[0.05] hover:text-black"
+                  }`}
+                >
+                  ⌥ Space • Primary Workspace Wheel (16 Tools)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setWheelPreviewMode("file-dial")}
+                  className={`rounded-xl px-3 py-2 text-left text-xs font-semibold transition-all ${
+                    wheelPreviewMode === "file-dial"
+                      ? "bg-[#111113] text-white shadow-2xs"
+                      : "text-black/65 hover:bg-black/[0.05] hover:text-black"
+                  }`}
+                >
+                  ⌃ Space • Advance File &amp; Media Dial (50+ Actions)
+                </button>
+              </div>
+
               <div className="my-5 overflow-hidden rounded-2xl border border-black/[0.06] bg-[#FAF9F6] p-3">
                 <Image
-                  src="/images/wheelify/wheel-radial-white.png"
-                  alt="Wheelify standalone high-resolution 8-sector Helium-White radial command wheel with inline math command bar"
+                  src={
+                    wheelPreviewMode === "workspace"
+                      ? "/images/wheelify/wheel-radial-white.png"
+                      : "/images/wheelify/wheel-advance-file-dial-white.png"
+                  }
+                  alt={
+                    wheelPreviewMode === "workspace"
+                      ? "Wheelify standalone high-resolution 8-sector Helium-White primary workspace radial wheel with inline math command bar"
+                      : "Wheelify standalone ⌃ Space Advance File & Media Dial radial wheel with outer sub-arc expanded"
+                  }
                   width={1040}
                   height={1040}
                   className="mx-auto h-auto max-h-[340px] w-auto object-contain"
@@ -768,6 +808,179 @@ export function WheelifyLandingView() {
         </div>
       </section>
 
+      {/* 5B. NEW DEDICATED SECTION (#file-dial) — SECOND RADIAL WHEEL (⌃ SPACE): ADVANCE FILE & MEDIA DIAL */}
+      <section
+        id="file-dial"
+        className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20"
+      >
+        <div className="text-center">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-black/[0.06] px-3.5 py-1 text-xs font-semibold text-black/75">
+            <Compass className="h-3.5 w-3.5" />
+            second radial wheel • control + space (⌃ space) • 50+ local file
+            actions
+          </span>
+          <h2 className="mt-4 text-3xl font-bold tracking-[-0.03em] leading-[1.06] text-[#111113] sm:text-5xl">
+            context-aware file &amp; media dial.{" "}
+            <span className="rounded-xl bg-black/[0.07] px-3 py-0.5 font-semibold">
+              non-destructive with 1-click undo.
+            </span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-black/60 sm:text-base">
+            Inspired by radial file workflows and integrated directly into
+            Wheelify&apos;s Helium-White UI, pressing{" "}
+            <kbd className="rounded border border-black/15 bg-white px-1.5 py-0.5 font-mono text-xs font-semibold text-black">
+              ⌃ Space
+            </kbd>{" "}
+            inspects whatever photo, PDF, video, audio track, archive, or folder
+            you have selected in Finder and blooms a dedicated 8-sector file
+            wheel under your cursor. Toggle it on or off anytime via{" "}
+            <strong className="font-semibold text-black/80">
+              Settings → Enable Advance Wheel
+            </strong>
+            .
+          </p>
+        </div>
+
+        {/* Full-Width Showcase Image */}
+        <div className="mt-9 overflow-hidden rounded-[28px] border border-black/[0.08] bg-white p-2 shadow-[0_24px_70px_rgba(0,0,0,0.06)] sm:p-4">
+          <div className="overflow-hidden rounded-[20px] border border-black/[0.06] bg-[#FAF9F6]">
+            <Image
+              src="/images/wheelify/06-wheelify-advance-file-dial-control-space.png"
+              alt="Wheelify Advance File & Media Dial (⌃ Space) — 8-sector radial file wheel and Advance File Dial Workspace panel with Job Receipt and 1-Click Undo"
+              width={2560}
+              height={1640}
+              className="h-auto w-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* 8 Radial Sectors Grid (2×4 Cards) */}
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {WHEELIFY_FILE_DIAL_SECTORS.map((sector) => (
+            <div
+              key={sector.number}
+              className="flex flex-col justify-between rounded-[24px] border border-black/[0.08] bg-white p-5 shadow-2xs transition-all hover:border-black/[0.15]"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="rounded-lg bg-[#111113] px-2.5 py-1 font-mono text-xs font-bold text-white">
+                    {sector.number} • {sector.name}
+                  </span>
+                  <span className="rounded-full bg-black/[0.05] px-2.5 py-0.5 font-mono text-[10px] text-black/55">
+                    {sector.symbol}
+                  </span>
+                </div>
+                <h3 className="mt-3 text-sm font-bold tracking-tight text-[#111113] sm:text-base">
+                  {sector.subtitle}
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-black/65">
+                  {sector.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* 4 Signature Workflow Cards below the 8 Sectors */}
+        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="rounded-[24px] border border-black/[0.08] bg-white p-6 shadow-2xs">
+            <div className="flex items-center justify-between gap-2">
+              <h3 className="text-base font-bold text-[#111113]">
+                Verifiable Job Receipts &amp; 1-Click Undo
+              </h3>
+              <span className="rounded-full bg-[#16A34A]/10 px-2.5 py-0.5 font-mono text-[11px] font-semibold text-[#16A34A]">
+                Non-Destructive
+              </span>
+            </div>
+            <p className="mt-2 text-xs leading-relaxed text-black/65 sm:text-sm">
+              Every operation keeps your original file untouched (or records
+              exact rename mappings) and displays a live receipt (
+              <code className="rounded bg-black/[0.06] px-1.5 py-0.5 font-mono text-xs text-[#111113]">
+                4.2 MB → 680 KB • -84% • ✓ Original kept • ✓ GPS removed
+              </code>
+              ) with <strong className="font-semibold">Reveal</strong> and{" "}
+              <strong className="font-semibold">1-Click Undo</strong>.
+            </p>
+          </div>
+
+          <div className="rounded-[24px] border border-black/[0.08] bg-white p-6 shadow-2xs">
+            <div className="flex items-center justify-between gap-2">
+              <h3 className="text-base font-bold text-[#111113]">
+                Floating File Shelf
+              </h3>
+              <span className="rounded-full bg-black/[0.06] px-2.5 py-0.5 font-mono text-[11px] font-semibold text-[#111113]">
+                Multi-Folder Batch
+              </span>
+            </div>
+            <p className="mt-2 text-xs leading-relaxed text-black/65 sm:text-sm">
+              Drag and drop files from different Finder folders into the shelf
+              stack, then run any conversion, compression, or archive tool on
+              the entire batch at once.
+            </p>
+          </div>
+
+          <div className="rounded-[24px] border border-black/[0.08] bg-white p-6 shadow-2xs">
+            <div className="flex items-center justify-between gap-2">
+              <h3 className="text-base font-bold text-[#111113]">
+                4 Built-In Chained File Recipes
+              </h3>
+              <span className="rounded-full bg-black/[0.06] px-2.5 py-0.5 font-mono text-[11px] font-semibold text-[#111113]">
+                1-Click Pipelines
+              </span>
+            </div>
+            <ul className="mt-2.5 space-y-1.5 text-xs text-black/70">
+              <li>
+                <strong className="font-semibold text-[#111113]">
+                  1. Share-Ready Photo:
+                </strong>{" "}
+                <code className="font-mono text-[11px]">
+                  Convert to JPG → Strip EXIF/GPS → Compress Under 1 MB
+                </code>
+              </li>
+              <li>
+                <strong className="font-semibold text-[#111113]">
+                  2. Web Asset Optimizer:
+                </strong>{" "}
+                <code className="font-mono text-[11px]">
+                  Resize Max 2048 px → Auto Compress → Clear Quarantine
+                </code>
+              </li>
+              <li>
+                <strong className="font-semibold text-[#111113]">
+                  3. Clean &amp; Privacy-Safe PDF:
+                </strong>{" "}
+                <code className="font-mono text-[11px]">
+                  Strip PDF Metadata → Compress PDF → Copy SHA-256
+                </code>
+              </li>
+              <li>
+                <strong className="font-semibold text-[#111113]">
+                  4. Release Bundle:
+                </strong>{" "}
+                <code className="font-mono text-[11px]">
+                  Clear Quarantine → Create Clean .zip → Copy SHA-256
+                </code>
+              </li>
+            </ul>
+          </div>
+
+          <div className="rounded-[24px] border border-black/[0.08] bg-white p-6 shadow-2xs">
+            <div className="flex items-center justify-between gap-2">
+              <h3 className="text-base font-bold text-[#111113]">
+                Watched Folder Automation
+              </h3>
+              <span className="rounded-full bg-black/[0.06] px-2.5 py-0.5 font-mono text-[11px] font-semibold text-[#111113]">
+                Folder Binding
+              </span>
+            </div>
+            <p className="mt-2 text-xs leading-relaxed text-black/65 sm:text-sm">
+              Bind any local folder to a Recipe in the Advance Workspace to
+              process every file inside with a single click.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* 6. DEEP-DIVE EDITORIAL BENTO SECTIONS (#frontier-ai) */}
       <section
         id="frontier-ai"
@@ -891,21 +1104,26 @@ export function WheelifyLandingView() {
                   <kbd className="rounded border border-black/15 bg-[#F6F6F4] px-1.5 py-0.5 font-mono text-xs font-semibold">
                     ⌥ Space
                   </kbd>{" "}
-                  or middle-click anywhere on your Mac.
+                  for 16 workspace tools — or{" "}
+                  <kbd className="rounded border border-black/15 bg-[#F6F6F4] px-1.5 py-0.5 font-mono text-xs font-semibold">
+                    ⌃ Space
+                  </kbd>{" "}
+                  for the Advance File Dial.
                 </p>
                 <p>
                   <span className="mr-2 font-mono text-xs font-bold text-black/45">
                     02
                   </span>
-                  flick toward any of 16 tools — or type math &amp; units live.
+                  flick toward any sector &amp; outer sub-arc — or type math
+                  &amp; units live.
                 </p>
                 <p>
                   <span className="mr-2 font-mono text-xs font-bold text-black/45">
                     03
                   </span>
                   release to execute in{" "}
-                  <span className="tabular-nums font-semibold">0.1s</span>. zero
-                  dock icons. done.
+                  <span className="tabular-nums font-semibold">0.1s</span>.
+                  non-destructive receipts &amp; 1-click undo.
                 </p>
               </div>
 
@@ -924,7 +1142,7 @@ export function WheelifyLandingView() {
                     key={item.text}
                     className="flex items-start gap-2.5 text-xs text-black/75 sm:text-sm"
                   >
-                    <span className="mt-0.5 inline-flex w-8 shrink-0 items-center justify-center rounded bg-black/[0.06] py-0.5 font-mono text-[10px] font-bold text-[#111113]">
+                    <span className="mt-0.5 inline-flex min-w-14 shrink-0 items-center justify-center rounded bg-black/[0.06] px-1.5 py-0.5 font-mono text-[10px] font-bold text-[#111113]">
                       {item.code}
                     </span>
                     <span>{item.text}</span>
@@ -1213,6 +1431,24 @@ export function WheelifyLandingView() {
 
       {/* 10. OTHER COGIFY APPS SHOWCASE */}
       <OtherAppsShowcase currentSlug="wheelify" />
+
+      {/* 11. TRYMACAPPS FOOTER BADGE (Very Bottom of macOS App Page) */}
+      <div className="pb-14 pt-4 flex justify-center">
+        <a
+          href="https://www.trymacapps.com"
+          target="_blank"
+          rel="noopener"
+          className="inline-block transition-transform hover:scale-[1.02]"
+        >
+          <img
+            src="https://www.trymacapps.com/badge.png"
+            alt="Featured on TryMacApps"
+            width="200"
+            height="67"
+            className="h-[48px] w-auto"
+          />
+        </a>
+      </div>
     </div>
   );
 }

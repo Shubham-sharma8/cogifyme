@@ -686,24 +686,6 @@ export function OtherAppsShowcase({
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
-
-                {app.pillar === "mac" && (
-                  <div className="pt-2">
-                    <a
-                      href="https://www.trymacapps.com"
-                      target="_blank"
-                      rel="noopener"
-                      className="inline-block hover:opacity-90 transition-opacity"
-                    >
-                      <img
-                        src="https://www.trymacapps.com/badge.png"
-                        alt="Featured on TryMacApps"
-                        width="200"
-                        height="67"
-                      />
-                    </a>
-                  </div>
-                )}
               </div>
 
               {/* Right Column: Scenic Framed App Window Preview */}

@@ -285,23 +285,6 @@ export function FindyLandingView() {
             duplicates (⌘6) · downloaded from · file shelf (⌘7) · local vision
             ocr (⌘I)
           </p>
-
-          {/* Featured on TryMacApps Badge */}
-          <div className="mt-6 flex justify-center">
-            <a
-              href="https://www.trymacapps.com"
-              target="_blank"
-              rel="noopener"
-              className="inline-block hover:opacity-90 transition-opacity"
-            >
-              <img
-                src="https://www.trymacapps.com/badge.png"
-                alt="Featured on TryMacApps"
-                width="200"
-                height="67"
-              />
-            </a>
-          </div>
         </div>
 
         {/* Interactive Hero Simulator: Plain-English Search Query Parser */}
