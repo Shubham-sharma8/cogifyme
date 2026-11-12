@@ -154,6 +154,17 @@ const COMMAND_ITEMS: CommandItem[] = [
     keywords: "wifyy wifi wi-fi 4-hop network fault isolation call mos quality video call freeze zoom pre-call check auto-shield bufferbloat nettop speedtest networkquality rpm router ping lan devices open source mit macos dmg v1.0.0",
   },
   {
+    id: "ottie",
+    title: "Meet Ottie — The Cutest White Otter & Robo Companion Living on Your Mac (v1.0.0)",
+    subtitle: "54 costumes (including Cutest Robo-Ottie), 93 spring animations, smart screen awareness & 7 full-screen break walls",
+    category: "macOS Workstations (.DMG)",
+    href: "/ottie",
+    downloadUrl: siteConfig.ottie.downloadUrl,
+    badge: "v1.0.0 • 2.4 MB DMG",
+    icon: "/brand/Ottie/icon.png",
+    keywords: "ottie meet ottie white otter cutest robo companion desktop pet macos break timer 20-20-20 eye rest peekaboo water reminder call parents peeka lookaway alternative dmg v1.0.0",
+  },
+  {
     id: "emdoc",
     title: "EmDoc PDF Workstation (v1.1)",
     subtitle: "7.8 MB Air-Gapped Native macOS PDF Editor, Merger, OCR & Bates Numbering • Released Nov 6, 2026",

@@ -73,6 +73,15 @@ const COGIFY_APPS: AppBoxItem[] = [
     accentColor: "#007aff",
   },
   {
+    id: "ottie",
+    name: "Ottie",
+    platform: "For Mac",
+    solutionTag: "White Otter & Robo Companion",
+    icon: siteConfig.ottie.icon,
+    href: "/ottie",
+    accentColor: "#2e705e",
+  },
+  {
     id: "emdoc",
     name: "EmDoc",
     platform: "For Mac",

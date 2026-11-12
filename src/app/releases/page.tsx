@@ -121,6 +121,16 @@ const OTHER_MAC_RELEASES = [
       "Open-Source (MIT) 4-Hop Wi-Fi & Call Reliability Engine — ITU-T 4.40 Call MOS, 5-Min Pre-Call Check, Auto-Shield Quiet Mode, RPM Speed Test & Subnet Radar",
   },
   {
+    name: siteConfig.ottie.name,
+    version: siteConfig.ottie.version,
+    size: siteConfig.ottie.appSize,
+    href: "/ottie",
+    downloadUrl: siteConfig.ottie.downloadUrl,
+    icon: siteConfig.ottie.icon,
+    subtitle:
+      "The Cutest White Otter & Robo Companion Living on Your Mac — 54 Costumes, Cutest Robo-Ottie Mode, 93 Spring Actions, Smart Screen Awareness & 7 Calming Full-Screen Break Walls",
+  },
+  {
     name: siteConfig.showFreeSpace.shortName,
     version: siteConfig.showFreeSpace.version,
     size: siteConfig.showFreeSpace.appSize,

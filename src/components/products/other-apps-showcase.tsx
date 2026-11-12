@@ -163,6 +163,27 @@ export const SISTER_APP_REFERENCES: SisterAppReference[] = [
     pills: ["4-Hop Fault Isolation", "ITU-T 4.40 Call MOS", "Pre-Call Check & Auto-Shield"],
   },
   {
+    slug: "ottie",
+    name: "Ottie for macOS",
+    shortName: "Ottie",
+    badge: "Ottie for macOS · v1.0.0 · Native Companion",
+    pillar: "mac",
+    headlineSans: "The cutest white otter & robo companion.",
+    headlineSerif: "Living on your Mac.",
+    description:
+      "Meet Ottie v1.0.0, a 23-channel spring-animated friend who lives on your macOS desktop, understands whether you're coding, watching YouTube, or chatting, dresses up in 54 costumes (including Cutest Robo-Ottie!), performs 93 cute animations, and drapes 7 calming full-screen walls for 20-20-20 eye rest, hydration, family calls, and stair walks.",
+    icon: siteConfig.ottie.icon,
+    screenshot: "/images/ottie/11-dressing-room-54-presets-robo.png",
+    windowTitle: "Ottie v1.0 — 54 Costumes, Cutest Robo-Ottie, 93 Actions & 7 Break Walls",
+    href: "/ottie",
+    primaryCtaLabel: "Download for macOS (v1.0.0 · 2.4 MB)",
+    primaryCtaHref: siteConfig.ottie.downloadUrl,
+    isDirectDownload: true,
+    stageGradient:
+      "from-[#2E705E]/20 via-[#298AC7]/15 to-[#0F172A] dark:from-[#2E705E]/25 dark:via-[#298AC7]/20 dark:to-[#090D16]",
+    pills: ["54 Costumes & Cutest Robo", "93 Spring Animations", "7 Full-Screen Break Walls"],
+  },
+  {
     slug: "emdoc",
     name: "EmDoc for macOS",
     shortName: "EmDoc",

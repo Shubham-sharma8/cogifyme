@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/hero/hero-section";
 import { CatalogJsonLd } from "@/components/seo/jsonld-schemas";
+import { RoamingOttieWidget } from "@/components/ottie/roaming-ottie-widget";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default function HomePage() {
     <div className="flex flex-col">
       <CatalogJsonLd />
       <HeroSection />
+      <RoamingOttieWidget />
     </div>
   );
 }

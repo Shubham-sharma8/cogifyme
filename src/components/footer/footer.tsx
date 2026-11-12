@@ -72,6 +72,11 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/ottie" className="hover:text-[#09090B] dark:hover:text-white transition-colors font-medium text-[#09090B] dark:text-white">
+                  Meet Ottie Companion
+                </Link>
+              </li>
+              <li>
                 <Link href="/emdoc" className="hover:text-[#09090B] dark:hover:text-white transition-colors">
                   EmDoc PDF Suite
                 </Link>

@@ -297,6 +297,7 @@ export interface SiteConfig {
   wheelify: MacAppConfig;
   screenify: MacAppConfig;
   wifyy: MacAppConfig;
+  ottie: MacAppConfig;
   lumenview: MacAppConfig;
   metricove: MacAppConfig;
   netguard: MacAppConfig;
@@ -4072,6 +4073,144 @@ export const siteConfig: SiteConfig = {
       "local Wi-Fi menu bar tool",
     ],
   },
+  ottie: {
+    name: "Ottie",
+    shortName: "Ottie",
+    slug: "ottie",
+    tagline:
+      "The Cutest White Otter & Robo Companion Living on Your Mac.",
+    subtitle:
+      "54 Mix-and-Match Costumes • Cutest Robo-Ottie Mode • 93 Spring Actions • 7 Calming Full-Screen Break Walls • Smart Screen Activity Awareness",
+    promotionalText:
+      "Replace bossy break timers with a 23-channel spring-animated friend that lives on your desktop, understands your screen activity, dresses in 54 costumes, performs 93 cute actions, and drapes 7 calming full-screen break walls.",
+    shortDescription:
+      "Meet Ottie v1.0.0, a native Swift macOS desktop companion and 7-wall mindful break studio. Dresses in 54 costumes (including Cutest Robo-Ottie!), performs 93 spring-animated antics, mirrors whether you're coding, watching YouTube, or typing, and drapes 7 calming full-screen walls for 20-20-20 eye rest, hydration, family calls, stair walks, and back stretches.",
+    fullDescription:
+      "Most break timers feel like a bossy alarm clock. Ottie is a 23-channel harmonic spring-animated white otter and Cutest Robo friend who lives on your macOS desktop and menu bar, understands your screen activity, and turns mindful pauses into the best 20 seconds of your hour.",
+    philosophy:
+      "No streaks to lose. No nagging pop-ups. No lockouts. Reminder timers are OFF by default so Ottie never interrupts you unexpectedly.",
+    version: "1.0.0",
+    build: "100",
+    releaseDate: "November 12, 2026",
+    releaseDateIso: "2026-11-12",
+    primaryCategory: "Health & Fitness",
+    secondaryCategory: "Productivity",
+    pricingModel: "Free Download • 100% Local Privacy",
+    platform: "macOS 14.0+ (Universal Apple Silicon & Intel)",
+    appSize: "2.4 MB",
+    bundleId: "me.cogify.ottie",
+    minMacOsVersion: "macOS 14.0 Sonoma / macOS 15.0 Sequoia / macOS 26 Tahoe",
+    architecture: "Universal (Apple Silicon M1/M2/M3/M4 & Intel)",
+    sha256: "45490a1e193a49a305be3ca066079e244a9f903862b05ef043a47390050de662",
+    downloadUrl:
+      "https://github.com/Shubham-sharma8/cogifyme/releases/download/ottie-v1.0.0/Ottie.dmg",
+    githubRepoUrl:
+      "https://github.com/Shubham-sharma8/cogifyme/releases/tag/ottie-v1.0.0",
+    icon: "/brand/Ottie/icon.png",
+    iconLarge: "/brand/Ottie/icon.png",
+    accentColor: "emerald",
+    features: [
+      {
+        title: "7 Dedicated Full-Screen Break Walls",
+        description:
+          "Peekaboo Blanket (20-20-20), Aquatic Water Wave, Talk to Parents Hearth, Cutest Robo Cyber-Grid, Downstairs Staircase, Stretch Zen Bamboo Forest, and Cozy Tea Café.",
+        tag: "7 Habit Walls",
+      },
+      {
+        title: "54 Costumes & Cutest Robo-Ottie Mode",
+        description:
+          "Side-by-side Dressing Room Studio with live preview: mix and match 20 tops, 13 bottoms, 11 gloves, 25 hats, and the full Cutest Robo-Ottie mecha collection.",
+        tag: "Dressing Room (54)",
+      },
+      {
+        title: "93 Spring Actions & 13 Robo Gadgets",
+        description:
+          "23-channel harmonic spring physics rig and balanced shuffle deck — from sipping water, flipping pancakes, and playing cricket to UFO tractor beams and jetpacks.",
+        tag: "93 Animations",
+      },
+      {
+        title: "Smart Screen Activity Awareness & Cursor Love",
+        description:
+          "Codes on a mini laptop when you code, watches YouTube on a tiny phone when you watch YouTube, waits politely while you type or join Zoom calls, and runs to your mouse cursor for headpats.",
+        tag: "Smart Awareness",
+      },
+    ],
+    specifications: [
+      { label: "Architecture", value: "Native Swift, AppKit & SwiftUI (23-Channel Spring Rig)" },
+      { label: "Installer Size", value: "2.4 MB .DMG Universal macOS Installer" },
+      { label: "SHA-256 Checksum", value: "45490a1e193a49a305be3ca066079e244a9f903862b05ef043a47390050de662" },
+      { label: "Supported Hardware", value: "Universal (Apple Silicon & Intel) • macOS 14.0+" },
+      { label: "Privacy", value: "100% Local • Zero Screen Recording • Zero Telemetry" },
+    ],
+    screenshotsMac: [
+      {
+        id: "ottie-1",
+        title: "Desktop Companion & Peekaboo Cue",
+        subtitle: "23-Channel Harmonic Spring White Otter on Your Desktop",
+        image: "/images/ottie/01-hero-desktop-peekaboo-soon.png",
+        tag: "Desktop Companion",
+        description:
+          "Ottie sits gently above your dock, gets sleepy when a break is near, and waits politely while you type.",
+        highlights: [
+          "Natural pre-break sleepy cues ('Peekaboo soon...')",
+          "Polite typing and active meeting deferral",
+          "Runs to your mouse cursor for headpats",
+        ],
+      },
+      {
+        id: "ottie-2",
+        title: "Dressing Room Split Studio (54 Looks)",
+        subtitle: "20 Tops, 13 Bottoms, 11 Gloves, 25 Hats & Cutest Robo-Ottie",
+        image: "/images/ottie/11-dressing-room-54-presets-robo.png",
+        tag: "54 Costumes",
+        description:
+          "Customize Ottie's wardrobe with a live interactive preview on the left or transform into Cutest Robo-Ottie.",
+        highlights: [
+          "54 curated presets + full mix-and-match wardrobe",
+          "Cutest Robo-Ottie with LED heart, antenna visor & thrusters",
+          "Optional auto-wear matching outfit on break walls",
+        ],
+      },
+      {
+        id: "ottie-3",
+        title: "7 Full-Screen Animated Break Walls",
+        subtitle: "Peekaboo Blanket, Aquatic Water Wave, Family Hearth & Cyber-Grid",
+        image: "/images/ottie/09-water-cover-display.png",
+        tag: "7 Break Walls",
+        description:
+          "Custom-rendered full-screen environments for eye rest, 8-glass daily hydration, calling parents, stair walks, and zen stretches.",
+        highlights: [
+          "20-20-20 Peekaboo scalloped blanket with one-eye peek",
+          "1-click 8-glass daily water hydration tracker",
+          "Talk to Parents sunset hearth & Cutest Robo Cyber-Grid",
+        ],
+      },
+      {
+        id: "ottie-4",
+        title: "93 Animated Actions & 13 Robo Gadgets",
+        subtitle: "Balanced Shuffle Deck & Sci-Fi Mecha Antics",
+        image: "/images/ottie/12-actions-studio-93-animations.png",
+        tag: "93 Actions",
+        description:
+          "Preview any of the 93 spring animations or 13 Cutest Robo-Ottie sci-fi gadgets anytime.",
+        highlights: [
+          "Mini UFO tractor beam, jetpack fly & laser visor scan",
+          "Flip pancakes, slurp ramen, play cricket & spin DJ decks",
+          "Play with Twin Ottie friend or climb golden stairs",
+        ],
+      },
+    ],
+    keywords: [
+      "Ottie",
+      "Meet Ottie",
+      "Ottie Mac",
+      "macOS desktop companion",
+      "20-20-20 eye break app mac",
+      "Peeka alternative",
+      "LookAway alternative",
+      "Cutest Robo-Ottie",
+    ],
+  },
 };
 
 export const liveMacApps: MacAppConfig[] = [
@@ -4081,6 +4220,7 @@ export const liveMacApps: MacAppConfig[] = [
   siteConfig.wheelify,
   siteConfig.screenify,
   siteConfig.wifyy,
+  siteConfig.ottie,
   siteConfig.lumenview,
   siteConfig.metricove,
   siteConfig.netguard,
