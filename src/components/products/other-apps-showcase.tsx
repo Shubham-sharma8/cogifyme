@@ -351,11 +351,176 @@ export const SISTER_APP_REFERENCES: SisterAppReference[] = [
       "from-[#10B981]/20 via-[#0EA5E9]/15 to-[#0F172A] dark:from-[#10B981]/25 dark:via-[#0EA5E9]/15 dark:to-[#090D16]",
     pills: ["98-Min Full Battery", "Exact DIPR Timers", "Offline PWA & PDF Export"],
   },
+  {
+    slug: "ad-blocker",
+    name: "Ad Blocker for Safari",
+    shortName: "Ad Blocker",
+    badge: "Safari Extension · iOS & macOS",
+    pillar: "safari",
+    headlineSans: "Block 75,000+ trackers natively.",
+    headlineSerif: "Zero Safari slowdown.",
+    description:
+      "Meet Ad Blocker for Safari, powered by Apple's native WebKit Content Blocker API. Blocks intrusive ads, YouTube pre-rolls, cookie banners, and fingerprinting scripts across iPhone, iPad, and Mac with 0 B of telemetry.",
+    icon: siteConfig.adBlocker.icon,
+    screenshot: siteConfig.adBlocker.screenshotsMac?.[0]?.image ?? siteConfig.adBlocker.icon,
+    windowTitle: "Ad Blocker for Safari — Native WebKit Content Shield",
+    href: "/ad-blocker",
+    primaryCtaLabel: "Get on App Store",
+    primaryCtaHref: siteConfig.adBlocker.appStoreUrl,
+    stageGradient:
+      "from-[#10B981]/20 via-[#059669]/15 to-[#0F172A] dark:from-[#10B981]/25 dark:via-[#059669]/15 dark:to-[#090D16]",
+    pills: ["75,000+ Native Rules", "iOS, iPadOS & macOS", "Zero Browsing History Access"],
+  },
+  {
+    slug: "readereasy",
+    name: "ReaderEasy for Safari",
+    shortName: "ReaderEasy",
+    badge: "Safari Extension · iOS & macOS",
+    pillar: "safari",
+    headlineSans: "Bionic focus & distraction-free reading.",
+    headlineSerif: "Inside Safari.",
+    description:
+      "Meet ReaderEasy for Safari. Transform cluttered web articles into a calm typographic sanctuary with Bionic fixation bolding, dyslexia-friendly fonts, warm sepia themes, and instant clutter removal.",
+    icon: siteConfig.readereasy.icon,
+    screenshot: siteConfig.readereasy.screenshotsMac?.[0]?.image ?? siteConfig.readereasy.icon,
+    windowTitle: "ReaderEasy — Bionic Reading & Distraction-Free Safari Studio",
+    href: "/readereasy",
+    primaryCtaLabel: "Get on App Store",
+    primaryCtaHref: siteConfig.readereasy.appStoreUrl,
+    stageGradient:
+      "from-[#F59E0B]/20 via-[#D97706]/15 to-[#0F172A] dark:from-[#F59E0B]/25 dark:via-[#D97706]/15 dark:to-[#090D16]",
+    pills: ["Bionic Reading Mode", "Custom Sepia & Fonts", "1-Tap Article Clean"],
+  },
+  {
+    slug: "webclear",
+    name: "WebClear for Safari",
+    shortName: "WebClear",
+    badge: "Safari Extension · iOS & macOS",
+    pillar: "safari",
+    headlineSans: "Clear single-site cookies & cache.",
+    headlineSerif: "Without logging out everywhere.",
+    description:
+      "Meet WebClear for Safari. Nuke cookies, LocalStorage, IndexedDB, and cached assets for only the active tab in one click—without losing your active logins on other websites.",
+    icon: siteConfig.webclear.icon,
+    screenshot: siteConfig.webclear.screenshotsMac?.[0]?.image ?? siteConfig.webclear.icon,
+    windowTitle: "WebClear — Single-Site Cookie, Cache & Storage Cleaner",
+    href: "/webclear",
+    primaryCtaLabel: "Get on App Store",
+    primaryCtaHref: siteConfig.webclear.appStoreUrl,
+    stageGradient:
+      "from-[#06B6D4]/20 via-[#0284C7]/15 to-[#0F172A] dark:from-[#06B6D4]/25 dark:via-[#0284C7]/15 dark:to-[#090D16]",
+    pills: ["Single-Site Nuker", "Cookies + LocalStorage", "Preserve Other Logins"],
+  },
+  {
+    slug: "weblenses",
+    name: "WebLenses for Safari",
+    shortName: "WebLenses",
+    badge: "Safari Extension · iOS & macOS",
+    pillar: "safari",
+    headlineSans: "Live Core Web Vitals & SEO HUD.",
+    headlineSerif: "Directly on any webpage.",
+    description:
+      "Meet WebLenses for Safari. Inspect LCP, INP, CLS, DOM nodes, heading hierarchy, OpenGraph tags, and accessibility contrast overlays live inside Safari on Mac, iPhone, and iPad.",
+    icon: siteConfig.weblenses.icon,
+    screenshot: siteConfig.weblenses.screenshotsMac?.[0]?.image ?? siteConfig.weblenses.icon,
+    windowTitle: "WebLenses — Core Web Vitals, DOM & SEO Inspector",
+    href: "/weblenses",
+    primaryCtaLabel: "Get on App Store",
+    primaryCtaHref: siteConfig.weblenses.appStoreUrl,
+    stageGradient:
+      "from-[#8B5CF6]/20 via-[#6366F1]/15 to-[#0F172A] dark:from-[#8B5CF6]/25 dark:via-[#6366F1]/15 dark:to-[#090D16]",
+    pills: ["Live LCP, INP & CLS", "SEO & Meta Inspector", "Accessibility Overlays"],
+  },
+  {
+    slug: "element-hider",
+    name: "Element Hider for Safari",
+    shortName: "Element Hider",
+    badge: "Safari Extension · iOS & macOS",
+    pillar: "safari",
+    headlineSans: "Point, click, and zap page bloat.",
+    headlineSerif: "Gone forever.",
+    description:
+      "Meet Element Hider for Safari. Visually select and permanently hide annoying sticky headers, newsletter popups, floating widgets, and paywall overlays on any website with persistent per-domain CSS rules.",
+    icon: "/brand/Element-Hider/icon-sm.webp",
+    screenshot: siteConfig.elementHider.screenshotsMac?.[0]?.image ?? "/brand/Element-Hider/icon-sm.webp",
+    windowTitle: "Element Hider — Visual DOM Element Zapper for Safari",
+    href: "/element-hider",
+    primaryCtaLabel: "Get on App Store",
+    primaryCtaHref: siteConfig.elementHider.appStoreUrl,
+    stageGradient:
+      "from-[#EC4899]/20 via-[#F43F5E]/15 to-[#0F172A] dark:from-[#EC4899]/25 dark:via-[#F43F5E]/15 dark:to-[#090D16]",
+    pills: ["Visual Point & Zap", "Persistent Domain Rules", "Zero Page Reflow Lag"],
+  },
+  {
+    slug: "invert",
+    name: "Colour Invert for Safari",
+    shortName: "Colour Invert",
+    badge: "Safari Extension · iOS & macOS",
+    pillar: "safari",
+    headlineSans: "Smart OLED dark mode for every site.",
+    headlineSerif: "Without breaking photos.",
+    description:
+      "Meet Colour Invert for Safari. Apply intelligent dark mode and contrast themes to blinding white websites while preserving images, videos, and SVGs in their natural colors.",
+    icon: "/brand/Invert/icon-sm.webp",
+    screenshot: siteConfig.invert.screenshotsMac?.[0]?.image ?? "/brand/Invert/icon-sm.webp",
+    windowTitle: "Colour Invert — Smart Dark Mode & Media-Safe Contrast",
+    href: "/invert",
+    primaryCtaLabel: "Get on App Store",
+    primaryCtaHref: siteConfig.invert.appStoreUrl,
+    stageGradient:
+      "from-[#3B82F6]/20 via-[#1D4ED8]/15 to-[#0F172A] dark:from-[#3B82F6]/25 dark:via-[#1D4ED8]/15 dark:to-[#090D16]",
+    pills: ["Smart Media Preservation", "Per-Site Dark Rules", "OLED Eye Comfort"],
+  },
 ];
+
+export const RELATED_APPS_BY_SLUG: Record<string, string[]> = {
+  // Desktop Companion & Wellness -> Radial Workspace, Display Control, Screen Studio
+  ottie: ["wheelify", "lumenview", "screenify"],
+  "meet-ottie": ["wheelify", "lumenview", "screenify"],
+  // Network & Wi-Fi -> Outbound Firewall, Activity Monitor, Hardware Telemetry
+  wifyy: ["netguard", "taskyfy", "metricove"],
+  // Screen Recorder & Editor -> Radial Command Wheel, Display DDC/HiDPI, Clipboard Studio
+  screenify: ["wheelify", "lumenview", "klipora"],
+  // Radial Command Workspace -> Clipboard Studio, Plain-English File Search, Desktop Companion
+  wheelify: ["klipora", "findy", "ottie"],
+  // Activity Monitor & Process Tree -> Menu Bar Telemetry, Wi-Fi 4-Hop, Outbound Firewall
+  taskyfy: ["metricove", "wifyy", "netguard"],
+  // Plain-English File Search & Space Lens -> APFS Disk Visualizer, Cloud Drive Pool, PDF Workstation
+  findy: ["show-free-space", "helium", "emdoc"],
+  // Cloud Drive Pool -> Plain-English File Search, APFS Disk Visualizer, PDF Workstation
+  helium: ["findy", "show-free-space", "emdoc"],
+  // APFS Disk Visualizer -> Plain-English File Search, Cloud Drive Pool, Activity Monitor
+  "show-free-space": ["findy", "helium", "taskyfy"],
+  // PDF Workstation -> Plain-English File Search, Clipboard Studio, Biodata Print Studio
+  emdoc: ["findy", "klipora", "biodata"],
+  // Clipboard History Studio -> Radial Command Wheel, Plain-English File Search, PDF Workstation
+  klipora: ["wheelify", "findy", "emdoc"],
+  // Display DDC & HiDPI -> Screen Recorder Studio, Desktop Eye-Rest Companion, Menu Bar Telemetry
+  lumenview: ["screenify", "ottie", "metricove"],
+  // Outbound Firewall -> Wi-Fi 4-Hop Diagnostics, Activity Monitor & Port Radar, Safari Ad Blocker
+  netguard: ["wifyy", "taskyfy", "ad-blocker"],
+  // Menu Bar Hardware Telemetry -> Plain-English Activity Monitor, Wi-Fi 4-Hop, Display DDC
+  metricove: ["taskyfy", "wifyy", "lumenview"],
+  // Web Studios -> Document/PDF & Companion tools
+  biodata: ["emdoc", "ssb", "findy"],
+  ssb: ["biodata", "ottie", "emdoc"],
+  // Safari Extensions -> Related Safari & Privacy tools
+  "ad-blocker": ["element-hider", "webclear", "netguard"],
+  readereasy: ["invert", "element-hider", "ad-blocker"],
+  webclear: ["ad-blocker", "weblenses", "element-hider"],
+  weblenses: ["webclear", "element-hider", "wifyy"],
+  "element-hider": ["ad-blocker", "readereasy", "invert"],
+  invert: ["readereasy", "element-hider", "lumenview"],
+};
 
 export const ALL_SHORT_APP_LINKS = [
   { slug: "helium", name: "Helium", tag: "Drive Pool", href: "/helium", icon: siteConfig.helium.icon, pillar: "Mac" },
+  { slug: "findy", name: "Findy", tag: "File Search", href: "/findy", icon: siteConfig.findy.icon, pillar: "Mac" },
+  { slug: "taskyfy", name: "Taskyfy", tag: "Process Tree", href: "/taskyfy", icon: siteConfig.taskyfy.icon, pillar: "Mac" },
+  { slug: "wheelify", name: "Wheelify", tag: "Radial Wheel", href: "/wheelify", icon: siteConfig.wheelify.icon, pillar: "Mac" },
+  { slug: "screenify", name: "Screenify", tag: "Screen Studio", href: "/screenify", icon: siteConfig.screenify.icon, pillar: "Mac" },
   { slug: "wifyy", name: "Wifyy", tag: "Wi-Fi 4-Hop", href: "/wifyy", icon: siteConfig.wifyy.icon, pillar: "Mac" },
+  { slug: "ottie", name: "Ottie", tag: "Mac Companion", href: "/ottie", icon: siteConfig.ottie.icon, pillar: "Mac" },
   { slug: "emdoc", name: "EmDoc", tag: "PDF Suite", href: "/emdoc", icon: "/brand/emdoc-icon-sm.webp", pillar: "Mac" },
   { slug: "klipora", name: "Klipora", tag: "Clipboard", href: "/klipora", icon: siteConfig.klipora.icon, pillar: "Mac" },
   { slug: "lumenview", name: "LumenView", tag: "Display DDC", href: "/lumenview", icon: siteConfig.lumenview.icon, pillar: "Mac" },
@@ -381,9 +546,20 @@ export function OtherAppsShowcase({
   currentSlug,
   maxSpotlights = 3,
 }: OtherAppsShowcaseProps) {
-  const spotlights = SISTER_APP_REFERENCES.filter(
-    (app) => app.slug !== currentSlug
-  ).slice(0, maxSpotlights);
+  const relatedSlugs = currentSlug ? RELATED_APPS_BY_SLUG[currentSlug] : undefined;
+  const spotlights = relatedSlugs
+    ? [
+        ...relatedSlugs
+          .map((slug) => SISTER_APP_REFERENCES.find((app) => app.slug === slug))
+          .filter((app): app is SisterAppReference => Boolean(app)),
+        ...SISTER_APP_REFERENCES.filter(
+          (app) => app.slug !== currentSlug && !relatedSlugs.includes(app.slug)
+        ),
+      ].slice(0, maxSpotlights)
+    : SISTER_APP_REFERENCES.filter((app) => app.slug !== currentSlug).slice(
+        0,
+        maxSpotlights
+      );
 
   return (
     <section
@@ -567,12 +743,12 @@ export function OtherAppsShowcase({
         ))}
       </div>
 
-      {/* Compact Ecosystem Dock Strip (All 15 Short URLs) */}
+      {/* Compact Ecosystem Dock Strip (All 21 Short URLs) */}
       <div className="mt-10 rounded-[24px] bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/[0.1] p-5 sm:p-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
           <div>
             <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#777] dark:text-[#888]">
-              Complete 15-App Dock · Direct Short URLs
+              Complete 21-App Dock · Direct Short URLs
             </span>
             <h3 className="text-base sm:text-lg font-bold text-[#111] dark:text-white">
               Jump to any Cogify app

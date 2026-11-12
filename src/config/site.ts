@@ -315,7 +315,7 @@ export const siteConfig: SiteConfig = {
   ogImage: "https://cogify.me/og-image.png",
   appleDeveloperUrl: "https://apps.apple.com/in/developer/shubham-sharma/id1643497398",
   description:
-    "Cogify builds 15 free, zero-telemetry web studios (biodata.cogify.me, ssb.cogify.me) and native macOS, iOS, iPadOS & Safari apps including Helium and EmDoc with 100% local privacy.",
+    "Cogify builds 21 free, zero-telemetry web studios (biodata.cogify.me, ssb.cogify.me) and native macOS, iOS, iPadOS & Safari apps including Helium, Findy, Taskyfy, Wheelify, Screenify, Wifyy, Ottie, and EmDoc with 100% local privacy.",
   keywords: [
     "Cogify",
     "cogify.me",

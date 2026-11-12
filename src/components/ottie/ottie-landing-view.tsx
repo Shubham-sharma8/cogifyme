@@ -7,19 +7,15 @@ import Link from "next/link";
 import {
   Check,
   ChevronDown,
-  Copy,
   ExternalLink,
   Download,
   ArrowRight,
-  Sparkles,
   Mail,
 } from "lucide-react";
-import { AppleLogoIcon, GitHubIcon } from "@/components/ui/platform-icons";
+import { AppleLogoIcon } from "@/components/ui/platform-icons";
 import { OtherAppsShowcase } from "@/components/products/other-apps-showcase";
 import {
   OTTIE_DMG_URL,
-  OTTIE_GITHUB_URL,
-  OTTIE_SHA256,
   OTTIE_SIZE,
   TRYMACAPPS_URL,
   TRYMACAPPS_BADGE_IMG,
@@ -39,57 +35,7 @@ import { RoamingOttieWidget } from "./roaming-ottie-widget";
 export function OttieLandingView() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [activePersona, setActivePersona] = useState<string>("everyone");
-  const [copiedSha, setCopiedSha] = useState(false);
   const [activeWallIndex, setActiveWallIndex] = useState<number>(0);
-  const [heroSlide, setHeroSlide] = useState<number>(0);
-  const [pokeMessage, setPokeMessage] = useState<string | null>(null);
-
-  const pokeResponses = [
-    "Hehe that tickles!! 🦦💕",
-    "BEEP BOOP! Cutest Robo-Ottie online! 🤖✨",
-    "Remember to blink & sip water today~ 💧",
-    "I'll wait till you finish typing! ⌨️🌱",
-    "Peekaboo soon… 4! 👀",
-  ];
-
-  const handlePokeHero = () => {
-    const next =
-      pokeResponses[Math.floor(Math.random() * pokeResponses.length)];
-    setPokeMessage(next);
-    setTimeout(() => setPokeMessage(null), 2800);
-  };
-
-  const handleCopySha = () => {
-    if (typeof navigator !== "undefined" && navigator.clipboard) {
-      navigator.clipboard.writeText(OTTIE_SHA256);
-      setCopiedSha(true);
-      setTimeout(() => setCopiedSha(false), 2000);
-    }
-  };
-
-  const heroScreens = [
-    {
-      label: "Desktop Companion",
-      src: "/images/ottie/01-hero-desktop-peekaboo-soon.png",
-      width: 2240,
-      height: 1400,
-      alt: "Ottie white otter companion sitting on the macOS desktop with a 'Peekaboo soon...' speech bubble next to Notes",
-    },
-    {
-      label: "Welcome Tour (18)",
-      src: "/images/ottie/18-welcome-screen-what-is-ottie.png",
-      width: 1680,
-      height: 1320,
-      alt: "Welcome to Ottie interactive macOS onboarding window showing Cutest Robo-Ottie and 93 cute actions",
-    },
-    {
-      label: "Blanket Drape",
-      src: "/images/ottie/02-blanket-drape-transition.png",
-      width: 2240,
-      height: 1400,
-      alt: "Ottie pulling a soft scalloped dark-sage blanket down over the macOS desktop for a 20-20-20 eye break",
-    },
-  ];
 
   const activeWall = OTTIE_BREAK_WALLS[activeWallIndex];
 
@@ -137,14 +83,14 @@ export function OttieLandingView() {
             >
               dressing room
             </a>
+            <a href="#pocket" className="hover:text-[#17242B] transition">
+              ottie&apos;s pocket
+            </a>
             <a href="#actions" className="hover:text-[#17242B] transition">
               93 actions
             </a>
-            <a
-              href="#smart-awareness"
-              className="hover:text-[#17242B] transition"
-            >
-              smart awareness
+            <a href="#how-it-works" className="hover:text-[#17242B] transition">
+              how it works
             </a>
             <a href="#faq" className="hover:text-[#17242B] transition">
               faq
@@ -163,7 +109,7 @@ export function OttieLandingView() {
 
       <main id="main-content">
         {/* ── Hero Section ── */}
-        <section className="pt-14 sm:pt-20 pb-16 px-4 sm:px-6">
+        <section className="pt-14 sm:pt-20 pb-12 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             {/* Version & Category Pill */}
             <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full px-3.5 py-1 text-xs font-medium border border-black/[0.08] bg-white shadow-2xs mb-6 text-[#5E6B73]">
@@ -243,15 +189,6 @@ export function OttieLandingView() {
                 <span>dress up ottie below</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
-              <a
-                href={OTTIE_GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-white border border-black/[0.1] text-[#5E6B73] hover:text-[#17242B] hover:bg-black/[0.04] rounded-full px-5 py-3 text-sm font-medium transition"
-              >
-                <GitHubIcon className="w-4 h-4 fill-current" />
-                <span>github release</span>
-              </a>
             </div>
 
             {/* Featured on TryMacApps Badge */}
@@ -267,7 +204,7 @@ export function OttieLandingView() {
                   alt="Featured on TryMacApps"
                   width={200}
                   height={67}
-                  className="h-10 w-auto object-contain"
+                  className="h-12 w-auto object-contain"
                 />
               </a>
             </div>
@@ -280,82 +217,12 @@ export function OttieLandingView() {
               off by default · 100% local privacy
             </p>
           </div>
-
-          {/* Hero Dual Visual Showcase: Desktop / Welcome Frame + Menu Bar Popover */}
-          <div className="max-w-6xl mx-auto mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-3">
-              <div className="flex flex-wrap items-center justify-between gap-2 px-1">
-                <div className="flex items-center gap-1.5">
-                  {heroScreens.map((s, idx) => (
-                    <button
-                      key={s.label}
-                      type="button"
-                      onClick={() => setHeroSlide(idx)}
-                      className={`px-3 py-1 rounded-full text-xs font-medium transition cursor-pointer ${
-                        heroSlide === idx
-                          ? "bg-[#17242B] text-white"
-                          : "bg-white text-[#5E6B73] hover:text-[#17242B] border border-black/[0.08]"
-                      }`}
-                    >
-                      {s.label}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Live Interactive "Poke Ottie" Button */}
-                <div className="relative flex items-center gap-2">
-                  {pokeMessage && (
-                    <span className="text-xs font-medium px-3 py-1 rounded-full bg-white border border-black/[0.08] shadow-xs text-[#17242B] animate-fade-in">
-                      {pokeMessage}
-                    </span>
-                  )}
-                  <button
-                    type="button"
-                    onClick={handlePokeHero}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-[#E6F0EC] text-[#2E705E] hover:bg-[#d5e6df] border border-[#2E705E]/20 transition cursor-pointer"
-                  >
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>Poke Ottie 🐾</span>
-                  </button>
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-white border border-black/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.06)] overflow-hidden">
-                <Image
-                  src={heroScreens[heroSlide].src}
-                  alt={heroScreens[heroSlide].alt}
-                  width={heroScreens[heroSlide].width}
-                  height={heroScreens[heroSlide].height}
-                  priority
-                  className="w-full h-auto block"
-                />
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 flex flex-col items-center">
-              <div className="w-full max-w-[360px] rounded-2xl bg-white border border-black/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.06)] overflow-hidden">
-                <Image
-                  src="/images/ottie/04-menu-popover-white-minimal.png"
-                  alt="Ottie minimal macOS menu bar popover showing screen time today, 9 of 10 eye breaks rested, 8-glass hydration progress, and 1-click Robo / Antic / Focus Mode toggles"
-                  width={1040}
-                  height={1160}
-                  priority
-                  className="w-full h-auto block"
-                />
-              </div>
-              <p className="text-center text-xs text-[#5E6B73] mt-3">
-                Compact menu bar popover — 1-click{" "}
-                <strong>🤖 Robo</strong>, <strong>🎲 Antic</strong>,{" "}
-                <strong>🎯 Focus Mode</strong> &amp; hydration tracker.
-              </p>
-            </div>
-          </div>
         </section>
 
-        {/* ── Interactive Live Browser Trial (#live-trial — Inspired by meetpeeka.com + index.html) ── */}
+        {/* ── 1. Interactive Live Browser Trial (#live-trial — "try ottie right here in your browser.") ── */}
         <section
           id="live-trial"
-          className="py-20 px-4 sm:px-6 bg-white border-y border-black/[0.06]"
+          className="py-16 px-4 sm:px-6 bg-white border-y border-black/[0.06]"
         >
           <div className="max-w-5xl mx-auto space-y-8">
             <div className="text-center max-w-2xl mx-auto">
@@ -382,195 +249,47 @@ export function OttieLandingView() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-medium text-[#5E6B73] hover:text-[#17242B] underline underline-offset-4"
               >
-                <span>Open standalone full-window web trial (index.html)</span>
+                <span>Open standalone full-window web trial</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
-          </div>
-        </section>
 
-        {/* ── The 20-20-20 Rule & How It Works 3-Step Visual Story (MeetPeeka + Helium Style) ── */}
-        <section id="how-it-works" className="py-20 px-4 sm:px-6">
-          <div className="max-w-5xl mx-auto space-y-16">
-            {/* The 20-20-20 Rule Intro */}
-            <div className="max-w-3xl mx-auto text-center space-y-4">
-              <span className="inline-block rounded-full px-3 py-1 text-xs font-mono font-medium bg-white border border-black/[0.08] text-[#2E705E]">
-                the 20-20-20 rule, reimagined
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-[#17242B]">
-                sleepy. peekaboo. boo!
-              </h2>
-              <p className="text-sm sm:text-base text-[#5E6B73] leading-relaxed">
-                Every 20 minutes, look 20 feet away for 20 seconds. Easy rule —
-                nobody follows it because standard break timers feel like a
-                scolding alarm clock. Ottie turns the break into the best 20
-                seconds of your hour.
-              </p>
-            </div>
+            {/* Desktop Companion + Compact Menu Bar Popover Showcase */}
+            <div className="pt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-8 rounded-2xl bg-[#F6F5F2] border border-black/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.05)] overflow-hidden">
+                <Image
+                  src="/images/ottie/01-hero-desktop-peekaboo-soon.png"
+                  alt="Ottie white otter companion sitting on the macOS desktop with a 'Peekaboo soon...' speech bubble next to Notes"
+                  width={2240}
+                  height={1400}
+                  priority
+                  className="w-full h-auto block"
+                />
+              </div>
 
-            {/* 3 Visual Steps */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="rounded-2xl bg-white border border-black/[0.08] p-6 space-y-3 shadow-2xs">
-                <div className="flex items-center justify-between">
-                  <span className="w-7 h-7 rounded-lg bg-[#E6F0EC] text-[#2E705E] font-mono text-xs font-bold flex items-center justify-center">
-                    01
-                  </span>
-                  <span className="text-xs font-mono text-[#5E6B73]">
-                    Pre-break cue
-                  </span>
+              <div className="lg:col-span-4 flex flex-col items-center">
+                <div className="w-full max-w-[360px] rounded-2xl bg-[#F6F5F2] border border-black/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.05)] overflow-hidden">
+                  <Image
+                    src="/images/ottie/04-menu-popover-white-minimal.png"
+                    alt="Ottie minimal macOS menu bar popover showing screen time today, 9 of 10 eye breaks rested, 8-glass hydration progress, and 1-click Robo / Antic / Focus Mode toggles"
+                    width={1040}
+                    height={1160}
+                    priority
+                    className="w-full h-auto block"
+                  />
                 </div>
-                <h3 className="text-lg font-semibold text-[#17242B]">
-                  It gets sleepy
-                </h3>
-                <p className="text-xs sm:text-sm text-[#5E6B73] leading-relaxed">
-                  As you work, Ottie&apos;s eyelids get heavy. It yawns,
-                  stretches its paws, and whispers{" "}
-                  <em>&ldquo;Peekaboo soon…&rdquo;</em> You feel the break
-                  coming naturally before any timer says a word.
+                <p className="text-center text-xs text-[#5E6B73] mt-3">
+                  Compact menu bar popover — 1-click{" "}
+                  <strong>🤖 Robo</strong>, <strong>🎲 Antic</strong>,{" "}
+                  <strong>🎯 Focus Mode</strong> &amp; hydration tracker.
                 </p>
-              </div>
-
-              <div className="rounded-2xl bg-white border border-black/[0.08] p-6 space-y-3 shadow-2xs">
-                <div className="flex items-center justify-between">
-                  <span className="w-7 h-7 rounded-lg bg-[#E6F0EC] text-[#2E705E] font-mono text-xs font-bold flex items-center justify-center">
-                    02
-                  </span>
-                  <span className="text-xs font-mono text-[#5E6B73]">
-                    7 calming walls
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-[#17242B]">
-                  Peekaboo blanket drape
-                </h3>
-                <p className="text-xs sm:text-sm text-[#5E6B73] leading-relaxed">
-                  Ottie pulls a soft scalloped blanket (or aquatic water wave,
-                  zen bamboo forest, or cyber-grid) over your screen, covers its
-                  eyes, and peeks with one eye at <strong>4!</strong> while you
-                  look far away.
-                </p>
-              </div>
-
-              <div className="rounded-2xl bg-white border border-black/[0.08] p-6 space-y-3 shadow-2xs">
-                <div className="flex items-center justify-between">
-                  <span className="w-7 h-7 rounded-lg bg-[#E6F0EC] text-[#2E705E] font-mono text-xs font-bold flex items-center justify-center">
-                    03
-                  </span>
-                  <span className="text-xs font-mono text-[#5E6B73]">
-                    Fresh return
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-[#17242B]">
-                  Boo! Welcome back
-                </h3>
-                <p className="text-xs sm:text-sm text-[#5E6B73] leading-relaxed">
-                  The blanket lifts, Ottie pops out with a happy{" "}
-                  <em>&ldquo;Boo!&rdquo;</em> and three slow blinks together —
-                  sometimes wearing a new sprout, star clip, or beanie in its
-                  pocket.
-                </p>
-              </div>
-            </div>
-
-            {/* Helium [ 1 ] to [ 4 ] Editorial Cards */}
-            <div className="max-w-4xl mx-auto space-y-12 pt-4">
-              {/* [ 1 ] what it is */}
-              <div className="bg-white rounded-2xl border border-black/[0.08] p-6 sm:p-10 space-y-4">
-                <span className="inline-block font-mono text-xs text-[#5E6B73] bg-[#F6F5F2] px-2.5 py-1 rounded-md">
-                  [ 1 ]
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                  what it is
-                </h2>
-                <p className="text-base sm:text-lg font-medium text-[#17242B]">
-                  a native white otter &amp; cutest robo desktop companion +
-                  7-wall wellness studio for macOS.
-                </p>
-                <p className="text-sm text-[#5E6B73] leading-relaxed">
-                  built natively in swift for macOS, ottie combines a cozy
-                  desktop friend (54 mix-and-match outfits, 93 harmonic spring
-                  animations, smart screen activity mirroring, and cursor
-                  headpats) with 7 full-screen animated break walls for eye
-                  rest, water hydration, family calls, stair walks, back
-                  stretches, tea breaks, and neural core recharges.
-                </p>
-              </div>
-
-              {/* [ 2 ] why it's different */}
-              <div className="bg-white rounded-2xl border border-black/[0.08] p-6 sm:p-10 space-y-6">
-                <span className="inline-block font-mono text-xs text-[#5E6B73] bg-[#F6F5F2] px-2.5 py-1 rounded-md">
-                  [ 2 ]
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                  why it&apos;s different
-                </h2>
-                <p className="text-base sm:text-lg font-medium text-[#17242B]">
-                  no streaks to lose. no bossy lockouts. reminder timers are off
-                  by default until you want them.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                  <div className="p-4 rounded-xl bg-[#F6F5F2] border border-black/[0.06]">
-                    <div className="text-2xl font-semibold font-mono text-[#17242B]">
-                      54 looks
-                    </div>
-                    <div className="text-xs text-[#5E6B73] mt-1">
-                      20 tops · 13 bottoms · 11 gloves · 25 hats + Cutest Robo
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-[#F6F5F2] border border-black/[0.06]">
-                    <div className="text-2xl font-semibold font-mono text-[#17242B]">
-                      93 actions
-                    </div>
-                    <div className="text-xs text-[#5E6B73] mt-1">
-                      23-channel spring rig + 13 sci-fi Robo gadgets
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-[#F6F5F2] border border-black/[0.06]">
-                    <div className="text-2xl font-semibold font-mono text-[#17242B]">
-                      7 walls
-                    </div>
-                    <div className="text-xs text-[#5E6B73] mt-1">
-                      Peekaboo · Water · Parents · Robo · Stairs · Zen · Tea
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* [ 4 ] what you get */}
-              <div className="bg-white rounded-2xl border border-black/[0.08] p-6 sm:p-10 space-y-6">
-                <span className="inline-block font-mono text-xs text-[#5E6B73] bg-[#F6F5F2] px-2.5 py-1 rounded-md">
-                  [ 3 ]
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                  what you get
-                </h2>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs sm:text-sm text-[#17242B]">
-                  {OTTIE_WHAT_YOU_GET.map((item, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-2.5 p-3.5 rounded-xl bg-[#F6F5F2]/80 border border-black/[0.05]"
-                    >
-                      <Check className="w-4 h-4 text-[#2E705E] shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-semibold text-[#17242B]">
-                          {item.title}
-                        </div>
-                        <div className="text-xs text-[#5E6B73] mt-0.5 leading-relaxed">
-                          {item.description}
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── 7 Dedicated Full-Screen Break Walls (Interactive Tab Switcher #break-walls) ── */}
-        <section
-          id="break-walls"
-          className="py-20 px-4 sm:px-6 bg-white border-y border-black/[0.06]"
-        >
+        {/* ── 2. 7 Dedicated Full-Screen Break Walls (#break-walls — "not just text alerts. 7 custom-rendered habit sanctuaries.") ── */}
+        <section id="break-walls" className="py-20 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto space-y-10">
             <div className="text-center max-w-3xl mx-auto">
               <span className="inline-block rounded-full px-3 py-1 text-xs font-mono font-medium bg-[#E6F0EC] text-[#2E705E] mb-3">
@@ -599,7 +318,7 @@ export function OttieLandingView() {
                     className={`px-4 py-2 rounded-full text-xs font-semibold transition cursor-pointer border ${
                       isSelected
                         ? "bg-[#17242B] text-white border-[#17242B] shadow-xs"
-                        : "bg-[#F6F5F2] text-[#17242B] border-black/[0.08] hover:bg-[#E6F0EC]"
+                        : "bg-white text-[#17242B] border-black/[0.08] hover:bg-[#E6F0EC]"
                     }`}
                   >
                     {wall.tabLabel}
@@ -609,7 +328,7 @@ export function OttieLandingView() {
             </div>
 
             {/* Active Break Wall Showcase Card */}
-            <div className="rounded-3xl border border-black/[0.08] bg-[#F6F5F2] p-6 sm:p-8 space-y-6">
+            <div className="rounded-3xl border border-black/[0.08] bg-white p-6 sm:p-8 space-y-6 shadow-2xs">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="space-y-1.5 max-w-2xl">
                   <div className="inline-flex items-center gap-2">
@@ -632,7 +351,7 @@ export function OttieLandingView() {
                 </div>
 
                 <div className="shrink-0">
-                  <span className="inline-block text-xs font-mono font-medium px-3.5 py-2 rounded-xl bg-white border border-black/[0.08] text-[#17242B] shadow-2xs">
+                  <span className="inline-block text-xs font-mono font-medium px-3.5 py-2 rounded-xl bg-[#F6F5F2] border border-black/[0.08] text-[#17242B]">
                     {activeWall.ctaPreview}
                   </span>
                 </div>
@@ -651,8 +370,11 @@ export function OttieLandingView() {
           </div>
         </section>
 
-        {/* ── Interactive Dressing Room Studio (54 Costumes & Cutest Robo #dressing-room) ── */}
-        <section id="dressing-room" className="py-20 px-4 sm:px-6">
+        {/* ── 3. Interactive Dressing Room Studio (#dressing-room — "dress up & play with ottie.") ── */}
+        <section
+          id="dressing-room"
+          className="py-20 px-4 sm:px-6 bg-white border-y border-black/[0.06]"
+        >
           <div className="max-w-6xl mx-auto space-y-10">
             <div className="text-center max-w-3xl mx-auto">
               <span className="inline-block rounded-full px-3 py-1 text-xs font-mono font-medium bg-[#E5F2FA] text-[#298AC7] mb-3">
@@ -676,7 +398,69 @@ export function OttieLandingView() {
           </div>
         </section>
 
-        {/* ── 93 Actions, 24 Faces & Smart Screen Activity Awareness Bento Grid (#actions & #smart-awareness) ── */}
+        {/* ── 4. Ottie's Pocket Collectibles (#pocket — "sometimes, ottie finds things.") ── */}
+        <section id="pocket" className="py-20 px-4 sm:px-6">
+          <div className="max-w-5xl mx-auto space-y-8">
+            <div className="rounded-3xl border border-black/[0.08] bg-white p-6 sm:p-10 shadow-2xs space-y-6">
+              <div className="max-w-2xl mx-auto text-center space-y-2">
+                <span className="inline-block rounded-full px-3 py-1 text-xs font-mono font-medium bg-[#E6F0EC] text-[#2E705E]">
+                  03 · ottie&apos;s pocket · zero-guilt habit rewards
+                </span>
+                <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-[#17242B]">
+                  sometimes, ottie finds things.
+                </h2>
+                <p className="text-sm text-[#5E6B73] leading-relaxed">
+                  After a rested afternoon, Ottie might come back from behind
+                  the blanket wearing a tiny leaf sprout, a star clip, an acorn
+                  cap, or a cozy beanie. No streaks to lose. No coins. Just a
+                  small surprise in Ottie&apos;s pocket.
+                </p>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden border border-black/[0.06] bg-[#F6F5F2]">
+                <Image
+                  src="/images/ottie/06-otter-pocket-collectibles.png"
+                  alt="Sometimes, Ottie finds things — Sprout, Star clip, Acorn cap, and Beanie collectibles"
+                  width={2080}
+                  height={840}
+                  className="w-full h-auto block"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                <div className="p-4 rounded-xl bg-[#F6F5F2] border border-black/[0.06]">
+                  <h3 className="text-sm font-semibold text-[#17242B]">
+                    No streaks to lose.
+                  </h3>
+                  <p className="text-xs text-[#5E6B73] mt-1 leading-relaxed">
+                    Counts only go up. Missing or skipping a break never wipes
+                    your progress or scolds you.
+                  </p>
+                </div>
+                <div className="p-4 rounded-xl bg-[#F6F5F2] border border-black/[0.06]">
+                  <h3 className="text-sm font-semibold text-[#17242B]">
+                    No nagging pop-ups.
+                  </h3>
+                  <p className="text-xs text-[#5E6B73] mt-1 leading-relaxed">
+                    Ottie getting sleepy <em>is</em> the reminder — and timers
+                    stay completely off unless you turn them on.
+                  </p>
+                </div>
+                <div className="p-4 rounded-xl bg-[#F6F5F2] border border-black/[0.06]">
+                  <h3 className="text-sm font-semibold text-[#17242B]">
+                    No lockouts.
+                  </h3>
+                  <p className="text-xs text-[#5E6B73] mt-1 leading-relaxed">
+                    You&apos;re always in charge. Press <kbd>esc</kbd> to skip
+                    anytime, or snooze in one click.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 5. 93 Actions, 24 Faces & Smart Screen Activity Awareness Bento Grid (#actions & #smart-awareness) ── */}
         <section
           id="actions"
           className="py-20 px-4 sm:px-6 bg-white border-y border-black/[0.06]"
@@ -684,7 +468,7 @@ export function OttieLandingView() {
           <div className="max-w-6xl mx-auto space-y-12">
             <div className="text-center max-w-3xl mx-auto">
               <span className="inline-block rounded-full px-3 py-1 text-xs font-mono font-medium bg-[#E6F0EC] text-[#2E705E] mb-3">
-                03 · 93 spring animations &amp; smart screen awareness
+                04 · 93 spring animations &amp; smart screen awareness
               </span>
               <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-[#17242B]">
                 understands your screen. never repeats the same walk.
@@ -818,69 +602,183 @@ export function OttieLandingView() {
           </div>
         </section>
 
-        {/* ── Ottie's Pocket Collectibles (06-otter-pocket-collectibles.png — MeetPeeka Style) ── */}
-        <section className="py-20 px-4 sm:px-6">
-          <div className="max-w-5xl mx-auto space-y-8">
-            <div className="rounded-3xl border border-black/[0.08] bg-white p-6 sm:p-10 shadow-2xs space-y-6">
-              <div className="max-w-2xl mx-auto text-center space-y-2">
-                <span className="inline-block rounded-full px-3 py-1 text-xs font-mono font-medium bg-[#E6F0EC] text-[#2E705E]">
-                  ottie&apos;s pocket · zero-guilt habit rewards
-                </span>
-                <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-[#17242B]">
-                  sometimes, ottie finds things.
-                </h2>
-                <p className="text-sm text-[#5E6B73] leading-relaxed">
-                  After a rested afternoon, Ottie might come back from behind
-                  the blanket wearing a tiny leaf sprout, a star clip, an acorn
-                  cap, or a cozy beanie. No streaks to lose. No coins. Just a
-                  small surprise in Ottie&apos;s pocket.
+        {/* ── 6. The 20-20-20 Rule & How It Works 3-Step Visual Story (#how-it-works) ── */}
+        <section id="how-it-works" className="py-20 px-4 sm:px-6">
+          <div className="max-w-5xl mx-auto space-y-16">
+            <div className="max-w-3xl mx-auto text-center space-y-4">
+              <span className="inline-block rounded-full px-3 py-1 text-xs font-mono font-medium bg-white border border-black/[0.08] text-[#2E705E]">
+                the 20-20-20 rule, reimagined
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-[#17242B]">
+                sleepy. peekaboo. boo!
+              </h2>
+              <p className="text-sm sm:text-base text-[#5E6B73] leading-relaxed">
+                Every 20 minutes, look 20 feet away for 20 seconds. Easy rule —
+                nobody follows it because standard break timers feel like a
+                scolding alarm clock. Ottie turns the break into the best 20
+                seconds of your hour.
+              </p>
+            </div>
+
+            {/* 3 Visual Steps */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="rounded-2xl bg-white border border-black/[0.08] p-6 space-y-3 shadow-2xs">
+                <div className="flex items-center justify-between">
+                  <span className="w-7 h-7 rounded-lg bg-[#E6F0EC] text-[#2E705E] font-mono text-xs font-bold flex items-center justify-center">
+                    01
+                  </span>
+                  <span className="text-xs font-mono text-[#5E6B73]">
+                    Pre-break cue
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-[#17242B]">
+                  It gets sleepy
+                </h3>
+                <p className="text-xs sm:text-sm text-[#5E6B73] leading-relaxed">
+                  As you work, Ottie&apos;s eyelids get heavy. It yawns,
+                  stretches its paws, and whispers{" "}
+                  <em>&ldquo;Peekaboo soon…&rdquo;</em> You feel the break
+                  coming naturally before any timer says a word.
                 </p>
               </div>
 
-              <div className="rounded-2xl overflow-hidden border border-black/[0.06] bg-[#F6F5F2]">
-                <Image
-                  src="/images/ottie/06-otter-pocket-collectibles.png"
-                  alt="Sometimes, Ottie finds things — Sprout, Star clip, Acorn cap, and Beanie collectibles"
-                  width={2080}
-                  height={840}
-                  className="w-full h-auto block"
-                />
+              <div className="rounded-2xl bg-white border border-black/[0.08] p-6 space-y-3 shadow-2xs">
+                <div className="flex items-center justify-between">
+                  <span className="w-7 h-7 rounded-lg bg-[#E6F0EC] text-[#2E705E] font-mono text-xs font-bold flex items-center justify-center">
+                    02
+                  </span>
+                  <span className="text-xs font-mono text-[#5E6B73]">
+                    7 calming walls
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-[#17242B]">
+                  Peekaboo blanket drape
+                </h3>
+                <p className="text-xs sm:text-sm text-[#5E6B73] leading-relaxed">
+                  Ottie pulls a soft scalloped blanket (or aquatic water wave,
+                  zen bamboo forest, or cyber-grid) over your screen, covers its
+                  eyes, and peeks with one eye at <strong>4!</strong> while you
+                  look far away.
+                </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-[#F6F5F2] border border-black/[0.06]">
-                  <h3 className="text-sm font-semibold text-[#17242B]">
-                    No streaks to lose.
-                  </h3>
-                  <p className="text-xs text-[#5E6B73] mt-1 leading-relaxed">
-                    Counts only go up. Missing or skipping a break never wipes
-                    your progress or scolds you.
-                  </p>
+              <div className="rounded-2xl bg-white border border-black/[0.08] p-6 space-y-3 shadow-2xs">
+                <div className="flex items-center justify-between">
+                  <span className="w-7 h-7 rounded-lg bg-[#E6F0EC] text-[#2E705E] font-mono text-xs font-bold flex items-center justify-center">
+                    03
+                  </span>
+                  <span className="text-xs font-mono text-[#5E6B73]">
+                    Fresh return
+                  </span>
                 </div>
-                <div className="p-4 rounded-xl bg-[#F6F5F2] border border-black/[0.06]">
-                  <h3 className="text-sm font-semibold text-[#17242B]">
-                    No nagging pop-ups.
-                  </h3>
-                  <p className="text-xs text-[#5E6B73] mt-1 leading-relaxed">
-                    Ottie getting sleepy <em>is</em> the reminder — and timers
-                    stay completely off unless you turn them on.
-                  </p>
+                <h3 className="text-lg font-semibold text-[#17242B]">
+                  Boo! Welcome back
+                </h3>
+                <p className="text-xs sm:text-sm text-[#5E6B73] leading-relaxed">
+                  The blanket lifts, Ottie pops out with a happy{" "}
+                  <em>&ldquo;Boo!&rdquo;</em> and three slow blinks together —
+                  sometimes wearing a new sprout, star clip, or beanie in its
+                  pocket.
+                </p>
+              </div>
+            </div>
+
+            {/* Helium [ 1 ] to [ 3 ] Editorial Cards */}
+            <div className="max-w-4xl mx-auto space-y-12 pt-4">
+              {/* [ 1 ] what it is */}
+              <div className="bg-white rounded-2xl border border-black/[0.08] p-6 sm:p-10 space-y-4">
+                <span className="inline-block font-mono text-xs text-[#5E6B73] bg-[#F6F5F2] px-2.5 py-1 rounded-md">
+                  [ 1 ]
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+                  what it is
+                </h2>
+                <p className="text-base sm:text-lg font-medium text-[#17242B]">
+                  a native white otter &amp; cutest robo desktop companion +
+                  7-wall wellness studio for macOS.
+                </p>
+                <p className="text-sm text-[#5E6B73] leading-relaxed">
+                  built natively in swift for macOS, ottie combines a cozy
+                  desktop friend (54 mix-and-match outfits, 93 harmonic spring
+                  animations, smart screen activity mirroring, and cursor
+                  headpats) with 7 full-screen animated break walls for eye
+                  rest, water hydration, family calls, stair walks, back
+                  stretches, tea breaks, and neural core recharges.
+                </p>
+              </div>
+
+              {/* [ 2 ] why it's different */}
+              <div className="bg-white rounded-2xl border border-black/[0.08] p-6 sm:p-10 space-y-6">
+                <span className="inline-block font-mono text-xs text-[#5E6B73] bg-[#F6F5F2] px-2.5 py-1 rounded-md">
+                  [ 2 ]
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+                  why it&apos;s different
+                </h2>
+                <p className="text-base sm:text-lg font-medium text-[#17242B]">
+                  no streaks to lose. no bossy lockouts. reminder timers are off
+                  by default until you want them.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                  <div className="p-4 rounded-xl bg-[#F6F5F2] border border-black/[0.06]">
+                    <div className="text-2xl font-semibold font-mono text-[#17242B]">
+                      54 looks
+                    </div>
+                    <div className="text-xs text-[#5E6B73] mt-1">
+                      20 tops · 13 bottoms · 11 gloves · 25 hats + Cutest Robo
+                    </div>
+                  </div>
+                  <div className="p-4 rounded-xl bg-[#F6F5F2] border border-black/[0.06]">
+                    <div className="text-2xl font-semibold font-mono text-[#17242B]">
+                      93 actions
+                    </div>
+                    <div className="text-xs text-[#5E6B73] mt-1">
+                      23-channel spring rig + 13 sci-fi Robo gadgets
+                    </div>
+                  </div>
+                  <div className="p-4 rounded-xl bg-[#F6F5F2] border border-black/[0.06]">
+                    <div className="text-2xl font-semibold font-mono text-[#17242B]">
+                      7 walls
+                    </div>
+                    <div className="text-xs text-[#5E6B73] mt-1">
+                      Peekaboo · Water · Parents · Robo · Stairs · Zen · Tea
+                    </div>
+                  </div>
                 </div>
-                <div className="p-4 rounded-xl bg-[#F6F5F2] border border-black/[0.06]">
-                  <h3 className="text-sm font-semibold text-[#17242B]">
-                    No lockouts.
-                  </h3>
-                  <p className="text-xs text-[#5E6B73] mt-1 leading-relaxed">
-                    You&apos;re always in charge. Press <kbd>esc</kbd> to skip
-                    anytime, or snooze in one click.
-                  </p>
-                </div>
+              </div>
+
+              {/* [ 3 ] what you get */}
+              <div className="bg-white rounded-2xl border border-black/[0.08] p-6 sm:p-10 space-y-6">
+                <span className="inline-block font-mono text-xs text-[#5E6B73] bg-[#F6F5F2] px-2.5 py-1 rounded-md">
+                  [ 3 ]
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+                  what you get
+                </h2>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs sm:text-sm text-[#17242B]">
+                  {OTTIE_WHAT_YOU_GET.map((item, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-2.5 p-3.5 rounded-xl bg-[#F6F5F2]/80 border border-black/[0.05]"
+                    >
+                      <Check className="w-4 h-4 text-[#2E705E] shrink-0 mt-0.5" />
+                      <div>
+                        <div className="font-semibold text-[#17242B]">
+                          {item.title}
+                        </div>
+                        <div className="text-xs text-[#5E6B73] mt-0.5 leading-relaxed">
+                          {item.description}
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── Built For Every Kind of Mac Day (Persona Switcher) ── */}
+        {/* ── 7. Built For Every Kind of Mac Day (Persona Switcher) ── */}
         <section className="py-16 px-4 sm:px-6 bg-white border-y border-black/[0.06]">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-[#17242B]">
@@ -922,7 +820,7 @@ export function OttieLandingView() {
           </div>
         </section>
 
-        {/* ── Comparison Table (## why ottie?) ── */}
+        {/* ── 8. Comparison Table (## why ottie?) ── */}
         <section id="comparison" className="py-20 px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="text-center max-w-xl mx-auto mb-12">
@@ -983,7 +881,7 @@ export function OttieLandingView() {
           </div>
         </section>
 
-        {/* ── Testimonials (## loved by mac creators.) ── */}
+        {/* ── 9. Testimonials (## loved by mac creators.) ── */}
         <section className="py-20 px-4 sm:px-6 bg-white border-y border-black/[0.06]">
           <div className="max-w-5xl mx-auto">
             <div className="text-center max-w-xl mx-auto mb-12">
@@ -1022,102 +920,10 @@ export function OttieLandingView() {
           </div>
         </section>
 
-        {/* ── Notarized Installer Card ("install in 3 seconds.") ── */}
-        <section className="py-20 px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto rounded-3xl border border-black/[0.08] bg-white p-8 sm:p-12 shadow-[0_12px_40px_rgba(0,0,0,0.04)]">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-              <div className="md:col-span-7 space-y-4">
-                <span className="inline-block font-mono text-xs text-[#2E705E] bg-[#E6F0EC] px-3 py-1 rounded-full font-medium">
-                  ✓ universal macOS installer · v1.0.0
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                  install in 3 seconds.
-                </h2>
-                <p className="text-xs sm:text-sm text-[#5E6B73] leading-relaxed">
-                  Drag <strong>Ottie.app</strong> into your Applications folder.
-                  Built natively in Swift for Apple Silicon (M1/M2/M3/M4) and
-                  Intel Macs on macOS 14.0 Sonoma, macOS 15.0 Sequoia &amp;
-                  macOS 26 Tahoe, with Launch at Login built in.
-                </p>
-
-                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                  <a
-                    href={OTTIE_DMG_URL}
-                    className="inline-flex items-center justify-center gap-2 bg-[#17242B] text-white hover:bg-black rounded-full px-6 py-2.5 text-xs font-medium transition shadow-sm"
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    <span>download Ottie.dmg ({OTTIE_SIZE})</span>
-                  </a>
-                  <button
-                    type="button"
-                    onClick={handleCopySha}
-                    className="inline-flex items-center justify-center gap-1.5 bg-[#F6F5F2] border border-black/[0.08] hover:bg-[#E6F0EC] text-[#17242B] rounded-full px-4 py-2.5 text-xs font-medium transition cursor-pointer"
-                  >
-                    <Copy className="w-3.5 h-3.5 text-[#5E6B73]" />
-                    <span>
-                      {copiedSha ? "copied sha-256!" : "copy sha-256"}
-                    </span>
-                  </button>
-                </div>
-
-                {/* TryMacApps Badge inside Installer Card */}
-                <div className="pt-3">
-                  <a
-                    href={TRYMACAPPS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block transition-transform hover:scale-[1.02]"
-                  >
-                    <img
-                      src={TRYMACAPPS_BADGE_IMG}
-                      alt="Featured on TryMacApps"
-                      width={200}
-                      height={67}
-                      className="h-10 w-auto object-contain"
-                    />
-                  </a>
-                </div>
-
-                <div className="font-mono text-[11px] text-[#5E6B73] pt-2 break-all">
-                  SHA-256: {OTTIE_SHA256}
-                </div>
-              </div>
-
-              <div className="md:col-span-5 flex justify-center">
-                <div className="w-full max-w-[340px] rounded-2xl overflow-hidden border border-black/[0.08] bg-[#F6F5F2] shadow-sm p-4 text-center space-y-3">
-                  <div className="flex items-center justify-center gap-5 py-3">
-                    <Image
-                      src="/images/ottie/07-app-icon-white-otter.png"
-                      alt="Ottie.app Icon"
-                      width={80}
-                      height={80}
-                      className="w-20 h-20 rounded-2xl shadow-sm"
-                    />
-                    <span className="text-2xl text-[#5E6B73] font-light">
-                      →
-                    </span>
-                    <div className="w-20 h-20 rounded-2xl bg-white border border-black/[0.08] shadow-2xs flex flex-col items-center justify-center text-xs font-semibold text-[#17242B]">
-                      <span className="text-2xl mb-0.5">📁</span>
-                      <span className="text-[10px]">Applications</span>
-                    </div>
-                  </div>
-                  <Image
-                    src="/images/ottie/19-dmg-installer-preview.png"
-                    alt="Drag Ottie into Applications, then open it"
-                    width={1200}
-                    height={800}
-                    className="w-full h-auto rounded-xl border border-black/[0.05]"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── FAQ Accordion (## questions, answered.) ── */}
+        {/* ── 10. FAQ Accordion (## questions, answered.) ── */}
         <section
           id="faq"
-          className="py-20 px-4 sm:px-6 bg-white border-t border-black/[0.06]"
+          className="py-20 px-4 sm:px-6 bg-white border-b border-black/[0.06]"
         >
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
@@ -1162,10 +968,10 @@ export function OttieLandingView() {
           </div>
         </section>
 
-        {/* ── Sister Apps Showcase (Cogify Cross-App Footer) ── */}
+        {/* ── 11. Sister Apps Showcase (Related Apps for Ottie) ── */}
         <OtherAppsShowcase currentSlug="ottie" />
 
-        {/* ── Bottom CTA & Direct Feedback Section ── */}
+        {/* ── 12. Bottom CTA & Direct Feedback Section ── */}
         <section className="py-20 px-4 sm:px-6 bg-[#F6F5F2] border-t border-black/[0.06] text-center">
           <div className="max-w-2xl mx-auto space-y-5">
             <div className="inline-flex items-center justify-center">
@@ -1212,9 +1018,9 @@ export function OttieLandingView() {
                 <img
                   src={TRYMACAPPS_BADGE_IMG}
                   alt="Featured on TryMacApps"
-                  width={180}
-                  height={60}
-                  className="h-9 w-auto object-contain"
+                  width={200}
+                  height={67}
+                  className="h-11 w-auto object-contain"
                 />
               </a>
             </div>

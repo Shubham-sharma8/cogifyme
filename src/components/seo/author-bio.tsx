@@ -19,6 +19,48 @@ const ECOSYSTEM_LINKS = [
     desc: "Pool unlimited Google Drives into one local Finder volume with 0 B used on your Mac SSD.",
   },
   {
+    slug: "findy",
+    name: "Findy File Search",
+    badge: "macOS Native • v1.2 (4.5 MB)",
+    href: "/findy",
+    desc: "Plain-English file search, Space Lens treemap, SHA-256 duplicates, and local Vision OCR.",
+  },
+  {
+    slug: "taskyfy",
+    name: "Taskyfy Activity Studio",
+    badge: "macOS Native • v2.0 (3.2 MB)",
+    href: "/taskyfy",
+    desc: "Plain-English Activity Monitor with 230+ explained daemons, 30-day SQLite WAL, and port radar.",
+  },
+  {
+    slug: "wheelify",
+    name: "Wheelify Radial Wheel",
+    badge: "macOS Native • v2.0 (1.9 MB)",
+    href: "/wheelify",
+    desc: "16-tool radial command workspace (⌥ Space) with inline math, live ECB FX, and Frontier AI.",
+  },
+  {
+    slug: "screenify",
+    name: "Screenify Studio",
+    badge: "macOS Native • v1.12",
+    href: "/screenify",
+    desc: "240Hz spring auto-zoom screen recorder, multi-track timeline editor & local Whisper AI captions.",
+  },
+  {
+    slug: "wifyy",
+    name: "Wifyy Network Monitor",
+    badge: "macOS Native • v1.0",
+    href: "/wifyy",
+    desc: "4-hop Wi-Fi & call reliability engine with ITU-T Call MOS and pre-call calendar diagnostics.",
+  },
+  {
+    slug: "ottie",
+    name: "Ottie Mac Companion",
+    badge: "macOS Native • v1.0 (2.4 MB)",
+    href: "/ottie",
+    desc: "54 costumes (including Cutest Robo-Ottie), 93 spring animations & 7 full-screen break walls.",
+  },
+  {
     slug: "biodata",
     name: "Marriage Biodata Maker",
     badge: "Web Studio • biodata.cogify.me",
@@ -235,7 +277,7 @@ export function AuthorBio({
               href="/products"
               className="text-[#111] dark:text-white hover:underline inline-flex items-center gap-1"
             >
-              All 15 Products <ArrowUpRight className="w-3.5 h-3.5" />
+              All 21 Products <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>

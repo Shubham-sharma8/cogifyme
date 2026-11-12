@@ -37,7 +37,7 @@ export default function SuggestionsPage() {
             href="/products"
             className="hover:text-[#111] dark:hover:text-white font-medium transition-colors"
           >
-            Browse All 14 Apps &amp; Web Studios
+            Browse All 21 Apps &amp; Web Studios
           </Link>
           <span>·</span>
           <Link

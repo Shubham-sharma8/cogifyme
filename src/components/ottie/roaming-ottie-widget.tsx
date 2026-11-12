@@ -93,7 +93,7 @@ export function RoamingOttieWidget() {
 
   return (
     <div
-      className="fixed bottom-4 right-5 z-40 pointer-events-none select-none print:hidden"
+      className="fixed bottom-24 sm:bottom-28 right-5 z-40 pointer-events-none select-none print:hidden"
       aria-label="Ottie macOS Companion preview widget"
     >
       <div

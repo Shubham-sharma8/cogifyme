@@ -5,8 +5,8 @@ export const OTTIE_GITHUB_URL =
 export const OTTIE_SHA256 =
   "45490a1e193a49a305be3ca066079e244a9f903862b05ef043a47390050de662";
 export const OTTIE_SIZE = "2.4 MB";
-export const TRYMACAPPS_URL = "https://www.trymacapps.com/shubham/wifyy";
-export const TRYMACAPPS_BADGE_IMG = "/images/wifyy/trymacapps-featured.svg";
+export const TRYMACAPPS_URL = "https://www.trymacapps.com";
+export const TRYMACAPPS_BADGE_IMG = "https://www.trymacapps.com/badge.png";
 
 export interface OttiePersona {
   badge: string;

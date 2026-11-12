@@ -47,9 +47,34 @@ const categories: {
   },
 ];
 
+const APP_OPTIONS_BY_SLUG: Record<string, string> = {
+  ottie: "Ottie (macOS Desktop Companion)",
+  "meet-ottie": "Ottie (macOS Desktop Companion)",
+  wifyy: "Wifyy (macOS Wi-Fi & Call Reliability)",
+  screenify: "Screenify (macOS Screen Recorder & Studio)",
+  wheelify: "Wheelify (macOS Radial Command Workspace)",
+  taskyfy: "Taskyfy (macOS Plain-English Activity Monitor)",
+  findy: "Findy (macOS Plain-English File Search)",
+  helium: "Helium (macOS Pooled Cloud Drive)",
+  emdoc: "EmDoc (macOS PDF Workstation)",
+  lumenview: "LumenView (macOS Display Control)",
+  metricove: "Metricove (macOS Menu Bar Telemetry)",
+  netguard: "NetGuard (macOS Outbound Firewall)",
+  klipora: "Klipora (macOS Clipboard History)",
+  "show-free-space": "Show Free Space (macOS Disk Analyzer)",
+  biodata: "Marriage Biodata Maker Studio (biodata.cogify.me)",
+  ssb: "SSB Stage-2 Test Practice Studio (ssb.cogify.me)",
+  "ad-blocker": "Ad Blocker - For Safari (iOS / macOS)",
+  readereasy: "ReaderEasy (Safari Extension)",
+  webclear: "WebClear (Safari Extension)",
+  weblenses: "WebLenses (Safari Extension)",
+  "element-hider": "Element Hider (Safari Extension)",
+  invert: "Colour Invert (Safari Extension)",
+};
+
 export const SuggestionForm = () => {
   const [category, setCategory] = useState<SuggestionCategory>("idea");
-  const [targetApp, setTargetApp] = useState("EmDoc (macOS Workstation)");
+  const [targetApp, setTargetApp] = useState("Ottie (macOS Desktop Companion)");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -67,6 +92,24 @@ export const SuggestionForm = () => {
 
   useEffect(() => {
     formStartTimeRef.current = Date.now();
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const queryApp = params.get("app")?.toLowerCase().trim();
+      if (queryApp && APP_OPTIONS_BY_SLUG[queryApp]) {
+        setTargetApp(APP_OPTIONS_BY_SLUG[queryApp]);
+        return;
+      }
+      if (document.referrer) {
+        const refPath = new URL(document.referrer).pathname
+          .replace(/^\/+|\/+$/g, "")
+          .toLowerCase();
+        if (refPath && APP_OPTIONS_BY_SLUG[refPath]) {
+          setTargetApp(APP_OPTIONS_BY_SLUG[refPath]);
+        }
+      }
+    } catch {
+      // ignore URL parsing errors
+    }
   }, []);
 
   const activeCategory = categories.find((c) => c.id === category) || categories[0];
@@ -244,12 +287,19 @@ export const SuggestionForm = () => {
                 onChange={(e) => setTargetApp(e.target.value)}
                 className="w-full px-3.5 py-2.5 rounded-xl bg-[#f5f5f5] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.1] text-black dark:text-white text-[13px] focus:outline-none focus:border-black/30 dark:focus:border-white/30 transition-colors"
               >
-                <option>EmDoc (macOS Workstation)</option>
+                <option>Ottie (macOS Desktop Companion)</option>
+                <option>Wifyy (macOS Wi-Fi &amp; Call Reliability)</option>
+                <option>Screenify (macOS Screen Recorder &amp; Studio)</option>
+                <option>Wheelify (macOS Radial Command Workspace)</option>
+                <option>Taskyfy (macOS Plain-English Activity Monitor)</option>
+                <option>Findy (macOS Plain-English File Search)</option>
+                <option>Helium (macOS Pooled Cloud Drive)</option>
+                <option>EmDoc (macOS PDF Workstation)</option>
                 <option>LumenView (macOS Display Control)</option>
                 <option>Metricove (macOS Menu Bar Telemetry)</option>
                 <option>NetGuard (macOS Outbound Firewall)</option>
                 <option>Klipora (macOS Clipboard History)</option>
-                <option>Show free space (macOS Disk Analyzer)</option>
+                <option>Show Free Space (macOS Disk Analyzer)</option>
                 <option>Marriage Biodata Maker Studio (biodata.cogify.me)</option>
                 <option>SSB Stage-2 Test Practice Studio (ssb.cogify.me)</option>
                 <option>Ad Blocker - For Safari (iOS / macOS)</option>
