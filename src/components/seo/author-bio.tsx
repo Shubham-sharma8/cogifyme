@@ -61,6 +61,13 @@ const ECOSYSTEM_LINKS = [
     desc: "54 costumes (including Cutest Robo-Ottie), 93 spring animations & 7 full-screen break walls.",
   },
   {
+    slug: "ampify",
+    name: "Ampify Battery Studio",
+    badge: "macOS Native • v1.6.3 (5.6 MB)",
+    href: "/ampify",
+    desc: "Smart 80% desk charge hold, Liquid-Wave Apple ecosystem devices & live 0.1 W per-app wattage.",
+  },
+  {
     slug: "biodata",
     name: "Marriage Biodata Maker",
     badge: "Web Studio • biodata.cogify.me",
@@ -277,7 +284,7 @@ export function AuthorBio({
               href="/products"
               className="text-[#111] dark:text-white hover:underline inline-flex items-center gap-1"
             >
-              All 21 Products <ArrowUpRight className="w-3.5 h-3.5" />
+              All 22 Products <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>

@@ -209,7 +209,7 @@ export function CatalogJsonLd() {
     "@type": "ItemList",
     name: "COGIFY Real-Time Web Solutions, Native Apps & Safari Extensions",
     description:
-      "Complete suite of 21 free, zero-telemetry real-time web studios, native macOS apps (led by Helium, Findy, Taskyfy, Wheelify, Screenify, Wifyy, Ottie & EmDoc), and iOS/iPadOS Safari extensions by COGIFY.",
+      "Complete suite of 22 free, zero-telemetry real-time web studios, native macOS apps (led by Helium, Findy, Taskyfy, Wheelify, Screenify, Wifyy, Ottie, Ampify & EmDoc), and iOS/iPadOS Safari extensions by COGIFY.",
     itemListElement: [
       {
         "@type": "ListItem",

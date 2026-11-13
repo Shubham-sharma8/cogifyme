@@ -184,6 +184,27 @@ export const SISTER_APP_REFERENCES: SisterAppReference[] = [
     pills: ["54 Costumes & Cutest Robo", "93 Spring Animations", "7 Full-Screen Break Walls"],
   },
   {
+    slug: "ampify",
+    name: "Ampify for macOS",
+    shortName: "Ampify",
+    badge: "Ampify for macOS · v1.6.3 · Open Source (MIT)",
+    pillar: "mac",
+    headlineSans: "Smart 80% battery hold.",
+    headlineSerif: "Liquid-Wave Apple devices & live watts.",
+    description:
+      "Meet Ampify v1.6.3, our open-source (MIT) macOS battery longevity manager and Apple ecosystem power studio. Hold your MacBook at 70%, 80%, or 85% on desk power with direct Adapter Bypass, inspect iPhone, iPad, Watch, AirPods, Pencil & Siri Remote in Liquid-Wave silhouettes, and see real per-app watts down to 0.1 W.",
+    icon: siteConfig.ampify.icon,
+    screenshot: "/images/ampify/01-ampify-hero-popover-and-liquid-devices.png",
+    windowTitle: "Ampify v1.6.3 — Smart 80% Hold, Liquid-Wave Apple Devices & 0.1 W App Telemetry",
+    href: "/ampify",
+    primaryCtaLabel: "Download for macOS (v1.6.3 · 5.6 MB)",
+    primaryCtaHref: siteConfig.ampify.downloadUrl,
+    isDirectDownload: true,
+    stageGradient:
+      "from-[#33B880]/20 via-[#478CF2]/15 to-[#0D0E12] dark:from-[#33B880]/25 dark:via-[#478CF2]/20 dark:to-[#0D0E12]",
+    pills: ["80% Desk Charge Ceiling", "Liquid-Wave Apple Devices", "Live 0.1 W App Wattage"],
+  },
+  {
     slug: "emdoc",
     name: "EmDoc for macOS",
     shortName: "EmDoc",
@@ -483,8 +504,10 @@ export const RELATED_APPS_BY_SLUG: Record<string, string[]> = {
   screenify: ["wheelify", "lumenview", "klipora"],
   // Radial Command Workspace -> Clipboard Studio, Plain-English File Search, Desktop Companion
   wheelify: ["klipora", "findy", "ottie"],
-  // Activity Monitor & Process Tree -> Menu Bar Telemetry, Wi-Fi 4-Hop, Outbound Firewall
-  taskyfy: ["metricove", "wifyy", "netguard"],
+  // Activity Monitor & Process Tree -> Battery & Watts, Menu Bar Telemetry, Wi-Fi 4-Hop
+  taskyfy: ["ampify", "metricove", "wifyy"],
+  // Battery Longevity & Ecosystem Power -> Plain-English Activity Monitor, Menu Bar Telemetry, Display DDC
+  ampify: ["taskyfy", "metricove", "lumenview"],
   // Plain-English File Search & Space Lens -> APFS Disk Visualizer, Cloud Drive Pool, PDF Workstation
   findy: ["show-free-space", "helium", "emdoc"],
   // Cloud Drive Pool -> Plain-English File Search, APFS Disk Visualizer, PDF Workstation
@@ -499,8 +522,8 @@ export const RELATED_APPS_BY_SLUG: Record<string, string[]> = {
   lumenview: ["screenify", "ottie", "metricove"],
   // Outbound Firewall -> Wi-Fi 4-Hop Diagnostics, Activity Monitor & Port Radar, Safari Ad Blocker
   netguard: ["wifyy", "taskyfy", "ad-blocker"],
-  // Menu Bar Hardware Telemetry -> Plain-English Activity Monitor, Wi-Fi 4-Hop, Display DDC
-  metricove: ["taskyfy", "wifyy", "lumenview"],
+  // Menu Bar Hardware Telemetry -> Battery & Live Watts, Plain-English Activity Monitor, Wi-Fi 4-Hop
+  metricove: ["ampify", "taskyfy", "wifyy"],
   // Web Studios -> Document/PDF & Companion tools
   biodata: ["emdoc", "ssb", "findy"],
   ssb: ["biodata", "ottie", "emdoc"],
@@ -521,6 +544,7 @@ export const ALL_SHORT_APP_LINKS = [
   { slug: "screenify", name: "Screenify", tag: "Screen Studio", href: "/screenify", icon: siteConfig.screenify.icon, pillar: "Mac" },
   { slug: "wifyy", name: "Wifyy", tag: "Wi-Fi 4-Hop", href: "/wifyy", icon: siteConfig.wifyy.icon, pillar: "Mac" },
   { slug: "ottie", name: "Ottie", tag: "Mac Companion", href: "/ottie", icon: siteConfig.ottie.icon, pillar: "Mac" },
+  { slug: "ampify", name: "Ampify", tag: "80% Battery", href: "/ampify", icon: siteConfig.ampify.icon, pillar: "Mac" },
   { slug: "emdoc", name: "EmDoc", tag: "PDF Suite", href: "/emdoc", icon: "/brand/emdoc-icon-sm.webp", pillar: "Mac" },
   { slug: "klipora", name: "Klipora", tag: "Clipboard", href: "/klipora", icon: siteConfig.klipora.icon, pillar: "Mac" },
   { slug: "lumenview", name: "LumenView", tag: "Display DDC", href: "/lumenview", icon: siteConfig.lumenview.icon, pillar: "Mac" },
@@ -725,12 +749,12 @@ export function OtherAppsShowcase({
         ))}
       </div>
 
-      {/* Compact Ecosystem Dock Strip (All 21 Short URLs) */}
+      {/* Compact Ecosystem Dock Strip (All 22 Short URLs) */}
       <div className="mt-10 rounded-[24px] bg-white dark:bg-[#141417] border border-black/[0.08] dark:border-white/[0.1] p-5 sm:p-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
           <div>
             <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#777] dark:text-[#888]">
-              Complete 21-App Dock · Direct Short URLs
+              Complete 22-App Dock · Direct Short URLs
             </span>
             <h3 className="text-base sm:text-lg font-bold text-[#111] dark:text-white">
               Jump to any Cogify app

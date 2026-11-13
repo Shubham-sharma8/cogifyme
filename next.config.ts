@@ -149,6 +149,29 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
       {
+        source: "/Ampify.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/ampify/releases/download/v1.6.3/Ampify.dmg",
+        permanent: false,
+      },
+      {
+        source: "/ampify.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/ampify/releases/download/v1.6.3/Ampify.dmg",
+        permanent: false,
+      },
+      {
+        source: "/Ampify-1.6.3.dmg",
+        destination:
+          "https://github.com/Shubham-sharma8/ampify/releases/download/v1.6.3/Ampify-1.6.3.dmg",
+        permanent: false,
+      },
+      {
+        source: "/products/ampify",
+        destination: "/ampify",
+        permanent: true,
+      },
+      {
         source: "/Show-free-space-1.1.0-Installer.dmg",
         destination:
           "https://github.com/Shubham-sharma8/cogifyme/releases/download/show-free-space-v1.1.0/Show-free-space-1.1.0-Installer.dmg",

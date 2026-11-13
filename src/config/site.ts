@@ -298,6 +298,7 @@ export interface SiteConfig {
   screenify: MacAppConfig;
   wifyy: MacAppConfig;
   ottie: MacAppConfig;
+  ampify: MacAppConfig;
   lumenview: MacAppConfig;
   metricove: MacAppConfig;
   netguard: MacAppConfig;
@@ -315,7 +316,7 @@ export const siteConfig: SiteConfig = {
   ogImage: "https://cogify.me/og-image.png",
   appleDeveloperUrl: "https://apps.apple.com/in/developer/shubham-sharma/id1643497398",
   description:
-    "Cogify builds 21 free, zero-telemetry web studios (biodata.cogify.me, ssb.cogify.me) and native macOS, iOS, iPadOS & Safari apps including Helium, Findy, Taskyfy, Wheelify, Screenify, Wifyy, Ottie, and EmDoc with 100% local privacy.",
+    "Cogify builds 22 free, zero-telemetry web studios (biodata.cogify.me, ssb.cogify.me) and native macOS, iOS, iPadOS & Safari apps including Helium, Findy, Taskyfy, Wheelify, Screenify, Wifyy, Ottie, Ampify, and EmDoc with 100% local privacy.",
   keywords: [
     "Cogify",
     "cogify.me",
@@ -4211,6 +4212,159 @@ export const siteConfig: SiteConfig = {
       "Cutest Robo-Ottie",
     ],
   },
+  ampify: {
+    name: "Ampify",
+    shortName: "Ampify",
+    slug: "ampify",
+    tagline:
+      "Ampify — Native macOS battery longevity manager, Liquid-Wave Apple ecosystem battery monitor, and real-time 0.1 W per-app wattage telemetry utility.",
+    subtitle:
+      "Smart 80% Charge Limit • Liquid-Wave Apple Devices • Live Per-App Wattage (0.1 W) • Smart Trip Top-Up • MIT Open Source",
+    promotionalText:
+      "Protect your MacBook battery at a healthy 80% ceiling while plugged in on your desk, visualize your iPhone, iPad, Apple Watch, AirPods, Apple Pencil, and Apple TV Remote with custom Liquid-Wave silhouettes, and inspect real per-app watts down to 0.1 W.",
+    shortDescription:
+      "Native, open-source macOS battery longevity manager with 70% / 80% / 85% charge holding, Liquid-Wave Apple ecosystem device strip, live 0.1 W per-app wattage breakdown, and Calendar-aware Smart Trip Top-Up.",
+    fullDescription:
+      "Ampify is a native, open-source macOS battery longevity manager, Apple ecosystem battery monitor, and real-time watt telemetry utility crafted for Apple Silicon & Intel MacBooks. Built with the calm, distraction-free Cogify Helium System UI philosophy—zero neon clutter, zero Electron bloat, and 100% local privacy—Ampify holds your MacBook battery at a healthy 80% ceiling while plugged in on your desk, visualizes your iPhone, iPad, Apple Watch, AirPods, Apple Pencil, and Apple TV Siri Remote with tactile Liquid-Wave device silhouettes, and breaks down What's using power down to the tenth of a watt (0.1 W).",
+    philosophy:
+      "Protect your battery chemistry on desk power, see every Apple device in one glance, and replace vague energy scores with real watts.",
+    version: "1.6.3",
+    build: "163",
+    releaseDate: "November 13, 2026",
+    releaseDateIso: "2026-11-13",
+    sha256: "5c0a9e03353832f4a19551cc13fcb49d00a458258d0e7c8ae7d692d6c3b3f1b2",
+    bytes: "5,924,454 bytes",
+    directPath:
+      "https://github.com/Shubham-sharma8/ampify/releases/download/v1.6.3/Ampify.dmg",
+    githubRepoUrl: "https://github.com/Shubham-sharma8/ampify",
+    license: "MIT License (100% Open Source)",
+    appSize: "5.6 MB",
+    bundleId: "com.ampify.app",
+    minMacOsVersion: "macOS 14.0+ (Sonoma, Sequoia & Tahoe 26)",
+    architecture: "Universal (Apple Silicon arm64 & Intel x86_64)",
+    primaryCategory: "System & Power",
+    secondaryCategory: "Utilities",
+    pricingModel: "100% Free & Open Source Forever (MIT License)",
+    platform: "macOS 14.0+ (Apple Silicon & Intel)",
+    downloadUrl:
+      "https://github.com/Shubham-sharma8/ampify/releases/download/v1.6.3/Ampify.dmg",
+    icon: "/brand/Ampify/icon-sm.webp",
+    iconLarge: "/brand/Ampify/icon.png",
+    accentColor: "emerald",
+    features: [
+      {
+        title: "Smart 80% Charge Ceiling & Adapter Bypass",
+        description:
+          "Caps charging at 70%, 80% (Recommended), or 85% while plugged in on your desk and switches your Mac to direct Adapter Bypass power to prevent high-voltage cathode stress.",
+        tag: "80% Charge Hold",
+      },
+      {
+        title: "Liquid-Wave Apple Ecosystem Device Strip",
+        description:
+          "Discovers your iPhone, iPad, Apple Watch, AirPods (Left/Right/Case), Apple Pencil, and Apple TV Remote over USB, Wi-Fi (usbmuxd), Bluetooth GATT, and IOKit HID.",
+        tag: "Apple Devices Strip",
+      },
+      {
+        title: "Real-Time Per-App Wattage (What's Using Power)",
+        description:
+          "Translates Mach proc_pid_rusage CPU + GPU telemetry into real watts down to 0.1 W, with dedicated rows for macOS itself, Everything else, and 1-click Quit App actions.",
+        tag: "Live 0.1 W Telemetry",
+      },
+      {
+        title: "Calendar-Aware Smart Trip Top-Up",
+        description:
+          "Scans macOS Calendar locally (EventKit) for flights, trains, or offsite meetings and automatically charges to 100% right before departure, plus 1h / 3h / Tomorrow 9 AM overrides.",
+        tag: "Smart Trip Top-Up",
+      },
+      {
+        title: "Battery Longevity Forecast & Apple Service Value",
+        description:
+          "Projects battery life with vs. without Ampify (+1.8 extra years) alongside official Apple out-of-warranty battery replacement pricing in USD, INR, EUR, GBP, CAD, and AUD.",
+        tag: "Longevity & Value",
+      },
+      {
+        title: "Floating Translucent Desktop Widgets",
+        description:
+          "Pin a Compact Battery Pill or Expanded Ecosystem + Top Apps Widget right onto your macOS desktop with click-through locking and multi-display support.",
+        tag: "Desktop Widgets",
+      },
+    ],
+    specifications: [
+      { label: "Current Version", value: "1.6.3 (Build 163)" },
+      { label: "License", value: "MIT Open Source (github.com/Shubham-sharma8/ampify)" },
+      { label: "Installer Size", value: "5.6 MB Universal .DMG" },
+      { label: "SHA-256 Checksum", value: "5c0a9e03353832f4a19551cc13fcb49d00a458258d0e7c8ae7d692d6c3b3f1b2" },
+      { label: "Supported Hardware", value: "Apple Silicon (M1–M4) & Intel MacBooks • macOS 14.0+" },
+      { label: "Privacy", value: "100% Local • Zero Cloud Accounts • Zero Telemetry" },
+    ],
+    screenshotsMac: [
+      {
+        id: "ampify-1",
+        title: "Menu Bar Popover & Liquid-Wave Apple Devices",
+        subtitle: "80% Desk Hold, Apple Ecosystem Silhouettes & Live App Watts",
+        image: "/images/ampify/01-ampify-hero-popover-and-liquid-devices.png",
+        tag: "Menu Bar Studio",
+        description:
+          "Menu bar popover showing 80% Held on Adapter, Apple devices Liquid-Wave strip, and live per-app wattage breakdown.",
+        highlights: [
+          "Held at 80% on Desk Power with direct Adapter Bypass",
+          "Liquid-Wave silhouettes for Mac, iPhone, iPad, Watch & AirPods",
+          "Live 0.1 W per-app power breakdown with 1-click Quit App",
+        ],
+      },
+      {
+        id: "ampify-2",
+        title: "Apple Ecosystem Liquid-Wave Strip & Health",
+        subtitle: "USB, Wi-Fi (usbmuxd), Bluetooth GATT & IOKit HID Discovery",
+        image: "/images/ampify/02-ampify-apple-devices-liquid-strip-and-health.png",
+        tag: "Apple Devices",
+        description:
+          "Custom hardware silhouettes with dynamic liquid fill for every Apple device on your desk.",
+        highlights: [
+          "iPhone, iPad, Apple Watch, AirPods (L/R/Case), Pencil & Remote",
+          "Battery health %, cycle count, temperature & charging watts",
+          "Automatic low-battery notifications across devices",
+        ],
+      },
+      {
+        id: "ampify-3",
+        title: "What's Using Power — Live Per-App Wattage",
+        subtitle: "Real Watts Down to 0.1 W Instead of Vague Energy Scores",
+        image: "/images/ampify/03-ampify-whats-using-power-live-watts.png",
+        tag: "Live Watts",
+        description:
+          "Mach proc_pid_rusage CPU + GPU attribution converted into real watts with 1-click Quit App.",
+        highlights: [
+          "Exact watt readout (e.g. 0.4 W going to your apps right now)",
+          "Dedicated rows for macOS itself and Everything else",
+          "Hover any app row to Quit power-hungry background apps",
+        ],
+      },
+      {
+        id: "ampify-4",
+        title: "Floating Translucent Desktop Widgets",
+        subtitle: "Compact Pill & Expanded Ecosystem + Top Apps Widget",
+        image: "/images/ampify/04-ampify-desktop-widgets-showcase.png",
+        tag: "Desktop Widgets",
+        description:
+          "Always-visible translucent desktop widgets with click-through mode and position lock.",
+        highlights: [
+          "Compact Battery Pill and Expanded Ecosystem + Top Apps view",
+          "Click-through mode, position lock & multi-display support",
+          "Matches calm dark macOS System UI aesthetic",
+        ],
+      },
+    ],
+    keywords: [
+      "Ampify",
+      "Ampify Mac",
+      "macOS 80% battery charge limit",
+      "AlDente open source alternative",
+      "Apple devices battery monitor Mac",
+      "MacBook per app wattage",
+      "Smart Trip Top-Up MacBook",
+    ],
+  },
 };
 
 export const liveMacApps: MacAppConfig[] = [
@@ -4221,6 +4375,7 @@ export const liveMacApps: MacAppConfig[] = [
   siteConfig.screenify,
   siteConfig.wifyy,
   siteConfig.ottie,
+  siteConfig.ampify,
   siteConfig.lumenview,
   siteConfig.metricove,
   siteConfig.netguard,

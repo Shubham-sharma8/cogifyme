@@ -82,6 +82,15 @@ const COGIFY_APPS: AppBoxItem[] = [
     accentColor: "#2e705e",
   },
   {
+    id: "ampify",
+    name: "Ampify",
+    platform: "For Mac",
+    solutionTag: "80% Battery & Live Watts",
+    icon: siteConfig.ampify.icon,
+    href: "/ampify",
+    accentColor: "#33b880",
+  },
+  {
     id: "emdoc",
     name: "EmDoc",
     platform: "For Mac",
@@ -216,8 +225,8 @@ const SOLUTIONS = [
     icon: <AppleLogoIcon className="w-3.5 h-3.5 -mt-0.5" />,
     title: "Native macOS utilities that respect your Mac.",
     description:
-      "Pool unlimited Google Drives into /Volumes/Helium with 0 B used on your Mac SSD, edit PDFs offline in a 7.8 MB workstation, and control displays, telemetry, firewall rules, clipboard, and disk space.",
-    apps: "Helium · Findy · Taskyfy · Wheelify · Screenify · Wifyy · Ottie · EmDoc · LumenView · Metricove · NetGuard · Klipora · ShowFreeSpace",
+      "Pool unlimited Google Drives into /Volumes/Helium with 0 B used on your Mac SSD, edit PDFs offline in a 7.8 MB workstation, and control battery longevity, displays, telemetry, firewall rules, clipboard, and disk space.",
+    apps: "Helium · Findy · Taskyfy · Wheelify · Screenify · Wifyy · Ottie · Ampify · EmDoc · LumenView · Metricove · NetGuard · Klipora · ShowFreeSpace",
     href: "/products#for-mac",
     cta: "Download for Mac",
   },
@@ -278,7 +287,7 @@ export const HeroSection = () => {
 
         <p className="mt-3 mb-6 text-[16px] sm:text-[18px] text-black/65 dark:text-white/65 max-w-[42ch] mx-auto leading-[1.5] text-balance">
           <span className="marker text-black dark:text-white">
-            21 free solutions
+            22 free solutions
           </span>{" "}
           for your Mac, iPhone, iPad, and Web — built for speed and privacy, without subscriptions.
         </p>
@@ -289,7 +298,7 @@ export const HeroSection = () => {
             <span>meet helium (mac drive pool)</span>
           </Link>
           <Link href="/products" className="helumi-pill helumi-pill-light">
-            <span>explore all 21 apps</span>
+            <span>explore all 22 apps</span>
             <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
           </Link>
         </div>
@@ -327,7 +336,7 @@ export const HeroSection = () => {
                   .
                 </h2>
                 <p className="mt-3 text-[14px] sm:text-[15px] text-white/60 max-w-[50ch] leading-relaxed">
-                  21 native macOS apps, Safari extensions, and instant web studios — engineered for speed, 100% offline privacy, and free forever.
+                  22 native macOS apps, Safari extensions, and instant web studios — engineered for speed, 100% offline privacy, and free forever.
                 </p>
               </div>
 
@@ -466,7 +475,7 @@ export const HeroSection = () => {
           for <em className="helumi-em">everyday</em> tools.
         </h2>
         <p className="mt-3 mb-6 text-[15px] text-black/65 dark:text-white/65">
-          Explore all 21 native Mac, iOS, Safari, and Web solutions on our product page.
+          Explore all 22 native Mac, iOS, Safari, and Web solutions on our product page.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-2.5">
           <Link href="/products#for-mac" className="helumi-pill helumi-pill-dark">

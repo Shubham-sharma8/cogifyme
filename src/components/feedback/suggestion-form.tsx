@@ -48,6 +48,7 @@ const categories: {
 ];
 
 const APP_OPTIONS_BY_SLUG: Record<string, string> = {
+  ampify: "Ampify (macOS Battery & Ecosystem Monitor)",
   ottie: "Ottie (macOS Desktop Companion)",
   "meet-ottie": "Ottie (macOS Desktop Companion)",
   wifyy: "Wifyy (macOS Wi-Fi & Call Reliability)",
@@ -287,6 +288,7 @@ export const SuggestionForm = () => {
                 onChange={(e) => setTargetApp(e.target.value)}
                 className="w-full px-3.5 py-2.5 rounded-xl bg-[#f5f5f5] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.1] text-black dark:text-white text-[13px] focus:outline-none focus:border-black/30 dark:focus:border-white/30 transition-colors"
               >
+                <option>Ampify (macOS Battery &amp; Ecosystem Monitor)</option>
                 <option>Ottie (macOS Desktop Companion)</option>
                 <option>Wifyy (macOS Wi-Fi &amp; Call Reliability)</option>
                 <option>Screenify (macOS Screen Recorder &amp; Studio)</option>

@@ -10,16 +10,16 @@ import {
 import { OtherAppsShowcase } from "@/components/products/other-apps-showcase";
 
 export const metadata: Metadata = {
-  title: "15 Free Native macOS, Safari Apps & Web Studios",
+  title: "22 Free Native macOS, Safari Apps & Web Studios",
   description:
-    "Explore COGIFY's 15 free, zero-telemetry apps and web studios: 7 native macOS DMG apps (including Helium & EmDoc), Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
+    "Explore COGIFY's 22 free, zero-telemetry apps and web studios: 14 native macOS DMG apps (including Helium, Findy, Taskyfy, Wheelify, Screenify, Wifyy, Ottie, Ampify & EmDoc), Biodata Maker, SSB Studio, and 6 Safari apps.",
   alternates: {
     canonical: `${siteConfig.url}/products`,
   },
   openGraph: {
-    title: "15 Free Native macOS, Safari Apps & Web Studios | COGIFY",
+    title: "22 Free Native macOS, Safari Apps & Web Studios | COGIFY",
     description:
-      "Explore COGIFY's 15 free, zero-telemetry apps and web studios: 7 native macOS DMG apps (including Helium & EmDoc), Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
+      "Explore COGIFY's 22 free, zero-telemetry apps and web studios: 14 native macOS DMG apps (including Helium, Findy, Taskyfy, Wheelify, Screenify, Wifyy, Ottie, Ampify & EmDoc), Biodata Maker, SSB Studio, and 6 Safari apps.",
     url: `${siteConfig.url}/products`,
     siteName: siteConfig.name,
     type: "website",
@@ -28,15 +28,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "COGIFY Product Ecosystem — 15 Native macOS, Safari Apps & Web Studios",
+        alt: "COGIFY Product Ecosystem — 22 Native macOS, Safari Apps & Web Studios",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "15 Free Native macOS, Safari Apps & Web Studios | COGIFY",
+    title: "22 Free Native macOS, Safari Apps & Web Studios | COGIFY",
     description:
-      "Explore COGIFY's 15 free, zero-telemetry apps and web studios: 7 native macOS DMG apps (including Helium & EmDoc), Biodata Maker (biodata.cogify.me), SSB Studio, and 6 Safari apps.",
+      "Explore COGIFY's 22 free, zero-telemetry apps and web studios: 14 native macOS DMG apps (including Helium, Findy, Taskyfy, Wheelify, Screenify, Wifyy, Ottie, Ampify & EmDoc), Biodata Maker, SSB Studio, and 6 Safari apps.",
     images: ["/og-image.png"],
   },
 };
@@ -194,6 +194,28 @@ const liveCatalog: CatalogItem[] = [
       "54 mix-and-match costumes (including Cutest Robo-Ottie!) and 93 harmonic spring animations",
       "7 full-screen animated break walls: Peekaboo 20-20-20, Water Wave, Talk to Parents, Stairs & Zen",
       "Smart screen activity mirroring (codes when you code, watches YouTube with you) & polite deferral",
+    ],
+  },
+  {
+    name: siteConfig.ampify.name,
+    pillar: "mac",
+    tagline: siteConfig.ampify.tagline,
+    description: siteConfig.ampify.shortDescription,
+    version: `v${siteConfig.ampify.version}`,
+    releaseDate: siteConfig.ampify.releaseDate,
+    platforms: siteConfig.ampify.platform,
+    category: "Open Source • 80% Battery & Live Watts",
+    icon: siteConfig.ampify.icon,
+    previewImage: "/images/ampify/01-ampify-hero-popover-and-liquid-devices.png",
+    href: "/ampify",
+    downloadUrl: siteConfig.ampify.downloadUrl,
+    appStoreUrl: siteConfig.ampify.downloadUrl,
+    ctaLabel: `Download for macOS (${siteConfig.ampify.appSize})`,
+    badge: "Open Source • For Mac",
+    highlights: [
+      "Smart 70% / 80% / 85% desk charge ceiling with direct Adapter Bypass power",
+      "Liquid-Wave Apple ecosystem device strip (iPhone, iPad, Watch, AirPods, Pencil & Siri Remote)",
+      "Real-time per-app wattage down to 0.1 W via Mach proc_pid_rusage & Calendar Smart Trip Top-Up",
     ],
   },
   {
@@ -515,7 +537,7 @@ export default function ProductsPage() {
             <span>Cogify Software Ecosystem</span>
             <span>·</span>
             <span className="font-semibold text-[#111] dark:text-white">
-              15 Native Apps &amp; Web Studios
+              22 Native Apps &amp; Web Studios
             </span>
           </div>
 
@@ -527,7 +549,7 @@ export default function ProductsPage() {
           </h1>
 
           <p className="mt-4 text-[15px] sm:text-[17px] text-[#52525B] dark:text-[#A1A1AA] leading-relaxed max-w-2xl mx-auto">
-            7 native macOS workstations (led by Helium &amp; EmDoc), 6 Safari extensions for iPhone, iPad &amp; Mac, and 2 real-time web studios — built for speed and complete local privacy.
+            14 native macOS workstations (led by Helium, Findy, Taskyfy, Wheelify, Screenify, Wifyy, Ottie, Ampify &amp; EmDoc), 6 Safari extensions for iPhone, iPad &amp; Mac, and 2 real-time web studios — built for speed and complete local privacy.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5">
